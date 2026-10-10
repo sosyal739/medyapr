@@ -99,7 +99,18 @@ export default async function BlogPostPage({ params }: Props) {
   const { locale, slug } = await params;
   const post = await getPostBySlug(slug);
   const allPosts = await getPosts();
-  const relatedPosts = allPosts.filter((p) => p.slug !== slug).slice(0, 3);
+  const catKeyMap: Record<string, string> = {
+    'Sanatçı Portreleri': 'sanatcilar',
+    'Şarkı & Klip Analizleri': 'analizler',
+    'YouTube Rehberi & Algoritma': 'algoritma',
+    'Resmi Video PR & Google Ads': 'video-pr',
+    'Sosyal Medya & Müzik Pazarlaması': 'sosyal-medya',
+  };
+  const categoryKey = post ? (catKeyMap[post.category] || 'all') : 'all';
+
+  const sameCatPosts = allPosts.filter((p) => p.slug !== slug && p.category === post?.category);
+  const otherCatPosts = allPosts.filter((p) => p.slug !== slug && p.category !== post?.category);
+  const relatedPosts = [...sameCatPosts, ...otherCatPosts].slice(0, 3);
 
   if (!post) {
     notFound();
@@ -153,6 +164,12 @@ export default async function BlogPostPage({ params }: Props) {
         {
           '@type': 'ListItem',
           position: 3,
+          name: post.category,
+          item: `https://medyapr.com/${locale}/blog?kategori=${categoryKey}`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 4,
           name: post.title,
           item: `https://medyapr.com/${locale}/blog/${slug}`,
         },
@@ -199,7 +216,12 @@ export default async function BlogPostPage({ params }: Props) {
             Blog
           </Link>
           <span className="text-zinc-600">/</span>
-          <span className="text-zinc-200 truncate max-w-[240px] sm:max-w-none">{post.category}</span>
+          <Link
+            href={`/${locale}/blog?kategori=${categoryKey}`}
+            className="hover:text-[#FF6B6B] transition text-zinc-300"
+          >
+            {post.category}
+          </Link>
         </nav>
 
         {/* Article Header */}
