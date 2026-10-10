@@ -15,6 +15,7 @@ export interface TrendingSong {
   publishedAt: string;
   thumbnail: string;
   isNew?: boolean;
+  blogSlug?: string;
 }
 
 interface TrendingMusicSectionProps {
@@ -206,14 +207,26 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                       <TrendingUp className="h-3 w-3" />
                       +{nf.format(song.gain24h)} {isTr ? 'son 24s' : '24h'}
                     </span>
-                    <a
-                      href={`https://www.youtube.com/watch?v=${song.videoId}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="ml-auto text-white/40 hover:text-white"
-                    >
-                      <ExternalLink className="h-3.5 w-3.5" />
-                    </a>
+                    <div className="ml-auto flex items-center gap-2">
+                      {song.blogSlug && (
+                        <Link
+                          href={`/${locale}/blog/${song.blogSlug}`}
+                          className="inline-flex items-center gap-1 rounded-md bg-white/10 px-2 py-0.5 text-[10px] font-bold text-zinc-300 hover:bg-[#FF0033]/30 hover:text-white transition"
+                          title={isTr ? 'Sanatçı & Klip Analizi' : 'Analysis'}
+                        >
+                          {isTr ? 'Analiz' : 'Review'}
+                        </Link>
+                      )}
+                      <a
+                        href={`https://www.youtube.com/watch?v=${song.videoId}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/40 hover:text-white"
+                        title={isTr ? "YouTube'da Aç" : 'Open on YouTube'}
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

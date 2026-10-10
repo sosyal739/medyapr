@@ -202,10 +202,10 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
                 {/* Right Action */}
                 <div className="flex flex-wrap items-center gap-2.5 w-full md:w-auto justify-end border-t border-white/5 pt-3 md:border-t-0 md:pt-0">
                   <Link
-                    href={`/${locale}/blog`}
+                    href={song.blogSlug ? `/${locale}/blog/${song.blogSlug}` : `/${locale}/blog`}
                     className="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-bold text-zinc-300 hover:bg-white/10 hover:text-white transition"
                   >
-                    Trend Analizi
+                    {isTr ? 'Trend & Klip Analizi' : 'Trend Analysis'}
                   </Link>
                   <a
                     href={`https://www.youtube.com/watch?v=${song.videoId}`}
