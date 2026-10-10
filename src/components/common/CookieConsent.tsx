@@ -68,6 +68,25 @@ export default function CookieConsent({ dict, locale }: CookieConsentProps) {
     // Also synchronize current locale in cookie
     document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000; SameSite=Lax`;
 
+    // Dynamic Google Consent Mode v2 sync
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      if (type === 'all') {
+        (window as any).gtag('consent', 'update', {
+          analytics_storage: 'granted',
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+        });
+      } else {
+        (window as any).gtag('consent', 'update', {
+          analytics_storage: 'denied',
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+        });
+      }
+    }
+
     setIsOpen(false);
   };
 

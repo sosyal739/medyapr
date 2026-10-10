@@ -5,6 +5,7 @@ import { getDictionary } from '@/lib/i18n/dictionaries';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CookieConsent from '@/components/common/CookieConsent';
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 import { ThemeProvider } from '@/components/theme/ThemeContext';
 
 type Props = {
@@ -51,6 +52,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     robots: {
       index: true,
       follow: true,
+    },
+    verification: {
+      google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,
     },
   };
 }
@@ -144,6 +148,7 @@ export default async function LocaleLayout({ params, children }: Props) {
       </head>
       <body className="min-h-screen flex flex-col bg-app-base text-zinc-100 antialiased selection:bg-[#FF0033] selection:text-white transition-colors duration-400">
         <ThemeProvider>
+          <GoogleAnalytics />
           <Header dict={dict} locale={locale} />
           <main className="flex-grow pt-[72px]">{children}</main>
           <Footer dict={dict} locale={locale} />
