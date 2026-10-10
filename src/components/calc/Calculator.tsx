@@ -1,0 +1,348 @@
+'use client';
+
+import { useEffect, useMemo, useRef, useState } from 'react';
+import Link from 'next/link';
+import { ArrowRight, Check, Clock, Globe2, ShieldCheck, Sparkles, Tag, ThumbsUp } from 'lucide-react';
+import {
+  CURRENCIES,
+  MAX_VIEWS,
+  MIN_VIEWS,
+  REGIONS,
+  formatMoney,
+  quote,
+  type Currency,
+  type Format,
+  type Region,
+} from '@/lib/pricing';
+import type { AppStrings } from '@/lib/i18n/app-strings';
+
+const PRESETS = [1_000, 5_000, 10_000, 25_000, 50_000, 100_000, 250_000, 500_000, 1_000_000];
+
+/** Slider log-ölçekli: 1K ile 1M arası düzgün hareket etsin. */
+const toSlider = (v: number) => (Math.log(v / MIN_VIEWS) / Math.log(MAX_VIEWS / MIN_VIEWS)) * 1000;
+const fromSlider = (s: number) => {
+  const raw = MIN_VIEWS * Math.pow(MAX_VIEWS / MIN_VIEWS, s / 1000);
+  const step = raw < 10_000 ? 500 : raw < 100_000 ? 1_000 : raw < 500_000 ? 5_000 : 10_000;
+  return Math.min(MAX_VIEWS, Math.max(MIN_VIEWS, Math.round(raw / step) * step));
+};
+
+function useAnimatedNumber(target: number, ms = 350) {
+  const [val, setVal] = useState(target);
+  const from = useRef(target);
+  useEffect(() => {
+    const start = performance.now();
+    const a = from.current;
+    let raf = 0;
+    const tick = (now: number) => {
+      const p = Math.min(1, (now - start) / ms);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const v = a + (target - a) * eased;
+      setVal(v);
+      from.current = v;
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [target, ms]);
+  return val;
+}
+
+export default function Calculator({ locale, t }: { locale: string; t: AppStrings['calc'] }) {
+  const [views, setViews] = useState(25_000);
+  const [format] = useState<Format>('instream');
+  const [region, setRegion] = useState<Region>('tr');
+  const [currency, setCurrency] = useState<Currency>(locale === 'tr' ? 'TRY' : 'EUR');
+
+  const q = useMemo(() => quote({ views, format, region, currency }), [views, format, region, currency]);
+  const animTotal = useAnimatedNumber(q.total);
+  const nf = new Intl.NumberFormat(locale === 'tr' ? 'tr-TR' : 'en-US');
+
+  const href = `/${locale}/order?views=${q.views}&format=${format}&region=${region}&currency=${currency}`;
+
+  return (
+    <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-[#181B22]/95 via-[#15171D]/95 to-[#111317]/95 p-6 sm:p-8 lg:p-10 text-white shadow-2xl backdrop-blur-2xl">
+      {/* Hafif Ortam Işıltıları */}
+      <div className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full bg-[#FF0033]/15 blur-[120px]" />
+      <div className="pointer-events-none absolute -bottom-40 -left-24 h-72 w-72 rounded-full bg-violet-600/10 blur-[120px]" />
+
+      <div className="relative grid gap-8 lg:grid-cols-[1.42fr_1fr] lg:gap-10 items-start">
+        {/* ── Sol Kolon: Yapılandırıcı & Güvenceler ── */}
+        <div className="space-y-7">
+          {/* Adım 1: İzlenme Sayısı */}
+          <div>
+            <div className="flex items-center justify-between gap-4 mb-3">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-red-400">1. Adım</span>
+                <h3 className="text-base font-extrabold text-white">{t.views}</h3>
+              </div>
+              <div className="flex items-baseline gap-1.5 rounded-2xl border border-white/10 bg-white/5 px-4 py-2 transition-all focus-within:border-[#FF0033] focus-within:ring-2 focus-within:ring-[#FF0033]/20">
+                <input
+                  id="views"
+                  inputMode="numeric"
+                  value={nf.format(views)}
+                  onChange={(e) => {
+                    const n = parseInt(e.target.value.replace(/\D/g, ''), 10);
+                    setViews(Number.isFinite(n) ? Math.min(MAX_VIEWS, n) : MIN_VIEWS);
+                  }}
+                  onBlur={() => setViews((v) => Math.max(MIN_VIEWS, v))}
+                  aria-label={t.views}
+                  className="w-28 sm:w-36 text-right font-[family-name:var(--font-heading)] text-2xl font-black tabular-nums bg-transparent text-white outline-none"
+                />
+                <span className="text-xs font-semibold text-zinc-400">izlenme</span>
+              </div>
+            </div>
+
+            {/* Slider */}
+            <div className="py-2">
+              <input
+                type="range"
+                min={0}
+                max={1000}
+                value={toSlider(views)}
+                onChange={(e) => setViews(fromSlider(Number(e.target.value)))}
+                aria-label={t.views}
+                className="calc-range w-full cursor-pointer"
+                style={{ ['--pct' as string]: `${toSlider(views) / 10}%` }}
+              />
+              <div className="mt-2 flex justify-between text-[11px] font-medium text-zinc-500">
+                <span>1.000 (Min)</span>
+                <span>50.000</span>
+                <span>1.000.000 (1M)</span>
+              </div>
+            </div>
+
+            {/* Hızlı Seçim Butonları (1K - 1M) */}
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              {PRESETS.map((p) => {
+                const active = views === p;
+                const label = p === 1_000_000 ? '1M' : p >= 1000 ? `${p / 1000}K` : `${p}`;
+                return (
+                  <button
+                    key={p}
+                    type="button"
+                    onClick={() => setViews(p)}
+                    className={`rounded-xl px-3 py-1.5 text-xs font-bold transition-all duration-200 ${
+                      active
+                        ? 'bg-[#FF0033] text-white shadow-md shadow-red-500/30 scale-105'
+                        : 'bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/5'
+                    }`}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Adım 2: Hedef Kitle & Bölge */}
+          <div>
+            <div className="flex items-center justify-between mb-3">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-red-400">2. Adım</span>
+                <h3 className="text-base font-extrabold text-white">{t.region}</h3>
+              </div>
+              {region === 'global' && (
+                <span className="text-[11px] font-black text-amber-300 bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 rounded-full">
+                  1K: ₺100 Başlayan Kademeli Tarife 🔥
+                </span>
+              )}
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-3">
+              {REGIONS.map((r) => {
+                const on = region === r;
+                const tag = t.regions[r]?.tag;
+                return (
+                  <button
+                    key={r}
+                    type="button"
+                    onClick={() => setRegion(r)}
+                    aria-pressed={on}
+                    className={`relative rounded-2xl border p-3.5 text-left transition-all duration-200 ${
+                      on
+                        ? 'border-[#FF0033] bg-[#FF0033]/15 ring-1 ring-[#FF0033]/40 shadow-lg shadow-red-500/10'
+                        : 'border-white/10 bg-white/[0.03] hover:border-white/20 hover:bg-white/[0.06] text-zinc-300'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-lg">
+                        {r === 'tr' ? '🇹🇷' : r === 'global' ? '🌍' : '💎'}
+                      </span>
+                      {tag && (
+                        <span
+                          className={`text-[10px] font-black px-2 py-0.5 rounded-full border ${
+                            r === 'global'
+                              ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                              : r === 'premium'
+                              ? 'bg-blue-500/20 text-blue-300 border-blue-500/40'
+                              : 'bg-white/10 text-zinc-300 border-white/10'
+                          }`}
+                        >
+                          {tag}
+                        </span>
+                      )}
+                    </div>
+                    <div className="text-sm font-extrabold text-white">{t.regions[r].name}</div>
+                    <div className="mt-0.5 text-xs text-zinc-400">{t.regions[r].desc}</div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Adım 3: Güvenceler (İkna Edici Net Standartlar) */}
+          <div className="pt-1">
+            <div className="mb-2.5 flex items-center justify-between">
+              <span className="text-xs font-bold uppercase tracking-wider text-zinc-400">
+                {t.guaranteesTitle || '%100 Resmi Google Ads Güvencesi'}
+              </span>
+              <span className="text-[11px] font-bold text-emerald-400 flex items-center gap-1">
+                <Check className="h-3 w-3 stroke-[3]" /> Tüm Paketlerde Standart
+              </span>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-3">
+              {/* Güvence 1: Bot veya Panel Kullanılmaz */}
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-3.5 transition-all hover:border-emerald-500/40 hover:bg-white/[0.05]">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-400">
+                    <ShieldCheck className="h-4 w-4" />
+                  </div>
+                  <span className="text-xs font-extrabold text-white">Bot veya Panel Kullanılmaz</span>
+                </div>
+                <p className="text-xs leading-relaxed text-zinc-400">
+                  İzlenmeler doğrudan resmi Google Ads üzerinden gelir, ömür boyu kalıcıdır.
+                </p>
+              </div>
+
+              {/* Güvence 2: YouTube Reklamcılığı Kaynağı */}
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-3.5 transition-all hover:border-red-500/40 hover:bg-white/[0.05]">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-red-500/15 text-red-400">
+                    <Sparkles className="h-4 w-4" />
+                  </div>
+                  <span className="text-xs font-extrabold text-white">YouTube Reklamcılığı Kaynağı</span>
+                </div>
+                <p className="text-xs leading-relaxed text-zinc-400">
+                  YouTube Analytics panelinizde &quot;YouTube Reklamları&quot; olarak şeffaf görünür.
+                </p>
+              </div>
+
+              {/* Güvence 3: Beğeni, Yorum & Abonelik */}
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-3.5 transition-all hover:border-amber-500/40 hover:bg-white/[0.05]">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400">
+                    <ThumbsUp className="h-4 w-4" />
+                  </div>
+                  <span className="text-xs font-extrabold text-white">Beğeni, Yorum & Abonelik</span>
+                </div>
+                <p className="text-xs leading-relaxed text-zinc-400">
+                  Gerçek kullanıcılardan organik beğeni, yorum ve kanal aboneliği fırsatı oluşur.
+                </p>
+              </div>
+            </div>
+
+            {/* Süreç & Aşamalı Ödeme Güvencesi Şeridi */}
+            <div className="mt-3.5 rounded-2xl border border-blue-500/30 bg-gradient-to-r from-blue-950/40 via-zinc-900/60 to-zinc-900/80 p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+              <div className="flex items-center gap-2.5 text-zinc-200">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-500/20 text-blue-400 font-black text-[11px]">
+                  ✓
+                </span>
+                <span>
+                  <strong className="text-white">Aşamalı Ödeme Güvencesi:</strong> Video reklam onayı alınca <span className="text-emerald-400 font-bold">%50</span>, kampanya bitince <span className="text-emerald-400 font-bold">%50</span> ödenir. Kurumsal müşteriler için tüm ödeme iş bitimindedir.
+                </span>
+              </div>
+              <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-[11px] font-bold text-amber-300">
+                * Fiyat video süresine göre değişebilir
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Sağ Kolon: Dinamik Sipariş Özeti (Sticky) ── */}
+        <aside className="lg:sticky lg:top-24 rounded-3xl border border-white/15 bg-gradient-to-b from-[#1C2029] to-[#14161C] p-6 sm:p-7 shadow-2xl backdrop-blur-xl">
+          {/* Üst Bar: Canlı Teklif & Para Birimi */}
+          <div className="flex items-center justify-between mb-5">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 px-2.5 py-1 text-[11px] font-bold text-emerald-400">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+              Canlı Teklif
+            </span>
+
+            <div className="flex rounded-xl border border-white/10 bg-white/5 p-0.5" role="group" aria-label={t.currency}>
+              {CURRENCIES.map((c) => (
+                <button
+                  key={c}
+                  type="button"
+                  onClick={() => setCurrency(c)}
+                  aria-pressed={currency === c}
+                  className={`rounded-lg px-2.5 py-1 text-xs font-bold transition-all ${
+                    currency === c ? 'bg-[#FF0033] text-white shadow-md' : 'text-zinc-400 hover:text-white'
+                  }`}
+                >
+                  {c}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Fiyat Alanı */}
+          <div className="mb-5">
+            <div className="text-xs font-bold uppercase tracking-wider text-zinc-400">{t.total}</div>
+            <div className="mt-1 font-[family-name:var(--font-heading)] text-5xl font-black tabular-nums tracking-tight text-white">
+              {formatMoney(animTotal, currency, locale)}
+            </div>
+            {q.discountRate > 0 && (
+              <div className="mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">
+                <Tag className="h-3 w-3" />
+                %{Math.round(q.discountRate * 100)} İndirim Uygulandı
+              </div>
+            )}
+          </div>
+
+          {/* Döküm Detayları */}
+          <div className="space-y-3 border-y border-white/10 py-4 text-sm">
+            <div className="flex items-center justify-between text-zinc-300">
+              <span className="text-zinc-400">Hedef İzlenme</span>
+              <span className="font-bold text-white">{nf.format(q.views)} İzlenme</span>
+            </div>
+            <div className="flex items-center justify-between text-zinc-300">
+              <span className="text-zinc-400">Hedef Kitle</span>
+              <span className="font-bold text-white">{t.regions[region].name}</span>
+            </div>
+            <div className="flex items-center justify-between text-zinc-300">
+              <span className="text-zinc-400">{t.per1k}</span>
+              <span className="font-bold text-white">{formatMoney(q.perThousand, currency, locale)}</span>
+            </div>
+            <div className="flex items-center justify-between text-zinc-300">
+              <span className="text-zinc-400 inline-flex items-center gap-1">
+                <Clock className="h-3.5 w-3.5 text-zinc-500" /> {t.eta}
+              </span>
+              <span className="font-bold text-zinc-200">{q.etaDays[0]}–{q.etaDays[1]} {t.days}</span>
+            </div>
+          </div>
+
+          {/* Siparişi Başlat Butonu */}
+          <Link
+            href={href}
+            className="group mt-5 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-6 py-4 text-base font-extrabold text-white shadow-xl shadow-red-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <span>{t.cta}</span>
+            <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
+          </Link>
+
+          {/* Güvence Maddeleri */}
+          <div className="mt-4 space-y-2 border-t border-white/10 pt-3.5">
+            {t.perks.map((p) => (
+              <div key={p} className="flex items-center gap-2 text-xs text-zinc-300">
+                <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                <span>{p}</span>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-3 text-[11px] leading-relaxed text-zinc-500">{t.note}</p>
+        </aside>
+      </div>
+    </div>
+  );
+}

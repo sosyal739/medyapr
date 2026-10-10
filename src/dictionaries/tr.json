@@ -1,0 +1,306 @@
+{
+  "metadata": {
+    "title": "MedyaPR — Resmi Google Ads Destekli YouTube Klip PR",
+    "description": "MedyaPR ile YouTube klibinizi doğru kitleye ulaştırın. 18+ yıllık tecrübe, %100 resmi Google Ads video reklamları ve aşamalı güvenli ödeme güvencesi."
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "services": "Hizmetler",
+    "pricing": "Fiyatlandırma",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "faq": "SSS",
+    "blog": "Blog",
+    "login": "Giriş Yap",
+    "register": "Kayıt Ol",
+    "tools": "Araçlar"
+  },
+  "hero": {
+    "badge": "18+ Yıllık Tecrübe • Resmi Google Partner",
+    "title_line1": "Google Ads ile",
+    "title_line2": "YouTube Kanalını",
+    "title_highlight": "BÜYÜT",
+    "subtitle": "18 yılı aşkındır sektörde kesintisiz hizmet veriyor, Türkiye'de ve dünyada birçok sanatçı, müzik grubu ve kurumsal marka ile çalışıyoruz. Tüm işlemler sertifikalı Google Partner uzmanlarımız tarafından yönetilir.",
+    "cta_primary": "Hemen Başla",
+    "cta_secondary": "Ücretsiz Danışmanlık",
+    "trust_items": ["18+ Yıllık Tecrübe", "Google Partner Uzmanları", "Birçok Sanatçı Referansı"],
+    "stats": {
+      "title": "Canlı İstatistikler",
+      "subtitle": "Gerçek zamanlı veri",
+      "total_views": "Toplam İzlenme",
+      "total_views_value": "2.847.593",
+      "live_text": "Canlı • Her saniye artıyor",
+      "growth": "+127%"
+    }
+  },
+  "trust": {
+    "campaigns": "Türkiye & Dünyada Birçok Sanatçı",
+    "satisfaction": "4.9/5 Müşteri Memnuniyeti",
+    "secure": "%100 Güvenli",
+    "partner": "Google Partner (18+ Yıl)"
+  },
+  "services": {
+    "title": "Hizmetlerimiz",
+    "subtitle": "YouTube kanalınızı büyütmek için profesyonel Google Ads çözümleri",
+    "items": [
+      {
+        "title": "YouTube İzlenme",
+        "description": "Google Ads ile hedefli reklam kampanyaları sayesinde gerçek kullanıcılardan izlenme kazanın.",
+        "icon": "play",
+        "badge": "En Popüler"
+      },
+      {
+        "title": "YouTube Abone",
+        "description": "Hedefli reklamlar ile kanalınıza gerçek ve kalıcı aboneler kazandırın.",
+        "icon": "users",
+        "badge": ""
+      },
+      {
+        "title": "YouTube Beğeni",
+        "description": "Videolarınızın beğeni sayısını artırarak algoritma sıralamanızı yükseltin.",
+        "icon": "thumbsUp",
+        "badge": ""
+      },
+      {
+        "title": "YouTube Yorum",
+        "description": "Gerçek kullanıcılardan organik yorumlar ile videonuzun etkileşimini artırın.",
+        "icon": "messageCircle",
+        "badge": ""
+      },
+      {
+        "title": "YouTube İzlenme Saati",
+        "description": "Monetizasyon için gereken 4000 saat izlenme süresine ulaşmanızı sağlıyoruz.",
+        "icon": "clock",
+        "badge": "Monetizasyon"
+      },
+      {
+        "title": "YouTube Shorts İzlenme",
+        "description": "Shorts videolarınızı milyonlara ulaştırın, viral olma şansını yakalayın.",
+        "icon": "zap",
+        "badge": "Yeni"
+      }
+    ]
+  },
+  "whyGoogleAds": {
+    "title": "Neden Google Ads?",
+    "subtitle": "Diğer hizmetlerden farkımız",
+    "items": [
+      {
+        "title": "Gerçek İnsanlar İzliyor",
+        "description": "Bot veya sahte hesap yok. Google Ads ile gerçek kullanıcılara ulaşıyorsunuz."
+      },
+      {
+        "title": "Yasal ve Güvenli",
+        "description": "Google'ın kendi reklam platformunu kullanıyoruz. Kanalınız %100 güvende."
+      },
+      {
+        "title": "Hedefli Kitle",
+        "description": "Yaş, konum, ilgi alanı ve dil bazında hedefleme ile doğru kitleye ulaşın."
+      },
+      {
+        "title": "Algoritmayı Tetikler",
+        "description": "Gerçek izlenmeler YouTube algoritmasını tetikler, organik büyüme başlar."
+      },
+      {
+        "title": "Ceza Riski Sıfır",
+        "description": "Google Ads ile yapılan tanıtım YouTube kurallarına %100 uygundur."
+      },
+      {
+        "title": "Detaylı Raporlama",
+        "description": "Kampanya performansınızı anlık olarak takip edin, şeffaf raporlar alın."
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": "Nasıl Çalışır?",
+    "subtitle": "3 kolay adımda başlayın",
+    "steps": [
+      {
+        "step": "1",
+        "title": "Video Linkini Paylaşın",
+        "description": "Tanıtmak istediğiniz YouTube video veya kanal linkini bize gönderin."
+      },
+      {
+        "step": "2",
+        "title": "Paketinizi Seçin",
+        "description": "İhtiyacınıza uygun paketi seçin veya size özel kampanya oluşturalım."
+      },
+      {
+        "step": "3",
+        "title": "Kampanya Başlasın",
+        "description": "Google Ads kampanyanız başlar, gerçek izlenmeler ve etkileşimler gelmeye başlar."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Fiyatlandırma",
+    "subtitle": "Her bütçeye uygun paketler",
+    "popular": "En Popüler",
+    "perView": "izlenme başına",
+    "cta": "Hemen Başla",
+    "custom": "Özel Teklif Al",
+    "features_included": "Dahil Özellikler",
+    "packages": [
+      {
+        "name": "Başlangıç",
+        "views": "1.000",
+        "likes": "50",
+        "duration": "3-5 gün",
+        "price": "299",
+        "currency": "₺",
+        "popular": false,
+        "features": ["Gerçek İzlenme", "Hedefli Kitle", "Temel Raporlama", "E-posta Destek"]
+      },
+      {
+        "name": "Profesyonel",
+        "views": "5.000",
+        "likes": "250",
+        "duration": "5-7 gün",
+        "price": "999",
+        "currency": "₺",
+        "popular": true,
+        "features": ["Gerçek İzlenme", "Gelişmiş Hedefleme", "Detaylı Raporlama", "Öncelikli Destek", "Beğeni Dahil"]
+      },
+      {
+        "name": "Premium",
+        "views": "10.000",
+        "likes": "500",
+        "duration": "7-10 gün",
+        "price": "1.799",
+        "currency": "₺",
+        "popular": false,
+        "features": ["Gerçek İzlenme", "Premium Hedefleme", "Anlık Raporlama", "7/24 Destek", "Beğeni Dahil", "Abone Kampanyası"]
+      },
+      {
+        "name": "Enterprise",
+        "views": "50.000+",
+        "likes": "2.500+",
+        "duration": "Özel",
+        "price": "Özel",
+        "currency": "",
+        "popular": false,
+        "features": ["Sınırsız İzlenme", "Tam Özelleştirme", "Özel Hesap Yöneticisi", "VIP Destek", "Tüm Hizmetler Dahil", "Aylık Raporlama"]
+      }
+    ]
+  },
+  "stats": {
+    "views_delivered": "İzlenme Sağlandı",
+    "happy_clients": "Mutlu Müşteri",
+    "campaigns": "Başarılı Kampanya",
+    "rating": "Müşteri Puanı",
+    "views_value": "2.5M+",
+    "clients_value": "500+",
+    "campaigns_value": "1000+",
+    "rating_value": "4.9/5"
+  },
+  "testimonials": {
+    "title": "Müşterilerimiz Ne Diyor?",
+    "subtitle": "Gerçek müşteri deneyimleri",
+    "items": [
+      {
+        "name": "Ahmet Yılmaz",
+        "role": "Müzisyen",
+        "content": "Klip videomun izlenme sayısı 2 haftada 50.000'e ulaştı. Google Ads ile gerçek insanların izlediğini bilmek harika.",
+        "rating": 5
+      },
+      {
+        "name": "Zeynep Kaya",
+        "role": "YouTuber",
+        "content": "Monetizasyon için gereken 4000 saate MedyaPR sayesinde ulaştım. Profesyonel ve güvenilir hizmet.",
+        "rating": 5
+      },
+      {
+        "name": "Mehmet Demir",
+        "role": "İçerik Üretici",
+        "content": "Diğer servisleri denedim ama gerçek izlenme alamadım. MedyaPR ile fark gerçekten ortada.",
+        "rating": 5
+      },
+      {
+        "name": "Elif Şahin",
+        "role": "Sanatçı",
+        "content": "Şarkımın tanıtımı için harika bir çözüm. Hedefli reklam sayesinde doğru kitleye ulaştık.",
+        "rating": 5
+      }
+    ]
+  },
+  "faq": {
+    "title": "Sıkça Sorulan Sorular",
+    "subtitle": "Merak ettikleriniz",
+    "items": [
+      {
+        "question": "Google Ads ile izlenme güvenli mi?",
+        "answer": "Evet, %100 güvenlidir. Google'ın kendi reklam platformunu kullanıyoruz. YouTube'un kendi reklamları gibi çalışır, kanalınıza herhangi bir zarar vermez."
+      },
+      {
+        "question": "Ne kadar sürede sonuç alırım?",
+        "answer": "Kampanya onaylandıktan sonra genellikle 24-48 saat içinde izlenmeler gelmeye başlar. Paket büyüklüğüne göre tamamlanma süresi 3-20 gün arasında değişir."
+      },
+      {
+        "question": "Kanalım ceza alır mı?",
+        "answer": "Hayır, kesinlikle ceza almaz. Google Ads, Google'ın kendi ürünüdür ve YouTube reklamları tamamen yasal ve platform kurallarına uygundur."
+      },
+      {
+        "question": "İzlenmeler düşer mi?",
+        "answer": "Google Ads ile gelen izlenmeler gerçek kullanıcılardan geldiği için kalıcıdır. Bot veya sahte izlenme kullanmıyoruz."
+      },
+      {
+        "question": "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
+        "answer": "Kredi kartı, banka kartı ve havale/EFT ile ödeme yapabilirsiniz. Yakında Stripe ile online ödeme de eklenecektir."
+      },
+      {
+        "question": "Hedefleme yapabiliyor musunuz?",
+        "answer": "Evet! Google Ads'in gelişmiş hedefleme özelliklerini kullanıyoruz. Ülke, şehir, yaş, cinsiyet ve ilgi alanlarına göre hedefleme yapabiliyoruz."
+      }
+    ]
+  },
+  "cta": {
+    "title": "YouTube Kanalınızı Büyütmeye Hazır mısınız?",
+    "subtitle": "Hemen ücretsiz danışmanlık alın ve kanalınız için en uygun stratejiyi birlikte belirleyelim.",
+    "button": "Ücretsiz Danışmanlık Al",
+    "whatsapp": "WhatsApp ile İletişim",
+    "telegram": "Telegram"
+  },
+  "footer": {
+    "description": "Google Ads Sertifikalı Partner olarak YouTube kanalınızın büyümesini gerçek izlenme ve etkileşimlerle destekliyoruz.",
+    "services": "Hizmetler",
+    "company": "Şirket",
+    "support": "Destek",
+    "legal": "Yasal",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları",
+    "refund": "İade Politikası",
+    "copyright": "© 2026 MedyaPR. Tüm hakları saklıdır.",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "faq_link": "SSS",
+    "blog_link": "Blog",
+    "cookie_settings": "Çerez Tercihleri"
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Bizimle iletişime geçin",
+    "name": "Adınız",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "message": "Mesajınız",
+    "channel_url": "YouTube Kanal URL",
+    "send": "Gönder",
+    "success": "Mesajınız başarıyla gönderildi!"
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "subtitle": "Resmi Google Ads ile YouTube Video & Klip PR Uzmanıyız",
+    "description": "MedyaPR olarak, 18 yılı aşkındır sektörde kesintisiz hizmet vermekteyiz. Türkiye'de ve dünyada birçok sanatçı, müzik grubu, yapım şirketi ve kurumsal marka ile çalışarak kliplerin ve videoların doğru kitleye ulaşmasını sağladık. Tüm işlemler, alanında sertifikalı resmi Google İş Ortağı (Partner) uzmanlarımız tarafından bizzat yönetilmektedir. Bot veya panel görüntülemesi asla kullanılmaz; aşamalı güvenli ödeme (%50 onayda, %50 bitince) ve ayrıntılı performans raporlarıyla profesyonel dijital PR hizmeti sunuyoruz."
+  },
+  "cookie_consent": {
+    "title": "Çerez ve Gizlilik Tercihleri",
+    "description": "MedyaPR olarak, sitemizde güvenli bir deneyim sunmak, resmi Google Ads reklam performansını analiz etmek ve ziyaretçi trafiğini ölçümlemek için KVKK ve GDPR standartlarına tam uyumlu çerezler kullanıyoruz.",
+    "badge": "KVKK & GDPR Güvencesi",
+    "accept_all": "Tümünü Kabul Et",
+    "necessary_only": "Sadece Zorunlu",
+    "decline": "Reddet",
+    "privacy_policy": "Gizlilik Politikası",
+    "cookie_settings": "Çerez Tercihleri",
+    "saved": "Tercihleriniz kaydedildi."
+  }
+}

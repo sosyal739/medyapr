@@ -1,0 +1,60 @@
+[
+  {
+    "slug": "manifest",
+    "name": "Manifest",
+    "genre": "Alternatif Pop / Elektronik",
+    "bio": "Türkiye müzik sahnesinde modern elektronik sound'ları, yüksek enerjili sahne performansları ve yenilikçi klip kurgularıyla öne çıkan Manifest; son hiti TRALALA ile YouTube Türkiye Müzik Trendlerinde 1 numaraya yükseldi.",
+    "latestHit": "TRALALA",
+    "hitVideoId": "0rW7Fbm4S7g",
+    "image": "https://i.ytimg.com/vi/0rW7Fbm4S7g/hqdefault.jpg",
+    "viewsTotal": "18.000.000+",
+    "monthlyAudience": "3.5 Milyon Dinleyici",
+    "topSongs": [
+      { "title": "TRALALA", "views": "6.1M", "videoId": "0rW7Fbm4S7g" }
+    ]
+  },
+  {
+    "slug": "dedubluman",
+    "name": "Dedublüman",
+    "genre": "Alternatif Rock / Akustik",
+    "bio": "Klarnet ve geleneksel Türk müziği motiflerini modern alternatif rock ile harmanlayan Dedublüman; 'Belki', 'Gamzedeyim Deva Bulmam' ve Sıla ile düet yaptıkları 'Acı Bal' ile dijital listelerin en çok dinlenen grupları arasında yer alıyor.",
+    "latestHit": "Acı Bal (ft. Sıla)",
+    "hitVideoId": "XTdU5RSodZ4",
+    "image": "https://i.ytimg.com/vi/XTdU5RSodZ4/hqdefault.jpg",
+    "viewsTotal": "320.000.000+",
+    "monthlyAudience": "6.2 Milyon Dinleyici",
+    "topSongs": [
+      { "title": "Acı Bal (ft. Sıla)", "views": "4.4M", "videoId": "XTdU5RSodZ4" },
+      { "title": "Belki", "views": "115M", "videoId": "ko7BMAKs7VY" }
+    ]
+  },
+  {
+    "slug": "eypio",
+    "name": "Eypio",
+    "genre": "Türkçe Rap / Hip-Hop",
+    "bio": "'Günah Benim' ile Türkiye'de dijital müzik tarihinin en büyük rekorlarından birini kıran Eypio, samimi sokak dili ve akılda kalıcı melodileriyle Türk rap müziğinin en güçlü temsilcilerindendir. Yeni teklisi 'Şahidim' ile trendlerde üst sıralarda.",
+    "latestHit": "Şahidim",
+    "hitVideoId": "rZWeR8bQlaE",
+    "image": "https://i.ytimg.com/vi/rZWeR8bQlaE/hqdefault.jpg",
+    "viewsTotal": "750.000.000+",
+    "monthlyAudience": "4.8 Milyon Dinleyici",
+    "topSongs": [
+      { "title": "Şahidim", "views": "3.3M", "videoId": "rZWeR8bQlaE" },
+      { "title": "Günah Benim", "views": "280M", "videoId": "rZWeR8bQlaE" }
+    ]
+  },
+  {
+    "slug": "ahiyan",
+    "name": "Ahiyan",
+    "genre": "Trap / Alternatif Rap / R&B",
+    "bio": "Özgün vokal tınısı, derin lirikleri ve melankolik melodileriyle yeni nesil Türk rap müziğine taze bir soluk getiren Ahiyan, 'Kralın Kızı' teklisiyle YouTube trend listesinde istikrarlı yükselişini sürdürüyor.",
+    "latestHit": "Kralın Kızı",
+    "hitVideoId": "0_qH342o3fU",
+    "image": "https://i.ytimg.com/vi/0_qH342o3fU/hqdefault.jpg",
+    "viewsTotal": "140.000.000+",
+    "monthlyAudience": "2.1 Milyon Dinleyici",
+    "topSongs": [
+      { "title": "Kralın Kızı", "views": "4.2M", "videoId": "0_qH342o3fU" }
+    ]
+  }
+]

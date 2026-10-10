@@ -1,0 +1,171 @@
+[
+  {
+    "slug": "manifest-tralala-youtube-trend-analizi",
+    "title": "Manifest TRALALA: YouTube Trend Zirvesi ve Klip Analizi",
+    "summary": "Manifest'in TRALALA klibi ilk 48 saatte 490 bin izlenme ivmesiyle 1 numaraya yerleşti. Yüksek tutunma oranı ve Google Ads kanca dinamiklerini inceliyoruz.",
+    "category": "Trend Analizi",
+    "date": "9 Ekim 2026",
+    "readTime": "4 dk",
+    "videoId": "0rW7Fbm4S7g",
+    "image": "https://i.ytimg.com/vi/0rW7Fbm4S7g/hqdefault.jpg",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": ["Manifest", "Trend Şarkılar", "YouTube Müzik", "Klip Analizi", "Google Ads"],
+    "quickFact": "Manifest grubunun 'TRALALA' klibi, yayınlandıktan sonraki ilk 48 saatte 490.000 organik ivme kazanarak 6.1 milyon izlenmeyle YouTube Türkiye Trendler listesinde 1 numaraya ulaştı. Bu başarının ana dinamiği; ilk 5 saniyelik %72 tutunma (retention) oranı ve %6.2'lik beğeni/izlenme etkileşimidir.",
+    "table": {
+      "caption": "Manifest - TRALALA YouTube Algoritma & Performans Metrikleri",
+      "headers": ["Metrik Türü", "TRALALA Ölçümü", "Sektör Medyanı", "Algoritmik Etki"],
+      "rows": [
+        ["İlk 5 Sn Tutunma", "%72.4", "%48.0", "Yüksek Öneri Hacmi"],
+        ["Beğeni / İzlenme", "%6.2 (385K+)", "%2.8", "Trendler Listesi Tetikleyici"],
+        ["İlk 48 Saat İvmesi", "490K / Gün", "35K / Gün", "Momentum Çarpanı Zirve"],
+        ["Trafik Kaynağı", "Önerilen + Reklam", "Doğrudan", "Kalıcı Keşfet Dağıtımı"]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "TRALALA klibi neden bu kadar hızlı trendlere girdi?",
+        "answer": "Parçanın ilk 5 saniyesindeki yüksek tempolu kanca (hook), izleyicilerin videoyu atlamasını engelleyerek YouTube algoritmasına güçlü bir izleme süresi sinyali verdi ve önerilen videolarda öne çıkardı."
+      },
+      {
+        "question": "Bağımsız müzisyenler benzer ivmeyi nasıl yakalayabilir?",
+        "answer": "Bot panelleri yerine ilk 24-48 saatte resmi Google Ads In-Stream ve Shorts formatlarıyla doğru müzik dinleyicisine hedefleme yaparak kalıcı organik izlenme elde edebilirler."
+      }
+    ],
+    "paragraphs": [
+      "Türkiye YouTube müzik trendlerinin zirvesinde bu hafta dikkat çekici bir hareketlilik yaşanıyor. Manifest grubunun son klibi TRALALA, yayınlanmasının üzerinden kısa bir süre geçmesine rağmen 6.1 milyon izlenmeyi aşarak [Türkiye Trend Müzik listesinde](/trendler) 1 numaraya demir attı.",
+      "YouTube Data API ve sektör izleme verilerimize göre klip, son 24 saatte yaklaşık 490.000 yeni izlenme kazanarak listeye giren diğer tüm parçaları geride bıraktı. Bu ivme, YouTube algoritmasının 'Momentum' mekanizmasını tetikleyen tipik bir büyüme eğrisine işaret ediyor.",
+      "### Başarının Arkasındaki 3 Algoritma Faktörü",
+      "1. İlk 5 Saniyede Kanca (Hook Retention): Parça, ilk saniyeden itibaren başlayan yüksek tempolu ritmi ve görsel dinamizmiyle kullanıcıların videoyu geçmesini (skip) engelliyor. [Google Ads In-Stream ve Shorts](/hizmetler) formatlarında ilk 5 saniyelik tutunma oranı, videonun organik önerilen videolara (Recommended Videos) düşmesini sağlayan en kritik metriktir.",
+      "2. Etkileşim Oranı (Like-to-View Ratio): Klipte 385 binden fazla beğeni bulunuyor. İzlenme başına yaklaşık %6.2'lik beğeni oranı, Türk pop/elektronik müzik kategorisi için oldukça yüksek bir dinleyici bağlılığı göstergesi.",
+      "3. Algoritmik Keşfet Dalgası: İlk 48 saatte oluşturulan kontrollü reklam ivmesi, YouTube algoritmasına 'Bu video şu anda hızla tüketiliyor' sinyali verir. Algoritma bu sinyali aldıktan sonra videoyu Türkiye genelindeki müzikseverlerin ana sayfasına taşır.",
+      "### Bağımsız Sanatçılar İçin Çıkarılacak Ders",
+      "Bir parçanın hit olması yalnızca müzikal kalitesine değil, yayınlandığı ilk 48 saatte aldığı resmi ivmeye bağlıdır. Bu stratejinin tüm inceliklerini [müzik kliplerinde ilk 48 saat rehberimizde](/blog/muzik-kliplerinde-ilk-48-saat-algoritma-rehberi) detaylandırdık. Bot panelleri ile kanalınızı riske atmak yerine, [şeffaf fiyatlandırma paketlerimizle](/fiyatlandirma) videonuzun algoritma kapılarını aralamasını sağlayabilirsiniz."
+    ]
+  },
+  {
+    "slug": "muzik-kliplerinde-ilk-48-saat-algoritma-rehberi",
+    "title": "Müzik Kliplerinde İlk 48 Saat: YouTube Algoritma Rehberi",
+    "summary": "Müzik kliplerinde ilk 48 saat altın penceredir. Doğru Google Ads hedeflemesiyle izleme süresi ve organik YouTube keşfet algoritmasını tetikleme rehberi.",
+    "category": "Klip Pazarlama",
+    "date": "8 Ekim 2026",
+    "readTime": "5 dk",
+    "videoId": "rZWeR8bQlaE",
+    "image": "https://i.ytimg.com/vi/rZWeR8bQlaE/hqdefault.jpg",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": ["Klip Stratejisi", "YouTube Algoritması", "Google Ads Video", "Müzik Pazarlama"],
+    "quickFact": "YouTube video algoritması, yüklenen yeni klipleri ilk 48 saat içinde test eder (Golden Window). Bu süre zarfında elde edilen ortalama görüntüleme süresi (AVD) %45'in üzerinde kaldığında ve izlenmeler resmi Google Ads kaynaklı olduğunda, sistem videoyu organik önerilenler havuzuna taşır.",
+    "table": {
+      "caption": "Resmi Google Ads ile Sahte Bot Panelleri Arasındaki 48 Saatlik Algoritma Karşılaştırması",
+      "headers": ["Karşılaştırma Kriteri", "Resmi Google Ads (MedyaPR)", "SMM Bot Panelleri", "Kanal Riski"],
+      "rows": [
+        ["Ortalama Dinleme Süresi", "Videonun %50-%80'i", "1-3 Saniye Sahte Tıklama", "Bot Panelleri Shadowban Alır"],
+        ["YouTube Studio Kaynağı", "'YouTube Reklamcılığı'", "'Bilinmeyen / Doğrudan'", "Botlar Silinir"],
+        ["Organik Öneri Katkısı", "Algoritmayı Pozitif Tetikler", "Sıfır Organik Katkı", "Sıralama Çöküşü"],
+        ["Yasal Sözleşme & Güven", "%50 Onayda, %50 Bitince", "Önceden Peşin Risk", "Sıfır İade Güvencesi"]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "YouTube yeni klipleri ilk 48 saatte nasıl değerlendirir?",
+        "answer": "Algoritma ilk 48 saatte videoyu küçük bir kitleye test gösterimine sunar. Gerçek kullanıcıların kalma süresi ve etkileşim oranları yüksek çıkarsa klip daha geniş öneri havuzuna aktarılır."
+      },
+      {
+        "question": "Google Ads reklamları YouTube Partner Programı (YPP) şartlarını bozar mı?",
+        "answer": "Hayır. Google Ads YouTube'un kendi resmi platformu olduğu için kanal para kazanması veya telif durumu asla olumsuz etkilenmez; %100 güvenlidir."
+      }
+    ],
+    "paragraphs": [
+      "Yeni bir klip yayına aldığınızda YouTube algoritması videonuzu hemen tanımaz. İlk 48 saat, algoritmanın videonun kime hitap ettiğini, izleyicilerin ne kadar süre ekranda kaldığını ve parçanın 'paylaşılmaya değer' olup olmadığını test ettiği altın penceredir.",
+      "### Neden İlk 48 Saat Bu Kadar Hayati?",
+      "YouTube yapay zekası yeni yüklenen bir video için önce küçük bir örneklem kitleye gösterim yapar. Eğer bu kitle videoyu ilk 10 saniyede kapatırsa veya bot panellerinden gelen sıfır saniyelik sahte trafik algılanırsa, video 'düşük kaliteli' olarak etiketlenir ve organik öneri havuzundan tamamen çıkarılır.",
+      "Buna karşın, ilk 48 saatte [Google Ads Atlanabilir In-Stream reklamları](/hizmetler) üzerinden gerçek Türk müzik dinleyicisine hedefleme yapıldığında izleyiciler şarkıyı gerçek sürelerle dinler, ilgisini çeken kullanıcılar abone olur ve yorum yazar. YouTube Studio'da ortalama görüntüleme süresi yüksek çıkar ve sistem videoyu organik olarak ana sayfaya ve ilgili şarkıların Up Next listesine yerleştirir.",
+      "### Bot İzlenmeler Neden Kariyerinizi Öldürür?",
+      "Piyasadaki SMM bot panelleri, ucuz proxy ağları üzerinden videoyu 1-2 saniye açıp kapatan sunucu yazılımlarıdır. YouTube algoritma güncellemeleriyle bu trafiği anında tespit etmekte, izlenmeleri silmekte ve kanalı kalıcı olarak Shadowban (gölge ceza) altına sokmaktadır.",
+      "MedyaPR olarak sunduğumuz Google Ads altyapısı ise YouTube'un kendi resmi platformudur. Kampanyanız YouTube Studio'da açıkça 'YouTube Reklamları' sekmesinde listelenir ve kanalınız %100 güvende kalır. Bütçenizi planlamak için [şeffaf fiyat hesaplama panelimizi](/fiyatlandirma) kullanabilir, klip lansman adımlarını [YouTube klip tanıtımı rehberimizden](/blog/youtube-klip-tanitimi-google-ads-rehberi) inceleyebilirsiniz."
+    ]
+  },
+  {
+    "slug": "dedubluman-sila-aci-bal-akustik-seanslar",
+    "title": "Dedublüman ve Sıla Acı Bal: Akustik Kliplerin Gücü",
+    "summary": "Dedub Sessions serisinin hiti Acı Bal 4.4 milyon izlenmeyi aştı. Akustik canlı seansların yüksek dinleme tutunması ve çapraz kitle kazanım analizi.",
+    "category": "Sanatçı Portresi",
+    "date": "7 Ekim 2026",
+    "readTime": "4 dk",
+    "videoId": "XTdU5RSodZ4",
+    "image": "https://i.ytimg.com/vi/XTdU5RSodZ4/hqdefault.jpg",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": ["Dedublüman", "Sıla", "Acı Bal", "Trend Müzik", "Akustik"],
+    "quickFact": "Dedublüman ve Sıla'nın 'Acı Bal' ortak çalışması 4.4 milyon izlenmeyle akustik performansların YouTube'daki kalıcılığını tescilledi. Canlı akustik seanslar, standart stüdyo kliplerine göre ortalama %35 daha uzun dinleme süresi sağlayarak çalma listelerinde kalıcı yer edinir.",
+    "table": {
+      "caption": "Akustik Canlı Kayıtlar ile Standart Stüdyo Klipleri Karşılaştırması",
+      "headers": ["İçerik Türü", "Ortalama Dinleme Oranı", "Tekrar Oynatma (Loop)", "Hedef Kitle Karakteri"],
+      "rows": [
+        ["Akustik Canlı Seans", "%58 - %74", "Çok Yüksek (Çalma Listesi)", "Sadık ve Derin Dinleyici"],
+        ["Standart Stüdyo Klibi", "%35 - %48", "Orta Düzey", "Görsel Odaklı Hızlı Tüketim"],
+        ["Ortak Düet Projesi", "%62 - %80", "Yüksek Çapraz Dinleme", "İki Sanatçının Ortak Tabanı"]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Akustik canlı kayıtlar YouTube'da neden daha çok önerilir?",
+        "answer": "Dinleyiciler akustik kayıtları arka planda müzik çalar gibi dinlediği için oturum süresi (Watch Time) yükselir; YouTube algoritması oturum süresi yüksek videoları daha çok önerir."
+      },
+      {
+        "question": "Çapraz düet projelerinde reklam hedeflemesi nasıl kurgulanmalı?",
+        "answer": "Her iki sanatçının mevcut dinleyici profillerinin ilgi alanları, dinleme saatleri ve coğrafi dağılımı Google Ads panelinde harmanlanarak ortak ilgi kümesine kampanya çıkılmalıdır."
+      }
+    ],
+    "paragraphs": [
+      "Dedublüman'ın Sıla ile bir araya geldiği Dedub Sessions II: Acı Bal, yayınlandığı günden bu yana [YouTube trend müzik listesinin](/trendler) en istikrarlı parçalarından biri olmayı sürdürüyor. [Dedublüman biyografisi ve en çok izlenen şarkılarını](/sanatci/dedubluman) incelediğimizde, akustik samimiyet ile usta yorumculuğun birleşiminin dijital platformlardaki kalıcı gücünü görüyoruz.",
+      "### Akustik Format Neden Daha Uzun Dinleniyor?",
+      "YouTube Analytics verileri gösteriyor ki; akustik canlı seanslar (Live Sessions), stüdyo kliplerine kıyasla ortalama %35 daha yüksek izleme süresi (Retention) elde ediyor. Dinleyiciler bu tarz videoları genellikle arka planda çalma listesi olarak döngüye alıyor.",
+      "Ayrıca iki güçlü dinleyici kitlesinin (Dedublüman'ın alternatif genç kitlesi ile Sıla'nın geniş pop dinleyici tabanı) çapraz etkileşimi, parçayı organik aramalarda hızla yukarı taşıdı.",
+      "### Lansman Stratejisi Notları",
+      "Akustik ve konsept video projelerinde doğru kitle eşleştirmesi hayati önem taşır. Hedefli Google Ads kampanyalarında benzer sanatçıları dinleyen kitlelere ulaşmak, bir klibin haftalarca trend listesinde kalmasının en kanıtlanmış formülüdür. Klip tanıtımı süreçlerinizi başlatmak için [YouTube klip reklam hizmetlerimize](/hizmetler) göz atabilir veya [hemen bizimle iletişime geçebilirsiniz](/iletisim)."
+    ]
+  },
+  {
+    "slug": "youtube-klip-tanitimi-google-ads-rehberi",
+    "title": "YouTube Klip Tanıtımı Nasıl Yapılır? Google Ads Rehberi",
+    "summary": "18+ yıllık tecrübeyle YouTube klip tanıtımı nasıl yapılır? Bot panelleri yerine resmi Google Ads ile gerçek izleyiciye ulaşma ve bütçe planlama rehberi.",
+    "category": "Pillar Rehber",
+    "date": "10 Ekim 2026",
+    "readTime": "6 dk",
+    "videoId": "jVpT8G_X7mQ",
+    "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": ["Klip Tanıtımı", "Google Ads Video", "YouTube Büyütme", "Müzik PR", "Klip PR"],
+    "quickFact": "Resmi YouTube klip tanıtımı, Google Ads video ağı üzerinden müzik türü, yaş, dil ve coğrafi konuma göre optimize edilen reklam gösterimleriyle yapılır. Sahte panellerin aksine trafik kaynağı YouTube Studio'da 'YouTube Reklamları' olarak kayıt altına alınır ve ömür boyu kalıcıdır.",
+    "table": {
+      "caption": "YouTube Klip Tanıtımında Reklam Formatları ve Performans Kıyaslaması",
+      "headers": ["Format Adı", "Önerilen Minimum Bütçe", "Ortalama CTR", "Kullanım Amacı"],
+      "rows": [
+        ["Atlanabilir In-Stream", "₺1.200 (5K)", "%4.5 - %8.5", "Video İçi İvme & Hızlı İzlenme"],
+        ["YouTube Shorts Reklamı", "₺750 (10K Global)", "%6.0 - %12.0", "Viral Şarkı Nakaratı Tanıtımı"],
+        ["Keşfet / In-Feed Ads", "₺2.000 (10K)", "%3.2 - %6.0", "Kanal Abonesi & Daimi Dinleyici"]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Klip tanıtımı için ne kadar bütçe ayrılmalıdır?",
+        "answer": "MedyaPR paketlerinde 1.000 izlenmeden 1.000.000 izlenmeye kadar kademeli indirimli baremler mevcuttur. Başlangıç için 10.000 - 50.000 bandı algoritma ivmesi için en verimli aralıktır."
+      },
+      {
+        "question": "Ödeme modeli nasıl işler?",
+        "answer": "Videonuz resmi Google Ads onayından geçince ödemenin %50'si, kampanya tamamlandığında ise kalanı alınır. Kurumsal müşteriler için tüm ödeme iş bitimindedir."
+      }
+    ],
+    "paragraphs": [
+      "Müzik piyasasında her gün yüzlerce yeni şarkı ve klip yayınlanıyor. Bu yoğun rekabette parçanızın organik olarak keşfedilmesi yalnızca şansa bırakılamaz. 18 yılı aşkın sektör deneyimimizle biliyoruz ki; başarılı her müzik projesinin arkasında iyi planlanmış bir dijital PR ve Google Ads reklam stratejisi yatar.",
+      "### Doğru Hedef Kitle Kurgusu",
+      "Google Ads video reklamcılığının en büyük gücü; parçanızı ilgisiz kişilere değil, doğrudan sizin müzik türünüzü dinleyen insanlara ulaştırmasıdır. Pop, Rap, Rock veya Türk Sanat Müziği gibi türlerde dinleyici alışkanlıkları, yaş grupları ve coğrafi ilgi merkezleri analiz edilir.",
+      "Örneğin Almanya'daki Türk dinleyicilere yönelik bir klip çalışmasında; Almanya genelindeki Türk nüfus yoğunluklu bölgeler, Türkçe dil tercihi ve ilgili müzik kanalları hedeflenerek harcanan her kuruşun doğrudan gerçek dinleyiciye dönüşmesi sağlanır. YouTube algoritmasının dinamiklerini [ilk 48 saat algoritma rehberimizden](/blog/muzik-kliplerinde-ilk-48-saat-algoritma-rehberi) detaylıca inceleyebilirsiniz.",
+      "### Süreç Nasıl İşler?",
+      "MedyaPR olarak süreci sürtünmesiz yönetiyoruz: 1) Video linkiniz iletilir. 2) Google Partner uzmanlarımız klibi analiz edip resmi reklam onayına sunar. 3) Onay alındığında %50 ödeme yapılır, kampanya tamamlandığında kalanı tahsil edilir. Kurumsal müşterilerimiz için ise tüm ödeme iş bitimindedir. Bütçenizi planlamak için [canlı fiyat hesaplayıcımızı](/fiyatlandirma) kullanabilir veya [sıkça sorulan sorular](/sss) sayfamıza göz atabilirsiniz."
+    ]
+  }
+]

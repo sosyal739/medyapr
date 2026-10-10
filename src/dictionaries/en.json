@@ -1,0 +1,306 @@
+{
+  "metadata": {
+    "title": "MedyaPR — Official Google Ads Video & Music Video PR Agency",
+    "description": "Grow your YouTube music video with MedyaPR. 18+ years experience, official Google Ads video campaigns, phased safe payments, and zero bot guarantee."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "pricing": "Pricing",
+    "about": "About",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "login": "Login",
+    "register": "Sign Up",
+    "tools": "Tools"
+  },
+  "hero": {
+    "badge": "18+ Years Experience • Official Google Partner",
+    "title_line1": "With Google Ads",
+    "title_line2": "Your YouTube Channel",
+    "title_highlight": "GROWS",
+    "subtitle": "Serving the industry for over 18 years, partnering with artists, bands, and brands across Turkey and worldwide. Campaigns are managed directly by certified Google Partner specialists.",
+    "cta_primary": "Get Started",
+    "cta_secondary": "Free Consultation",
+    "trust_items": ["18+ Years Track Record", "Google Partner Specialists", "Global Artist Roster"],
+    "stats": {
+      "title": "Live Statistics",
+      "subtitle": "Real-time data",
+      "total_views": "Total Views",
+      "total_views_value": "2,847,593",
+      "live_text": "Live • Increasing every second",
+      "growth": "+127%"
+    }
+  },
+  "trust": {
+    "campaigns": "Artists in Turkey & Globally",
+    "satisfaction": "4.9/5 Customer Satisfaction",
+    "secure": "100% Secure",
+    "partner": "Google Partner (18+ Yrs)"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Professional Google Ads solutions to grow your YouTube channel",
+    "items": [
+      {
+        "title": "YouTube Views",
+        "description": "Gain real views from real users through targeted Google Ads campaigns.",
+        "icon": "play",
+        "badge": "Most Popular"
+      },
+      {
+        "title": "YouTube Subscribers",
+        "description": "Attract real, lasting subscribers to your channel with targeted advertising.",
+        "icon": "users",
+        "badge": ""
+      },
+      {
+        "title": "YouTube Likes",
+        "description": "Boost your algorithm ranking by increasing the like count on your videos.",
+        "icon": "thumbsUp",
+        "badge": ""
+      },
+      {
+        "title": "YouTube Comments",
+        "description": "Increase your video engagement with organic comments from real users.",
+        "icon": "messageCircle",
+        "badge": ""
+      },
+      {
+        "title": "YouTube Watch Hours",
+        "description": "We help you reach the 4,000 watch hours required for monetization.",
+        "icon": "clock",
+        "badge": "Monetization"
+      },
+      {
+        "title": "YouTube Shorts Views",
+        "description": "Get your Shorts seen by millions and seize the chance to go viral.",
+        "icon": "zap",
+        "badge": "New"
+      }
+    ]
+  },
+  "whyGoogleAds": {
+    "title": "Why Google Ads?",
+    "subtitle": "What sets us apart from other services",
+    "items": [
+      {
+        "title": "Real People Watching",
+        "description": "No bots or fake accounts. With Google Ads, you reach real users."
+      },
+      {
+        "title": "Legal and Safe",
+        "description": "We use Google's own advertising platform. Your channel is 100% safe."
+      },
+      {
+        "title": "Targeted Audience",
+        "description": "Reach the right audience by targeting age, location, interests, and language."
+      },
+      {
+        "title": "Triggers the Algorithm",
+        "description": "Real views trigger the YouTube algorithm, kickstarting organic growth."
+      },
+      {
+        "title": "Zero Penalty Risk",
+        "description": "Promotion through Google Ads is 100% compliant with YouTube's policies."
+      },
+      {
+        "title": "Detailed Reporting",
+        "description": "Track your campaign performance in real time with transparent reports."
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Get started in 3 easy steps",
+    "steps": [
+      {
+        "step": "1",
+        "title": "Share Your Video Link",
+        "description": "Send us the YouTube video or channel link you want to promote."
+      },
+      {
+        "step": "2",
+        "title": "Choose Your Package",
+        "description": "Pick the package that fits your needs, or let us create a custom campaign."
+      },
+      {
+        "step": "3",
+        "title": "Launch Your Campaign",
+        "description": "Your Google Ads campaign goes live and real views and engagement start flowing in."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Packages for every budget",
+    "popular": "Most Popular",
+    "perView": "per view",
+    "cta": "Get Started",
+    "custom": "Get Custom Quote",
+    "features_included": "Features Included",
+    "packages": [
+      {
+        "name": "Starter",
+        "views": "1,000",
+        "likes": "50",
+        "duration": "3-5 days",
+        "price": "29",
+        "currency": "$",
+        "popular": false,
+        "features": ["Real Views", "Targeted Audience", "Basic Reporting", "Email Support"]
+      },
+      {
+        "name": "Professional",
+        "views": "5,000",
+        "likes": "250",
+        "duration": "5-7 days",
+        "price": "89",
+        "currency": "$",
+        "popular": true,
+        "features": ["Real Views", "Advanced Targeting", "Detailed Reporting", "Priority Support", "Likes Included"]
+      },
+      {
+        "name": "Premium",
+        "views": "10,000",
+        "likes": "500",
+        "duration": "7-10 days",
+        "price": "159",
+        "currency": "$",
+        "popular": false,
+        "features": ["Real Views", "Premium Targeting", "Real-time Reporting", "24/7 Support", "Likes Included", "Subscriber Campaign"]
+      },
+      {
+        "name": "Enterprise",
+        "views": "50,000+",
+        "likes": "2,500+",
+        "duration": "Custom",
+        "price": "Custom",
+        "currency": "",
+        "popular": false,
+        "features": ["Unlimited Views", "Full Customization", "Dedicated Account Manager", "VIP Support", "All Services Included", "Monthly Reporting"]
+      }
+    ]
+  },
+  "stats": {
+    "views_delivered": "Views Delivered",
+    "happy_clients": "Happy Clients",
+    "campaigns": "Successful Campaigns",
+    "rating": "Customer Rating",
+    "views_value": "2.5M+",
+    "clients_value": "500+",
+    "campaigns_value": "1,000+",
+    "rating_value": "4.9/5"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Real customer experiences",
+    "items": [
+      {
+        "name": "Ahmet Yilmaz",
+        "role": "Musician",
+        "content": "My music video hit 50,000 views in just 2 weeks. Knowing that real people are watching through Google Ads is amazing.",
+        "rating": 5
+      },
+      {
+        "name": "Zeynep Kaya",
+        "role": "YouTuber",
+        "content": "I reached the 4,000 watch hours needed for monetization thanks to MedyaPR. Professional and reliable service.",
+        "rating": 5
+      },
+      {
+        "name": "Mehmet Demir",
+        "role": "Content Creator",
+        "content": "I tried other services but never got real views. With MedyaPR, the difference is clear.",
+        "rating": 5
+      },
+      {
+        "name": "Elif Sahin",
+        "role": "Artist",
+        "content": "A fantastic solution for promoting my song. Targeted ads helped us reach the right audience.",
+        "rating": 5
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know",
+    "items": [
+      {
+        "question": "Are Google Ads views safe?",
+        "answer": "Yes, they are 100% safe. We use Google's own advertising platform. It works just like YouTube's own ads and will not harm your channel in any way."
+      },
+      {
+        "question": "How quickly will I see results?",
+        "answer": "After the campaign is approved, views typically start coming in within 24-48 hours. Depending on the package size, completion time ranges from 3 to 20 days."
+      },
+      {
+        "question": "Will my channel get penalized?",
+        "answer": "No, absolutely not. Google Ads is Google's own product and YouTube advertising is completely legal and fully compliant with platform policies."
+      },
+      {
+        "question": "Will the views drop over time?",
+        "answer": "Views from Google Ads come from real users, so they are permanent. We do not use bots or fake views."
+      },
+      {
+        "question": "What payment methods do you accept?",
+        "answer": "You can pay with credit card, debit card, and bank transfer. Online payment via Stripe will also be available soon."
+      },
+      {
+        "question": "Can you do audience targeting?",
+        "answer": "Yes! We use Google Ads' advanced targeting features. We can target by country, city, age, gender, and interests."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Grow Your YouTube Channel?",
+    "subtitle": "Get a free consultation now and let's find the best strategy for your channel together.",
+    "button": "Get Free Consultation",
+    "whatsapp": "Contact via WhatsApp",
+    "telegram": "Telegram"
+  },
+  "footer": {
+    "description": "As a Google Ads Certified Partner, we support your YouTube channel's growth with real views and engagement.",
+    "services": "Services",
+    "company": "Company",
+    "support": "Support",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "refund": "Refund Policy",
+    "copyright": "© 2026 MedyaPR. All rights reserved.",
+    "about": "About Us",
+    "contact": "Contact",
+    "faq_link": "FAQ",
+    "blog_link": "Blog",
+    "cookie_settings": "Cookie Preferences"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch with us",
+    "name": "Your Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Your Message",
+    "channel_url": "YouTube Channel URL",
+    "send": "Send",
+    "success": "Your message has been sent successfully!"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "YouTube Video & Music Video PR Specialists with Official Google Ads",
+    "description": "With over 18 years of uninterrupted industry experience, MedyaPR has partnered with prominent artists, music bands, record labels, and corporate brands across Turkey and globally. All video and music video PR campaigns are personally managed by our certified official Google Partner specialists. Zero bots or SMM panels used; offering phased payment security (50% on approval, 50% on completion) and transparent performance reporting."
+  },
+  "cookie_consent": {
+    "title": "Cookie & Privacy Preferences",
+    "description": "At MedyaPR, we use cookies fully compliant with GDPR and KVKK regulations to ensure browsing security, analyze official Google Ads performance, and measure visitor traffic.",
+    "badge": "GDPR & KVKK Compliant",
+    "accept_all": "Accept All",
+    "necessary_only": "Necessary Only",
+    "decline": "Decline",
+    "privacy_policy": "Privacy Policy",
+    "cookie_settings": "Cookie Preferences",
+    "saved": "Your preferences have been saved."
+  }
+}

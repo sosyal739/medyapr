@@ -1,0 +1,213 @@
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import { ArrowLeft, ArrowRight, Play, Sparkles, Music, Users, ExternalLink } from 'lucide-react';
+import { getArtists, getArtistBySlug } from '@/lib/content';
+
+type Props = {
+  params: Promise<{ locale: string; slug: string }>;
+};
+
+export async function generateStaticParams() {
+  const artists = await getArtists();
+  return ['tr', 'en'].flatMap((locale) =>
+    artists.map((artist) => ({
+      locale,
+      slug: artist.slug,
+    }))
+  );
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const artist = await getArtistBySlug(slug);
+  if (!artist) return { title: 'Sanatçı Bulunamadı' };
+
+  const rawTitle = artist.name.length <= 8
+    ? `${artist.name} Şarkıları, Klipleri & YouTube Analizi | MedyaPR`
+    : `${artist.name} Şarkıları & YouTube Analizi | MedyaPR`;
+
+  const pageDesc = `${artist.name} biyografisi, YouTube en popüler klipleri, son hit şarkısı ${artist.latestHit} ve 18+ yıllık MedyaPR tecrübesiyle dijital dinleyici analizi.`;
+
+  return {
+    title: {
+      absolute: rawTitle,
+    },
+    description: pageDesc,
+    alternates: {
+      canonical: `https://medyapr.com/${locale}/sanatci/${slug}`,
+    },
+    openGraph: {
+      title: rawTitle,
+      description: pageDesc,
+      images: [{ url: artist.image }],
+    },
+  };
+}
+
+export default async function ArtistDetailPage({ params }: Props) {
+  const { locale, slug } = await params;
+  const artist = await getArtistBySlug(slug);
+
+  if (!artist) {
+    notFound();
+  }
+
+  const isTr = locale === 'tr';
+
+  return (
+    <div className="min-h-screen bg-app-base text-white py-14 md:py-20 relative">
+      {/* Schema.org MusicGroup & BreadcrumbList */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@graph': [
+              {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  {
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: isTr ? 'Ana Sayfa' : 'Home',
+                    item: `https://medyapr.com/${locale}`,
+                  },
+                  {
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: isTr ? 'Sanatçılar' : 'Artists',
+                    item: `https://medyapr.com/${locale}/sanatcilar`,
+                  },
+                  {
+                    '@type': 'ListItem',
+                    position: 3,
+                    name: artist.name,
+                    item: `https://medyapr.com/${locale}/sanatci/${slug}`,
+                  },
+                ],
+              },
+              {
+                '@type': 'MusicGroup',
+                name: artist.name,
+                genre: artist.genre,
+                description: artist.bio,
+                image: artist.image,
+              },
+            ],
+          }),
+        }}
+      />
+
+      <div className="relative mx-auto max-w-4xl px-4 md:px-8">
+        {/* Back Link */}
+        <div className="mb-8">
+          <Link
+            href={`/${locale}/sanatcilar`}
+            className="inline-flex items-center gap-2 text-xs font-bold text-zinc-400 hover:text-white transition"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            {isTr ? 'Sanatçılar Rehberine Dön' : 'Back to Artists'}
+          </Link>
+        </div>
+
+        {/* Profile Card */}
+        <div className="mb-10 rounded-3xl border border-studio bg-studio-card p-6 md:p-8 backdrop-blur-xl shadow-xl">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={artist.image}
+              alt={artist.name}
+              className="h-28 w-28 shrink-0 rounded-2xl object-cover border-2 border-[#FF0033]/40 shadow-xl"
+            />
+            <div className="space-y-2">
+              <span className="rounded-full bg-[#FF0033]/20 border border-[#FF0033]/30 px-3 py-1 text-xs font-bold text-[#FF6B6B]">
+                {artist.genre}
+              </span>
+              <h1 className="text-3xl sm:text-4xl font-black text-white">{artist.name}</h1>
+              <div className="flex flex-wrap items-center gap-4 text-xs text-zinc-400">
+                <span>
+                  Toplam YouTube İzlenme: <strong className="text-white">{artist.viewsTotal}</strong>
+                </span>
+                <span>•</span>
+                <span>
+                  Tahmini Kitle: <strong className="text-emerald-400">{artist.monthlyAudience}</strong>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 border-t border-studio pt-6">
+            <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-2">Biyografi</h2>
+            <p className="text-sm sm:text-base leading-relaxed text-zinc-300">{artist.bio}</p>
+          </div>
+        </div>
+
+        {/* Featured Video Embed */}
+        <div className="mb-12">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-2">
+            <Play className="h-5 w-5 text-[#FF0033]" />
+            Son Hit Klip: {artist.latestHit}
+          </h2>
+          <div className="overflow-hidden rounded-3xl border border-white/15 bg-black shadow-2xl aspect-video">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${artist.hitVideoId}`}
+              title={artist.latestHit}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="h-full w-full border-0"
+            />
+          </div>
+        </div>
+
+        {/* Popular Songs */}
+        <div className="mb-12 rounded-3xl border border-studio bg-studio-card p-6 backdrop-blur-xl shadow-xl">
+          <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+            <Music className="h-5 w-5 text-[#FF6B6B]" /> Öne Çıkan Parçalar
+          </h3>
+          <div className="divide-y divide-studio">
+            {artist.topSongs.map((song, i) => (
+              <div key={i} className="flex items-center justify-between py-3 text-sm">
+                <span className="font-semibold text-white/90">{song.title}</span>
+                <div className="flex items-center gap-3">
+                  <span className="text-xs text-zinc-400">{song.views} izlenme</span>
+                  <a
+                    href={`https://www.youtube.com/watch?v=${song.videoId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#FF6B6B] hover:text-white"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Pitch for Managers & Musicians */}
+        <div className="rounded-3xl border border-[#FF0033]/40 bg-studio-card p-8 md:p-10 shadow-2xl">
+          <div className="space-y-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FF0033]/20 px-3 py-1 text-xs font-bold text-[#FF6B6B]">
+              <Sparkles className="h-3.5 w-3.5" /> Müzisyenler & Menajerler İçin
+            </span>
+            <h3 className="text-2xl font-black text-white">
+              Sizin Klibiniz de Benzer Kitlelere Ulaşsın
+            </h3>
+            <p className="text-sm text-zinc-300 leading-relaxed max-w-2xl">
+              {artist.name} ve benzeri sanatçıları dinleyen kitleyi hedefleyerek, yeni parçanızı Türkiye ve Avrupa genelinde YouTube In-Stream ve Shorts reklamlarıyla milyonlara duyurun.
+            </p>
+          </div>
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <Link
+              href={`/${locale}#calculator`}
+              className="inline-flex items-center gap-2 rounded-xl bg-[#FF0033] px-7 py-3.5 text-sm font-extrabold text-white shadow-xl shadow-[#FF0033]/30 hover:bg-[#E6002E] transition"
+            >
+              Fiyatı Hesapla & Kampanya Başlat <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
