@@ -3,9 +3,13 @@ import { getDictionary } from '@/lib/i18n/dictionaries';
 import { type Locale } from '@/lib/i18n/config';
 import FAQSection from '@/components/home/FAQSection';
 
+import { getFaqs } from '@/data/faqs';
+
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+import { getPageAlternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -20,9 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: isTr
       ? 'YouTube klip tanıtımı, resmi Google Ads reklam süreçleri, aşamalı ödeme modeli ve kanal güvenliği hakkında merak edilen tüm soruların yanıtları.'
       : 'Find answers about YouTube video PR, official Google Ads campaign workflows, phased payments, channel security, and real retention metrics.',
-    alternates: {
-      canonical: `https://medyapr.com/${locale}/sss`,
-    },
+    alternates: getPageAlternates(locale, '/sss'),
   };
 }
 
@@ -69,7 +71,7 @@ export default async function FAQPage({ params }: Props) {
               },
               {
                 '@type': 'FAQPage',
-                mainEntity: dict.faq.items.map((item: any) => ({
+                mainEntity: getFaqs(locale).map((item) => ({
                   '@type': 'Question',
                   name: item.question,
                   acceptedAnswer: { '@type': 'Answer', text: item.answer },
@@ -80,7 +82,7 @@ export default async function FAQPage({ params }: Props) {
         }}
       />
 
-      <FAQSection dict={dict} />
+      <FAQSection dict={dict} locale={locale} />
     </div>
   );
 }

@@ -8,6 +8,8 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
+import { getPageAlternates } from '@/lib/seo';
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
@@ -21,9 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: isTr
       ? 'In-Stream, Shorts ve Keşfet reklamları ile YouTube kanalınızı büyütün. 18+ yıllık tecrübe, resmi Google Ads altyapısı ve şeffaf performans takibi.'
       : 'Grow your YouTube channel with In-Stream, Shorts and In-Feed ads. 18+ years experience, official Google Ads platform, and real-time performance tracking.',
-    alternates: {
-      canonical: `https://medyapr.com/${locale}/hizmetler`,
-    },
+    alternates: getPageAlternates(locale, '/hizmetler'),
   };
 }
 

@@ -16,6 +16,7 @@ import {
   Quote,
 } from 'lucide-react';
 import { getPosts, getPostBySlug } from '@/lib/content';
+import { getPageAlternates, toIsoDateString } from '@/lib/seo';
 
 function parseParagraphWithLinks(text: string, locale: string) {
   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
@@ -75,15 +76,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       absolute: post.title,
     },
     description: post.summary,
-    alternates: {
-      canonical: `https://medyapr.com/${locale}/blog/${slug}`,
-    },
+    alternates: getPageAlternates(locale, `/blog/${slug}`),
     openGraph: {
       title: post.title,
       description: post.summary,
       images: [{ url: post.image, width: 1200, height: 675, alt: post.title }],
       type: 'article',
-      publishedTime: post.date,
+      publishedTime: toIsoDateString(post.date),
       authors: [post.author],
     },
     twitter: {
@@ -127,7 +126,7 @@ export default async function BlogPostPage({ params }: Props) {
       headline: post.title,
       description: post.summary,
       image: post.image,
-      datePublished: '2026-10-09',
+      datePublished: toIsoDateString(post.date),
       inLanguage: isTr ? 'tr-TR' : 'en-US',
       mainEntityOfPage: `https://medyapr.com/${locale}/blog/${slug}`,
       author: {

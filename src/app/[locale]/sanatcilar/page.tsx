@@ -3,13 +3,29 @@ import Link from 'next/link';
 import { Users, Play, ArrowRight, TrendingUp } from 'lucide-react';
 import { getArtists } from '@/lib/content';
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Trend Türk Sanatçılar & Müzik Grupları | MedyaPR',
-  },
-  description:
-    'YouTube Türkiye müzik listelerinde zirvede yer alan sanatçılar, en popüler klipleri, biyografileri ve dijital dinleyici istatistikleri.',
-};
+import { getPageAlternates } from '@/lib/seo';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const isTr = locale === 'tr';
+  return {
+    title: {
+      absolute: isTr ? 'Trend Türk Sanatçılar & Müzik Grupları | MedyaPR' : 'Trending Turkish Artists & Music Groups | MedyaPR',
+    },
+    description: isTr
+      ? 'YouTube Türkiye müzik listelerinde zirvede yer alan sanatçılar, en popüler klipleri, biyografileri ve dijital dinleyici istatistikleri.'
+      : 'Top trending artists in Turkey YouTube music charts, hit video clips, artist biographies, and audience analytics.',
+    alternates: getPageAlternates(locale, '/sanatcilar'),
+    openGraph: {
+      title: isTr ? 'Trend Türk Sanatçılar & Müzik Grupları | MedyaPR' : 'Trending Turkish Artists & Music Groups | MedyaPR',
+      description: isTr
+        ? 'YouTube Türkiye müzik listelerinde zirvede yer alan sanatçılar, en popüler klipleri, biyografileri ve dijital dinleyici istatistikleri.'
+        : 'Top trending artists in Turkey YouTube music charts.',
+      url: `https://medyapr.com/${locale}/sanatcilar`,
+      images: ['/og-image.jpg'],
+    },
+  };
+}
 
 export default async function SanatcilarPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

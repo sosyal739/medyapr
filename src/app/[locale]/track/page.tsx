@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import LookupForm from '@/components/track/LookupForm';
 import { getAppStrings } from '@/lib/i18n/app-strings';
 
-export const metadata: Metadata = { title: 'Sipariş Sorgula | MedyaPR', robots: { index: false } };
+export const metadata: Metadata = { title: { absolute: 'Sipariş Sorgula | MedyaPR' }, robots: { index: false } };
 
 export default async function TrackLookupPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

@@ -45,21 +45,22 @@ export function middleware(request: NextRequest) {
      3. Default to defaultLocale ('tr')
   */
   const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value as Locale | undefined;
-  let targetLocale: Locale = defaultLocale;
+  let targetLocale: Locale = defaultLocale; // 'tr'
 
   if (cookieLocale && locales.includes(cookieLocale)) {
     targetLocale = cookieLocale;
   } else {
     const acceptLanguage = request.headers.get('accept-language') || '';
-    const isTurkish = /tr([-_][A-Za-z]+)?/i.test(acceptLanguage);
-    targetLocale = isTurkish ? 'tr' : 'en';
+    // Sadece ziyaretçi açıkça İngilizce istiyorsa ve Türkçe sinyali yoksa 'en' yap, aksi halde daima varsayılan 'tr'
+    const isStrictlyEnglish = /^en([-_][A-Za-z]+)?(,|;|$)/i.test(acceptLanguage) && !/tr/i.test(acceptLanguage);
+    targetLocale = isStrictlyEnglish ? 'en' : 'tr';
   }
 
-  /* Redirect to locale-prefixed path */
+  /* Redirect to locale-prefixed path with 308 Permanent Redirect */
   const redirectUrl = request.nextUrl.clone();
   redirectUrl.pathname = `/${targetLocale}${pathname === '/' ? '' : pathname}`;
 
-  const response = NextResponse.redirect(redirectUrl);
+  const response = NextResponse.redirect(redirectUrl, 308);
   response.cookies.set('NEXT_LOCALE', targetLocale, {
     path: '/',
     maxAge: 31536000,
@@ -70,5 +71,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next|api|images|icons|robots.txt|sitemap.xml|llms.txt|llms-full.txt|favicon.ico).*)'],
+  matcher: ['/((?!_next|api|images|icons|robots.txt|sitemap.xml|llms.txt|llms-full.txt|favicon.ico|logo.png|og-image.jpg).*)'],
 };

@@ -7,6 +7,8 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
+import { getPageAlternates } from '@/lib/seo';
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
@@ -20,9 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: isTr
       ? '18 yılı aşkındır kesintisiz dijital medya tecrübesiyle sanatçı ve markalara resmi Google Ads YouTube video ve klip PR danışmanlığı sunuyoruz.'
       : 'Over 18 years of digital PR excellence, offering official Google Ads YouTube video and music video PR management to global artists.',
-    alternates: {
-      canonical: `https://medyapr.com/${locale}/hakkimizda`,
-    },
+    alternates: getPageAlternates(locale, '/hakkimizda'),
   };
 }
 

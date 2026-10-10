@@ -13,14 +13,29 @@ import {
   Lightbulb,
 } from 'lucide-react';
 import { getPosts, type BlogPost } from '@/lib/content';
+import { getPageAlternates, toIsoDateString } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'YouTube Müzik Video & Klip PR Blogu | MedyaPR',
-  },
-  description:
-    'Sosyal medya tüyoları, nasıl yapılır rehberleri, tavsiyeler, sanatçı biyografileri (kimdir), klip analizleri ve resmi Google Ads video PR stratejileri.',
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const isTr = locale === 'tr';
+  return {
+    title: {
+      absolute: isTr ? 'YouTube Müzik Video & Klip PR Blogu | MedyaPR' : 'YouTube Music Video & PR Strategy Blog | MedyaPR',
+    },
+    description: isTr
+      ? 'Sosyal medya tüyoları, nasıl yapılır rehberleri, tavsiyeler, sanatçı biyografileri (kimdir), klip analizleri ve resmi Google Ads video PR stratejileri.'
+      : 'Social media growth tactics, YouTube music video launch playbooks, artist biographies, algorithm guides, and official Google Ads PR strategies.',
+    alternates: getPageAlternates(locale, '/blog'),
+    openGraph: {
+      title: isTr ? 'YouTube Müzik Video & Klip PR Blogu | MedyaPR' : 'YouTube Music Video & PR Strategy Blog | MedyaPR',
+      description: isTr
+        ? 'Sosyal medya tüyoları, nasıl yapılır rehberleri, tavsiyeler, sanatçı biyografileri (kimdir), klip analizleri ve resmi Google Ads video PR stratejileri.'
+        : 'Social media growth tactics, YouTube music video launch playbooks, artist biographies, algorithm guides, and official Google Ads PR strategies.',
+      url: `https://medyapr.com/${locale}/blog`,
+      images: ['/og-image.jpg'],
+    },
+  };
+}
 
 const CATEGORIES = [
   { key: 'all', labelTr: 'Tüm Rehberler', labelEn: 'All Guides', icon: BookOpen, match: null },
@@ -83,7 +98,7 @@ export default async function BlogIndexPage({
           '@type': 'BlogPosting',
           headline: p.title,
           url: `https://medyapr.com/${locale}/blog/${p.slug}`,
-          datePublished: p.date,
+          datePublished: toIsoDateString(p.date),
           author: {
             '@type': 'Person',
             name: p.author,

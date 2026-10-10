@@ -4,7 +4,7 @@ import TrackView from '@/components/track/TrackView';
 import { getAppStrings } from '@/lib/i18n/app-strings';
 import { getOrder, publicView } from '@/lib/store';
 
-export const metadata: Metadata = { title: 'Sipariş Takibi | MedyaPR', robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: { absolute: 'Sipariş Takibi | MedyaPR' }, robots: { index: false, follow: false } };
 export const dynamic = 'force-dynamic';
 
 type Props = {

@@ -6,6 +6,8 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
+import { getPageAlternates } from '@/lib/seo';
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
@@ -19,9 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: isTr
       ? 'MedyaPR hizmet kullanım şartları. Kampanya onay süreçleri, YouTube reklam politikaları, aşamalı ödeme şartları ve kurumsal hizmet kuralları.'
       : 'Terms and conditions of MedyaPR video promotion services. Campaign approval, Google Ads policy compliance, phased payments, and service rules.',
-    alternates: {
-      canonical: `https://medyapr.com/${locale}/kullanim-kosullari`,
-    },
+    alternates: getPageAlternates(locale, '/kullanim-kosullari'),
   };
 }
 

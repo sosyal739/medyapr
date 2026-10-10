@@ -34,19 +34,46 @@ export type Order = {
   adminNote?: string;
 };
 
-const FILE = path.join(process.cwd(), 'data', 'orders.json');
+import os from 'os';
+
+const inMemoryOrders: Map<string, Order> = new Map();
+
+function getStorageFile(): string {
+  if (process.env.VERCEL || process.env.NODE_ENV === 'production') {
+    return path.join(os.tmpdir(), 'orders.json');
+  }
+  return path.join(process.cwd(), 'data', 'orders.json');
+}
 
 async function readAll(): Promise<Order[]> {
+  const filePath = getStorageFile();
   try {
-    return JSON.parse(await fs.readFile(FILE, 'utf8')) as Order[];
+    const raw = await fs.readFile(filePath, 'utf8');
+    const parsed = JSON.parse(raw) as Order[];
+    parsed.forEach((o) => inMemoryOrders.set(o.id, o));
+    return parsed;
   } catch {
-    return [];
+    try {
+      const bundled = path.join(process.cwd(), 'data', 'orders.json');
+      const raw = await fs.readFile(bundled, 'utf8');
+      const parsed = JSON.parse(raw) as Order[];
+      parsed.forEach((o) => inMemoryOrders.set(o.id, o));
+      return parsed;
+    } catch {
+      return Array.from(inMemoryOrders.values());
+    }
   }
 }
 
 async function writeAll(orders: Order[]) {
-  await fs.mkdir(path.dirname(FILE), { recursive: true });
-  await fs.writeFile(FILE, JSON.stringify(orders, null, 2), 'utf8');
+  orders.forEach((o) => inMemoryOrders.set(o.id, o));
+  const filePath = getStorageFile();
+  try {
+    await fs.mkdir(path.dirname(filePath), { recursive: true });
+    await fs.writeFile(filePath, JSON.stringify(orders, null, 2), 'utf8');
+  } catch (err) {
+    console.warn('[store] Filesystem write failed, retained in memory:', err);
+  }
 }
 
 /** Tahmin edilemez takip kodu: AV-XXXXXXXXXX */

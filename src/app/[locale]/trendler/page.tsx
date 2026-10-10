@@ -5,13 +5,29 @@ import Link from 'next/link';
 import { Flame, TrendingUp, Play, ExternalLink, ArrowRight, Music, Clock } from 'lucide-react';
 import type { TrendingSong } from '@/components/home/TrendingMusicSection';
 
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Türkiye YouTube Trend Şarkılar Listesi | MedyaPR',
-  },
-  description:
-    'Bugün YouTube Türkiye müzik trendlerinde ilk sırada hangi klipler var? Canlı izlenme sayıları, son 24 saatlik yükselişler ve resmi trend listesi.',
-};
+import { getPageAlternates } from '@/lib/seo';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const isTr = locale === 'tr';
+  return {
+    title: {
+      absolute: isTr ? 'Türkiye YouTube Trend Şarkılar Listesi | MedyaPR' : 'Turkey Trending YouTube Music Videos | MedyaPR',
+    },
+    description: isTr
+      ? 'Bugün YouTube Türkiye müzik trendlerinde ilk sırada hangi klipler var? Canlı izlenme sayıları, son 24 saatlik yükselişler ve resmi trend listesi.'
+      : 'Live ranking of trending YouTube music videos in Turkey. Daily view velocity, algorithm insights, and top music releases.',
+    alternates: getPageAlternates(locale, '/trendler'),
+    openGraph: {
+      title: isTr ? 'Türkiye YouTube Trend Şarkılar Listesi | MedyaPR' : 'Turkey Trending YouTube Music Videos | MedyaPR',
+      description: isTr
+        ? 'Bugün YouTube Türkiye müzik trendlerinde ilk sırada hangi klipler var? Canlı izlenme sayıları, son 24 saatlik yükselişler ve resmi trend listesi.'
+        : 'Live ranking of trending YouTube music videos in Turkey.',
+      url: `https://medyapr.com/${locale}/trendler`,
+      images: ['/og-image.jpg'],
+    },
+  };
+}
 
 async function getTrendingSongs(): Promise<TrendingSong[]> {
   try {

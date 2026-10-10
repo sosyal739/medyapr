@@ -12,6 +12,7 @@ import FAQSection from '@/components/home/FAQSection';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { getPosts } from '@/lib/content';
+import { getFaqs } from '@/data/faqs';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -44,7 +45,7 @@ export default async function HomePage({ params }: Props) {
             '@graph': [
               {
                 '@type': 'FAQPage',
-                mainEntity: (dict?.faq?.items || []).map((item: any) => ({
+                mainEntity: getFaqs(locale).map((item) => ({
                   '@type': 'Question',
                   name: item.question,
                   acceptedAnswer: {
@@ -149,7 +150,7 @@ export default async function HomePage({ params }: Props) {
       <ServicesGrid dict={dict} />
       <HowItWorks dict={dict} />
       <BlogPreviewSection posts={blogPosts} locale={locale} />
-      <FAQSection dict={dict} />
+      <FAQSection dict={dict} locale={locale} />
     </>
   );
 }

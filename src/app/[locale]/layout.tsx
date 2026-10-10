@@ -7,6 +7,7 @@ import Footer from '@/components/layout/Footer';
 import CookieConsent from '@/components/common/CookieConsent';
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 import { ThemeProvider } from '@/components/theme/ThemeContext';
+import MobileStickyBar from '@/components/layout/MobileStickyBar';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -17,11 +18,14 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+import { getPageAlternates } from '@/lib/seo';
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
   
   return {
+    metadataBase: new URL('https://medyapr.com'),
     title: {
       default: dict.metadata.title,
       template: `%s | MedyaPR`,
@@ -34,21 +38,25 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title: dict.metadata.title,
       description: dict.metadata.description,
       type: 'website',
+      url: `https://medyapr.com/${locale}`,
       locale: locale === 'tr' ? 'tr_TR' : 'en_US',
       siteName: 'MedyaPR',
+      images: [
+        {
+          url: '/og-image.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'MedyaPR — Resmi Google Ads Destekli YouTube Klip PR',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: dict.metadata.title,
       description: dict.metadata.description,
+      images: ['/og-image.jpg'],
     },
-    alternates: {
-      canonical: `https://medyapr.com/${locale}`,
-      languages: {
-        'tr': '/tr',
-        'en': '/en',
-      },
-    },
+    alternates: getPageAlternates(locale, ''),
     robots: {
       index: true,
       follow: true,
@@ -150,17 +158,18 @@ export default async function LocaleLayout({ params, children }: Props) {
         <ThemeProvider>
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-EEBZ16SNQ9'} />
           <Header dict={dict} locale={locale} />
-          <main className="flex-grow pt-[72px]">{children}</main>
+          <main className="flex-grow pt-[72px] pb-16 md:pb-0">{children}</main>
           <Footer dict={dict} locale={locale} />
           <CookieConsent dict={dict} locale={locale} />
+          <MobileStickyBar locale={locale} />
         </ThemeProvider>
         
-        {/* WhatsApp Floating Button */}
+        {/* WhatsApp Floating Button (Desktop) */}
         <a
           href="https://wa.me/905551234567"
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 hover:scale-110 hover:shadow-xl transition-all duration-300 animate-pulse-glow"
+          className="hidden md:flex fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full items-center justify-center shadow-lg shadow-green-500/30 hover:scale-110 hover:shadow-xl transition-all duration-300 animate-pulse-glow"
           aria-label="WhatsApp"
           style={{ animationDuration: '3s' }}
         >

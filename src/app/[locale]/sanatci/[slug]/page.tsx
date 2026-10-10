@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Play, Sparkles, Music, Users, ExternalLink } from 'lucide-react';
 import { getArtists, getArtistBySlug } from '@/lib/content';
 
+import { getPageAlternates } from '@/lib/seo';
+
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
@@ -34,9 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       absolute: rawTitle,
     },
     description: pageDesc,
-    alternates: {
-      canonical: `https://medyapr.com/${locale}/sanatci/${slug}`,
-    },
+    alternates: getPageAlternates(locale, `/sanatci/${slug}`),
     openGraph: {
       title: rawTitle,
       description: pageDesc,

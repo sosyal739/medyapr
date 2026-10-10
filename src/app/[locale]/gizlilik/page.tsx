@@ -6,6 +6,8 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
+import { getPageAlternates } from '@/lib/seo';
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
@@ -19,9 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: isTr
       ? 'MedyaPR gizlilik ve veri güvenliği ilkeleri. Kanal bilgileri, sipariş güvenliği, YouTube API kullanımı ve KVKK/GDPR uyumluluğu hakkında detaylar.'
       : 'MedyaPR privacy and data security policy. Video campaign security, channel protection, zero credential requests, and GDPR compliance standards.',
-    alternates: {
-      canonical: `https://medyapr.com/${locale}/gizlilik`,
-    },
+    alternates: getPageAlternates(locale, '/gizlilik'),
   };
 }
 

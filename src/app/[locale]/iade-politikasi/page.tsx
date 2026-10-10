@@ -6,6 +6,8 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
+import { getPageAlternates } from '@/lib/seo';
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
@@ -19,9 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: isTr
       ? 'MedyaPR %100 onay garantisi ve iade şartları. Reklam onayı alamayan veya tamamlanamayan kampanyalar için anında tam iade ve müşteri koruma ilkeleri.'
       : 'MedyaPR 100% approval and refund guarantee. Complete money-back policy if campaigns are not approved by Google Ads or delivery falls short.',
-    alternates: {
-      canonical: `https://medyapr.com/${locale}/iade-politikasi`,
-    },
+    alternates: getPageAlternates(locale, '/iade-politikasi'),
   };
 }
 

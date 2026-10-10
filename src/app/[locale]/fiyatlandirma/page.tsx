@@ -7,6 +7,8 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
+import { getPageAlternates } from '@/lib/seo';
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
@@ -20,9 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: isTr
       ? 'YouTube klip tanıtımı ve izlenme paketleri. Kademeli indirimli baremler, %100 resmi Google Ads gösterimleri ve aşamalı güvenli ödeme modeli.'
       : 'YouTube music video PR pricing calculator. Transparent tiered rates, 100% official Google Ads campaigns, and phased secure payment guarantee.',
-    alternates: {
-      canonical: `https://medyapr.com/${locale}/fiyatlandirma`,
-    },
+    alternates: getPageAlternates(locale, '/fiyatlandirma'),
   };
 }
 
