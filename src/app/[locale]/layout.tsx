@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       follow: true,
     },
     verification: {
-      google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,
+      google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || '6vVh-U5RO-idJx1NOXWy1ALgOK3edpytPoOYklpLH_E',
     },
   };
 }
@@ -148,7 +148,7 @@ export default async function LocaleLayout({ params, children }: Props) {
       </head>
       <body className="min-h-screen flex flex-col bg-app-base text-zinc-100 antialiased selection:bg-[#FF0033] selection:text-white transition-colors duration-400">
         <ThemeProvider>
-          <GoogleAnalytics />
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-QH1RF058RM'} />
           <Header dict={dict} locale={locale} />
           <main className="flex-grow pt-[72px]">{children}</main>
           <Footer dict={dict} locale={locale} />
