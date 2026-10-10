@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Flame, TrendingUp, Play, ExternalLink, Sparkles, ArrowRight } from 'lucide-react';
 
 export interface TrendingSong {
@@ -22,10 +23,15 @@ interface TrendingMusicSectionProps {
 }
 
 export default function TrendingMusicSection({ songs, locale }: TrendingMusicSectionProps) {
-  const [filter, setFilter] = useState<'all' | 'top5'>('all');
+  const [filter, setFilter] = useState<'top10' | 'all' | 'top5'>('top10');
   const isTr = locale === 'tr';
 
-  const displayedSongs = filter === 'top5' ? songs.slice(0, 5) : songs.slice(0, 10);
+  const displayedSongs =
+    filter === 'top5'
+      ? songs.slice(0, 5)
+      : filter === 'all'
+      ? songs.slice(0, 20)
+      : songs.slice(0, 10);
   const nf = new Intl.NumberFormat(isTr ? 'tr-TR' : 'en-US');
 
   return (
@@ -69,20 +75,32 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
           <div className="flex items-center gap-1.5 p-1.5 rounded-2xl bg-zinc-900/90 border border-zinc-700/70 shadow-lg shadow-black/40 backdrop-blur-xl">
             <button
               type="button"
+              onClick={() => setFilter('top10')}
+              className={`flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2 text-xs font-extrabold transition-all duration-200 ${
+                filter === 'top10'
+                  ? 'bg-gradient-to-r from-[#FF0033] to-[#CC0029] text-white shadow-lg shadow-red-500/30 border border-red-400/40 scale-102'
+                  : 'bg-zinc-800/60 text-zinc-300 hover:text-white hover:bg-zinc-700/70 border border-zinc-700/50 shadow-xs'
+              }`}
+            >
+              <Flame className={`h-3.5 w-3.5 ${filter === 'top10' ? 'text-white' : 'text-zinc-400'}`} />
+              {isTr ? 'İlk 10 Klip' : 'Top 10'}
+            </button>
+            <button
+              type="button"
               onClick={() => setFilter('all')}
-              className={`flex items-center gap-2 rounded-xl px-5 py-2 text-xs font-extrabold transition-all duration-200 ${
+              className={`flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2 text-xs font-extrabold transition-all duration-200 ${
                 filter === 'all'
                   ? 'bg-gradient-to-r from-[#FF0033] to-[#CC0029] text-white shadow-lg shadow-red-500/30 border border-red-400/40 scale-102'
                   : 'bg-zinc-800/60 text-zinc-300 hover:text-white hover:bg-zinc-700/70 border border-zinc-700/50 shadow-xs'
               }`}
             >
-              <Flame className={`h-3.5 w-3.5 ${filter === 'all' ? 'text-white' : 'text-zinc-400'}`} />
-              {isTr ? 'İlk 10 Klip' : 'Top 10'}
+              <Sparkles className={`h-3.5 w-3.5 ${filter === 'all' ? 'text-white' : 'text-zinc-400'}`} />
+              {isTr ? 'Tüm 20 Trend' : 'All 20'}
             </button>
             <button
               type="button"
               onClick={() => setFilter('top5')}
-              className={`flex items-center gap-2 rounded-xl px-5 py-2 text-xs font-extrabold transition-all duration-200 ${
+              className={`flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2 text-xs font-extrabold transition-all duration-200 ${
                 filter === 'top5'
                   ? 'bg-gradient-to-r from-[#FF0033] to-[#CC0029] text-white shadow-lg shadow-red-500/30 border border-red-400/40 scale-102'
                   : 'bg-zinc-800/60 text-zinc-300 hover:text-white hover:bg-zinc-700/70 border border-zinc-700/50 shadow-xs'
@@ -201,6 +219,18 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
               </div>
             );
           })}
+        </div>
+
+        {/* Explore All 20 Trends Link */}
+        <div className="mt-8 flex justify-center">
+          <Link
+            href={`/${locale}/trendler`}
+            className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-8 py-3.5 text-sm font-bold text-white shadow-xl backdrop-blur-xl hover:border-[#FF0033]/60 hover:bg-[#FF0033]/20 transition-all hover:scale-105"
+          >
+            <Flame className="h-4 w-4 text-[#FF0033]" />
+            {isTr ? 'Tüm 20 Trend Şarkıyı ve Klip Analizlerini Canlı İncele' : 'Explore All 20 Trending Music Videos & Deep Analysis'}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
 
         {/* Conversion & Pitch Banner */}

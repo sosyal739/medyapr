@@ -331,7 +331,7 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Article Body */}
         <div className="space-y-6 text-base sm:text-lg leading-relaxed text-white/80">
-          {post.paragraphs.map((p, idx) => {
+          {(post.paragraphs || []).map((p, idx) => {
             if (p.startsWith('### ')) {
               return (
                 <h2 key={idx} className="pt-6 text-2xl sm:text-3xl font-extrabold text-white tracking-tight">

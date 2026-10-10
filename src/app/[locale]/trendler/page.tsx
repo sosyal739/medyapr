@@ -200,18 +200,25 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
                 </div>
 
                 {/* Right Action */}
-                <div className="flex items-center gap-3 w-full md:w-auto justify-end border-t border-white/5 pt-3 md:border-t-0 md:pt-0">
+                <div className="flex flex-wrap items-center gap-2.5 w-full md:w-auto justify-end border-t border-white/5 pt-3 md:border-t-0 md:pt-0">
+                  <Link
+                    href={`/${locale}/blog`}
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-bold text-zinc-300 hover:bg-white/10 hover:text-white transition"
+                  >
+                    Trend Analizi
+                  </Link>
                   <a
                     href={`https://www.youtube.com/watch?v=${song.videoId}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-xs font-bold text-white/70 hover:bg-white/10 hover:text-white transition"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-bold text-white/70 hover:bg-white/10 hover:text-white transition"
+                    title="YouTube'da İzle"
                   >
-                    YouTube <ExternalLink className="h-3.5 w-3.5" />
+                    <ExternalLink className="h-3.5 w-3.5" />
                   </a>
                   <a
                     href={`/${locale}#calculator`}
-                    className="inline-flex items-center gap-1.5 rounded-xl bg-[#FF0033] px-4 py-2.5 text-xs font-bold text-white shadow-lg shadow-[#FF0033]/20 hover:bg-[#E6002E] transition"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-4 py-2 text-xs font-extrabold text-white shadow-lg shadow-[#FF0033]/20 hover:brightness-110 transition"
                   >
                     Klibini Tanıt <ArrowRight className="h-3.5 w-3.5" />
                   </a>
@@ -221,10 +228,121 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
           })}
         </div>
 
+        {/* ── Klip Lansman Planları & Dönüşüm Bölümü (Sanatçılar & Müzisyenler İçin) ── */}
+        <div className="mt-16 rounded-3xl border border-[#FF0033]/30 bg-gradient-to-b from-zinc-900/90 to-zinc-950/95 p-8 md:p-12 shadow-2xl backdrop-blur-2xl">
+          <div className="max-w-3xl mb-10">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FF0033]/20 px-3.5 py-1 text-xs font-extrabold text-[#FF6B6B] uppercase tracking-wider mb-3">
+              🚀 Resmi Google Ads ile YouTube Trend Stratejisi
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
+              Kendi Klibinizi YouTube Trendlerine Taşıyacak Lansman Planları
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-zinc-300 leading-relaxed">
+              Bu listedeki kliplerin ortak noktası; ilk 24-48 saatte aldıkları yüksek izlenme tutunması (%65+ Retention) ve resmi Google Ads reklam ivmesidir. Bot panelleri kanalı algoritmada cezalandırırken, MedyaPR ile %100 resmi reklamlarla organik keşfet trafiğinizi başlatın.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {/* Paket 1: Starter Launch */}
+            <div className="rounded-2xl border border-zinc-800 bg-zinc-900/80 p-6 flex flex-col justify-between hover:border-zinc-700 transition">
+              <div>
+                <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Başlangıç Lansmanı</span>
+                <h3 className="text-xl font-extrabold text-white mt-1">Starter PR</h3>
+                <div className="mt-4 mb-5">
+                  <span className="text-3xl font-black text-white">50.000</span>
+                  <span className="text-xs text-zinc-400 font-bold ml-1.5">Gerçek İzlenme</span>
+                  <p className="text-xs text-emerald-400 font-semibold mt-1">3.250 ₺ · İlk 48 Saat İvmesi</p>
+                </div>
+                <ul className="space-y-2.5 text-xs text-zinc-300 border-t border-zinc-800 pt-4">
+                  <li className="flex items-center gap-2">✓ Atlanabilir In-Stream Resmi Reklam</li>
+                  <li className="flex items-center gap-2">✓ %100 YouTube Studio / Analytics Tescili</li>
+                  <li className="flex items-center gap-2">✓ Müzik Türü &amp; Demografik Hedefleme</li>
+                  <li className="flex items-center gap-2">✓ %50 Onayda, %50 Bitince Ödeme</li>
+                </ul>
+              </div>
+              <a
+                href={`/${locale}#calculator`}
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-3 text-xs font-extrabold text-white hover:bg-zinc-700 transition"
+              >
+                Paketi Seç &amp; Başlat
+              </a>
+            </div>
+
+            {/* Paket 2: Growth Momentum (Öne Çıkan) */}
+            <div className="rounded-2xl border-2 border-[#FF0033] bg-gradient-to-b from-[#FF0033]/15 via-zinc-900/90 to-zinc-950 p-6 flex flex-col justify-between shadow-xl shadow-[#FF0033]/20 relative">
+              <span className="absolute -top-3 right-6 rounded-full bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-3 py-0.5 text-[10px] font-black text-white uppercase tracking-wider shadow-md">
+                En Popüler Klip Lansmanı
+              </span>
+              <div>
+                <span className="text-xs font-bold text-[#FF6B6B] uppercase tracking-wider">Algoritma &amp; Keşfet</span>
+                <h3 className="text-xl font-extrabold text-white mt-1">Growth Momentum</h3>
+                <div className="mt-4 mb-5">
+                  <span className="text-3xl font-black text-white">100.000</span>
+                  <span className="text-xs text-zinc-400 font-bold ml-1.5">Gerçek İzlenme</span>
+                  <p className="text-xs text-emerald-400 font-semibold mt-1">5.500 ₺ · Önerilen Videolar Hedefi</p>
+                </div>
+                <ul className="space-y-2.5 text-xs text-zinc-200 border-t border-zinc-800 pt-4">
+                  <li className="flex items-center gap-2">✓ In-Stream + In-Feed Keşfet Reklamı</li>
+                  <li className="flex items-center gap-2">✓ %65+ Ortalama İzleme Süresi (Retention)</li>
+                  <li className="flex items-center gap-2">✓ Benzer Sanatçıların Kitlelerine Gösterim</li>
+                  <li className="flex items-center gap-2">✓ Detaylı Kampanya ve Dönüşüm Raporu</li>
+                  <li className="flex items-center gap-2 font-bold text-emerald-400">✓ %50 Onayda, %50 Bitince Ödeme</li>
+                </ul>
+              </div>
+              <a
+                href={`/${locale}#calculator`}
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-4 py-3 text-xs font-black text-white shadow-lg shadow-[#FF0033]/30 hover:brightness-110 transition"
+              >
+                Hemen Başlat <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+
+            {/* Paket 3: Viral Trend PR */}
+            <div className="rounded-2xl border border-zinc-800 bg-zinc-900/80 p-6 flex flex-col justify-between hover:border-zinc-700 transition">
+              <div>
+                <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Trend &amp; Ulusal Çıkış</span>
+                <h3 className="text-xl font-extrabold text-white mt-1">Viral Breakthrough</h3>
+                <div className="mt-4 mb-5">
+                  <span className="text-3xl font-black text-white">250.000+</span>
+                  <span className="text-xs text-zinc-400 font-bold ml-1.5">Gerçek İzlenme</span>
+                  <p className="text-xs text-emerald-400 font-semibold mt-1">11.500 ₺ · YouTube Trend 20 Listesi</p>
+                </div>
+                <ul className="space-y-2.5 text-xs text-zinc-300 border-t border-zinc-800 pt-4">
+                  <li className="flex items-center gap-2">✓ YouTube Shorts + Video Reklam Karması</li>
+                  <li className="flex items-center gap-2">✓ Türkiye &amp; Avrupa (Gurbetçi) Kitle Hedefi</li>
+                  <li className="flex items-center gap-2">✓ Radyo &amp; Yapımcı Radarına Girme Desteği</li>
+                  <li className="flex items-center gap-2">✓ 7/24 Öncelikli Danışmanlık Hattı</li>
+                </ul>
+              </div>
+              <a
+                href={`/${locale}#calculator`}
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-3 text-xs font-extrabold text-white hover:bg-zinc-700 transition"
+              >
+                Paketi Seç &amp; Başlat
+              </a>
+            </div>
+          </div>
+
+          {/* Quick WhatsApp Consultation Bar */}
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl bg-zinc-800/50 p-4 border border-zinc-700/50">
+            <div className="text-xs text-zinc-300 text-center sm:text-left">
+              💬 <strong className="text-white">Özel klip lansman bütçeniz veya yapım şirketi anlaşmanız mı var?</strong> Stratejistimizle doğrudan görüşün.
+            </div>
+            <a
+              href="https://wa.me/905312993355?text=Merhaba%2C%20klip%20lansman%C4%B1m%20ve%20YouTube%20trend%20paketleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 px-5 py-2.5 text-xs font-bold text-white shadow-md transition"
+            >
+              WhatsApp ile Danışın (+90 531 299 33 55)
+            </a>
+          </div>
+        </div>
+
         {/* Footer Policy Attribution */}
         <div className="mt-14 rounded-2xl border border-studio bg-studio-card p-6 text-xs text-zinc-400 space-y-2">
           <p className="font-semibold text-zinc-200">
-            📌 YouTube API Hizmet Politikaları & Telif Bildirimi
+            📌 YouTube API Hizmet Politikaları &amp; Telif Bildirimi
           </p>
           <p>
             Bu sayfada yer alan video başlıkları, küçük resimler ve izlenme istatistikleri doğrudan resmi
