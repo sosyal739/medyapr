@@ -165,7 +165,7 @@ export default function ContactClient({ locale }: Props) {
               </h3>
               <div className="space-y-4">
                 <a
-                  href="https://wa.me/905551234567"
+                  href="https://wa.me/905312993355"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl border border-zinc-800 bg-zinc-800/40 hover:border-emerald-500/50 hover:bg-emerald-500/10 transition-all group"
@@ -175,7 +175,7 @@ export default function ContactClient({ locale }: Props) {
                   </div>
                   <div>
                     <p className="font-semibold text-white">WhatsApp Canlı Destek</p>
-                    <p className="text-xs text-zinc-400">+90 555 123 45 67 (7/24 Aktif)</p>
+                    <p className="text-xs text-zinc-400">+90 531 299 33 55 (7/24 Aktif)</p>
                   </div>
                 </a>
 

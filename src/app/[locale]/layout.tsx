@@ -103,12 +103,13 @@ export default async function LocaleLayout({ params, children }: Props) {
                   founder: { '@id': 'https://medyapr.com/#founder' },
                   contactPoint: {
                     '@type': 'ContactPoint',
-                    telephone: '+90-555-123-4567',
+                    telephone: '+90-531-299-3355',
                     contactType: 'customer support',
                     email: 'info@medyapr.com',
                     availableLanguage: ['Turkish', 'English'],
                   },
                   sameAs: [
+                    'https://wa.me/905312993355',
                     'https://www.youtube.com/@medyapr',
                     'https://instagram.com/medyapr',
                     'https://t.me/medyapr',
@@ -166,7 +167,7 @@ export default async function LocaleLayout({ params, children }: Props) {
         
         {/* WhatsApp Floating Button (Desktop) */}
         <a
-          href="https://wa.me/905551234567"
+          href="https://wa.me/905312993355"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:flex fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full items-center justify-center shadow-lg shadow-green-500/30 hover:scale-110 hover:shadow-xl transition-all duration-300 animate-pulse-glow"

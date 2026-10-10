@@ -20,10 +20,10 @@ export default function CTASection({ dict }: CTASectionProps) {
     t.subtitle ??
     'Hemen başlayın ve Google Ads ile gerçek izleyicilere ulaşın. İlk kampanyanıza özel %20 indirim!';
   const primaryBtn = t.primaryButton ?? 'Ücretsiz Başla';
-  const whatsappBtn = t.whatsappButton ?? 'WhatsApp ile Ulaşın';
-  const telegramText = t.telegramText ?? 'veya Telegram üzerinden yazın';
+  const whatsappBtn = t.whatsappButton ?? t.whatsapp ?? 'WhatsApp ile Ulaşın';
+  const telegramText = t.telegramText ?? t.telegram ?? 'veya Telegram üzerinden yazın';
   const telegramLink = t.telegramLink ?? '#';
-  const whatsappLink = t.whatsappLink ?? '#';
+  const whatsappLink = t.whatsappLink && t.whatsappLink !== '#' ? t.whatsappLink : 'https://wa.me/905312993355';
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#FF0033] via-[#CC0029] to-[#1A1A2E] py-20 md:py-28">

@@ -132,7 +132,7 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
             value={contact}
             onChange={(e) => setContact(e.target.value)}
             className={inputClass}
-            placeholder="+90 555 123 45 67 (WhatsApp Bildirimi İçin)"
+            placeholder="+90 531 299 33 55 (WhatsApp Bildirimi İçin)"
           />
         </div>
 

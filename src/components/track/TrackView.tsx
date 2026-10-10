@@ -200,7 +200,7 @@ export default function TrackView({
             </div>
 
             <a
-              href={`https://wa.me/905551234567?text=${waText}`}
+              href={`https://wa.me/905312993355?text=${waText}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-[#25D366] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#25D366]/30 hover:scale-105 transition"

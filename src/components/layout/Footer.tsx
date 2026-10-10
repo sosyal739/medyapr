@@ -34,7 +34,7 @@ export default function Footer({ dict, locale }: FooterProps) {
             {/* Social Links */}
             <div className="flex items-center gap-3">
               <a
-                href="https://wa.me/905551234567"
+                href="https://wa.me/905312993355"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-zinc-800/80 border border-zinc-700/60 rounded-xl flex items-center justify-center hover:bg-green-500 hover:border-green-500 transition-all duration-300 hover:scale-110 shadow-md"

@@ -57,7 +57,7 @@ export default async function ContactPage({ params }: Props) {
         mainEntity: {
           '@type': 'Organization',
           name: 'MedyaPR',
-          telephone: '+90-555-123-4567',
+          telephone: '+90-531-299-3355',
           email: 'info@medyapr.com',
         },
       },

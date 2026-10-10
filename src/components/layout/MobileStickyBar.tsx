@@ -18,7 +18,7 @@ export default function MobileStickyBar({ locale = 'tr' }: MobileStickyBarProps)
       <div className="flex items-center gap-2 max-w-md mx-auto">
         {/* WhatsApp Direct Contact Button */}
         <a
-          href={`https://wa.me/905551234567?text=${waText}`}
+          href={`https://wa.me/905312993355?text=${waText}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-lg shadow-emerald-950/50 transition-all active:scale-95"
