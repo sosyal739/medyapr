@@ -10,6 +10,7 @@ import {
   Sparkles,
   TrendingUp,
   Share2,
+  Lightbulb,
 } from 'lucide-react';
 import { getPosts, type BlogPost } from '@/lib/content';
 
@@ -18,16 +19,17 @@ export const metadata: Metadata = {
     absolute: 'YouTube Müzik Video & Klip PR Blogu | MedyaPR',
   },
   description:
-    'Sanatçı biyografileri, trend şarkı ve klip analizleri, YouTube algoritma dinamikleri, resmi Google Ads video PR taktikleri ve sosyal medya müzik pazarlama rehberleri.',
+    'Sosyal medya tüyoları, nasıl yapılır rehberleri, tavsiyeler, sanatçı biyografileri (kimdir), klip analizleri ve resmi Google Ads video PR stratejileri.',
 };
 
 const CATEGORIES = [
   { key: 'all', labelTr: 'Tüm Rehberler', labelEn: 'All Guides', icon: BookOpen, match: null },
-  { key: 'sanatcilar', labelTr: 'Sanatçı Portreleri', labelEn: 'Artist Profiles', icon: Users, match: 'Sanatçı Portreleri' },
-  { key: 'analizler', labelTr: 'Şarkı & Klip Analizleri', labelEn: 'Song & Video Analysis', icon: Flame, match: 'Şarkı & Klip Analizleri' },
-  { key: 'algoritma', labelTr: 'YouTube Rehberi & Algoritma', labelEn: 'YouTube Guide & Algorithm', icon: Sparkles, match: 'YouTube Rehberi & Algoritma' },
-  { key: 'video-pr', labelTr: 'Resmi Video PR & Google Ads', labelEn: 'Official PR & Google Ads', icon: TrendingUp, match: 'Resmi Video PR & Google Ads' },
-  { key: 'sosyal-medya', labelTr: 'Sosyal Medya & Müzik', labelEn: 'Social Media & Music', icon: Share2, match: 'Sosyal Medya & Müzik Pazarlaması' },
+  { key: 'sosyal-medya', labelTr: 'Sosyal Medya', labelEn: 'Social Media', icon: Share2, match: 'Sosyal Medya' },
+  { key: 'nasil-yapilir', labelTr: 'Nasıl Yapılır?', labelEn: 'How-To', icon: Sparkles, match: 'Nasıl Yapılır?' },
+  { key: 'tavsiye', labelTr: 'Tavsiye', labelEn: 'Tips & Strategy', icon: Lightbulb, match: 'Tavsiye' },
+  { key: 'kimdir', labelTr: 'Kimdir?', labelEn: 'Who Is?', icon: Users, match: 'Kimdir?' },
+  { key: 'video-pr', labelTr: 'Resmi Video PR', labelEn: 'Official Video PR', icon: TrendingUp, match: 'Resmi Video PR & Google Ads' },
+  { key: 'analizler', labelTr: 'Şarkı Analizleri', labelEn: 'Song Analysis', icon: Flame, match: 'Şarkı & Klip Analizleri' },
 ];
 
 export default async function BlogIndexPage({

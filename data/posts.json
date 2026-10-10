@@ -10,16 +10,47 @@
     "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["Manifest", "Trend Şarkılar", "YouTube Müzik", "Klip Analizi", "Google Ads"],
+    "tags": [
+      "Manifest",
+      "Trend Şarkılar",
+      "YouTube Müzik",
+      "Klip Analizi",
+      "Google Ads"
+    ],
     "quickFact": "Manifest grubunun 'TRALALA' klibi, yayınlandıktan sonraki ilk 48 saatte 490.000 organik ivme kazanarak 6.1 milyon izlenmeyle YouTube Türkiye Trendler listesinde 1 numaraya ulaştı. Bu başarının ana dinamiği; ilk 5 saniyelik %72 tutunma (retention) oranı ve %6.2'lik beğeni/izlenme etkileşimidir.",
     "table": {
       "caption": "Manifest - TRALALA YouTube Algoritma & Performans Metrikleri",
-      "headers": ["Metrik Türü", "TRALALA Ölçümü", "Sektör Medyanı", "Algoritmik Etki"],
+      "headers": [
+        "Metrik Türü",
+        "TRALALA Ölçümü",
+        "Sektör Medyanı",
+        "Algoritmik Etki"
+      ],
       "rows": [
-        ["İlk 5 Sn Tutunma", "%72.4", "%48.0", "Yüksek Öneri Hacmi"],
-        ["Beğeni / İzlenme", "%6.2 (385K+)", "%2.8", "Trendler Listesi Tetikleyici"],
-        ["İlk 48 Saat İvmesi", "490K / Gün", "35K / Gün", "Momentum Çarpanı Zirve"],
-        ["Trafik Kaynağı", "Önerilen + Reklam", "Doğrudan", "Kalıcı Keşfet Dağıtımı"]
+        [
+          "İlk 5 Sn Tutunma",
+          "%72.4",
+          "%48.0",
+          "Yüksek Öneri Hacmi"
+        ],
+        [
+          "Beğeni / İzlenme",
+          "%6.2 (385K+)",
+          "%2.8",
+          "Trendler Listesi Tetikleyici"
+        ],
+        [
+          "İlk 48 Saat İvmesi",
+          "490K / Gün",
+          "35K / Gün",
+          "Momentum Çarpanı Zirve"
+        ],
+        [
+          "Trafik Kaynağı",
+          "Önerilen + Reklam",
+          "Doğrudan",
+          "Kalıcı Keşfet Dağıtımı"
+        ]
       ]
     },
     "faqs": [
@@ -54,15 +85,41 @@
     "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["Dedublüman", "Sıla", "Acı Bal", "Trend Müzik", "Akustik"],
+    "tags": [
+      "Dedublüman",
+      "Sıla",
+      "Acı Bal",
+      "Trend Müzik",
+      "Akustik"
+    ],
     "quickFact": "Dedublüman ve Sıla'nın 'Acı Bal' ortak çalışması 4.4 milyon izlenmeyle akustik performansların YouTube'daki kalıcılığını tescilledi. Canlı akustik seanslar, standart stüdyo kliplerine göre ortalama %35 daha uzun dinleme süresi sağlayarak çalma listelerinde kalıcı yer edinir.",
     "table": {
       "caption": "Akustik Canlı Kayıtlar ile Standart Stüdyo Klipleri Karşılaştırması",
-      "headers": ["İçerik Türü", "Ortalama Dinleme Oranı", "Tekrar Oynatma (Loop)", "Hedef Kitle Karakteri"],
+      "headers": [
+        "İçerik Türü",
+        "Ortalama Dinleme Oranı",
+        "Tekrar Oynatma (Loop)",
+        "Hedef Kitle Karakteri"
+      ],
       "rows": [
-        ["Akustik Canlı Seans", "%58 - %74", "Çok Yüksek (Çalma Listesi)", "Sadık ve Derin Dinleyici"],
-        ["Standart Stüdyo Klibi", "%35 - %48", "Orta Düzey", "Görsel Odaklı Hızlı Tüketim"],
-        ["Ortak Düet Projesi", "%62 - %80", "Yüksek Çapraz Dinleme", "İki Sanatçının Ortak Tabanı"]
+        [
+          "Akustik Canlı Seans",
+          "%58 - %74",
+          "Çok Yüksek (Çalma Listesi)",
+          "Sadık ve Derin Dinleyici"
+        ],
+        [
+          "Standart Stüdyo Klibi",
+          "%35 - %48",
+          "Orta Düzey",
+          "Görsel Odaklı Hızlı Tüketim"
+        ],
+        [
+          "Ortak Düet Projesi",
+          "%62 - %80",
+          "Yüksek Çapraz Dinleme",
+          "İki Sanatçının Ortak Tabanı"
+        ]
       ]
     },
     "faqs": [
@@ -95,16 +152,46 @@
     "image": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["Klip Stratejisi", "YouTube Algoritması", "Google Ads Video", "Müzik Pazarlama"],
+    "tags": [
+      "Klip Stratejisi",
+      "YouTube Algoritması",
+      "Google Ads Video",
+      "Müzik Pazarlama"
+    ],
     "quickFact": "YouTube video algoritması, yüklenen yeni klipleri ilk 48 saat içinde test eder (Golden Window). Bu süre zarfında elde edilen ortalama görüntüleme süresi (AVD) %45'in üzerinde kaldığında ve izlenmeler resmi Google Ads kaynaklı olduğunda, sistem videoyu organik önerilenler havuzuna taşır.",
     "table": {
       "caption": "Resmi Google Ads ile Sahte Bot Panelleri Arasındaki 48 Saatlik Algoritma Karşılaştırması",
-      "headers": ["Kriter", "Resmi Google Ads Kampanyası", "Bot / SMM Panelleri", "Kanal Sağlığına Etkisi"],
+      "headers": [
+        "Kriter",
+        "Resmi Google Ads Kampanyası",
+        "Bot / SMM Panelleri",
+        "Kanal Sağlığına Etkisi"
+      ],
       "rows": [
-        ["Trafik Kaynağı", "YouTube Reklamları (Resmi Kayıt)", "Bilinmeyen / Harici Direct", "Bot Kaynaklı İhlal Riski"],
-        ["İzleme Süresi", "Gerçek Kullanıcı (%50+ Süre)", "3-5 Saniye Sahte Tıklama", "Algoritma Sıralama Çöküşü"],
-        ["Kalıcılık", "%100 Kalıcı ve Ömür Boyu", "YouTube Tarafından Silinir", "İstatistik Sıfırlanması"],
-        ["Organik Öneri", "Önerilen Videolara Taşır", "Gölge Yasaklama (Shadowban)", "Organik Trafik Kapanır"]
+        [
+          "Trafik Kaynağı",
+          "YouTube Reklamları (Resmi Kayıt)",
+          "Bilinmeyen / Harici Direct",
+          "Bot Kaynaklı İhlal Riski"
+        ],
+        [
+          "İzleme Süresi",
+          "Gerçek Kullanıcı (%50+ Süre)",
+          "3-5 Saniye Sahte Tıklama",
+          "Algoritma Sıralama Çöküşü"
+        ],
+        [
+          "Kalıcılık",
+          "%100 Kalıcı ve Ömür Boyu",
+          "YouTube Tarafından Silinir",
+          "İstatistik Sıfırlanması"
+        ],
+        [
+          "Organik Öneri",
+          "Önerilen Videolara Taşır",
+          "Gölge Yasaklama (Shadowban)",
+          "Organik Trafik Kapanır"
+        ]
       ]
     },
     "faqs": [
@@ -138,15 +225,41 @@
     "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["Klip Tanıtımı", "Google Ads Video", "YouTube Büyütme", "Müzik PR", "Klip PR"],
+    "tags": [
+      "Klip Tanıtımı",
+      "Google Ads Video",
+      "YouTube Büyütme",
+      "Müzik PR",
+      "Klip PR"
+    ],
     "quickFact": "Resmi YouTube klip tanıtımı, Google Ads video ağı üzerinden müzik türü, yaş, dil ve coğrafi konuma göre optimize edilen reklam gösterimleriyle yapılır. Sahte panellerin aksine trafik kaynağı YouTube Studio'da 'YouTube Reklamları' olarak kayıt altına alınır ve ömür boyu kalıcıdır.",
     "table": {
       "caption": "YouTube Klip Tanıtımında Reklam Formatları ve Performans Kıyaslaması",
-      "headers": ["Format Adı", "Önerilen Minimum Bütçe", "Ortalama CTR", "Kullanım Amacı"],
+      "headers": [
+        "Format Adı",
+        "Önerilen Minimum Bütçe",
+        "Ortalama CTR",
+        "Kullanım Amacı"
+      ],
       "rows": [
-        ["Atlanabilir In-Stream", "₺1.200 (5K)", "%4.5 - %8.5", "Video İçi İvme & Hızlı İzlenme"],
-        ["YouTube Shorts Reklamı", "₺750 (10K Global)", "%6.0 - %12.0", "Viral Şarkı Nakaratı Tanıtımı"],
-        ["Keşfet / In-Feed Ads", "₺2.000 (10K)", "%3.2 - %6.0", "Kanal Abonesi & Daimi Dinleyici"]
+        [
+          "Atlanabilir In-Stream",
+          "₺1.200 (5K)",
+          "%4.5 - %8.5",
+          "Video İçi İvme & Hızlı İzlenme"
+        ],
+        [
+          "YouTube Shorts Reklamı",
+          "₺750 (10K Global)",
+          "%6.0 - %12.0",
+          "Viral Şarkı Nakaratı Tanıtımı"
+        ],
+        [
+          "Keşfet / In-Feed Ads",
+          "₺2.000 (10K)",
+          "%3.2 - %6.0",
+          "Kanal Abonesi & Daimi Dinleyici"
+        ]
       ]
     },
     "faqs": [
@@ -172,23 +285,53 @@
     "slug": "silinen-youtube-videolari-izlenebilir-mi-kurtarma-rehberi",
     "title": "Silinen YouTube Videoları İzlenebilir mi? Kurtarma ve İzleme Yöntemleri",
     "summary": "Silinen YouTube videolarını geri getirmenin yolları: Wayback Machine, Google Cache, video URL sorgulama ve telif itirazı ile kurtarma adımları.",
-    "category": "YouTube Rehberi & Algoritma",
+    "category": "Nasıl Yapılır?",
     "date": "10 Ekim 2026",
     "readTime": "6 dk",
     "videoId": "jVpT8G_X7mQ",
     "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["Silinen Videolar", "YouTube Kurtarma", "Wayback Machine", "YouTube İpuçları"],
+    "tags": [
+      "Silinen Videolar",
+      "YouTube Kurtarma",
+      "Wayback Machine",
+      "YouTube İpuçları"
+    ],
     "quickFact": "Silinen YouTube videoları, video bağlantısı (URL) biliniyorsa İnternet Arşivi (Wayback Machine), Google Web Cache ve üçüncü taraf arşiv veritabanları kullanılarak çoğu zaman izlenebilir ve yeniden indirilebilir. Yanlışlıkla silinen veya haksız telifle kaldırılan videolar ise YouTube Partner Desteği üzerinden geri yüklenebilir.",
     "table": {
       "caption": "Silinen YouTube Videolarını İzleme Yöntemlerinin Başarı Oranları",
-      "headers": ["Yöntem Adı", "Gereken Bilgi", "Başarı Oranı", "Maksimum Kurtarma Süresi"],
+      "headers": [
+        "Yöntem Adı",
+        "Gereken Bilgi",
+        "Başarı Oranı",
+        "Maksimum Kurtarma Süresi"
+      ],
       "rows": [
-        ["Wayback Machine (Archive.org)", "Video Linki (URL)", "%65 - %85", "Arşivlendiği Tarihe Bağlı"],
-        ["Google Arama Önbelleği (Cache)", "Video Başlığı / ID", "%40 - %60", "Silinmeden Sonraki 7-14 Gün"],
-        ["YouTube İçerik Üretici Desteği", "Kanal Girişi & Video ID", "%90 (Haksız Fesih)", "30 Gün İçinde Başvuru"],
-        ["Yerel Tarayıcı Önbelleği (Cache)", "İzlenilen Bilgisayar", "%30", "Geçmiş Temizlenmediyse"]
+        [
+          "Wayback Machine (Archive.org)",
+          "Video Linki (URL)",
+          "%65 - %85",
+          "Arşivlendiği Tarihe Bağlı"
+        ],
+        [
+          "Google Arama Önbelleği (Cache)",
+          "Video Başlığı / ID",
+          "%40 - %60",
+          "Silinmeden Sonraki 7-14 Gün"
+        ],
+        [
+          "YouTube İçerik Üretici Desteği",
+          "Kanal Girişi & Video ID",
+          "%90 (Haksız Fesih)",
+          "30 Gün İçinde Başvuru"
+        ],
+        [
+          "Yerel Tarayıcı Önbelleği (Cache)",
+          "İzlenilen Bilgisayar",
+          "%30",
+          "Geçmiş Temizlenmediyse"
+        ]
       ]
     },
     "faqs": [
@@ -215,23 +358,54 @@
     "slug": "manifest-kimdir-sarkilari-tarzi-ve-youtube-yukselisi",
     "title": "Manifest Kimdir? Şarkıları, Müzik Tarzı ve YouTube Yükselişi",
     "summary": "Manifest grubu kimdir, üyeleri kimlerdir? TRALALA ile müzik listelerini sallayan grubun müzik tarzı, klipleri ve YouTube dijital PR başarısı.",
-    "category": "Sanatçı Portreleri",
+    "category": "Kimdir?",
     "date": "10 Ekim 2026",
     "readTime": "5 dk",
     "videoId": "0rW7Fbm4S7g",
     "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["Manifest", "Manifest Kimdir", "Sanatçı Biyografi", "TRALALA", "Türk Pop"],
+    "tags": [
+      "Manifest",
+      "Manifest Kimdir",
+      "Sanatçı Biyografi",
+      "TRALALA",
+      "Türk Pop"
+    ],
     "quickFact": "Manifest, elektronik altyapıları enerjik vokal melodileriyle birleştiren yeni nesil Türk alternatif pop grubudur. 2026 yılında yayınladıkları 'TRALALA' parçasıyla YouTube trendler listesinde 1 numaraya yükselerek 6 milyonun üzerinde izlenme ve 3.5 milyondan fazla aylık dinleyici kitlesine ulaşmışlardır.",
     "table": {
       "caption": "Manifest Sanatçı Profili ve Dijital İstatistik Özeti",
-      "headers": ["Alan", "Detay", "Dijital Başarı", "Öne Çıkan Çalışma"],
+      "headers": [
+        "Alan",
+        "Detay",
+        "Dijital Başarı",
+        "Öne Çıkan Çalışma"
+      ],
       "rows": [
-        ["Müzik Türü", "Alternatif Pop / Elektronik", "Trendler 1 Numara", "TRALALA Teklisi"],
-        ["YouTube İzlenme", "18.000.000+ Toplam", "Hızlı Organik Büyüme", "0rW7Fbm4S7g Klip Kodu"],
-        ["Kitle Profili", "18-28 Yaş Genç Dinleyici", "%70 Mobil / Shorts", "TikTok & YouTube Entegre"],
-        ["PR Stratejisi", "Google Ads In-Stream + Shorts", "Kalıcı Keşfet Etkisi", "Lansman İvmesi"]
+        [
+          "Müzik Türü",
+          "Alternatif Pop / Elektronik",
+          "Trendler 1 Numara",
+          "TRALALA Teklisi"
+        ],
+        [
+          "YouTube İzlenme",
+          "18.000.000+ Toplam",
+          "Hızlı Organik Büyüme",
+          "0rW7Fbm4S7g Klip Kodu"
+        ],
+        [
+          "Kitle Profili",
+          "18-28 Yaş Genç Dinleyici",
+          "%70 Mobil / Shorts",
+          "TikTok & YouTube Entegre"
+        ],
+        [
+          "PR Stratejisi",
+          "Google Ads In-Stream + Shorts",
+          "Kalıcı Keşfet Etkisi",
+          "Lansman İvmesi"
+        ]
       ]
     },
     "faqs": [
@@ -257,23 +431,54 @@
     "slug": "dedubluman-kimdir-alternatif-rockin-zirveye-uzanan-basari-hikayesi",
     "title": "Dedublüman Kimdir? Alternatif Rock'ın Zirvesindeki Başarı Hikayesi",
     "summary": "Dedublüman kimdir, nasıl kuruldu? Klarnetin büyüleyici tınısıyla Türk alternatif rock müziğini birleştiren grubun YouTube başarı yolculuğu.",
-    "category": "Sanatçı Portreleri",
+    "category": "Kimdir?",
     "date": "10 Ekim 2026",
     "readTime": "5 dk",
     "videoId": "XTdU5RSodZ4",
     "image": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["Dedublüman", "Dedublüman Kimdir", "Alternatif Rock", "Acı Bal", "Sıla"],
+    "tags": [
+      "Dedublüman",
+      "Dedublüman Kimdir",
+      "Alternatif Rock",
+      "Acı Bal",
+      "Sıla"
+    ],
     "quickFact": "Dedublüman, geleneksel Türk müziği enstrümanı olan klarneti modern alternatif rock melodileriyle sentezleyen Türk müzik grubudur. 'Belki' ve Sıla ile düet yaptıkları 'Acı Bal' şarkılarıyla toplamda 320 milyondan fazla izlenme elde ederek dijital platformların en çok dinlenen gruplarından biri olmuşlardır.",
     "table": {
       "caption": "Dedublüman Kariyer ve Dijital Dinlenme Metrikleri",
-      "headers": ["Kriter", "Değer", "Önem Derecesi", "Trend Durumu"],
+      "headers": [
+        "Kriter",
+        "Değer",
+        "Önem Derecesi",
+        "Trend Durumu"
+      ],
       "rows": [
-        ["Kuruluş Yılı & Tarz", "2010 - Alternatif Rock", "Yüksek Özgünlük", "Klarnet & Gitar Sentezi"],
-        ["Toplam YouTube İzlenme", "320.000.000+", "Zirve Seviye", "115M 'Belki' Şarkısı"],
-        ["Aylık Dinleyici", "6.2 Milyon Dinleyici", "İstikrarlı", "Çalma Listesi Lideri"],
-        ["Öne Çıkan Format", "Akustik Live Sessions", "Yüksek Tutunma (%65+)", "Dedub Sessions Serisi"]
+        [
+          "Kuruluş Yılı & Tarz",
+          "2010 - Alternatif Rock",
+          "Yüksek Özgünlük",
+          "Klarnet & Gitar Sentezi"
+        ],
+        [
+          "Toplam YouTube İzlenme",
+          "320.000.000+",
+          "Zirve Seviye",
+          "115M 'Belki' Şarkısı"
+        ],
+        [
+          "Aylık Dinleyici",
+          "6.2 Milyon Dinleyici",
+          "İstikrarlı",
+          "Çalma Listesi Lideri"
+        ],
+        [
+          "Öne Çıkan Format",
+          "Akustik Live Sessions",
+          "Yüksek Tutunma (%65+)",
+          "Dedub Sessions Serisi"
+        ]
       ]
     },
     "faqs": [
@@ -299,23 +504,54 @@
     "slug": "eypio-kimdir-turkce-rapten-dizi-muziklerine-youtube-yolculugu",
     "title": "Eypio Kimdir? Türkçe Rap'ten Film Müziklerine YouTube Yolculuğu",
     "summary": "Eypio kimdir, gerçek adı nedir? Günah Benim rekorundan Çukur ve Naim film müziklerine Eypio'nun YouTube'daki dijital büyüme hikayesi.",
-    "category": "Sanatçı Portreleri",
+    "category": "Kimdir?",
     "date": "10 Ekim 2026",
     "readTime": "5 dk",
     "videoId": "rZWeR8bQlaE",
     "image": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["Eypio", "Eypio Kimdir", "Türkçe Rap", "Şahidim", "Günah Benim"],
+    "tags": [
+      "Eypio",
+      "Eypio Kimdir",
+      "Türkçe Rap",
+      "Şahidim",
+      "Günah Benim"
+    ],
     "quickFact": "Eypio (Abdurrahim Akça), Türk rap müziğini geleneksel halk edebiyatı ve samimi sokak kültürüyle harmanlayan usta sanatçıdır. 'Günah Benim' ile 280 milyon, Çukur dizisi için yaptığı 'Gömün Beni Çukura' ile 180 milyon izlenme barajını aşarak YouTube Türkiye tarihine geçmiştir.",
     "table": {
       "caption": "Eypio Kariyer Özeti ve YouTube İzlenme Rakamları",
-      "headers": ["Eser Adı", "Format", "YouTube İzlenme", "Sektörel Etki"],
+      "headers": [
+        "Eser Adı",
+        "Format",
+        "YouTube İzlenme",
+        "Sektörel Etki"
+      ],
       "rows": [
-        ["Günah Benim (ft. Burak King)", "Resmi Klip", "280.000.000+", "Türkçe Rap'i Ana Akıma Taşıdı"],
-        ["Gömün Beni Çukura", "Dizi O.S.T.", "180.000.000+", "Dizi & YouTube Senkronizasyonu"],
-        ["Naim (Cep Herkülü)", "Film Müziği", "75.000.000+", "Sinema & Müzik Köprüsü"],
-        ["Şahidim (Yeni Tekli)", "Resmi Klip", "3.300.000+", "2026 Trendler Listesi Başarısı"]
+        [
+          "Günah Benim (ft. Burak King)",
+          "Resmi Klip",
+          "280.000.000+",
+          "Türkçe Rap'i Ana Akıma Taşıdı"
+        ],
+        [
+          "Gömün Beni Çukura",
+          "Dizi O.S.T.",
+          "180.000.000+",
+          "Dizi & YouTube Senkronizasyonu"
+        ],
+        [
+          "Naim (Cep Herkülü)",
+          "Film Müziği",
+          "75.000.000+",
+          "Sinema & Müzik Köprüsü"
+        ],
+        [
+          "Şahidim (Yeni Tekli)",
+          "Resmi Klip",
+          "3.300.000+",
+          "2026 Trendler Listesi Başarısı"
+        ]
       ]
     },
     "faqs": [
@@ -341,23 +577,54 @@
     "slug": "semicenk-kimdir-youtube-izlenme-rekortmeninin-dijital-stratejisi",
     "title": "Semicenk Kimdir? YouTube İzlenme Rekortmeninin Dijital Stratejisi",
     "summary": "Semicenk kimdir, şarkıları nasıl bu kadar çok izleniyor? O Ses Türkiye'den yüz milyonlarca izlenmeye uzanan YouTube algoritma ustalığı.",
-    "category": "Sanatçı Portreleri",
+    "category": "Kimdir?",
     "date": "10 Ekim 2026",
     "readTime": "5 dk",
     "videoId": "ko7BMAKs7VY",
     "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["Semicenk", "Semicenk Kimdir", "YouTube Rekoru", "Düşer Aklıma", "Canın Sağ Olsun"],
+    "tags": [
+      "Semicenk",
+      "Semicenk Kimdir",
+      "YouTube Rekoru",
+      "Düşer Aklıma",
+      "Canın Sağ Olsun"
+    ],
     "quickFact": "Semicenk (Cenk Baş), son 3 yılda YouTube Türkiye'de 1 milyardan fazla izlenme elde ederek platformun en hızlı büyüyen solo erkek sanatçısı olmuştur. Düzenli 6-8 haftada bir yeni tekli çıkarma stratejisi ve arabesk-pop sentezi, YouTube algoritmasında daimi önerilme avantajı sağlamaktadır.",
     "table": {
       "caption": "Semicenk YouTube Büyüme ve Çıkış Stratejisi Modeli",
-      "headers": ["Strateji Unsuru", "Uygulama Şekli", "Algoritmik Sonuç", "Dinleyici Reaksiyonu"],
+      "headers": [
+        "Strateji Unsuru",
+        "Uygulama Şekli",
+        "Algoritmik Sonuç",
+        "Dinleyici Reaksiyonu"
+      ],
       "rows": [
-        ["Yayın Sıklığı", "6-8 Haftada Bir Yeni Klip", "Kanal Tazeliği Skoru En Yüksek", "Sürekli Beklenti Hali"],
-        ["Şarkı Süresi", "2:30 - 3:00 Dakika", "%75+ Ortalama İzleme Oranı", "Döngüde Çalma (Loop)"],
-        ["Düet Projeleri", "Funda Arar, Doğu Swag, Reynmen", "Kitle Çaprazlaması", "Her Yaş Grubuna Erişim"],
-        ["Görsel Sadeliği", "Performans Odaklı Minimal Klip", "Düşük Maliyet, Hızlı Üretim", "Şarkıya Odaklanma"]
+        [
+          "Yayın Sıklığı",
+          "6-8 Haftada Bir Yeni Klip",
+          "Kanal Tazeliği Skoru En Yüksek",
+          "Sürekli Beklenti Hali"
+        ],
+        [
+          "Şarkı Süresi",
+          "2:30 - 3:00 Dakika",
+          "%75+ Ortalama İzleme Oranı",
+          "Döngüde Çalma (Loop)"
+        ],
+        [
+          "Düet Projeleri",
+          "Funda Arar, Doğu Swag, Reynmen",
+          "Kitle Çaprazlaması",
+          "Her Yaş Grubuna Erişim"
+        ],
+        [
+          "Görsel Sadeliği",
+          "Performans Odaklı Minimal Klip",
+          "Düşük Maliyet, Hızlı Üretim",
+          "Şarkıya Odaklanma"
+        ]
       ]
     },
     "faqs": [
@@ -390,16 +657,47 @@
     "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["Ahiyan", "Kralın Kızı", "Klip Analizi", "Trend Müzik", "Trap"],
+    "tags": [
+      "Ahiyan",
+      "Kralın Kızı",
+      "Klip Analizi",
+      "Trend Müzik",
+      "Trap"
+    ],
     "quickFact": "Ahiyan'ın 'Kralın Kızı' klibi, yayınlanmasından itibaren 4.2 milyon organik izlenme toplayarak son 24 saatte 210.000 yeni izleyici kazandı. Şarkının melankolik atmosferi ve sinematik gece sahneleri, izleyicilerin klibi sonuna kadar izleme oranını %61 seviyesinde tutmuştur.",
     "table": {
       "caption": "Ahiyan - Kralın Kızı YouTube İzleyici Etkileşim Rakamları",
-      "headers": ["Analiz Unsuru", "Değer", "Kategori Standardı", "Algoritma Puanı"],
+      "headers": [
+        "Analiz Unsuru",
+        "Değer",
+        "Kategori Standardı",
+        "Algoritma Puanı"
+      ],
       "rows": [
-        ["Toplam İzlenme", "4.277.000+", "1.500.000", "A+ (Üst Düzey)"],
-        ["24 Saatlik İvme", "213.884 İzlenme", "40.000 İzlenme", "Momentum Yüksek"],
-        ["Beğeni Sayısı", "36.320 Beğeni", "15.000 Beğeni", "Pozitif Etkileşim"],
-        ["Trafik Karması", "%55 Keşfet / %45 Arama", "Dengeli Dağılım", "Kalıcı Sıralama"]
+        [
+          "Toplam İzlenme",
+          "4.277.000+",
+          "1.500.000",
+          "A+ (Üst Düzey)"
+        ],
+        [
+          "24 Saatlik İvme",
+          "213.884 İzlenme",
+          "40.000 İzlenme",
+          "Momentum Yüksek"
+        ],
+        [
+          "Beğeni Sayısı",
+          "36.320 Beğeni",
+          "15.000 Beğeni",
+          "Pozitif Etkileşim"
+        ],
+        [
+          "Trafik Karması",
+          "%55 Keşfet / %45 Arama",
+          "Dengeli Dağılım",
+          "Kalıcı Sıralama"
+        ]
       ]
     },
     "faqs": [
@@ -432,16 +730,47 @@
     "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["KÖFN", "Simge", "Yakışıklı", "Klip Analizi", "Pop Müzik"],
+    "tags": [
+      "KÖFN",
+      "Simge",
+      "Yakışıklı",
+      "Klip Analizi",
+      "Pop Müzik"
+    ],
     "quickFact": "KÖFN ve Simge ortaklığı 'Yakışıklı', indie-elektronik müzik ile ana akım Türk popunu buluşturarak 85 milyondan fazla izlenmeye ulaştı. Radyo rotasyonu ile eşzamanlı yürütülen YouTube Google Ads video kampanyaları, klibin arama hacmini %300 artırmıştır.",
     "table": {
       "caption": "Yakışıklı Klibi Çoklu Kanal Pazarlama Etkisi",
-      "headers": ["Kanal", "Katkı Oranı", "Geri Dönüş (ROI)", "Stratejik Rol"],
+      "headers": [
+        "Kanal",
+        "Katkı Oranı",
+        "Geri Dönüş (ROI)",
+        "Stratejik Rol"
+      ],
       "rows": [
-        ["YouTube Video Klibi", "%50 Ana Trafik", "Çok Yüksek", "Görsel Merkez & Abone"],
-        ["Radyo & TV Rotasyonu", "%25 Farkındalık", "Yüksek Prestij", "Merak ve Arama Tetikleyici"],
-        ["TikTok & Shorts Sesleri", "%15 Viral Yayılım", "Hızlı Etkileşim", "Genç Kitle Kazanımı"],
-        ["Google Ads Kampanyaları", "%10 Hedefli İvme", "Ölçülebilir Doğrudan İzlenme", "Algoritmik Öneri Desteği"]
+        [
+          "YouTube Video Klibi",
+          "%50 Ana Trafik",
+          "Çok Yüksek",
+          "Görsel Merkez & Abone"
+        ],
+        [
+          "Radyo & TV Rotasyonu",
+          "%25 Farkındalık",
+          "Yüksek Prestij",
+          "Merak ve Arama Tetikleyici"
+        ],
+        [
+          "TikTok & Shorts Sesleri",
+          "%15 Viral Yayılım",
+          "Hızlı Etkileşim",
+          "Genç Kitle Kazanımı"
+        ],
+        [
+          "Google Ads Kampanyaları",
+          "%10 Hedefli İvme",
+          "Ölçülebilir Doğrudan İzlenme",
+          "Algoritmik Öneri Desteği"
+        ]
       ]
     },
     "faqs": [
@@ -466,23 +795,54 @@
     "slug": "youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi",
     "title": "YouTube 4000 Saat İzlenme Süresi Nasıl Doldurulur? 2026 Para Kazanma Rehberi",
     "summary": "YouTube para kazanmayı açmak için gereken 4000 saat izlenme süresini doldurmanın en hızlı ve güvenli yolları. Organik stratejiler ve Google Ads güvencesi.",
-    "category": "YouTube Rehberi & Algoritma",
+    "category": "Nasıl Yapılır?",
     "date": "10 Ekim 2026",
     "readTime": "6 dk",
     "videoId": "rZWeR8bQlaE",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["4000 Saat", "Monetizasyon", "YouTube Para Kazanma", "İzlenme Süresi", "Watch Time"],
+    "tags": [
+      "4000 Saat",
+      "Monetizasyon",
+      "YouTube Para Kazanma",
+      "İzlenme Süresi",
+      "Watch Time"
+    ],
     "quickFact": "YouTube İş Ortağı Programı (YPP) için son 365 gün içinde en az 1.000 abone ve 4.000 geçerli genel izlenme saati gereklidir. Shorts izlenmeleri 4.000 saat kotasına dahil edilmez; bu saati doldurmanın en kanıtlanmış yolu 8-15 dakikalık yüksek tutunmalı uzun videolar ve resmi Google Ads hedeflemeleridir.",
     "table": {
       "caption": "4000 Saat İzlenme Süresini Tamamlama Yöntemleri Karşılaştırması",
-      "headers": ["Yöntem", "Ortalama Süre", "YPP Uygunluk Durumu", "Kanal Riski"],
+      "headers": [
+        "Yöntem",
+        "Ortalama Süre",
+        "YPP Uygunluk Durumu",
+        "Kanal Riski"
+      ],
       "rows": [
-        ["Organik Uzun Video + SEO", "4 - 8 Ay", "%100 Kabul Edilir", "Sıfır Risk"],
-        ["Resmi Google Ads Kampanyası", "1 - 3 Hafta", "%100 Güvenli ve Onaylı", "Resmi Google Partner Güvencesi"],
-        ["Canlı Yayın / Akustik Seanslar", "2 - 4 Ay", "%100 Geçerli Saat", "Sıfır Risk"],
-        ["SMM Bot Paneli Saatleri", "2 - 3 Gün", "RETTEDİLİR (Geçersiz Trafik)", "Kanal Kapanma / İhlal"]
+        [
+          "Organik Uzun Video + SEO",
+          "4 - 8 Ay",
+          "%100 Kabul Edilir",
+          "Sıfır Risk"
+        ],
+        [
+          "Resmi Google Ads Kampanyası",
+          "1 - 3 Hafta",
+          "%100 Güvenli ve Onaylı",
+          "Resmi Google Partner Güvencesi"
+        ],
+        [
+          "Canlı Yayın / Akustik Seanslar",
+          "2 - 4 Ay",
+          "%100 Geçerli Saat",
+          "Sıfır Risk"
+        ],
+        [
+          "SMM Bot Paneli Saatleri",
+          "2 - 3 Gün",
+          "RETTEDİLİR (Geçersiz Trafik)",
+          "Kanal Kapanma / İhlal"
+        ]
       ]
     },
     "faqs": [
@@ -510,23 +870,54 @@
     "slug": "youtube-gizli-ve-liste-disi-video-farki-nedir",
     "title": "YouTube Gizli ve Liste Dışı Video Farkı Nedir? Hangisi Ne Zaman Kullanılır?",
     "summary": "YouTube'da Gizli (Private), Liste Dışı (Unlisted) ve Herkese Açık video seçenekleri arasındaki farklar. Klip lansmanı ve reklam öncesi profesyonel kullanım rehberi.",
-    "category": "YouTube Rehberi & Algoritma",
+    "category": "Nasıl Yapılır?",
     "date": "10 Ekim 2026",
     "readTime": "4 dk",
     "videoId": "0rW7Fbm4S7g",
     "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["Liste Dışı", "Gizli Video", "YouTube İpuçları", "Klip Lansmanı", "Unlisted"],
+    "tags": [
+      "Liste Dışı",
+      "Gizli Video",
+      "YouTube İpuçları",
+      "Klip Lansmanı",
+      "Unlisted"
+    ],
     "quickFact": "YouTube'da Liste Dışı (Unlisted) videolar arama sonuçlarında veya kanal sayfasında görünmez ancak doğrudan bağlantıya sahip herkes tarafından izlenebilir. Gizli (Private) videolar ise yalnızca kanal sahibi ve davet edilen belirli Google hesapları tarafından görüntülenebilir.",
     "table": {
       "caption": "YouTube Video Gizlilik Ayarları Özellik Tablosu",
-      "headers": ["Özellik", "Herkese Açık (Public)", "Liste Dışı (Unlisted)", "Gizli (Private)"],
+      "headers": [
+        "Özellik",
+        "Herkese Açık (Public)",
+        "Liste Dışı (Unlisted)",
+        "Gizli (Private)"
+      ],
       "rows": [
-        ["Aramalarda Görünme", "Evet, Tam İndekslenir", "Hayır, Görünmez", "Hayır, Görünmez"],
-        ["Linkle Paylaşım", "Herkes İzleyebilir", "Linki Olan Herkes İzler", "Yalnızca Davetli E-postalar"],
-        ["Kanal Sayfasında Çıkma", "Videolar Sekmesinde Var", "Kanalda Listelenmez", "Kanalda Listelenmez"],
-        ["Google Ads Onayına Sunma", "Uygun", "UYGUN (Lansman Öncesi)", "KULLANILAMAZ"]
+        [
+          "Aramalarda Görünme",
+          "Evet, Tam İndekslenir",
+          "Hayır, Görünmez",
+          "Hayır, Görünmez"
+        ],
+        [
+          "Linkle Paylaşım",
+          "Herkes İzleyebilir",
+          "Linki Olan Herkes İzler",
+          "Yalnızca Davetli E-postalar"
+        ],
+        [
+          "Kanal Sayfasında Çıkma",
+          "Videolar Sekmesinde Var",
+          "Kanalda Listelenmez",
+          "Kanalda Listelenmez"
+        ],
+        [
+          "Google Ads Onayına Sunma",
+          "Uygun",
+          "UYGUN (Lansman Öncesi)",
+          "KULLANILAMAZ"
+        ]
       ]
     },
     "faqs": [
@@ -552,23 +943,54 @@
     "slug": "youtube-video-etiketleri-tags-hala-ise-yariyor-mu-meta-rehberi",
     "title": "YouTube Video Etiketleri 2026'da Hâlâ İşe Yarıyor mu? Meta Optimizasyonu",
     "summary": "YouTube video etiketleri (Tags) SEO sıralamasını etkiliyor mu? 2026 algoritmasında başlık, açıklama, altyazı ve etiketlerin gerçek ağırlıkları.",
-    "category": "YouTube Rehberi & Algoritma",
+    "category": "Tavsiye",
     "date": "10 Ekim 2026",
     "readTime": "5 dk",
     "videoId": "XTdU5RSodZ4",
     "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["YouTube SEO", "Video Etiketleri", "YouTube Tags", "Meta Veri", "Algoritma 2026"],
+    "tags": [
+      "YouTube SEO",
+      "Video Etiketleri",
+      "YouTube Tags",
+      "Meta Veri",
+      "Algoritma 2026"
+    ],
     "quickFact": "YouTube resmi açıklamasına göre video etiketleri (Tags), sıralama faktörleri arasında en düşük ağırlığa (%5'ten az) sahiptir. 2026 algoritması içeriği anlamak için etiketler yerine video başlığı, ilk 3 satır açıklama, otomatik/manuel altyazı transkripti ve izleyici tutunmasını birincil sinyal olarak kullanır.",
     "table": {
       "caption": "2026 YouTube Arama ve Keşfet Algoritması Faktör Ağırlıkları",
-      "headers": ["Sıralama Unsuru", "Algoritma Ağırlığı", "Etki Alanı", "Önerilen Uygulama"],
+      "headers": [
+        "Sıralama Unsuru",
+        "Algoritma Ağırlığı",
+        "Etki Alanı",
+        "Önerilen Uygulama"
+      ],
       "rows": [
-        ["Video Başlığı (Title)", "%30 - %35", "Arama & CTR", "Anahtar Kelime İlk 40 Karakterde"],
-        ["İzleme Süresi (AVD / Retention)", "%35 - %40", "Önerilen Videolar", "İlk 10 Sn Güçlü Kanca"],
-        ["Açıklama & Altyazı (Transcript)", "%20 - %25", "SEO & Semantik Arama", "Detaylı 200+ Kelimelik Özet"],
-        ["Video Etiketleri (Tags)", "%3 - %5", "Yazım Hataları & Eş Anlam", "5-10 Odaklı ve Spesifik Etiket"]
+        [
+          "Video Başlığı (Title)",
+          "%30 - %35",
+          "Arama & CTR",
+          "Anahtar Kelime İlk 40 Karakterde"
+        ],
+        [
+          "İzleme Süresi (AVD / Retention)",
+          "%35 - %40",
+          "Önerilen Videolar",
+          "İlk 10 Sn Güçlü Kanca"
+        ],
+        [
+          "Açıklama & Altyazı (Transcript)",
+          "%20 - %25",
+          "SEO & Semantik Arama",
+          "Detaylı 200+ Kelimelik Özet"
+        ],
+        [
+          "Video Etiketleri (Tags)",
+          "%3 - %5",
+          "Yazım Hataları & Eş Anlam",
+          "5-10 Odaklı ve Spesifik Etiket"
+        ]
       ]
     },
     "faqs": [
@@ -603,16 +1025,47 @@
     "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["YouTube Bot", "SMM Panel", "Shadowban", "Google Ads Farkı", "Kanal Güvenliği"],
+    "tags": [
+      "YouTube Bot",
+      "SMM Panel",
+      "Shadowban",
+      "Google Ads Farkı",
+      "Kanal Güvenliği"
+    ],
     "quickFact": "SMM panelleri üzerinden satın alınan sahte izlenmeler; veri merkezlerindeki bot yazılımlar tarafından 3-5 saniyelik tıklamalarla üretilir. YouTube'un gelişmiş yapay zekâ filtreleri bu trafiği anında tespit eder; izlenmeler birkaç gün içinde silinir, kanal 'Geçersiz Trafik' gerekçesiyle gölge yasaklama (Shadowban) alır ve monetizasyonu kalıcı olarak kapatılır.",
     "table": {
       "caption": "Resmi Google Ads ile Sahte SMM Bot Panelleri Teknik Analizi",
-      "headers": ["Parametre", "MedyaPR (Resmi Google Ads)", "SMM Bot Panelleri", "Fark ve Sonuç"],
+      "headers": [
+        "Parametre",
+        "MedyaPR (Resmi Google Ads)",
+        "SMM Bot Panelleri",
+        "Fark ve Sonuç"
+      ],
       "rows": [
-        ["Trafik Doğrulaması", "YouTube Studio 'Google Ads'", "Bilinmeyen / Direct Trafik", "Resmi Google Faturası"],
-        ["İzleyici Kalitesi", "%100 Gerçek İnsanlar", "Yapay Sunucu Yazılımları", "Doğal Beğeni & Yorum"],
-        ["İzlenme Kalıcılığı", "Ömür Boyu Kalıcı", "YouTube Tarafından Silinir", "Sıfır Düşüş Garantisi"],
-        ["Ödeme Güvencesi", "%50 Onayda, %50 Bitince", "Peşin Alınır / İade Yok", "Müşteri Odaklı Güvence"]
+        [
+          "Trafik Doğrulaması",
+          "YouTube Studio 'Google Ads'",
+          "Bilinmeyen / Direct Trafik",
+          "Resmi Google Faturası"
+        ],
+        [
+          "İzleyici Kalitesi",
+          "%100 Gerçek İnsanlar",
+          "Yapay Sunucu Yazılımları",
+          "Doğal Beğeni & Yorum"
+        ],
+        [
+          "İzlenme Kalıcılığı",
+          "Ömür Boyu Kalıcı",
+          "YouTube Tarafından Silinir",
+          "Sıfır Düşüş Garantisi"
+        ],
+        [
+          "Ödeme Güvencesi",
+          "%50 Onayda, %50 Bitince",
+          "Peşin Alınır / İade Yok",
+          "Müşteri Odaklı Güvence"
+        ]
       ]
     },
     "faqs": [
@@ -645,17 +1098,53 @@
     "image": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["Reklam Fiyatları", "CPV Maliyeti", "YouTube Reklam Bütçesi", "Google Ads Fiyat", "Klip Bütçesi"],
+    "tags": [
+      "Reklam Fiyatları",
+      "CPV Maliyeti",
+      "YouTube Reklam Bütçesi",
+      "Google Ads Fiyat",
+      "Klip Bütçesi"
+    ],
     "quickFact": "2026 yılı itibarıyla Türkiye hedefli resmi YouTube In-Stream video reklamlarında ortalama görüntüleme başı maliyet (CPV) ₺0.08 - ₺0.18 bandındadır. MedyaPR kademeli baremlerinde ise hacim arttıkça birim maliyet düşer: 1.000 izlenme ₺100'den başlarken, 50.000 izlenme ₺2.500, 100.000 izlenme ₺4.000 ve 1.000.000 izlenme ₺35.000 seviyesine kadar optimize edilir.",
     "table": {
       "caption": "MedyaPR Şeffaf Kademeli YouTube Klip PR Fiyat Baremleri",
-      "headers": ["İzlenme Hacmi", "Paket Tutarı (TL)", "1K Başına Birim Fiyat", "Ödeme Aşaması"],
+      "headers": [
+        "İzlenme Hacmi",
+        "Paket Tutarı (TL)",
+        "1K Başına Birim Fiyat",
+        "Ödeme Aşaması"
+      ],
       "rows": [
-        ["1.000 İzlenme", "₺100", "₺100 / 1K", "%50 Onayda / %50 Bitince"],
-        ["50.000 İzlenme", "₺2.500", "₺50 / 1K (%50 Tasarruf)", "%50 Onayda / %50 Bitince"],
-        ["100.000 İzlenme", "₺4.000", "₺40 / 1K (%60 Tasarruf)", "%50 Onayda / %50 Bitince"],
-        ["500.000 İzlenme", "₺18.000", "₺36 / 1K (%64 Tasarruf)", "%50 Onayda / %50 Bitince"],
-        ["1.000.000 İzlenme", "₺35.000", "₺35 / 1K (%65 Tasarruf)", "%50 Onayda / %50 Bitince (Kurumsal İş Bitimi)"]
+        [
+          "1.000 İzlenme",
+          "₺100",
+          "₺100 / 1K",
+          "%50 Onayda / %50 Bitince"
+        ],
+        [
+          "50.000 İzlenme",
+          "₺2.500",
+          "₺50 / 1K (%50 Tasarruf)",
+          "%50 Onayda / %50 Bitince"
+        ],
+        [
+          "100.000 İzlenme",
+          "₺4.000",
+          "₺40 / 1K (%60 Tasarruf)",
+          "%50 Onayda / %50 Bitince"
+        ],
+        [
+          "500.000 İzlenme",
+          "₺18.000",
+          "₺36 / 1K (%64 Tasarruf)",
+          "%50 Onayda / %50 Bitince"
+        ],
+        [
+          "1.000.000 İzlenme",
+          "₺35.000",
+          "₺35 / 1K (%65 Tasarruf)",
+          "%50 Onayda / %50 Bitince (Kurumsal İş Bitimi)"
+        ]
       ]
     },
     "faqs": [
@@ -688,16 +1177,47 @@
     "image": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["Almanya Türkleri", "Avrupa Müzik PR", "Google Ads Almanya", "Türk Esnaf Reklam", "Euro Geliri"],
+    "tags": [
+      "Almanya Türkleri",
+      "Avrupa Müzik PR",
+      "Google Ads Almanya",
+      "Türk Esnaf Reklam",
+      "Euro Geliri"
+    ],
     "quickFact": "Almanya'da yaşayan 3.5 milyondan fazla Türk vatandaşı, YouTube'u ana dillerinde müzik ve video tüketmek için yoğun şekilde kullanmaktadır. Google Ads üzerinden Kuzey Ren-Vestfalya (Köln, Düsseldorf), Hessen (Frankfurt) ve Bavyera (Münih, Nürnberg) eyaletlerinde Türkçe dil filtresiyle yürütülen video kampanyaları, Alman pazarına kıyasla %60 daha yüksek dönüşüm oranı sağlamaktadır.",
     "table": {
       "caption": "Almanya'da Türk Dinleyici ve Müşteri Hedeflemesinde Öne Çıkan Eyaletler",
-      "headers": ["Eyalet & Şehir", "Türk Nüfus Yoğunluğu", "Öncelikli Sektör", "Önerilen Video Formatı"],
+      "headers": [
+        "Eyalet & Şehir",
+        "Türk Nüfus Yoğunluğu",
+        "Öncelikli Sektör",
+        "Önerilen Video Formatı"
+      ],
       "rows": [
-        ["NRW (Köln, Dortmund, Essen)", "En Yüksek (%35+ Pay)", "Gastronomi & Düğün Salonları", "In-Stream + Shorts Reklamı"],
-        ["Hessen (Frankfurt, Offenbach)", "Yüksek Ticari Merkez", "Oto Tamir & Hizmet Sektörü", "Arama / In-Feed Keşfet"],
-        ["Bavyera (Münih, Nürnberg)", "Güçlü Alım Gücü", "Sanatçı Konser Lansmanı", "In-Stream Video Reklamı"],
-        ["Berlin Eyaleti", "Kültürel & Genç Kitle", "Rap / Alternatif Müzik Klipleri", "Shorts Dikey Video"]
+        [
+          "NRW (Köln, Dortmund, Essen)",
+          "En Yüksek (%35+ Pay)",
+          "Gastronomi & Düğün Salonları",
+          "In-Stream + Shorts Reklamı"
+        ],
+        [
+          "Hessen (Frankfurt, Offenbach)",
+          "Yüksek Ticari Merkez",
+          "Oto Tamir & Hizmet Sektörü",
+          "Arama / In-Feed Keşfet"
+        ],
+        [
+          "Bavyera (Münih, Nürnberg)",
+          "Güçlü Alım Gücü",
+          "Sanatçı Konser Lansmanı",
+          "In-Stream Video Reklamı"
+        ],
+        [
+          "Berlin Eyaleti",
+          "Kültürel & Genç Kitle",
+          "Rap / Alternatif Müzik Klipleri",
+          "Shorts Dikey Video"
+        ]
       ]
     },
     "faqs": [
@@ -723,23 +1243,54 @@
     "slug": "youtube-shorts-ile-sarkinizi-nasil-viral-yaparsiniz",
     "title": "YouTube Shorts ile Şarkınızı Nasıl Viral Yaparsınız? 2026 Trend Taktikleri",
     "summary": "YouTube Shorts algoritmasında viral olmanın sırları: 15 saniyelik kanca tasarımı, ses kütüphanesi entegrasyonu ve kullanıcı içerikleriyle (UGC) büyüme.",
-    "category": "Sosyal Medya & Müzik Pazarlaması",
+    "category": "Sosyal Medya",
     "date": "10 Ekim 2026",
     "readTime": "5 dk",
     "videoId": "0rW7Fbm4S7g",
     "image": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["YouTube Shorts", "Viral Müzik", "Shorts Algoritması", "Dikey Video", "Müzik Pazarlama"],
+    "tags": [
+      "YouTube Shorts",
+      "Viral Müzik",
+      "Shorts Algoritması",
+      "Dikey Video",
+      "Müzik Pazarlama"
+    ],
     "quickFact": "YouTube Shorts videoları günlük 70 milyardan fazla görüntülenmeye ulaşmaktadır. Bir şarkının Shorts üzerinde viral olması için nakaratın en dinamik 12-15 saniyelik bölümü seçilmeli, dikey 9:16 formatta yüksek kontrastlı görsel kullanılmalı ve şarkı resmi YouTube Shorts Ses Kütüphanesine (Audio Library) eklenmelidir.",
     "table": {
       "caption": "YouTube Shorts Viral Yayılım Döngüsü ve Adımları",
-      "headers": ["Aşama", "Uygulama Adımı", "Metrik Hedefi", "Algoritma Eşiği"],
+      "headers": [
+        "Aşama",
+        "Uygulama Adımı",
+        "Metrik Hedefi",
+        "Algoritma Eşiği"
+      ],
       "rows": [
-        ["1. Kanca (Hook)", "İlk 3 Saniyede Görsel / Ritmik Şok", "%80+ Atlamama Oranı", "Terk Etme Oranı Düşürülür"],
-        ["2. Ses Entegrasyonu", "Resmi Ses Kütüphanesine Yükleme", "Kullanıcı Akımı (UGC)", "Ses Popülerlik Listesi"],
-        ["3. Dikey Klip Kurgusu", "9:16 Dinamik Altyazılı Teaser", "%100+ Ortalama Tutunma", "Döngüde İzlenme (Loop)"],
-        ["4. Google Ads Desteği", "Shorts Akış İçi Video Reklamı", "10K - 100K İlk İvme", "Organik Keşfete Aktarım"]
+        [
+          "1. Kanca (Hook)",
+          "İlk 3 Saniyede Görsel / Ritmik Şok",
+          "%80+ Atlamama Oranı",
+          "Terk Etme Oranı Düşürülür"
+        ],
+        [
+          "2. Ses Entegrasyonu",
+          "Resmi Ses Kütüphanesine Yükleme",
+          "Kullanıcı Akımı (UGC)",
+          "Ses Popülerlik Listesi"
+        ],
+        [
+          "3. Dikey Klip Kurgusu",
+          "9:16 Dinamik Altyazılı Teaser",
+          "%100+ Ortalama Tutunma",
+          "Döngüde İzlenme (Loop)"
+        ],
+        [
+          "4. Google Ads Desteği",
+          "Shorts Akış İçi Video Reklamı",
+          "10K - 100K İlk İvme",
+          "Organik Keşfete Aktarım"
+        ]
       ]
     },
     "faqs": [
@@ -765,23 +1316,54 @@
     "slug": "tiktoktan-youtubea-dinleyici-cekme-muzik-pazarlama-hunisi",
     "title": "TikTok'tan YouTube'a Dinleyici Çekme: Müzisyenler İçin Çapraz Dönüşüm Hunisi",
     "summary": "TikTok'ta viral olan parçayı YouTube'da kalıcı dinleyiciye dönüştürme stratejisi. Çapraz platform pazarlama hunisi ve Spotify entegrasyonu.",
-    "category": "Sosyal Medya & Müzik Pazarlaması",
+    "category": "Sosyal Medya",
     "date": "10 Ekim 2026",
     "readTime": "5 dk",
     "videoId": "rZWeR8bQlaE",
     "image": "https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["TikTok Müzik", "Çapraz Platform", "Pazarlama Hunisi", "YouTube Dönüşüm", "Viral Müzik"],
+    "tags": [
+      "TikTok Müzik",
+      "Çapraz Platform",
+      "Pazarlama Hunisi",
+      "YouTube Dönüşüm",
+      "Viral Müzik"
+    ],
     "quickFact": "TikTok, müzik parçalarının keşfedilmesinde en hızlı mecra olmasına karşın telif geliri ve kalıcı dinleyici sadakati en yüksek mecra YouTube'dur. TikTok'ta akım haline gelen 15 saniyelik bir ses parçasını YouTube'da tam klip izlenmesine dönüştürmek için profil biyografi köprüleri, YouTube arama yönlendirmeleri ve eşzamanlı Google Ads hedeflemesi uygulanmalıdır.",
     "table": {
       "caption": "TikTok ile YouTube Müzik Tüketim Karşılaştırması",
-      "headers": ["Platform Özelliği", "TikTok", "YouTube", "Pazarlama Stratejisi"],
+      "headers": [
+        "Platform Özelliği",
+        "TikTok",
+        "YouTube",
+        "Pazarlama Stratejisi"
+      ],
       "rows": [
-        ["İçerik Tipi", "Hızlı Tüketim (15 Sn)", "Kalıcı Klip & Tam Dinleme", "TikTok'ta Merak Uyandır, YouTube'da Tamamla"],
-        ["Telif & Gelir", "Düşük Akış Başı Gelir", "Yüksek Reklam & Telif Payı", "Trafiği YouTube Klibine Yönlendir"],
-        ["Dinleyici Sadakati", "Geçici Akım Tüketimi", "Kanal Aboneliği & Takip", "Sadık Hayran Topluluğu Oluştur"],
-        ["Arama Kalıcılığı", "Günler İçinde Kaybolur", "Yıllarca Arama Sonucunda Kalır", "YouTube SEO & Google Ads"]
+        [
+          "İçerik Tipi",
+          "Hızlı Tüketim (15 Sn)",
+          "Kalıcı Klip & Tam Dinleme",
+          "TikTok'ta Merak Uyandır, YouTube'da Tamamla"
+        ],
+        [
+          "Telif & Gelir",
+          "Düşük Akış Başı Gelir",
+          "Yüksek Reklam & Telif Payı",
+          "Trafiği YouTube Klibine Yönlendir"
+        ],
+        [
+          "Dinleyici Sadakati",
+          "Geçici Akım Tüketimi",
+          "Kanal Aboneliği & Takip",
+          "Sadık Hayran Topluluğu Oluştur"
+        ],
+        [
+          "Arama Kalıcılığı",
+          "Günler İçinde Kaybolur",
+          "Yıllarca Arama Sonucunda Kalır",
+          "YouTube SEO & Google Ads"
+        ]
       ]
     },
     "faqs": [
@@ -807,23 +1389,54 @@
     "slug": "muzik-klibi-lansmaninda-instagram-reels-ve-youtube-teaser-rehberi",
     "title": "Müzik Klibi Lansmanında Instagram Reels ve YouTube Teaser Stratejisi",
     "summary": "Klip çıkışından önceki 7 gün ve ilk 24 saatte Instagram Reels ile YouTube Teaser nasıl kurgulanır? Adım adım profesyonel lansman takvimi.",
-    "category": "Sosyal Medya & Müzik Pazarlaması",
+    "category": "Sosyal Medya",
     "date": "10 Ekim 2026",
     "readTime": "5 dk",
     "videoId": "XTdU5RSodZ4",
     "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&h=675&q=85",
     "author": "Salih Maral",
     "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
-    "tags": ["Instagram Reels", "Klip Lansmanı", "YouTube Teaser", "Müzik PR", "Sosyal Medya"],
+    "tags": [
+      "Instagram Reels",
+      "Klip Lansmanı",
+      "YouTube Teaser",
+      "Müzik PR",
+      "Sosyal Medya"
+    ],
     "quickFact": "Başarılı bir müzik klibi lansmanı, yayın gününden 7 gün önce başlar. Instagram Reels üzerinde yayınlanan kamera arkası mikro kesitler ve YouTube'da 15 saniyelik 'Premiere Teaser' kurgusu, çıkış anında YouTube canlı prömiyerine (Premiere) binlerce kişinin eşzamanlı katılmasını sağlayarak algoritmayı doğrudan tetikler.",
     "table": {
       "caption": "7 Günlük Profesyonel Müzik Klibi Lansman Takvimi",
-      "headers": ["Zamanlama", "Platform & Format", "İçerik Türü", "Amaç"],
+      "headers": [
+        "Zamanlama",
+        "Platform & Format",
+        "İçerik Türü",
+        "Amaç"
+      ],
       "rows": [
-        ["7 Gün Önce", "Instagram Reels & Shorts", "Stüdyo Kaydı / Kamera Arkası", "Merak ve Beklenti Oluşturma"],
-        ["3 Gün Önce", "YouTube Liste Dışı Yükleme", "Google Ads Onayına Sunum", "Reklam Onayının Önceden Alınması"],
-        ["24 Saat Önce", "YouTube Premiere Geri Sayım", "15 Saniyelik Sinematik Teaser", "Hatırlatıcı Bildirim Kurulumu"],
-        ["Çıkış Anı (0. Saat)", "Herkese Açık Canlı Lansman", "Google Ads In-Stream Başlatma", "İlk 48 Saat Algoritma Zirvesi"]
+        [
+          "7 Gün Önce",
+          "Instagram Reels & Shorts",
+          "Stüdyo Kaydı / Kamera Arkası",
+          "Merak ve Beklenti Oluşturma"
+        ],
+        [
+          "3 Gün Önce",
+          "YouTube Liste Dışı Yükleme",
+          "Google Ads Onayına Sunum",
+          "Reklam Onayının Önceden Alınması"
+        ],
+        [
+          "24 Saat Önce",
+          "YouTube Premiere Geri Sayım",
+          "15 Saniyelik Sinematik Teaser",
+          "Hatırlatıcı Bildirim Kurulumu"
+        ],
+        [
+          "Çıkış Anı (0. Saat)",
+          "Herkese Açık Canlı Lansman",
+          "Google Ads In-Stream Başlatma",
+          "İlk 48 Saat Algoritma Zirvesi"
+        ]
       ]
     },
     "faqs": [
@@ -843,6 +1456,1164 @@
       "### YouTube Premiere ile Canlı Prömiyer Gücü",
       "Klibinizi doğrudan yüklemek yerine YouTube Premiere (İlk Gösterim) olarak zamanlayın. Sanatçı olarak canlı sohbette hayranlarınızla yazışın. YouTube algoritması, canlı prömiyerdeki eşzamanlı izleyici yoğunluğunu doğrudan 'Viral İçerik' sinyali olarak algılar ve videoyu anında önerilenlere taşır. [Müzik kliplerinde ilk 48 saat rehberimizde](/blog/muzik-kliplerinde-ilk-48-saat-algoritma-rehberi) bu mekanizmanın tüm detaylarını bulabilirsiniz.",
       "Lansman gününüzü profesyonel Google Ads altyapısıyla desteklemek için [iletişim formumuzdan](/iletisim) bize hemen ulaşabilirsiniz."
+    ]
+  },
+  {
+    "slug": "instagram-canli-yayini-nasil-one-cikarilir-izleyici-artirma-taktikleri",
+    "title": "Instagram Canlı Yayını Nasıl Öne Çıkarılır? Canlı İzleyici Artırma Rehberi",
+    "summary": "Instagram canlı yayını algoritmasını tetikleme, ortak yayınlar, soru-cevap kancaları ve canlı yayından YouTube klibine kitle yönlendirme stratejisi.",
+    "category": "Sosyal Medya",
+    "date": "10 Ekim 2026",
+    "readTime": "5 dk",
+    "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "Instagram Canlı Yayın",
+      "Sosyal Medya",
+      "Canlı İzleyici",
+      "Kitle Büyütme",
+      "YouTube PR"
+    ],
+    "quickFact": "Instagram canlı yayınının keşfete ve takipçilerin bildirim ekranına ilk sırada düşmesi; yayının ilk 3 dakikasında gelen yorum sıklığı, ortak yayın (Co-host) etkileşimi ve çıkartma (Sticker) katılımına bağlıdır. Başarılı sanatçılar canlı yayını tamamladıktan sonra kitleyi doğrudan yeni YouTube klibine yönlendirerek lansman ivmesini katlar.",
+    "table": {
+      "caption": "Instagram Canlı Yayın Algoritma Tetikleyicileri ve Etki Oranları",
+      "headers": [
+        "Strateji Unsuru",
+        "Algoritmik Ağırlık",
+        "İzleyici Tutunma Etkisi",
+        "Dönüşüm Kanalları"
+      ],
+      "rows": [
+        [
+          "Ortak Yayın (Co-host)",
+          "%88",
+          "İki Farklı Kitle Havuzu",
+          "Çapraz Takipçi Kazanımı"
+        ],
+        [
+          "Soru-Cevap / Anket Çıkartması",
+          "%74",
+          "Aktif Yorum ve Süre",
+          "Topluluk Sadakati"
+        ],
+        [
+          "İlk 180 Saniye Bildirim Açılışı",
+          "%92",
+          "En Üst Sıra Rozeti",
+          "Anlık Zirve İzleyici"
+        ],
+        [
+          "YouTube Klip Link Yönlendirmesi",
+          "%65",
+          "Harici Platform Trafiği",
+          "Kalıcı Video İzlenmesi"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Instagram canlı yayınında izleyici sayısını aniden nasıl artırabilirim?",
+        "answer": "Yayına başlamadan 24 saat önce Hikayelerde geri sayım çıkartması paylaşmak, yayının ilk dakikalarında soru-cevap sticker'ı açmak ve ilgili bir başka hesapla ortak yayın yapmak izleyiciyi 3 katına çıkarır."
+      },
+      {
+        "question": "Canlı yayın trafiği YouTube klibini nasıl besler?",
+        "answer": "Canlı yayının doruk noktasında klip lansmanını duyurup profildeki veya sohbetteki YouTube bağlantısını paylaşmak, klibe ilk saatte yüksek oturum süreli organik kitle kazandırır."
+      }
+    ],
+    "paragraphs": [
+      "Instagram canlı yayınları, hem sanatçılar hem de markalar için takipçilerle filtresiz, anlık ve doğrudan bağ kurmanın en güçlü aracıdır. Ancak yüz binlerce takipçiye sahip hesaplar dahi doğru algoritma dinamiklerini uygulamadığında canlı yayınlarda düşük izleyici sayılarına takılıp kalabilmektedir.",
+      "Instagram algoritması, canlı yayın başladığında bunu önce en aktif takipçilere bildirim olarak iletir. Eğer ilk 3 dakika içinde yayına giren kullanıcılar yorum yazar, kalp gönderir ve yayında kalmaya devam ederse sistem yayını ana sayfa hikaye çubuğunun en soluna, 'CANLI' etiketiyle kilitler. Bu aşamada bir konukla ortak yayın yapmak (Co-host) her iki profilin kitlelerini birleştirerek izleyici sayısını katlar.",
+      "### Canlı Yayını Keşfete Taşıyan 4 Altın Adım",
+      "1. Yayın Öncesi Geri Sayım: Canlı yayından 24 ve 3 saat önce paylaşılan geri sayım çıkartmaları, kullanıcılara otomatik hatırlatma bildirimi gönderir.",
+      "2. İnteraktif Soru Çıkartmaları: Yayın esnasında ekrana sabitlenen sorular, izleyicinin ekran başında kalma süresini (Retention) ortalama %40 artırır.",
+      "3. Canlı Lansman Kancası: Yeni bir şarkı, klip veya ürün tanıtımı yapılıyorsa içeriğin en heyecanlı kısmı yayının sonuna saklanmalı ve izleyici YouTube'a davet edilmelidir.",
+      "4. Canlı Yayından YouTube Zirvesine: Canlı yayın biter bitmez yayında toplanan enerjiyi resmi bir klip lansmanına aktarmak en kanıtlanmış büyüme modelidir. MedyaPR olarak bağımsız sanatçıların canlı yayın lansmanlarını [YouTube klip reklam hizmetlerimiz](/hizmetler) ile birleştirerek klibin ilk 48 saatte YouTube trend listesine girmesini sağlıyoruz.",
+      "Klip lansman bütçenizi önceden planlamak için [şeffaf fiyatlandırma sayfamızı](/fiyatlandirma) ziyaret edebilir, projenize özel kampanya kurgusu için [uzman ekibimizle iletişime geçebilirsiniz](/iletisim)."
+    ]
+  },
+  {
+    "slug": "x-videoya-altyazi-nasil-eklenir-otomatik-ve-srt-rehberi",
+    "title": "X'te (Twitter) Videoya Altyazı Nasıl Eklenir? Otomatik ve SRT Yükleme Adımları",
+    "summary": "X (Twitter) videolarına altyazı eklemenin 2 yöntemi: Otomatik transkript ve SRT dosyası yükleme. Sessiz izlemede %80 etkileşim artışı ve video SEO sırları.",
+    "category": "Nasıl Yapılır?",
+    "date": "10 Ekim 2026",
+    "readTime": "4 dk",
+    "image": "https://images.unsplash.com/photo-1611605698335-8b1569810432?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "X Altyazı",
+      "Twitter Video",
+      "Nasıl Yapılır",
+      "Video SEO",
+      "Sosyal Medya"
+    ],
+    "quickFact": "Sosyal medya kullanıcılarının %85'i videoları sessiz ortamda (toplu taşıma, ofis, okul) izler. X platformunda altyazı eklenen videolar, altyazısız videolara kıyasla %42 daha uzun süre izlenmekte ve %28 daha fazla yeniden paylaşım (Repost) almaktadır.",
+    "table": {
+      "caption": "X Altyazı Ekleme Yöntemleri Karşılaştırması",
+      "headers": [
+        "Özellik",
+        "Otomatik Altyazı",
+        "SRT Dosyası Yükleme",
+        "Gömülü (Hardcoded) Altyazı"
+      ],
+      "rows": [
+        [
+          "Kurulum Kolaylığı",
+          "Tek Tıkla Aktif",
+          "X Media Studio Gerektirir",
+          "Video Kurgusunda Yapılır"
+        ],
+        [
+          "Doğruluk Oranı",
+          "%82 - %90",
+          "%100 (Manuel Kontrol)",
+          "%100 Sabit"
+        ],
+        [
+          "Dil Seçenekleri",
+          "Cihaz Dilinde",
+          "Çoklu Dil Desteği",
+          "Tek Dil Sabit"
+        ],
+        [
+          "Arama İndeksleme",
+          "Metin Olarak Taranır",
+          "SEO İndeksine Girer",
+          "Görsel Olarak Kalır"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "X'te telefondan video yüklerken SRT dosyası eklenebilir mi?",
+        "answer": "X mobil uygulamasında otomatik altyazı desteği bulunurken, özel .SRT dosyası eklemek için masaüstü tarayıcısından X Media Studio (studio.x.com) aracını kullanmanız gerekir."
+      },
+      {
+        "question": "Altyazı YouTube video izlenmelerini nasıl etkiler?",
+        "answer": "Altyazılar (CC), YouTube ve Google botları tarafından metin olarak taranır. Şarkı sözleri veya konuşma metinleri arama sonuçlarında doğrudan sıralama alarak videonun organik keşfini katlar."
+      }
+    ],
+    "paragraphs": [
+      "Sosyal medya platformlarında video tüketiminin büyük çoğunluğu sessiz modda gerçekleşmektedir. Kullanıcılar metroda, ofiste veya gece yatakta gezinirken sesi açmadan videoları tüketir. Bu nedenle X (Twitter) üzerinde paylaştığınız tanıtım videolarına veya klip kesitlerine altyazı eklemek artık bir tercih değil, izlenme oranını doğrudan belirleyen bir zorunluluktur.",
+      "X platformunda videonuza altyazı eklemenin iki temel yolu vardır: X'in yerleşik otomatik transkript özelliğini açmak veya profesyonel bir `.srt` altyazı dosyasını videoya bağlamak.",
+      "### Adım Adım X'te Videoya Altyazı Ekleme Rehberi",
+      "1. Otomatik Altyazıyı Açma: Masaüstünden veya mobilden videonuzu yüklerken 'Medyayı Düzenle' seçeneğine dokunun. Açılan pencerede 'Altyazılar' sekmesini bulun ve otomatik transkript oluşturmayı aktif hale getirin.",
+      "2. X Media Studio ile SRT Yükleme: studio.x.com adresine gidin. Medya Kütüphanesinden videonuzu seçin. 'Altyazılar' (Subtitles) sekmesine tıklayarak Türkçe veya İngilizce hazırlanmış `.srt` dosyanızı yükleyin. Bu yöntem özellikle müzik kliplerinde sözlerin sıfır hatayla ekranda akmasını sağlar.",
+      "3. Video SEO ve YouTube Trafiği: X üzerinde paylaştığınız 30 saniyelik altyazılı teaser videosunun sonuna 'Klibin tamamı YouTube'da yayında' kancası koyarak kitleyi ana videoya yönlendirebilirsiniz. Bu organik akışı [resmi Google Ads video kampanyalarıyla](/hizmetler) desteklediğinizde, şarkınız [canlı YouTube trendlerinde](/trendler) kalıcı bir yer edinir.",
+      "Klip lansmanınız için bütçe planlaması yapıyorsanız [fiyatlandırma sayfamızdan](/fiyatlandirma) paketleri inceleyebilir, aklınıza takılan sorular için [bizimle doğrudan iletişime geçebilirsiniz](/iletisim)."
+    ]
+  },
+  {
+    "slug": "instagram-hikayede-threads-gonderisi-nasil-paylasilir-etkilesim-taktikleri",
+    "title": "Instagram Hikayede Threads Gönderisi Nasıl Paylaşılır? Çapraz Etkileşim Rehberi",
+    "summary": "Threads paylaşımlarını Instagram Hikayelerinde (Stories) doğrudan paylaşarak iki platform arasında köprü kurma ve profil trafiğini katlama adımları.",
+    "category": "Sosyal Medya",
+    "date": "10 Ekim 2026",
+    "readTime": "4 dk",
+    "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "Threads",
+      "Instagram Hikaye",
+      "Sosyal Medya",
+      "Nasıl Yapılır",
+      "Kitle Büyütme"
+    ],
+    "quickFact": "Meta ekosisteminde Threads gönderilerini Instagram Hikayelerinde paylaşmak, tekil Threads gönderisinin erişimini ortalama %310 artırır. Hikayedeki dinamik Threads kartı, kullanıcılara tek dokunuşla Threads profiline veya harici link çıkartmasına geçiş imkanı tanır.",
+    "table": {
+      "caption": "Threads ve Instagram Hikaye Entegrasyonunun Etkileşim Metrikleri",
+      "headers": [
+        "Paylaşım Formatı",
+        "Ortalama Tıklama Oranı (CTR)",
+        "Profil Ziyareti Artışı",
+        "Harici Link Yönlendirme"
+      ],
+      "rows": [
+        [
+          "Düz Ekran Görüntüsü (Screenshot)",
+          "%1.4",
+          "Düşük (Etkileşimsiz)",
+          "Sadece Manuel Link"
+        ],
+        [
+          "Resmi Threads Hikaye Çıkartması",
+          "%5.8",
+          "Yüksek (Doğrudan Geçiş)",
+          "Çıkartma Üzerinden Çift Yönlü"
+        ],
+        [
+          "Threads + YouTube Link Çıkartması",
+          "%8.2",
+          "Çok Yüksek",
+          "Klip Sayfasına Doğrudan Trafik"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Threads gönderisi Instagram Hikayesine nasıl aktarılır?",
+        "answer": "Threads uygulamasında paylaşmak istediğiniz gönderinin altındaki 'Paylaş' (uçak) simgesine dokunun ve açılan menüden 'Hikayeye Ekle' (Add to Story) seçeneğini seçin. Gönderi şık bir kart olarak Instagram Hikaye düzenleyicisine aktarılır."
+      },
+      {
+        "question": "Bu yöntemle YouTube klibi tanıtımı yapılabilir mi?",
+        "answer": "Evet, Threads üzerinde klibin hikayesini anlatan merak uyandırıcı bir metin paylaşıp bunu Hikayeye aktarabilir, üzerine de YouTube klibinizin link çıkartmasını yerleştirebilirsiniz."
+      }
+    ],
+    "paragraphs": [
+      "Meta'nın metin odaklı sosyal ağı Threads ile görsel devi Instagram arasındaki organik köprü, dijital pazarlamacılar ve bağımsız müzisyenler için en etkili ücretsiz trafik kaynaklarından birine dönüştü. Statik ekran görüntüleri almak yerine resmi paylaşım entegrasyonunu kullanmak, profesyonel bir görsel deneyim sunarken etkileşimi katlar.",
+      "### Adım Adım Threads Gönderisini Hikayede Paylaşma",
+      "1. Threads Uygulamasını Açın: Paylaşmak istediğiniz kendi gönderinizi veya alıntılamak istediğiniz bir paylaşımı bulun.",
+      "2. Paylaş Simgesine Dokunun: Gönderinin hemen altında yer alan kağıt uçak simgesine basın.",
+      "3. 'Hikayeye Ekle' Seçeneğini Belirleyin: Sistem sizi otomatik olarak Instagram uygulamasına geçirecek ve Threads gönderisini degrade arka planlı, şık bir dinamik kart olarak hikaye tuvaline yerleştirecektir.",
+      "4. Link Çıkartması ve Çağrı Ekleyin: Hikayenize Instagram'ın yerel 'Bağlantı' çıkartmasını ekleyerek yeni YouTube klibinizin veya web sitenizin linkini ekleyin. Kartın üzerine 'Dinlemek için tıkla' gibi bir yönlendirme oku yerleştirin.",
+      "Sosyal medya platformlarındaki bu çapraz etkileşimleri [profesyonel YouTube klip reklamlarıyla](/hizmetler) taçlandırdığınızda organik kitle kalıcı bir hayran topluluğuna dönüşür. Reklam bütçenizi en verimli şekilde kurgulamak için [fiyat hesaplayıcımızı](/fiyatlandirma) kullanabilir, hedeflerinizi [bize danışabilirsiniz](/iletisim)."
+    ]
+  },
+  {
+    "slug": "instagram-dm-yapay-zeka-ile-sarki-muzik-ozelligi-nedir",
+    "title": "Instagram DM'de Yapay Zekâ ile Müzik Üretimi Nedir? Telif ve Orijinal Klip Analizi",
+    "summary": "Meta'nın DM kutusunda test ettiği yapay zeka müzik üreticisi ne sunuyor? Bağımsız sanatçılar için telif hakları, ticari kullanım ve orijinal YouTube klibi avantajı.",
+    "category": "Sosyal Medya",
+    "date": "10 Ekim 2026",
+    "readTime": "5 dk",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "Yapay Zeka Müzik",
+      "Instagram DM",
+      "Meta AI",
+      "Telif Hakları",
+      "Müzik PR"
+    ],
+    "quickFact": "Meta'nın Instagram DM için geliştirdiği yapay zeka müzik özelliği, kullanıcıların metin komutlarıyla (Prompt) 10-15 saniyelik jenerik arka plan melodileri üretmesini sağlar. Ancak bu parçalar ticari telif haklarına sahip olmadığı için sanatçıların YouTube ve Spotify gelirlerini ikame edemez; asıl değer orijinal sanatçı eserindedir.",
+    "table": {
+      "caption": "Yapay Zeka DM Müzikleri vs. Orijinal Sanatçı Klipleri Karşılaştırması",
+      "headers": [
+        "Karşılaştırma Kriteri",
+        "Yapay Zeka DM Müziği",
+        "Orijinal Sanatçı Klibi",
+        "Müzikal ve Ticari Sonuç"
+      ],
+      "rows": [
+        [
+          "Telif Sahipliği (Copyright)",
+          "Meta / Platform Lisanslı",
+          "Sanatçı ve Yapımcıya Ait",
+          "Orijinal Eserde %100 Gelir Hakkı"
+        ],
+        [
+          "YouTube Gelir Modeli (AdSense)",
+          "Monetizasyona Uygun Değil",
+          "Content ID ile Korunur",
+          "Kalıcı Müzik Telif Geliri"
+        ],
+        [
+          "Dinleyici Sadakati",
+          "Geçici ve Tüketimlik",
+          "Duygusal Bağ ve Hayran Kitlesi",
+          "Konser ve Bilet Satış Gücü"
+        ],
+        [
+          "Resmi Reklam Uyumu",
+          "Sınırlı Ticari Kullanım",
+          "Google Ads & Video PR Uyumlu",
+          "Trend Listelerine Giriş Gücü"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Instagram DM'deki yapay zeka müziği şarkı olarak yayınlanabilir mi?",
+        "answer": "Hayır. Meta AI tarafından DM içerisinde üretilen ses kesitleri yalnızca eğlence ve sohbet içi kullanım amaçlıdır; dijital dağıtım şirketleri (DistroKid, TuneCore vb.) bu sesleri telif nedeniyle reddeder."
+      },
+      {
+        "question": "Bağımsız müzisyenler yapay zeka furyasında nasıl öne çıkabilir?",
+        "answer": "Kişisel hikayeyi, gerçek vokal performansını ve yüksek prodüksiyonlu video klipleri resmi Google Ads kampanyalarıyla hedef kitleye ulaştırarak kalıcı marka değeri oluşturabilirler."
+      }
+    ],
+    "paragraphs": [
+      "Meta, Instagram direkt mesaj (DM) kutusuna yapay zekâ destekli yeni özellikler entegre etmeye devam ediyor. Son dönemde belirli bölgelerde test edilen 'AI ile Melodi ve Şarkı Üretimi' aracı, kullanıcıların bir arkadaşına mesaj yazarken sadece birkaç kelimelik komutla (örneğin: 'neşeli akustik gitar introsu') kısa ses kayıtları oluşturmasına imkan tanıyor.",
+      "Bu özellik günlük sohbetlerde eğlenceli bir yenilik gibi görünse de müzik sektöründe telif hakları, sanatçı kimliği ve dijital gelir modelleri açısından önemli soruları beraberinde getiriyor.",
+      "### Neden Yapay Zeka Gerçek Bir Sanatçının Yerini Alamaz?",
+      "1. Telif Hakları ve Monetizasyon: Yapay zeka ile üretilen ses kesitleri, telif koruma sistemleri (YouTube Content ID, ISRC kodları) tarafından tescillenemez. Bir sanatçının kalıcı gelir elde edebilmesi için tescilli orijinal eser üretmesi şarttır.",
+      "2. Duygusal Kanca ve Hikaye: Dinleyiciler yalnızca bir melodiye değil, o şarkıyı yazan ve söyleyen sanatçının hikayesine, tarzına ve karizmasına bağlanır. [Kimdir kategorimizdeki](/blog?kategori=kimdir) sanatçı başarı hikayeleri bu gerçeği doğrulamaktadır.",
+      "3. Resmi Klip PR Gücü: Milyonluk kitlelere ulaşmanın tek yolu botlar veya jenerik yapay zeka sesleri değil; profesyonel stüdyo kaydı ve [resmi YouTube klip reklamlarıdır](/hizmetler).",
+      "MedyaPR olarak bağımsız sanatçıların orijinal eserlerini koruyarak hak ettikleri milyonluk kitleye ulaştırıyoruz. Şeffaf paketlerimizi [fiyatlandırma sayfamızdan](/fiyatlandirma) inceleyebilir, hemen [bizimle iletişime geçebilirsiniz](/iletisim)."
+    ]
+  },
+  {
+    "slug": "whatsapp-kanallari-ve-ebeveyn-denetimi-topluluk-yonetimi-rehberi",
+    "title": "WhatsApp Kanalları ve Ebeveyn Denetimi: Sanatçılar İçin Doğrudan Hayran Topluluğu",
+    "summary": "WhatsApp ebeveyn denetimi özellikleri, gizlilik sınırları ve müzisyenlerin WhatsApp Kanalları (Channels) ile komisyonsuz, filtresiz hayran kitlesi yönetme rehberi.",
+    "category": "Sosyal Medya",
+    "date": "10 Ekim 2026",
+    "readTime": "5 dk",
+    "image": "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "WhatsApp Kanalları",
+      "Ebeveyn Denetimi",
+      "Sosyal Medya",
+      "Topluluk Yönetimi",
+      "Müzik Pazarlama"
+    ],
+    "quickFact": "WhatsApp Kanalları (Channels), sanatçıların ve markaların takipçilerine algoritmik filtre olmadan %100 doğrudan bildirim göndermesini sağlayan tek kapalı ağdır. Ebeveyn denetimi ve gizlilik güncellemeleri sayesinde telefon numaraları gizli kalır, güvenli bir hayran topluluğu kurulur.",
+    "table": {
+      "caption": "Sosyal Medya Kanalları Karşılaştırması: WhatsApp vs. Instagram vs. Telegram",
+      "headers": [
+        "Platform",
+        "Algoritma Filtresi",
+        "Doğrudan Bildirim Oranı",
+        "Telefon Numarası Gizliliği"
+      ],
+      "rows": [
+        [
+          "WhatsApp Kanalları",
+          "Yok (Kronolojik)",
+          "%95+",
+          "Tamamen Gizli"
+        ],
+        [
+          "Instagram Yayın Kanalı (Broadcast)",
+          "Var (Etkileşime Bağlı)",
+          "%30 - %45",
+          "Kullanıcı Adı Görünür"
+        ],
+        [
+          "Telegram Kanalı",
+          "Yok",
+          "%70 - %85",
+          "Gizlenebilir"
+        ],
+        [
+          "E-Posta Bülteni",
+          "Spam Filtresi Var",
+          "%18 - %24",
+          "E-Posta Açık"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "WhatsApp Kanallarında takipçiler birbirinin telefon numarasını görebilir mi?",
+        "answer": "Hayır. WhatsApp Kanalları uçtan uca gizlilik prensibiyle çalışır; kanal yöneticisi de dahil olmak üzere hiçbir takipçi diğer üyelerin telefon numarasını veya profil detayını göremez."
+      },
+      {
+        "question": "Müzisyenler WhatsApp kanalını nasıl etkili kullanabilir?",
+        "answer": "Yeni çıkacak klibin kamera arkası görüntülerini, konser bilet linklerini ve klip yayınlandığı an ilk YouTube linkini kanala atarak anlık bir izleyici patlaması yaratabilirler."
+      }
+    ],
+    "paragraphs": [
+      "Sosyal medya platformlarının algoritmaları sürekli değişirken, sanatçıların ve içerik üreticilerinin takipçilerine 'aracısız' ulaşabilmesi her zamankinden daha kıymetli hale geldi. WhatsApp Kanalları (Channels), geleneksel sosyal medyanın algoritma baskısını ortadan kaldırarak mesajlarınızı doğrudan kullanıcıların cebine taşıyan devrim niteliğinde bir alan sunuyor.",
+      "Aynı zamanda Meta'nın devreye aldığı yeni Ebeveyn Denetimi ve Aile Merkezi özellikleri sayesinde genç yaştaki kullanıcıların güvenliği en üst düzeye çıkarıldı; böylece kanallar her yaştan kitle için güvenilir bir etkileşim merkezine dönüştü.",
+      "### Sanatçılar İçin WhatsApp Kanalı Yönetim Stratejisi",
+      "1. Özel İçerik ve İlk Dinleme Avantajı: Yeni şarkınızın 15 saniyelik demosunu sadece WhatsApp kanalınızdaki sadık takipçilerinizle paylaşın.",
+      "2. YouTube Klip Lansman Bildirimi: Klibiniz YouTube'da yayına girdiği an kanalınıza link gönderin. Bu kitle klibi ilk 10 dakikada izleyerek YouTube algoritmasının 'Erken Hız' (Velocity) sinyalini tetikler.",
+      "3. Gizlilik Güvencesi: Takipçilerin telefon numaralarının gizli kalması, topluluğunuzun organik ve güvenle büyümesini sağlar.",
+      "Topluluktan gelen ilk kıvılcımı [resmi Google Ads video reklamlarıyla](/hizmetler) desteklediğinizde klibiniz hızla [YouTube trend müzik listesine](/trendler) tırmanır. Detaylı bilgi ve strateji danışmanlığı için [bize dilediğiniz zaman ulaşabilirsiniz](/iletisim)."
+    ]
+  },
+  {
+    "slug": "instagram-reels-videosu-kac-saniye-olmali-en-iyi-sureler",
+    "title": "Instagram Reels Videosu Kaç Saniye Olmalı? En Yüksek Keşfet Süreleri (2026)",
+    "summary": "Reels videolarında ideal süre nedir? 7 saniyelik mikro kancalar mı, 30-60 saniyelik hikaye anlatımları mı? Algoritmik tam izlenme (Completion Rate) benchmarkları.",
+    "category": "Tavsiye",
+    "date": "10 Ekim 2026",
+    "readTime": "5 dk",
+    "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "Instagram Reels",
+      "Reels Süresi",
+      "Tavsiye",
+      "Video Süresi",
+      "Keşfet Algoritması"
+    ],
+    "quickFact": "Instagram Reels algoritmasında keşfete çıkmayı belirleyen 1 numaralı metrik; videonun tamamlanma oranı (Completion Rate) ve tekrar oynatılma (Loop) sayısıdır. 7-11 saniyelik kısa videolar %115+ döngü izlenme oranıyla en hızlı viral erişimi sağlarken; 30-45 saniyelik videolar en yüksek sadık takipçi dönüşümünü üretir.",
+    "table": {
+      "caption": "Instagram Reels Sürelerine Göre Algoritmik Performans Karşılaştırması",
+      "headers": [
+        "Video Süre Aralığı",
+        "Ortalama Tamamlanma Oranı",
+        "Döngü (Loop) Potansiyeli",
+        "Temel Amacı"
+      ],
+      "rows": [
+        [
+          "5 - 9 Saniye (Mikro Kanca)",
+          "%110 - %135",
+          "Aşırı Yüksek",
+          "Maksimum Viral Erişim & Keşfet"
+        ],
+        [
+          "12 - 20 Saniye (Müzik Nakaratı)",
+          "%75 - %90",
+          "Yüksek",
+          "Klip Şarkı Söyleme & Trend Akımı"
+        ],
+        [
+          "30 - 60 Saniye (Değer & Hikaye)",
+          "%45 - %60",
+          "Orta",
+          "Eğitici İçerik & Takipçi Kazanımı"
+        ],
+        [
+          "60 - 90 Saniye (Uzun Format)",
+          "%25 - %35",
+          "Düşük",
+          "Sadece Çok Sadık Kitle İçin"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Reels videolarında en ideal süre tek bir rakamla ifade edilebilir mi?",
+        "answer": "Hayır. Amacınız sadece görüntülenme ve keşfet patlaması ise 7-9 saniye; ancak dinleyiciyi YouTube klibine veya profilinize çekmek istiyorsanız 15-20 saniyelik nakarat kurguları en yüksek dönüşümü sağlar."
+      },
+      {
+        "question": "Reels kurgusu YouTube Shorts için de geçerli midir?",
+        "answer": "Evet. Hem Instagram Reels hem de YouTube Shorts dikey algoritmalarında ilk 3 saniyelik kanca (hook) ve yüksek tamamlanma oranı ortak başarı kriteridir."
+      }
+    ],
+    "paragraphs": [
+      "İçerik üreticilerinin ve müzisyenlerin en sık sorduğu soruların başında gelir: 'Reels videom kaç saniye olmalı?' Kısa cevap: Videonun tek bir saniyesinin bile boşa gitmediği süre kadar olmalıdır. Ancak 2026 Instagram algoritma verilerini incelediğimizde net şablonlar ortaya çıkmaktadır.",
+      "Instagram, kullanıcıların videoyu atlayıp atlamadığını (Skip Rate) milisaniyeler düzeyinde ölçer. 60 saniyelik bir videoda izleyici 10. saniyede sıkılıp geçerse tamamlanma oranı %16'da kalır ve algoritma videoyu önermeyi keser. Oysa 7 saniyelik bir videoda izleyici metni okurken video 2 kez oynatılırsa (%200 izlenme) video viral dalgaya girer.",
+      "### İçerik Türüne Göre İdeal Reels Süresi Tavsiyeleri",
+      "1. Müzisyenler İçin: Şarkının en vurucu 12-15 saniyelik nakarat kısmı kullanılmalıdır. Metin olarak 'Şarkının devamı profildeki YouTube linkinde' çağrısı yapılmalıdır.",
+      "2. Eğitim ve Nasıl Yapılır İçerikleri: 25-35 saniye idealdir; ilk 3 saniyede çözülecek sorun net belirtilmeli, adımlar dinamik kesmelerle aktarılmalıdır.",
+      "3. Trend Sesler ve Mizah: 6-10 saniyelik ultra kısa formatlar, kullanıcının videoyu birkaç kez izlemesini sağlayarak keşfet şansını zirveye taşır.",
+      "Reels üzerinde yakaladığınız ivmeyi YouTube platformuna taşımak, uzun vadeli AdSense ve telif geliri elde etmenin temel anahtarıdır. MedyaPR'ın resmi [Google Ads video reklam paketleri](/hizmetler) ile hem Shorts hem In-Stream reklamlarla kanalınızı büyütebilirsiniz. Bütçe planlaması için [şeffaf fiyat sayfamızı](/fiyatlandirma) inceleyebilirsiniz."
+    ]
+  },
+  {
+    "slug": "tiktok-onayli-ajans-rozeti-nedir-nasil-dogrulanir",
+    "title": "TikTok Onaylı Ajans Rozeti Nedir ve Nasıl Doğrulanır? Sahte Rozet Uyarısı",
+    "summary": "TikTok Marketing Partners programı, onaylı ajans rozetinin sağladığı kampanya avantajları ve SMM panellerinin sahte rozet tuzaklarına karşı güvenlik kontrolü.",
+    "category": "Tavsiye",
+    "date": "10 Ekim 2026",
+    "readTime": "5 dk",
+    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "TikTok Rozeti",
+      "Onaylı Ajans",
+      "Tavsiye",
+      "TikTok Marketing",
+      "Güvenlik"
+    ],
+    "quickFact": "TikTok Onaylı Ajans Rozeti (TikTok Marketing Partner Badge), sadece TikTok'un katı kurumsal ve harcama denetimlerinden geçen resmi partner ajanslara verilir. Bu rozet yalnızca TikTok'un resmi partner dizininde (partners.tiktok.com) doğrulanabilir; web sitesine konulan sahte görsel logolara itibar edilmemelidir.",
+    "table": {
+      "caption": "Resmi Akredite Ajanslar ile Sahte SMM Panellerinin Karşılaştırması",
+      "headers": [
+        "Değerlendirme Kriteri",
+        "Resmi Akredite Ajans (MedyaPR)",
+        "Merdiven Altı SMM Panelleri"
+      ],
+      "rows": [
+        [
+          "Hizmet Niteliği",
+          "Resmi Reklam Paneli & Google/TikTok API",
+          "Bot Yazılımları & Çalıntı Hesap Havuzları"
+        ],
+        [
+          "Kanal Güvenliği",
+          "%100 Sıfır Risk, Organik Veri",
+          "Kanal Kapanması ve Shadowban Riski"
+        ],
+        [
+          "Fatura ve Sözleşme",
+          "Resmi Kurumsal Fatura & Şeffaf Sözleşme",
+          "Kayıt Dışı, Garantisiz Havale"
+        ],
+        [
+          "Ödeme Güvencesi",
+          "%50 Onayda / %50 Teslimde Aşamalı Model",
+          "Önden %100 Peşin ve İletişim Kesintisi"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Bir ajansın gerçekten onaylı partner olduğunu nasıl anlarım?",
+        "answer": "Ajansın partnerlik durumunu Google Partners veya TikTok Partners resmi dizin sayfalarından aratarak teyit edebilirsiniz. Lisanslı ajanslar doğrudan resmi panel kimliğini paylaşır."
+      },
+      {
+        "question": "TikTok reklamları YouTube klibimi büyütür mü?",
+        "answer": "TikTok Spark Ads formatıyla viral olan ses ve klibinizi öne çıkarıp, doğrudan YouTube profilinize yönlendirme yaparak çift platformlu büyüme yakalayabilirsiniz."
+      }
+    ],
+    "paragraphs": [
+      "TikTok'un küresel reklam hacmi büyüdükçe, sektörde kendisini 'TikTok Onaylı Ajansı' veya 'Resmi Partner' olarak tanıtan merdiven altı bot sitelerinin sayısı da hızla arttı. Birçok müzisyen ve işletme, bu sahte rozetlere aldanarak hesaplarını bot panellerine bağlamakta ve hesaplarının kapatılması (Shadowban) riskiyle karşı karşıya kalmaktadır.",
+      "Gerçek bir ajans akreditasyonu, yalnızca platformun kendi resmi doğrulama dizini üzerinden kontrol edilebilir. Photoshop ile hazırlanan rozet görsellerinin hiçbir geçerliliği yoktur.",
+      "### Güvenilir Bir Video PR Ajansı Seçerken Dikkat Edilecek 3 Kural",
+      "1. Şeffaf ve Aşamalı Ödeme Modeli: Güvenilir bir ajans asla peşin ödeme dayatmaz. MedyaPR'da bireysel sanatçılarda %50 kampanya onayında, kalan %50 teslimatta; kurumsal müşterilerde ise iş bitiminde ödeme esastır.",
+      "2. Resmi Reklam Paneli Erişimi: Reklamlarınız doğrudan Google Ads ve TikTok Ads Manager üzerinden hedef kitlenize (yaş, ilgi alanı, müzik zevki) gösterilmelidir.",
+      "3. 18+ Yıllık Tecrübe ve Google Partner Güvencesi: Salih Maral liderliğindeki MedyaPR, Türkiye ve Avrupa'da resmi Google Partner sertifikasıyla hizmet veren nadir kurumlardan biridir.",
+      "Kanalınızı botların yarattığı tehlikelerden uzak tutmak ve gerçek dinleyicilere ulaşmak için [YouTube klip reklam paketlerimizi](/hizmetler) inceleyebilir, bütçenizi [fiyat hesaplayıcımızdan](/fiyatlandirma) belirleyebilirsiniz."
+    ]
+  },
+  {
+    "slug": "muzik-ve-video-butcesi-yonetimi-reklam-butcesi-nasil-dagitilmali",
+    "title": "Klip ve Video Reklam Bütçesi Nasıl Dağıtılmalı? 2026 Bütçe Planlama Rehberi",
+    "summary": "10.000 TL ile 100.000 TL arası video PR bütçesi nasıl bölünmeli? Lansman (ilk 48 saat), hedef kitle genişletme ve yeniden pazarlama (Remarketing) bütçe matrisi.",
+    "category": "Tavsiye",
+    "date": "10 Ekim 2026",
+    "readTime": "5 dk",
+    "image": "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "Bütçe Yönetimi",
+      "Tavsiye",
+      "Klip Reklamı",
+      "Google Ads Bütçe",
+      "Yatırım Getirisi"
+    ],
+    "quickFact": "Müzik klibi lansmanlarında en yüksek organik çarpanı yakalayan bütçe dağıtım modeli: İlk 48 saatte toplam bütçenin %55'ini kullanarak algoritma ivmesi oluşturmak, 3-7. günlerde %30 ile benzer kitleleri genişletmek ve kalan %15 ile yeniden pazarlama (Remarketing) yapmaktır.",
+    "table": {
+      "caption": "Örnek 30.000 TL Video PR Bütçe Dağıtım Matrisi",
+      "headers": [
+        "Kampanya Aşaması",
+        "Bütçe Oranı",
+        "Tutar",
+        "Kullanılan Reklam Formatı",
+        "Hedeflenen Sonuç"
+      ],
+      "rows": [
+        [
+          "Aşama 1: Lansman (0-48 Saat)",
+          "%55",
+          "16.500 TL",
+          "YouTube In-Stream + Shorts",
+          "Trend Listesi & Hızlı İvme"
+        ],
+        [
+          "Aşama 2: Büyüme (3-10 Gün)",
+          "%30",
+          "9.000 TL",
+          "Feed İçi Keşif (In-Feed Video)",
+          "Yüksek Abone & Çalma Listesi"
+        ],
+        [
+          "Aşama 3: Remarketing (11-30 Gün)",
+          "%15",
+          "4.500 TL",
+          "Etkileşim Kitlelerine Hatırlatma",
+          "Kalıcı Sadık Dinleyici Kitlesi"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Küçük bütçeli (5.000 - 10.000 TL) sanatçılar reklam vermeli mi?",
+        "answer": "Kesinlikle evet. Doğru kitle hedeflemesiyle 10.000 TL bütçe, klibinizi tam şarkı tarzınızı seven 40.000 - 70.000 gerçek müziksevere doğrudan dinletebilir ve organik abone kazandırır."
+      },
+      {
+        "question": "Bütçeyi tek günde harcamak mı, günlere bölmek mi daha etkilidir?",
+        "answer": "Klip ilk çıktığında ilk 48 saatte yoğun harcama yapmak algoritmanın 'yeni çıkan hit' kategorisine almasını sağlar, ardından bütçe günlere yayılarak istikrar korunmalıdır."
+      }
+    ],
+    "paragraphs": [
+      "Müzik yapımcılarının ve bağımsız sanatçıların en sık düştüğü hatalardan biri; klibin çekimine on binlerce lira harcayıp iş tanıtıma geldiğinde bütçesiz kalmak veya kalan küçük bütçeyi plansızca tek bir günde tüketmektir. Oysa dijital müzik çağında başarının %50'si prodüksiyon ise %50'si doğru kitleye dağıtımdır.",
+      "Google Ads video kampanyalarında profesyonel bir bütçe dağılımı, harcanan her 1 TL'nin organik önerilen videolarda (Suggested Videos) 2-3 kat organik izlenme çarpanına dönüşmesini sağlar.",
+      "### 3 Aşamalı Stratejik Bütçe Bölüşümü",
+      "1. İlk 48 Saat Altın Pencere (%55 Bütçe): Klibin yayınlandığı ilk iki gün YouTube'un videoyu test ettiği kritik dönemdir. Bütçenin yarıdan fazlası bu aşamada In-Stream ve Shorts formatlarına verilmelidir.",
+      "2. Kitleyi Genişletme Aşaması (%30 Bütçe): Klip belirli bir izlenmeye ulaştıktan sonra benzer sanatçıların (Örn: Semicenk, BLOK3, Dedublüman) dinleyicileri hedef kitleye eklenerek keşif reklamları açılır.",
+      "3. Yeniden Pazarlama (%15 Bütçe): Klibinizi izleyen ancak henüz abone olmayan kişilere sonraki klibinizi veya akustik versiyonunuzu göstererek kalıcı hayran tabanı oluşturulur.",
+      "MedyaPR olarak [şeffaf fiyatlandırma panelimizde](/fiyatlandirma) her bütçeye uygun resmi Google Ads paketleri sunuyoruz. Bütçenizi en verimli şekilde yönetmek için [kampanya uzmanlarımızla bugün görüşün](/iletisim)."
+    ]
+  },
+  {
+    "slug": "youtube-sifirdan-100-bin-aboneye-ulasma-tavsiyeleri",
+    "title": "YouTube'da Sıfırdan 100.000 Aboneye Ulaşmanın 7 Kanıtlanmış Tavsiyesi",
+    "summary": "YouTube Gümüş Plaket yolculuğu: Niş belirleme, CTR artıran kapak tasarımları, ilk 48 saat algoritma tetiklemesi ve resmi Google Ads ile abone ivmesi kazanma.",
+    "category": "Tavsiye",
+    "date": "10 Ekim 2026",
+    "readTime": "6 dk",
+    "image": "https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "YouTube Abone",
+      "Tavsiye",
+      "Gümüş Plaket",
+      "Kanal Büyütme",
+      "Video SEO"
+    ],
+    "quickFact": "YouTube'da sıfırdan 100.000 aboneye ulaşan kanalların ortak özelliği; ilk 1.000 aboneyi resmi video reklamları ve hedefli içeriklerle hızlıca aşıp, ardından haftalık düzenli yayın periyodu ve %8'in üzerinde CTR (Küçük Resim Tıklama Oranı) yakalamalarıdır.",
+    "table": {
+      "caption": "YouTube Kanal Büyüme Basamakları ve Odak Noktaları",
+      "headers": [
+        "Abone Seviyesi",
+        "En Büyük Engel",
+        "Temel Büyüme Stratejisi",
+        "Kritik Metrik"
+      ],
+      "rows": [
+        [
+          "0 - 1.000 Abone",
+          "Algoritma Görünürlüğü Sıfır",
+          "Resmi Google Ads + Niş Video SEO",
+          "4.000 Saat & Monetizasyon"
+        ],
+        [
+          "1.000 - 10.000 Abone",
+          "İzleyici Tutunması",
+          "Shorts Kancaları + Canlı Yayınlar",
+          "Ortalama Görüntüleme Süresi (AVD)"
+        ],
+        [
+          "10.000 - 50.000 Abone",
+          "İçerik Tükenmesi",
+          "Seri Formatlar & Çapraz İşbirlikleri",
+          "Tekrar Gelen İzleyici Oranı"
+        ],
+        [
+          "50.000 - 100.000 Abone",
+          "Ölçeklenme",
+          "Topluluk Yönetimi & YouTube Plaketi",
+          "Viral Öneri Havuzu"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "100.000 aboneye ulaşmak ortalama ne kadar sürer?",
+        "answer": "Yalnızca organik içerikle 18-36 ay sürebilen bu süreç, profesyonel Google Ads video reklamları ve doğru SEO stratejisiyle 6-12 ay arasına indirilebilir."
+      },
+      {
+        "question": "Bot abone satın almak 100.000 aboneye ulaştırır mı?",
+        "answer": "Asla! Bot aboneler videoları izlemediği için tıklama oranınızı sıfırlar, algoritma videonuzu değersiz sayarak önerileri durdurur ve kanal kalıcı olarak cezalandırılır."
+      }
+    ],
+    "paragraphs": [
+      "YouTube'un 100.000 aboneye ulaşan kanallara verdiği Gümüş İçerik Üretici Ödülü (Silver Creator Award), her video üreticisinin ve müzisyenin hayalini süsleyen bir prestij simgesidir. Ancak sıfır aboneye sahip yeni bir kanaldan bu noktaya ulaşmak tesadüflere değil, algoritmik disipline dayanır.",
+      "YouTube'da büyümenin ilk ve en zor aşaması 0'dan 1.000 aboneye ulaşmaktır. Bu aşamada kanalınız YouTube algoritması için tamamen yabancıdır ve videolarınız kimseye önerilmez. Bu kilidi kırmanın en güvenli yolu, hedef kitleye yönelik resmi Google Ads reklamlarıyla ilk çekirdek izleyiciyi toplamaktır.",
+      "### 100K Abone Yolculuğunda 7 Kanıtlanmış Tavsiye",
+      "1. Tek Bir Nişte Uzmanlaşın: Kanalınızın ilk 30 videosu tek bir müzik veya içerik tarzına odaklanmalıdır.",
+      "2. Küçük Resim (Thumbnail) A/B Testi: Kapak resminiz tıklanmazsa videonuz ne kadar iyi olursa olsun izlenmez.",
+      "3. İlk 30 Saniyeyi Kusursuz Kurgulayın: Videonun girişindeki gereksiz selamlamaları atın, doğrudan vaadinize veya müziğin en iyi melodisine girin.",
+      "4. Shorts ile Abone, Uzun Video ile İzleme Süresi Kazanın: Dikey Shorts videoları abone sayınızı roketlerken, uzun videolar 4.000 saat eşiğini tamamlar.",
+      "5. Oynatma Listeleri (Playlists) Oluşturun: İzleyicileri tek bir videoda bırakmayın; döngüsel listelerle oturum süresini artırın.",
+      "6. Topluluk Sekmesini Aktif Kullanın: Anketler ve görsellerle takipçilerinizle etkileşimi sıcak tutun.",
+      "7. MedyaPR ile Resmi Hızlandırıcı: Kanalınızın hak ettiği ivmeyi kazanması için [4.000 saat ve abone paketlerimizi](/hizmetler) inceleyebilir, [şeffaf fiyatlarımızı](/fiyatlandirma) karşılaştırabilirsiniz."
+    ]
+  },
+  {
+    "slug": "youtube-canli-yayini-nasil-baslatilir-ve-one-cikarilir",
+    "title": "YouTube Canlı Yayını Nasıl Başlatılır ve Öne Çıkarılır? Adım Adım Rehber",
+    "summary": "OBS Studio ile profesyonel canlı yayın kurma, canlı sohbet moderasyonu, prömiyer (Premiere) kurgusu ve yayını YouTube ana sayfasına düşürme adımları.",
+    "category": "Nasıl Yapılır?",
+    "date": "10 Ekim 2026",
+    "readTime": "6 dk",
+    "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "YouTube Canlı Yayın",
+      "Nasıl Yapılır",
+      "OBS Studio",
+      "Klip Lansmanı",
+      "Algoritma"
+    ],
+    "quickFact": "YouTube canlı yayınları, normal videolara göre 3 kat daha fazla eşzamanlı etkileşim üretir. Bir canlı yayının YouTube ana sayfasında ve canlı yayınlar sekmesinde önerilmesi; yayındaki ortalama eşzamanlı izleyici sayısı (Concurrent Viewers) ve sohbet mesaj hızına bağlıdır.",
+    "table": {
+      "caption": "YouTube Canlı Yayın Ayarları ve Önerilen Bitrate Değerleri",
+      "headers": [
+        "Çözünürlük",
+        "Kare Hızı (FPS)",
+        "Video Bitrate Aralığı",
+        "Ses Bitrate"
+      ],
+      "rows": [
+        [
+          "1080p Full HD",
+          "60 fps",
+          "4.500 - 9.000 kbps",
+          "160 - 320 kbps"
+        ],
+        [
+          "1080p Full HD",
+          "30 fps",
+          "3.000 - 6.000 kbps",
+          "128 - 160 kbps"
+        ],
+        [
+          "720p HD",
+          "60 fps",
+          "2.250 - 6.000 kbps",
+          "128 kbps"
+        ],
+        [
+          "4K Ultra HD",
+          "60 fps",
+          "20.000 - 51.000 kbps",
+          "320 kbps"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "YouTube'da canlı yayın açmak için kaç abone gerekir?",
+        "answer": "Masaüstü bilgisayar ve OBS gibi bir yayın yazılımı ile canlı yayın açmak için abone şartı yoktur; doğrulanmış bir kanal yeterlidir. Mobilden yayın açmak için en az 50 abone gerekir."
+      },
+      {
+        "question": "Klip Prömiyeri (Premiere) canlı yayından farklı mıdır?",
+        "answer": "Prömiyer, önceden yüklenmiş klibin belirlenen saatte izleyicilerle birlikte canlı sohbet eşliğinde ilk kez oynatılmasıdır. Sanatçılar için en ideal lansman yöntemidir."
+      }
+    ],
+    "paragraphs": [
+      "Canlı yayınlar, YouTube'da izleyicilerle en samimi bağı kurmanın ve kanalınızın toplam izleme süresini (Watch Time) roketlemenin en kestirme yoludur. İster akustik bir konser verin, ister yeni klibinizin lansmanını yapın, profesyonel bir canlı yayın akışı kanalınızı anında bir üst lige taşır.",
+      "### Adım Adım YouTube Canlı Yayını Başlatma",
+      "1. Canlı Yayını Etkinleştirin: YouTube Studio'ya girin, sağ üstteki 'Oluştur' -> 'Canlı Yayın Başlat' butonuna tıklayın. İlk defa açıyorsanız kanal doğrulamasının tamamlanması 24 saat sürebilir.",
+      "2. OBS Studio Entegrasyonu: OBS programını açın, Ayarlar -> Yayın bölümünden YouTube kanalınızı bağlayın veya yayın anahtarınızı (Stream Key) girin.",
+      "3. Başlık ve Açıklamada SEO Optimizasyonu: Canlı yayınınızın başlığında insanların aradığı anahtar kelimeleri kullanın ve canlı yayında çalan şarkıların listesini açıklamaya ekleyin.",
+      "4. Canlı Sohbet ve Super Chat: İzleyicilerinizin sorularını ekrana yansıtın, moderatör atayın ve katılımı canlı tutun.",
+      "Klip lansmanlarınızı canlı prömiyer olarak kurgulayıp MedyaPR'ın [YouTube canlı yayın ve prömiyer reklam desteğiyle](/hizmetler) birleştirdiğinizde, klibiniz ilk andan itibaren yüzlerce eşzamanlı izleyiciyle YouTube trendlerine göz kırpar. Bütçenizi planlamak için [fiyatlandırma sayfamızı](/fiyatlandirma) inceleyebilirsiniz."
+    ]
+  },
+  {
+    "slug": "youtube-kucuk-resim-thumbnail-nasil-yapilir-ctr-artirma-rehberi",
+    "title": "YouTube Küçük Resim (Thumbnail) Nasıl Yapılır? CTR Artırma Rehberi",
+    "summary": "Tıklama oranını (CTR) %3'ten %12'ye çıkaran kapak tasarımı kuralları: Yüksek kontrast, yüz ifadesi, 3 kelimelik kanca ve YouTube Test & Compare özelliği.",
+    "category": "Nasıl Yapılır?",
+    "date": "10 Ekim 2026",
+    "readTime": "5 dk",
+    "image": "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "Thumbnail Tasarımı",
+      "CTR Artırma",
+      "Nasıl Yapılır",
+      "Küçük Resim",
+      "YouTube SEO"
+    ],
+    "quickFact": "YouTube'da bir videonun izlenme sayısını belirleyen en önemli çarpan Tıklama Oranıdır (Click-Through Rate - CTR). Standart bir YouTube videosunda %4 olan CTR değerini %10'un üzerine çıkarmak, aynı videonun YouTube algoritması tarafından 5 ila 8 kat daha fazla önerilmesini sağlar.",
+    "table": {
+      "caption": "Yüksek CTR Veren Küçük Resim Elementleri ve Başarı Oranları",
+      "headers": [
+        "Tasarım Unsuru",
+        "Düşük Performans Örneği",
+        "Yüksek Performans Örneği",
+        "CTR Etkisi"
+      ],
+      "rows": [
+        [
+          "Metin Yoğunluğu",
+          "7-10 kelimelik uzun cümle",
+          "2-3 kelimelik merak kancası",
+          "+%35 CTR"
+        ],
+        [
+          "Renk Kontrastı",
+          "Soluk gri ve koyu tonlar",
+          "Sarı, Kırmızı, Neon Yeşil zıtlık",
+          "+%48 CTR"
+        ],
+        [
+          "Yüz İfadesi",
+          "Duygusuz pasaport fotoğrafı",
+          "Belirgin şaşkınlık / duygu odağı",
+          "+%62 CTR"
+        ],
+        [
+          "Mobil Okunabilirlik",
+          "Küçük yazı tipi, karmaşık detay",
+          "Geniş font, temiz arka plan",
+          "+%50 CTR"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "YouTube kapak resmi ideal boyutu ve çözünürlüğü nedir?",
+        "answer": "İdeal boyut 1280x720 pikseldir (16:9 en-boy oranı). Minimum genişlik 640 piksel olmalı, dosya boyutu 2MB'ı geçmemeli ve JPG, PNG veya WebP formatında yüklenmelidir."
+      },
+      {
+        "question": "YouTube 'Test et ve Karşılaştır' (Thumbnail A/B Testi) nasıl çalışır?",
+        "answer": "YouTube Studio üzerinden tek bir videoya aynı anda 3 farklı kapak resmi yükleyebilirsiniz. Algoritma bu resimleri izleyicilere eşit gösterir ve en yüksek izleme süresini kazandıran resmi otomatik olarak kalıcı seçer."
+      }
+    ],
+    "paragraphs": [
+      "Dünyanın en iyi klibini çekmiş veya en kaliteli eğitici videosunu hazırlamış olabilirsiniz; ancak kapak resminiz (Thumbnail) ilgi çekici değilse hiç kimse videonuza tıklamayacaktır. YouTube ana sayfasında kullanıcıların bir videoya tıklayıp tıklamama kararı ortalama 1.8 saniyede verilir.",
+      "Başarılı YouTube üreticileri zamanlarının en az üçte birini kapak resmi kurgusuna ayırır. Doğru bir kapak tasarımı, sıradan bir videoyu yüz binlerce organik izlenmeye ulaştırabilir.",
+      "### Yüksek Tıklama Alan Kapak Resmi Yapmanın 4 Adımı",
+      "1. Kural 3: Maksimum 3 Kelime: Kapak üzerine asla videonun başlığını aynen yazmayın. Başlığı tamamlayan, merak uyandırıcı 2-3 büyük kelime kullanın.",
+      "2. Zıt Renkler (Color Contrast): YouTube'un kendi kırmızı, siyah ve beyaz renk paletine karşı öne çıkan sarı, turkuaz veya canlı yeşil tonlarını arka planla zıtlaştırın.",
+      "3. Yüz ve Göz Teması: İnsan beyni yüz ifadelerine refleks olarak odaklanır. Sanatçının veya sunucunun kameraya doğrudan bakan, duygusu belirgin portresi tıklamayı katlar.",
+      "4. Mobil Ekran Kontrolü: Tasarımınızı akıllı telefonda küçük boyutta test edin. Yazılar cep telefonunda tek bakışta okunabiliyor mu?",
+      "Yüksek CTR'lı görsellerinizi MedyaPR'ın [resmi Google Ads video reklamlarıyla](/hizmetler) birleştirdiğinizde harcadığınız her reklam bütçesi maksimum organik izlenmeye dönüşür. Detaylı bilgi için [uzmanlarımızla iletişime geçebilirsiniz](/iletisim)."
+    ]
+  },
+  {
+    "slug": "youtube-resmi-sanatci-kanali-notasi-nasil-alinir",
+    "title": "YouTube Resmi Sanatçı Kanalı (Müzik Notası) Nasıl Alınır? OAC Başvuru Rehberi",
+    "summary": "Kanal adının yanına müzik notası rozeti ekleme rehberi: Official Artist Channel (OAC) şartları, Topic kanalı birleştirme, dağıtım şirketi onay süreci.",
+    "category": "Nasıl Yapılır?",
+    "date": "10 Ekim 2026",
+    "readTime": "5 dk",
+    "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "Resmi Sanatçı Kanalı",
+      "OAC Notası",
+      "Nasıl Yapılır",
+      "Müzik Dağıtım",
+      "YouTube Müzik"
+    ],
+    "quickFact": "YouTube Resmi Sanatçı Kanalı (Official Artist Channel - OAC), sanatçının kişisel kanalı ile YouTube'un otomatik oluşturduğu 'Sanatçı Adı - Konu' (Topic) kanalını ve Vevo kanalını tek bir çatı altında birleştirir. Kanal adının yanına müzik notası rozeti eklenir ve tüm aboneler tek hesapta toplanır.",
+    "table": {
+      "caption": "YouTube OAC Resmi Sanatçı Kanalı Şartları ve Avantajları",
+      "headers": [
+        "Gereksinim / Özellik",
+        "Standart YouTube Kanalı",
+        "Resmi Sanatçı Kanalı (OAC)"
+      ],
+      "rows": [
+        [
+          "Müzik Notası Rozeti",
+          "Bulunmaz",
+          "Kanal Adının Yanında Sabit Nota"
+        ],
+        [
+          "Abone Birleştirme",
+          "Parçalı (Topic ayrı, kişisel ayrı)",
+          "Tüm Aboneler Tek Kanalda Birleşir"
+        ],
+        [
+          "Diskografi ve Albüm Rafı",
+          "Manuel Oynatma Listesi",
+          "Otomatik Resmi Albümler Bölümü"
+        ],
+        [
+          "Konser ve Bilet Entegrasyonu",
+          "Kapalı",
+          "Ticketmaster / Eventim Entegre"
+        ],
+        [
+          "Şartlar",
+          "Kanal Açmak Yeterli",
+          "En Az 1 Resmi Dağıtımlı Şarkı & Dağıtıcı Başvurusu"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Resmi Sanatçı Kanalı başvurusu nereden yapılır?",
+        "answer": "OAC başvurusu doğrudan YouTube Studio içerisinden değil; müziğinizi dijital platformlara yükleyen resmi müzik dağıtım şirketiniz (DistroKid, TuneCore, CD Baby, Believe veya MedyaPR) aracılığıyla yapılır."
+      },
+      {
+        "question": "Nota rozetinin onaylanması ne kadar sürer?",
+        "answer": "Başvuru dağıtıcı tarafından iletildikten sonra YouTube değerlendirmesi genellikle 2 ila 6 hafta arasında sonuçlanır ve nota otomatik olarak eklenir."
+      }
+    ],
+    "paragraphs": [
+      "Müzik kariyerini profesyonel bir seviyeye taşımak isteyen her sanatçının ilk hedeflerinden biri, YouTube kanalının yanındaki o prestijli 'müzik notası' rozetini almaktır. Bu rozet sadece bir görsel süs değil; dağınık haldeki tüm dinleyici kitlenizi tek bir merkezde toplayan güçlü bir altyapıdır.",
+      "Şarkılarınızı dijital dağıtıma verdiğinizde YouTube otomatik olarak bir 'Konu' (Topic) kanalı açar ve dinleyicilerinizin bir kısmı orada, bir kısmı kişisel kanalınızda kalır. OAC başvurusu onaylandığında bu iki kanal birleşir ve tüm dinlenme sayıları ile aboneler tek bir resmi kanalda toplanır.",
+      "### Resmi Sanatçı Kanalı (OAC) Alma Adımları",
+      "1. Dijital Dağıtımda En Az 1 Resmi Eser: Şarkınızın Spotify, Apple Music ve YouTube Music'e resmi bir dağıtıcı (DistroKid, TuneCore vb.) üzerinden yüklenmiş olması gerekir.",
+      "2. Kişisel Bir YouTube Kanalı: Sanatçı adınızla açılmış ve profil resmi, banner tasarımı eksiksiz tamamlanmış bir YouTube kanalınız bulunmalıdır.",
+      "3. Topic Kanalı ile Eşleştirme: Dağıtım panelinizdeki 'YouTube Official Artist Channel' sekmesine girin, kişisel kanal linkinizi girerek eşleştirme talebi oluşturun.",
+      "4. Topluluk Kuralları Uyumu: Kanalınızda aktif hiçbir telif veya topluluk kuralı ihlali (Strike) bulunmamalıdır.",
+      "Resmi Sanatçı Kanalınızı aldıktan sonra kliplerinizi hak ettiği izleyici kitlesine ulaştırmak için MedyaPR'ın [resmi YouTube klip reklam hizmetlerinden](/hizmetler) yararlanabilirsiniz. Bütçenizi [fiyatlandırma sayfamızdan](/fiyatlandirma) belirleyebilir, projenizi [bizimle paylaşabilirsiniz](/iletisim)."
+    ]
+  },
+  {
+    "slug": "blok3-hakan-aydin-kimdir-sarkilari-tarzi-ve-youtube-basarisi",
+    "title": "BLOK3 (Hakan Aydın) Kimdir? Milyonluk Listelerin Zirvesine Yükseliş Hikayesi",
+    "summary": "Vur, Affetmem, Baybay, Güzel ve İddialı şarkılarıyla Türk müzik sahnesini sarsan BLOK3'ün kariyeri, kanca ritimleri ve YouTube dinlenme rekorları.",
+    "category": "Kimdir?",
+    "date": "10 Ekim 2026",
+    "readTime": "5 dk",
+    "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "BLOK3",
+      "Hakan Aydın",
+      "Kimdir",
+      "Türkçe Rap",
+      "YouTube Trendler"
+    ],
+    "quickFact": "Gerçek adı Hakan Aydın olan BLOK3, 2021 yılında bağımsız olarak yayınladığı 'OKEY OKEY' ve 'Cümle Alem' ile dikkat çekmiş; ardından 'Vur', 'Affetmem' ve 'Baybay' hitleriyle YouTube ve Spotify listelerinde yüz milyonlarca dinlenmeye ulaşarak Türk rap müziğinin en çok dinlenen isimlerinden biri olmuştur.",
+    "table": {
+      "caption": "BLOK3 YouTube ve Dijital Dinlenme Analitiği",
+      "headers": [
+        "Hit Parça",
+        "YouTube İzlenme",
+        "Algoritmik Kanca Türü",
+        "Liste Başarısı"
+      ],
+      "rows": [
+        [
+          "Vur",
+          "120M+ İzlenme",
+          "Yüksek Tempolu Drill / Melodik Nakarat",
+          "Türkiye Trendler #1"
+        ],
+        [
+          "Affetmem",
+          "95M+ İzlenme",
+          "Duygusal Sözler & Akılda Kalıcı Hook",
+          "Spotify Top 50 #1"
+        ],
+        [
+          "Baybay",
+          "110M+ İzlenme",
+          "Sosyal Medya Dans ve Akım Uyumu",
+          "Global Viral Listeleri"
+        ],
+        [
+          "Güzel ve İddialı",
+          "70M+ İzlenme",
+          "Modern Trap Beat & Dinamik Klip",
+          "Haftalarca Trendler Listesinde"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "BLOK3 müzik tarzını nasıl tanımlıyor?",
+        "answer": "BLOK3 sokak gerçekliğini melodik trap ve drill altyapılarıyla harmanlayan, nakaratları ilk dinleyişte akılda kalan samimi ve doğrudan bir anlatım tarzını benimsemiştir."
+      },
+      {
+        "question": "BLOK3'ün başarısındaki en büyük pazarlama faktörü nedir?",
+        "answer": "Şarkılarının nakarat kesitlerini klip çıkmadan önce sosyal medyada kısa kanca formatlarıyla yayması ve klibin ilk 48 saatinde devasa bir izleyici akını yaratmasıdır."
+      }
+    ],
+    "paragraphs": [
+      "Son yıllarda Türk müzik sektörünün en hızlı ve en sarsıcı yükselişlerinden birine imza atan BLOK3 (Hakan Aydın), bağımsız bir rapçinin dijital platformları doğru kullanarak nasıl ana akımın zirvesine yerleşebileceğinin en somut kanıtıdır.",
+      "Kocaeli Gebze çıkışlı genç sanatçı, samimi söz yazarlığı, sokak enerjisi ve modern ritim anlayışıyla kısa sürede milyonlarca gencin sesi haline geldi. 'Vur' ve 'Affetmem' parçaları sadece Türkiye'de değil, Almanya ve Avrupa'daki Türk gençleri arasında da listeleri altüst etti.",
+      "### BLOK3'ün Algoritma ve Lansman Sırrı",
+      "1. Nakarat Kancası (Hook): BLOK3 şarkılarının ilk 15 saniyesinde dinleyiciyi yakalayan ve akılda kalan melodik bir kanca yer alır. Bu yapı, YouTube Shorts ve Instagram Reels üzerinde doğal bir viral yayılma sağlar.",
+      "2. Yüksek Prodüksiyonlu Görsel Klipler: Şarkılarının kliplerinde sinematik renk paletleri ve dinamik kamera hareketleri kullanarak izleyicinin ekranda kalma süresini maksimize eder.",
+      "3. İlk 48 Saat İvmesi: Şarkı yayınlandığı ilk gün oluşturulan devasa trafik, klibi doğrudan YouTube Trendler 1 numarasına taşır.",
+      "Bağımsız müzisyenler için BLOK3'ün izlediği bu yol haritası bir kılavuz niteliğindedir. MedyaPR olarak bağımsız sanatçıların kliplerini [resmi Google Ads reklamlarıyla](/hizmetler) doğru kitleye ulaştırıyoruz. Paketlerimizi [fiyatlandırma sayfamızdan](/fiyatlandirma) inceleyebilirsiniz."
+    ]
+  },
+  {
+    "slug": "motive-tolga-can-serbes-kimdir-albumleri-ve-turkce-rap-kariyeri",
+    "title": "Motive (Tolga Can Serbes) Kimdir? Türkçe Rap'in Küresel Kaliteyi Yakalayan Sanatçısı",
+    "summary": "Makaveli, 22, ROMANTİK albümleriyle lirik ve görsel sanatın zirvesine çıkan Motive'nin müzikal evrimi, YouTube klip estetiği ve dinleyici bağlılığı analizi.",
+    "category": "Kimdir?",
+    "date": "10 Ekim 2026",
+    "readTime": "5 dk",
+    "image": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "Motive",
+      "Tolga Can Serbes",
+      "Kimdir",
+      "Türkçe Rap",
+      "Müzik Kariyeri"
+    ],
+    "quickFact": "2000 doğumlu Tolga Can Serbes (Motive), genç yaşta dahil olduğu MOB Entertainment bünyesinde yayınladığı 'Çekmece Flow' ile adını duyurmuş; ardından 'Makaveli', '22' ve 'ROMANTİK' konsept albümleriyle Türkçe Rap'te lirik çıtayı küresel standartlara taşımıştır.",
+    "table": {
+      "caption": "Motive Albüm Kronolojisi ve Sanatsal Dönüm Noktaları",
+      "headers": [
+        "Albüm / Proje",
+        "Yıl",
+        "Öne Çıkan Hit Parçalar",
+        "Müzikal Karakter"
+      ],
+      "rows": [
+        [
+          "Makaveli",
+          "2020",
+          "Makaveli, Taktik, Randevu",
+          "Agresif Trap, Saf Lirik Becerisi"
+        ],
+        [
+          "22",
+          "2022",
+          "10MG, Kural, CHERNOBYL",
+          "Karanlık Atmosfer, Kusursuz Flow"
+        ],
+        [
+          "ROMANTİK",
+          "2023",
+          "GANG, A LO LO, Damla",
+          "Yenilikçi Prodüksiyon, Küresel Sound"
+        ],
+        [
+          "Single Projeleri",
+          "2024-2026",
+          "A La Carte, Taksim",
+          "Sinematik Klipler & Rekor İzlenme"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Motive'yi diğer rapçilerden ayıran en belirgin özellik nedir?",
+        "answer": "Teknik flow zenginliği, çok katmanlı lirik yapısı ve video kliplerindeki uluslararası sinematik görsel kalitedir."
+      },
+      {
+        "question": "Motive YouTube platformunu nasıl kullanıyor?",
+        "answer": "Sadece standart klipler değil; görsel albüm formatları, stüdyo seansları ve sinematik kısa filmler yayınlayarak çok yüksek bir izleme süresi ve dinleyici sadakati elde etmektedir."
+      }
+    ],
+    "paragraphs": [
+      "Türkçe Rap sahnesinde 'yeni nesil' dendiğinde akla gelen ilk ve en güçlü isimlerden biri şüphesiz Motive (Tolga Can Serbes)'dir. İstanbul Çekmece sokaklarında başlayan rap serüveni, bugün Türkiye'nin en büyük konser alanlarını dolduran ve streaming rekorları kıran bir başarı öyküsüne dönüştü.",
+      "Motive, müziğinde sadece kafiyelere değil; altyapı prodüksiyon kalitesine, ses miksajına ve kliplerindeki görsel estetiğe gösterdiği titizlikle tanınır. Bu özen, onu yalnızca bir rapçi değil, vizyoner bir müzik prodüktörü ve sanatçı konumuna taşımıştır.",
+      "### Sinematik Klipler ve YouTube Algoritma Sadakati",
+      "YouTube Analytics dinamikleri incelendiğinde, Motive kliplerinin ortalama izlenme süresinin (Retention) sektör standartlarının %30 üzerinde olduğu görülmektedir. Dinleyiciler klipleri sadece müzik dinlemek için değil, bir kısa film gibi baştan sona izlemektedir.",
+      "Bu yüksek izleme süresi, YouTube algoritmasının Motive videolarını organik önerilenler listesinde haftalarca en üst sırada tutmasını sağlar. Kaliteli prodüksiyon ve profesyonel video pazarlamasının gücü burada ortaya çıkar.",
+      "Kendi müzik projenizde Motive kalitesinde bir görsel ve algoritmik etki yaratmak istiyorsanız, MedyaPR'ın [resmi YouTube klip reklam hizmetleri](/hizmetler) ile klibinizi doğru dinleyicilerle buluşturabilirsiniz. Paketlerimiz hakkında detaylı bilgi almak için [fiyatlandırma sayfamızı](/fiyatlandirma) ziyaret edebilirsiniz."
+    ]
+  },
+  {
+    "slug": "lvbel-c5-burak-kosar-kimdir-hit-sarkilari-ve-sosyal-medya-stratejisi",
+    "title": "Lvbel C5 (Burak Koşar) Kimdir? Sosyal Medya İvmesi ve Hit Üretim Formülü",
+    "summary": "Baba, 10 Numara, DACIA gibi parçalarla trendleri domine eden Lvbel C5'in sosyal medya kancalarını YouTube izlenmesine çevirme metodolojisi.",
+    "category": "Kimdir?",
+    "date": "10 Ekim 2026",
+    "readTime": "5 dk",
+    "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "Lvbel C5",
+      "Burak Koşar",
+      "Kimdir",
+      "Hit Şarkılar",
+      "Sosyal Medya Viral"
+    ],
+    "quickFact": "2001 Sakarya doğumlu Burak Koşar (Lvbel C5), 2019'da Batuflex ile yaptığı ortak projelerle çıkış yapmış; kendine has vokal tarzı, mizahi ve akılda kalıcı nakaratlarıyla '10 Numara', 'DACIA' ve 'Baba' gibi hitlerle YouTube'da 300 milyonun üzerinde izlenmeye ulaşmıştır.",
+    "table": {
+      "caption": "Lvbel C5 Hit Şarkı İstatistikleri ve Algoritma Çarpanı",
+      "headers": [
+        "Hit Eser",
+        "YouTube İzlenme Oranı",
+        "Kanca Özelliği",
+        "Viral Platform"
+      ],
+      "rows": [
+        [
+          "10 Numara",
+          "85M+ İzlenme",
+          "Sürekli Tekrar Eden Akılda Kalıcı Melodi",
+          "TikTok & YouTube Shorts"
+        ],
+        [
+          "DACIA",
+          "90M+ İzlenme",
+          "Otomobil & Yaşam Tarzı Kurgusu",
+          "Instagram Reels"
+        ],
+        [
+          "Baba",
+          "60M+ İzlenme",
+          "Ritmik Trap Beat & Hızlı Sözler",
+          "YouTube Trendler #1"
+        ],
+        [
+          "İstemem",
+          "45M+ İzlenme",
+          "Melodik Nakarat & Akustik Tınılar",
+          "Spotify Top 50"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Lvbel C5'in şarkıları neden sosyal medyada bu kadar hızlı yayılıyor?",
+        "answer": "Kullandığı ritimler, gençlerin video çekmesine uygun 8-15 saniyelik net beat vuruşları ve kolay ezberlenen eğlenceli söz kurguları sayesinde sosyal medyada anında akıma dönüşmektedir."
+      },
+      {
+        "question": "Viral olan bir sosyal medya sesi YouTube klibine nasıl izlenme kazandırır?",
+        "answer": "Kullanıcılar TikTok veya Reels'ta duydukları şarkının tamamını dinlemek ve klibini görmek için doğrudan YouTube'a girerek arama yapar; bu da klibin arama hacmini patlatır."
+      }
+    ],
+    "paragraphs": [
+      "Türkçe trap ve drill sahnesinde kendi kurallarını yazan Lvbel C5 (Burak Koşar), dijital çağda bir şarkının nasıl hit haline getirilebileceğini en iyi çözen yeni nesil sanatçıların başında gelmektedir.",
+      "Geleneksel müzik kalıplarına meydan okuyan eğlenceli tarzı, akılda kalıcı nakaratları ve kendine has tavırlarıyla kısa sürede milyonlarca dinleyiciye ulaştı. '10 Numara' ve 'DACIA' parçaları adeta birer sosyal medya fenomenine dönüştü.",
+      "### Sosyal Medyadan YouTube Zirvesine Uzanan Köprü",
+      "Lvbel C5'in en büyük başarısı, dikey video platformlarında (TikTok, Reels) yarattığı akımları ustalıkla YouTube klibine yönlendirebilmesidir. Şarkının en eğlenceli 10 saniyesi sosyal medyada yüz binlerce kullanıcı videosunda kullanılırken, merak eden kitle klibin tamamını izlemek için YouTube'a koşmaktadır.",
+      "Bu devasa organik akış, YouTube algoritmasının klibi 'Aşırı Popüler' olarak etiketlemesini sağlar ve klip haftalarca [trendler listesinde](/trendler) kalır.",
+      "Sosyal medyada yakaladığınız ivmeyi resmi YouTube izlenmelerine dönüştürmek için MedyaPR'ın [resmi Google Ads ve video PR stratejileri](/hizmetler) en güvenilir yardımcınızdır. Fiyatlarımızı [şeffaf fiyatlandırma panelimizden](/fiyatlandirma) inceleyebilir, [bize hemen ulaşabilirsiniz](/iletisim)."
+    ]
+  },
+  {
+    "slug": "ati242-atilla-serin-kimdir-sarkilari-tarzi-ve-youtube-dinlenmeleri",
+    "title": "Ati242 (Atilla Serin) Kimdir? Sert Trap Flow'ları ve Milyonluk Klip Başarıları",
+    "summary": "Kural, 25, Dingo hitleriyle milyonlarca dinlenen Ati242'nin sokaktan YouTube listelerine uzanan müzik yolculuğu ve klip görsel dinamizmi.",
+    "category": "Kimdir?",
+    "date": "10 Ekim 2026",
+    "readTime": "5 dk",
+    "image": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&h=675&q=85",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & MedyaPR Stratejisti",
+    "tags": [
+      "Ati242",
+      "Atilla Serin",
+      "Kimdir",
+      "Türkçe Rap",
+      "Klip Başarıları"
+    ],
+    "quickFact": "1997 Almanya doğumlu ve Antalya'da büyüyen Atilla Serin (Ati242), Almanca ve Türkçe rap kültürünü sentezleyerek sert vuruşlu boom-bap ve modern trap parçalarıyla tanınmış; '25', 'Dingo', 'Kural' ve 'Gringo' gibi parçalarıyla YouTube'da yüz milyonlarca izlenmeye ulaşmıştır.",
+    "table": {
+      "caption": "Ati242 Kariyer Kronolojisi ve YouTube Başarıları",
+      "headers": [
+        "Dönüm Noktası Eser",
+        "Çıkış Yılı",
+        "YouTube İzlenme",
+        "Müzikal Tarz"
+      ],
+      "rows": [
+        [
+          "25",
+          "2019",
+          "55M+ İzlenme",
+          "Saf Sokak Trap, Sert Vokal"
+        ],
+        [
+          "Dingo",
+          "2021",
+          "80M+ İzlenme",
+          "Yüksek Tempolu Club & Trap Sound"
+        ],
+        [
+          "Kural (ft. Motive)",
+          "2022",
+          "65M+ İzlenme",
+          "Kusursuz İkili Kimyası, Lirik Zirve"
+        ],
+        [
+          "Gringo",
+          "2023",
+          "45M+ İzlenme",
+          "Sinematik Sokak Klibi, Güçlü Flow"
+        ]
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Ati242 mahlasının anlamı nereden geliyor?",
+        "answer": "Mahlasındaki 'Ati' kendi adı Atilla'nın kısaltması iken, '242' memleketi olan Antalya'nın telefon alan kodunu simgelemektedir."
+      },
+      {
+        "question": "Ati242'nin video kliplerindeki başarısının sırrı nedir?",
+        "answer": "Kliplerinde Antalya sokaklarını sinematik bir film setine dönüştürmesi, gerçek dostluk ve sokak ruhunu yapmacıksız bir görsel estetikle sunmasıdır."
+      }
+    ],
+    "paragraphs": [
+      "Türkçe rap sahnesinin en karakteristik seslerinden biri olan Ati242 (Atilla Serin), Almanya'da doğup Antalya'nın sokaklarında büyüyen ve iki kültürün sert ritimlerini müziğinde kusursuzca harmanlayan bir sanatçıdır.",
+      "Kariyerine ilk başladığı günden itibaren taviz vermeyen sert flow'ları, güçlü ses tonu ve gerçekçi sokak lirikleriyle sadık ve tutkulu bir dinleyici kitlesi yarattı. '25' ve 'Dingo' gibi parçalar onun sadece bir rapçi değil, kulüpleri ve festival sahnelerini inleten bir canlı performans ustası olduğunu kanıtladı.",
+      "### Klip Görselliği ve İzleyici Sadakati",
+      "Ati242 klipleri, görsel tutarlılığıyla YouTube'da öne çıkar. Hızlı sahne geçişleri, sinematik renk tonları ve parçanın temposuyla tam uyumlu kurgu; izleyicilerin klibi tekrar tekrar (Loop) oynatmasını sağlar.",
+      "YouTube algoritmasında bir klibin döngüye girmesi, izlenme süresi metriklerini tavan yaptırarak klibi önerilen videolar havuzunun en üstüne taşır. Bu başarı, doğru müzikal kimliğin doğru video kurgusuyla birleştiğinde ne kadar güçlü olduğunu gösterir.",
+      "Siz de video klibinizi profesyonel bir lansmanla YouTube'da hak ettiği yere taşımak istiyorsanız, MedyaPR'ın [resmi Google Ads klip tanıtım paketlerini](/hizmetler) inceleyebilirsiniz. Aklınızdaki kampanya planı için [uzman ekibimizle dilediğiniz zaman görüşebilirsiniz](/iletisim)."
     ]
   }
 ]

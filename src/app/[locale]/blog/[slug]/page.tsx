@@ -100,11 +100,12 @@ export default async function BlogPostPage({ params }: Props) {
   const post = await getPostBySlug(slug);
   const allPosts = await getPosts();
   const catKeyMap: Record<string, string> = {
-    'Sanatçı Portreleri': 'sanatcilar',
-    'Şarkı & Klip Analizleri': 'analizler',
-    'YouTube Rehberi & Algoritma': 'algoritma',
+    'Sosyal Medya': 'sosyal-medya',
+    'Nasıl Yapılır?': 'nasil-yapilir',
+    'Tavsiye': 'tavsiye',
+    'Kimdir?': 'kimdir',
     'Resmi Video PR & Google Ads': 'video-pr',
-    'Sosyal Medya & Müzik Pazarlaması': 'sosyal-medya',
+    'Şarkı & Klip Analizleri': 'analizler',
   };
   const categoryKey = post ? (catKeyMap[post.category] || 'all') : 'all';
 
