@@ -130,9 +130,8 @@ export default async function BlogPostPage({ params }: Props) {
       inLanguage: isTr ? 'tr-TR' : 'en-US',
       mainEntityOfPage: `https://medyapr.com/${locale}/blog/${slug}`,
       author: {
-        '@type': 'Person',
-        name: post.author,
-        jobTitle: post.authorRole,
+        '@type': 'Organization',
+        name: 'MedyaPR',
         url: `https://medyapr.com/${locale}/hakkimizda`,
       },
       publisher: {
@@ -386,7 +385,7 @@ export default async function BlogPostPage({ params }: Props) {
         {/* ── E-E-A-T Author & Agency Credibility Card ── */}
         <div className="mt-10 rounded-3xl border border-white/15 bg-gradient-to-r from-zinc-900 to-zinc-950 p-6 flex flex-col sm:flex-row items-center gap-5">
           <div className="h-16 w-16 shrink-0 rounded-2xl bg-gradient-to-br from-[#FF0033] to-[#99001F] flex items-center justify-center text-white font-black text-2xl shadow-xl">
-            SM
+            PR
           </div>
           <div className="space-y-1 text-center sm:text-left">
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
@@ -399,7 +398,7 @@ export default async function BlogPostPage({ params }: Props) {
               </span>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed">
-              MedyaPR bünyesinde Türkiye ve dünya genelinde müzik klipleri, prodüksiyon şirketleri ve sanatçılar için resmi Google Ads video PR stratejileri geliştirmektedir.
+              Türkiye ve dünya genelinde müzik klipleri, prodüksiyon şirketleri ve sanatçılar için resmi Google Ads video PR stratejileri geliştiren MedyaPR editoryal uzmanları tarafından hazırlanmıştır.
             </p>
           </div>
         </div>
@@ -426,7 +425,7 @@ export default async function BlogPostPage({ params }: Props) {
               Fiyatı Hesapla &amp; Başlat <ArrowRight className="h-4 w-4" />
             </Link>
             <a
-              href="https://wa.me/905551234567"
+              href="https://wa.me/905312993355"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl border border-zinc-700/60 bg-zinc-800/80 px-6 py-3.5 text-sm font-bold text-white hover:bg-zinc-700 transition"

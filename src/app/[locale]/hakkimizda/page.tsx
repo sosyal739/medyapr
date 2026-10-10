@@ -75,10 +75,7 @@ export default async function AboutPage({ params }: Props) {
                 mainEntity: {
                   '@type': 'Organization',
                   name: 'MedyaPR',
-                  founder: {
-                    '@type': 'Person',
-                    name: 'Salih Maral',
-                  },
+                  url: 'https://medyapr.com',
                 },
               },
             ],

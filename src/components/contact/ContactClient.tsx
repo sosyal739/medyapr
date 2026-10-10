@@ -84,7 +84,7 @@ export default function ContactClient({ locale }: Props) {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-zinc-700 bg-zinc-800/80 text-white placeholder-zinc-500 focus:border-[#FF0033] focus:ring-2 focus:ring-[#FF0033]/20 outline-none transition-all text-sm"
-                  placeholder={isTr ? 'Örn. Salih Maral' : 'e.g. John Doe'}
+                  placeholder={isTr ? 'Örn. Adınız Soyadınız' : 'e.g. John Doe'}
                 />
               </div>
 
@@ -226,7 +226,7 @@ export default function ContactClient({ locale }: Props) {
                   : 'MedyaPR delivers 100% official Google Ads campaigns for artists worldwide with zero bot guarantee, high retention, and complete channel safety.'}
               </p>
               <div className="pt-3 border-t border-zinc-800 flex items-center justify-between text-xs text-zinc-400">
-                <span>Baş Stratejist: Salih Maral</span>
+                <span>{isTr ? 'MedyaPR Uzman Ekibi' : 'MedyaPR Expert Team'}</span>
                 <span className="text-emerald-400 font-medium">● Canlı Operasyon</span>
               </div>
             </div>

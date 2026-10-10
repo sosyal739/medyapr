@@ -100,7 +100,7 @@ export default async function BlogIndexPage({
           url: `https://medyapr.com/${locale}/blog/${p.slug}`,
           datePublished: toIsoDateString(p.date),
           author: {
-            '@type': 'Person',
+            '@type': 'Organization',
             name: p.author,
           },
         })),

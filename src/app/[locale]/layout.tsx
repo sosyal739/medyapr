@@ -100,7 +100,6 @@ export default async function LocaleLayout({ params, children }: Props) {
                     url: 'https://medyapr.com/logo.png',
                   },
                   description: dict.metadata.description,
-                  founder: { '@id': 'https://medyapr.com/#founder' },
                   contactPoint: {
                     '@type': 'ContactPoint',
                     telephone: '+90-531-299-3355',
@@ -113,21 +112,6 @@ export default async function LocaleLayout({ params, children }: Props) {
                     'https://www.youtube.com/@medyapr',
                     'https://instagram.com/medyapr',
                     'https://t.me/medyapr',
-                  ],
-                },
-                {
-                  '@type': 'Person',
-                  '@id': 'https://medyapr.com/#founder',
-                  name: 'Salih Maral',
-                  jobTitle: 'Resmi Google Partner & Dijital Medya Stratejisti (18+ Yıllık Tecrübe)',
-                  url: 'https://medyapr.com',
-                  worksFor: { '@id': 'https://medyapr.com/#organization' },
-                  knowsAbout: [
-                    'Google Ads Video Reklamları',
-                    'YouTube Algoritma Optimizasyonu',
-                    'Müzik Klibi Lansman PR',
-                    'YouTube Shorts Reklamcılığı',
-                    'Dijital Medya Planlama',
                   ],
                 },
                 {
