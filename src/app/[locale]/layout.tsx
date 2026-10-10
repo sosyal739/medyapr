@@ -148,7 +148,7 @@ export default async function LocaleLayout({ params, children }: Props) {
       </head>
       <body className="min-h-screen flex flex-col bg-app-base text-zinc-100 antialiased selection:bg-[#FF0033] selection:text-white transition-colors duration-400">
         <ThemeProvider>
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-QH1RF058RM'} />
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-EEBZ16SNQ9'} />
           <Header dict={dict} locale={locale} />
           <main className="flex-grow pt-[72px]">{children}</main>
           <Footer dict={dict} locale={locale} />

@@ -7,7 +7,7 @@ interface GoogleAnalyticsProps {
 }
 
 export default function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
-  const measurementId = gaId || process.env.NEXT_PUBLIC_GA_ID;
+  const measurementId = gaId || process.env.NEXT_PUBLIC_GA_ID || 'G-EEBZ16SNQ9';
 
   if (!measurementId) return null;
 
