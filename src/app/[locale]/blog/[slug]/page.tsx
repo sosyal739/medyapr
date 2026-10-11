@@ -71,24 +71,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getPostBySlug(slug);
   if (!post) return { title: 'Yazı Bulunamadı' };
 
+  const isTr = locale === 'tr';
+  const postTitle = (!isTr && post.title_en) ? post.title_en : post.title;
+  const postSummary = (!isTr && post.summary_en) ? post.summary_en : post.summary;
+
   return {
     title: {
-      absolute: post.title,
+      absolute: postTitle,
     },
-    description: post.summary,
+    description: postSummary,
     alternates: getPageAlternates(locale, `/blog/${slug}`),
     openGraph: {
-      title: post.title,
-      description: post.summary,
-      images: [{ url: post.image, width: 1200, height: 675, alt: post.title }],
+      title: postTitle,
+      description: postSummary,
+      images: [{ url: post.image, width: 1200, height: 675, alt: postTitle }],
       type: 'article',
       publishedTime: toIsoDateString(post.date),
       authors: [post.author],
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
-      description: post.summary,
+      title: postTitle,
+      description: postSummary,
       images: [post.image],
     },
   };
@@ -117,14 +121,24 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const isTr = locale === 'tr';
+  const postTitle = (!isTr && post.title_en) ? post.title_en : post.title;
+  const postSummary = (!isTr && post.summary_en) ? post.summary_en : post.summary;
+  const postCategory = (!isTr && post.category_en) ? post.category_en : post.category;
+  const postReadTime = (!isTr && post.readTime_en) ? post.readTime_en : post.readTime;
+  const postAuthorRole = (!isTr && post.authorRole_en) ? post.authorRole_en : post.authorRole;
+  const postQuickFact = (!isTr && post.quickFact_en) ? post.quickFact_en : post.quickFact;
+  const postTable = (!isTr && post.table_en) ? post.table_en : post.table;
+  const postFaqs = (!isTr && post.faqs_en) ? post.faqs_en : post.faqs;
+  const postParagraphs = (!isTr && post.paragraphs_en) ? post.paragraphs_en : (post.paragraphs || []);
+  const postTags = (!isTr && post.tags_en) ? post.tags_en : post.tags;
 
   // Schema.org Graph (BlogPosting + BreadcrumbList + FAQPage)
   const schemaGraph: any[] = [
     {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
-      headline: post.title,
-      description: post.summary,
+      headline: postTitle,
+      description: postSummary,
       image: post.image,
       datePublished: toIsoDateString(post.date),
       inLanguage: isTr ? 'tr-TR' : 'en-US',
@@ -163,24 +177,24 @@ export default async function BlogPostPage({ params }: Props) {
         {
           '@type': 'ListItem',
           position: 3,
-          name: post.category,
+          name: postCategory,
           item: `https://medyapr.com/${locale}/blog?kategori=${categoryKey}`,
         },
         {
           '@type': 'ListItem',
           position: 4,
-          name: post.title,
+          name: postTitle,
           item: `https://medyapr.com/${locale}/blog/${slug}`,
         },
       ],
     },
   ];
 
-  if (post.faqs && post.faqs.length > 0) {
+  if (postFaqs && postFaqs.length > 0) {
     schemaGraph.push({
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
-      mainEntity: post.faqs.map((f) => ({
+      mainEntity: postFaqs.map((f) => ({
         '@type': 'Question',
         name: f.question,
         acceptedAnswer: {
@@ -219,35 +233,35 @@ export default async function BlogPostPage({ params }: Props) {
             href={`/${locale}/blog?kategori=${categoryKey}`}
             className="hover:text-[#FF6B6B] transition text-zinc-300"
           >
-            {post.category}
+            {postCategory}
           </Link>
         </nav>
 
         {/* Article Header */}
         <header className="mb-10 space-y-4">
           <span className="inline-block rounded-full bg-[#FF0033]/20 border border-[#FF0033]/40 px-3.5 py-1 text-xs font-bold text-[#FF6B6B]">
-            {post.category}
+            {postCategory}
           </span>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white">
-            {post.title}
+            {postTitle}
           </h1>
 
           <div className="flex flex-wrap items-center gap-6 border-y border-studio py-4 text-xs text-zinc-400">
             <span className="flex items-center gap-1.5">
               <User className="h-4 w-4 text-[#FF6B6B]" />
-              <strong className="text-white">{post.author}</strong> ({post.authorRole})
+              <strong className="text-white">{post.author}</strong> ({postAuthorRole})
             </span>
             <span className="flex items-center gap-1.5">
               <Calendar className="h-4 w-4 text-zinc-500" /> {post.date}
             </span>
             <span className="flex items-center gap-1.5">
-              <Clock className="h-4 w-4 text-zinc-500" /> {post.readTime} okuma
+              <Clock className="h-4 w-4 text-zinc-500" /> {postReadTime} {isTr ? 'okuma' : 'read'}
             </span>
           </div>
         </header>
 
         {/* ── Princeton GEO Quick Fact / Doğrudan Cevap Kutusu (Preferred Source) ── */}
-        {post.quickFact && (
+        {postQuickFact && (
           <div className="mb-10 relative overflow-hidden rounded-3xl border border-[#FF0033]/40 bg-gradient-to-r from-zinc-900/90 via-zinc-900/95 to-zinc-950 p-6 sm:p-7 shadow-2xl backdrop-blur-xl">
             <div className="flex items-start gap-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#FF0033]/20 text-[#FF4D6D] border border-[#FF0033]/30">
@@ -256,14 +270,14 @@ export default async function BlogPostPage({ params }: Props) {
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-black uppercase tracking-wider text-[#FF6B6B]">
-                    Özet Bilgi &amp; Hızlı Yanıt (Quick Fact)
+                    {isTr ? 'Özet Bilgi & Hızlı Yanıt (Quick Fact)' : 'Quick Fact & Verified Summary'}
                   </span>
                   <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-bold text-emerald-300 border border-emerald-500/30">
-                    Doğrulanmış Veri
+                    {isTr ? 'Doğrulanmış Veri' : 'Verified Data'}
                   </span>
                 </div>
                 <blockquote className="text-sm sm:text-base font-medium leading-relaxed text-zinc-200 italic">
-                  &ldquo;{post.quickFact}&rdquo;
+                  &ldquo;{postQuickFact}&rdquo;
                 </blockquote>
               </div>
             </div>
@@ -275,7 +289,7 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="mb-12 overflow-hidden rounded-3xl border border-white/15 bg-black shadow-2xl aspect-video">
             <iframe
               src={`https://www.youtube-nocookie.com/embed/${post.videoId}`}
-              title={post.title}
+              title={postTitle}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               className="h-full w-full border-0"
@@ -284,24 +298,24 @@ export default async function BlogPostPage({ params }: Props) {
         ) : (
           <div className="mb-12 overflow-hidden rounded-3xl border border-white/15 aspect-video shadow-2xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={post.image} alt={post.title} className="h-full w-full object-cover" />
+            <img src={post.image} alt={postTitle} className="h-full w-full object-cover" />
           </div>
         )}
 
         {/* ── Structured Benchmark Table (Featured Snippet & AI Citability) ── */}
-        {post.table && (
+        {postTable && (
           <div className="mb-12 overflow-hidden rounded-3xl border border-studio bg-studio-card p-6 shadow-2xl backdrop-blur-xl">
             <div className="mb-4 flex items-center gap-2">
               <TableIcon className="h-4 w-4 text-[#FF4D6D]" />
               <h3 className="text-sm font-extrabold uppercase tracking-wider text-white">
-                {post.table.caption || 'Performans & Karşılaştırma Tablosu'}
+                {postTable.caption || (isTr ? 'Performans & Karşılaştırma Tablosu' : 'Performance & Comparison Benchmark')}
               </h3>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead>
                   <tr className="border-b border-white/10 bg-white/[0.04] text-xs font-bold uppercase tracking-wider text-zinc-300">
-                    {post.table.headers.map((h, i) => (
+                    {postTable.headers.map((h, i) => (
                       <th key={i} className="py-3.5 px-4">
                         {h}
                       </th>
@@ -309,7 +323,7 @@ export default async function BlogPostPage({ params }: Props) {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5">
-                  {post.table.rows.map((row, rIdx) => (
+                  {postTable.rows.map((row, rIdx) => (
                     <tr key={rIdx} className="hover:bg-white/[0.02] transition-colors">
                       {row.map((cell, cIdx) => (
                         <td
@@ -331,7 +345,7 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Article Body */}
         <div className="space-y-6 text-base sm:text-lg leading-relaxed text-white/80">
-          {(post.paragraphs || []).map((p, idx) => {
+          {postParagraphs.map((p, idx) => {
             if (p.startsWith('### ')) {
               return (
                 <h2 key={idx} className="pt-6 text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -355,14 +369,16 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         {/* ── Structured FAQ Section (FAQPage Schema Accordion) ── */}
-        {post.faqs && post.faqs.length > 0 && (
+        {postFaqs && postFaqs.length > 0 && (
           <div className="mt-14 space-y-4 rounded-3xl border border-studio bg-studio-card p-6 sm:p-8">
             <div className="flex items-center gap-2 mb-4">
               <HelpCircle className="h-5 w-5 text-[#FF0033]" />
-              <h3 className="text-xl font-extrabold text-white">Sıkça Sorulan Sorular</h3>
+              <h3 className="text-xl font-extrabold text-white">
+                {isTr ? 'Sıkça Sorulan Sorular' : 'Frequently Asked Questions'}
+              </h3>
             </div>
             <div className="space-y-3">
-              {post.faqs.map((f, i) => (
+              {postFaqs.map((f, i) => (
                 <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.02] p-4">
                   <h4 className="text-sm sm:text-base font-bold text-white mb-1.5">{f.question}</h4>
                   <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">{f.answer}</p>
@@ -375,7 +391,7 @@ export default async function BlogPostPage({ params }: Props) {
         {/* Tags */}
         <div className="mt-12 flex flex-wrap items-center gap-2 border-t border-studio pt-6">
           <Tag className="h-4 w-4 text-[#FF6B6B]" />
-          {post.tags.map((tag) => (
+          {postTags.map((tag) => (
             <span key={tag} className="rounded-xl border border-studio bg-zinc-800/80 px-3 py-1 text-xs text-zinc-300">
               #{tag}
             </span>

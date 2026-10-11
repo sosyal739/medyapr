@@ -24,6 +24,23 @@ export interface BlogPost {
     answer: string;
   }[];
   paragraphs: string[];
+  title_en?: string;
+  summary_en?: string;
+  category_en?: string;
+  readTime_en?: string;
+  authorRole_en?: string;
+  tags_en?: string[];
+  quickFact_en?: string;
+  table_en?: {
+    caption?: string;
+    headers: string[];
+    rows: string[][];
+  };
+  faqs_en?: {
+    question: string;
+    answer: string;
+  }[];
+  paragraphs_en?: string[];
 }
 
 export interface Artist {

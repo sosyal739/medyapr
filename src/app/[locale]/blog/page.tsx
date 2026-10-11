@@ -218,7 +218,7 @@ export default async function BlogIndexPage({
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <span className="absolute top-3 left-3 rounded-full bg-[#FF0033] px-3 py-1 text-xs font-bold text-white shadow-lg">
-                  {filteredPosts[0].category}
+                  {(!isTr && filteredPosts[0].category_en) ? filteredPosts[0].category_en : filteredPosts[0].category}
                 </span>
               </div>
               <div className="space-y-4">
@@ -227,14 +227,14 @@ export default async function BlogIndexPage({
                     <Calendar className="h-3.5 w-3.5 text-[#FF6B6B]" /> {filteredPosts[0].date}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Clock className="h-3.5 w-3.5 text-white/40" /> {filteredPosts[0].readTime}
+                    <Clock className="h-3.5 w-3.5 text-white/40" /> {(!isTr && filteredPosts[0].readTime_en) ? filteredPosts[0].readTime_en : filteredPosts[0].readTime}
                   </span>
                 </div>
                 <h2 className="text-xl sm:text-2xl font-extrabold text-white group-hover:text-[#FF6B6B] transition-colors leading-snug">
-                  {filteredPosts[0].title}
+                  {(!isTr && filteredPosts[0].title_en) ? filteredPosts[0].title_en : filteredPosts[0].title}
                 </h2>
                 <p className="text-sm leading-relaxed text-white/65 line-clamp-3">
-                  {filteredPosts[0].summary}
+                  {(!isTr && filteredPosts[0].summary_en) ? filteredPosts[0].summary_en : filteredPosts[0].summary}
                 </p>
                 <div className="inline-flex items-center gap-2 text-sm font-bold text-[#FF6B6B] group-hover:translate-x-1 transition-transform">
                   {isTr ? 'Yazıyı Oku' : 'Read Article'} <ArrowRight className="h-4 w-4" />
@@ -247,47 +247,54 @@ export default async function BlogIndexPage({
         {/* Other Posts Grid */}
         {filteredPosts.length > 1 && (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredPosts.slice(1).map((post) => (
-              <Link
-                key={post.slug}
-                href={`/${locale}/blog/${post.slug}`}
-                className="group flex flex-col justify-between rounded-3xl border border-studio bg-studio-card p-6 backdrop-blur-xl transition hover:border-studio-strong hover:bg-zinc-800/90 shadow-xl"
-              >
-                <div>
-                  <div className="relative aspect-video overflow-hidden rounded-2xl bg-black/40 mb-5">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <span className="absolute top-3 left-3 rounded-full bg-black/70 backdrop-blur-md px-3 py-1 text-xs font-bold text-white border border-white/10">
-                      {post.category}
-                    </span>
+            {filteredPosts.slice(1).map((post) => {
+              const postTitle = (!isTr && post.title_en) ? post.title_en : post.title;
+              const postSummary = (!isTr && post.summary_en) ? post.summary_en : post.summary;
+              const postCategory = (!isTr && post.category_en) ? post.category_en : post.category;
+              const postReadTime = (!isTr && post.readTime_en) ? post.readTime_en : post.readTime;
+
+              return (
+                <Link
+                  key={post.slug}
+                  href={`/${locale}/blog/${post.slug}`}
+                  className="group flex flex-col justify-between rounded-3xl border border-studio bg-studio-card p-6 backdrop-blur-xl transition hover:border-studio-strong hover:bg-zinc-800/90 shadow-xl"
+                >
+                  <div>
+                    <div className="relative aspect-video overflow-hidden rounded-2xl bg-black/40 mb-5">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={post.image}
+                        alt={postTitle}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <span className="absolute top-3 left-3 rounded-full bg-black/70 backdrop-blur-md px-3 py-1 text-xs font-bold text-white border border-white/10">
+                        {postCategory}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-4 text-xs text-white/50 mb-3">
+                      <span className="flex items-center gap-1.5">
+                        <Calendar className="h-3.5 w-3.5 text-[#FF6B6B]" /> {post.date}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <Clock className="h-3.5 w-3.5 text-white/40" /> {postReadTime}
+                      </span>
+                    </div>
+                    <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#FF6B6B] transition-colors leading-snug line-clamp-2">
+                      {postTitle}
+                    </h3>
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-white/60 line-clamp-3">
+                      {postSummary}
+                    </p>
                   </div>
-                  <div className="flex items-center gap-4 text-xs text-white/50 mb-3">
-                    <span className="flex items-center gap-1.5">
-                      <Calendar className="h-3.5 w-3.5 text-[#FF6B6B]" /> {post.date}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <Clock className="h-3.5 w-3.5 text-white/40" /> {post.readTime}
-                    </span>
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#FF6B6B] transition-colors leading-snug line-clamp-2">
-                    {post.title}
-                  </h3>
-                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-white/60 line-clamp-3">
-                    {post.summary}
-                  </p>
-                </div>
 
                 <div className="mt-6 flex items-center justify-between border-t border-white/5 pt-4 text-xs font-semibold text-[#FF6B6B]">
                   <span>{isTr ? 'Devamını Oku' : 'Read More'}</span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
-            ))}
-          </div>
+            );
+          })}
+        </div>
         )}
 
         {/* Empty State */}
