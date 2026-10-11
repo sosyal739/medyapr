@@ -33,7 +33,7 @@ export default async function PricingPage({ params }: Props) {
 
   return (
     <div className="min-h-screen">
-      {/* Schema.org Product & BreadcrumbList */}
+      {/* Schema.org Service & BreadcrumbList */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -58,23 +58,19 @@ export default async function PricingPage({ params }: Props) {
                 ],
               },
               {
-                '@type': 'Product',
-                name: locale === 'tr' ? 'MedyaPR YouTube Video & Klip PR Paketleri' : 'MedyaPR YouTube Video & Music PR Packages',
+                '@type': 'Service',
+                name: locale === 'tr' ? 'MedyaPR YouTube Video & Klip PR Paketleri ve Fiyatlandırma' : 'MedyaPR YouTube Video & Music PR Packages and Pricing',
                 description: isTr
                   ? 'Kademeli indirimli resmi Google Ads YouTube video ve klip tanıtım paketleri. 1.000 izlenmeden 1.000.000 izlenmeye kadar şeffaf baremler.'
                   : 'Official Google Ads YouTube video promotion packages. Tiered discounted pricing from 1K to 1M authentic views.',
-                brand: {
-                  '@type': 'Brand',
+                provider: {
+                  '@type': 'Organization',
                   name: 'MedyaPR',
+                  url: 'https://medyapr.com',
                 },
-                offers: {
-                  '@type': 'AggregateOffer',
-                  priceCurrency: 'TRY',
-                  lowPrice: '100',
-                  highPrice: '90000',
-                  offerCount: '18',
-                  availability: 'https://schema.org/InStock',
-                },
+                serviceType: locale === 'tr' ? 'Video PR ve Reklam Bütçesi Hesaplama' : 'Video PR & Advertising Budget Estimation',
+                areaServed: ['TR', 'DE', 'Global'],
+                url: `https://medyapr.com/${locale}/fiyatlandirma`,
               },
             ],
           }),
