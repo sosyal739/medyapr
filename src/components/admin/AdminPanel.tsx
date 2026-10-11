@@ -93,7 +93,7 @@ export default function AdminPanel() {
               <div className="space-y-4 border-t border-gray-100 p-4 text-sm">
                 <div className="grid gap-1 text-gray-600">
                   <a href={o.videoUrl} target="_blank" rel="noopener noreferrer" className="text-[#FF0033] underline break-all">{o.videoUrl}</a>
-                  <div>{o.format} · {o.region} · ödeme: {o.payment}{o.contact ? ` · ${o.contact}` : ''}</div>
+                  <div>{o.format} · {o.pkg === 'engagement' ? 'etkileşim paketi' : 'izlenme'} · {o.region} · ödeme: {o.payment}{o.contact ? ` · ${o.contact}` : ''}</div>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-2">

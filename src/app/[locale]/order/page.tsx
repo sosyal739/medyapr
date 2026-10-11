@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import OrderForm from '@/components/order/OrderForm';
 import { getAppStrings } from '@/lib/i18n/app-strings';
-import { CURRENCIES, FORMATS, REGIONS, clampViews, type Currency, type Format, type Region } from '@/lib/pricing';
+import { CURRENCIES, FORMATS, PACKAGES, REGIONS, clampViews, type Currency, type Format, type Package, type Region } from '@/lib/pricing';
 
 export const metadata: Metadata = { title: 'Sipariş Oluştur | MedyaPR', robots: { index: false } };
 
@@ -35,6 +35,7 @@ export default async function OrderPage({ params, searchParams }: Props) {
           initial={{
             views: clampViews(Number(sp.views) || 25_000),
             format: pick<Format>(FORMATS, sp.format, 'instream'),
+            pkg: pick<Package>(PACKAGES, sp.pkg, 'views'),
             region: pick<Region>(REGIONS, sp.region, 'tr'),
             currency: pick<Currency>(CURRENCIES, sp.currency, locale === 'tr' ? 'TRY' : 'EUR'),
           }}

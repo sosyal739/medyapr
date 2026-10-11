@@ -2,18 +2,21 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Check, Clock, Globe2, ShieldCheck, Sparkles, Tag, ThumbsUp } from 'lucide-react';
+import { ArrowRight, Check, Clock, Globe2, MessageCircle, ShieldCheck, Sparkles, Tag, ThumbsUp } from 'lucide-react';
 import {
   CURRENCIES,
   MAX_VIEWS,
   MIN_VIEWS,
+  PACKAGES,
   REGIONS,
   formatMoney,
   quote,
   type Currency,
   type Format,
+  type Package,
   type Region,
 } from '@/lib/pricing';
+import { consultHref } from '@/lib/contact';
 import type { AppStrings } from '@/lib/i18n/app-strings';
 
 const PRESETS = [1_000, 5_000, 10_000, 25_000, 50_000, 100_000, 250_000, 500_000, 1_000_000];
@@ -50,14 +53,15 @@ function useAnimatedNumber(target: number, ms = 350) {
 export default function Calculator({ locale, t }: { locale: string; t: AppStrings['calc'] }) {
   const [views, setViews] = useState(25_000);
   const [format] = useState<Format>('instream');
+  const [pkg, setPkg] = useState<Package>('views');
   const [region, setRegion] = useState<Region>('tr');
   const [currency, setCurrency] = useState<Currency>(locale === 'tr' ? 'TRY' : 'EUR');
 
-  const q = useMemo(() => quote({ views, format, region, currency }), [views, format, region, currency]);
+  const q = useMemo(() => quote({ views, format, pkg, region, currency }), [views, format, pkg, region, currency]);
   const animTotal = useAnimatedNumber(q.total);
   const nf = new Intl.NumberFormat(locale === 'tr' ? 'tr-TR' : 'en-US');
 
-  const href = `/${locale}/order?views=${q.views}&format=${format}&region=${region}&currency=${currency}`;
+  const href = `/${locale}/order?views=${q.views}&format=${format}&pkg=${pkg}&region=${region}&currency=${currency}`;
 
   return (
     <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-[#181B22]/95 via-[#15171D]/95 to-[#111317]/95 p-6 sm:p-8 lg:p-10 text-white shadow-2xl backdrop-blur-2xl">
@@ -190,7 +194,50 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
             </div>
           </div>
 
-          {/* Adım 3: Güvenceler (İkna Edici Net Standartlar) */}
+          {/* Adım 3: Paket Türü */}
+          <div>
+            <div className="mb-3">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-red-400">3. Adım</span>
+              <h3 className="text-base font-extrabold text-white">{t.pkg}</h3>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {PACKAGES.map((p) => {
+                const on = pkg === p;
+                return (
+                  <button
+                    key={p}
+                    type="button"
+                    onClick={() => setPkg(p)}
+                    aria-pressed={on}
+                    className={`relative rounded-2xl border p-3.5 text-left transition-all duration-200 ${
+                      on
+                        ? 'border-[#FF0033] bg-[#FF0033]/15 ring-1 ring-[#FF0033]/40 shadow-lg shadow-red-500/10'
+                        : 'border-white/10 bg-white/[0.03] hover:border-white/20 hover:bg-white/[0.06] text-zinc-300'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-lg">{p === 'views' ? '▶️' : '💬'}</span>
+                      <span
+                        className={`text-[10px] font-black px-2 py-0.5 rounded-full border ${
+                          p === 'engagement'
+                            ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                            : 'bg-white/10 text-zinc-300 border-white/10'
+                        }`}
+                      >
+                        {t.packages[p].tag}
+                      </span>
+                    </div>
+                    <div className="text-sm font-extrabold text-white">{t.packages[p].name}</div>
+                    <div className="mt-0.5 text-xs text-zinc-400">{t.packages[p].desc}</div>
+                  </button>
+                );
+              })}
+            </div>
+            {pkg === 'engagement' && <p className="mt-2 text-[11px] text-zinc-400">{t.engagementNote}</p>}
+          </div>
+
+          {/* Güvenceler (İkna Edici Net Standartlar) */}
           <div className="pt-1">
             <div className="mb-2.5 flex items-center justify-between">
               <span className="text-xs font-bold uppercase tracking-wider text-zinc-400">
@@ -310,6 +357,10 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
               <span className="font-bold text-white">{t.regions[region].name}</span>
             </div>
             <div className="flex items-center justify-between text-zinc-300">
+              <span className="text-zinc-400">{t.pkg}</span>
+              <span className="font-bold text-white">{t.packages[pkg].name}</span>
+            </div>
+            <div className="flex items-center justify-between text-zinc-300">
               <span className="text-zinc-400">{t.per1k}</span>
               <span className="font-bold text-white">{formatMoney(q.perThousand, currency, locale)}</span>
             </div>
@@ -329,6 +380,16 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
             <span>{t.cta}</span>
             <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
           </Link>
+
+          <a
+            href={consultHref(t.consultMsg)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2.5 inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-emerald-400/40 bg-emerald-500/10 px-6 py-3 text-sm font-bold text-emerald-300 transition-all hover:border-emerald-400 hover:bg-emerald-500/20 hover:text-white"
+          >
+            <MessageCircle className="h-4 w-4" />
+            <span>{t.consult}</span>
+          </a>
 
           {/* Güvence Maddeleri */}
           <div className="mt-4 space-y-2 border-t border-white/10 pt-3.5">

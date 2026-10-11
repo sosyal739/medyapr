@@ -142,7 +142,7 @@ export default async function HomePage({ params }: Props) {
         }}
       />
 
-      <HeroSection dict={dict} />
+      <HeroSection dict={dict} locale={locale} />
       <TrustBadges dict={dict} />
       <CalculatorSection locale={locale} />
       <TrendingMusicSection songs={trendingSongs} locale={locale} />

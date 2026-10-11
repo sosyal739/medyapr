@@ -44,6 +44,18 @@ const tr = {
     eta: 'Tahmini teslimat',
     days: 'gün',
     cta: 'Siparişi Başlat',
+    pkg: 'Paket Türü',
+    packages: {
+      views: { name: 'Sadece İzlenme', desc: 'Hedef kitleye resmi Google Ads video gösterimi', tag: 'Standart' },
+      engagement: {
+        name: 'Etkileşim Paketi',
+        desc: 'İzlenme + beğeni, yorum ve paylaşım odaklı hedefleme ve kampanya kurgusu',
+        tag: '+%30',
+      },
+    },
+    engagementNote: 'Etkileşimler gerçek izleyicilerden gelir; beğeni/yorum sayısı garanti edilmez, bot kullanılmaz.',
+    consult: 'Ücretsiz Ön Görüşme',
+    consultMsg: 'Merhaba, YouTube video tanıtımı için ücretsiz ön görüşme yapmak istiyorum.',
     note: 'Videonuz 18+ yıllık tecrübeli Google Partner uzmanlarımızca incelenir. Onay alınca %50, kampanya bitiminde kalanı ödenir (Kurumsala iş bitiminde). Fiyat videonun uzunluğuna göre esneklik gösterebilir.',
     perks: [
       '18+ yıllık sektör tecrübesi & Google Partner uzmanlığı',
@@ -148,6 +160,18 @@ const en: Strings = {
     eta: 'Estimated delivery',
     days: 'days',
     cta: 'Start Campaign',
+    pkg: 'Package',
+    packages: {
+      views: { name: 'Views Only', desc: 'Official Google Ads video delivery to your target audience', tag: 'Standard' },
+      engagement: {
+        name: 'Engagement Package',
+        desc: 'Views + targeting and campaign setup focused on likes, comments and shares',
+        tag: '+30%',
+      },
+    },
+    engagementNote: 'Engagement comes from real viewers; like/comment counts are not guaranteed and no bots are used.',
+    consult: 'Free Consultation',
+    consultMsg: 'Hello, I would like a free consultation about promoting my YouTube video.',
     note: 'Managed by official Google Partner specialists with 18+ years of industry experience. 50% upon ad approval, 50% upon completion (Corporate clients pay upon completion).',
     perks: [
       '18+ years industry experience & certified Google Partner specialists',

@@ -18,13 +18,18 @@ import {
   Maximize2,
   Award,
   Users,
+  MessageCircle,
 } from 'lucide-react';
+import { getAppStrings } from '@/lib/i18n/app-strings';
+import { consultHref } from '@/lib/contact';
 
 interface HeroSectionProps {
   dict: any;
+  locale: string;
 }
 
-export default function HeroSection({ dict }: HeroSectionProps) {
+export default function HeroSection({ dict, locale }: HeroSectionProps) {
+  const calcT = getAppStrings(locale).calc;
   // Ses ve Oynatıcı Ref & Durumları
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -204,6 +209,16 @@ export default function HeroSection({ dict }: HeroSectionProps) {
             >
               Fiyatı Hesapla & Sipariş Ver
               <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+
+            <a
+              href={consultHref(calcT.consultMsg)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 rounded-2xl border border-emerald-400/40 bg-emerald-500/10 px-7 py-4 text-base font-bold text-emerald-300 backdrop-blur-md transition-all duration-300 hover:border-emerald-400 hover:bg-emerald-500/20 hover:text-white shadow-lg"
+            >
+              <MessageCircle className="h-5 w-5" />
+              {calcT.consult}
             </a>
 
             <button

@@ -4,10 +4,10 @@ import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Banknote, CheckCircle2, CreditCard, Loader2, ShieldCheck, XCircle } from 'lucide-react';
-import { formatMoney, parseYouTubeId, quote, type Currency, type Format, type Region } from '@/lib/pricing';
+import { formatMoney, parseYouTubeId, quote, type Currency, type Format, type Package, type Region } from '@/lib/pricing';
 import type { AppStrings } from '@/lib/i18n/app-strings';
 
-type Initial = { views: number; format: Format; region: Region; currency: Currency };
+type Initial = { views: number; format: Format; pkg: Package; region: Region; currency: Currency };
 
 const inputClass =
   'w-full rounded-xl border border-zinc-700/60 bg-zinc-900/80 px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none transition focus:border-[#FF0033] focus:ring-4 focus:ring-[#FF0033]/20';
@@ -218,6 +218,7 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
         <dl className="space-y-2.5 text-sm">
           <Row k={c.views} v={nf.format(q.views)} />
           <Row k={c.format} v={c.formats[initial.format]?.name || initial.format} />
+          <Row k={c.pkg} v={c.packages[initial.pkg].name} />
           <Row k={c.region} v={c.regions[initial.region]?.name || initial.region} />
           {q.discountRate > 0 && (
             <Row

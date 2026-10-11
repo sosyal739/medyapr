@@ -9,6 +9,12 @@ export type Format = (typeof FORMATS)[number];
 export const REGIONS = ['tr', 'global', 'premium'] as const;
 export type Region = (typeof REGIONS)[number];
 
+export const PACKAGES = ['views', 'engagement'] as const;
+export type Package = (typeof PACKAGES)[number];
+
+/** Etkileşim Paketi: izlenmeye ek beğeni/yorum/paylaşım odaklı kampanya, izlenme fiyatına +%30. */
+export const ENGAGEMENT_UPLIFT = 0.3;
+
 export const CURRENCIES = ['TRY', 'EUR', 'USD'] as const;
 export type Currency = (typeof CURRENCIES)[number];
 
@@ -67,6 +73,7 @@ export const GLOBAL_PRICE_TIERS: readonly [number, number][] = [
 export type Quote = {
   views: number;
   format: Format;
+  pkg: Package;
   region: Region;
   currency: Currency;
   discountRate: number;
@@ -118,19 +125,22 @@ export function getTrPriceTry(views: number): number {
 export function quote(input: {
   views: number;
   format?: Format;
+  pkg?: Package;
   region: Region;
   currency: Currency;
 }): Quote {
   const views = clampViews(input.views);
   const format = input.format || 'instream';
+  const pkg = input.pkg || 'views';
+  const pkgFactor = pkg === 'engagement' ? 1 + ENGAGEMENT_UPLIFT : 1;
   const { region, currency } = input;
 
   // 1.000 izlenme baz tavan liste fiyatı
   const baseRatePerKTry = region === 'global' ? 100 : region === 'premium' ? 500 : 250;
-  const subtotalTry = (views / 1000) * baseRatePerKTry;
+  const subtotalTry = (views / 1000) * baseRatePerKTry * pkgFactor;
 
   // Kademeli paket fiyatı (hacim arttıkça birim maliyet düşer)
-  const totalTry = getPriceTry(views, region);
+  const totalTry = Math.round(getPriceTry(views, region) * pkgFactor);
 
   // Hacim indirimi
   const discountTry = Math.max(0, subtotalTry - totalTry);
@@ -154,6 +164,7 @@ export function quote(input: {
   return {
     views,
     format,
+    pkg,
     region,
     currency,
     discountRate,

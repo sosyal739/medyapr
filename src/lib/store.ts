@@ -7,7 +7,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { randomBytes } from 'crypto';
-import type { Currency, Format, Region } from './pricing';
+import type { Currency, Format, Package, Region } from './pricing';
 
 export type OrderStatus = 'pending_payment' | 'payment_review' | 'queued' | 'running' | 'completed' | 'cancelled';
 
@@ -23,6 +23,8 @@ export type Order = {
   videoUrl: string;
   videoId: string;
   format: Format;
+  /** Eski siparişlerde yok → 'views' say. */
+  pkg?: Package;
   region: Region;
   views: number;
   currency: Currency;
