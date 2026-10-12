@@ -16,6 +16,7 @@ export interface TrendingSong {
   thumbnail: string;
   isNew?: boolean;
   blogSlug?: string;
+  genre?: 'hiphop' | 'pop' | 'indie' | 'edm' | 'rock';
 }
 
 interface TrendingMusicSectionProps {

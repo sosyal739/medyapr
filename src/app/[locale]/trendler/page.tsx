@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Flame, ArrowRight } from 'lucide-react';
 import type { TrendingSong } from '@/components/home/TrendingMusicSection';
 import TrendingCountryTabs, { type MultiCountryTrends } from '@/components/trends/TrendingCountryTabs';
+import GlobalTrendsConversionBanner from '@/components/trends/GlobalTrendsConversionBanner';
 import { getPageAlternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -153,6 +154,9 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
               : 'Real-time YouTube music trending charts across the United States, United Kingdom, Germany, and Turkey powered by official YouTube Data API. Total views, 24h velocity, and viral music video breakdown.'}
           </p>
         </div>
+
+        {/* Global Fast-Launch / Direct Conversion Banner */}
+        <GlobalTrendsConversionBanner locale={locale} />
 
         {/* Interactive Multi-Country Tabs & Songs Grid */}
         <TrendingCountryTabs trends={allTrends} locale={locale} initialCountry={isTr ? 'tr' : 'us'} />
