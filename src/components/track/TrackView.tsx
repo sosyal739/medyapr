@@ -23,13 +23,22 @@ export type PublicOrder = {
 
 const STEPS: OrderStatus[] = ['payment_review', 'queued', 'running', 'completed'];
 
-const STATUS_LABELS: Record<OrderStatus, string> = {
+const STATUS_LABELS_TR: Record<OrderStatus, string> = {
   pending_payment: 'Ödeme Bekleniyor',
   payment_review: 'Ödeme İnceleniyor',
   queued: 'Kampanya Hazırlanıyor',
   running: 'Google Ads Yayında',
   completed: 'Tamamlandı',
   cancelled: 'İptal Edildi',
+};
+
+const STATUS_LABELS_EN: Record<OrderStatus, string> = {
+  pending_payment: 'Payment Pending',
+  payment_review: 'Payment Under Review',
+  queued: 'Preparing Campaign',
+  running: 'Google Ads Active',
+  completed: 'Completed',
+  cancelled: 'Cancelled',
 };
 
 export default function TrackView({
@@ -48,6 +57,7 @@ export default function TrackView({
   const [copiedIban, setCopiedIban] = useState(false);
   const isTr = locale === 'tr';
   const nf = new Intl.NumberFormat(isTr ? 'tr-TR' : 'en-US');
+  const statusLabels = isTr ? STATUS_LABELS_TR : STATUS_LABELS_EN;
 
   // Auto-refresh every 25s
   useEffect(() => {
@@ -79,9 +89,9 @@ export default function TrackView({
     } catch {}
   };
 
-  const waText = encodeURIComponent(
-    `Merhaba, MedyaPR üzerinden ${o.id} kodlu siparişim için ödeme dekontunu iletiyorum. Video Linkim: ${o.videoUrl}`
-  );
+  const waText = isTr
+    ? encodeURIComponent(`Merhaba, MedyaPR üzerinden ${o.id} kodlu siparişim için ödeme dekontunu iletiyorum. Video Linkim: ${o.videoUrl}`)
+    : encodeURIComponent(`Hello, I am sending the payment receipt for my MedyaPR order ${o.id}. Video Link: ${o.videoUrl}`);
 
   return (
     <div className="space-y-8 text-white">
@@ -111,14 +121,14 @@ export default function TrackView({
 
           <div>
             <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-400">
-              Sipariş Takip Kodu
+              {isTr ? 'Sipariş Takip Kodu' : 'Order Tracking Code'}
             </div>
             <div className="mt-1 flex items-center gap-2">
               <span className="font-mono text-2xl font-black text-white tracking-wide">{o.id}</span>
               <button
                 onClick={copyCode}
                 className="rounded-lg border border-zinc-700/60 bg-zinc-800/80 p-1.5 text-zinc-300 hover:text-white hover:border-zinc-500 transition"
-                title="Kodu Kopyala"
+                title={isTr ? 'Kodu Kopyala' : 'Copy Code'}
               >
                 {copiedCode ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
               </button>
@@ -133,10 +143,10 @@ export default function TrackView({
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-xl border border-zinc-700/60 bg-zinc-800/80 px-4 py-2 text-xs font-bold text-zinc-200 hover:bg-zinc-700 hover:text-white transition shadow-sm"
           >
-            YouTube&apos;da Aç <ExternalLink className="h-3.5 w-3.5" />
+            {isTr ? "YouTube'da Aç" : 'Open on YouTube'} <ExternalLink className="h-3.5 w-3.5" />
           </a>
           <span className="rounded-xl bg-[#FF0033] px-4 py-2 text-xs font-extrabold text-white shadow-lg shadow-[#FF0033]/30">
-            {STATUS_LABELS[o.status] || o.status}
+            {statusLabels[o.status] || o.status}
           </span>
         </div>
       </div>
@@ -144,7 +154,7 @@ export default function TrackView({
       {/* Progress Timeline Steps */}
       <div className="rounded-3xl border border-studio bg-studio-card p-6 md:p-8 backdrop-blur-xl">
         <h3 className="text-xs font-bold uppercase tracking-wider text-white/50 mb-6">
-          Kampanya Aşamaları
+          {isTr ? 'Kampanya Aşamaları' : 'Campaign Milestones'}
         </h3>
         <ol className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {STEPS.map((s, i) => {
@@ -171,7 +181,7 @@ export default function TrackView({
                   )}
                 </div>
                 <div className={`text-xs font-bold ${on ? 'text-white' : 'text-white/40'}`}>
-                  {STATUS_LABELS[s]}
+                  {statusLabels[s]}
                 </div>
               </li>
             );
@@ -186,17 +196,25 @@ export default function TrackView({
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 rounded-full bg-amber-500/20 px-3 py-1 text-xs font-bold text-amber-300">
                 <Banknote className="h-4 w-4 text-amber-400" />
-                Havale / FAST Ödeme Bilgileri
+                {isTr ? 'Havale / FAST Ödeme Bilgileri' : 'Wire / Bank Transfer Details'}
               </div>
               <h4 className="text-xl font-extrabold text-white">
-                Ödenecek Tutar:{' '}
+                {isTr ? 'Ödenecek Tutar:' : 'Amount Due:'}{' '}
                 <span className="text-[#FF6B6B]">{formatMoney(o.total, o.currency, locale)}</span>
               </h4>
-              <p className="text-xs text-zinc-300 max-w-xl leading-relaxed">
-                Ödemenizi aşağıdaki IBAN adresine gönderip açıklama kısmına{' '}
-                <strong className="text-white font-mono bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700/60">{o.id}</strong>{' '}
-                kodunuzu yazınız. Ardından dekontunuzu WhatsApp üzerinden iletebilirsiniz.
-              </p>
+              {isTr ? (
+                <p className="text-xs text-zinc-300 max-w-xl leading-relaxed">
+                  Ödemenizi aşağıdaki IBAN adresine gönderip açıklama kısmına{' '}
+                  <strong className="text-white font-mono bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700/60">{o.id}</strong>{' '}
+                  kodunuzu yazınız. Ardından dekontunuzu WhatsApp üzerinden iletebilirsiniz.
+                </p>
+              ) : (
+                <p className="text-xs text-zinc-300 max-w-xl leading-relaxed">
+                  Transfer payment to the IBAN below, specifying your tracking code{' '}
+                  <strong className="text-white font-mono bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700/60">{o.id}</strong>{' '}
+                  in the description. Then submit your receipt via WhatsApp.
+                </p>
+              )}
             </div>
 
             <a
@@ -206,29 +224,29 @@ export default function TrackView({
               className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-[#25D366] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#25D366]/30 hover:scale-105 transition"
             >
               <MessageCircle className="h-5 w-5" />
-              WhatsApp ile Dekont İlet
+              {isTr ? 'WhatsApp ile Dekont İlet' : 'Send Receipt via WhatsApp'}
             </a>
           </div>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-3 border-t border-studio pt-6 text-xs">
             <div className="rounded-xl border border-studio bg-zinc-900/60 p-3">
-              <span className="text-zinc-400 block">Banka / Alıcı</span>
-              <span className="font-bold text-white mt-1 block">Ziraat Bankası / [DOLDURULACAK]</span>
+              <span className="text-zinc-400 block">{isTr ? 'Banka / Alıcı' : 'Bank / Beneficiary'}</span>
+              <span className="font-bold text-white mt-1 block">{isTr ? 'Ziraat Bankası / [DOLDURULACAK]' : 'Ziraat Bank / [TO BE FILLED]'}</span>
             </div>
             <div className="rounded-xl border border-studio bg-zinc-900/60 p-3">
-              <span className="text-zinc-400 block">IBAN Numarası</span>
+              <span className="text-zinc-400 block">{isTr ? 'IBAN Numarası' : 'IBAN Number'}</span>
               <div className="flex items-center justify-between mt-1">
                 <span className="font-mono font-bold text-white">TR00 0000 0000 0000 0000 00</span>
-                <button onClick={copyIban} className="text-zinc-400 hover:text-white" title="IBAN Kopyala">
+                <button onClick={copyIban} className="text-zinc-400 hover:text-white" title={isTr ? 'IBAN Kopyala' : 'Copy IBAN'}>
                   {copiedIban ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
                 </button>
               </div>
             </div>
             <div className="rounded-xl border border-studio bg-zinc-900/60 p-3">
-              <span className="text-zinc-400 block">Açıklamaya Yazılacak Kod</span>
+              <span className="text-zinc-400 block">{isTr ? 'Açıklamaya Yazılacak Kod' : 'Reference / Description Code'}</span>
               <div className="flex items-center justify-between mt-1">
                 <span className="font-mono font-bold text-[#FF6B6B]">{o.id}</span>
-                <button onClick={copyCode} className="text-zinc-400 hover:text-white" title="Kodu Kopyala">
+                <button onClick={copyCode} className="text-zinc-400 hover:text-white" title={isTr ? 'Kodu Kopyala' : 'Copy Code'}>
                   {copiedCode ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
                 </button>
               </div>
@@ -247,12 +265,12 @@ export default function TrackView({
               {nf.format(done)}
             </div>
             <div className="mt-1 text-sm text-zinc-400">
-              Teslim Edilen İzlenme / Hedef: <strong className="text-white">{nf.format(o.views)}</strong>
+              {isTr ? 'Teslim Edilen İzlenme / Hedef:' : 'Delivered Views / Target:'} <strong className="text-white">{nf.format(o.views)}</strong>
             </div>
           </div>
           <div className="mt-6 flex items-center gap-2 rounded-xl bg-zinc-900/60 border border-studio px-4 py-2 text-xs text-zinc-300">
             <ShieldCheck className="h-4 w-4 text-emerald-400" />
-            <span>Google Ads Resmi Video Gösterimleri</span>
+            <span>{isTr ? 'Google Ads Resmi Video Gösterimleri' : 'Official Google Ads Video Impressions'}</span>
           </div>
         </div>
 
@@ -260,18 +278,24 @@ export default function TrackView({
         <div className="rounded-3xl border border-studio bg-studio-card p-6 md:p-8 backdrop-blur-xl shadow-2xl">
           <div className="mb-6 flex items-center justify-between">
             <h3 className="text-sm font-bold text-white uppercase tracking-wider">
-              Günlük İzlenme Performansı
+              {isTr ? 'Günlük İzlenme Performansı' : 'Daily View Performance'}
             </h3>
             <span className="rounded-full bg-zinc-900/60 border border-studio px-3 py-1 text-xs text-zinc-400">
-              {o.stats.length} Günlük Veri
+              {o.stats.length} {isTr ? 'Günlük Veri' : 'Days of Data'}
             </span>
           </div>
 
           {o.stats.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-16 text-center text-zinc-500">
               <Hourglass className="h-8 w-8 mb-3 opacity-40 animate-pulse" />
-              <p className="text-sm">Kampanya onaylandıktan sonra günlük izlenmeler burada listelenecektir.</p>
-              <p className="text-xs text-zinc-600 mt-1">Her gün otomatik olarak güncellenir.</p>
+              <p className="text-sm">
+                {isTr
+                  ? 'Kampanya onaylandıktan sonra günlük izlenmeler burada listelenecektir.'
+                  : 'Daily statistics will appear here once the campaign goes live.'}
+              </p>
+              <p className="text-xs text-zinc-600 mt-1">
+                {isTr ? 'Her gün otomatik olarak güncellenir.' : 'Updated automatically every 24 hours.'}
+              </p>
             </div>
           ) : (
             <Bars stats={o.stats} locale={locale} />

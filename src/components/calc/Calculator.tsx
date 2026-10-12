@@ -152,7 +152,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
               </div>
               {region === 'global' && (
                 <span className="text-[11px] font-black text-amber-300 bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 rounded-full">
-                  {isTr ? '1K: ₺100 Başlayan Kademeli Tarife 🔥' : 'Starts from ₺100/1K Progressive 🔥'}
+                  {isTr ? '1K: ₺100 Başlayan Kademeli Tarife 🔥' : 'From $3.50/1K Progressive Discount 🔥'}
                 </span>
               )}
             </div>

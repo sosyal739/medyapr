@@ -4,10 +4,11 @@ import { Play, CreditCard, Sparkles, Building2, Clock, ArrowRight, ShieldCheck, 
 
 interface HowItWorksProps {
   dict: any;
+  locale?: string;
 }
 
-export default function HowItWorks({ dict }: HowItWorksProps) {
-  const isTr = true;
+export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
+  const isTr = locale === 'tr';
 
   const steps = [
     {
@@ -45,7 +46,7 @@ export default function HowItWorks({ dict }: HowItWorksProps) {
       {/* Floating Animated Badge (Moving Object) */}
       <div className="pointer-events-none absolute top-12 right-8 lg:right-20 z-20 hidden md:flex items-center gap-2 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-reverse">
         <Sparkles className="h-4 w-4 text-[#FF4D6D]" />
-        <span>%50 Onayda • %50 İş Bitiminde Ödeme</span>
+        <span>{isTr ? '%50 Onayda • %50 İş Bitiminde Ödeme' : '50% On Approval • 50% On Delivery'}</span>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 md:px-8 lg:px-12">
@@ -97,7 +98,13 @@ export default function HowItWorks({ dict }: HowItWorksProps) {
 
                 <div className="mt-6 flex items-center gap-1.5 text-xs font-semibold text-zinc-400 group-hover:text-emerald-400 transition-colors">
                   <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-                  <span>{idx === 0 ? 'Şifre Gerektirmez' : idx === 1 ? 'Resmi Politika Uyumu' : 'Maksimum Müşteri Güveni'}</span>
+                  <span>
+                    {idx === 0
+                      ? (isTr ? 'Şifre Gerektirmez' : 'No Password Required')
+                      : idx === 1
+                      ? (isTr ? 'Resmi Politika Uyumu' : 'Official Policy Compliance')
+                      : (isTr ? 'Maksimum Müşteri Güveni' : 'Maximum Buyer Protection')}
+                  </span>
                 </div>
               </div>
             );
@@ -114,13 +121,17 @@ export default function HowItWorks({ dict }: HowItWorksProps) {
               </div>
               <div>
                 <span className="inline-block rounded-full bg-blue-500/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-blue-300 border border-blue-500/30 mb-2">
-                  Ajanslar & Yapım Şirketleri
+                  {isTr ? 'Ajanslar & Yapım Şirketleri' : 'Agencies & Production Studios'}
                 </span>
                 <h4 className="text-lg font-extrabold text-white">
-                  Kurumsal Müşteriler İçin Ödeme İş Bitiminde
+                  {isTr ? 'Kurumsal Müşteriler İçin Ödeme İş Bitiminde' : 'For Corporate Clients: Payment Upon Delivery'}
                 </h4>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-300">
-                  Kurumsal müşteriler, yapım şirketleri ve ajanslar için ödeme <strong className="text-white font-semibold">doğrudan iş bitiminde</strong> alınmaktadır. Kampanya tamamlandığında resmi YouTube Studio &amp; Google Ads performans raporu tarafınıza iletilir ve faturalandırılır.
+                  {isTr ? (
+                    <>Kurumsal müşteriler, yapım şirketleri ve ajanslar için ödeme <strong className="text-white font-semibold">doğrudan iş bitiminde</strong> alınmaktadır. Kampanya tamamlandığında resmi YouTube Studio &amp; Google Ads performans raporu tarafınıza iletilir ve faturalandırılır.</>
+                  ) : (
+                    <>For corporate clients, production houses, and record labels, payment is collected <strong className="text-white font-semibold">directly upon campaign delivery</strong>. Official YouTube Studio &amp; Google Ads reports are provided with tax invoicing.</>
+                  )}
                 </p>
               </div>
             </div>
@@ -134,13 +145,17 @@ export default function HowItWorks({ dict }: HowItWorksProps) {
               </div>
               <div>
                 <span className="inline-block rounded-full bg-amber-500/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-amber-300 border border-amber-500/30 mb-2">
-                  Şeffaf Fiyatlandırma Notu
+                  {isTr ? 'Şeffaf Fiyatlandırma Notu' : 'Transparent Pricing Policy'}
                 </span>
                 <h4 className="text-lg font-extrabold text-white">
-                  Fiyat Videonun Uzunluğuna Göre Değişiklik Gösterebilir
+                  {isTr ? 'Fiyat Videonun Uzunluğuna Göre Değişiklik Gösterebilir' : 'Pricing May Vary Based On Video Duration'}
                 </h4>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-300">
-                  Web sitemizdeki hesaplayıcı tutarları standart video süreleri baz alınarak hazırlanmıştır. Google reklam maliyetleri gereği <strong className="text-white font-semibold">fiyat, videonun uzunluğuna</strong>, hedefleme derinliğine ve seçilen reklam formatına göre değişiklik gösterebilir.
+                  {isTr ? (
+                    <>Web sitemizdeki hesaplayıcı tutarları standart video süreleri baz alınarak hazırlanmıştır. Google reklam maliyetleri gereği <strong className="text-white font-semibold">fiyat, videonun uzunluğuna</strong>, hedefleme derinliğine ve seçilen reklam formatına göre değişiklik gösterebilir.</>
+                  ) : (
+                    <>Calculator rates reflect standard video runtimes. Due to Google auction dynamics, <strong className="text-white font-semibold">pricing may adjust depending on video length</strong>, target audience depth, and selected ad format.</>
+                  )}
                 </p>
               </div>
             </div>

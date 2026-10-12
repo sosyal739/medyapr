@@ -63,12 +63,12 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
       {/* Floating Badges (Moving Objects) */}
       <div className="pointer-events-none absolute top-14 left-6 lg:left-16 z-20 hidden md:flex items-center gap-2 rounded-2xl border border-rose-500/30 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-rose-300 shadow-2xl backdrop-blur-xl animate-float-slow">
         <ShieldAlert className="h-4 w-4 text-rose-400" />
-        <span>Bot Uyarısı: Sahte Paneller Videoyu Çöpe Atar</span>
+        <span>{isTr ? 'Bot Uyarısı: Sahte Paneller Videoyu Çöpe Atar' : 'Bot Warning: SMM Panels Damage Channel Authority'}</span>
       </div>
 
       <div className="pointer-events-none absolute bottom-14 right-6 lg:right-16 z-20 hidden md:flex items-center gap-2 rounded-2xl border border-emerald-500/30 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-emerald-300 shadow-2xl backdrop-blur-xl animate-float-reverse">
         <ShieldCheck className="h-4 w-4 text-emerald-400" />
-        <span>Google Ads: %100 YPP & Monetizasyon Uyumlu</span>
+        <span>{isTr ? 'Google Ads: %100 YPP & Monetizasyon Uyumlu' : 'Google Ads: 100% YPP & Monetization Compliant'}</span>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 md:px-8 lg:px-12">

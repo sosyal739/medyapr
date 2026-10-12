@@ -518,22 +518,22 @@ export default async function BlogPostPage({ params }: Props) {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={rel.image}
-                      alt={rel.title}
+                      alt={(!isTr && rel.title_en) ? rel.title_en : rel.title}
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
                     <span className="absolute top-2.5 left-2.5 rounded-lg bg-black/70 px-2 py-0.5 text-[10px] font-bold text-white backdrop-blur-md">
-                      {rel.category}
+                      {(!isTr && rel.category_en) ? rel.category_en : rel.category}
                     </span>
                   </div>
                   <div className="p-4 flex flex-col flex-grow justify-between space-y-3">
                     <h4 className="text-sm font-bold text-white group-hover:text-[#FF6B6B] transition line-clamp-2">
-                      {rel.title}
+                      {(!isTr && rel.title_en) ? rel.title_en : rel.title}
                     </h4>
                     <div className="flex items-center justify-between text-[11px] text-zinc-400 pt-2 border-t border-zinc-800">
                       <span>{rel.date}</span>
                       <span className="font-semibold text-white/80 group-hover:translate-x-0.5 transition flex items-center gap-1">
-                        Oku →
+                        {isTr ? 'Oku →' : 'Read →'}
                       </span>
                     </div>
                   </div>

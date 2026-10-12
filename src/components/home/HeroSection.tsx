@@ -166,7 +166,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
       <div className="pointer-events-none absolute top-12 left-6 lg:left-24 z-20 hidden md:flex items-center gap-2.5 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-slow">
         <Flame className="h-4 w-4 text-[#FF0033] animate-pulse" />
         <span>{isTr ? 'Canlı Algoritma: YouTube Trendleri' : 'Live Algorithm: YouTube Trends'}</span>
-        <span className="text-emerald-400 font-semibold">(+490K / 24s)</span>
+        <span className="text-emerald-400 font-semibold">{isTr ? '(+490K / 24s)' : '(+490K / 24h)'}</span>
       </div>
 
       <div className="pointer-events-none absolute bottom-8 left-6 lg:left-20 z-20 hidden md:flex items-center gap-2.5 rounded-2xl border border-cyan-500/30 bg-zinc-900/90 px-4 py-2.5 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-drift">
@@ -258,19 +258,21 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
             <div className="flex flex-wrap items-center gap-2">
               <span className="font-extrabold text-white flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                Güvenli Süreç:
+                {isTr ? 'Güvenli Süreç:' : 'Safe Workflow:'}
               </span>
-              <span className="text-zinc-200">Video Linki İletilir</span>
+              <span className="text-zinc-200">{isTr ? 'Video Linki İletilir' : 'Submit Video Link'}</span>
               <span className="text-zinc-500">➔</span>
-              <span className="text-zinc-200">Google Ads Reklam Onayı</span>
+              <span className="text-zinc-200">{isTr ? 'Google Ads Reklam Onayı' : 'Google Ads Approval'}</span>
               <span className="text-zinc-500">➔</span>
-              <span className="text-emerald-400 font-bold">%50 Onayda, %50 Bitince Ödeme</span>
+              <span className="text-emerald-400 font-bold">{isTr ? '%50 Onayda, %50 Bitince Ödeme' : '50% On Approval, 50% On Delivery'}</span>
               <span className="rounded-md bg-blue-500/20 px-2 py-0.5 text-[11px] font-bold text-blue-300 border border-blue-500/30">
-                Kurumsala İş Bitiminde
+                {isTr ? 'Kurumsala İş Bitiminde' : 'Verified Accounts Pay on Delivery'}
               </span>
             </div>
             <p className="mt-1.5 text-[11px] text-zinc-400">
-              * Şifre istenmez • Fiyat videonun uzunluğuna göre esneklik gösterebilir.
+              {isTr
+                ? '* Şifre istenmez • Fiyat videonun uzunluğuna göre esneklik gösterebilir.'
+                : '* Zero passwords required • Rates may adjust according to video length.'}
             </p>
           </div>
 
@@ -278,19 +280,19 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1 border-t border-white/10 text-xs text-slate-300">
             <span className="flex items-center gap-2">
               <Award className="h-4 w-4 text-amber-400 shrink-0" />
-              18+ Yıllık Sektör & Video PR Tecrübesi
+              {isTr ? '18+ Yıllık Sektör & Video PR Tecrübesi' : '18+ Years Video PR & Music Industry Experience'}
             </span>
             <span className="flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0" />
-              Resmi Google İş Ortağı (Partner) Uzman Yönetimi
+              {isTr ? 'Resmi Google İş Ortağı (Partner) Uzman Yönetimi' : 'Certified Official Google Partner Specialist Operations'}
             </span>
             <span className="flex items-center gap-2">
               <Users className="h-4 w-4 text-cyan-400 shrink-0" />
-              Türkiye & Dünyada Birçok Sanatçı Referansı
+              {isTr ? 'Türkiye & Dünyada Birçok Sanatçı Referansı' : 'Trusted by Leading Global & Independent Artists'}
             </span>
             <span className="flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0" />
-              Bot Yok • Çıkışta Detaylı Performans Raporu
+              {isTr ? 'Bot Yok • Çıkışta Detaylı Performans Raporu' : 'Zero Bots • Comprehensive Post-Campaign Performance Report'}
             </span>
           </div>
         </div>
@@ -325,13 +327,13 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                         ▶
                       </div>
                       <span className="text-xs font-black text-zinc-900 tracking-tight">
-                        Resmi YouTube Kanalı
+                        {isTr ? 'Resmi YouTube Kanalı' : 'Official YouTube Channel'}
                       </span>
                       <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-500 text-[9px] text-white font-bold">
                         ✓
                       </span>
                       <span className="text-[10px] text-zinc-500 font-bold hidden sm:inline">
-                        1.2M Abone
+                        {isTr ? '1.2M Abone' : '1.2M Subs'}
                       </span>
                     </div>
 
@@ -340,19 +342,19 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                       {isPlaying ? (
                         <div className="flex items-center gap-1.5 rounded-full bg-emerald-500 text-white px-3 py-1.5 text-[10px] font-black shadow-md shadow-emerald-500/30 animate-pulse">
                           <Volume2 className="h-3 w-3" />
-                          SES ÇALIYOR
+                          {isTr ? 'SES ÇALIYOR' : 'AUDIO PLAYING'}
                         </div>
                       ) : (
                         <div className="flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#FF0033] to-[#FF4D6D] text-white px-3 py-1.5 text-[10px] font-black shadow-md shadow-red-500/30">
                           <span className="h-1.5 w-1.5 rounded-full bg-white animate-ping" />
-                          CANLI REKLAM
+                          {isTr ? 'CANLI REKLAM' : 'LIVE CAMPAIGN'}
                         </div>
                       )}
 
                       {/* Ses Dalgaları */}
                       <div
                         className="hidden sm:flex items-end gap-1 h-6 px-2.5 py-1 rounded-full bg-white/90 border border-white/80 shadow-md backdrop-blur-md"
-                        title="Canlı Ses Akışı"
+                        title={isTr ? 'Canlı Ses Akışı' : 'Live Audio Stream'}
                       >
                         <div className={`w-1 bg-[#FF0033] rounded-full ${isPlaying ? 'animate-eq-1' : 'h-1.5'}`} />
                         <div className={`w-1 bg-[#FF5E7E] rounded-full ${isPlaying ? 'animate-eq-2' : 'h-2.5'}`} />
@@ -368,7 +370,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                       type="button"
                       onClick={togglePlay}
                       className="pointer-events-auto group/btn relative flex flex-col items-center justify-center gap-2.5 transition-transform duration-300 hover:scale-110 active:scale-95 cursor-pointer select-none"
-                      title={isPlaying ? 'Durdur' : 'Sesli Tanıtımı Başlat'}
+                      title={isPlaying ? (isTr ? 'Durdur' : 'Pause') : (isTr ? 'Sesli Tanıtımı Başlat' : 'Play Audio Brief')}
                     >
                       <div className="relative flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-gradient-to-tr from-[#FF0033] via-[#FF2E55] to-[#FF6B6B] text-white shadow-[0_12px_35px_rgba(255,0,51,0.55)] border-4 border-white backdrop-blur-md">
                         {isPlaying ? (
@@ -384,7 +386,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                       {!isPlaying && (
                         <span className="rounded-full bg-white/95 border border-white px-4 py-1.5 text-[11px] font-black text-zinc-900 shadow-xl shadow-black/15 backdrop-blur-md flex items-center gap-1.5">
                           <Volume2 className="h-3.5 w-3.5 text-[#FF0033]" />
-                          Sesli Anlatımı Dinle
+                          {isTr ? 'Sesli Anlatımı Dinle' : 'Listen to Audio Brief'}
                         </span>
                       )}
                     </button>
@@ -397,14 +399,14 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                     <div className="flex items-center justify-between gap-1 text-[10px] font-black uppercase tracking-wider mb-1">
                       <span className="flex items-center gap-1.5 text-emerald-700">
                         <Eye className="h-3.5 w-3.5 text-emerald-600" />
-                        Canlı İzlenme
+                        {isTr ? 'Canlı İzlenme' : 'Live Views'}
                       </span>
                       <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse shadow-sm shadow-emerald-500/50" />
                     </div>
 
                     <div className="flex items-baseline gap-1.5">
                       <span className="font-[family-name:var(--font-heading)] text-lg sm:text-2xl font-black tabular-nums tracking-tight text-zinc-950">
-                        {views.toLocaleString('tr-TR')}
+                        {views.toLocaleString(isTr ? 'tr-TR' : 'en-US')}
                       </span>
                     </div>
 
@@ -413,7 +415,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                         key={viewBurstKey}
                         className="mt-1 inline-flex items-center gap-1 text-[10px] font-black text-emerald-800 bg-emerald-100/90 border border-emerald-300 px-2 py-0.5 rounded-full animate-bounce shadow-xs"
                       >
-                        +{recentViewBurst} izlenme 🚀
+                        +{recentViewBurst} {isTr ? 'izlenme' : 'views'} 🚀
                       </div>
                     )}
                   </div>
@@ -422,14 +424,14 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                   <div className="absolute top-14 sm:top-16 right-3 sm:right-4 z-20 rounded-2xl border border-white/90 bg-white/92 p-3 sm:p-3.5 backdrop-blur-2xl shadow-xl shadow-black/15 transition-all hover:scale-105 max-w-[185px] sm:max-w-[205px] text-right sm:text-left">
                     <div className="flex items-center justify-between sm:justify-start gap-1.5 text-[10px] font-black text-sky-800 uppercase tracking-wider mb-1">
                       <MousePointerClick className="h-3.5 w-3.5 text-sky-600" />
-                      <span>Reklam Tıklaması</span>
+                      <span>{isTr ? 'Reklam Tıklaması' : 'Ad Clicks'}</span>
                     </div>
 
                     <div className="flex items-baseline justify-end sm:justify-start gap-1.5">
                       <span className="font-[family-name:var(--font-heading)] text-lg sm:text-2xl font-black tabular-nums tracking-tight text-zinc-950">
-                        {clicks.toLocaleString('tr-TR')}
+                        {clicks.toLocaleString(isTr ? 'tr-TR' : 'en-US')}
                       </span>
-                      <span className="text-[10px] font-bold text-sky-600">tık</span>
+                      <span className="text-[10px] font-bold text-sky-600">{isTr ? 'tık' : 'clicks'}</span>
                     </div>
 
                     <div className="mt-1 flex items-center justify-end sm:justify-start gap-1.5">
@@ -451,12 +453,12 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                   <div className="absolute bottom-16 sm:bottom-18 left-3 sm:left-4 z-20 rounded-2xl border border-white/90 bg-white/92 p-2.5 sm:p-3 backdrop-blur-2xl shadow-xl shadow-black/15 transition-all hover:scale-105">
                     <div className="flex items-center gap-1.5 text-[10px] font-black text-rose-800 uppercase tracking-wider mb-0.5">
                       <ThumbsUp className="h-3.5 w-3.5 text-rose-600" />
-                      <span>Organik Beğeni</span>
+                      <span>{isTr ? 'Organik Beğeni' : 'Organic Likes'}</span>
                     </div>
 
                     <div className="flex items-center gap-2">
                       <span className="font-[family-name:var(--font-heading)] text-base sm:text-xl font-black tabular-nums text-zinc-950">
-                        {likes.toLocaleString('tr-TR')}
+                        {likes.toLocaleString(isTr ? 'tr-TR' : 'en-US')}
                       </span>
                       <span
                         key={likeBurstKey}
@@ -471,13 +473,13 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                   <div className="absolute bottom-16 sm:bottom-18 right-3 sm:right-4 z-20 rounded-2xl border border-white/90 bg-white/92 p-2.5 sm:p-3 backdrop-blur-2xl shadow-xl shadow-black/15 transition-all hover:scale-105 text-right">
                     <div className="flex items-center justify-end gap-1.5 text-[10px] font-black text-amber-800 uppercase tracking-wider mb-0.5">
                       <TrendingUp className="h-3.5 w-3.5 text-amber-600" />
-                      <span>Algoritma Sinyali</span>
+                      <span>{isTr ? 'Algoritma Sinyali' : 'Algorithm Peak'}</span>
                     </div>
 
                     <div className="flex items-center justify-end gap-1.5">
-                      <span className="text-[10px] font-bold text-zinc-600">Önerilenler:</span>
+                      <span className="text-[10px] font-bold text-zinc-600">{isTr ? 'Önerilenler:' : 'Suggested:'}</span>
                       <span className="font-[family-name:var(--font-heading)] text-base sm:text-lg font-black text-amber-700">
-                        %94 Zirve
+                        {isTr ? '%94 Zirve' : '94% Peak'}
                       </span>
                     </div>
                   </div>
@@ -487,10 +489,10 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                     <div className="flex items-center justify-between text-[11px] font-medium mb-1.5">
                       <div className="flex items-center gap-2">
                         <span className="font-extrabold tracking-tight text-xs sm:text-sm text-zinc-950">
-                          MedyaPR — Sesli Tanıtım &amp; Hizmet Kapsamı
+                          {isTr ? 'MedyaPR — Sesli Tanıtım & Hizmet Kapsamı' : 'MedyaPR — Audio Brief & Service Scope'}
                         </span>
                         <span className="rounded bg-zinc-900 px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white shadow-xs">
-                          4K 60FPS
+                          {isTr ? 'RESMİ ADS' : 'OFFICIAL ADS'}
                         </span>
                       </div>
 
@@ -504,7 +506,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                           type="button"
                           onClick={toggleMute}
                           className="p-1 text-zinc-700 hover:text-zinc-950 transition-colors cursor-pointer"
-                          title={isMuted ? 'Sesi Aç' : 'Sesi Kapat'}
+                          title={isMuted ? (isTr ? 'Sesi Aç' : 'Unmute') : (isTr ? 'Sesi Kapat' : 'Mute')}
                         >
                           {isMuted ? (
                             <VolumeX className="h-4 w-4 text-rose-600" />
@@ -521,7 +523,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                     <div
                       onClick={handleSeek}
                       className="relative h-2 w-full rounded-full bg-slate-200/90 overflow-hidden cursor-pointer group/bar shadow-inner"
-                      title="İlerletmek için tıkla"
+                      title={isTr ? 'İlerletmek için tıkla' : 'Click to seek'}
                     >
                       <div
                         className="h-full bg-gradient-to-r from-[#FF0033] via-[#FF4D6D] to-[#FF758F] rounded-full transition-all duration-150 relative"
@@ -538,13 +540,19 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                   <div className="flex items-center gap-2 text-zinc-800">
                     <ShieldCheck className="h-4.5 w-4.5 text-emerald-600 shrink-0" />
                     <span className="font-semibold text-zinc-700">
-                      Doğrulama: <strong className="text-zinc-950 font-extrabold">YouTube Studio &amp; Analytics</strong> %100 Resmi Reklam Kaynağı
+                      {isTr ? (
+                        <>Doğrulama: <strong className="text-zinc-950 font-extrabold">YouTube Studio &amp; Analytics</strong> %100 Resmi Reklam Kaynağı</>
+                      ) : (
+                        <>Verification: <strong className="text-zinc-950 font-extrabold">YouTube Studio &amp; Analytics</strong> 100% Official Ad Traffic</>
+                      )}
                     </span>
                   </div>
 
                   <div className="flex items-center gap-2 text-[11px] font-black text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full shadow-xs">
                     <Sparkles className="h-3 w-3 text-emerald-600" />
-                    {isPlaying ? 'Sesli Anlatım Yayında 🔊' : 'Canlı Kampanya Monitörü'}
+                    {isPlaying
+                      ? (isTr ? 'Sesli Anlatım Yayında 🔊' : 'Audio Brief Playing 🔊')
+                      : (isTr ? 'Canlı Kampanya Monitörü' : 'Live Campaign Monitor')}
                   </div>
                 </div>
               </div>

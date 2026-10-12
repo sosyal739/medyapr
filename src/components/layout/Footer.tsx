@@ -222,7 +222,7 @@ export default function Footer({ dict, locale }: FooterProps) {
         <div className="container mx-auto px-4 py-5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-500">
-              © {currentYear} MedyaPR. {dict.footer.copyright?.replace(/©\s*\d{4}\s*(AdsViews|MedyaPR)\.\s*/, '') || 'Tüm hakları saklıdır.'}
+              © {currentYear} MedyaPR. {dict.footer.copyright?.replace(/©\s*\d{4}\s*(AdsViews|MedyaPR)\.\s*/, '') || (locale === 'tr' ? 'Tüm hakları saklıdır.' : 'All rights reserved.')}
             </p>
             <div className="flex items-center gap-4">
               {/* Payment badges placeholder */}

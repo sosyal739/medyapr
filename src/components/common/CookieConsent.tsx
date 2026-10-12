@@ -124,7 +124,7 @@ export default function CookieConsent({ dict, locale }: CookieConsentProps) {
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            aria-label="Kapat"
+            aria-label={locale === 'tr' ? 'Kapat' : 'Close'}
             className="p-1 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-colors"
           >
             <X className="h-4 w-4" />

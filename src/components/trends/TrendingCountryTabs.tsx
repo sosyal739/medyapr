@@ -193,7 +193,7 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
                   {song.gain24h > 0 && (
                     <div className="flex items-center gap-1 text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-md">
                       <TrendingUp className="h-3 w-3" />
-                      <span>+{nf.format(song.gain24h)} / 24s</span>
+                      <span>+{nf.format(song.gain24h)} {isTr ? '/ 24s' : '/ 24h'}</span>
                     </div>
                   )}
                 </div>

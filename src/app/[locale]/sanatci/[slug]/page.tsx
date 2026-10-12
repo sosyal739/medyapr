@@ -22,14 +22,19 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
+  const isTr = locale === 'tr';
   const artist = await getArtistBySlug(slug);
-  if (!artist) return { title: 'Sanatçı Bulunamadı' };
+  if (!artist) return { title: isTr ? 'Sanatçı Bulunamadı' : 'Artist Not Found' };
 
-  const rawTitle = artist.name.length <= 8
-    ? `${artist.name} Şarkıları, Klipleri & YouTube Analizi | MedyaPR`
-    : `${artist.name} Şarkıları & YouTube Analizi | MedyaPR`;
+  const rawTitle = isTr
+    ? (artist.name.length <= 8
+        ? `${artist.name} Şarkıları, Klipleri & YouTube Analizi | MedyaPR`
+        : `${artist.name} Şarkıları & YouTube Analizi | MedyaPR`)
+    : `${artist.name} Songs, Videos & YouTube Analytics | MedyaPR`;
 
-  const pageDesc = `${artist.name} biyografisi, YouTube en popüler klipleri, son hit şarkısı ${artist.latestHit} ve 18+ yıllık MedyaPR tecrübesiyle dijital dinleyici analizi.`;
+  const pageDesc = isTr
+    ? `${artist.name} biyografisi, YouTube en popüler klipleri, son hit şarkısı ${artist.latestHit} ve 18+ yıllık MedyaPR tecrübesiyle dijital dinleyici analizi.`
+    : `${artist.name} biography, top YouTube videos, latest hit ${artist.latestHit}, and digital audience analytics powered by MedyaPR.`;
 
   return {
     title: {
@@ -127,18 +132,20 @@ export default async function ArtistDetailPage({ params }: Props) {
               <h1 className="text-3xl sm:text-4xl font-black text-white">{artist.name}</h1>
               <div className="flex flex-wrap items-center gap-4 text-xs text-zinc-400">
                 <span>
-                  Toplam YouTube İzlenme: <strong className="text-white">{artist.viewsTotal}</strong>
+                  {isTr ? 'Toplam YouTube İzlenme:' : 'Total YouTube Views:'} <strong className="text-white">{artist.viewsTotal}</strong>
                 </span>
                 <span>•</span>
                 <span>
-                  Tahmini Kitle: <strong className="text-emerald-400">{artist.monthlyAudience}</strong>
+                  {isTr ? 'Tahmini Kitle:' : 'Estimated Audience:'} <strong className="text-emerald-400">{artist.monthlyAudience}</strong>
                 </span>
               </div>
             </div>
           </div>
 
           <div className="mt-6 border-t border-studio pt-6">
-            <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-2">Biyografi</h2>
+            <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-2">
+              {isTr ? 'Biyografi' : 'Biography'}
+            </h2>
             <p className="text-sm sm:text-base leading-relaxed text-zinc-300">{artist.bio}</p>
           </div>
         </div>
@@ -147,7 +154,7 @@ export default async function ArtistDetailPage({ params }: Props) {
         <div className="mb-12">
           <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-2">
             <Play className="h-5 w-5 text-[#FF0033]" />
-            Son Hit Klip: {artist.latestHit}
+            {isTr ? 'Son Hit Klip:' : 'Latest Hit Video:'} {artist.latestHit}
           </h2>
           <div className="overflow-hidden rounded-3xl border border-white/15 bg-black shadow-2xl aspect-video">
             <iframe
@@ -163,14 +170,14 @@ export default async function ArtistDetailPage({ params }: Props) {
         {/* Popular Songs */}
         <div className="mb-12 rounded-3xl border border-studio bg-studio-card p-6 backdrop-blur-xl shadow-xl">
           <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-            <Music className="h-5 w-5 text-[#FF6B6B]" /> Öne Çıkan Parçalar
+            <Music className="h-5 w-5 text-[#FF6B6B]" /> {isTr ? 'Öne Çıkan Parçalar' : 'Top Tracks'}
           </h3>
           <div className="divide-y divide-studio">
             {artist.topSongs.map((song, i) => (
               <div key={i} className="flex items-center justify-between py-3 text-sm">
                 <span className="font-semibold text-white/90">{song.title}</span>
                 <div className="flex items-center gap-3">
-                  <span className="text-xs text-zinc-400">{song.views} izlenme</span>
+                  <span className="text-xs text-zinc-400">{song.views} {isTr ? 'izlenme' : 'views'}</span>
                   <a
                     href={`https://www.youtube.com/watch?v=${song.videoId}`}
                     target="_blank"
@@ -189,13 +196,15 @@ export default async function ArtistDetailPage({ params }: Props) {
         <div className="rounded-3xl border border-[#FF0033]/40 bg-studio-card p-8 md:p-10 shadow-2xl">
           <div className="space-y-3">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FF0033]/20 px-3 py-1 text-xs font-bold text-[#FF6B6B]">
-              <Sparkles className="h-3.5 w-3.5" /> Müzisyenler & Menajerler İçin
+              <Sparkles className="h-3.5 w-3.5" /> {isTr ? 'Müzisyenler & Menajerler İçin' : 'For Artists & Managers'}
             </span>
             <h3 className="text-2xl font-black text-white">
-              Sizin Klibiniz de Benzer Kitlelere Ulaşsın
+              {isTr ? 'Sizin Klibiniz de Benzer Kitlelere Ulaşsın' : 'Reach Similar Audiences For Your Next Video'}
             </h3>
             <p className="text-sm text-zinc-300 leading-relaxed max-w-2xl">
-              {artist.name} ve benzeri sanatçıları dinleyen kitleyi hedefleyerek, yeni parçanızı Türkiye ve Avrupa genelinde YouTube In-Stream ve Shorts reklamlarıyla milyonlara duyurun.
+              {isTr
+                ? `${artist.name} ve benzeri sanatçıları dinleyen kitleyi hedefleyerek, yeni parçanızı Türkiye ve Avrupa genelinde YouTube In-Stream ve Shorts reklamlarıyla milyonlara duyurun.`
+                : `Target fans who listen to ${artist.name} and similar artists. Amplify your new release across YouTube In-Stream and Shorts ads to millions.`}
             </p>
           </div>
           <div className="mt-6 flex flex-wrap items-center gap-4">
@@ -203,7 +212,7 @@ export default async function ArtistDetailPage({ params }: Props) {
               href={`/${locale}#calculator`}
               className="inline-flex items-center gap-2 rounded-xl bg-[#FF0033] px-7 py-3.5 text-sm font-extrabold text-white shadow-xl shadow-[#FF0033]/30 hover:bg-[#E6002E] transition"
             >
-              Fiyatı Hesapla & Kampanya Başlat <ArrowRight className="h-4 w-4" />
+              {isTr ? 'Fiyatı Hesapla & Kampanya Başlat' : 'Calculate Pricing & Launch'} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>

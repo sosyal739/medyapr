@@ -279,7 +279,11 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
               {isTr ? 'Stratejistimizle doğrudan görüşün.' : 'Chat directly with our lead PR strategist.'}
             </div>
             <a
-              href="https://wa.me/905312993355?text=Merhaba%2C%20klip%20lansman%C4%B1m%20ve%20YouTube%20trend%20paketleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+              href={`https://wa.me/905312993355?text=${encodeURIComponent(
+                isTr
+                  ? 'Merhaba, klip lansmanım ve YouTube trend paketleri hakkında bilgi almak istiyorum.'
+                  : 'Hello, I would like to get information regarding music video PR and YouTube trending campaign packages.'
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 px-5 py-2.5 text-xs font-bold text-white shadow-md transition"

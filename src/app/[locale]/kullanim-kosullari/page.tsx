@@ -114,7 +114,7 @@ export default async function TermsPage({ params }: Props) {
           </section>
 
           <div className="pt-6 border-t border-zinc-800 text-xs text-zinc-400 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <span>Sözleşme soruları: info@medyapr.com</span>
+            <span>{isTr ? 'Sözleşme soruları: info@medyapr.com' : 'Contract inquiries: info@medyapr.com'}</span>
             <Link href={`/${locale}/iletisim`} className="text-[#FF6B6B] hover:underline font-semibold">
               {isTr ? 'Uzmanımıza Danışın →' : 'Ask an Expert →'}
             </Link>

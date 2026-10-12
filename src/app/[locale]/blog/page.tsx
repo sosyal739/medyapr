@@ -125,7 +125,7 @@ export default async function BlogIndexPage({
             {isTr ? 'Ana Sayfa' : 'Home'}
           </Link>
           <span>/</span>
-          <span className="text-[#FF6B6B]">Müzik & Video PR Blogu</span>
+          <span className="text-[#FF6B6B]">{isTr ? 'Müzik & Video PR Blogu' : 'Music & Video PR Blog'}</span>
           {activeCategory.key !== 'all' && (
             <>
               <span>/</span>
@@ -141,10 +141,21 @@ export default async function BlogIndexPage({
             {isTr ? 'Trend & Müzik PR Stratejileri' : 'Insights & Analytics'}
           </span>
           <h1 className="text-3xl font-extrabold sm:text-5xl tracking-tight">
-            Müzik & YouTube{' '}
-            <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
-              Strateji Rehberi
-            </span>
+            {isTr ? (
+              <>
+                Müzik &amp; YouTube{' '}
+                <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
+                  Strateji Rehberi
+                </span>
+              </>
+            ) : (
+              <>
+                Music &amp; YouTube{' '}
+                <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
+                  Strategy Guide
+                </span>
+              </>
+            )}
           </h1>
           <p className="mt-3 text-sm md:text-base text-zinc-300 max-w-3xl leading-relaxed">
             {isTr

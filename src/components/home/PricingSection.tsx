@@ -11,9 +11,10 @@
 
 interface PricingSectionProps {
   dict: any;
+  locale?: string;
 }
 
-export default function PricingSection({ dict }: PricingSectionProps) {
+export default function PricingSection({ dict, locale = 'tr' }: PricingSectionProps) {
   const t = dict?.pricing ?? {};
 
   const sectionTitle = t.title ?? 'Fiyatlandırma';
@@ -21,7 +22,7 @@ export default function PricingSection({ dict }: PricingSectionProps) {
     t.subtitle ??
     'İhtiyacınıza uygun paketi seçin. Tüm paketler Google Ads altyapısı ile çalışır.';
 
-  const plans = t.plans ?? [
+  const plans = t.packages ?? t.plans ?? [
     {
       name: 'Başlangıç',
       price: '₺499',
@@ -130,7 +131,7 @@ export default function PricingSection({ dict }: PricingSectionProps) {
                 {isPopular && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
                     <span className="rounded-full bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-4 py-1 text-xs font-bold text-white shadow-md shadow-[#FF0033]/25">
-                      ⭐ Popüler
+                      {locale === 'tr' ? '⭐ Popüler' : '⭐ Most Popular'}
                     </span>
                   </div>
                 )}

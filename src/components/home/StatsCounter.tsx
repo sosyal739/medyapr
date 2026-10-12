@@ -11,6 +11,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 
 interface StatsCounterProps {
   dict: any;
+  locale?: string;
 }
 
 interface StatConfig {
@@ -21,14 +22,15 @@ interface StatConfig {
   decimals: number;
 }
 
-export default function StatsCounter({ dict }: StatsCounterProps) {
+export default function StatsCounter({ dict, locale = 'tr' }: StatsCounterProps) {
   const t = dict?.stats ?? {};
+  const isTr = locale === 'tr';
 
   const stats: StatConfig[] = t.items ?? [
-    { label: 'Toplam İzlenme', value: 2.5, suffix: 'M+', prefix: '', decimals: 1 },
-    { label: 'Mutlu Müşteri', value: 500, suffix: '+', prefix: '', decimals: 0 },
-    { label: 'Kampanya', value: 1000, suffix: '+', prefix: '', decimals: 0 },
-    { label: 'Müşteri Puanı', value: 4.9, suffix: '/5', prefix: '', decimals: 1 },
+    { label: t.views_delivered ?? (isTr ? 'Toplam İzlenme' : 'Views Delivered'), value: 2.5, suffix: 'M+', prefix: '', decimals: 1 },
+    { label: t.happy_clients ?? (isTr ? 'Mutlu Müşteri' : 'Happy Clients'), value: 500, suffix: '+', prefix: '', decimals: 0 },
+    { label: t.campaigns ?? (isTr ? 'Kampanya' : 'Successful Campaigns'), value: 1000, suffix: '+', prefix: '', decimals: 0 },
+    { label: t.rating ?? (isTr ? 'Müşteri Puanı' : 'Customer Rating'), value: 4.9, suffix: '/5', prefix: '', decimals: 1 },
   ];
 
   const icons = [
@@ -105,7 +107,7 @@ export default function StatsCounter({ dict }: StatsCounterProps) {
               {stat.prefix}
               {stat.decimals > 0
                 ? counts[i].toFixed(stat.decimals)
-                : counts[i].toLocaleString('tr-TR')}
+                : counts[i].toLocaleString(isTr ? 'tr-TR' : 'en-US')}
               {stat.suffix}
             </span>
             <span className="text-sm font-medium text-white/80">{stat.label}</span>

@@ -44,7 +44,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
       {/* Floating Animated Badge (Moving Object) */}
       <div className="pointer-events-none absolute top-10 right-8 lg:right-24 z-20 hidden md:flex items-center gap-2 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-slow">
         <Sparkles className="h-4 w-4 text-amber-400" />
-        <span>Canlı YouTube Data API v3 Senkronizasyonu</span>
+        <span>{isTr ? 'Canlı YouTube Data API v3 Senkronizasyonu' : 'Live YouTube Data API v3 Sync'}</span>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 md:px-8 lg:px-12">
@@ -181,7 +181,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                         {song.artist}
                       </span>
                       {isFirst && (
-                        <div className="flex items-end gap-0.5 h-3.5 px-1.5 py-0.5 rounded bg-black/40 border border-white/20" title="Şu An Canlı Zirvede">
+                        <div className="flex items-end gap-0.5 h-3.5 px-1.5 py-0.5 rounded bg-black/40 border border-white/20" title={isTr ? 'Şu An Canlı Zirvede' : 'Currently #1 on Trending'}>
                           <div className="w-0.5 bg-[#FF0033] rounded-full animate-eq-1" />
                           <div className="w-0.5 bg-white rounded-full animate-eq-2" />
                           <div className="w-0.5 bg-amber-400 rounded-full animate-eq-3" />

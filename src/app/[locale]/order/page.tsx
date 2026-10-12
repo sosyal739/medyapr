@@ -3,7 +3,13 @@ import OrderForm from '@/components/order/OrderForm';
 import { getAppStrings } from '@/lib/i18n/app-strings';
 import { CURRENCIES, FORMATS, PACKAGES, REGIONS, clampViews, type Currency, type Format, type Package, type Region } from '@/lib/pricing';
 
-export const metadata: Metadata = { title: 'Sipariş Oluştur | MedyaPR', robots: { index: false } };
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: locale === 'tr' ? 'Sipariş Oluştur | MedyaPR' : 'Place Order | MedyaPR',
+    robots: { index: false },
+  };
+}
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -21,7 +27,7 @@ export default async function OrderPage({ params, searchParams }: Props) {
       <div className="mx-auto max-w-5xl px-4 md:px-8">
         <div className="mb-8">
           <span className="mb-2 inline-block rounded-full border border-zinc-700/60 bg-zinc-800/80 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#FF5E7E]">
-            Güvenli Sipariş
+            {locale === 'tr' ? 'Güvenli Sipariş' : 'Secure Order'}
           </span>
           <h1 className="font-[family-name:var(--font-heading)] text-3xl font-extrabold text-white md:text-4xl">
             {t.order.title}
@@ -36,8 +42,8 @@ export default async function OrderPage({ params, searchParams }: Props) {
             views: clampViews(Number(sp.views) || 25_000),
             format: pick<Format>(FORMATS, sp.format, 'instream'),
             pkg: pick<Package>(PACKAGES, sp.pkg, 'views'),
-            region: pick<Region>(REGIONS, sp.region, 'tr'),
-            currency: pick<Currency>(CURRENCIES, sp.currency, locale === 'tr' ? 'TRY' : 'EUR'),
+            region: pick<Region>(REGIONS, sp.region, locale === 'tr' ? 'tr' : 'premium'),
+            currency: pick<Currency>(CURRENCIES, sp.currency, locale === 'tr' ? 'TRY' : 'USD'),
           }}
         />
       </div>

@@ -74,11 +74,11 @@ export default async function ServicesPage({ params }: Props) {
                   name: 'MedyaPR',
                   url: 'https://medyapr.com',
                 },
-                serviceType: 'Dijital Müzik PR ve Video Reklam Yönetimi',
+                serviceType: locale === 'tr' ? 'Dijital Müzik PR ve Video Reklam Yönetimi' : 'Digital Music PR and Video Ad Management',
                 description: dict.services.subtitle,
                 hasOfferCatalog: {
                   '@type': 'OfferCatalog',
-                  name: 'MedyaPR YouTube Hizmet Kataloğu',
+                  name: locale === 'tr' ? 'MedyaPR YouTube Hizmet Kataloğu' : 'MedyaPR YouTube Services Catalog',
                   itemListElement: (dict.services?.items || []).map((s: any) => ({
                     '@type': 'Offer',
                     itemOffered: {
@@ -159,7 +159,7 @@ export default async function ServicesPage({ params }: Props) {
                     href={`/${locale}/iletisim`}
                     className="inline-flex items-center gap-2 text-[#FF0033] font-semibold text-sm group-hover:gap-3 transition-all"
                   >
-                    {dict.pricing?.cta || 'Hemen Başla'}
+                    {dict.pricing?.cta || (locale === 'tr' ? 'Hemen Başla' : 'Get Started')}
                     <ArrowRight size={16} />
                   </Link>
 

@@ -116,7 +116,7 @@ export default async function PrivacyPage({ params }: Props) {
           </section>
 
           <div className="pt-6 border-t border-zinc-800 text-xs text-zinc-400 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <span>Sorularınız için: info@medyapr.com</span>
+            <span>{isTr ? 'Sorularınız için: info@medyapr.com' : 'Questions & Inquiries: info@medyapr.com'}</span>
             <Link href={`/${locale}/iletisim`} className="text-[#FF6B6B] hover:underline font-semibold">
               {isTr ? 'İletişim Hattına Git →' : 'Contact Support →'}
             </Link>

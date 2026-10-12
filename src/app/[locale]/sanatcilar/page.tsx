@@ -82,10 +82,10 @@ export default async function SanatcilarPage({ params }: { params: Promise<{ loc
         {/* Breadcrumb */}
         <div className="mb-4 flex items-center gap-2 text-xs text-zinc-400">
           <Link href={`/${locale}`} className="hover:text-white transition">
-            Ana Sayfa
+            {isTr ? 'Ana Sayfa' : 'Home'}
           </Link>
           <span>/</span>
-          <span className="text-[#FF6B6B]">Sanatçılar</span>
+          <span className="text-[#FF6B6B]">{isTr ? 'Sanatçılar' : 'Artists'}</span>
         </div>
 
         {/* Header */}
@@ -95,10 +95,21 @@ export default async function SanatcilarPage({ params }: { params: Promise<{ loc
             {isTr ? 'Sanatçı & Grup Rehberi' : 'Artists Directory'}
           </span>
           <h1 className="text-3xl font-extrabold sm:text-5xl tracking-tight">
-            Trend{' '}
-            <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
-              Sanatçılar & Gruplar
-            </span>
+            {isTr ? (
+              <>
+                Trend{' '}
+                <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
+                  Sanatçılar &amp; Gruplar
+                </span>
+              </>
+            ) : (
+              <>
+                Trending{' '}
+                <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
+                  Artists &amp; Bands
+                </span>
+              </>
+            )}
           </h1>
           <p className="mt-3 text-sm md:text-base text-zinc-300 max-w-2xl leading-relaxed">
             {isTr
@@ -138,7 +149,7 @@ export default async function SanatcilarPage({ params }: { params: Promise<{ loc
                 </div>
 
                 <p className="text-xs text-white/50 mb-3">
-                  Son Hit: <strong className="text-white">{artist.latestHit}</strong>
+                  {isTr ? 'Son Hit:' : 'Latest Hit:'} <strong className="text-white">{artist.latestHit}</strong>
                 </p>
 
                 <p className="text-sm leading-relaxed text-white/65 line-clamp-3">
@@ -147,7 +158,7 @@ export default async function SanatcilarPage({ params }: { params: Promise<{ loc
               </div>
 
               <div className="mt-6 flex items-center justify-between border-t border-white/5 pt-4 text-xs font-semibold text-[#FF6B6B]">
-                <span>Sanatçı Profilini İncele</span>
+                <span>{isTr ? 'Sanatçı Profilini İncele' : 'View Artist Profile'}</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>

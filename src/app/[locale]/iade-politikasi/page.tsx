@@ -114,7 +114,7 @@ export default async function RefundPage({ params }: Props) {
           </section>
 
           <div className="pt-6 border-t border-zinc-800 text-xs text-zinc-400 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <span>Finans & İade birimi: muhasebe@medyapr.com</span>
+            <span>{isTr ? 'Finans & İade birimi: muhasebe@medyapr.com' : 'Billing & Refund Department: muhasebe@medyapr.com'}</span>
             <Link href={`/${locale}/iletisim`} className="text-[#FF6B6B] hover:underline font-semibold">
               {isTr ? 'Müşteri Temsilcisine Bağlan →' : 'Contact Support →'}
             </Link>

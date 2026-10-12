@@ -2,7 +2,13 @@ import type { Metadata } from 'next';
 import LookupForm from '@/components/track/LookupForm';
 import { getAppStrings } from '@/lib/i18n/app-strings';
 
-export const metadata: Metadata = { title: { absolute: 'Sipariş Sorgula | MedyaPR' }, robots: { index: false } };
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: { absolute: locale === 'tr' ? 'Sipariş Sorgula | MedyaPR' : 'Track Order | MedyaPR' },
+    robots: { index: false },
+  };
+}
 
 export default async function TrackLookupPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -12,7 +18,7 @@ export default async function TrackLookupPage({ params }: { params: Promise<{ lo
       <div className="w-full max-w-lg px-4">
         <div className="rounded-3xl border border-studio bg-studio-card p-8 md:p-10 shadow-2xl backdrop-blur-xl">
           <span className="mb-2 inline-block rounded-full border border-zinc-700/60 bg-zinc-800/80 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-zinc-300">
-            Sipariş Takibi
+            {locale === 'tr' ? 'Sipariş Takibi' : 'Order Tracking'}
           </span>
           <h1 className="font-[family-name:var(--font-heading)] text-2xl md:text-3xl font-extrabold text-white">
             {t.lookupTitle}

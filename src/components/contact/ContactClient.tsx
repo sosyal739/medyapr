@@ -174,8 +174,8 @@ export default function ContactClient({ locale }: Props) {
                     <MessageCircle size={22} className="text-emerald-400 group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white">WhatsApp Canlı Destek</p>
-                    <p className="text-xs text-zinc-400">+90 531 299 33 55 (7/24 Aktif)</p>
+                    <p className="font-semibold text-white">{isTr ? 'WhatsApp Canlı Destek' : 'WhatsApp Live Support'}</p>
+                    <p className="text-xs text-zinc-400">+90 531 299 33 55 {isTr ? '(7/24 Aktif)' : '(24/7 Available)'}</p>
                   </div>
                 </a>
 
@@ -189,7 +189,7 @@ export default function ContactClient({ locale }: Props) {
                     <Send size={22} className="text-sky-400 group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white">Telegram Resmi Kanal</p>
+                    <p className="font-semibold text-white">{isTr ? 'Telegram Resmi Kanal' : 'Official Telegram'}</p>
                     <p className="text-xs text-zinc-400">@medyapr</p>
                   </div>
                 </a>
@@ -202,7 +202,7 @@ export default function ContactClient({ locale }: Props) {
                     <Mail size={22} className="text-[#FF5E7E] group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white">Resmi Kurumsal E-posta</p>
+                    <p className="font-semibold text-white">{isTr ? 'Resmi Kurumsal E-posta' : 'Official Corporate Email'}</p>
                     <p className="text-xs text-zinc-400">info@medyapr.com</p>
                   </div>
                 </a>
@@ -216,8 +216,8 @@ export default function ContactClient({ locale }: Props) {
                   <ShieldCheck size={28} />
                 </div>
                 <div>
-                  <p className="font-bold text-lg text-white">Resmi Google Partner Ajansı</p>
-                  <p className="text-zinc-400 text-xs">18+ Yıllık Kesintisiz Sektör Deneyimi</p>
+                  <p className="font-bold text-lg text-white">{isTr ? 'Resmi Google Partner Ajansı' : 'Official Google Partner Agency'}</p>
+                  <p className="text-zinc-400 text-xs">{isTr ? '18+ Yıllık Kesintisiz Sektör Deneyimi' : '18+ Years Continuous Industry Experience'}</p>
                 </div>
               </div>
               <p className="text-zinc-300 text-xs leading-relaxed mb-3">
@@ -227,7 +227,7 @@ export default function ContactClient({ locale }: Props) {
               </p>
               <div className="pt-3 border-t border-zinc-800 flex items-center justify-between text-xs text-zinc-400">
                 <span>{isTr ? 'MedyaPR Uzman Ekibi' : 'MedyaPR Expert Team'}</span>
-                <span className="text-emerald-400 font-medium">● Canlı Operasyon</span>
+                <span className="text-emerald-400 font-medium">{isTr ? '● Canlı Operasyon' : '● Live Operations'}</span>
               </div>
             </div>
           </div>

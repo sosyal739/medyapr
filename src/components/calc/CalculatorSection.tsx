@@ -4,6 +4,7 @@ import { Sparkles, ShieldCheck } from 'lucide-react';
 
 export default function CalculatorSection({ locale }: { locale: string }) {
   const t = getAppStrings(locale).calc;
+  const isTr = locale === 'tr';
   return (
     <section id="calculator" className="scroll-mt-20 relative overflow-hidden bg-studio-gradient py-20 md:py-28 text-white border-y border-studio">
       {/* Ambient background glows */}
@@ -13,18 +14,18 @@ export default function CalculatorSection({ locale }: { locale: string }) {
       {/* Moving Floating Badges (Moving Objects) */}
       <div className="pointer-events-none absolute top-16 left-6 lg:left-16 z-20 hidden md:flex items-center gap-2.5 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-slow">
         <Sparkles className="h-4 w-4 text-amber-400" />
-        <span>FAST & Havale Anında Aktivasyon</span>
+        <span>{isTr ? 'FAST & Havale Anında Aktivasyon' : 'Fast Bank Transfer & Direct Activation'}</span>
       </div>
 
       <div className="pointer-events-none absolute bottom-16 right-6 lg:right-16 z-20 hidden md:flex items-center gap-2.5 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-reverse">
         <ShieldCheck className="h-4 w-4 text-emerald-400" />
-        <span>YouTube Studio Şeffaf Takip</span>
+        <span>{isTr ? 'YouTube Studio Şeffaf Takip' : 'Transparent YouTube Studio Tracking'}</span>
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 md:px-8">
         <div className="mx-auto mb-12 max-w-2xl text-center">
           <span className="mb-3 inline-block rounded-full border border-[#FF0033]/40 bg-[#FF0033]/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5E7E]">
-            Canlı Fiyat Hesaplayıcı
+            {isTr ? 'Canlı Fiyat Hesaplayıcı' : 'Live Pricing Calculator'}
           </span>
           <h2 className="font-[family-name:var(--font-heading)] text-3xl font-extrabold text-white md:text-5xl">
             {t.title}

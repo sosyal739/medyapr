@@ -19,7 +19,7 @@ export default function WhyGoogleAds({ dict }: WhyGoogleAdsProps) {
     t.subtitle ??
     'Google Ads altyapısının sunduğu avantajlarla YouTube kanalınızı güvenle büyütün.';
 
-  const benefits = t.benefits ?? [
+  const benefits = t.items ?? t.benefits ?? [
     {
       title: 'Gerçek İzleyiciler',
       description:

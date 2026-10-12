@@ -151,7 +151,7 @@ const en: Strings = {
     },
     regions: {
       tr: { name: 'Turkey', desc: 'Turkish audience targeting', tag: 'Standard' },
-      global: { name: 'Mixed Global', desc: 'From ₺100/1K • Progressive Discount', tag: '1K: ₺100 🔥' },
+      global: { name: 'Mixed Global', desc: 'From $3.50/1K • Progressive Discount', tag: 'Global Mix 🔥' },
       premium: { name: 'Premium Countries', desc: 'US, UK, Germany, etc.', tag: 'Tier-1 Markets' },
     },
     total: 'Total Amount',

@@ -45,7 +45,7 @@ export default function LanguageSwitcher({
       <button
         onClick={handleSwitch}
         className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-sm font-semibold text-zinc-200 bg-zinc-900/80 border border-zinc-700/60 hover:bg-zinc-800 transition-all ${className}`}
-        aria-label={`Dili ${targetLabel} olarak değiştir`}
+        aria-label={currentLocale === 'tr' ? `Dili ${targetLabel} olarak değiştir` : `Switch language to ${targetLabel}`}
       >
         <span className="flex items-center gap-2.5">
           <Globe className="h-4 w-4 text-[#FF0033]" />

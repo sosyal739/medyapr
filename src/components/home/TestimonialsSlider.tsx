@@ -10,14 +10,16 @@
 
 interface TestimonialsSliderProps {
   dict: any;
+  locale?: string;
 }
 
-export default function TestimonialsSlider({ dict }: TestimonialsSliderProps) {
+export default function TestimonialsSlider({ dict, locale = 'tr' }: TestimonialsSliderProps) {
   const t = dict?.testimonials ?? {};
+  const isTr = locale === 'tr';
 
-  const sectionTitle = t.title ?? 'Müşterilerimiz Ne Diyor?';
+  const sectionTitle = t.title ?? (isTr ? 'Müşterilerimiz Ne Diyor?' : 'What Our Clients Say');
   const sectionSubtitle =
-    t.subtitle ?? 'Binlerce müşterimizden bazılarının deneyimleri.';
+    t.subtitle ?? (isTr ? 'Binlerce müşterimizden bazılarının deneyimleri.' : 'Real customer experiences.');
 
   const testimonials = t.items ?? [
     {
@@ -101,7 +103,7 @@ export default function TestimonialsSlider({ dict }: TestimonialsSliderProps) {
 
               {/* Quote text */}
               <p className="mb-6 text-sm leading-relaxed text-[#6B7280] sm:text-base">
-                &ldquo;{item.quote}&rdquo;
+                &ldquo;{item.quote ?? item.content}&rdquo;
               </p>
 
               {/* Author */}

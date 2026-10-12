@@ -10,19 +10,23 @@
 
 interface CTASectionProps {
   dict: any;
+  locale?: string;
 }
 
-export default function CTASection({ dict }: CTASectionProps) {
+export default function CTASection({ dict, locale = 'tr' }: CTASectionProps) {
   const t = dict?.cta ?? {};
+  const isTr = locale === 'tr';
 
-  const title = t.title ?? 'YouTube Kanalınızı Büyütmeye Hazır mısınız?';
+  const title = t.title ?? (isTr ? 'YouTube Kanalınızı Büyütmeye Hazır mısınız?' : 'Ready to Grow Your YouTube Channel?');
   const subtitle =
     t.subtitle ??
-    'Hemen başlayın ve Google Ads ile gerçek izleyicilere ulaşın. İlk kampanyanıza özel %20 indirim!';
-  const primaryBtn = t.primaryButton ?? 'Ücretsiz Başla';
-  const whatsappBtn = t.whatsappButton ?? t.whatsapp ?? 'WhatsApp ile Ulaşın';
-  const telegramText = t.telegramText ?? t.telegram ?? 'veya Telegram üzerinden yazın';
-  const telegramLink = t.telegramLink ?? '#';
+    (isTr
+      ? 'Hemen başlayın ve Google Ads ile gerçek izleyicilere ulaşın. İlk kampanyanıza özel %20 indirim!'
+      : "Get a free consultation now and let's find the best strategy for your channel together.");
+  const primaryBtn = t.primaryButton ?? t.button ?? (isTr ? 'Ücretsiz Başla' : 'Get Started');
+  const whatsappBtn = t.whatsappButton ?? t.whatsapp ?? (isTr ? 'WhatsApp ile Ulaşın' : 'Contact via WhatsApp');
+  const telegramText = t.telegramText ?? (isTr ? 'veya Telegram üzerinden yazın' : 'or reach out on Telegram');
+  const telegramLink = t.telegramLink ?? 'https://t.me/medyapr';
   const whatsappLink = t.whatsappLink && t.whatsappLink !== '#' ? t.whatsappLink : 'https://wa.me/905312993355';
 
   return (

@@ -104,7 +104,7 @@ export default async function HomePage({ params }: Props) {
               },
               {
                 '@type': 'Service',
-                serviceType: 'YouTube Video & Klip PR Reklamcılığı',
+                serviceType: locale === 'tr' ? 'YouTube Video & Klip PR Reklamcılığı' : 'YouTube Video & Music PR Advertising',
                 provider: {
                   '@type': 'Organization',
                   name: 'MedyaPR',
@@ -113,27 +113,27 @@ export default async function HomePage({ params }: Props) {
                 areaServed: ['TR', 'DE', 'Global'],
                 hasOfferCatalog: {
                   '@type': 'OfferCatalog',
-                  name: 'YouTube Video PR Paketleri',
+                  name: locale === 'tr' ? 'YouTube Video PR Paketleri' : 'YouTube Video PR Packages',
                   itemListElement: [
                     {
                       '@type': 'Offer',
                       itemOffered: {
                         '@type': 'Service',
-                        name: 'YouTube In-Stream Video Reklamı',
+                        name: locale === 'tr' ? 'YouTube In-Stream Video Reklamı' : 'YouTube In-Stream Video Ads',
                       },
                     },
                     {
                       '@type': 'Offer',
                       itemOffered: {
                         '@type': 'Service',
-                        name: 'YouTube Shorts Akış Reklamı',
+                        name: locale === 'tr' ? 'YouTube Shorts Akış Reklamı' : 'YouTube Shorts Feed Ads',
                       },
                     },
                     {
                       '@type': 'Offer',
                       itemOffered: {
                         '@type': 'Service',
-                        name: 'Müzik Klibi Lansman PR',
+                        name: locale === 'tr' ? 'Müzik Klibi Lansman PR' : 'Music Video Launch PR',
                       },
                     },
                   ],
@@ -145,12 +145,12 @@ export default async function HomePage({ params }: Props) {
       />
 
       <HeroSection dict={dict} locale={locale} />
-      <TrustBadges dict={dict} />
+      <TrustBadges dict={dict} locale={locale} />
       <CalculatorSection locale={locale} />
       <TrendingMusicSection songs={trendingSongs} locale={locale} />
       <ComparisonSection locale={locale} />
-      <ServicesGrid dict={dict} />
-      <HowItWorks dict={dict} />
+      <ServicesGrid dict={dict} locale={locale} />
+      <HowItWorks dict={dict} locale={locale} />
       <BlogPreviewSection
         posts={blogPosts.slice(0, 3).map((p) => ({ ...p, paragraphs: [], paragraphs_en: [], faqs: [], faqs_en: [], table: undefined, table_en: undefined }))}
         locale={locale}

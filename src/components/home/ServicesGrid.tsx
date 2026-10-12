@@ -4,10 +4,11 @@ import { Play, Smartphone, Search, Globe, Target, BarChart3 } from 'lucide-react
 
 interface ServicesGridProps {
   dict: any;
+  locale?: string;
 }
 
-export default function ServicesGrid({ dict }: ServicesGridProps) {
-  const isTr = true;
+export default function ServicesGrid({ dict, locale = 'tr' }: ServicesGridProps) {
+  const isTr = locale === 'tr';
 
   const services = [
     {
@@ -81,7 +82,7 @@ export default function ServicesGrid({ dict }: ServicesGridProps) {
       {/* Floating Animated Badge (Moving Object) */}
       <div className="pointer-events-none absolute top-12 left-8 lg:left-20 z-20 hidden md:flex items-center gap-2 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-drift">
         <Target className="h-4 w-4 text-[#FF4D6D]" />
-        <span>Doğrudan İlgi Alanı & Müzik Türü Hedeflemesi</span>
+        <span>{isTr ? 'Doğrudan İlgi Alanı & Müzik Türü Hedeflemesi' : 'Direct Interest & Music Genre Targeting'}</span>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 md:px-8 lg:px-12">

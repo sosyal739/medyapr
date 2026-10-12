@@ -103,7 +103,7 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
               value={name}
               onChange={(e) => setName(e.target.value)}
               className={inputClass}
-              placeholder="Ad Soyad veya Sanatçı Adı"
+              placeholder={locale === 'tr' ? 'Ad Soyad veya Sanatçı Adı' : 'Full Name or Artist Name'}
             />
           </div>
           <div>
@@ -132,7 +132,7 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
             value={contact}
             onChange={(e) => setContact(e.target.value)}
             className={inputClass}
-            placeholder="+90 531 299 33 55 (WhatsApp Bildirimi İçin)"
+            placeholder={locale === 'tr' ? '+90 531 299 33 55 (WhatsApp Bildirimi İçin)' : '+1 555 0199 (For WhatsApp Updates)'}
           />
         </div>
 
@@ -143,14 +143,14 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
               {
                 key: 'iban' as const,
                 icon: Banknote,
-                label: 'Banka Havalesi / FAST (%50 Onayda, %50 Bitince)',
-                desc: 'Videonuz reklam onayı alınca %50, iş bitiminde %50 (Kurumsala iş bitiminde)',
+                label: locale === 'tr' ? 'Banka Havalesi / FAST (%50 Onayda, %50 Bitince)' : 'Bank Wire / Transfer (50% On Approval, 50% On Delivery)',
+                desc: locale === 'tr' ? 'Videonuz reklam onayı alınca %50, iş bitiminde %50 (Kurumsala iş bitiminde)' : '50% upon Google Ads approval, 50% upon delivery (100% on delivery for agencies)',
               },
               {
                 key: 'card' as const,
                 icon: CreditCard,
-                label: 'Kredi / Banka Kartı (Stripe)',
-                desc: 'Şu an bakımda — Havale seçiniz',
+                label: locale === 'tr' ? 'Kredi / Banka Kartı (Stripe)' : 'Credit / Debit Card (Stripe)',
+                desc: locale === 'tr' ? 'Şu an bakımda — Havale seçiniz' : 'Under maintenance — Choose Wire Transfer',
               },
             ].map(({ key, icon: Icon, label, desc }) => (
               <button
@@ -180,14 +180,26 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
         <div className="rounded-2xl border border-blue-500/30 bg-blue-950/20 p-4 text-xs">
           <p className="font-bold text-white mb-1.5 flex items-center gap-1.5">
             <ShieldCheck className="h-4 w-4 text-emerald-400" />
-            Süreç Nasıl İşler?
+            {locale === 'tr' ? 'Süreç Nasıl İşler?' : 'How Does the Process Work?'}
           </p>
           <ul className="space-y-1 text-zinc-300">
-            <li>• <strong>1. Adım:</strong> Video linkiniz incelenir ve resmi Google Ads onay sürecine iletilir.</li>
-            <li>• <strong>2. Adım:</strong> Reklam onayı çıktığında tutarın <strong className="text-emerald-400">%50&apos;si</strong> alınır.</li>
-            <li>• <strong>3. Adım:</strong> Kampanya başarıyla tamamlandığında kalan <strong className="text-emerald-400">%50</strong> alınır.</li>
-            <li className="text-blue-300 font-semibold">• <strong>Kurumsal Müşteriler:</strong> Ajanslar ve kurumsal müşteriler için tüm ödeme iş bitimindedir.</li>
-            <li className="text-amber-300 text-[11px] pt-0.5">* Fiyat videonun uzunluğuna göre değişiklik gösterebilir.</li>
+            {locale === 'tr' ? (
+              <>
+                <li>• <strong>1. Adım:</strong> Video linkiniz incelenir ve resmi Google Ads onay sürecine iletilir.</li>
+                <li>• <strong>2. Adım:</strong> Reklam onayı çıktığında tutarın <strong className="text-emerald-400">%50&apos;si</strong> alınır.</li>
+                <li>• <strong>3. Adım:</strong> Kampanya başarıyla tamamlandığında kalan <strong className="text-emerald-400">%50</strong> alınır.</li>
+                <li className="text-blue-300 font-semibold">• <strong>Kurumsal Müşteriler:</strong> Ajanslar ve kurumsal müşteriler için tüm ödeme iş bitimindedir.</li>
+                <li className="text-amber-300 text-[11px] pt-0.5">* Fiyat videonun uzunluğuna göre değişiklik gösterebilir.</li>
+              </>
+            ) : (
+              <>
+                <li>• <strong>Step 1:</strong> Your video link is reviewed and submitted for official Google Ads approval.</li>
+                <li>• <strong>Step 2:</strong> When ad approval is granted, <strong className="text-emerald-400">50%</strong> payment is collected.</li>
+                <li>• <strong>Step 3:</strong> Remaining <strong className="text-emerald-400">50%</strong> is settled once campaign is 100% complete.</li>
+                <li className="text-blue-300 font-semibold">• <strong>Corporate Clients:</strong> Labels and agencies pay 100% upon delivery.</li>
+                <li className="text-amber-300 text-[11px] pt-0.5">* Pricing may vary depending on video runtime.</li>
+              </>
+            )}
           </ul>
         </div>
 
@@ -199,7 +211,9 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
             className="mt-0.5 h-4 w-4 accent-[#FF0033] rounded"
           />
           <span>
-            Hizmet şartlarını ve Google Ads video gösterim kurallarını okudum, onaylıyorum.
+            {locale === 'tr'
+              ? 'Hizmet şartlarını ve Google Ads video gösterim kurallarını okudum, onaylıyorum.'
+              : 'I have read and agree to the Terms of Service and Google Ads video promotion policies.'}
           </span>
         </label>
       </div>
@@ -240,15 +254,15 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
         {/* Aşamalı Ödeme Ayrıntısı */}
         <div className="mt-3.5 rounded-2xl border border-white/10 bg-white/[0.03] p-3 text-xs space-y-1.5">
           <div className="flex justify-between text-zinc-300">
-            <span>Onayda Alınacak (%50):</span>
+            <span>{locale === 'tr' ? 'Onayda Alınacak (%50):' : 'Due On Approval (50%):'}</span>
             <span className="font-bold text-emerald-400">{formatMoney(Math.round(q.total / 2), q.currency, locale)}</span>
           </div>
           <div className="flex justify-between text-zinc-300">
-            <span>İş Bitiminde Kalan (%50):</span>
+            <span>{locale === 'tr' ? 'İş Bitiminde Kalan (%50):' : 'Due On Delivery (50%):'}</span>
             <span className="font-bold text-zinc-200">{formatMoney(q.total - Math.round(q.total / 2), q.currency, locale)}</span>
           </div>
           <div className="pt-1.5 border-t border-white/10 text-[11px] text-blue-300 font-medium">
-            🏢 Kurumsal müşteriler için tüm ödeme iş bitimindedir.
+            {locale === 'tr' ? '🏢 Kurumsal müşteriler için tüm ödeme iş bitimindedir.' : '🏢 Record labels & corporate clients pay 100% upon delivery.'}
           </div>
         </div>
 
@@ -264,12 +278,12 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
               <Loader2 className="h-5 w-5 animate-spin" /> {o.submitting}
             </>
           ) : (
-            'Siparişi Onayla & Takip Kodu Al'
+            locale === 'tr' ? 'Siparişi Onayla & Takip Kodu Al' : 'Confirm Order & Get Tracking Code'
           )}
         </button>
 
         <p className="mt-4 flex items-center justify-center gap-1.5 text-[11px] text-white/40">
-          <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" /> %100 Resmi Google Ads Altyapısı
+          <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" /> {locale === 'tr' ? '%100 Resmi Google Ads Altyapısı' : '100% Official Google Ads Network'}
         </p>
       </aside>
     </form>

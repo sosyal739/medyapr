@@ -21,7 +21,7 @@ export default function BlogPreviewSection({ posts, locale }: BlogPreviewSection
       {/* Floating Animated Badge (Moving Object) */}
       <div className="pointer-events-none absolute top-10 right-8 lg:right-24 z-20 hidden md:flex items-center gap-2 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-slow">
         <Sparkles className="h-4 w-4 text-amber-400" />
-        <span>Haftalık Algoritma & Klip Analizleri</span>
+        <span>{isTr ? 'Haftalık Algoritma & Klip Analizleri' : 'Weekly Algorithm & Video Playbooks'}</span>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 md:px-8 lg:px-12">
@@ -56,48 +56,55 @@ export default function BlogPreviewSection({ posts, locale }: BlogPreviewSection
 
         {/* 3 Posts Grid */}
         <div className="grid gap-6 md:grid-cols-3">
-          {posts.slice(0, 3).map((post) => (
-            <Link
-              key={post.slug}
-              href={`/${locale}/blog/${post.slug}`}
-              className="group flex flex-col justify-between rounded-3xl border border-studio bg-studio-card p-6 backdrop-blur-xl transition hover:-translate-y-1.5 hover:border-studio-strong hover:bg-zinc-800/90 shadow-xl"
-            >
-              <div>
-                <div className="relative aspect-video overflow-hidden rounded-2xl bg-black/40 mb-5">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <span className="absolute top-3 left-3 rounded-full bg-[#FF0033] px-3 py-1 text-xs font-bold text-white shadow-lg">
-                    {post.category}
-                  </span>
+          {posts.slice(0, 3).map((post) => {
+            const postTitle = (!isTr && post.title_en) ? post.title_en : post.title;
+            const postSummary = (!isTr && post.summary_en) ? post.summary_en : post.summary;
+            const postCategory = (!isTr && post.category_en) ? post.category_en : post.category;
+            const postReadTime = (!isTr && post.readTime_en) ? post.readTime_en : post.readTime;
+
+            return (
+              <Link
+                key={post.slug}
+                href={`/${locale}/blog/${post.slug}`}
+                className="group flex flex-col justify-between rounded-3xl border border-studio bg-studio-card p-6 backdrop-blur-xl transition hover:-translate-y-1.5 hover:border-studio-strong hover:bg-zinc-800/90 shadow-xl"
+              >
+                <div>
+                  <div className="relative aspect-video overflow-hidden rounded-2xl bg-black/40 mb-5">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={post.image}
+                      alt={postTitle}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <span className="absolute top-3 left-3 rounded-full bg-[#FF0033] px-3 py-1 text-xs font-bold text-white shadow-lg">
+                      {postCategory}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-4 text-xs text-zinc-400 mb-3">
+                    <span className="flex items-center gap-1.5">
+                      <Calendar className="h-3.5 w-3.5 text-[#FF6B6B]" /> {post.date}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="h-3.5 w-3.5 text-zinc-500" /> {postReadTime}
+                    </span>
+                  </div>
+
+                  <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#FF6B6B] transition-colors leading-snug">
+                    {postTitle}
+                  </h3>
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-400 line-clamp-3">
+                    {postSummary}
+                  </p>
                 </div>
 
-                <div className="flex items-center gap-4 text-xs text-zinc-400 mb-3">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="h-3.5 w-3.5 text-[#FF6B6B]" /> {post.date}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="h-3.5 w-3.5 text-zinc-500" /> {post.readTime}
-                  </span>
+                <div className="mt-6 flex items-center justify-between border-t border-zinc-800/80 pt-4 text-xs font-bold text-[#FF6B6B]">
+                  <span>{isTr ? 'Detaylı İncele' : 'Read Guide'}</span>
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </div>
-
-                <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#FF6B6B] transition-colors leading-snug">
-                  {post.title}
-                </h3>
-                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-400 line-clamp-3">
-                  {post.summary}
-                </p>
-              </div>
-
-              <div className="mt-6 flex items-center justify-between border-t border-zinc-800/80 pt-4 text-xs font-bold text-[#FF6B6B]">
-                <span>Detaylı İncele</span>
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
