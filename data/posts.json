@@ -1,5 +1,465 @@
 [
   {
+    "slug": "youtube-izlenme-nasil-sayilir-24-agustos-2026-yeni-kural",
+    "title": "YouTube İzlenme Nasıl Sayılıyor? 24 Ağustos 2026 Kuralı",
+    "summary": "YouTube izlenmeyi artık video oynamaya başladığı anda sayıyor. Yeni kuralın müzisyenler, reklamlar ve Studio rakamları için ne anlama geldiğini anlattık.",
+    "category": "Nasıl Yapılır?",
+    "date": "13 Ekim 2026",
+    "readTime": "6 dk",
+    "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&h=675&q=80",
+    "author": "MedyaPR",
+    "authorRole": "Müzik & YouTube Video PR Ajansı",
+    "tags": [
+      "YouTube İzlenme Nasıl Sayılır",
+      "YouTube İzlenme Kuralı 2026",
+      "YouTube Görüntülenme Sayısı",
+      "YouTube Analytics",
+      "Klip Tanıtımı"
+    ],
+    "quickFact": "YouTube'un yardım sayfasına göre 24 Ağustos 2026'dan itibaren izlenme, video oynamaya başladığı anda sayılıyor. Kural Shorts, uzun video ve canlı yayın için geçerli; düşük kaliteli oynatmalar sonradan çıkarılabilir ve sayaç düzeltilebilir.",
+    "table": {
+      "caption": "YouTube izlenme sayımı: 24 Ağustos 2026 sonrası (Google yardım sayfasına göre)",
+      "headers": [
+        "Konu",
+        "Güncel kural"
+      ],
+      "rows": [
+        [
+          "Sayım anı",
+          "Video oynamaya başladığı an; minimum izlenme süresi aranmaz"
+        ],
+        [
+          "Kapsam",
+          "Shorts, uzun videolar ve canlı yayınlar"
+        ],
+        [
+          "Düşük kaliteli oynatma",
+          "Elenebilir; rakamlar sonradan düzeltilebilir"
+        ],
+        [
+          "Reklamdan gelen izlenme",
+          "Herkese açık sayaçta reklam başlar başlamaz sayılır; reklamverenin ücretlendirildiği TrueView eşikleri ayrı ölçülür"
+        ]
+      ]
+    },
+    "paragraphs": [
+      "YouTube artık bir izlenmeyi, video oynamaya başladığı anda sayıyor. Google'ın \"Etkileşim metrikleri nasıl sayılır\" yardım sayfasına göre bu kural 24 Ağustos 2026'dan itibaren Shorts, uzun videolar ve canlı yayınlar için geçerli. Yani sayaçtaki rakam, videoyu gerçekten kaç kişinin sonuna kadar izlediğini değil, kaç oynatmanın başladığını gösteriyor.",
+      "Bu yazıda kuralın ne değiştirdiğini, müzisyenlerin hangi rakama bakması gerektiğini ve reklamdan gelen izlenmelerin bu düzende nasıl yer aldığını anlatıyoruz. Bilgilerin dayanağı Google'ın yardım sayfaları ve TechCrunch'ın 17 Ağustos 2026 tarihli haberi.",
+      "### Yeni kural tam olarak ne diyor?",
+      "Yardım sayfası, izlenmelerin \"video oynamaya başladığı anda\" sayıldığını yazıyor. Aynı sayfa, düşük kaliteli olarak değerlendirilen oynatmaların sayılmayabileceğini ve rakamların sonradan düzeltilebileceğini de belirtiyor.",
+      "Eski düzende özellikle uzun videolar için \"yaklaşık 30 saniye\" kuralı sık anılırdı. YouTube bu eşiği her yerde resmî bir kural olarak yazmamıştı, bu yüzden sektörde farklı yorumlar dolaşıyordu. Yeni anlatım bu belirsizliği ortadan kaldırıyor.",
+      "### Sayaç neden artık tek başına başarı göstergesi değil?",
+      "Oynatma başlar başlamaz sayılan bir izlenme, ilk saniyede kapatılan videoyu da içerir. Bu yüzden izlenme sayısı bir ilgi başlangıcı olarak okunmalı; videonun gerçekten izlenip izlenmediğini başka metrikler söyler.",
+      "Klip yayınlayan bir sanatçı için daha anlamlı olan rakamlar şunlar:",
+      "1. Ortalama izlenme süresi: Videonun ortalama kaç dakika izlendiği. Şarkının hangi saniyede kitleyi kaybettiğini gösterir.",
+      "2. Kitle tutma eğrisi: YouTube Studio'da Analiz > Etkileşim sekmesinde, izleyicinin hangi saniyede ayrıldığını gösteren grafik.",
+      "3. Trafik kaynağı dağılımı: İzlenmenin Önerilenler, Arama, Shorts, Harici ve YouTube Reklamları arasında nasıl dağıldığı. Reklam kullandıysanız bu dağılım, rakamın nereden geldiğini kanıtlar.",
+      "### Reklamdan gelen izlenmeler sayıya giriyor mu?",
+      "Evet. Google'ın yardım sayfasında reklam izlenmelerinin herkese açık izlenme sayısına katkı yaptığı yazıyor. Aynı sayfa iki ayrı ölçümü ayırıyor: reklamverenin ücretlendirildiği TrueView izlenmeleri ve ücretlendirilmeyen, herkese açık sayaca giren YouTube genel izlenmeleri. Bu iki ölçümün eşikleri farklı.",
+      "Konunun ayrıntısını, Studio'da bu trafiği nasıl doğrulayacağınızı ve eşiklerin tam listesini [YouTube reklamından gelen izlenme sayıya dahil mi?](/blog/youtube-reklamindan-gelen-izlenme-sayiya-dahil-mi-studio) yazımızda anlattık.",
+      "### Gelir ve ortaklık programı etkilenir mi?",
+      "Basın haberlerine göre kazanç ve YouTube İş Ortaklığı Programı uygunluğu, herkese açık izlenme sayacına değil, izlenme saati ve nitelikli Shorts izlenmesi gibi ayrı ölçümlere bağlı. Bu konuda kesin bilgi için kanalınızın Studio'daki Para Kazanma sekmesine ve YouTube'un resmî yardım sayfalarına bakın. [4.000 saat izlenme süresi rehberimiz](/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi) bu eşiği ayrıntılı anlatıyor.",
+      "### Müzisyenler bu kuraldan ne çıkarmalı?",
+      "İlk 48 saatte izlenme sayısı hızlı yükselebilir ama algoritma yalnızca sayıya bakmaz. İzleyicinin videoda kaldığı süre, şarkının ilk saniyelerindeki kurgu ve kapak görseli artık rakamın kalitesini belirliyor. Klibin açılış saniyelerini güçlü kurmak her zamankinden önemli.",
+      "Yayın öncesi planlama için [müzik kliplerinde ilk 48 saat rehberimize](/blog/muzik-kliplerinde-ilk-48-saat-algoritma-rehberi) ve Premiere kullanacaksanız [YouTube Premiere rehberimize](/blog/youtube-premiere-nasil-yapilir-muzik-klibi-lansman-adimlari) göz atabilirsiniz."
+    ],
+    "faqs": [
+      {
+        "question": "YouTube izlenmeyi kaç saniyede sayıyor?",
+        "answer": "Google'ın yardım sayfasına göre 24 Ağustos 2026'dan itibaren izlenme, video oynamaya başladığı anda sayılıyor. Minimum izlenme süresi aranmıyor. Düşük kaliteli oynatmalar sonradan elenebilir."
+      },
+      {
+        "question": "Yeni kural eski izlenmelerimi değiştirir mi?",
+        "answer": "Resmî yardım sayfası geçmiş rakamlar için ayrıntı vermiyor. Basında yer alan haberlere göre mevcut toplamlar korunuyor, yeni sayım sonraki izlenmelere uygulanıyor. Emin olmak için kendi kanalınızdaki Studio verilerini kontrol edin."
+      },
+      {
+        "question": "İzlenme sayısı arttı diye video başarılı demek mi?",
+        "answer": "Hayır. Oynatma başlar başlamaz sayıldığı için sayaç ilgi başlangıcını gösterir. Başarıyı ortalama izlenme süresi, kitle tutma eğrisi ve trafik kaynağı dağılımıyla birlikte değerlendirmek gerekir."
+      },
+      {
+        "question": "Reklamdan gelen izlenme herkese açık sayıya girer mi?",
+        "answer": "Evet. Google'ın yardım sayfasına göre reklam izlenmeleri herkese açık izlenme sayısına katkı yapıyor. Reklamverenin ücretlendirildiği TrueView izlenmeleri ise farklı eşiklere göre ölçülüyor."
+      }
+    ]
+  },
+  {
+    "slug": "youtube-reklamindan-gelen-izlenme-sayiya-dahil-mi-studio",
+    "title": "YouTube Reklamından Gelen İzlenme Sayıya Dahil mi?",
+    "summary": "Reklamla gelen izlenmeler herkese açık sayıya girer. TrueView ile genel izlenme farkını ve Studio'da 'YouTube reklamları' kaynağını doğrulamayı anlatıyoruz.",
+    "category": "Resmi Video PR & Google Ads",
+    "date": "13 Ekim 2026",
+    "readTime": "7 dk",
+    "image": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&h=675&q=80",
+    "author": "MedyaPR",
+    "authorRole": "Müzik & YouTube Video PR Ajansı",
+    "tags": [
+      "YouTube Reklamı İzlenme Sayılır mı",
+      "TrueView İzlenme",
+      "YouTube Reklamları Trafik Kaynağı",
+      "Google Ads Video Kampanyası",
+      "YouTube Studio Doğrulama"
+    ],
+    "quickFact": "Google'ın yardım sayfasına göre YouTube reklam izlenmeleri herkese açık izlenme sayısına katkı yapar. Reklamverenin ücretlendirildiği TrueView izlenmesi ile herkese açık sayaçtaki 'YouTube genel izlenmesi' ayrı ölçümlerdir ve eşikleri farklıdır.",
+    "table": {
+      "caption": "Reklam izlenmesi: TrueView (ücretlendirilen) ve herkese açık sayaç karşılaştırması",
+      "headers": [
+        "Ölçüm",
+        "Ne anlama gelir?",
+        "Eşik / sayım anı"
+      ],
+      "rows": [
+        [
+          "TrueView izlenmesi (Google Ads)",
+          "Reklamverenin ücretlendirildiği izlenme",
+          "Atlanabilir yayın içi reklam: 11-30 sn'lik reklamın tamamı, daha uzun reklamda en az 30 sn veya reklamla etkileşim"
+        ],
+        [
+          "TrueView, akış (in-feed) video reklamı",
+          "Reklamverenin ücretlendirildiği izlenme",
+          "Reklama tıklanıp video başlar veya 10 sn'den uzun reklamda en az 10 sn izlenir"
+        ],
+        [
+          "TrueView, Shorts reklamı",
+          "Reklamverenin ücretlendirildiği izlenme",
+          "Reklama tıklanır veya en az 10 sn izlenir"
+        ],
+        [
+          "YouTube genel izlenmesi",
+          "Ücretlendirilmeyen, herkese açık sayaca giren izlenme",
+          "Shorts ve yayın içi reklamlarda reklam oynamaya başladığı an"
+        ],
+        [
+          "YouTube Analytics izlenmesi",
+          "Studio raporlarındaki izlenme",
+          "Atlanabilir reklamlar 10 sn'den uzunsa 30 sn izlenince veya bitince sayılır; atlanamayan reklamlar izlenme sayılmaz"
+        ]
+      ]
+    },
+    "paragraphs": [
+      "Evet, YouTube reklamından gelen izlenmeler videonun herkese açık izlenme sayısına katkı yapar. Google'ın yardım sayfasına göre reklam izlenmeleri iki ayrı biçimde ölçülür: reklamverenin ücretlendirildiği TrueView izlenmeleri ve ücretlendirilmeyen, herkese açık sayaca giren YouTube genel izlenmeleri.",
+      "Bu fark önemli, çünkü \"reklamdan gelen izlenme\" ifadesi üç farklı rakamı anlatabilir. Aşağıda her birinin ne zaman sayıldığını Google'ın kendi yardım sayfalarına dayanarak açıklıyoruz.",
+      "### TrueView izlenmesi: reklamverenin ödediği izlenme",
+      "TrueView, Google Ads hesabında faturalandırılan izlenmedir. Eşikler reklam biçimine göre değişir. Atlanabilir yayın içi reklamda 11-30 saniyelik reklamın tamamının izlenmesi, daha uzun reklamda en az 30 saniye izlenmesi ya da reklamla etkileşim gerekir.",
+      "Akış (in-feed) video reklamında kullanıcı reklama tıklayıp video başladığında veya 10 saniyeden uzun reklamın en az 10 saniyesi izlendiğinde sayılır. Shorts reklamlarında ise reklama tıklanması ya da en az 10 saniye izlenmesi yeterlidir.",
+      "### Herkese açık sayaç: videonun altındaki rakam",
+      "Videonun altında görünen izlenme sayısına giren reklam izlenmeleri, Google'ın ifadesiyle \"YouTube genel izlenmeleri\"dir. Yardım sayfasına göre bunlar Shorts ve yayın içi reklamlarda reklam oynamaya başladığı anda sayılıyor ve TrueView eşikleri bunlara uygulanmıyor.",
+      "Bu nedenle bir kampanyada faturalandırılan izlenme sayısı ile videonun altındaki sayaca eklenen rakam birebir aynı olmayabilir. Bu bir hata değil, iki ölçümün tanımının farklı olmasının sonucudur.",
+      "### YouTube Studio'da ne görürsünüz?",
+      "YouTube Analytics'te reklamdan gelen trafik, \"YouTube reklamları\" trafik kaynağı altında listelenir. Yardım sayfası bu kaynağın videonuz YouTube'da reklam olarak gösterildiğinde göründüğünü belirtiyor. Aynı sayfa, 10 saniyeden uzun atlanabilir reklamların 30 saniye izlendiğinde veya bittiğinde izlenme sayıldığını, atlanamayan reklamların ise YouTube Analytics'te izlenme olarak sayılmadığını yazıyor.",
+      "Bu yüzden Studio'daki rakam ile Google Ads raporundaki rakamı karşılaştırırken tanımların farklı olduğunu akılda tutmak gerekir.",
+      "### Kampanyanızı Studio'da doğrulamak için 4 adım",
+      "1. YouTube Studio'da Analiz > Erişim sekmesini açın ve trafik kaynağı türlerine bakın. Reklam çalıştırdığınız dönemde \"YouTube reklamları\" satırı görünmeli.",
+      "2. Tarih aralığını kampanya tarihlerine göre sabitleyin ve Google Ads raporundaki gösterim, izlenme ve ülke dağılımıyla karşılaştırın.",
+      "3. Coğrafya sekmesinde izlenmenin, hedeflediğiniz ülkelerden gelip gelmediğini kontrol edin.",
+      "4. Ortalama izlenme süresi ve kitle tutma eğrisini inceleyin. Gerçek bir reklam kitlesi bu grafikte anlamlı bir tutma gösterir.",
+      "### Güvenilir olmayan bir hizmeti nasıl ayırt edersiniz?",
+      "Trafik kaynağı \"YouTube reklamları\" olarak görünmeyen ve Google Ads hesabında karşılığı olmayan izlenmeler sorgulanmalıdır. Resmî Google Ads altyapısı kullanılıyorsa hizmet sağlayıcı size kampanya raporu ve Studio'da doğrulanabilir bir kaynak sunabilmelidir. Konuyu [bot panellerinin zararlarını anlattığımız yazıda](/blog/youtube-bot-panel-zararlari-resmi-google-ads-farki) ayrıntılı ele aldık.",
+      "YouTube ayrıca düşük kaliteli oynatmaları sayaçtan çıkarabilir ve rakamları sonradan düzeltebilir. Bu, hiçbir hizmetin sayıyı sonsuza kadar garanti edemeyeceği anlamına gelir; dürüst bir sağlayıcı bunu baştan söyler.",
+      "### MedyaPR kampanyaları nasıl ilerler?",
+      "MedyaPR kampanyaları Google Ads video altyapısı üzerinden yürütülür. Ödeme iki aşamalıdır: reklam onaylandığında %50, kampanya tamamlandığında kalan %50. Güncel fiyat için [fiyatlandırma sayfasındaki hesaplayıcıyı](/fiyatlandirma) kullanabilir, süreci [sıkça sorulan sorulardan](/sss) okuyabilirsiniz. Sayımın 24 Ağustos 2026'da nasıl değiştiğini ise [YouTube izlenme nasıl sayılıyor yazımızda](/blog/youtube-izlenme-nasil-sayilir-24-agustos-2026-yeni-kural) bulabilirsiniz."
+    ],
+    "faqs": [
+      {
+        "question": "YouTube reklamından gelen izlenme videonun altındaki sayıya eklenir mi?",
+        "answer": "Evet. Google'ın yardım sayfasına göre reklam izlenmeleri herkese açık izlenme sayısına katkı yapar. Shorts ve yayın içi reklamlarda bu izlenme, reklam oynamaya başladığı anda sayılır."
+      },
+      {
+        "question": "TrueView izlenmesi ile genel izlenme aynı şey mi?",
+        "answer": "Hayır. TrueView, reklamverenin ücretlendirildiği izlenmedir ve biçime göre farklı eşikleri vardır. YouTube genel izlenmesi ise ücretlendirilmez ve herkese açık sayaca girer. Bu yüzden iki rakam birebir eşleşmeyebilir."
+      },
+      {
+        "question": "Reklam izlenmesini YouTube Studio'da nasıl görürüm?",
+        "answer": "Studio'da Analiz > Erişim sekmesinde trafik kaynağı türlerine bakın. Reklam çalıştırdığınızda \"YouTube reklamları\" kaynağı altında listelenir. Tarih aralığını kampanya tarihlerine ayarlayıp Google Ads raporuyla karşılaştırın."
+      },
+      {
+        "question": "Atlanamayan reklamlar izlenme sayılır mı?",
+        "answer": "Google'ın Analytics yardım sayfasına göre atlanamayan reklamlar YouTube Analytics'te izlenme olarak sayılmaz. Herkese açık sayaçta ise reklam başlar başlamaz sayım yapılabilir. Ölçümlerin tanımı farklıdır."
+      },
+      {
+        "question": "Reklamla gelen izlenme sonradan silinebilir mi?",
+        "answer": "YouTube düşük kaliteli oynatmaları sayaçtan çıkarabilir ve rakamları düzeltebilir. Resmî reklam altyapısıyla gelen gerçek izlenmelerde risk düşüktür ama hiçbir sağlayıcı bir sayının sonsuza dek aynı kalacağını garanti edemez."
+      }
+    ]
+  },
+  {
+    "slug": "youtube-premiere-nasil-yapilir-muzik-klibi-lansman-adimlari",
+    "title": "YouTube Premiere Nasıl Yapılır? Klip Lansmanı Adımları",
+    "summary": "YouTube Premiere'i adım adım kurun: planlama, geri sayım, canlı sohbet ve hatırlatma. Klip lansmanı için resmî kurallar ve kaçınılacak sınırlar tek yazıda.",
+    "category": "Nasıl Yapılır?",
+    "date": "13 Ekim 2026",
+    "readTime": "7 dk",
+    "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&h=675&q=80",
+    "author": "MedyaPR",
+    "authorRole": "Müzik & YouTube Video PR Ajansı",
+    "tags": [
+      "YouTube Premiere Nasıl Yapılır",
+      "Klip Lansmanı",
+      "YouTube Premiere Müzik Klibi",
+      "Klip Yayın Planı",
+      "YouTube Studio"
+    ],
+    "quickFact": "YouTube Studio'da videoyu yüklerken 'Zamanla' seçeneğiyle tarih ve saat belirleyip 'Prömiyer olarak ayarla'yı işaretleyin. Google, hatırlatma ve küçük resmin dünya genelinde görülmesi için prömiyeri en az 24 saat önceden planlamayı öneriyor.",
+    "table": {
+      "caption": "Klip prömiyeri için yayın öncesi zaman çizelgesi",
+      "headers": [
+        "Zaman",
+        "Yapılacak iş",
+        "Neden önemli?"
+      ],
+      "rows": [
+        [
+          "En az 24 saat önce",
+          "Prömiyeri planla, küçük resmi ve açıklamayı hazırla",
+          "Google'a göre küçük resim dünya genelinde abonelik akışında görünür"
+        ],
+        [
+          "24 saat - 1 saat önce",
+          "Prömiyer sayfasının bağlantısını paylaş, sabit yorum ekle, 'Hatırlat' butonunu iste",
+          "Her prömiyerin yayın öncesi kendi sayfası ve adresi vardır"
+        ],
+        [
+          "Yaklaşık 30 dk önce",
+          "Hatırlatma kuran izleyiciye bildirim gider",
+          "İzleyiciler prömiyer başlamadan sayfada toplanır"
+        ],
+        [
+          "Prömiyer anı",
+          "Canlı sohbeti aç, moderatör ata, yavaş modu hazırla",
+          "İzleyici sohbet ederek birlikte izler"
+        ],
+        [
+          "Bittikten sonra",
+          "Sohbette kısa süre kal, geri bildirim topla",
+          "Video kanalda normal yükleme olarak kalır, prömiyer izlenmeleri videoya geçer"
+        ]
+      ]
+    },
+    "paragraphs": [
+      "YouTube Premiere ile klibi önceden belirlediğiniz saatte, izleyicilerle aynı anda yayına alabilirsiniz. Videoyu YouTube Studio'da yüklerken \"Zamanla\" seçeneğine tarih ve saat girip \"Prömiyer olarak ayarla\"yı işaretlemeniz yeterli. Ardından geri sayım temasını seçersiniz.",
+      "Aşağıda adımları, Google'ın resmî yardım sayfalarına dayanarak ve bir müzik klibi lansmanı gözüyle anlatıyoruz. Menü adları arayüz güncellemeleriyle değişebilir, bu yüzden adımları kendi Studio ekranınızla karşılaştırın.",
+      "### Prömiyer nasıl kurulur? 5 adım",
+      "1. YouTube Studio'da Oluştur > Video yükle yolunu izleyin ve klip dosyanızı seçin.",
+      "2. Ayrıntıları doldurun: başlık, açıklama ve özel küçük resim. Küçük resim prömiyer sayfasında görünür, bu yüzden özenle seçin.",
+      "3. Görünürlük adımında \"Zamanla\"yı seçin, tarih ve saati girin, saat dilimini kontrol edin ve \"Prömiyer olarak ayarla\"yı işaretleyin.",
+      "4. \"Prömiyeri ayarla\"ya tıklayıp geri sayım temasını ve süresini seçin, ardından \"Bitti\" ya da \"Zamanla\"ya basın.",
+      "5. Anında yayın isterseniz \"Herkese açık\" > \"Anında prömiyer olarak ayarla\"yı seçin. Prömiyer, video işlenmesi bittiği anda başlar.",
+      "### Başlamadan önce bilmeniz gereken sınırlar",
+      "Google'ın yardım sayfasına göre Shorts prömiyer olarak desteklenmiyor. Aynı sayfada 360/VR180 videolar ve 1080p'den yüksek çıkışlar da desteklenmiyor olarak listeleniyor. Klibinizi 4K çektiyseniz yüklemeden önce bu sınırı güncel yardım sayfasından kontrol edin.",
+      "Listelenmemiş bir videonun prömiyeri yapılamadığı da yardım sayfalarında belirtiliyor. Prömiyer için video herkese açık olarak planlanmalı.",
+      "### İzleyiciler ne görür?",
+      "Prömiyer sayfası, yayın başlamadan önce herkese açık bir izleme sayfası olarak vardır. Bu sayfanın adresini erken paylaşabilirsiniz. İzleyiciler hatırlatma kurabilir, yorum yapabilir ve sohbet edebilir. Bir fragman yüklediyseniz bu sayfada oynar.",
+      "Geri sayım, planlanan saatte başlar. Prömiyer başladığında izleyiciler videoyu aynı anda izler; geri sarabilir ama canlı yayında gösterilen noktanın ilerisine atlayamaz. Hatırlatma kuran izleyicilere yaklaşık 30 dakika önce ve başlarken bildirim gider.",
+      "### Klip lansmanı için 5 pratik öneri",
+      "1. En az 24 saat önceden planlayın. Google bunu, küçük resmin farklı saat dilimlerindeki izleyicilerin abonelik akışında görünmesi için öneriyor.",
+      "2. Prömiyer adresini sosyal medyada, sabitlenmiş yorumda ve hikayelerde paylaşın. Her prömiyerin kendi adresi var.",
+      "3. İzleyiciden \"Hatırlat\" butonuna basmasını isteyin ve onlarla birlikte izleyeceğinizi söyleyin.",
+      "4. Canlı sohbeti açın, moderatör ekleyin; anahtar kelime engelleme ve yavaş modu gibi araçları önceden ayarlayın.",
+      "5. Sohbet tekrarını açık bırakın. Geç gelen izleyici de sohbeti sonradan izleyebilir.",
+      "### Prömiyer bittikten sonra ne olur?",
+      "Prömiyer bitince video, kanalınızda normal bir yükleme olarak kalır; geri sayım teması videoya dahil edilmez. Prömiyer sırasındaki izlenmeler videoya geçer. Yayın sonrasında sohbette kısa süre kalıp geri bildirim toplamak, izleyiciyle bağı güçlendirir.",
+      "Prömiyer tek başına yeterli değildir. Klibin ilk saatlerinde izleyici toplamak için [ilk 48 saat algoritma rehberimizi](/blog/muzik-kliplerinde-ilk-48-saat-algoritma-rehberi) okuyun. Planınıza Google Ads desteği eklemek isterseniz [YouTube klip tanıtımı rehberimiz](/blog/youtube-klip-tanitimi-google-ads-rehberi) süreci anlatıyor."
+    ],
+    "faqs": [
+      {
+        "question": "YouTube Premiere nasıl yapılır?",
+        "answer": "YouTube Studio'da videoyu yüklerken \"Zamanla\"yı seçin, tarih ve saat girin ve \"Prömiyer olarak ayarla\"yı işaretleyin. Ardından geri sayım temasını seçin. Anında prömiyer için \"Herkese açık\" ve \"Anında prömiyer olarak ayarla\" seçeneği kullanılır."
+      },
+      {
+        "question": "Prömiyeri ne kadar önceden planlamalıyım?",
+        "answer": "Google, prömiyerleri en az 24 saat önceden planlamayı öneriyor. Böylece küçük resim dünya genelinde izleyicilerin abonelik akışında görünebiliyor ve hatırlatma kuran kişi sayısı artabiliyor."
+      },
+      {
+        "question": "Shorts veya listelenmemiş video prömiyer yapılabilir mi?",
+        "answer": "Google'ın yardım sayfalarına göre Shorts prömiyer olarak desteklenmiyor. Listelenmemiş videoların prömiyeri de yapılamıyor. Prömiyer için video herkese açık olarak planlanmalı."
+      },
+      {
+        "question": "Prömiyer izlenmeleri videoya geçer mi?",
+        "answer": "Evet. Google'ın yardım sayfasına göre prömiyer bittikten sonra video kanalda normal yükleme olarak kalır ve prömiyer sırasındaki izlenmeler videoya geçer. Sohbet tekrarı da izlenebilir."
+      }
+    ]
+  },
+  {
+    "slug": "cover-sarki-youtube-telif-content-id-rehberi",
+    "title": "Cover Şarkı YouTube'a Yüklenir mi? Content ID Rehberi",
+    "summary": "Cover yüklediğinizde ne olur? Content ID talebi, reklam geliri paylaşımı ve Studio'da göreceğiniz bildirimleri resmî YouTube kurallarına göre anlatıyoruz.",
+    "category": "Nasıl Yapılır?",
+    "date": "13 Ekim 2026",
+    "readTime": "6 dk",
+    "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&h=675&q=80",
+    "author": "MedyaPR",
+    "authorRole": "Müzik & YouTube Video PR Ajansı",
+    "tags": [
+      "Cover Şarkı YouTube Telif",
+      "Content ID Nedir",
+      "YouTube Telif Hakkı Müzik",
+      "Cover Videosu Para Kazanma",
+      "Müzisyenler İçin YouTube"
+    ],
+    "quickFact": "Başkasının bestesini seslendirdiğiniz cover videosuna, besteyi yayınlayan müzik yayıncısı Content ID ile talep koyabilir. YouTube Ortaklık Programı'ndaysanız, uygun cover videolarda reklam geliri paylaşımı mümkündür ve Studio'da 'Reklam gelirleri paylaşılıyor' bildirimi görünür.",
+    "table": {
+      "caption": "Cover videosu yüklerken karşılaşabileceğiniz durumlar",
+      "headers": [
+        "Durum",
+        "Anlamı",
+        "Yapmanız gereken"
+      ],
+      "rows": [
+        [
+          "Studio'da 'Telif hakkı kısıtlaması' görünür",
+          "Müzik yayıncısı besteyi Content ID ile talep etmiş olabilir",
+          "Video Telif Hakkı Bilgisi sayfasını açıp talebin ayrıntısına bakın"
+        ],
+        [
+          "'Reklam gelirleri paylaşılıyor' simgesi",
+          "Uygun cover videosu, gelir paylaşımına açık",
+          "Para kazanma durumunu Açık yapın (Ortaklık Programı gerekir)"
+        ],
+        [
+          "Kanal Ortaklık Programı'nda değil",
+          "Gelir paylaşımı uygulanmaz",
+          "Önce kanalın para kazanma uygunluğunu tamamlayın"
+        ],
+        [
+          "Besteyi değil, orijinal kaydı kullanıyorsunuz",
+          "Cover değil; kayıt hakları ayrı bir konudur",
+          "Orijinal kayıt kullanmadan, kendi seslendirmenizi yapın"
+        ]
+      ]
+    },
+    "paragraphs": [
+      "Cover şarkıyı YouTube'a yükleyebilirsiniz, ancak video büyük olasılıkla bestenin sahibi olan müzik yayıncısının Content ID talebine takılır. Bu talep her zaman videonun kaldırılması anlamına gelmez. YouTube Ortaklık Programı'ndaki kanallar için uygun cover videolarında reklam geliri paylaşımı mümkündür.",
+      "Bu yazıda YouTube'un resmî yardım sayfasına dayanarak, cover yüklerken Studio'da ne göreceğinizi ve hangi adımları izlemeniz gerektiğini anlatıyoruz. Yazı hukuki danışmanlık değildir; lisanslama kuralları ülkeye ve sözleşmeye göre değişir.",
+      "### Content ID nedir, cover'da neyi talep eder?",
+      "Content ID, hak sahiplerinin eserlerini YouTube'daki videolarla otomatik eşleştirdiği bir yönetim sistemidir. Bir şarkıda iki ayrı hak vardır: söz ve melodiyi kapsayan beste hakkı ile bir kaydı kapsayan seslendirme hakkı. Cover videosunda öne çıkan, çoğunlukla beste hakkıdır.",
+      "YouTube'un yardım sayfası, cover videolarının Content ID ile bestenin yayıncısı veya yayıncıları tarafından talep edilebildiğini belirtiyor. Content ID bir hukuki karar değil, YouTube'un otomatik sistemidir; adil kullanım gibi konular bundan ayrıdır.",
+      "### Cover videosundan gelir kazanabilir miyim?",
+      "YouTube'un yardım sayfasına göre yalnızca YouTube Ortaklık Programı'ndaki kanallar gelir paylaşımından yararlanabilir ve bu, ancak müzik yayıncıları videoyu talep ettikten sonra mümkündür. Gelir, orantılı olarak paylaştırılır. Hem yeni hem de önceki yüklemeler uygun olabilir.",
+      "Videonuz uygunsa Studio'da \"Reklam gelirleri paylaşılıyor\" bildirimi ve simgesi görünür. Aynı bilgi Video Telif Hakkı Bilgisi sayfasında ve talep bildirimi e-postasında da yer alır.",
+      "### Gelir paylaşımını açmak için adımlar",
+      "1. Hesabınızda para kazanmayı henüz açmadıysanız, hesap ayarlarındaki Para Kazanma sekmesinden açın.",
+      "2. YouTube Studio'da İçerik sayfasında videoyu bulun.",
+      "3. Videonun para kazanma durumunu \"Açık\" yapın. Ayrıntılarına girip \"Kapalı\"dan \"Açık\"a da geçebilirsiniz.",
+      "### Cover yüklemeden önce 4 kontrol",
+      "1. Kendi seslendirmenizi yapın. Orijinal kaydı arka plan olarak kullanmak cover değildir ve ayrı bir hak konusudur.",
+      "2. Şarkının yayıncısını ve hak sahiplerini önceden araştırın. Lisanslama kuralları ülkeye göre değişir; emin değilseniz telif haklarını yöneten meslek birliğine veya bir uzmana danışın.",
+      "3. Yükledikten sonra Studio'da videonun Telif Hakkı Bilgisi'ni kontrol edin ve talepleri takip edin.",
+      "4. Kanalınızda ana hedefinizin orijinal şarkılarınız olduğunu unutmayın. Cover, yeni dinleyiciyi kanala çeker ama kalıcı kitleyi kendi şarkılarınız kurar.",
+      "### Cover'dan kendi şarkınıza dinleyici nasıl taşınır?",
+      "Cover videosunun açıklamasına ve sabitlenmiş yorumuna kendi klibinizin bağlantısını ekleyin. Videonun sonuna kendi şarkınızı tanıtan bir bitiş ekranı koyun. Kendi klibinizi yayınlarken izleyici toplamak için [YouTube klip tanıtımı rehberimizi](/blog/youtube-klip-tanitimi-google-ads-rehberi) ve kanalı büyütmek için [sıfırdan 100 bin aboneye ulaşma tavsiyelerimizi](/blog/youtube-sifirdan-100-bin-aboneye-ulasma-tavsiyeleri) inceleyebilirsiniz.",
+      "Kanalınıza resmî sanatçı rozeti almak istiyorsanız [resmî sanatçı kanalı notası rehberimiz](/blog/youtube-resmi-sanatci-kanali-notasi-nasil-alinir) süreci anlatıyor."
+    ],
+    "faqs": [
+      {
+        "question": "Cover şarkı YouTube'a yüklenir mi?",
+        "answer": "Yüklenebilir. Ancak bestenin yayıncısı videoyu Content ID ile talep edebilir. Yayıncı gelir paylaşımına izin veriyorsa ve kanalınız YouTube Ortaklık Programı'ndaysa uygun cover videosundan gelir paylaşımı mümkün olabilir."
+      },
+      {
+        "question": "Cover videosu için lisans almam gerekir mi?",
+        "answer": "YouTube'un yardım sayfası lisans konusunu ayrıntılandırmıyor. Lisanslama kuralları ülkeye ve eserin hak sahiplerine göre değişir. Emin olmak için telif haklarını yöneten meslek birliğine veya bir uzmana danışın."
+      },
+      {
+        "question": "Cover videomda 'Reklam gelirleri paylaşılıyor' yazıyor, ne demek?",
+        "answer": "Videonuzun uygun bir cover olduğunu ve gelirin paylaşıma açık olduğunu gösterir. Para kazanma durumunu Açık yaptığınızda reklam gelirleri orantılı olarak paylaşılır. Bu özellik için Ortaklık Programı üyeliği gerekir."
+      },
+      {
+        "question": "Content ID talebi hukuki karar mıdır?",
+        "answer": "Hayır. Content ID, YouTube'un hak sahipleri için kullandığı otomatik eşleştirme sistemidir. Hukuki bir karar değildir; adil kullanım gibi konular ayrıca değerlendirilir."
+      }
+    ]
+  },
+  {
+    "slug": "youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen",
+    "title": "YouTube Shorts Reklamı Nasıl Verilir? Müzisyen Rehberi",
+    "summary": "Shorts reklamı tek başına satın alınamıyor; Demand Gen gibi kampanyalar Shorts dahil birçok alanda çalışır. Müzik klibi için yapılması gerekenleri anlatıyoruz.",
+    "category": "Resmi Video PR & Google Ads",
+    "date": "13 Ekim 2026",
+    "readTime": "6 dk",
+    "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1200&h=675&q=80",
+    "author": "MedyaPR",
+    "authorRole": "Müzik & YouTube Video PR Ajansı",
+    "tags": [
+      "YouTube Shorts Reklamı Nasıl Verilir",
+      "Demand Gen Kampanyası",
+      "Shorts Reklam Müzik",
+      "Google Ads Video Kampanyası",
+      "Klip Tanıtımı"
+    ],
+    "quickFact": "Google'ın yardım sayfasına göre Demand Gen kampanyalarıyla yalnızca YouTube Shorts reklamı satın alınamaz; kampanya YouTube'un (Shorts dahil), Discover'ın, Gmail'in ve Google video ortaklarının birlikte kapsandığı alanlarda çalışır.",
+    "table": {
+      "caption": "Shorts reklamı: Google'ın yardım sayfalarından temel bilgiler",
+      "headers": [
+        "Konu",
+        "Bilgi",
+        "Sizin için anlamı"
+      ],
+      "rows": [
+        [
+          "Yalnızca Shorts satın alınabilir mi?",
+          "Demand Gen ile hayır; Shorts bir yerleşimdir, hedefleme seçeneği değil",
+          "Bütçeniz yalnızca Shorts'a gitmeyebilir"
+        ],
+        [
+          "Demand Gen nerede çalışır?",
+          "YouTube (Shorts dahil), Discover, Gmail ve Google video ortakları",
+          "Reklam birden fazla yüzeyde görünür"
+        ],
+        [
+          "Reklam türleri",
+          "Video, görsel ve metin reklamları",
+          "Klip kesitiniz video reklam olarak kullanılabilir"
+        ],
+        [
+          "TrueView Shorts izlenmesi",
+          "Reklama tıklanır veya en az 10 sn izlenir",
+          "Ücretlendirme eşiği 10 saniye"
+        ],
+        [
+          "Herkese açık sayaç",
+          "Shorts reklamı oynamaya başladığı an sayılır",
+          "Videonun altındaki sayıya reklam başlayınca eklenir"
+        ]
+      ]
+    },
+    "paragraphs": [
+      "YouTube Shorts reklamını Google Ads üzerinden verirsiniz, ancak yalnızca Shorts'a ait bir kampanya satın alamazsınız. Google'ın yardım sayfasına göre Demand Gen kampanyaları YouTube'da (Shorts dahil), Discover'da, Gmail'de ve Google video ortaklarında çalışır; Shorts bir hedefleme seçeneği değil, reklamın görünebileceği yerlerden biridir.",
+      "Bu yazıda bir müzik klibini Shorts reklamlarıyla tanıtmak isteyen sanatçı için neleri bilmeniz gerektiğini, Google'ın resmî sayfalarına dayanarak anlatıyoruz. Menü adları ve kampanya seçenekleri zamanla değişebilir; kampanyayı kurarken Google Ads içindeki güncel yardım metinlerini de kontrol edin.",
+      "### Shorts reklamı hangi kampanyalarla çalışır?",
+      "Google'ın Shorts reklam rehberi Demand Gen kampanyasını öne çıkarıyor. Demand Gen, video, görsel ve metin reklamlarını YouTube, Discover, Gmail ve video ortaklarında yayınlar. Google'ın yardım içeriğinde video izlenme ve video erişim gibi başka kampanya türleri de Shorts reklamı alanında anılıyor; bunların ayrıntıları için ilgili Google Ads yardım sayfalarına bakın.",
+      "Önemli nokta şu: \"Yalnızca Shorts\" diye tek başına bir paket yok. Kampanya bütçesinin bir kısmı Shorts'a gidebilir, geri kalanı diğer yüzeylerde harcanabilir.",
+      "### Shorts reklamında izlenme nasıl sayılır?",
+      "Google'ın yardım sayfasına göre Shorts reklamlarında TrueView izlenmesi, kullanıcı reklama tıkladığında veya reklamı en az 10 saniye izlediğinde sayılır. Bu, reklamverenin ücretlendirildiği izlenmedir.",
+      "Herkese açık sayaç ise ayrı işler: Google'a göre YouTube genel izlenmeleri, Shorts ve yayın içi reklamlarda reklam oynamaya başladığı anda sayılır. Bu iki ölçümün farkını [YouTube reklamından gelen izlenme sayıya dahil mi yazımızda](/blog/youtube-reklamindan-gelen-izlenme-sayiya-dahil-mi-studio) ayrıntılı anlattık.",
+      "### Müzik klibi için Shorts reklam hazırlığı: 5 adım",
+      "1. Klibin en çarpıcı kısmını seçin ve dikey formatta bir kesit hazırlayın. Shorts dikey izlenen bir yüzeydir.",
+      "2. İlk saniyeleri güçlü kurun. Reklam başladığı an sayıldığı için, izleyiciyi tutan şey ilk saniyelerdeki kurgu olacaktır.",
+      "3. Reklamdan sonra izleyicinin nereye gideceğini belirleyin: klibin tamamı, Premiere sayfası veya kanalınız.",
+      "4. Hedef kitlenizi, ülke ve dil düzeyinde tanımlayın. Hedefleme seçenekleri kampanya türüne göre değişir.",
+      "5. Yayın sonrasında Studio'da trafik kaynağı dağılımına bakın. Reklam çalıştırdıysanız \"YouTube reklamları\" kaynağı altında görünmelidir.",
+      "### Organik Shorts ile reklam arasındaki fark",
+      "Organik Shorts, videoyu kendi hesabınızdan paylaşıp algoritmanın dağıtmasını beklemektir. Reklam ise belirlediğiniz bütçeyle hedef kitleye gösterim satın almanızı sağlar. İkisi birbirini tamamlar: organik içerik tutarlı kitle kurar, reklam yeni bir klibin ilk günlerinde görünürlüğü artırır. Organik tarafı [YouTube Shorts ile şarkınızı nasıl viral yaparsınız rehberimizde](/blog/youtube-shorts-ile-sarkinizi-nasil-viral-yaparsiniz) anlattık.",
+      "### MedyaPR ile Shorts formatında kampanya",
+      "MedyaPR, In-Stream, Shorts ve Keşfet formatlarında resmî Google Ads kampanyaları yürütür. Formatlara ve bölgelere göre güncel fiyatı [fiyatlandırma sayfasındaki hesaplayıcıdan](/fiyatlandirma) görebilir, hizmet kapsamını [hizmetler sayfasında](/hizmetler) inceleyebilirsiniz."
+    ],
+    "faqs": [
+      {
+        "question": "YouTube Shorts reklamı nasıl verilir?",
+        "answer": "Google Ads üzerinden bir kampanya kurarak verilir. Demand Gen kampanyaları Shorts dahil YouTube'da, Discover'da, Gmail'de ve Google video ortaklarında çalışır. Yalnızca Shorts'a ait bir reklam satın alma seçeneği Demand Gen'de yoktur."
+      },
+      {
+        "question": "Sadece Shorts'ta reklam gösterebilir miyim?",
+        "answer": "Google'ın yardım sayfasına göre Demand Gen ile yalnızca Shorts reklamı satın alamazsınız. Shorts bir hedefleme seçeneği değil, reklamın görünebileceği yerlerden biridir."
+      },
+      {
+        "question": "Shorts reklamında izlenme ne zaman sayılır?",
+        "answer": "Reklamverenin ücretlendirildiği TrueView izlenmesi, reklama tıklandığında veya en az 10 saniye izlendiğinde sayılır. Herkese açık sayaçta ise reklam oynamaya başladığı an sayılır."
+      },
+      {
+        "question": "Shorts reklamı müzik klibi için uygun mu?",
+        "answer": "Klibin en çarpıcı dikey kesitini hazırlarsanız uygun olabilir. Sonucu etkileyen şey ilk saniyelerin gücü ve reklamdan sonra izleyiciyi nereye yönlendirdiğinizdir. Sonuçları Studio'da trafik kaynağından takip edin."
+      }
+    ]
+  },
+  {
     "slug": "hip-hop-rap-youtube-video-promotion-pr-strategy-guide",
     "title": "Hip-Hop ve Rap YouTube Klip Tanıtımı: 2026 Algoritma & PR Rehberi",
     "title_en": "Hip-Hop & Rap YouTube Video Promotion: The Complete PR Playbook (2026)",
