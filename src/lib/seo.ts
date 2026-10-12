@@ -11,12 +11,13 @@ export function getPageAlternates(locale: string, path: string = '') {
   const trUrl = `${SITE_URL}/tr${cleanPath}`;
   const enUrl = `${SITE_URL}/en${cleanPath}`;
 
-  // /en içerikleri tam çevrilene kadar noindex (middleware) ve hreflang'dan çıkarıldı.
-  // Çeviri tamamlanınca languages: { tr: trUrl, en: enUrl, 'x-default': trUrl } geri eklenecek.
-  void trUrl;
-  void enUrl;
   return {
     canonical: currentUrl,
+    languages: {
+      tr: trUrl,
+      en: enUrl,
+      'x-default': trUrl,
+    },
   };
 }
 

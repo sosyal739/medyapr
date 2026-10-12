@@ -26,11 +26,9 @@ export function middleware(request: NextRequest) {
   );
 
   if (pathLocale) {
-    const noindex = pathLocale === 'en';
     const currentCookie = request.cookies.get('NEXT_LOCALE')?.value;
     if (currentCookie !== pathLocale) {
       const response = NextResponse.next();
-      if (noindex) response.headers.set('X-Robots-Tag', 'noindex, follow');
       response.cookies.set('NEXT_LOCALE', pathLocale, {
         path: '/',
         maxAge: 31536000,
@@ -38,9 +36,7 @@ export function middleware(request: NextRequest) {
       });
       return response;
     }
-    const res = NextResponse.next();
-    if (noindex) res.headers.set('X-Robots-Tag', 'noindex, follow');
-    return res;
+    return NextResponse.next();
   }
 
   /* Detect preferred locale:

@@ -2,8 +2,7 @@ import type { MetadataRoute } from 'next';
 import { getPosts, getArtists } from '@/lib/content';
 
 const BASE_URL = 'https://medyapr.com';
-// /en tam çevrilene kadar noindex; çeviri bitince 'en' ekle ve alternates'i geri aç.
-const LOCALES = ['tr'] as const;
+const LOCALES = ['tr', 'en'] as const;
 const STABLE_SITE_DATE = new Date('2026-10-10T08:00:00.000Z');
 
 function parseTurkishDate(dateStr?: string): Date {

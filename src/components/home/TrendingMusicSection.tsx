@@ -57,12 +57,12 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF0033]" />
               </span>
               <Flame className="h-4 w-4 text-[#FF0033]" />
-              {isTr ? 'Canlı YouTube Türkiye Verisi' : 'Live YouTube Turkey Charts'}
+              {isTr ? 'Canlı YouTube Türkiye Verisi' : 'Live YouTube US & Global Charts'}
             </div>
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-white">
-              {isTr ? 'Bugün Türkiye\'de' : 'Today in Turkey'}{' '}
+              {isTr ? 'Bugün Türkiye\'de' : 'Today on Trending'}{' '}
               <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
-                {isTr ? 'Trend Olan Müzik Klipleri' : 'Trending Music Videos'}
+                {isTr ? 'Trend Olan Müzik Klipleri' : 'Music Videos'}
               </span>
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">

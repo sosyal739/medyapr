@@ -24,28 +24,46 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: 'trending_songs.json not found' }, { status: 404 });
     }
 
-    const songs = JSON.parse(content);
-    if (Array.isArray(songs)) {
-      // Günlük ivme ve izlenmeleri canlı dinamikle güncelle
-      for (const song of songs) {
+    const rawData = JSON.parse(content);
+    let totalCount = 0;
+
+    if (Array.isArray(rawData)) {
+      for (const song of rawData) {
         const factor = 0.015 + Math.random() * 0.03;
         const delta = Math.floor((song.views || 100000) * factor);
         song.views = (song.views || 0) + delta;
         song.gain24h = delta;
         song.likes = (song.likes || 0) + Math.floor(delta * (0.02 + Math.random() * 0.03));
       }
-
-      // Sıralamayı izlenmeye göre yeniden hesapla
-      songs.sort((a, b) => b.views - a.views);
-      songs.forEach((s, idx) => {
+      rawData.sort((a, b) => b.views - a.views);
+      rawData.forEach((s, idx) => {
         s.rank = idx + 1;
       });
-
-      try {
-        await fs.writeFile(filePath, JSON.stringify(songs, null, 2), 'utf8');
-      } catch (err) {
-        console.warn('Vercel serverless read-only fallback:', err);
+      totalCount = rawData.length;
+    } else if (typeof rawData === 'object' && rawData !== null) {
+      for (const country of Object.keys(rawData)) {
+        const list = rawData[country];
+        if (Array.isArray(list)) {
+          for (const song of list) {
+            const factor = 0.015 + Math.random() * 0.03;
+            const delta = Math.floor((song.views || 100000) * factor);
+            song.views = (song.views || 0) + delta;
+            song.gain24h = delta;
+            song.likes = (song.likes || 0) + Math.floor(delta * (0.02 + Math.random() * 0.03));
+          }
+          list.sort((a, b) => b.views - a.views);
+          list.forEach((s, idx) => {
+            s.rank = idx + 1;
+          });
+          totalCount += list.length;
+        }
       }
+    }
+
+    try {
+      await fs.writeFile(filePath, JSON.stringify(rawData, null, 2), 'utf8');
+    } catch (err) {
+      console.warn('Vercel serverless read-only fallback:', err);
     }
 
     // Next.js Cache Revalidation
@@ -54,8 +72,9 @@ export async function GET(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: 'YouTube trendleri başarıyla güncellendi.',
-      count: songs.length,
+      message: 'YouTube çok ülkeli trendler başarıyla güncellendi.',
+      count: totalCount,
+      countries: typeof rawData === 'object' && !Array.isArray(rawData) ? Object.keys(rawData) : ['tr'],
       updated_at: new Date().toISOString(),
     });
   } catch (error) {
