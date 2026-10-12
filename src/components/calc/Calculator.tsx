@@ -51,15 +51,16 @@ function useAnimatedNumber(target: number, ms = 350) {
 }
 
 export default function Calculator({ locale, t }: { locale: string; t: AppStrings['calc'] }) {
+  const isTr = locale === 'tr';
   const [views, setViews] = useState(25_000);
   const [format] = useState<Format>('instream');
   const [pkg, setPkg] = useState<Package>('views');
-  const [region, setRegion] = useState<Region>('tr');
-  const [currency, setCurrency] = useState<Currency>(locale === 'tr' ? 'TRY' : 'EUR');
+  const [region, setRegion] = useState<Region>(isTr ? 'tr' : 'premium');
+  const [currency, setCurrency] = useState<Currency>(isTr ? 'TRY' : 'USD');
 
   const q = useMemo(() => quote({ views, format, pkg, region, currency }), [views, format, pkg, region, currency]);
   const animTotal = useAnimatedNumber(q.total);
-  const nf = new Intl.NumberFormat(locale === 'tr' ? 'tr-TR' : 'en-US');
+  const nf = new Intl.NumberFormat(isTr ? 'tr-TR' : 'en-US');
 
   const href = `/${locale}/order?views=${q.views}&format=${format}&pkg=${pkg}&region=${region}&currency=${currency}`;
 
@@ -76,7 +77,9 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
           <div>
             <div className="flex items-center justify-between gap-4 mb-3">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-red-400">1. Adım</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-red-400">
+                  {isTr ? '1. Adım' : 'Step 1'}
+                </span>
                 <h3 className="text-base font-extrabold text-white">{t.views}</h3>
               </div>
               <div className="flex items-baseline gap-1.5 rounded-2xl border border-white/10 bg-white/5 px-4 py-2 transition-all focus-within:border-[#FF0033] focus-within:ring-2 focus-within:ring-[#FF0033]/20">
@@ -92,7 +95,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                   aria-label={t.views}
                   className="w-28 sm:w-36 text-right font-[family-name:var(--font-heading)] text-2xl font-black tabular-nums bg-transparent text-white outline-none"
                 />
-                <span className="text-xs font-semibold text-zinc-400">izlenme</span>
+                <span className="text-xs font-semibold text-zinc-400">{isTr ? 'izlenme' : 'views'}</span>
               </div>
             </div>
 
@@ -142,12 +145,14 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
           <div>
             <div className="flex items-center justify-between mb-3">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-red-400">2. Adım</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-red-400">
+                  {isTr ? '2. Adım' : 'Step 2'}
+                </span>
                 <h3 className="text-base font-extrabold text-white">{t.region}</h3>
               </div>
               {region === 'global' && (
                 <span className="text-[11px] font-black text-amber-300 bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 rounded-full">
-                  1K: ₺100 Başlayan Kademeli Tarife 🔥
+                  {isTr ? '1K: ₺100 Başlayan Kademeli Tarife 🔥' : 'Starts from ₺100/1K Progressive 🔥'}
                 </span>
               )}
             </div>
@@ -197,7 +202,9 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
           {/* Adım 3: Paket Türü */}
           <div>
             <div className="mb-3">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-red-400">3. Adım</span>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-red-400">
+                {isTr ? '3. Adım' : 'Step 3'}
+              </span>
               <h3 className="text-base font-extrabold text-white">{t.pkg}</h3>
             </div>
 
@@ -241,52 +248,34 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
           <div className="pt-1">
             <div className="mb-2.5 flex items-center justify-between">
               <span className="text-xs font-bold uppercase tracking-wider text-zinc-400">
-                {t.guaranteesTitle || '%100 Resmi Google Ads Güvencesi'}
+                {t.guaranteesTitle || (isTr ? '%100 Resmi Google Ads Güvencesi' : '100% Official Google Ads Standards')}
               </span>
               <span className="text-[11px] font-bold text-emerald-400 flex items-center gap-1">
-                <Check className="h-3 w-3 stroke-[3]" /> Tüm Paketlerde Standart
+                <Check className="h-3 w-3 stroke-[3]" /> {isTr ? 'Tüm Paketlerde Standart' : 'Standard Across All Plans'}
               </span>
             </div>
 
             <div className="grid gap-3 sm:grid-cols-3">
-              {/* Güvence 1: Bot veya Panel Kullanılmaz */}
-              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-3.5 transition-all hover:border-emerald-500/40 hover:bg-white/[0.05]">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-400">
-                    <ShieldCheck className="h-4 w-4" />
+              {(t.guarantees || []).map((g, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-3.5 transition-all hover:border-emerald-500/40 hover:bg-white/[0.05]"
+                >
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-400">
+                      {idx === 0 ? (
+                        <ShieldCheck className="h-4 w-4" />
+                      ) : idx === 1 ? (
+                        <Sparkles className="h-4 w-4" />
+                      ) : (
+                        <ThumbsUp className="h-4 w-4" />
+                      )}
+                    </div>
+                    <span className="text-xs font-extrabold text-white">{g.title}</span>
                   </div>
-                  <span className="text-xs font-extrabold text-white">Bot veya Panel Kullanılmaz</span>
+                  <p className="text-xs leading-relaxed text-zinc-400">{g.desc}</p>
                 </div>
-                <p className="text-xs leading-relaxed text-zinc-400">
-                  İzlenmeler doğrudan resmi Google Ads üzerinden gelir, ömür boyu kalıcıdır.
-                </p>
-              </div>
-
-              {/* Güvence 2: YouTube Reklamcılığı Kaynağı */}
-              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-3.5 transition-all hover:border-red-500/40 hover:bg-white/[0.05]">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-red-500/15 text-red-400">
-                    <Sparkles className="h-4 w-4" />
-                  </div>
-                  <span className="text-xs font-extrabold text-white">YouTube Reklamcılığı Kaynağı</span>
-                </div>
-                <p className="text-xs leading-relaxed text-zinc-400">
-                  YouTube Analytics panelinizde &quot;YouTube Reklamları&quot; olarak şeffaf görünür.
-                </p>
-              </div>
-
-              {/* Güvence 3: Beğeni, Yorum & Abonelik */}
-              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-3.5 transition-all hover:border-amber-500/40 hover:bg-white/[0.05]">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400">
-                    <ThumbsUp className="h-4 w-4" />
-                  </div>
-                  <span className="text-xs font-extrabold text-white">Beğeni, Yorum & Abonelik</span>
-                </div>
-                <p className="text-xs leading-relaxed text-zinc-400">
-                  Gerçek kullanıcılardan organik beğeni, yorum ve kanal aboneliği fırsatı oluşur.
-                </p>
-              </div>
+              ))}
             </div>
 
             {/* Süreç & Aşamalı Ödeme Güvencesi Şeridi */}
@@ -296,11 +285,24 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                   ✓
                 </span>
                 <span>
-                  <strong className="text-white">Aşamalı Ödeme Güvencesi:</strong> Video reklam onayı alınca <span className="text-emerald-400 font-bold">%50</span>, kampanya bitince <span className="text-emerald-400 font-bold">%50</span> ödenir. Kurumsal müşteriler için tüm ödeme iş bitimindedir.
+                  <strong className="text-white">
+                    {isTr ? 'Aşamalı Ödeme Güvencesi:' : 'Phased Payment Guarantee:'}
+                  </strong>{' '}
+                  {isTr ? (
+                    <>
+                      Video reklam onayı alınca <span className="text-emerald-400 font-bold">%50</span>, kampanya bitince{' '}
+                      <span className="text-emerald-400 font-bold">%50</span> ödenir. Kurumsal müşteriler için tüm ödeme iş bitimindedir.
+                    </>
+                  ) : (
+                    <>
+                      Pay <span className="text-emerald-400 font-bold">50%</span> upon Google Ads approval, and the remaining{' '}
+                      <span className="text-emerald-400 font-bold">50%</span> after delivery. Verified corporate accounts pay upon delivery.
+                    </>
+                  )}
                 </span>
               </div>
               <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-[11px] font-bold text-amber-300">
-                * Fiyat video süresine göre değişebilir
+                {isTr ? '* Fiyat video süresine göre değişebilir' : '* Rate may adjust based on video length'}
               </span>
             </div>
           </div>
@@ -312,7 +314,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
           <div className="flex items-center justify-between mb-5">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 px-2.5 py-1 text-[11px] font-bold text-emerald-400">
               <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-              Canlı Teklif
+              {isTr ? 'Canlı Teklif' : 'Live Quote'}
             </span>
 
             <div className="flex rounded-xl border border-white/10 bg-white/5 p-0.5" role="group" aria-label={t.currency}>
@@ -341,7 +343,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
             {q.discountRate > 0 && (
               <div className="mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">
                 <Tag className="h-3 w-3" />
-                %{Math.round(q.discountRate * 100)} İndirim Uygulandı
+                {isTr ? `%${Math.round(q.discountRate * 100)} İndirim Uygulandı` : `${Math.round(q.discountRate * 100)}% Discount Applied`}
               </div>
             )}
           </div>
@@ -349,11 +351,11 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
           {/* Döküm Detayları */}
           <div className="space-y-3 border-y border-white/10 py-4 text-sm">
             <div className="flex items-center justify-between text-zinc-300">
-              <span className="text-zinc-400">Hedef İzlenme</span>
-              <span className="font-bold text-white">{nf.format(q.views)} İzlenme</span>
+              <span className="text-zinc-400">{isTr ? 'Hedef İzlenme' : 'Target Views'}</span>
+              <span className="font-bold text-white">{nf.format(q.views)} {isTr ? 'İzlenme' : 'Views'}</span>
             </div>
             <div className="flex items-center justify-between text-zinc-300">
-              <span className="text-zinc-400">Hedef Kitle</span>
+              <span className="text-zinc-400">{isTr ? 'Hedef Kitle' : 'Audience Target'}</span>
               <span className="font-bold text-white">{t.regions[region].name}</span>
             </div>
             <div className="flex items-center justify-between text-zinc-300">

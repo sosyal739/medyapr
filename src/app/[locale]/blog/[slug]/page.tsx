@@ -360,10 +360,38 @@ export default async function BlogPostPage({ params }: Props) {
                 </div>
               );
             }
+            const isMidArticle = idx === 2 && postParagraphs.length > 4;
             return (
-              <p key={idx} className="leading-relaxed">
-                {parseParagraphWithLinks(p, locale)}
-              </p>
+              <div key={idx} className="space-y-6">
+                <p className="leading-relaxed">
+                  {parseParagraphWithLinks(p, locale)}
+                </p>
+                {isMidArticle && (
+                  <div className="my-8 rounded-2xl border border-[#FF0033]/30 bg-gradient-to-r from-[#FF0033]/15 via-zinc-900 to-zinc-950 p-5 sm:p-6 backdrop-blur-xl shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="space-y-1">
+                      <span className="text-[10px] font-black uppercase tracking-wider text-[#FF6B6B] bg-[#FF0033]/20 px-2.5 py-0.5 rounded-full inline-block">
+                        {isTr ? '🎯 Kendi Klibinizi Başlatın' : '🎯 Promote Your Music Video'}
+                      </span>
+                      <h4 className="text-base sm:text-lg font-bold text-white">
+                        {isTr
+                          ? 'Klibiniz için bütçenize uygun resmi Google Ads paketini hesaplayın'
+                          : 'Calculate your official Google Ads music video launch package'}
+                      </h4>
+                      <p className="text-xs text-zinc-300">
+                        {isTr
+                          ? '%100 YouTube Studio tescilli, aşamalı güvenli ödeme (%50 onayda, %50 bitince).'
+                          : '100% YouTube Studio verified views with 50/50 phased payment security.'}
+                      </p>
+                    </div>
+                    <Link
+                      href={`/${locale}#calculator`}
+                      className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-5 py-3 text-xs font-black text-white shadow-lg shadow-[#FF0033]/30 hover:scale-105 transition"
+                    >
+                      {isTr ? 'Fiyat Hesapla' : 'Calculate Pricing'} <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
+                )}
+              </div>
             );
           })}
         </div>
@@ -407,14 +435,16 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
               <span className="font-extrabold text-white text-base">{post.author}</span>
               <span className="rounded-full bg-blue-500/20 px-2.5 py-0.5 text-[10px] font-bold text-blue-300 border border-blue-500/30">
-                Resmi Google Partner
+                {isTr ? 'Resmi Google Partner' : 'Official Google Partner'}
               </span>
               <span className="rounded-full bg-amber-500/20 px-2.5 py-0.5 text-[10px] font-bold text-amber-300 border border-amber-500/30">
-                18+ Yıllık Tecrübe
+                {isTr ? '18+ Yıllık Tecrübe' : '18+ Years Track Record'}
               </span>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed">
-              Türkiye ve dünya genelinde müzik klipleri, prodüksiyon şirketleri ve sanatçılar için resmi Google Ads video PR stratejileri geliştiren MedyaPR editoryal uzmanları tarafından hazırlanmıştır.
+              {isTr
+                ? 'Türkiye ve dünya genelinde müzik klipleri, prodüksiyon şirketleri ve sanatçılar için resmi Google Ads video PR stratejileri geliştiren MedyaPR editoryal uzmanları tarafından hazırlanmıştır.'
+                : 'Written and verified by MedyaPR editorial strategists, managing official Google Partner video PR campaigns for record labels, independent artists, and production companies in Turkey and worldwide.'}
             </p>
           </div>
         </div>
@@ -423,13 +453,18 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="mt-10 relative overflow-hidden rounded-3xl border border-[#FF0033]/40 bg-studio-card p-8 md:p-10 shadow-2xl">
           <div className="space-y-3 max-w-2xl">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FF0033]/20 px-3 py-1 text-xs font-bold text-[#FF6B6B]">
-              <Sparkles className="h-3.5 w-3.5" /> Resmi Reklam &amp; Video PR Kampanyası
+              <Sparkles className="h-3.5 w-3.5" />
+              {isTr ? 'Resmi Reklam & Video PR Kampanyası' : 'Official Google Ads Video PR Campaign'}
             </span>
             <h3 className="text-2xl font-black text-white">
-              Kendi Klibinizi de YouTube Trendlerine Taşımak İster Misiniz?
+              {isTr
+                ? 'Kendi Klibinizi de YouTube Trendlerine Taşımak İster Misiniz?'
+                : 'Want to Push Your Music Video into the YouTube Trending Charts?'}
             </h3>
             <p className="text-sm text-zinc-300 leading-relaxed">
-              Bot panelleriyle kanalınızı riske atmayın. Şarkınız için yaş, müzik zevki ve bölge hedefli resmi Google Ads kampanyası başlatın; video onaylanınca %50, iş bitiminde kalanı ödeyin.
+              {isTr
+                ? 'Bot panelleriyle kanalınızı riske atmayın. Şarkınız için yaş, müzik zevki ve bölge hedefli resmi Google Ads kampanyası başlatın; video onaylanınca %50, iş bitiminde kalanı ödeyin.'
+                : "Avoid shady bot panels that damage your channel's algorithmic standing. Launch a targeted official Google Ads video campaign with age, genre, and geographic audience targeting. 50% upfront on approval, 50% upon successful completion."}
             </p>
           </div>
 
@@ -438,7 +473,8 @@ export default async function BlogPostPage({ params }: Props) {
               href={`/${locale}#calculator`}
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-7 py-3.5 text-sm font-extrabold text-white shadow-xl shadow-[#FF0033]/30 hover:scale-105 transition"
             >
-              Fiyatı Hesapla &amp; Başlat <ArrowRight className="h-4 w-4" />
+              {isTr ? 'Fiyatı Hesapla & Başlat' : 'Calculate Pricing & Launch'}{' '}
+              <ArrowRight className="h-4 w-4" />
             </Link>
             <a
               href="https://wa.me/905312993355"
@@ -446,7 +482,7 @@ export default async function BlogPostPage({ params }: Props) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl border border-zinc-700/60 bg-zinc-800/80 px-6 py-3.5 text-sm font-bold text-white hover:bg-zinc-700 transition"
             >
-              Bize Danışın (WhatsApp)
+              {isTr ? 'Bize Danışın (WhatsApp)' : 'Consult via WhatsApp'}
             </a>
           </div>
         </div>

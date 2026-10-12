@@ -40,9 +40,10 @@ export function middleware(request: NextRequest) {
   }
 
   /* Detect preferred locale:
-     1. Prioritize explicit NEXT_LOCALE cookie if present
-     2. Fallback to Accept-Language header
-     3. Default to defaultLocale ('tr')
+     1. Prioritize explicit NEXT_LOCALE cookie if present (user manual preference)
+     2. Edge Geolocation: If visitor is outside Turkey (country !== 'TR'), route to 'en'
+     3. Fallback to Accept-Language header
+     4. Default to 'tr' for Turkey visitors
   */
   const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value as Locale | undefined;
   let targetLocale: Locale = defaultLocale; // 'tr'
@@ -50,10 +51,25 @@ export function middleware(request: NextRequest) {
   if (cookieLocale && locales.includes(cookieLocale)) {
     targetLocale = cookieLocale;
   } else {
-    const acceptLanguage = request.headers.get('accept-language') || '';
-    // Sadece ziyaretçi açıkça İngilizce istiyorsa ve Türkçe sinyali yoksa 'en' yap, aksi halde daima varsayılan 'tr'
-    const isStrictlyEnglish = /^en([-_][A-Za-z]+)?(,|;|$)/i.test(acceptLanguage) && !/tr/i.test(acceptLanguage);
-    targetLocale = isStrictlyEnglish ? 'en' : 'tr';
+    // Vercel Edge / Cloudflare Geolocation header
+    const country = (
+      request.headers.get('x-vercel-ip-country') ||
+      request.headers.get('cf-ipcountry') ||
+      request.headers.get('x-country-code') ||
+      (request as any).geo?.country ||
+      ''
+    ).toUpperCase();
+
+    if (country) {
+      // Türkiye dışındaki tüm dünya ülkelerine (US, DE, GB, FR vb.) İngilizce arayüz
+      targetLocale = country === 'TR' ? 'tr' : 'en';
+    } else {
+      // Ülke başlığı yoksa (yerel geliştirme veya proxy arkası):
+      const acceptLanguage = request.headers.get('accept-language') || '';
+      // Tarayıcısında Türkçe dil sinyali olanlara 'tr', diğer herkese 'en'
+      const hasTurkish = /tr([-_][A-Za-z]+)?(,|;|$)/i.test(acceptLanguage);
+      targetLocale = hasTurkish ? 'tr' : 'en';
+    }
   }
 
   /* Redirect to locale-prefixed path with 308 Permanent Redirect */
