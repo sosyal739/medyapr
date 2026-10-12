@@ -1,9 +1,10 @@
 'use client';
 
 import { Play, CreditCard, Sparkles, Building2, Clock, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 
 interface HowItWorksProps {
-  dict: any;
+  dict: Dictionary;
   locale?: string;
 }
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 
 /**
  * StatsCounter — Animated statistics counter section.
@@ -10,7 +11,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
  */
 
 interface StatsCounterProps {
-  dict: any;
+  dict: Dictionary;
   locale?: string;
 }
 
@@ -26,7 +27,7 @@ export default function StatsCounter({ dict, locale = 'tr' }: StatsCounterProps)
   const t = dict?.stats ?? {};
   const isTr = locale === 'tr';
 
-  const stats: StatConfig[] = t.items ?? [
+  const stats: StatConfig[] = [
     { label: t.views_delivered ?? (isTr ? 'Toplam İzlenme' : 'Views Delivered'), value: 2.5, suffix: 'M+', prefix: '', decimals: 1 },
     { label: t.happy_clients ?? (isTr ? 'Mutlu Müşteri' : 'Happy Clients'), value: 500, suffix: '+', prefix: '', decimals: 0 },
     { label: t.campaigns ?? (isTr ? 'Kampanya' : 'Successful Campaigns'), value: 1000, suffix: '+', prefix: '', decimals: 0 },

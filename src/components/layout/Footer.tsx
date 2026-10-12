@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 interface FooterProps {
-  dict: any;
+  dict: Dictionary;
   locale: string;
 }
 
@@ -45,7 +46,7 @@ export default function Footer({ dict, locale }: FooterProps) {
                 </svg>
               </a>
               <a
-                href="https://t.me/medyapr"
+                href="https://t.me/+905312993355"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-zinc-800/80 border border-zinc-700/60 rounded-xl flex items-center justify-center hover:bg-blue-500 hover:border-blue-500 transition-all duration-300 hover:scale-110 shadow-md"
@@ -84,7 +85,7 @@ export default function Footer({ dict, locale }: FooterProps) {
           <div>
             <h4 className="text-base font-bold mb-5 text-white">{dict.footer.services}</h4>
             <ul className="space-y-3">
-              {(dict.services?.items || []).slice(0, 6).map((service: any, idx: number) => (
+              {(dict.services?.items || []).slice(0, 6).map((service, idx: number) => (
                 <li key={idx}>
                   <Link
                     href={`/${locale}/hizmetler`}

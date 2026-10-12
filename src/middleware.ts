@@ -56,7 +56,7 @@ export function middleware(request: NextRequest) {
       request.headers.get('x-vercel-ip-country') ||
       request.headers.get('cf-ipcountry') ||
       request.headers.get('x-country-code') ||
-      (request as any).geo?.country ||
+      (request as NextRequest & { geo?: { country?: string } }).geo?.country ||
       ''
     ).toUpperCase();
 

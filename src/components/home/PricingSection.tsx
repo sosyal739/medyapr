@@ -1,4 +1,5 @@
 'use client';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 
 /**
  * PricingSection — 4-column pricing table.
@@ -9,8 +10,22 @@
  * Enterprise card: "Contact us" style.
  */
 
+type Plan = {
+  name: string;
+  price: string;
+  currency?: string;
+  period?: string;
+  views: string;
+  likes: string;
+  duration: string;
+  popular?: boolean;
+  enterprise?: boolean;
+  cta?: string;
+  features: string[];
+};
+
 interface PricingSectionProps {
-  dict: any;
+  dict: Dictionary;
   locale?: string;
 }
 
@@ -22,7 +37,7 @@ export default function PricingSection({ dict, locale = 'tr' }: PricingSectionPr
     t.subtitle ??
     'İhtiyacınıza uygun paketi seçin. Tüm paketler Google Ads altyapısı ile çalışır.';
 
-  const plans = t.packages ?? t.plans ?? [
+  const plans: Plan[] = t.packages ?? [
     {
       name: 'Başlangıç',
       price: '₺499',
@@ -114,7 +129,7 @@ export default function PricingSection({ dict, locale = 'tr' }: PricingSectionPr
 
         {/* Grid */}
         <div className="grid gap-6 lg:grid-cols-4 md:grid-cols-2">
-          {(plans as any[]).map((plan: any, i: number) => {
+          {plans.map((plan, i: number) => {
             const isPopular = plan.popular === true;
             const isEnterprise = plan.enterprise === true;
 
@@ -207,7 +222,7 @@ export default function PricingSection({ dict, locale = 'tr' }: PricingSectionPr
                       : 'border-2 border-[#FF0033]/20 text-[#FF0033] hover:bg-[#FF0033] hover:text-white'
                   }`}
                 >
-                  {plan.cta}
+                  {plan.cta ?? t.cta}
                 </button>
               </div>
             );

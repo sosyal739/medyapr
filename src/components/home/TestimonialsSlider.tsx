@@ -1,4 +1,5 @@
 'use client';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 
 /**
  * TestimonialsSlider — Testimonial cards section.
@@ -9,7 +10,7 @@
  */
 
 interface TestimonialsSliderProps {
-  dict: any;
+  dict: Dictionary;
   locale?: string;
 }
 
@@ -81,7 +82,7 @@ export default function TestimonialsSlider({ dict, locale = 'tr' }: Testimonials
 
         {/* Grid */}
         <div className="grid gap-6 md:grid-cols-2">
-          {(testimonials as any[]).map((item: any, i: number) => (
+          {testimonials.map((item, i: number) => (
             <div
               key={i}
               className="group relative rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-8"
@@ -103,7 +104,7 @@ export default function TestimonialsSlider({ dict, locale = 'tr' }: Testimonials
 
               {/* Quote text */}
               <p className="mb-6 text-sm leading-relaxed text-[#6B7280] sm:text-base">
-                &ldquo;{item.quote ?? item.content}&rdquo;
+                &ldquo;{item.content}&rdquo;
               </p>
 
               {/* Author */}

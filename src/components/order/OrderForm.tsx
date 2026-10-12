@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Banknote, CheckCircle2, CreditCard, Loader2, ShieldCheck, XCircle } from 'lucide-react';
@@ -75,8 +76,9 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
           )}
           {videoId && (
             <div className="mt-3 flex items-center gap-4 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-3">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
+                width={112}
+                height={64}
                 src={`https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`}
                 alt="Video Thumbnail"
                 className="h-16 w-28 rounded-lg object-cover"

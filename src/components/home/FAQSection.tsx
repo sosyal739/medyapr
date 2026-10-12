@@ -1,11 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 import { getFaqs } from '@/data/faqs';
 
 interface FAQSectionProps {
-  dict?: any;
+  dict?: Dictionary;
   locale?: string;
 }
 

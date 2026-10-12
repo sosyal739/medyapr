@@ -1,8 +1,13 @@
 import { NextResponse } from 'next/server';
 import { CURRENCIES, FORMATS, PACKAGES, REGIONS, quote, parseYouTubeId, clampViews, type Currency, type Format, type Package, type Region } from '@/lib/pricing';
 import { createOrder } from '@/lib/store';
+import { escapeHtml, notifyOwner, renderMail } from '@/lib/mailer';
+import { clientIp, isAllowedOrigin, rateLimit } from '@/lib/rate-limit';
 
 export async function POST(req: Request) {
+  if (!isAllowedOrigin(req)) return NextResponse.json({ error: 'forbidden' }, { status: 403 });
+  if (!rateLimit(`order:${clientIp(req)}`, 8)) return NextResponse.json({ error: 'rate_limited' }, { status: 429, headers: { 'Retry-After': '600' } });
+
   let b: Record<string, unknown>;
   try {
     b = await req.json();
@@ -45,5 +50,27 @@ export async function POST(req: Request) {
     total: q.total,
     payment,
   });
+  // Bildirim: başarısız olsa bile sipariş kaydı etkilenmez (notifyOwner fırlatmaz).
+  const fmt = (n: number) => new Intl.NumberFormat('tr-TR').format(n);
+  await notifyOwner({
+    subject: `🛒 Yeni Sipariş ${order.id}: ${order.name} — ${fmt(order.total)} ${order.currency}`,
+    replyTo: email,
+    html: renderMail(
+      '🛒 Yeni Sipariş Alındı',
+      [
+        ['Takip Kodu', escapeHtml(order.id)],
+        ['Ad Soyad', escapeHtml(name)],
+        ['E-Posta', escapeHtml(email)],
+        ['WhatsApp / Telegram', escapeHtml(contact ?? '')],
+        ['Video', escapeHtml(videoUrl)],
+        ['Paket', escapeHtml(`${order.pkg ?? 'views'} • ${order.format} • ${order.region} • ${fmt(order.views)} izlenme`)],
+        ['Tutar', escapeHtml(`${fmt(order.total)} ${order.currency}`)],
+        ['Ödeme', order.payment === 'iban' ? 'IBAN / Havale' : 'Kart'],
+        ['Takip Linki', `https://medyapr.com/tr/track/${escapeHtml(order.id)}`],
+      ],
+      `Bu bildirim <strong>medyapr.com</strong> sipariş formundan gönderildi • ${new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' })}`,
+    ),
+  });
+
   return NextResponse.json({ id: order.id, total: order.total, currency: order.currency, payment: order.payment }, { status: 201 });
 }

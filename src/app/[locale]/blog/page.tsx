@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   BookOpen,
@@ -222,8 +223,7 @@ export default async function BlogIndexPage({
           >
             <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] items-center">
               <div className="relative aspect-video overflow-hidden rounded-2xl bg-black/40">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image fill sizes="(min-width: 1024px) 480px, 100vw"
                   src={filteredPosts[0].image}
                   alt={filteredPosts[0].title}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -272,8 +272,7 @@ export default async function BlogIndexPage({
                 >
                   <div>
                     <div className="relative aspect-video overflow-hidden rounded-2xl bg-black/40 mb-5">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image fill sizes="(min-width: 1024px) 480px, 100vw"
                         src={post.image}
                         alt={postTitle}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"

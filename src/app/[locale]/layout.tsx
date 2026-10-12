@@ -111,7 +111,7 @@ export default async function LocaleLayout({ params, children }: Props) {
                     'https://wa.me/905312993355',
                     'https://www.youtube.com/@medyapr',
                     'https://instagram.com/medyapr',
-                    'https://t.me/medyapr',
+                    'https://t.me/+905312993355',
                   ],
                 },
                 {

@@ -1,13 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 import Link from 'next/link';
 import { Menu, X, Globe, Play, Sparkles, BookOpen, Users, Flame } from 'lucide-react';
 import ThemeToggle from '@/components/theme/ThemeToggle';
 import LanguageSwitcher from '@/components/layout/LanguageSwitcher';
 
 interface HeaderProps {
-  dict: any;
+  dict: Dictionary;
   locale: string;
 }
 

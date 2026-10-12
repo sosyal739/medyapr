@@ -1,9 +1,10 @@
 'use client';
 
 import { Play, Smartphone, Search, Globe, Target, BarChart3 } from 'lucide-react';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 
 interface ServicesGridProps {
-  dict: any;
+  dict: Dictionary;
   locale?: string;
 }
 

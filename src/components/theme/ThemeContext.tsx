@@ -23,9 +23,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hidrasyon sonrası tarayıcı depolamasını okuma
     setMounted(true);
     try {
-      const saved = localStorage.getItem('adsviews_theme') as Theme | null;
+      const saved = localStorage.getItem('medyapr_theme') as Theme | null;
       if (saved === 'black-room' || saved === 'grey') {
         setThemeState(saved);
         document.documentElement.setAttribute('data-theme', saved);
@@ -40,7 +41,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
     try {
-      localStorage.setItem('adsviews_theme', newTheme);
+      localStorage.setItem('medyapr_theme', newTheme);
       document.documentElement.setAttribute('data-theme', newTheme);
     } catch {
       // ignore localStorage errors

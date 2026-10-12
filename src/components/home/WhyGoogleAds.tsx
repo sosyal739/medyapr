@@ -1,4 +1,5 @@
 'use client';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 
 /**
  * WhyGoogleAds — USP (Unique Selling Proposition) section.
@@ -8,7 +9,7 @@
  */
 
 interface WhyGoogleAdsProps {
-  dict: any;
+  dict: Dictionary;
 }
 
 export default function WhyGoogleAds({ dict }: WhyGoogleAdsProps) {
@@ -19,7 +20,7 @@ export default function WhyGoogleAds({ dict }: WhyGoogleAdsProps) {
     t.subtitle ??
     'Google Ads altyapısının sunduğu avantajlarla YouTube kanalınızı güvenle büyütün.';
 
-  const benefits = t.items ?? t.benefits ?? [
+  const benefits = t.items ?? [
     {
       title: 'Gerçek İzleyiciler',
       description:
@@ -87,7 +88,7 @@ export default function WhyGoogleAds({ dict }: WhyGoogleAdsProps) {
 
         {/* Grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {(benefits as any[]).map((b: any, i: number) => (
+          {benefits.map((b, i: number) => (
             <div
               key={i}
               className="group rounded-2xl bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"

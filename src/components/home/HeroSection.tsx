@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
+import Image from 'next/image';
 import {
   ArrowRight,
   Play,
@@ -24,7 +26,7 @@ import { getAppStrings } from '@/lib/i18n/app-strings';
 import { consultHref } from '@/lib/contact';
 
 interface HeroSectionProps {
-  dict: any;
+  dict: Dictionary;
   locale: string;
 }
 
@@ -309,8 +311,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                 {/* Video Ekranı (16:9 Sinematik Yatay) */}
                 <div className="relative aspect-[16/10] sm:aspect-video w-full overflow-hidden bg-slate-900 group select-none">
                   {/* Sinematik Müzik Klibi / Sahne Arka Plan Görseli (Aydınlık & Canlı) */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image fill sizes="(min-width: 1024px) 560px, 100vw" preload
                     src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=85"
                     alt="YouTube Video Tanıtımı"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-95 contrast-105"

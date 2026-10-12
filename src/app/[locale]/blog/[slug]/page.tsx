@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -133,7 +134,7 @@ export default async function BlogPostPage({ params }: Props) {
   const postTags = (!isTr && post.tags_en) ? post.tags_en : post.tags;
 
   // Schema.org Graph (BlogPosting + BreadcrumbList + FAQPage)
-  const schemaGraph: any[] = [
+  const schemaGraph: Record<string, unknown>[] = [
     {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
@@ -296,9 +297,8 @@ export default async function BlogPostPage({ params }: Props) {
             />
           </div>
         ) : (
-          <div className="mb-12 overflow-hidden rounded-3xl border border-white/15 aspect-video shadow-2xl">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={post.image} alt={postTitle} className="h-full w-full object-cover" />
+          <div className="relative mb-12 overflow-hidden rounded-3xl border border-white/15 aspect-video shadow-2xl">
+            <Image fill preload sizes="(min-width: 1024px) 800px, 100vw" src={post.image} alt={postTitle} className="object-cover" />
           </div>
         )}
 
@@ -515,12 +515,10 @@ export default async function BlogPostPage({ params }: Props) {
                   className="group flex flex-col overflow-hidden rounded-2xl border border-studio bg-studio-card hover:border-[#FF0033]/50 transition duration-300"
                 >
                   <div className="relative aspect-video w-full overflow-hidden bg-black">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image fill sizes="(min-width: 1024px) 800px, 100vw"
                       src={rel.image}
                       alt={(!isTr && rel.title_en) ? rel.title_en : rel.title}
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                      loading="lazy"
                     />
                     <span className="absolute top-2.5 left-2.5 rounded-lg bg-black/70 px-2 py-0.5 text-[10px] font-bold text-white backdrop-blur-md">
                       {(!isTr && rel.category_en) ? rel.category_en : rel.category}

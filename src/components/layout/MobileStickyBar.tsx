@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { MessageCircle, Calculator, Zap } from 'lucide-react';
+import { MessageCircle, Calculator, Send } from 'lucide-react';
+import { TELEGRAM_URL } from '@/lib/contact';
 
 interface MobileStickyBarProps {
   locale?: string;
@@ -26,6 +27,18 @@ export default function MobileStickyBar({ locale = 'tr' }: MobileStickyBarProps)
         >
           <MessageCircle className="h-4 w-4 fill-white" />
           <span>{isTr ? 'WhatsApp Danış' : 'WhatsApp'}</span>
+        </a>
+
+        {/* Telegram Direct Contact Button */}
+        <a
+          href={TELEGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs shadow-lg shadow-sky-950/50 transition-all active:scale-95"
+          aria-label={isTr ? 'Telegram ile İletişime Geç' : 'Contact via Telegram'}
+        >
+          <Send className="h-4 w-4" />
+          <span>Telegram</span>
         </a>
 
         {/* Instant Pricing Calculator CTA */}

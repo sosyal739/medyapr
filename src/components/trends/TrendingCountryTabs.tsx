@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   Flame,
@@ -139,7 +140,7 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
             return (
               <button
                 key={c.id}
-                onClick={() => setSelectedCountry(c.id as any)}
+                onClick={() => setSelectedCountry(c.id as 'tr' | 'us' | 'de' | 'gb')}
                 className={`group flex items-center gap-2.5 px-4 py-2.5 rounded-2xl text-sm font-bold transition-all duration-300 ${
                   isActive
                     ? 'bg-gradient-to-r from-[#FF0033] to-[#CC0029] text-white shadow-lg shadow-[#FF0033]/30 scale-105'
@@ -349,11 +350,10 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
 
                 {/* Thumbnail with Play Overlay */}
                 <div className="relative w-full sm:w-44 h-32 rounded-xl overflow-hidden flex-shrink-0 bg-zinc-950">
-                  <img
+                  <Image fill sizes="(min-width: 640px) 176px, 100vw"
                     src={song.thumbnail}
                     alt={`${song.artist} - ${song.title}`}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
                   />
                   <a
                     href={`https://www.youtube.com/watch?v=${song.videoId}`}

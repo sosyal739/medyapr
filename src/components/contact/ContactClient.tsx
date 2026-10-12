@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Send, Mail, MessageCircle, ShieldCheck, Award } from 'lucide-react';
+import { TELEGRAM_URL, WHATSAPP_URL } from '@/lib/contact';
 
 type Props = {
   locale: string;
@@ -16,14 +17,37 @@ export default function ContactClient({ locale }: Props) {
     message: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 4000);
-  };
+  const [isSending, setIsSending] = useState(false);
+  const [error, setError] = useState('');
 
   const isTr = locale === 'tr';
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (isSending) return;
+    setIsSending(true);
+    setError('');
+    try {
+      const hp = (e.currentTarget.elements.namedItem('website_hp') as HTMLInputElement | null)?.value ?? '';
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, language: locale, website_hp: hp }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', phone: '', channelUrl: '', message: '' });
+      setTimeout(() => setIsSubmitted(false), 6000);
+    } catch {
+      setError(
+        isTr
+          ? 'Mesaj gönderilemedi. Lütfen WhatsApp veya Telegram üzerinden yazın.'
+          : 'Message could not be sent. Please reach us on WhatsApp or Telegram.',
+      );
+    } finally {
+      setIsSending(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-studio-gradient text-white py-14 md:py-20 relative overflow-hidden">
@@ -73,7 +97,15 @@ export default function ContactClient({ locale }: Props) {
               </div>
             )}
 
+            {error && (
+              <div role="alert" className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-300 text-sm font-medium">
+                {error}
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Honeypot: insanlar görmez, botlar doldurur */}
+              <input type="text" name="website_hp" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 opacity-0" />
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 mb-1.5">
                   {isTr ? 'Adınız Soyadınız' : 'Your Full Name'}
@@ -149,10 +181,11 @@ export default function ContactClient({ locale }: Props) {
 
               <button
                 type="submit"
-                className="w-full py-3.5 px-6 rounded-xl font-bold bg-gradient-to-r from-[#FF0033] to-[#FF6B6B] hover:opacity-95 text-white flex items-center justify-center gap-2 shadow-lg shadow-[#FF0033]/20 transition-all text-sm"
+                disabled={isSending}
+                className="disabled:opacity-60 w-full py-3.5 px-6 rounded-xl font-bold bg-gradient-to-r from-[#FF0033] to-[#FF6B6B] hover:opacity-95 text-white flex items-center justify-center gap-2 shadow-lg shadow-[#FF0033]/20 transition-all text-sm"
               >
                 <Send size={18} />
-                {isTr ? 'Ücretsiz Analiz Talebi Gönder' : 'Request Free Analysis'}
+                {isSending ? (isTr ? 'Gönderiliyor…' : 'Sending…') : isTr ? 'Ücretsiz Analiz Talebi Gönder' : 'Request Free Analysis'}
               </button>
             </form>
           </div>
@@ -165,7 +198,7 @@ export default function ContactClient({ locale }: Props) {
               </h3>
               <div className="space-y-4">
                 <a
-                  href="https://wa.me/905312993355"
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl border border-zinc-800 bg-zinc-800/40 hover:border-emerald-500/50 hover:bg-emerald-500/10 transition-all group"
@@ -180,7 +213,7 @@ export default function ContactClient({ locale }: Props) {
                 </a>
 
                 <a
-                  href="https://t.me/medyapr"
+                  href={TELEGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl border border-zinc-800 bg-zinc-800/40 hover:border-sky-500/50 hover:bg-sky-500/10 transition-all group"
@@ -189,8 +222,8 @@ export default function ContactClient({ locale }: Props) {
                     <Send size={22} className="text-sky-400 group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white">{isTr ? 'Telegram Resmi Kanal' : 'Official Telegram'}</p>
-                    <p className="text-xs text-zinc-400">@medyapr</p>
+                    <p className="font-semibold text-white">{isTr ? 'Telegram ile Sipariş' : 'Order via Telegram'}</p>
+                    <p className="text-xs text-zinc-400">+90 531 299 33 55</p>
                   </div>
                 </a>
 

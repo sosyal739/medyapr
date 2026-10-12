@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Flame, TrendingUp, Play, ExternalLink, Sparkles, ArrowRight } from 'lucide-react';
 
@@ -155,8 +156,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
 
                 {/* Thumbnail with overlay */}
                 <div className="relative h-24 w-40 shrink-0 overflow-hidden rounded-xl bg-black/40">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image fill sizes="160px"
                     src={song.thumbnail}
                     alt={song.title}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"

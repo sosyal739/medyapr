@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Play, Sparkles, Music, Users, ExternalLink } from 'lucide-react';
@@ -119,8 +120,9 @@ export default async function ArtistDetailPage({ params }: Props) {
         {/* Profile Card */}
         <div className="mb-10 rounded-3xl border border-studio bg-studio-card p-6 md:p-8 backdrop-blur-xl shadow-xl">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
+              width={112}
+              height={112}
               src={artist.image}
               alt={artist.name}
               className="h-28 w-28 shrink-0 rounded-2xl object-cover border-2 border-[#FF0033]/40 shadow-xl"

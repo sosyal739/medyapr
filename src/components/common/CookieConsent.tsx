@@ -1,11 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 import Link from 'next/link';
 import { ShieldCheck, Cookie, X, Check } from 'lucide-react';
 
 interface CookieConsentProps {
-  dict: any;
+  dict: Dictionary;
   locale: string;
 }
 
@@ -28,6 +29,7 @@ export default function CookieConsent({ dict, locale }: CookieConsentProps) {
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hidrasyon sonrası tarayıcı depolamasını okuma
     setMounted(true);
 
     let timer: ReturnType<typeof setTimeout> | undefined;
@@ -72,16 +74,17 @@ export default function CookieConsent({ dict, locale }: CookieConsentProps) {
     document.cookie = `NEXT_LOCALE=${locale}; path=/; max-age=31536000; SameSite=Lax`;
 
     // Dynamic Google Consent Mode v2 sync
-    if (typeof window !== 'undefined' && (window as any).gtag) {
+    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+    if (typeof window !== 'undefined' && w.gtag) {
       if (type === 'all') {
-        (window as any).gtag('consent', 'update', {
+        w.gtag!('consent', 'update', {
           analytics_storage: 'granted',
           ad_storage: 'granted',
           ad_user_data: 'granted',
           ad_personalization: 'granted',
         });
       } else {
-        (window as any).gtag('consent', 'update', {
+        w.gtag!('consent', 'update', {
           analytics_storage: 'denied',
           ad_storage: 'denied',
           ad_user_data: 'denied',

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { Check, Copy, ExternalLink, Banknote, Hourglass, ShieldCheck, Sparkles, MessageCircle } from 'lucide-react';
 import { formatMoney } from '@/lib/pricing';
 import type { AppStrings } from '@/lib/i18n/app-strings';
@@ -111,8 +112,7 @@ export default function TrackView({
         <div className="flex items-center gap-5">
           {/* Thumbnail */}
           <div className="relative h-20 w-32 shrink-0 overflow-hidden rounded-2xl border border-zinc-700/60 bg-black/40">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image fill sizes="128px"
               src={`https://i.ytimg.com/vi/${o.videoId}/mqdefault.jpg`}
               alt="Video Thumbnail"
               className="h-full w-full object-cover"

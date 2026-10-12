@@ -38,6 +38,7 @@ export default function AdminPanel() {
     try {
       const k = sessionStorage.getItem('av_admin');
       if (k) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- oturumdan anahtarı geri yükleme
         setKey(k);
         load(k);
       }

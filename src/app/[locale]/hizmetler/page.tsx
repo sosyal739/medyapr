@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { getDictionary } from '@/lib/i18n/dictionaries';
 import { type Locale } from '@/lib/i18n/config';
-import { Check, Play, Users, ThumbsUp, MessageCircle, Clock, Zap, ArrowRight } from 'lucide-react';
+import { Check, Play, Users, ThumbsUp, MessageCircle, Clock, Zap, ArrowRight, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 
 type Props = {
@@ -31,7 +31,7 @@ export default async function ServicesPage({ params }: Props) {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
 
-  const iconMap: Record<string, any> = {
+  const iconMap: Record<string, LucideIcon> = {
     play: Play,
     users: Users,
     thumbsUp: ThumbsUp,
@@ -79,12 +79,12 @@ export default async function ServicesPage({ params }: Props) {
                 hasOfferCatalog: {
                   '@type': 'OfferCatalog',
                   name: locale === 'tr' ? 'MedyaPR YouTube Hizmet Kataloğu' : 'MedyaPR YouTube Services Catalog',
-                  itemListElement: (dict.services?.items || []).map((s: any) => ({
+                  itemListElement: (dict.services?.items || []).map((s) => ({
                     '@type': 'Offer',
                     itemOffered: {
                       '@type': 'Service',
                       name: s.title,
-                      description: s.desc,
+                      description: s.description,
                     },
                   })),
                 },
@@ -114,7 +114,7 @@ export default async function ServicesPage({ params }: Props) {
       <section className="py-16 lg:py-24 bg-[#FAFAFA]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {dict.services.items.map((service: any, idx: number) => {
+            {dict.services.items.map((service, idx: number) => {
               const IconComponent = iconMap[service.icon] || Play;
               return (
                 <div

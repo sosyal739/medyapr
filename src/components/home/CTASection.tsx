@@ -1,4 +1,6 @@
 'use client';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
+import { TELEGRAM_URL, WHATSAPP_URL } from '@/lib/contact';
 
 /**
  * CTASection — Final call-to-action section.
@@ -9,7 +11,7 @@
  */
 
 interface CTASectionProps {
-  dict: any;
+  dict: Dictionary;
   locale?: string;
 }
 
@@ -23,11 +25,11 @@ export default function CTASection({ dict, locale = 'tr' }: CTASectionProps) {
     (isTr
       ? 'Hemen başlayın ve Google Ads ile gerçek izleyicilere ulaşın. İlk kampanyanıza özel %20 indirim!'
       : "Get a free consultation now and let's find the best strategy for your channel together.");
-  const primaryBtn = t.primaryButton ?? t.button ?? (isTr ? 'Ücretsiz Başla' : 'Get Started');
-  const whatsappBtn = t.whatsappButton ?? t.whatsapp ?? (isTr ? 'WhatsApp ile Ulaşın' : 'Contact via WhatsApp');
-  const telegramText = t.telegramText ?? (isTr ? 'veya Telegram üzerinden yazın' : 'or reach out on Telegram');
-  const telegramLink = t.telegramLink ?? 'https://t.me/medyapr';
-  const whatsappLink = t.whatsappLink && t.whatsappLink !== '#' ? t.whatsappLink : 'https://wa.me/905312993355';
+  const primaryBtn = t.button ?? (isTr ? 'Ücretsiz Başla' : 'Get Started');
+  const whatsappBtn = t.whatsapp ?? (isTr ? 'WhatsApp ile Ulaşın' : 'Contact via WhatsApp');
+  const telegramText = (isTr ? 'veya Telegram üzerinden yazın' : 'or reach out on Telegram');
+  const telegramLink = TELEGRAM_URL;
+  const whatsappLink = t.whatsappLink && t.whatsappLink !== '#' ? t.whatsappLink : WHATSAPP_URL;
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#FF0033] via-[#CC0029] to-[#1A1A2E] py-20 md:py-28">

@@ -1,9 +1,10 @@
 'use client';
 
 import { ShieldCheck, BarChart2, Zap, Award, Headphones, Users, CheckCircle } from 'lucide-react';
+import type { Dictionary } from '@/lib/i18n/dictionaries';
 
 interface TrustBadgesProps {
-  dict?: any;
+  dict?: Dictionary;
   locale?: string;
 }
 
