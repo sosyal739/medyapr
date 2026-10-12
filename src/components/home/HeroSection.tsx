@@ -8,8 +8,6 @@ import {
   Play,
   Pause,
   ShieldCheck,
-  Zap,
-  Sparkles,
   Flame,
   TrendingUp,
   ThumbsUp,
@@ -17,7 +15,6 @@ import {
   MousePointerClick,
   Volume2,
   VolumeX,
-  Maximize2,
   Award,
   Users,
   MessageCircle,
@@ -299,268 +296,186 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* ── Sağ Kolon: Açık Tonlu Modern Sinematik Oynatıcı & Canlı Metrikler ── */}
+        {/* ── Sağ Kolon: Sesli Tanıtım Oynatıcı + Örnek Kampanya Metrikleri ── */}
         <div className="flex flex-1 justify-center animate-[fadeInUp_0.9s_ease-out_0.2s_both] w-full">
           <div className="relative w-full max-w-2xl">
-            {/* Ferah Ortam Işıltısı (Luminous Ambient Aura) */}
-            <div className="pointer-events-none absolute -inset-4 rounded-[36px] bg-gradient-to-r from-red-500/20 via-pink-400/20 to-sky-400/20 blur-3xl opacity-75" />
+            <div className="pointer-events-none absolute -inset-4 rounded-[36px] bg-gradient-to-r from-red-500/20 via-pink-400/10 to-sky-400/20 blur-3xl opacity-70" />
 
-            {/* ── Dış Çerçeve (Ultra-Modern Açık Ton / Frosted Glass Shell) ── */}
-            <div className="relative overflow-hidden rounded-[32px] border border-white/60 bg-gradient-to-b from-white/30 via-white/15 to-white/5 p-2 sm:p-2.5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] backdrop-blur-3xl ring-1 ring-white/50">
-              <div className="relative overflow-hidden rounded-[26px] bg-slate-950 shadow-inner">
-                {/* Video Ekranı (16:9 Sinematik Yatay) */}
-                <div className="relative aspect-[16/10] sm:aspect-video w-full overflow-hidden bg-slate-900 group select-none">
-                  {/* Sinematik Müzik Klibi / Sahne Arka Plan Görseli (Aydınlık & Canlı) */}
-                  <Image fill sizes="(min-width: 1024px) 560px, 100vw" preload
-                    src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=85"
-                    alt="YouTube Video Tanıtımı"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-95 contrast-105"
-                  />
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/85 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] backdrop-blur-xl">
+              {/* ── Video alanı: sade, görsel öne çıkar ── */}
+              <div className="group relative aspect-video w-full select-none overflow-hidden bg-slate-900">
+                <Image fill sizes="(min-width: 1024px) 560px, 100vw" preload
+                  src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=85"
+                  alt={isTr ? 'Konser sahnesi — YouTube klip tanıtımı' : 'Concert stage — YouTube video promotion'}
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/5 to-black/50" />
 
-                  {/* Şeffaf Aydınlık Gradyan (Ferah derinlik) */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-slate-900/30 pointer-events-none" />
-
-                  {/* ── Üst Bar: Açık Ton Rozetler & Ekolayzer ── */}
-                  <div className="absolute top-3.5 inset-x-3.5 sm:top-4 sm:inset-x-4 flex items-center justify-between z-20">
-                    {/* Resmi YouTube Kanalı Açık Rozeti */}
-                    <div className="flex items-center gap-2 rounded-full bg-white/95 backdrop-blur-xl px-3.5 py-1.5 border border-white/80 shadow-lg shadow-black/10">
-                      <div className="flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-tr from-[#FF0033] to-[#FF4D6D] text-[10px] font-black text-white shadow-xs">
-                        ▶
-                      </div>
-                      <span className="text-xs font-black text-zinc-900 tracking-tight">
-                        {isTr ? 'Resmi YouTube Kanalı' : 'Official YouTube Channel'}
-                      </span>
-                      <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-500 text-[9px] text-white font-bold">
-                        ✓
-                      </span>
-                      <span className="text-[10px] text-zinc-500 font-bold hidden sm:inline">
-                        {isTr ? '1.2M Abone' : '1.2M Subs'}
-                      </span>
-                    </div>
-
-                    {/* Canlı Reklam / Ses Yayını Rozeti & Ekolayzer */}
-                    <div className="flex items-center gap-2">
-                      {isPlaying ? (
-                        <div className="flex items-center gap-1.5 rounded-full bg-emerald-500 text-white px-3 py-1.5 text-[10px] font-black shadow-md shadow-emerald-500/30 animate-pulse">
-                          <Volume2 className="h-3 w-3" />
-                          {isTr ? 'SES ÇALIYOR' : 'AUDIO PLAYING'}
-                        </div>
-                      ) : (
-                        <div className="flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#FF0033] to-[#FF4D6D] text-white px-3 py-1.5 text-[10px] font-black shadow-md shadow-red-500/30">
-                          <span className="h-1.5 w-1.5 rounded-full bg-white animate-ping" />
-                          {isTr ? 'CANLI REKLAM' : 'LIVE CAMPAIGN'}
-                        </div>
-                      )}
-
-                      {/* Ses Dalgaları */}
-                      <div
-                        className="hidden sm:flex items-end gap-1 h-6 px-2.5 py-1 rounded-full bg-white/90 border border-white/80 shadow-md backdrop-blur-md"
-                        title={isTr ? 'Canlı Ses Akışı' : 'Live Audio Stream'}
-                      >
-                        <div className={`w-1 bg-[#FF0033] rounded-full ${isPlaying ? 'animate-eq-1' : 'h-1.5'}`} />
-                        <div className={`w-1 bg-[#FF5E7E] rounded-full ${isPlaying ? 'animate-eq-2' : 'h-2.5'}`} />
-                        <div className={`w-1 bg-zinc-900 rounded-full ${isPlaying ? 'animate-eq-3' : 'h-1'}`} />
-                        <div className={`w-1 bg-emerald-500 rounded-full ${isPlaying ? 'animate-eq-4' : 'h-2'}`} />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* ── Video Ortası: Aydınlık & Parlak Play Butonu ── */}
-                  <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
-                    <button
-                      type="button"
-                      onClick={togglePlay}
-                      className="pointer-events-auto group/btn relative flex flex-col items-center justify-center gap-2.5 transition-transform duration-300 hover:scale-110 active:scale-95 cursor-pointer select-none"
-                      title={isPlaying ? (isTr ? 'Durdur' : 'Pause') : (isTr ? 'Sesli Tanıtımı Başlat' : 'Play Audio Brief')}
-                    >
-                      <div className="relative flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-gradient-to-tr from-[#FF0033] via-[#FF2E55] to-[#FF6B6B] text-white shadow-[0_12px_35px_rgba(255,0,51,0.55)] border-4 border-white backdrop-blur-md">
-                        {isPlaying ? (
-                          <Pause className="h-7 w-7 sm:h-8 sm:w-8 fill-white" />
-                        ) : (
-                          <Play className="ml-1 h-7 w-7 sm:h-8 sm:w-8 fill-white" />
-                        )}
-                        {isPlaying && (
-                          <span className="absolute -inset-3 rounded-full border-2 border-white/80 animate-ping opacity-75 pointer-events-none" />
-                        )}
-                      </div>
-
-                      {!isPlaying && (
-                        <span className="rounded-full bg-white/95 border border-white px-4 py-1.5 text-[11px] font-black text-zinc-900 shadow-xl shadow-black/15 backdrop-blur-md flex items-center gap-1.5">
-                          <Volume2 className="h-3.5 w-3.5 text-[#FF0033]" />
-                          {isTr ? 'Sesli Anlatımı Dinle' : 'Listen to Audio Brief'}
-                        </span>
-                      )}
-                    </button>
-                  </div>
-
-                  {/* ── YATAY VİDEO ÜZERİNDE AÇIK TONLU MODERN METRİK KARTLARI ── */}
-
-                  {/* 1. KART: CANLI İZLENME (Açık Cam Efekti) */}
-                  <div className="absolute top-14 sm:top-16 left-3 sm:left-4 z-20 rounded-2xl border border-white/90 bg-white/92 p-3 sm:p-3.5 backdrop-blur-2xl shadow-xl shadow-black/15 transition-all hover:scale-105 max-w-[195px] sm:max-w-[215px]">
-                    <div className="flex items-center justify-between gap-1 text-[10px] font-black uppercase tracking-wider mb-1">
-                      <span className="flex items-center gap-1.5 text-emerald-700">
-                        <Eye className="h-3.5 w-3.5 text-emerald-600" />
-                        {isTr ? 'Canlı İzlenme' : 'Live Views'}
-                      </span>
-                      <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse shadow-sm shadow-emerald-500/50" />
-                    </div>
-
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="font-[family-name:var(--font-heading)] text-lg sm:text-2xl font-black tabular-nums tracking-tight text-zinc-950">
-                        {views.toLocaleString(isTr ? 'tr-TR' : 'en-US')}
-                      </span>
-                    </div>
-
-                    {recentViewBurst && (
-                      <div
-                        key={viewBurstKey}
-                        className="mt-1 inline-flex items-center gap-1 text-[10px] font-black text-emerald-800 bg-emerald-100/90 border border-emerald-300 px-2 py-0.5 rounded-full animate-bounce shadow-xs"
-                      >
-                        +{recentViewBurst} {isTr ? 'izlenme' : 'views'} 🚀
-                      </div>
-                    )}
-                  </div>
-
-                  {/* 2. KART: REKLAM TIKLAMASI & CTR (Açık Cam Efekti) */}
-                  <div className="absolute top-14 sm:top-16 right-3 sm:right-4 z-20 rounded-2xl border border-white/90 bg-white/92 p-3 sm:p-3.5 backdrop-blur-2xl shadow-xl shadow-black/15 transition-all hover:scale-105 max-w-[185px] sm:max-w-[205px] text-right sm:text-left">
-                    <div className="flex items-center justify-between sm:justify-start gap-1.5 text-[10px] font-black text-sky-800 uppercase tracking-wider mb-1">
-                      <MousePointerClick className="h-3.5 w-3.5 text-sky-600" />
-                      <span>{isTr ? 'Reklam Tıklaması' : 'Ad Clicks'}</span>
-                    </div>
-
-                    <div className="flex items-baseline justify-end sm:justify-start gap-1.5">
-                      <span className="font-[family-name:var(--font-heading)] text-lg sm:text-2xl font-black tabular-nums tracking-tight text-zinc-950">
-                        {clicks.toLocaleString(isTr ? 'tr-TR' : 'en-US')}
-                      </span>
-                      <span className="text-[10px] font-bold text-sky-600">{isTr ? 'tık' : 'clicks'}</span>
-                    </div>
-
-                    <div className="mt-1 flex items-center justify-end sm:justify-start gap-1.5">
-                      <span className="text-[10px] font-black text-sky-800 bg-sky-100/90 border border-sky-300 px-2 py-0.5 rounded-full shadow-xs">
-                        %8.6 CTR
-                      </span>
-                      {recentClickBurst && (
-                        <span
-                          key={clickBurstKey}
-                          className="text-[9px] font-black text-zinc-900 bg-white border border-slate-200 px-1.5 py-0.5 rounded-full animate-pulse shadow-xs"
-                        >
-                          +{recentClickBurst}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* 3. KART: ORGANİK BEĞENİ (Açık Cam Efekti) */}
-                  <div className="absolute bottom-16 sm:bottom-18 left-3 sm:left-4 z-20 rounded-2xl border border-white/90 bg-white/92 p-2.5 sm:p-3 backdrop-blur-2xl shadow-xl shadow-black/15 transition-all hover:scale-105">
-                    <div className="flex items-center gap-1.5 text-[10px] font-black text-rose-800 uppercase tracking-wider mb-0.5">
-                      <ThumbsUp className="h-3.5 w-3.5 text-rose-600" />
-                      <span>{isTr ? 'Organik Beğeni' : 'Organic Likes'}</span>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <span className="font-[family-name:var(--font-heading)] text-base sm:text-xl font-black tabular-nums text-zinc-950">
-                        {likes.toLocaleString(isTr ? 'tr-TR' : 'en-US')}
-                      </span>
-                      <span
-                        key={likeBurstKey}
-                        className="text-[10px] font-black text-rose-800 bg-rose-100/90 border border-rose-300 px-1.5 py-0.5 rounded-full shadow-xs"
-                      >
-                        ❤️ +1
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* 4. KART: ALGORİTMA SKORU (Açık Cam Efekti) */}
-                  <div className="absolute bottom-16 sm:bottom-18 right-3 sm:right-4 z-20 rounded-2xl border border-white/90 bg-white/92 p-2.5 sm:p-3 backdrop-blur-2xl shadow-xl shadow-black/15 transition-all hover:scale-105 text-right">
-                    <div className="flex items-center justify-end gap-1.5 text-[10px] font-black text-amber-800 uppercase tracking-wider mb-0.5">
-                      <TrendingUp className="h-3.5 w-3.5 text-amber-600" />
-                      <span>{isTr ? 'Algoritma Sinyali' : 'Algorithm Peak'}</span>
-                    </div>
-
-                    <div className="flex items-center justify-end gap-1.5">
-                      <span className="text-[10px] font-bold text-zinc-600">{isTr ? 'Önerilenler:' : 'Suggested:'}</span>
-                      <span className="font-[family-name:var(--font-heading)] text-base sm:text-lg font-black text-amber-700">
-                        {isTr ? '%94 Zirve' : '94% Peak'}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* ── Video Alt Kontrol Çubuğu (Açık Tonlu Lüks Scrubber) ── */}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white/95 via-white/80 to-transparent p-3 sm:p-4 pt-7 z-20 backdrop-blur-xs">
-                    <div className="flex items-center justify-between text-[11px] font-medium mb-1.5">
-                      <div className="flex items-center gap-2">
-                        <span className="font-extrabold tracking-tight text-xs sm:text-sm text-zinc-950">
-                          {isTr ? 'MedyaPR — Sesli Tanıtım & Hizmet Kapsamı' : 'MedyaPR — Audio Brief & Service Scope'}
-                        </span>
-                        <span className="rounded bg-zinc-900 px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white shadow-xs">
-                          {isTr ? 'RESMİ ADS' : 'OFFICIAL ADS'}
-                        </span>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <span className="text-zinc-700 tabular-nums font-mono text-[10px] sm:text-xs font-bold">
-                          {formatSec(currentTime)} / {formatSec(duration)}
-                        </span>
-
-                        {/* Ses Aç / Kapat Butonu */}
-                        <button
-                          type="button"
-                          onClick={toggleMute}
-                          className="p-1 text-zinc-700 hover:text-zinc-950 transition-colors cursor-pointer"
-                          title={isMuted ? (isTr ? 'Sesi Aç' : 'Unmute') : (isTr ? 'Sesi Kapat' : 'Mute')}
-                        >
-                          {isMuted ? (
-                            <VolumeX className="h-4 w-4 text-rose-600" />
-                          ) : (
-                            <Volume2 className="h-4 w-4" />
-                          )}
-                        </button>
-
-                        <Maximize2 className="h-3.5 w-3.5 text-zinc-500 hidden sm:block" />
-                      </div>
-                    </div>
-
-                    {/* Kırmızı YouTube Zaman İlerleme Çubuğu */}
-                    <div
-                      onClick={handleSeek}
-                      className="relative h-2 w-full rounded-full bg-slate-200/90 overflow-hidden cursor-pointer group/bar shadow-inner"
-                      title={isTr ? 'İlerletmek için tıkla' : 'Click to seek'}
-                    >
-                      <div
-                        className="h-full bg-gradient-to-r from-[#FF0033] via-[#FF4D6D] to-[#FF758F] rounded-full transition-all duration-150 relative"
-                        style={{ width: `${progressPercent}%` }}
-                      >
-                        <span className="absolute right-0 top-1/2 -translate-y-1/2 h-3.5 w-3.5 rounded-full bg-white shadow-md shadow-red-600/50 scale-100 group-hover/bar:scale-125 transition-transform border border-red-500/30" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* ── Video Altı Ferah Doğrulama Şeridi (Açık Ton, Lüks ve Güven Verici) ── */}
-                <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200/80 bg-white/95 px-5 py-3.5 text-xs backdrop-blur-xl">
-                  <div className="flex items-center gap-2 text-zinc-800">
-                    <ShieldCheck className="h-4.5 w-4.5 text-emerald-600 shrink-0" />
-                    <span className="font-semibold text-zinc-700">
-                      {isTr ? (
-                        <>Doğrulama: <strong className="text-zinc-950 font-extrabold">YouTube Studio &amp; Analytics</strong> %100 Resmi Reklam Kaynağı</>
-                      ) : (
-                        <>Verification: <strong className="text-zinc-950 font-extrabold">YouTube Studio &amp; Analytics</strong> 100% Official Ad Traffic</>
-                      )}
+                {/* Üst: marka + durum */}
+                <div className="absolute inset-x-3 top-3 z-20 flex items-center justify-between gap-2 sm:inset-x-4 sm:top-4">
+                  <div className="flex items-center gap-2 rounded-full bg-black/55 px-3 py-1.5 text-xs font-bold text-white ring-1 ring-white/15 backdrop-blur-md">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FF0033]">
+                      <Play className="ml-px h-2.5 w-2.5 fill-white text-white" />
                     </span>
+                    {isTr ? 'MedyaPR Sesli Tanıtım' : 'MedyaPR Audio Brief'}
                   </div>
 
-                  <div className="flex items-center gap-2 text-[11px] font-black text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full shadow-xs">
-                    <Sparkles className="h-3 w-3 text-emerald-600" />
-                    {isPlaying
-                      ? (isTr ? 'Sesli Anlatım Yayında 🔊' : 'Audio Brief Playing 🔊')
-                      : (isTr ? 'Canlı Kampanya Monitörü' : 'Live Campaign Monitor')}
+                  {isPlaying ? (
+                    <div className="flex items-center gap-2 rounded-full bg-emerald-500 px-3 py-1.5 text-[10px] font-black text-white shadow-md shadow-emerald-500/30">
+                      <span className="flex h-3.5 items-end gap-0.5" aria-hidden="true">
+                        <span className="w-0.5 rounded-full bg-white animate-eq-1" />
+                        <span className="w-0.5 rounded-full bg-white animate-eq-2" />
+                        <span className="w-0.5 rounded-full bg-white animate-eq-3" />
+                      </span>
+                      {isTr ? 'SES ÇALIYOR' : 'PLAYING'}
+                    </div>
+                  ) : (
+                    <div className="rounded-full bg-black/55 px-3 py-1.5 text-[10px] font-bold text-white/90 ring-1 ring-white/15 backdrop-blur-md">
+                      {isTr ? '00:46 • Dinleyin' : '00:46 • Listen'}
+                    </div>
+                  )}
+                </div>
+
+                {/* Orta: oynat */}
+                <div className="pointer-events-none absolute inset-0 z-30 flex items-center justify-center">
+                  <button
+                    type="button"
+                    onClick={togglePlay}
+                    aria-label={isPlaying ? (isTr ? 'Durdur' : 'Pause') : (isTr ? 'Sesli tanıtımı başlat' : 'Play audio brief')}
+                    className="pointer-events-auto relative flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-gradient-to-tr from-[#FF0033] to-[#FF5E7E] text-white shadow-[0_10px_35px_rgba(255,0,51,0.5)] ring-4 ring-white/80 transition-transform duration-300 hover:scale-110 active:scale-95 sm:h-20 sm:w-20"
+                  >
+                    {isPlaying ? <Pause className="h-7 w-7 fill-white sm:h-8 sm:w-8" /> : <Play className="ml-1 h-7 w-7 fill-white sm:h-8 sm:w-8" />}
+                    {isPlaying && <span className="pointer-events-none absolute -inset-3 animate-ping rounded-full border-2 border-white/70 opacity-70" />}
+                  </button>
+                </div>
+
+                {/* Alt: başlık, süre, ses, ilerleme */}
+                <div className="absolute inset-x-0 bottom-0 z-20 px-3 pb-3 pt-8 sm:px-4 sm:pb-4">
+                  <div className="mb-2 flex items-center justify-between gap-3">
+                    <span className="truncate text-xs font-extrabold text-white sm:text-sm">
+                      {isTr ? 'Hizmet kapsamı ve süreç anlatımı' : 'Service scope and process overview'}
+                    </span>
+                    <div className="flex shrink-0 items-center gap-3 text-white/90">
+                      <span className="font-mono text-[11px] font-bold tabular-nums">
+                        {formatSec(currentTime)} / {formatSec(duration)}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={toggleMute}
+                        className="cursor-pointer p-1 text-white/90 transition-colors hover:text-white"
+                        aria-label={isMuted ? (isTr ? 'Sesi aç' : 'Unmute') : (isTr ? 'Sesi kapat' : 'Mute')}
+                      >
+                        {isMuted ? <VolumeX className="h-4 w-4 text-rose-400" /> : <Volume2 className="h-4 w-4" />}
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    onClick={handleSeek}
+                    className="group/bar relative h-1.5 w-full cursor-pointer rounded-full bg-white/25 transition-[height] hover:h-2"
+                    title={isTr ? 'İlerletmek için tıklayın' : 'Click to seek'}
+                  >
+                    <div className="relative h-full rounded-full bg-gradient-to-r from-[#FF0033] to-[#FF758F] transition-all duration-150" style={{ width: `${progressPercent}%` }}>
+                      <span className="absolute right-0 top-1/2 h-3.5 w-3.5 -translate-y-1/2 rounded-full border border-red-500/30 bg-white shadow-md transition-transform group-hover/bar:scale-125" />
+                    </div>
                   </div>
                 </div>
+              </div>
+
+              {/* ── Örnek kampanya metrikleri: videonun üstünde değil, altında ayrı şerit ── */}
+              <div className="border-t border-white/10">
+                <div className="flex items-center justify-between px-4 pt-3 sm:px-5">
+                  <span className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-zinc-300">
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                    </span>
+                    {isTr ? 'Örnek Kampanya Paneli' : 'Sample Campaign Dashboard'}
+                  </span>
+                  <span className="text-[10px] font-medium text-zinc-500">{isTr ? 'Örnek veri' : 'Illustrative data'}</span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2.5 p-3 sm:grid-cols-4 sm:p-4">
+                  <Metric
+                    icon={<Eye className="h-3.5 w-3.5" />}
+                    tone="text-emerald-400"
+                    label={isTr ? 'İzlenme' : 'Views'}
+                    value={views.toLocaleString(isTr ? 'tr-TR' : 'en-US')}
+                    delta={recentViewBurst ? `+${recentViewBurst}` : undefined}
+                    deltaKey={viewBurstKey}
+                  />
+                  <Metric
+                    icon={<MousePointerClick className="h-3.5 w-3.5" />}
+                    tone="text-sky-400"
+                    label={isTr ? 'Reklam Tıkı' : 'Ad Clicks'}
+                    value={clicks.toLocaleString(isTr ? 'tr-TR' : 'en-US')}
+                    delta={recentClickBurst ? `+${recentClickBurst}` : undefined}
+                    deltaKey={clickBurstKey}
+                  />
+                  <Metric
+                    icon={<ThumbsUp className="h-3.5 w-3.5" />}
+                    tone="text-rose-400"
+                    label={isTr ? 'Beğeni' : 'Likes'}
+                    value={likes.toLocaleString(isTr ? 'tr-TR' : 'en-US')}
+                    delta="+1"
+                    deltaKey={likeBurstKey}
+                  />
+                  <Metric
+                    icon={<TrendingUp className="h-3.5 w-3.5" />}
+                    tone="text-amber-400"
+                    label={isTr ? 'Tıklama Oranı' : 'CTR'}
+                    value="%8.6"
+                  />
+                </div>
+              </div>
+
+              {/* ── Doğrulama şeridi ── */}
+              <div className="flex items-center gap-2 border-t border-white/10 bg-white/[0.03] px-4 py-3 text-xs text-zinc-300 sm:px-5">
+                <ShieldCheck className="h-4 w-4 shrink-0 text-emerald-400" />
+                <span>
+                  {isTr ? (
+                    <>Trafik <strong className="font-bold text-white">YouTube Studio &amp; Analytics</strong>&apos;te &ldquo;YouTube Reklamları&rdquo; olarak görünür.</>
+                  ) : (
+                    <>Traffic appears in <strong className="font-bold text-white">YouTube Studio &amp; Analytics</strong> as &ldquo;YouTube Ads&rdquo;.</>
+                  )}
+                </span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function Metric({
+  icon,
+  tone,
+  label,
+  value,
+  delta,
+  deltaKey,
+}: {
+  icon: React.ReactNode;
+  tone: string;
+  label: string;
+  value: string;
+  delta?: string;
+  deltaKey?: number;
+}) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-3">
+      <div className={`flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider ${tone}`}>
+        {icon}
+        {label}
+      </div>
+      <div className="mt-1.5 flex items-baseline gap-1.5">
+        <span className="font-[family-name:var(--font-heading)] text-lg font-black tabular-nums tracking-tight text-white sm:text-xl">{value}</span>
+        {delta && (
+          <span key={deltaKey} className={`text-[10px] font-bold ${tone} animate-[fadeInUp_0.4s_ease-out_both]`}>
+            {delta}
+          </span>
+        )}
+      </div>
+    </div>
   );
 }
