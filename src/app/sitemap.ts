@@ -2,7 +2,8 @@ import type { MetadataRoute } from 'next';
 import { getPosts, getArtists } from '@/lib/content';
 
 const BASE_URL = 'https://medyapr.com';
-const LOCALES = ['tr', 'en'] as const;
+// /en tam çevrilene kadar noindex; çeviri bitince 'en' ekle ve alternates'i geri aç.
+const LOCALES = ['tr'] as const;
 const STABLE_SITE_DATE = new Date('2026-10-10T08:00:00.000Z');
 
 function parseTurkishDate(dateStr?: string): Date {
@@ -51,13 +52,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: STABLE_SITE_DATE,
         changeFrequency: route === '' || route === '/trendler' ? 'daily' : 'weekly',
         priority: route === '' ? 1.0 : route === '/fiyatlandirma' || route === '/blog' ? 0.9 : 0.8,
-        alternates: {
-          languages: {
-            tr: `${BASE_URL}/tr${route}`,
-            en: `${BASE_URL}/en${route}`,
-            'x-default': `${BASE_URL}/tr${route}`,
-          },
-        },
       });
     }
   }
@@ -71,13 +65,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: postDate,
         changeFrequency: 'weekly',
         priority: 0.85,
-        alternates: {
-          languages: {
-            tr: `${BASE_URL}/tr/blog/${post.slug}`,
-            en: `${BASE_URL}/en/blog/${post.slug}`,
-            'x-default': `${BASE_URL}/tr/blog/${post.slug}`,
-          },
-        },
       });
     }
   }
@@ -90,13 +77,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: STABLE_SITE_DATE,
         changeFrequency: 'weekly',
         priority: 0.75,
-        alternates: {
-          languages: {
-            tr: `${BASE_URL}/tr/sanatci/${artist.slug}`,
-            en: `${BASE_URL}/en/sanatci/${artist.slug}`,
-            'x-default': `${BASE_URL}/tr/sanatci/${artist.slug}`,
-          },
-        },
       });
     }
   }

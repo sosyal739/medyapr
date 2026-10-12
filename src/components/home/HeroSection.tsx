@@ -30,6 +30,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ dict, locale }: HeroSectionProps) {
   const calcT = getAppStrings(locale).calc;
+  const isTr = locale === 'tr';
   // Ses ve Oynatıcı Ref & Durumları
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -164,7 +165,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
       {/* Floating Animated Badges (Top & Bottom) */}
       <div className="pointer-events-none absolute top-12 left-6 lg:left-24 z-20 hidden md:flex items-center gap-2.5 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-slow">
         <Flame className="h-4 w-4 text-[#FF0033] animate-pulse" />
-        <span>Canlı Algoritma: YouTube Trendleri</span>
+        <span>{isTr ? 'Canlı Algoritma: YouTube Trendleri' : 'Live Algorithm: YouTube Trends'}</span>
         <span className="text-emerald-400 font-semibold">(+490K / 24s)</span>
       </div>
 
@@ -173,9 +174,9 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00E5FF] opacity-75" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00E5FF]" />
         </span>
-        <span>Google Ads Video Altyapısı:</span>
+        <span>{isTr ? 'Google Ads Video Altyapısı:' : 'Google Ads Video Infrastructure:'}</span>
         <span className="rounded-full bg-cyan-500/20 px-2 py-0.5 text-cyan-300 font-extrabold">
-          %100 Gerçek İzleyici
+          {isTr ? '%100 Gerçek İzleyici' : '100% Real Viewers'}
         </span>
       </div>
 
@@ -185,20 +186,32 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
           {/* Badge */}
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#FF0033]/40 bg-[#FF0033]/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5E7E] backdrop-blur-md shadow-lg shadow-[#FF0033]/10">
             <Award className="h-3.5 w-3.5 text-[#FF0033]" />
-            18+ Yıllık Tecrübe • Resmi Google Partner Uzmanları
+            {isTr ? '18+ Yıllık Tecrübe • Resmi Google Partner Uzmanları' : '18+ Years Experience • Official Google Partner Specialists'}
           </div>
 
           {/* Title */}
           <h1 className="text-4xl font-black leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl text-white">
-            Videonuzu & Klibinizi{' '}
+            {isTr ? 'Klibinizi' : 'Put Your Video'}{' '}
             <span className="bg-gradient-to-r from-[#FF0033] via-[#FF5E7E] to-[#FF9E79] bg-clip-text text-transparent">
-              Doğru Kitleyle Buluşturun
+              {isTr ? 'Doğru Kitleye Ulaştırın' : 'In Front of the Right Audience'}
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
-            <strong className="text-white font-semibold">18 yılı aşkındır sektörde kesintisiz hizmet veriyor</strong>, Türkiye&apos;de ve dünyada birçok sanatçı, müzik grubu ve kurumsal marka ile çalışıyoruz. Tüm video ve klip tanıtım işlemleriniz sertifikalı <strong className="text-white font-semibold">Google İş Ortağı (Partner) uzmanlarımız</strong> tarafından ilgi alanı, dil ve konuma göre yönetilir. Bot veya panel asla kullanılmaz; trafik kaynağınız YouTube Analytics&apos;te <strong className="text-white font-semibold">&ldquo;YouTube Reklamları&rdquo;</strong> olarak doğrulanır.
+            {isTr ? (
+              <>
+                <strong className="text-white font-semibold">18 yıldır sektördeyiz.</strong> Klip tanıtımınız sertifikalı{' '}
+                <strong className="text-white font-semibold">Google Partner uzmanlarımızca</strong> yönetilir. Bot veya panel yok; trafik YouTube Analytics&apos;te{' '}
+                <strong className="text-white font-semibold">&ldquo;YouTube Reklamları&rdquo;</strong> olarak görünür.
+              </>
+            ) : (
+              <>
+                <strong className="text-white font-semibold">18 years in the industry.</strong> Your promotion is run by certified{' '}
+                <strong className="text-white font-semibold">Google Partner specialists</strong>. No bots or panels; traffic shows up in YouTube Analytics as{' '}
+                <strong className="text-white font-semibold">&ldquo;YouTube Ads&rdquo;</strong>.
+              </>
+            )}
           </p>
 
           {/* Action CTAs */}
@@ -207,7 +220,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
               href="#calculator"
               className="group relative inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-8 py-4 text-base font-extrabold text-white shadow-xl shadow-[#FF0033]/35 transition-all duration-300 hover:scale-105 hover:shadow-[#FF0033]/55"
             >
-              Fiyatı Hesapla & Sipariş Ver
+              {isTr ? 'Fiyatı Hesapla & Sipariş Ver' : 'Calculate Price & Order'}
               <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
 
@@ -229,12 +242,12 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
               {isPlaying ? (
                 <>
                   <Pause className="h-4 w-4 fill-white text-white" />
-                  Sesli Anlatımı Durdur
+                  {isTr ? 'Sesli Anlatımı Durdur' : 'Stop Audio'}
                 </>
               ) : (
                 <>
                   <Play className="h-4 w-4 fill-white text-white" />
-                  Sesli Anlatımı Dinle
+                  {isTr ? 'Sesli Anlatımı Dinle' : 'Listen to Audio'}
                 </>
               )}
             </button>

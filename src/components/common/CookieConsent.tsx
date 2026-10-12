@@ -30,12 +30,12 @@ export default function CookieConsent({ dict, locale }: CookieConsentProps) {
   useEffect(() => {
     setMounted(true);
 
+    let timer: ReturnType<typeof setTimeout> | undefined;
     try {
       const stored = localStorage.getItem('medyapr_cookie_consent');
       if (!stored) {
         // Small delay so page renders first without abrupt flash
-        const timer = setTimeout(() => setIsOpen(true), 700);
-        return () => clearTimeout(timer);
+        timer = setTimeout(() => setIsOpen(true), 1500);
       }
     } catch {
       // Fallback if localStorage is restricted
@@ -44,7 +44,10 @@ export default function CookieConsent({ dict, locale }: CookieConsentProps) {
 
     const handleOpen = () => setIsOpen(true);
     window.addEventListener('open-cookie-settings', handleOpen);
-    return () => window.removeEventListener('open-cookie-settings', handleOpen);
+    return () => {
+      if (timer) clearTimeout(timer);
+      window.removeEventListener('open-cookie-settings', handleOpen);
+    };
   }, []);
 
   const saveConsent = (type: 'all' | 'necessary' | 'declined') => {
@@ -97,9 +100,9 @@ export default function CookieConsent({ dict, locale }: CookieConsentProps) {
       aria-label={t.title}
       role="dialog"
       aria-modal="false"
-      className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-xl z-50 animate-in fade-in slide-in-from-bottom-5 duration-300"
+      className="fixed bottom-20 md:bottom-4 left-3 right-3 md:left-4 md:right-auto md:max-w-md z-50 animate-in fade-in slide-in-from-bottom-5 duration-300"
     >
-      <div className="relative rounded-2xl bg-zinc-950/95 border border-zinc-800/80 p-5 md:p-6 shadow-2xl shadow-black/80 backdrop-blur-2xl ring-1 ring-white/10">
+      <div className="relative rounded-2xl bg-zinc-950/95 border border-zinc-800/80 p-4 shadow-2xl shadow-black/80 backdrop-blur-2xl ring-1 ring-white/10">
         {/* Glow accent */}
         <div className="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#FF0033]/80 to-transparent" />
 
@@ -144,7 +147,7 @@ export default function CookieConsent({ dict, locale }: CookieConsentProps) {
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 pt-1 border-t border-zinc-800/60">
           <button
             onClick={() => saveConsent('declined')}
-            className="px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900 border border-transparent hover:border-zinc-800 transition-all text-center"
+            className="px-3.5 py-2 rounded-xl text-xs font-semibold text-zinc-200 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 transition-all text-center"
           >
             {t.decline}
           </button>

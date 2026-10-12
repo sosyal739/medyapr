@@ -149,7 +149,10 @@ export default async function HomePage({ params }: Props) {
       <ComparisonSection locale={locale} />
       <ServicesGrid dict={dict} />
       <HowItWorks dict={dict} />
-      <BlogPreviewSection posts={blogPosts} locale={locale} />
+      <BlogPreviewSection
+        posts={blogPosts.slice(0, 3).map((p) => ({ ...p, paragraphs: [], paragraphs_en: [], faqs: [], faqs_en: [], table: undefined, table_en: undefined }))}
+        locale={locale}
+      />
       <FAQSection dict={dict} locale={locale} />
     </>
   );
