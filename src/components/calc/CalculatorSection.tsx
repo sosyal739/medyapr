@@ -14,7 +14,7 @@ export default function CalculatorSection({ locale }: { locale: string }) {
       {/* Moving Floating Badges (Moving Objects) */}
       <div className="pointer-events-none absolute top-16 left-6 lg:left-16 z-20 hidden md:flex items-center gap-2.5 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-slow">
         <Sparkles className="h-4 w-4 text-amber-400" />
-        <span>{isTr ? 'FAST & Havale Anında Aktivasyon' : 'Fast Bank Transfer & Direct Activation'}</span>
+        <span>{isTr ? 'Teklifi İlet • Analiz Sonrası Onayda Başlar' : 'Submit Quote • Starts After Analysis & Approval'}</span>
       </div>
 
       <div className="pointer-events-none absolute bottom-16 right-6 lg:right-16 z-20 hidden md:flex items-center gap-2.5 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-reverse">

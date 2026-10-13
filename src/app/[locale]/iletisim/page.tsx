@@ -57,7 +57,7 @@ export default async function ContactPage({ params }: Props) {
         mainEntity: {
           '@type': 'Organization',
           name: 'MedyaPR',
-          telephone: '+90-531-299-3355',
+          url: `https://medyapr.com/${locale}/iletisim`,
           email: 'info@medyapr.com',
         },
       },

@@ -244,8 +244,8 @@
         "answer": "Google Ads ile gelen izlenmeler gerçek kullanıcılardan geldiği için kalıcıdır. Bot veya sahte izlenme kullanmıyoruz."
       },
       {
-        "question": "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
-        "answer": "Kredi kartı, banka kartı ve havale/EFT ile ödeme yapabilirsiniz. Yakında Stripe ile online ödeme de eklenecektir."
+        "question": "Neden online ödeme yok ve süreç nasıl ilerler?",
+        "answer": "Sitemizde otomatik online ödeme yoktur; tüm süreç WhatsApp ve Telegram üzerinden yazılı yürütülür. Teklifinizi iletin, videonuzu analiz edip detaylı dönüş yapalım; onay alınca işlem başlar. Fiyatlandırma video uzunluğuna göre değişebilir."
       },
       {
         "question": "Hedefleme yapabiliyor musunuz?",

@@ -265,22 +265,24 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
             <div className="text-xs text-zinc-300 text-center sm:text-left">
               💬 <strong className="text-white">
                 {isTr
-                  ? 'Özel klip lansman bütçeniz veya yapım şirketi anlaşmanız mı var?'
-                  : 'Have a custom music video launch budget or record label contract?'}
+                  ? 'Teklifinizi iletin, videonuzu analiz edip detaylı dönüş yapalım.'
+                  : 'Submit your quote; we will analyze your video and reply in detail.'}
               </strong>{' '}
-              {isTr ? 'Stratejistimizle doğrudan görüşün.' : 'Chat directly with our lead PR strategist.'}
+              {isTr
+                ? 'Onay alınca işlem başlar. Fiyatlandırma video uzunluğuna göre değişebilir.'
+                : 'Work begins upon approval. Pricing may vary based on video length.'}
             </div>
             <a
               href={`https://wa.me/905312993355?text=${encodeURIComponent(
                 isTr
-                  ? 'Merhaba, klip lansmanım ve YouTube trend paketleri hakkında bilgi almak istiyorum.'
-                  : 'Hello, I would like to get information regarding music video PR and YouTube trending campaign packages.'
+                  ? 'Merhaba, klip lansmanım için teklif iletmek ve detaylı analiz almak istiyorum.'
+                  : 'Hello, I would like to submit a quote and request a detailed analysis for my music video.'
               )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 px-5 py-2.5 text-xs font-bold text-white shadow-md transition"
             >
-              {isTr ? 'WhatsApp ile Danışın (+90 531 299 33 55)' : 'Chat on WhatsApp (+90 531 299 33 55)'}
+              {isTr ? 'WhatsApp ile Teklif İlet' : 'Send Quote on WhatsApp'}
             </a>
           </div>
         </div>

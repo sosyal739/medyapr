@@ -176,18 +176,18 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
 
   if (done) {
     const msg = isTr
-      ? `Merhaba, ${done.id} kodlu siparişimi onaylamak istiyorum.\nVideo: ${video?.title || url}\n${url}\nPaket: ${nf.format(q.views)} izlenme • ${pkgName} • ${c.regions[region].name}\nTutar: ${totalText}`
-      : `Hello, I'd like to confirm order ${done.id}.\nVideo: ${video?.title || url}\n${url}\nPackage: ${nf.format(q.views)} views • ${pkgName} • ${c.regions[region].name}\nTotal: ${totalText}`;
+      ? `Merhaba, ${done.id} kodlu teklifimi iletmek ve video analizi yaptırmak istiyorum.\nVideo: ${video?.title || url}\n${url}\nHedef: ${nf.format(q.views)} izlenme • ${pkgName} • ${c.regions[region].name}\nTahmini Tutar: ${totalText}`
+      : `Hello, I'd like to submit quote ${done.id} for video analysis.\nVideo: ${video?.title || url}\n${url}\nTarget: ${nf.format(q.views)} views • ${pkgName} • ${c.regions[region].name}\nEstimated Total: ${totalText}`;
     return (
       <div className="mx-auto max-w-2xl rounded-3xl border border-emerald-500/30 bg-studio-card p-6 text-center shadow-2xl backdrop-blur-xl sm:p-10">
         <CheckCircle2 className="mx-auto h-14 w-14 text-emerald-400" />
         <h2 className="mt-4 font-[family-name:var(--font-heading)] text-2xl font-extrabold text-white sm:text-3xl">
-          {isTr ? 'Siparişiniz alındı' : 'Your order is in'}
+          {isTr ? 'Teklif Talebiniz Alındı' : 'Your Quote Request Is In'}
         </h2>
-        <p className="mt-2 text-sm text-zinc-300">
+        <p className="mt-2 text-sm text-zinc-300 leading-relaxed">
           {isTr
-            ? 'Son adım: siparişinizi WhatsApp veya Telegram üzerinden onaylayın. Ödeme bilgisi oradan iletilir.'
-            : 'Last step: confirm your order on WhatsApp or Telegram. Payment details are shared there.'}
+            ? 'Sitemizde online ödeme bulunmamaktadır. Videonuzu (süre, içerik ve Google Ads uygunluğu açısından) analiz edip size detaylı dönüş yapabilmemiz için lütfen WhatsApp veya Telegram üzerinden teklifinizi iletin. Onay alınca işlem başlar.'
+            : 'There is no online payment on our site. Please reach out on WhatsApp or Telegram below so we can analyze your video (duration, content, and Google Ads compliance) and reply in detail. Work begins upon approval.'}
         </p>
 
         <div className="mt-6 inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-3">
@@ -212,7 +212,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-5 py-4 font-bold text-white shadow-lg shadow-emerald-900/40 transition hover:bg-emerald-500"
           >
-            <MessageCircle className="h-5 w-5" /> {isTr ? 'WhatsApp ile Onayla' : 'Confirm on WhatsApp'}
+            <MessageCircle className="h-5 w-5" /> {isTr ? 'WhatsApp ile Teklifi İlet' : 'Send Quote on WhatsApp'}
           </a>
           <a
             href={TELEGRAM_URL}
@@ -220,11 +220,13 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-2xl bg-sky-600 px-5 py-4 font-bold text-white shadow-lg shadow-sky-900/40 transition hover:bg-sky-500"
           >
-            <Send className="h-5 w-5" /> {isTr ? 'Telegram ile Onayla' : 'Confirm on Telegram'}
+            <Send className="h-5 w-5" /> {isTr ? 'Telegram ile Teklifi İlet' : 'Send Quote on Telegram'}
           </a>
         </div>
-        <p className="mt-3 text-xs text-zinc-500">
-          {isTr ? 'Telegram\'da sipariş kodunuzu yazmanız yeterli.' : 'On Telegram, just send your order code.'}
+        <p className="mt-3 text-xs text-zinc-400">
+          {isTr
+            ? '* Fiyatlandırma standart klip süreleri baz alınarak hesaplanmıştır; video uzunluğuna göre değişebilir.'
+            : '* Pricing is estimated for standard durations and may vary based on video length.'}
         </p>
 
         <dl className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-left text-sm">
@@ -238,7 +240,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           href={`/${locale}/track/${done.id}`}
           className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#FF6B7A] hover:underline"
         >
-          {isTr ? 'Sipariş takip sayfası' : 'Order tracking page'} <ArrowRight className="h-4 w-4" />
+          {isTr ? 'Teklif & kampanya takip sayfası' : 'Quote & campaign tracking page'} <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
     );
@@ -382,7 +384,15 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
         </Step>
 
         {/* ── 3. İletişim ── */}
-        <Step n={3} title={isTr ? 'Size nasıl ulaşalım?' : 'How do we reach you?'} dim={!videoReady}>
+        <Step n={3} title={isTr ? 'Size nasıl ulaşalım? (WhatsApp / Telegram)' : 'How do we reach you? (WhatsApp / Telegram)'} dim={!videoReady}>
+          <div className="mb-4 rounded-2xl border border-blue-500/25 bg-blue-500/[0.06] p-3.5 text-xs leading-relaxed text-zinc-300">
+            <strong className="text-white">
+              {isTr ? 'Neden sesli çağrı hattı veya online ödeme yok?' : 'Why no voice call line or online payment?'}
+            </strong>{' '}
+            {isTr
+              ? 'Her YouTube videosu; süresi, içeriği ve Google Ads reklam politikalarına uygunluğu açısından uzmanlarımızca yazılı olarak incelenir. Teklifinizi iletin, videonuzu analiz edip size WhatsApp veya Telegram üzerinden detaylı dönüş yapalım; onay alınca işlem başlar.'
+              : 'Every YouTube video must be inspected in writing for runtime, content, and Google Ads policy compliance. Submit your quote; we will analyze your video and reply in detail on WhatsApp or Telegram. Work begins upon approval.'}
+          </div>
           <div className="grid gap-3 sm:grid-cols-2">
             <div>
               <label htmlFor="w-name" className="mb-1.5 block text-xs font-semibold text-white/80">{isTr ? 'Ad / Sanatçı adı' : 'Name / Artist name'}</label>
@@ -444,6 +454,11 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           <span className="text-sm text-white/60">{c.total}</span>
           <span className="font-[family-name:var(--font-heading)] text-3xl font-extrabold tabular-nums">{totalText}</span>
         </div>
+        <p className="mt-1.5 text-[11px] font-semibold text-amber-300/90">
+          {isTr
+            ? '* Fiyatlandırma video uzunluğuna göre değişebilir.'
+            : '* Pricing may vary based on video length.'}
+        </p>
         {q.discountRate > 0 && (
           <p className="mt-1 text-right text-xs font-bold text-emerald-400">
             {isTr ? `%${Math.round(q.discountRate * 100)} hacim indirimi dahil` : `${Math.round(q.discountRate * 100)}% volume discount included`}
@@ -452,7 +467,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
 
         <div className="mt-4 space-y-1.5 rounded-2xl border border-white/10 bg-white/[0.03] p-3 text-xs">
           <div className="flex justify-between text-zinc-300">
-            <span>{isTr ? 'Reklam onayında (%50)' : 'On ad approval (50%)'}</span>
+            <span>{isTr ? 'Onay alınca başlar (%50)' : 'Starts on approval (50%)'}</span>
             <span className="font-bold text-emerald-400">{formatMoney(Math.round(q.total / 2), currency, locale)}</span>
           </div>
           <div className="flex justify-between text-zinc-300">
@@ -468,7 +483,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           disabled={!ready || busy}
           className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-6 py-4 text-base font-extrabold text-white shadow-xl shadow-red-500/25 transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100"
         >
-          {busy ? <><Loader2 className="h-5 w-5 animate-spin" /> {t.order.submitting}</> : <>{isTr ? 'Siparişi Gönder' : 'Place Order'} <ArrowRight className="h-5 w-5" /></>}
+          {busy ? <><Loader2 className="h-5 w-5 animate-spin" /> {t.order.submitting}</> : <>{isTr ? 'Teklifi İlet & Analiz İste' : 'Submit Quote & Request Analysis'} <ArrowRight className="h-5 w-5" /></>}
         </button>
         {!ready && !busy && (
           <p className="mt-2 text-center text-[11px] text-zinc-500">
@@ -477,9 +492,9 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
               : isTr ? 'Ad, iletişim ve onay kutusunu doldurun.' : 'Fill in name, contact and accept the terms.'}
           </p>
         )}
-        <p className="mt-4 flex items-center justify-center gap-1.5 text-[11px] text-white/50">
-          <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
-          {isTr ? 'Ödeme şimdi alınmaz • Reklam onayında %50' : 'No payment now • 50% on ad approval'}
+        <p className="mt-4 flex items-center justify-center gap-1.5 text-center text-[11px] text-white/60">
+          <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-emerald-400" />
+          {isTr ? 'Online ödeme yoktur • Analiz sonrası onay alınca işlem başlar' : 'No online payment • Starts after analysis & approval'}
         </p>
       </aside>
     </form>

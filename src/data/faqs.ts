@@ -5,16 +5,20 @@ export interface FAQItem {
 
 export const FAQS_TR: FAQItem[] = [
   {
-    question: 'Süreç nasıl işliyor ve ödeme ne zaman alınır?',
-    answer: 'Süreç 3 güvenli adımda ilerler: 1) Video linkiniz paylaşılır (şifre veya kanal yetkisi asla istenmez). 2) Ekibimiz videoyu analiz edip resmi Google Ads / YouTube reklam onayına gönderir. 3) Videonuz reklam için onaylanınca ödemenin yarısı (%50), kampanya başarıyla tamamlandığında ise tamamı (%50) alınır. Kurumsal müşteriler ve ajanslar için ödeme doğrudan iş bitiminde alınmaktadır.',
+    question: 'Neden sitemizde online ödeme veya sesli telefon hattı yok? Süreç nasıl işliyor?',
+    answer: 'Her YouTube videosunun reklam maliyeti ve uygunluğu; videonun uzunluğuna, içeriğine ve Google Ads politikalarına göre değişir. Sesli görüşmede video linki teknik olarak incelenemediği ve onay öncesi otomatik tahsilat yapılmadığı için sitemizde online ödeme veya çağrı merkezi bulunmaz; tüm iletişim WhatsApp ve Telegram üzerinden yazılı yürütülür. Teklifinizi iletin, videonuzu analiz edip detaylı dönüş yapalım; onay alınca işlem başlar.',
+  },
+  {
+    question: 'Fiyatlandırma videonun uzunluğuna göre değişebilir mi?',
+    answer: 'Evet, fiyatlandırma video uzunluğuna göre değişebilir. Sitemizdeki hesaplayıcı tutarları standart klip ve video süreleri baz alınarak hazırlanmıştır. Google Ads açık artırma maliyetleri süreye göre değiştiği için, videonuz analiz edildikten sonra süresine ve hedef kitlesine göre nihai teklif tarafınıza detaylı olarak iletilir.',
+  },
+  {
+    question: 'Ödeme ne zaman ve nasıl yapılır?',
+    answer: 'Sitemizde kredi kartıyla otomatik online ödeme yoktur. Teklifinizi ilettikten sonra uzmanlarımız videonuzu inceler ve detaylı dönüş yapar. Videonuz Google Ads reklam onayından geçtiğinde ödemenin yarısı (%50), kampanya tamamlandığında ise kalanı (%50) alınır. Kurumsal müşteriler ve yapım şirketleri için ödeme iş bitimindedir.',
   },
   {
     question: 'Kampanyaları kim yönetiyor ve sektördeki tecrübeniz nedir?',
     answer: 'MedyaPR olarak 18 yılı aşkındır sektörde kesintisiz hizmet vermekteyiz. Bugüne kadar Türkiye\'de ve dünyanın dört bir yanında sayısız ünlü sanatçı, bağımsız müzisyen, yapım şirketi ve kurumsal marka ile çalıştık. Tüm video ve klip tanıtım işlemleriniz, alanında sertifikalı resmi Google İş Ortağı (Partner) uzmanlarımız tarafından bizzat kurgulanmakta ve yönetilmektedir.',
-  },
-  {
-    question: 'Fiyatlar videonun uzunluğuna göre değişiklik gösterir mi?',
-    answer: 'Evet. Sitemizdeki hesaplayıcı tutarları standart video uzunlukları baz alınarak listelenmiştir. Google Ads reklam açık artırma maliyetleri süreye göre değiştiği için nihai fiyat; videonun uzunluğuna, hedef kitle kriterlerine ve seçilen reklam formatına göre esneklik gösterebilir.',
   },
   {
     question: 'İzlenmeler YouTube Studio / Analytics panelimde nasıl görünecek?',
@@ -40,24 +44,24 @@ export const FAQS_TR: FAQItem[] = [
     question: 'İzlenmeler sonradan silinir mi veya düşüş yaşanır mı?',
     answer: 'Asla düşmez. Bot panelleri sahte trafik gönderdiği için YouTube belirli aralıklarla bunları temizler. Bizim sunduğumuz izlenmeler Google Ads reklam gösterimi olduğu için YouTube tarafından onaylı ve kalıcıdır. Ayrıca gerçek izleyicilerden doğal beğeni, yorum ve kanal aboneliği fırsatı oluşur.',
   },
-  {
-    question: 'Ödemeyi nasıl yapabilirim? Kart şart mı?',
-    answer: 'Hayır, kredi kartı şart değildir. Siparişinizi oluşturduktan sonra ekranda ve sipariş sayfanızda çıkan IBAN adresimize Havale / EFT / FAST ile ödeme yapabilirsiniz. Videonuz onaylandığında %50, iş bitiminde kalanı ödenir (Kurumsal müşteriler için tüm ödeme iş bitimindedir).',
-  },
 ];
 
 export const FAQS_EN: FAQItem[] = [
   {
-    question: 'How does the process work and when is payment collected?',
-    answer: 'Three transparent steps: 1) Share your video link (no passwords or channel access needed). 2) Our team audits the video and submits it to official Google Ads approval. 3) Once approved by Google, 50% is collected; the remaining 50% upon successful completion. For corporate accounts and record labels, payment is collected upon job completion.',
+    question: 'Why is there no online payment or voice call line on the site? How does it work?',
+    answer: 'Every YouTube video varies in duration, content, and Google Ads policy eligibility. Because video links cannot be technically inspected over a phone call and we never charge before pre-analysis, we do not use automated online checkout or call centers; all communication runs in writing via WhatsApp and Telegram. Submit your quote, we will analyze your video and reply in detail; work begins upon approval.',
+  },
+  {
+    question: 'Can pricing vary depending on video length?',
+    answer: 'Yes, pricing may vary based on video length. Calculator amounts reflect standard music video durations. Because Google Ads auction costs depend on video runtime, our team analyzes your video and shares the exact detailed quote with you via WhatsApp or Telegram.',
+  },
+  {
+    question: 'When and how is payment made?',
+    answer: 'There is no automated credit card checkout on our website. Once you submit your quote and our team analyzes your video, work begins upon Google Ads approval: 50% is collected upon approval and 50% upon completion (100% upon completion for verified corporate clients).',
   },
   {
     question: 'Who manages the campaigns and what is your industry experience?',
     answer: 'With over 18 years of uninterrupted experience, MedyaPR has partnered with leading record labels, independent musicians, and corporate brands in Turkey and worldwide. Every campaign is directly planned and operated by certified official Google Partner advertising specialists.',
-  },
-  {
-    question: 'Does the price vary based on video duration?',
-    answer: 'Yes. The prices on our calculator reflect standard music video durations. Because Google Ads auction costs vary with length and target demographics, final pricing may adjust slightly according to duration, regional depth, and selected ad formats.',
   },
   {
     question: 'How will the views appear in YouTube Studio / Analytics?',
@@ -83,12 +87,9 @@ export const FAQS_EN: FAQItem[] = [
     question: 'Will views drop or get deleted later?',
     answer: 'Never. Unlike fake bot panels that YouTube periodically cleanses, Google Ads impressions are permanently recorded by YouTube algorithms and bring genuine engagement, likes, and subscribers.',
   },
-  {
-    question: 'How do I pay? Is a credit card mandatory?',
-    answer: 'No credit card is required. You can pay via Bank Transfer / FAST / IBAN directly after creating your order. 50% upon Google Ads approval, 50% upon completion (100% upon completion for verified corporate clients).',
-  },
 ];
 
 export function getFaqs(locale: string = 'tr'): FAQItem[] {
   return locale === 'en' ? FAQS_EN : FAQS_TR;
 }
+

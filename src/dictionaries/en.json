@@ -244,8 +244,8 @@
         "answer": "Views from Google Ads come from real users, so they are permanent. We do not use bots or fake views."
       },
       {
-        "question": "What payment methods do you accept?",
-        "answer": "You can pay with credit card, debit card, and bank transfer. Online payment via Stripe will also be available soon."
+        "question": "Why is there no online checkout and how does it work?",
+        "answer": "We do not use automated online checkout; all communication runs via WhatsApp and Telegram. Submit your quote, we will analyze your video and reply in detail; work begins upon approval. Pricing may vary based on video length."
       },
       {
         "question": "Can you do audience targeting?",

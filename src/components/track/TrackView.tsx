@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { Check, Copy, ExternalLink, Banknote, Hourglass, ShieldCheck, Sparkles, MessageCircle } from 'lucide-react';
+import { Check, Copy, ExternalLink, Hourglass, ShieldCheck, Sparkles, MessageCircle, Send } from 'lucide-react';
 import { formatMoney } from '@/lib/pricing';
+import { TELEGRAM_URL } from '@/lib/contact';
 import type { AppStrings } from '@/lib/i18n/app-strings';
 import type { DailyStat, OrderStatus } from '@/lib/store';
 
@@ -25,18 +26,18 @@ export type PublicOrder = {
 const STEPS: OrderStatus[] = ['payment_review', 'queued', 'running', 'completed'];
 
 const STATUS_LABELS_TR: Record<OrderStatus, string> = {
-  pending_payment: 'Ödeme Bekleniyor',
-  payment_review: 'Ödeme İnceleniyor',
-  queued: 'Kampanya Hazırlanıyor',
+  pending_payment: 'Analiz & Onay Bekleniyor',
+  payment_review: 'Google Ads Onay İncelemesinde',
+  queued: 'Onaylandı — Kampanya Hazırlanıyor',
   running: 'Google Ads Yayında',
   completed: 'Tamamlandı',
   cancelled: 'İptal Edildi',
 };
 
 const STATUS_LABELS_EN: Record<OrderStatus, string> = {
-  pending_payment: 'Payment Pending',
-  payment_review: 'Payment Under Review',
-  queued: 'Preparing Campaign',
+  pending_payment: 'Awaiting Analysis & Approval',
+  payment_review: 'In Google Ads Approval Review',
+  queued: 'Approved — Preparing Campaign',
   running: 'Google Ads Active',
   completed: 'Completed',
   cancelled: 'Cancelled',
@@ -55,7 +56,6 @@ export default function TrackView({
 }) {
   const [o, setO] = useState(initial);
   const [copiedCode, setCopiedCode] = useState(false);
-  const [copiedIban, setCopiedIban] = useState(false);
   const isTr = locale === 'tr';
   const nf = new Intl.NumberFormat(isTr ? 'tr-TR' : 'en-US');
   const statusLabels = isTr ? STATUS_LABELS_TR : STATUS_LABELS_EN;
@@ -82,17 +82,9 @@ export default function TrackView({
     } catch {}
   };
 
-  const copyIban = async () => {
-    try {
-      await navigator.clipboard.writeText('TR000000000000000000000000');
-      setCopiedIban(true);
-      setTimeout(() => setCopiedIban(false), 2000);
-    } catch {}
-  };
-
   const waText = isTr
-    ? encodeURIComponent(`Merhaba, MedyaPR üzerinden ${o.id} kodlu siparişim için ödeme dekontunu iletiyorum. Video Linkim: ${o.videoUrl}`)
-    : encodeURIComponent(`Hello, I am sending the payment receipt for my MedyaPR order ${o.id}. Video Link: ${o.videoUrl}`);
+    ? encodeURIComponent(`Merhaba, MedyaPR üzerinden ${o.id} kodlu teklifim için video analizi ve onay sürecini başlatmak istiyorum. Video Linkim: ${o.videoUrl}`)
+    : encodeURIComponent(`Hello, I would like to start the video analysis and approval process for my MedyaPR quote ${o.id}. Video Link: ${o.videoUrl}`);
 
   return (
     <div className="space-y-8 text-white">
@@ -101,8 +93,8 @@ export default function TrackView({
           <Sparkles className="h-5 w-5 shrink-0 text-emerald-400" />
           <span>
             {isTr
-              ? 'Tebrikler! Siparişiniz başarıyla oluşturuldu. Bu sayfanın bağlantısını saklayın; tüm kampanya sürecini anlık buradan takip edeceksiniz.'
-              : 'Congratulations! Your order was created. Bookmark this URL to track progress in real-time.'}
+              ? 'Teklif talebiniz başarıyla oluşturuldu! Bu sayfanın bağlantısını saklayın; analiz, onay ve kampanya sürecini buradan anlık takip edebilirsiniz.'
+              : 'Your quote request was created! Bookmark this URL to track analysis, approval, and campaign progress in real-time.'}
           </span>
         </div>
       )}
@@ -121,7 +113,7 @@ export default function TrackView({
 
           <div>
             <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-400">
-              {isTr ? 'Sipariş Takip Kodu' : 'Order Tracking Code'}
+              {isTr ? 'Teklif & Takip Kodu' : 'Quote & Tracking Code'}
             </div>
             <div className="mt-1 flex items-center gap-2">
               <span className="font-mono text-2xl font-black text-white tracking-wide">{o.id}</span>
@@ -189,67 +181,54 @@ export default function TrackView({
         </ol>
       </div>
 
-      {/* Bank Transfer Instructions Box (When Payment is Pending) */}
+      {/* Analysis & WhatsApp / Telegram Confirmation Box */}
       {waitingPay && (
-        <div className="relative overflow-hidden rounded-3xl border border-amber-500/40 bg-studio-card p-6 md:p-8 backdrop-blur-xl shadow-2xl">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 rounded-full bg-amber-500/20 px-3 py-1 text-xs font-bold text-amber-300">
-                <Banknote className="h-4 w-4 text-amber-400" />
-                {isTr ? 'Havale / FAST Ödeme Bilgileri' : 'Wire / Bank Transfer Details'}
+        <div className="relative overflow-hidden rounded-3xl border border-emerald-500/40 bg-studio-card p-6 md:p-8 backdrop-blur-xl shadow-2xl">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+            <div className="space-y-2.5 max-w-2xl">
+              <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-bold text-emerald-300">
+                <ShieldCheck className="h-4 w-4 text-emerald-400" />
+                {isTr ? 'Online Ödeme Yoktur • WhatsApp & Telegram İletişim' : 'No Online Checkout • WhatsApp & Telegram Support'}
               </div>
               <h4 className="text-xl font-extrabold text-white">
-                {isTr ? 'Ödenecek Tutar:' : 'Amount Due:'}{' '}
+                {isTr ? 'Tahmini Teklif Tutarı:' : 'Estimated Quote:'}{' '}
                 <span className="text-[#FF6B6B]">{formatMoney(o.total, o.currency, locale)}</span>
               </h4>
               {isTr ? (
-                <p className="text-xs text-zinc-300 max-w-xl leading-relaxed">
-                  Ödemenizi aşağıdaki IBAN adresine gönderip açıklama kısmına{' '}
-                  <strong className="text-white font-mono bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700/60">{o.id}</strong>{' '}
-                  kodunuzu yazınız. Ardından dekontunuzu WhatsApp üzerinden iletebilirsiniz.
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  Sitemizde otomatik online ödeme veya sesli çağrı merkezi bulunmamaktadır. İlettiğiniz video linki;{' '}
+                  <strong className="text-white">video uzunluğu, hedef kitle ve Google Ads reklam politikalarına uygunluk</strong>{' '}
+                  açısından incelenmektedir. Teklif kodunuzu (<strong className="text-white font-mono bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700/60">{o.id}</strong>) WhatsApp veya Telegram üzerinden bize iletin; analiz edip detaylı dönüş yapalım. Onay alınca işleminiz başlar.{' '}
+                  <span className="text-amber-300 font-semibold">(Fiyatlandırma video uzunluğuna göre değişebilir.)</span>
                 </p>
               ) : (
-                <p className="text-xs text-zinc-300 max-w-xl leading-relaxed">
-                  Transfer payment to the IBAN below, specifying your tracking code{' '}
-                  <strong className="text-white font-mono bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700/60">{o.id}</strong>{' '}
-                  in the description. Then submit your receipt via WhatsApp.
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  We do not use automated online checkout or voice call centers. Your video link is inspected for{' '}
+                  <strong className="text-white">runtime, target audience, and Google Ads policy compliance</strong>. Send your quote code (<strong className="text-white font-mono bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700/60">{o.id}</strong>) via WhatsApp or Telegram below; we will analyze your video and reply in detail. Work begins upon approval.{' '}
+                  <span className="text-amber-300 font-semibold">(Pricing may vary based on video length.)</span>
                 </p>
               )}
             </div>
 
-            <a
-              href={`https://wa.me/905312993355?text=${waText}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-[#25D366] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#25D366]/30 hover:scale-105 transition"
-            >
-              <MessageCircle className="h-5 w-5" />
-              {isTr ? 'WhatsApp ile Dekont İlet' : 'Send Receipt via WhatsApp'}
-            </a>
-          </div>
-
-          <div className="mt-6 grid gap-4 sm:grid-cols-3 border-t border-studio pt-6 text-xs">
-            <div className="rounded-xl border border-studio bg-zinc-900/60 p-3">
-              <span className="text-zinc-400 block">{isTr ? 'Banka / Alıcı' : 'Bank / Beneficiary'}</span>
-              <span className="font-bold text-white mt-1 block">{isTr ? 'Ziraat Bankası / [DOLDURULACAK]' : 'Ziraat Bank / [TO BE FILLED]'}</span>
-            </div>
-            <div className="rounded-xl border border-studio bg-zinc-900/60 p-3">
-              <span className="text-zinc-400 block">{isTr ? 'IBAN Numarası' : 'IBAN Number'}</span>
-              <div className="flex items-center justify-between mt-1">
-                <span className="font-mono font-bold text-white">TR00 0000 0000 0000 0000 00</span>
-                <button onClick={copyIban} className="text-zinc-400 hover:text-white" title={isTr ? 'IBAN Kopyala' : 'Copy IBAN'}>
-                  {copiedIban ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
-                </button>
-              </div>
-            </div>
-            <div className="rounded-xl border border-studio bg-zinc-900/60 p-3">
-              <span className="text-zinc-400 block">{isTr ? 'Açıklamaya Yazılacak Kod' : 'Reference / Description Code'}</span>
-              <div className="flex items-center justify-between mt-1">
-                <span className="font-mono font-bold text-[#FF6B6B]">{o.id}</span>
-                <button onClick={copyCode} className="text-zinc-400 hover:text-white" title={isTr ? 'Kodu Kopyala' : 'Copy Code'}>
-                  {copiedCode ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
-                </button>
-              </div>
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-auto shrink-0">
+              <a
+                href={`https://wa.me/905312993355?text=${waText}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#25D366]/30 hover:scale-105 transition"
+              >
+                <MessageCircle className="h-5 w-5" />
+                {isTr ? 'WhatsApp ile Teklifi İlet' : 'Send Quote on WhatsApp'}
+              </a>
+              <a
+                href={TELEGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-sky-600 px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-sky-600/30 hover:scale-105 transition"
+              >
+                <Send className="h-5 w-5" />
+                {isTr ? 'Telegram ile Teklifi İlet' : 'Send Quote on Telegram'}
+              </a>
             </div>
           </div>
         </div>

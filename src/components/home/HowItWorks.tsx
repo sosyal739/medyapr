@@ -14,26 +14,26 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
   const steps = [
     {
       step: '01',
-      title: isTr ? 'Video Linki Paylaşılır' : 'Share Video Link',
+      title: isTr ? 'Teklifinizi & Video Linkinizi İletin' : 'Submit Your Quote & Video Link',
       description: isTr
-        ? 'Şifre veya kanal yetkisi gerekmez; yalnızca YouTube video linkinizi bizimle paylaşırsınız. İlgi alanı, dil ve konuma göre hedef kitleniz belirlenir.'
-        : 'No passwords or channel access required. Simply share your YouTube video link with your audience criteria.',
+        ? 'Sitemizde online ödeme veya sesli çağrı hattı yoktur; şifre istenmez. Video linkinizi ve hedef izlenmenizi teklif formumuzdan, WhatsApp veya Telegram üzerinden bize iletin.'
+        : 'No online checkout or voice call center; no passwords required. Share your video link and target views via our quote form, WhatsApp, or Telegram.',
       icon: Play,
     },
     {
       step: '02',
-      title: isTr ? 'Google Partner Analizi & Onay' : 'Google Partner Analysis & Approval',
+      title: isTr ? 'Analiz Edip Detaylı Dönüş Yapalım' : 'Video Analysis & Detailed Reply',
       description: isTr
-        ? '18+ yıllık tecrübeli resmi Google Partner uzmanlarımız videonuzu analiz eder, reklam politikalarına tam uyum sağlayarak resmi onay sürecine gönderir.'
-        : 'Our certified Google Partner specialists with 18+ years of expertise analyze your video and submit it for official ad approval.',
+        ? '18+ yıllık tecrübeli Google Partner uzmanlarımız videonuzun süresini, içeriğini ve Google Ads uygunluğunu analiz edip size yazılı ve detaylı dönüş yapar. (Fiyatlandırma video uzunluğuna göre değişebilir.)'
+        : 'Our certified Google Partner specialists analyze your video duration, content, and Google Ads compliance, then send you a detailed written reply. (Pricing may vary based on video length.)',
       icon: Sparkles,
     },
     {
       step: '03',
-      title: isTr ? '%50 Onayda, %50 Bitince Ödeme' : '50% On Approval, 50% On Completion',
+      title: isTr ? 'Onay Alınca İşlem Başlar' : 'Work Begins Upon Approval',
       description: isTr
-        ? 'Videonuz reklam için onaylanınca ödemenin yarısı (%50), kampanya başarıyla tamamlanıp izlenmeler panelinize yansıyınca tamamı alınır.'
-        : '50% payment is collected when your video is officially approved, and the remaining 50% upon 100% campaign completion.',
+        ? 'Detaylar üzerinde mutabık kalınıp videonuz Google Ads reklam onayından geçtiğinde işleminiz başlar. %50 onayda, %50 iş bitiminde güvenli ödeme modeli uygulanır.'
+        : 'Once details are confirmed and your video passes Google Ads approval, your campaign begins. Phased payment: 50% on approval, 50% upon completion.',
       icon: CreditCard,
     },
   ];
@@ -47,14 +47,14 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
       {/* Floating Animated Badge (Moving Object) */}
       <div className="pointer-events-none absolute top-12 right-8 lg:right-20 z-20 hidden md:flex items-center gap-2 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-reverse">
         <Sparkles className="h-4 w-4 text-[#FF4D6D]" />
-        <span>{isTr ? '%50 Onayda • %50 İş Bitiminde Ödeme' : '50% On Approval • 50% On Delivery'}</span>
+        <span>{isTr ? 'Online Ödeme Yok • Analiz & Onayda Başlar' : 'No Online Checkout • Starts After Analysis & Approval'}</span>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 md:px-8 lg:px-12">
         {/* Header */}
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <span className="mb-3 inline-block rounded-full border border-zinc-700/60 bg-zinc-800/80 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-zinc-300">
-            {isTr ? 'Şeffaf & Güvenli 3 Adım' : '3 Transparent Steps'}
+            {isTr ? 'WhatsApp & Telegram Yazılı Süreç' : 'WhatsApp & Telegram Written Workflow'}
           </span>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-white">
             {isTr ? 'Süreç' : 'How It'}{' '}
@@ -64,8 +64,8 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-zinc-300">
             {isTr
-              ? 'Şifre paylaşımı olmadan, resmi Google Ads onaylı ve aşamalı ödeme güvencesiyle videonuzu zirveye taşıyın.'
-              : 'Zero password sharing. Official Google Ads approval and phased payment security.'}
+              ? 'Sitemizde online ödeme yoktur. Teklifinizi iletin, videonuzu analiz edip detaylı dönüş yapalım; onay alınca işlem başlar.'
+              : 'There is no online payment on our site. Submit your quote, let us analyze your video and reply in detail; work begins upon approval.'}
           </p>
         </div>
 

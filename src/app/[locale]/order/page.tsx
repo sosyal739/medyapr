@@ -6,7 +6,7 @@ import { CURRENCIES, FORMATS, PACKAGES, REGIONS, clampViews, type Currency, type
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   return {
-    title: locale === 'tr' ? 'Sipariş Oluştur | MedyaPR' : 'Place Order | MedyaPR',
+    title: locale === 'tr' ? 'Teklif İlet & Video Analizi | MedyaPR' : 'Submit Quote & Video Analysis | MedyaPR',
     robots: { index: false },
   };
 }
@@ -28,12 +28,12 @@ export default async function OrderPage({ params, searchParams }: Props) {
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         <div className="mb-6 md:mb-8">
           <h1 className="font-[family-name:var(--font-heading)] text-3xl font-extrabold text-white md:text-4xl">
-            {isTr ? 'Videonuzu tanıtalım' : "Let's promote your video"}
+            {isTr ? 'Teklifinizi İletin, Videonuzu Analiz Edelim' : 'Submit Your Quote for Video Analysis'}
           </h1>
-          <p className="mt-2 text-sm text-white/60 md:text-base">
+          <p className="mt-2 text-sm text-white/75 md:text-base max-w-3xl leading-relaxed">
             {isTr
-              ? 'Linki yapıştırın, izlenme sayısını seçin, siparişinizi gönderin. Ödeme şimdi alınmaz.'
-              : 'Paste the link, choose your views, send your order. No payment now.'}
+              ? 'Sitemizde online ödeme veya sesli çağrı hattı yoktur; tüm süreç WhatsApp ve Telegram üzerinden yazılı yürütülür. Video linkinizi yapıştırıp teklifinizi iletin; videonuzu analiz edip detaylı dönüş yapalım. Onay alınca işlem başlar. (Fiyatlandırma video uzunluğuna göre değişebilir.)'
+              : 'There is no online checkout or voice call center on our site; all communication runs via WhatsApp and Telegram. Paste your link and submit your quote; we will analyze your video and reply in detail. Work begins upon approval. (Pricing may vary based on video length.)'}
           </p>
         </div>
 

@@ -103,9 +103,9 @@ export default async function LocaleLayout({ params, children }: Props) {
                   description: dict.metadata.description,
                   contactPoint: {
                     '@type': 'ContactPoint',
-                    telephone: '+90-531-299-3355',
                     contactType: 'customer support',
                     email: 'info@medyapr.com',
+                    url: `https://medyapr.com/${locale}/iletisim`,
                     availableLanguage: ['Turkish', 'English'],
                   },
                   sameAs: [
@@ -122,7 +122,7 @@ export default async function LocaleLayout({ params, children }: Props) {
                   url: 'https://medyapr.com',
                   priceRange: locale === 'tr' ? '₺₺' : '$$',
                   currenciesAccepted: 'TRY, USD, EUR',
-                  paymentAccepted: locale === 'tr' ? 'Banka Havalesi, FAST, Kredi Kartı' : 'Bank Wire, FAST, Credit Card',
+                  paymentAccepted: locale === 'tr' ? 'WhatsApp & Telegram Onaylı Banka Havalesi, FAST' : 'WhatsApp & Telegram Confirmed Bank Wire, FAST',
                   areaServed: ['TR', 'DE', 'Global'],
                   parentOrganization: { '@id': 'https://medyapr.com/#organization' },
                 },

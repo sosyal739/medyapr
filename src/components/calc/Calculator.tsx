@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Check, Clock, Globe2, MessageCircle, ShieldCheck, Sparkles, Tag, ThumbsUp } from 'lucide-react';
+import { ArrowRight, Check, Clock, Globe2, MessageCircle, Send, ShieldCheck, Sparkles, Tag, ThumbsUp } from 'lucide-react';
 import {
   CURRENCIES,
   MAX_VIEWS,
@@ -16,7 +16,7 @@ import {
   type Package,
   type Region,
 } from '@/lib/pricing';
-import { consultHref } from '@/lib/contact';
+import { consultHref, TELEGRAM_URL } from '@/lib/contact';
 import type { AppStrings } from '@/lib/i18n/app-strings';
 
 const PRESETS = [1_000, 5_000, 10_000, 25_000, 50_000, 100_000, 250_000, 500_000, 1_000_000];
@@ -286,23 +286,23 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                 </span>
                 <span>
                   <strong className="text-white">
-                    {isTr ? 'Aşamalı Ödeme Güvencesi:' : 'Phased Payment Guarantee:'}
+                    {isTr ? 'Online Ödeme Yok • Analiz & Onay Modeli:' : 'No Online Checkout • Analysis & Approval Model:'}
                   </strong>{' '}
                   {isTr ? (
                     <>
-                      Video reklam onayı alınca <span className="text-emerald-400 font-bold">%50</span>, kampanya bitince{' '}
-                      <span className="text-emerald-400 font-bold">%50</span> ödenir. Kurumsal müşteriler için tüm ödeme iş bitimindedir.
+                      Teklifi iletin, videonuzu analiz edip WhatsApp / Telegram üzerinden detaylı dönüş yapalım. Onay alınca işlem başlar (Onayda{' '}
+                      <span className="text-emerald-400 font-bold">%50</span>, bitince <span className="text-emerald-400 font-bold">%50</span>).
                     </>
                   ) : (
                     <>
-                      Pay <span className="text-emerald-400 font-bold">50%</span> upon Google Ads approval, and the remaining{' '}
-                      <span className="text-emerald-400 font-bold">50%</span> after delivery. Verified corporate accounts pay upon delivery.
+                      Submit your quote; we analyze your video and reply in detail via WhatsApp / Telegram. Work starts upon approval (
+                      <span className="text-emerald-400 font-bold">50%</span> on approval, <span className="text-emerald-400 font-bold">50%</span> after delivery).
                     </>
                   )}
                 </span>
               </div>
               <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-[11px] font-bold text-amber-300">
-                {isTr ? '* Fiyat video süresine göre değişebilir' : '* Rate may adjust based on video length'}
+                {isTr ? '* Fiyatlandırma video uzunluğuna göre değişebilir' : '* Pricing may vary based on video length'}
               </span>
             </div>
           </div>
@@ -314,7 +314,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
           <div className="flex items-center justify-between mb-5">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 px-2.5 py-1 text-[11px] font-bold text-emerald-400">
               <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-              {isTr ? 'Canlı Teklif' : 'Live Quote'}
+              {isTr ? 'Canlı Teklif Hesaplama' : 'Live Quote Estimator'}
             </span>
 
             <div className="flex rounded-xl border border-white/10 bg-white/5 p-0.5" role="group" aria-label={t.currency}>
@@ -340,6 +340,11 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
             <div className="mt-1 font-[family-name:var(--font-heading)] text-5xl font-black tabular-nums tracking-tight text-white">
               {formatMoney(animTotal, currency, locale)}
             </div>
+            <p className="mt-1.5 text-[11px] font-semibold text-amber-300/90">
+              {isTr
+                ? '* Standart klip süresi baz alınmıştır; fiyatlandırma video uzunluğuna göre değişebilir.'
+                : '* Based on standard duration; pricing may vary depending on video length.'}
+            </p>
             {q.discountRate > 0 && (
               <div className="mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">
                 <Tag className="h-3 w-3" />
@@ -374,7 +379,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
             </div>
           </div>
 
-          {/* Siparişi Başlat Butonu */}
+          {/* Teklifi İlet Butonu */}
           <Link
             href={href}
             className="group mt-5 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-6 py-4 text-base font-extrabold text-white shadow-xl shadow-red-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
@@ -383,15 +388,26 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
             <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
           </Link>
 
-          <a
-            href={consultHref(t.consultMsg)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2.5 inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-emerald-400/40 bg-emerald-500/10 px-6 py-3 text-sm font-bold text-emerald-300 transition-all hover:border-emerald-400 hover:bg-emerald-500/20 hover:text-white"
-          >
-            <MessageCircle className="h-4 w-4" />
-            <span>{t.consult}</span>
-          </a>
+          <div className="mt-2.5 grid grid-cols-2 gap-2">
+            <a
+              href={consultHref(t.consultMsg)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-1.5 rounded-2xl border border-emerald-400/40 bg-emerald-500/10 px-3 py-3 text-xs font-bold text-emerald-300 transition-all hover:border-emerald-400 hover:bg-emerald-500/20 hover:text-white"
+            >
+              <MessageCircle className="h-4 w-4 shrink-0" />
+              <span>WhatsApp</span>
+            </a>
+            <a
+              href={TELEGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-1.5 rounded-2xl border border-sky-400/40 bg-sky-500/10 px-3 py-3 text-xs font-bold text-sky-300 transition-all hover:border-sky-400 hover:bg-sky-500/20 hover:text-white"
+            >
+              <Send className="h-4 w-4 shrink-0" />
+              <span>Telegram</span>
+            </a>
+          </div>
 
           {/* Güvence Maddeleri */}
           <div className="mt-4 space-y-2 border-t border-white/10 pt-3.5">
@@ -403,9 +419,10 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
             ))}
           </div>
 
-          <p className="mt-3 text-[11px] leading-relaxed text-zinc-500">{t.note}</p>
+          <p className="mt-3 text-[11px] leading-relaxed text-zinc-400">{t.note}</p>
         </aside>
       </div>
     </div>
   );
 }
+

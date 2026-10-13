@@ -235,17 +235,11 @@ export default function Footer({ dict, locale }: FooterProps) {
               © {currentYear} MedyaPR. {dict.footer.copyright?.replace(/©\s*\d{4}\s*(AdsViews|MedyaPR)\.\s*/, '') || (locale === 'tr' ? 'Tüm hakları saklıdır.' : 'All rights reserved.')}
             </p>
             <div className="flex items-center gap-4">
-              {/* Payment badges placeholder */}
-              <div className="flex items-center gap-2 text-gray-500">
-                <svg width="32" height="20" viewBox="0 0 32 20" fill="currentColor" className="opacity-40">
-                  <rect width="32" height="20" rx="4" fill="currentColor" opacity="0.2" />
-                  <text x="16" y="13" textAnchor="middle" fontSize="7" fill="currentColor">VISA</text>
-                </svg>
-                <svg width="32" height="20" viewBox="0 0 32 20" fill="currentColor" className="opacity-40">
-                  <rect width="32" height="20" rx="4" fill="currentColor" opacity="0.2" />
-                  <text x="16" y="13" textAnchor="middle" fontSize="6" fill="currentColor">MC</text>
-                </svg>
-              </div>
+              <span className="text-xs text-gray-400">
+                {locale === 'tr'
+                  ? '💬 Sadece WhatsApp & Telegram İletişim • Analiz Sonrası Onayda Başlar'
+                  : '💬 WhatsApp & Telegram Support Only • Starts Upon Approval'}
+              </span>
               <span className="text-xs text-gray-500">🔒 SSL Secured</span>
             </div>
           </div>

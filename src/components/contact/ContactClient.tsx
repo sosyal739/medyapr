@@ -80,20 +80,20 @@ export default function ContactClient({ locale }: Props) {
           {/* Contact Form */}
           <div className="rounded-2xl border border-zinc-800 bg-zinc-900/80 p-8 md:p-10 backdrop-blur-xl shadow-2xl">
             <h2 className="text-2xl font-bold text-white mb-2">
-              {isTr ? 'Projenizi Bize İletin' : 'Send Us Your Project'}
+              {isTr ? 'Teklifinizi & Video Linkinizi İletin' : 'Submit Your Quote & Video Link'}
             </h2>
-            <p className="text-xs text-zinc-400 mb-6">
+            <p className="text-xs text-zinc-400 mb-6 leading-relaxed">
               {isTr
-                ? 'Video onay sürecinin ardından %50 peşin, kalan %50 iş bitiminde alınır.'
-                : 'Phased payment: 50% on Google Ads approval, 50% upon campaign completion.'}
+                ? 'Sitemizde online ödeme yoktur. Teklifinizi iletin, videonuzu analiz edip detaylı dönüş yapalım; onay alınca işlem başlar. Fiyatlandırma video uzunluğuna göre değişebilir.'
+                : 'No online checkout on our site. Submit your quote, we will analyze your video and reply in detail; work begins upon approval. Pricing may vary based on video length.'}
             </p>
 
             {isSubmitted && (
               <div className="mb-6 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400 text-sm font-medium flex items-center gap-2">
                 <ShieldCheck className="h-5 w-5 text-emerald-400 shrink-0" />
                 {isTr
-                  ? 'Mesajınız başarıyla iletildi! Google Partner uzmanımız en kısa sürede size dönüş yapacaktır.'
-                  : 'Message sent successfully! Our Google Partner specialists will get back to you shortly.'}
+                  ? 'Talebiniz başarıyla iletildi! Uzman ekibimiz videonuzu analiz edip en kısa sürede detaylı dönüş yapacaktır.'
+                  : 'Request sent! Our specialists will analyze your video and get back to you in detail shortly.'}
               </div>
             )}
 
@@ -108,7 +108,7 @@ export default function ContactClient({ locale }: Props) {
               <input type="text" name="website_hp" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 opacity-0" />
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 mb-1.5">
-                  {isTr ? 'Adınız Soyadınız' : 'Your Full Name'}
+                  {isTr ? 'Adınız Soyadınız / Sanatçı Adı' : 'Your Full Name / Artist Name'}
                 </label>
                 <input
                   type="text"
@@ -136,14 +136,14 @@ export default function ContactClient({ locale }: Props) {
                 </div>
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 mb-1.5">
-                    {isTr ? 'Telefon / WhatsApp' : 'Phone / WhatsApp'}
+                    {isTr ? 'WhatsApp veya Telegram Kullanıcı Adı' : 'WhatsApp or Telegram Username'}
                   </label>
                   <input
-                    type="tel"
+                    type="text"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl border border-zinc-700 bg-zinc-800/80 text-white placeholder-zinc-500 focus:border-[#FF0033] focus:ring-2 focus:ring-[#FF0033]/20 outline-none transition-all text-sm"
-                    placeholder="+90 5XX XXX XX XX"
+                    placeholder={isTr ? 'WhatsApp no veya @telegram' : 'WhatsApp or @telegram'}
                   />
                 </div>
               </div>
@@ -163,7 +163,7 @@ export default function ContactClient({ locale }: Props) {
 
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 mb-1.5">
-                  {isTr ? 'Projeniz & Hedefiniz' : 'Your Project & Target'}
+                  {isTr ? 'Teklifiniz & Hedefiniz' : 'Your Quote Request & Target'}
                 </label>
                 <textarea
                   required
@@ -173,8 +173,8 @@ export default function ContactClient({ locale }: Props) {
                   className="w-full px-4 py-3 rounded-xl border border-zinc-700 bg-zinc-800/80 text-white placeholder-zinc-500 focus:border-[#FF0033] focus:ring-2 focus:ring-[#FF0033]/20 outline-none transition-all text-sm resize-none"
                   placeholder={
                     isTr
-                      ? 'Yeni çıkacak klibimiz için ilk 48 saatte Türkiye hedefli 100K izlenme planlıyoruz...'
-                      : 'We are launching a new single and looking for targeted Google Ads reach...'
+                      ? 'Video linkimizi ve hedeflediğimiz izlenme sayısını iletiyoruz, analiz edip detaylı dönüş yapabilir misiniz...'
+                      : 'Sharing our video link and target views for pre-campaign analysis...'
                   }
                 />
               </div>
@@ -185,7 +185,7 @@ export default function ContactClient({ locale }: Props) {
                 className="disabled:opacity-60 w-full py-3.5 px-6 rounded-xl font-bold bg-gradient-to-r from-[#FF0033] to-[#FF6B6B] hover:opacity-95 text-white flex items-center justify-center gap-2 shadow-lg shadow-[#FF0033]/20 transition-all text-sm"
               >
                 <Send size={18} />
-                {isSending ? (isTr ? 'Gönderiliyor…' : 'Sending…') : isTr ? 'Ücretsiz Analiz Talebi Gönder' : 'Request Free Analysis'}
+                {isSending ? (isTr ? 'Gönderiliyor…' : 'Sending…') : isTr ? 'Teklifi İlet & Analiz İste' : 'Submit Quote & Request Analysis'}
               </button>
             </form>
           </div>
@@ -193,9 +193,14 @@ export default function ContactClient({ locale }: Props) {
           {/* Quick Channels & Trust Box */}
           <div className="space-y-6">
             <div className="rounded-2xl border border-zinc-800 bg-zinc-900/80 p-8 backdrop-blur-xl shadow-xl">
-              <h3 className="text-xl font-bold text-white mb-6">
-                {isTr ? 'Doğrudan İletişim Kanalları' : 'Direct Channels'}
+              <h3 className="text-xl font-bold text-white mb-2">
+                {isTr ? 'Doğrudan Yazılı İletişim & Analiz Kanalları' : 'Direct Written Support & Analysis Channels'}
               </h3>
+              <p className="text-xs text-zinc-400 mb-6 leading-relaxed">
+                {isTr
+                  ? 'Teklifinizi ve video linkinizi WhatsApp veya Telegram üzerinden doğrudan iletin; uzman ekibimiz videonuzu analiz edip detaylı dönüş yapsın.'
+                  : 'Send your video link and quote directly via WhatsApp or Telegram; our specialists will analyze your video and reply in detail.'}
+              </p>
               <div className="space-y-4">
                 <a
                   href={WHATSAPP_URL}
@@ -203,12 +208,14 @@ export default function ContactClient({ locale }: Props) {
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl border border-zinc-800 bg-zinc-800/40 hover:border-emerald-500/50 hover:bg-emerald-500/10 transition-all group"
                 >
-                  <div className="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center group-hover:bg-emerald-500 transition-colors">
+                  <div className="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center group-hover:bg-emerald-500 transition-colors shrink-0">
                     <MessageCircle size={22} className="text-emerald-400 group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white">{isTr ? 'WhatsApp Canlı Destek' : 'WhatsApp Live Support'}</p>
-                    <p className="text-xs text-zinc-400">+90 531 299 33 55 {isTr ? '(7/24 Aktif)' : '(24/7 Available)'}</p>
+                    <p className="font-semibold text-white">{isTr ? 'WhatsApp Hızlı Teklif & Analiz Hattı' : 'WhatsApp Quote & Analysis Desk'}</p>
+                    <p className="text-xs text-zinc-400">
+                      {isTr ? 'Teklifi iletin, analiz edip detaylı dönüş yapalım (7/24 Aktif)' : 'Submit your quote for detailed video analysis (24/7 Active)'}
+                    </p>
                   </div>
                 </a>
 
@@ -218,12 +225,14 @@ export default function ContactClient({ locale }: Props) {
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl border border-zinc-800 bg-zinc-800/40 hover:border-sky-500/50 hover:bg-sky-500/10 transition-all group"
                 >
-                  <div className="w-12 h-12 bg-sky-500/20 rounded-xl flex items-center justify-center group-hover:bg-sky-500 transition-colors">
+                  <div className="w-12 h-12 bg-sky-500/20 rounded-xl flex items-center justify-center group-hover:bg-sky-500 transition-colors shrink-0">
                     <Send size={22} className="text-sky-400 group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white">{isTr ? 'Telegram ile Sipariş' : 'Order via Telegram'}</p>
-                    <p className="text-xs text-zinc-400">+90 531 299 33 55</p>
+                    <p className="font-semibold text-white">{isTr ? 'Telegram Teklif & Onay Hattı' : 'Telegram Quote & Approval Desk'}</p>
+                    <p className="text-xs text-zinc-400">
+                      {isTr ? 'Anlık yazılı iletişim, video analizi ve kampanya başlatma' : 'Instant written support, video analysis, and campaign activation'}
+                    </p>
                   </div>
                 </a>
 
@@ -231,7 +240,7 @@ export default function ContactClient({ locale }: Props) {
                   href="mailto:info@medyapr.com"
                   className="flex items-center gap-4 p-4 rounded-xl border border-zinc-800 bg-zinc-800/40 hover:border-red-500/50 hover:bg-red-500/10 transition-all group"
                 >
-                  <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center group-hover:bg-[#D9002B] transition-colors">
+                  <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center group-hover:bg-[#D9002B] transition-colors shrink-0">
                     <Mail size={22} className="text-[#FF5E7E] group-hover:text-white transition-colors" />
                   </div>
                   <div>
@@ -242,25 +251,29 @@ export default function ContactClient({ locale }: Props) {
               </div>
             </div>
 
-            {/* Google Partner Authority Card */}
+            {/* Why Written Communication & No Online Payment Card */}
             <div className="rounded-2xl border border-red-500/30 bg-gradient-to-br from-[#1F0E13] to-[#2B1017] p-8 text-white">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-[#FF0033]/20 rounded-xl flex items-center justify-center text-[#FF0033]">
+                <div className="w-12 h-12 bg-[#FF0033]/20 rounded-xl flex items-center justify-center text-[#FF0033] shrink-0">
                   <ShieldCheck size={28} />
                 </div>
                 <div>
-                  <p className="font-bold text-lg text-white">{isTr ? 'Resmi Google Partner Ajansı' : 'Official Google Partner Agency'}</p>
-                  <p className="text-zinc-400 text-xs">{isTr ? '18+ Yıllık Kesintisiz Sektör Deneyimi' : '18+ Years Continuous Industry Experience'}</p>
+                  <p className="font-bold text-base sm:text-lg text-white">
+                    {isTr ? 'Neden Sesli Arama veya Online Ödeme Yok?' : 'Why No Voice Calls or Online Checkout?'}
+                  </p>
+                  <p className="text-zinc-400 text-xs">
+                    {isTr ? 'Önce Teknik Video Analizi • Onay Alınca İşlem Başlar' : 'Technical Video Analysis First • Starts Upon Approval'}
+                  </p>
                 </div>
               </div>
               <p className="text-zinc-300 text-xs leading-relaxed mb-3">
                 {isTr
-                  ? 'MedyaPR; Türkiye ve dünyada yüzlerce sanatçı ve kurumsal markaya doğrudan resmi Google Ads video ağıyla şeffaf izlenme ve klip PR hizmeti sunar. Sıfır bot, %100 kanal güvenliği.'
-                  : 'MedyaPR delivers 100% official Google Ads campaigns for artists worldwide with zero bot guarantee, high retention, and complete channel safety.'}
+                  ? 'YouTube reklam kampanyalarında her videonun uzunluğu, kategori yapısı ve Google Ads reklam politikalarına uygunluğu farklıdır. Sesli telefon görüşmesinde video bağlantısı teknik olarak incelenemediği ve onay öncesi otomatik tahsilat yapılmadığı için tüm süreç WhatsApp ve Telegram üzerinden yazılı yürütülür. Teklifinizi iletin, videonuzu analiz edip detaylı dönüş yapalım; onay alınca işlem başlar. (Fiyatlandırma video uzunluğuna göre değişebilir.)'
+                  : 'Every YouTube video differs in duration, category, and Google Ads policy eligibility. Because video links cannot be inspected over voice calls and we never charge before pre-approval, all operations run in writing via WhatsApp and Telegram. Submit your quote, let us analyze your video and reply in detail; work begins upon approval. (Pricing may vary based on video length.)'}
               </p>
               <div className="pt-3 border-t border-zinc-800 flex items-center justify-between text-xs text-zinc-400">
-                <span>{isTr ? 'MedyaPR Uzman Ekibi' : 'MedyaPR Expert Team'}</span>
-                <span className="text-emerald-400 font-medium">{isTr ? '● Canlı Operasyon' : '● Live Operations'}</span>
+                <span>{isTr ? '18+ Yıllık Google Partner Ekibi' : '18+ Years Google Partner Team'}</span>
+                <span className="text-emerald-400 font-medium">{isTr ? '● 7/24 Yazılı Analiz' : '● 24/7 Written Analysis'}</span>
               </div>
             </div>
           </div>
