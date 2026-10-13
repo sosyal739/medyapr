@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import type { Dictionary } from '@/lib/i18n/dictionaries';
-import Image from 'next/image';
 import {
   ArrowRight,
   Play,
@@ -30,11 +29,11 @@ interface HeroSectionProps {
 export default function HeroSection({ dict, locale }: HeroSectionProps) {
   const calcT = getAppStrings(locale).calc;
   const isTr = locale === 'tr';
-  // Ses ve Oynatıcı Ref & Durumları
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  // Video ve Oynatıcı Ref & Durumları
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(47); // Ses süresi ~47 sn
+  const [duration, setDuration] = useState(50.8); // Video & Ses süresi ~50.8 sn
   const [isMuted, setIsMuted] = useState(false);
 
   // Canlı hareketli metrikler: İzlenme, Tıklama, Beğeni
@@ -74,33 +73,33 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
     return () => clearInterval(interval);
   }, []);
 
-  // Ses Çalma / Durdurma Fonksiyonu
+  // Video & Ses Çalma / Durdurma Fonksiyonu
   const togglePlay = () => {
-    if (!audioRef.current) return;
+    if (!videoRef.current) return;
     if (isPlaying) {
-      audioRef.current.pause();
+      videoRef.current.pause();
       setIsPlaying(false);
     } else {
-      audioRef.current
+      videoRef.current
         .play()
         .then(() => setIsPlaying(true))
         .catch((err) => {
-          console.warn('Ses oynatma engellendi:', err);
+          console.warn('Video oynatma engellendi:', err);
         });
     }
   };
 
   // Zaman İlerlemesi Takibi
   const handleTimeUpdate = () => {
-    if (audioRef.current) {
-      setCurrentTime(audioRef.current.currentTime);
-      if (Number.isFinite(audioRef.current.duration) && audioRef.current.duration > 0) {
-        setDuration(audioRef.current.duration);
+    if (videoRef.current) {
+      setCurrentTime(videoRef.current.currentTime);
+      if (Number.isFinite(videoRef.current.duration) && videoRef.current.duration > 0) {
+        setDuration(videoRef.current.duration);
       }
     }
   };
 
-  // Ses Bittiğinde Sıfırlama
+  // Video Bittiğinde Sıfırlama
   const handleEnded = () => {
     setIsPlaying(false);
     setCurrentTime(0);
@@ -109,20 +108,20 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
   // Ses Açma / Kapatma (Mute)
   const toggleMute = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (!audioRef.current) return;
+    if (!videoRef.current) return;
     const next = !isMuted;
-    audioRef.current.muted = next;
+    videoRef.current.muted = next;
     setIsMuted(next);
   };
 
   // Zaman Çubuğuna Tıklayarak İlerleme (Seek)
   const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!audioRef.current || !duration) return;
+    if (!videoRef.current || !duration) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const clickX = e.clientX - rect.left;
     const pct = Math.max(0, Math.min(1, clickX / rect.width));
     const newTime = pct * duration;
-    audioRef.current.currentTime = newTime;
+    videoRef.current.currentTime = newTime;
     setCurrentTime(newTime);
   };
 
@@ -139,19 +138,6 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
 
   return (
     <section className="relative overflow-hidden bg-studio-gradient min-h-[92vh] flex items-center text-white py-14 md:py-20">
-      {/* Gizli HTML5 Audio Elementi */}
-      <audio
-        ref={audioRef}
-        src="/audio/intro-voiceover.mp3"
-        preload="metadata"
-        onTimeUpdate={handleTimeUpdate}
-        onEnded={handleEnded}
-        onLoadedMetadata={() => {
-          if (audioRef.current && Number.isFinite(audioRef.current.duration)) {
-            setDuration(audioRef.current.duration);
-          }
-        }}
-      />
 
       {/* Ambient Glows */}
       <div className="pointer-events-none absolute -top-32 left-1/4 h-[550px] w-[550px] rounded-full bg-[#FF0033]/20 blur-[140px] animate-float-drift" />
@@ -290,14 +276,26 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
             <div className="pointer-events-none absolute -inset-4 rounded-[36px] bg-gradient-to-r from-red-500/20 via-pink-400/10 to-sky-400/20 blur-3xl opacity-70" />
 
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/85 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] backdrop-blur-xl">
-              {/* ── Video alanı: sade, görsel öne çıkar ── */}
+              {/* ── Video alanı: 1080p Tanıtım Filmi Oynatıcı ── */}
               <div className="group relative aspect-video w-full select-none overflow-hidden bg-slate-900">
-                <Image fill sizes="(min-width: 1024px) 560px, 100vw" preload
-                  src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=85"
-                  alt={isTr ? 'Konser sahnesi — YouTube klip tanıtımı' : 'Concert stage — YouTube video promotion'}
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                <video
+                  ref={videoRef}
+                  src="/video/medyapr_tanitim.mp4"
+                  poster="/video/poster.jpg"
+                  preload="metadata"
+                  playsInline
+                  onTimeUpdate={handleTimeUpdate}
+                  onEnded={handleEnded}
+                  onLoadedMetadata={() => {
+                    if (videoRef.current && Number.isFinite(videoRef.current.duration)) {
+                      setDuration(videoRef.current.duration);
+                    }
+                  }}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.01]"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/5 to-black/50" />
+                {!isPlaying && (
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-black/40" />
+                )}
 
                 {/* Üst: marka + durum */}
                 <div className="absolute inset-x-3 top-3 z-20 flex items-center justify-between gap-2 sm:inset-x-4 sm:top-4">
@@ -305,7 +303,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                     <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FF0033]">
                       <Play className="ml-px h-2.5 w-2.5 fill-white text-white" />
                     </span>
-                    {isTr ? 'MedyaPR Sesli Tanıtım' : 'MedyaPR Audio Brief'}
+                    {isTr ? 'MedyaPR Tanıtım Filmi' : 'MedyaPR Commercial Film'}
                   </div>
 
                   {isPlaying ? (
@@ -315,11 +313,11 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                         <span className="w-0.5 rounded-full bg-white animate-eq-2" />
                         <span className="w-0.5 rounded-full bg-white animate-eq-3" />
                       </span>
-                      {isTr ? 'SES ÇALIYOR' : 'PLAYING'}
+                      {isTr ? 'VİDEO OYNUYOR' : 'PLAYING'}
                     </div>
                   ) : (
                     <div className="rounded-full bg-black/55 px-3 py-1.5 text-[10px] font-bold text-white/90 ring-1 ring-white/15 backdrop-blur-md">
-                      {isTr ? '00:46 • Dinleyin' : '00:46 • Listen'}
+                      {isTr ? '00:50 • İzleyin' : '00:50 • Watch'}
                     </div>
                   )}
                 </div>

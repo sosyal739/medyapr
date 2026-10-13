@@ -43,3 +43,7 @@ next-env.d.ts
 # yerel sipariş verisi
 /data/orders.json
 .env.local
+
+# Large media & intermediate render cache
+/public/video_generated/
+/public/audio/*.wav
