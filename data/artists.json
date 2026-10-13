@@ -29,6 +29,66 @@
     ]
   },
   {
+    "slug": "blok3",
+    "name": "BLOK3",
+    "genre": "Türkçe Rap / Drill / Trap",
+    "bio": "Gerçek adı Hakan Aydın olan BLOK3; 'Vur', 'Affetmem', 'Baybay', 'Aklına Ben Gelicem' ve 'Laf Anlamaz' hitleriyle YouTube ve dijital listelerde yüz milyonlarca dinlenmeye ulaşarak Türk rap müziğinin zirvesine yerleşti.",
+    "latestHit": "Laf Anlamaz",
+    "hitVideoId": "8bW96T_l2s4",
+    "image": "https://i.ytimg.com/vi/aCskh283c74/hqdefault.jpg",
+    "viewsTotal": "850.000.000+",
+    "monthlyAudience": "7.8 Milyon Dinleyici",
+    "topSongs": [
+      { "title": "Aklına Ben Gelicem", "views": "180M", "videoId": "aCskh283c74" },
+      { "title": "Baybay", "views": "145M", "videoId": "8bW96T_l2s4" }
+    ]
+  },
+  {
+    "slug": "mert-demir",
+    "name": "Mert Demir",
+    "genre": "Alternatif Pop / Retro Arabesk / R&B",
+    "bio": "Özgün retro melodileri modern elektronik ve arabesk tınılarıyla birleştiren Mert Demir; 'Ateşe Düştüm', 'Cehennemin Dibi' ve Kibariye ile Harbiye Açıkhava'da seslendirdiği 'Karakış' canlı performansıyla YouTube trend listelerinin en çok konuşulan sanatçısı oldu.",
+    "latestHit": "Karakış (Live ft. Kibariye)",
+    "hitVideoId": "__tPePTVHF8",
+    "image": "https://i.ytimg.com/vi/__tPePTVHF8/hqdefault.jpg",
+    "viewsTotal": "450.000.000+",
+    "monthlyAudience": "5.4 Milyon Dinleyici",
+    "topSongs": [
+      { "title": "Ateşe Düştüm", "views": "190M", "videoId": "z1k8v9W2m1g" },
+      { "title": "Karakış (ft. Kibariye)", "views": "1.2M", "videoId": "__tPePTVHF8" }
+    ]
+  },
+  {
+    "slug": "poizi",
+    "name": "POIZI",
+    "genre": "Melodik Trap / New Wave Rap",
+    "bio": "Sosyal medyada viral olan 'Bİ KAHVE YAPTIM' teklisiyle YouTube Müzik Trendlerinde 4. sıraya kadar yükselen POIZI, akılda kalıcı nakaratları ve yeni nesil trap sound'uyla dikkat çeken bağımsız bir müzik yeteneğidir.",
+    "latestHit": "Bİ KAHVE YAPTIM",
+    "hitVideoId": "67nj-oPW8NE",
+    "image": "https://i.ytimg.com/vi/67nj-oPW8NE/hqdefault.jpg",
+    "viewsTotal": "15.000.000+",
+    "monthlyAudience": "1.2 Milyon Dinleyici",
+    "topSongs": [
+      { "title": "Bİ KAHVE YAPTIM", "views": "1.4M", "videoId": "67nj-oPW8NE" }
+    ]
+  },
+  {
+    "slug": "docend",
+    "name": "Doçend",
+    "genre": "Elektronik Dans Müziği / EDM / Remix",
+    "bio": "Elektronik dans müziği ritimlerini Türkçe vokallerle buluşturan Doçend; 'Eller Üzer', 'Duruyor Mu Yerinde' ve 'Unutacağım Remix' hitleriyle aynı anda YouTube trend listesinde 3 farklı şarkıyla yer alma başarısı gösterdi.",
+    "latestHit": "Eller Üzer",
+    "hitVideoId": "rJ9GXBT9NRI",
+    "image": "https://i.ytimg.com/vi/rJ9GXBT9NRI/hqdefault.jpg",
+    "viewsTotal": "25.000.000+",
+    "monthlyAudience": "950 Bin Dinleyici",
+    "topSongs": [
+      { "title": "Unutacağım (Remix)", "views": "2.9M", "videoId": "oM2ED-lheaw" },
+      { "title": "Duruyor Mu Yerinde", "views": "1.1M", "videoId": "5_3G8h8QCjg" },
+      { "title": "Eller Üzer", "views": "600K", "videoId": "rJ9GXBT9NRI" }
+    ]
+  },
+  {
     "slug": "eypio",
     "name": "Eypio",
     "genre": "Türkçe Rap / Hip-Hop",
