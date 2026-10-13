@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import type { Dictionary } from '@/lib/i18n/dictionaries';
 import Link from 'next/link';
-import { Menu, X, Globe, Play, Sparkles, BookOpen, Users, Flame } from 'lucide-react';
+import { Menu, X, Globe, Play, Sparkles, BookOpen, Users, Flame, Video } from 'lucide-react';
 import ThemeToggle from '@/components/theme/ThemeToggle';
 import LanguageSwitcher from '@/components/layout/LanguageSwitcher';
 
@@ -71,6 +71,14 @@ export default function Header({ dict, locale }: HeaderProps) {
               >
                 <Flame className="h-3.5 w-3.5 text-white animate-pulse" />
                 {isTr ? 'Canlı Trendler' : 'Trends'}
+              </Link>
+
+              <Link
+                href={`/${locale}/yeni-klipler`}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs xl:text-sm font-semibold text-zinc-300 hover:text-white hover:bg-zinc-800/90 border border-transparent hover:border-zinc-600/50 shadow-xs hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <Video className="h-3.5 w-3.5 text-red-400" />
+                {isTr ? 'Yeni Klipler' : 'New Clips'}
               </Link>
 
               <Link
@@ -174,6 +182,14 @@ export default function Header({ dict, locale }: HeaderProps) {
               >
                 <Flame className="h-4 w-4 text-[#FF0033]" />
                 {isTr ? 'Canlı Trend Şarkılar' : 'Trending Charts'}
+              </Link>
+              <Link
+                href={`/${locale}/yeni-klipler`}
+                className="flex items-center gap-2 px-4 py-3 rounded-xl text-base font-semibold text-white/90 hover:bg-white/5"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Video className="h-4 w-4 text-red-400" />
+                {isTr ? 'Yeni Klipler' : 'New Clips'}
               </Link>
               <Link
                 href={`/${locale}/sanatcilar`}
