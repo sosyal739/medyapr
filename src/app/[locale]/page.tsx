@@ -9,8 +9,7 @@ import ServicesGrid from '@/components/home/ServicesGrid';
 import HowItWorks from '@/components/home/HowItWorks';
 import BlogPreviewSection from '@/components/home/BlogPreviewSection';
 import FAQSection from '@/components/home/FAQSection';
-import { promises as fs } from 'fs';
-import path from 'path';
+import { getTrends } from '@/lib/youtube';
 import { getPosts } from '@/lib/content';
 import { getFaqs } from '@/data/faqs';
 
@@ -18,22 +17,11 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-async function getTrendingSongs(locale: string = 'tr') {
-  try {
-    const file = path.join(process.cwd(), 'data', 'trending_songs.json');
-    const content = await fs.readFile(file, 'utf8');
-    const data = JSON.parse(content);
-    if (Array.isArray(data)) return data;
-    return locale === 'tr' ? (data.tr || []) : (data.us || data.tr || []);
-  } catch (e) {
-    return [];
-  }
-}
-
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
-  const trendingSongs = await getTrendingSongs(locale);
+  const { trends } = await getTrends();
+  const trendingSongs = locale === 'tr' ? trends.tr : trends.us.length ? trends.us : trends.tr;
   const blogPosts = await getPosts();
 
   return (

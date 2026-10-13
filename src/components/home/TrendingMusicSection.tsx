@@ -5,20 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Flame, TrendingUp, Play, ExternalLink, Sparkles, ArrowRight } from 'lucide-react';
 
-export interface TrendingSong {
-  rank: number;
-  videoId: string;
-  title: string;
-  artist: string;
-  views: number;
-  likes: number;
-  gain24h: number;
-  publishedAt: string;
-  thumbnail: string;
-  isNew?: boolean;
-  blogSlug?: string;
-  genre?: 'hiphop' | 'pop' | 'indie' | 'edm' | 'rock';
-}
+import type { TrendingSong } from '@/lib/youtube';
+
+export type { TrendingSong };
 
 interface TrendingMusicSectionProps {
   songs: TrendingSong[];
@@ -43,12 +32,6 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
       <div className="pointer-events-none absolute top-1/4 -left-32 h-96 w-96 rounded-full bg-[#FF0033]/20 blur-[130px] animate-float-drift" />
       <div className="pointer-events-none absolute bottom-10 -right-32 h-96 w-96 rounded-full bg-zinc-600/15 blur-[130px] animate-glow-soft" />
 
-      {/* Floating Animated Badge (Moving Object) */}
-      <div className="pointer-events-none absolute top-10 right-8 lg:right-24 z-20 hidden md:flex items-center gap-2 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-slow">
-        <Sparkles className="h-4 w-4 text-amber-400" />
-        <span>{isTr ? 'Canlı YouTube Data API v3 Senkronizasyonu' : 'Live YouTube Data API v3 Sync'}</span>
-      </div>
-
       <div className="relative mx-auto max-w-7xl px-4 md:px-8 lg:px-12">
         {/* Header */}
         <div className="mb-12 flex flex-col items-center justify-between gap-6 md:flex-row md:items-end">
@@ -59,7 +42,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF0033]" />
               </span>
               <Flame className="h-4 w-4 text-[#FF0033]" />
-              {isTr ? 'Canlı YouTube Türkiye Verisi' : 'Live YouTube US & Global Charts'}
+              {isTr ? 'YouTube Türkiye Müzik Listesi' : 'YouTube Music Charts'}
             </div>
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-white">
               {isTr ? 'Bugün Türkiye\'de' : 'Today on Trending'}{' '}
@@ -69,8 +52,8 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">
               {isTr
-                ? 'YouTube Data API v3 ile anlık çekilen resmi müzik sıralaması. Son 24 saatlik izlenme ivmesi ve liste hareketleri.'
-                : 'Official trending music charts pulled directly via YouTube Data API v3. 24-hour view momentum and ranking shifts.'}
+                ? "YouTube'un resmî “En Popüler Müzik” listesi; izlenme sayılarıyla birlikte."
+                : "YouTube's official “Most Popular Music” chart, with view counts."}
             </p>
           </div>
 
@@ -204,10 +187,12 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                     <span className="font-bold text-white/90 tabular-nums">
                       {nf.format(song.views)} {isTr ? 'İzlenme' : 'views'}
                     </span>
-                    <span className="inline-flex items-center gap-1 font-semibold text-emerald-400">
-                      <TrendingUp className="h-3 w-3" />
-                      +{nf.format(song.gain24h)} {isTr ? 'son 24s' : '24h'}
-                    </span>
+                    {song.gain24h > 0 && (
+                      <span className="inline-flex items-center gap-1 font-semibold text-emerald-400">
+                        <TrendingUp className="h-3 w-3" />
+                        +{nf.format(song.gain24h)} {isTr ? 'son 24s' : '24h'}
+                      </span>
+                    )}
                     <div className="ml-auto flex items-center gap-2">
                       {song.blogSlug && (
                         <Link
@@ -259,13 +244,13 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
               </span>
               <h3 className="text-2xl font-extrabold text-white sm:text-3xl">
                 {isTr
-                  ? 'Klibinizin Bu Listelere Girmesini Mi İstiyorsunuz?'
-                  : 'Want Your Music Video in the Trending Charts?'}
+                  ? 'Kendi Klibinizi Doğru Kitleye Ulaştırın'
+                  : 'Get Your Own Music Video in Front of the Right Audience'}
               </h3>
               <p className="text-sm leading-relaxed text-white/70 sm:text-base">
                 {isTr
-                  ? 'YouTube algoritması, ilk 24-48 saatte yüksek izlenme tutunması ve gerçek reklam ivmesi alan videoları organik trendlere taşır. Bot panelleri kanalı algoritmada cezalandırırken, resmi Google Ads kampanyaları organik keşfet trafiğini tetikler.'
-                  : 'YouTube algorithm promotes videos that gain high engagement retention and official ad momentum in their first 48 hours. Genuine Google Ads campaigns spark organic recommended discovery.'}
+                  ? 'Linkinizi yapıştırın, videonuzu ve mevcut izlenmesini görün, istediğiniz izlenme paketini seçin. Kampanyalar resmî Google Ads video reklamlarıyla yürütülür; bot veya panel kullanılmaz.'
+                  : 'Paste your link, see your video and its current views, then pick a views package. Campaigns run on official Google Ads video ads — no bots or panels.'}
               </p>
               <div className="text-xs text-white/40">
                 {isTr
@@ -275,10 +260,10 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
             </div>
 
             <a
-              href="#calculator"
+              href={`/${locale}/order`}
               className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-8 py-4 text-base font-extrabold text-white shadow-xl shadow-[#FF0033]/30 transition-all hover:scale-105 hover:shadow-[#FF0033]/40"
             >
-              {isTr ? 'Fiyatı Hesapla & Başlat' : 'Calculate & Launch Campaign'}
+              {isTr ? 'Videomu Tanıt' : 'Promote My Video'}
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

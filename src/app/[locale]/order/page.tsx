@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import OrderForm from '@/components/order/OrderForm';
+import OrderWizard from '@/components/order/OrderWizard';
 import { getAppStrings } from '@/lib/i18n/app-strings';
 import { CURRENCIES, FORMATS, PACKAGES, REGIONS, clampViews, type Currency, type Format, type Package, type Region } from '@/lib/pricing';
 
@@ -20,30 +20,33 @@ export default async function OrderPage({ params, searchParams }: Props) {
   const { locale } = await params;
   const sp = await searchParams;
   const t = getAppStrings(locale);
+  const isTr = locale === 'tr';
   const pick = <T extends string>(list: readonly T[], v: string | undefined, d: T): T => (list.includes(v as T) ? (v as T) : d);
 
   return (
-    <section className="min-h-[85vh] bg-studio-gradient py-14 md:py-20 text-white relative overflow-hidden">
-      <div className="mx-auto max-w-5xl px-4 md:px-8">
-        <div className="mb-8">
-          <span className="mb-2 inline-block rounded-full border border-zinc-700/60 bg-zinc-800/80 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#FF5E7E]">
-            {locale === 'tr' ? 'Güvenli Sipariş' : 'Secure Order'}
-          </span>
+    <section className="relative min-h-[85vh] overflow-hidden bg-studio-gradient py-10 text-white md:py-16">
+      <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <div className="mb-6 md:mb-8">
           <h1 className="font-[family-name:var(--font-heading)] text-3xl font-extrabold text-white md:text-4xl">
-            {t.order.title}
+            {isTr ? 'Videonuzu tanıtalım' : "Let's promote your video"}
           </h1>
-          <p className="mt-2 text-sm md:text-base text-white/60">{t.order.subtitle}</p>
+          <p className="mt-2 text-sm text-white/60 md:text-base">
+            {isTr
+              ? 'Linki yapıştırın, izlenme sayısını seçin, siparişinizi gönderin. Ödeme şimdi alınmaz.'
+              : 'Paste the link, choose your views, send your order. No payment now.'}
+          </p>
         </div>
 
-        <OrderForm
+        <OrderWizard
           locale={locale}
           t={t}
           initial={{
             views: clampViews(Number(sp.views) || 25_000),
             format: pick<Format>(FORMATS, sp.format, 'instream'),
             pkg: pick<Package>(PACKAGES, sp.pkg, 'views'),
-            region: pick<Region>(REGIONS, sp.region, locale === 'tr' ? 'tr' : 'premium'),
-            currency: pick<Currency>(CURRENCIES, sp.currency, locale === 'tr' ? 'TRY' : 'USD'),
+            region: pick<Region>(REGIONS, sp.region, isTr ? 'tr' : 'premium'),
+            currency: pick<Currency>(CURRENCIES, sp.currency, isTr ? 'TRY' : 'USD'),
+            videoUrl: sp.video?.slice(0, 300),
           }}
         />
       </div>

@@ -1,87 +1,26 @@
 import { NextResponse } from 'next/server';
-import { revalidatePath } from 'next/cache';
-import { promises as fs } from 'fs';
-import path from 'path';
+import { revalidatePath, revalidateTag } from 'next/cache';
 
 export const dynamic = 'force-dynamic';
 
+/**
+ * Günlük cron: trend listesinin önbelleğini tazeler.
+ * Veri, YOUTUBE_API_KEY tanımlıysa bir sonraki ziyarette YouTube Data API'den yeniden çekilir.
+ * Rakamlar burada ASLA değiştirilmez veya tahmin edilmez.
+ */
 export async function GET(request: Request) {
-  try {
-    const { searchParams } = new URL(request.url);
-    const authHeader = request.headers.get('authorization');
-    const secret = process.env.CRON_SECRET;
-
-    // Eğer CRON_SECRET tanımlıysa doğrula, yoksa veya eşleşiyorsa çalıştır
-    if (secret && authHeader !== `Bearer ${secret}` && searchParams.get('secret') !== secret) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
-    const filePath = path.join(process.cwd(), 'data', 'trending_songs.json');
-    let content = '[]';
-    try {
-      content = await fs.readFile(filePath, 'utf8');
-    } catch {
-      return NextResponse.json({ error: 'trending_songs.json not found' }, { status: 404 });
-    }
-
-    const rawData = JSON.parse(content);
-    let totalCount = 0;
-
-    if (Array.isArray(rawData)) {
-      for (const song of rawData) {
-        const factor = 0.015 + Math.random() * 0.03;
-        const delta = Math.floor((song.views || 100000) * factor);
-        song.views = (song.views || 0) + delta;
-        song.gain24h = delta;
-        song.likes = (song.likes || 0) + Math.floor(delta * (0.02 + Math.random() * 0.03));
-      }
-      rawData.sort((a, b) => b.views - a.views);
-      rawData.forEach((s, idx) => {
-        s.rank = idx + 1;
-      });
-      totalCount = rawData.length;
-    } else if (typeof rawData === 'object' && rawData !== null) {
-      for (const country of Object.keys(rawData)) {
-        const list = rawData[country];
-        if (Array.isArray(list)) {
-          for (const song of list) {
-            const factor = 0.015 + Math.random() * 0.03;
-            const delta = Math.floor((song.views || 100000) * factor);
-            song.views = (song.views || 0) + delta;
-            song.gain24h = delta;
-            song.likes = (song.likes || 0) + Math.floor(delta * (0.02 + Math.random() * 0.03));
-          }
-          list.sort((a, b) => b.views - a.views);
-          list.forEach((s, idx) => {
-            s.rank = idx + 1;
-          });
-          totalCount += list.length;
-        }
-      }
-    }
-
-    try {
-      await fs.writeFile(filePath, JSON.stringify(rawData, null, 2), 'utf8');
-    } catch (err) {
-      console.warn('Vercel serverless read-only fallback:', err);
-    }
-
-    // Next.js Cache Revalidation
-    revalidatePath('/[locale]/trendler', 'page');
-    revalidatePath('/[locale]', 'page');
-
-    return NextResponse.json({
-      success: true,
-      message: 'YouTube çok ülkeli trendler başarıyla güncellendi.',
-      count: totalCount,
-      countries: typeof rawData === 'object' && !Array.isArray(rawData) ? Object.keys(rawData) : ['tr'],
-      updated_at: new Date().toISOString(),
-    });
-  } catch (error) {
-    console.error('Trend sync error:', error);
-    return NextResponse.json(
-      { error: 'Internal Server Error', details: String(error) },
-      { status: 500 }
-    );
+  const secret = process.env.CRON_SECRET;
+  if (secret && request.headers.get('authorization') !== `Bearer ${secret}`) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
+
+  revalidateTag('trends', 'max');
+  revalidatePath('/[locale]/trendler', 'page');
+  revalidatePath('/[locale]', 'page');
+
+  return NextResponse.json({
+    success: true,
+    live: Boolean(process.env.YOUTUBE_API_KEY),
+    revalidated_at: new Date().toISOString(),
+  });
 }

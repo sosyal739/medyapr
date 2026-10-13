@@ -14,14 +14,9 @@ import {
   SlidersHorizontal,
   BookOpen,
 } from 'lucide-react';
-import type { TrendingSong } from '@/components/home/TrendingMusicSection';
+import type { MultiCountryTrends } from '@/lib/youtube';
 
-export interface MultiCountryTrends {
-  tr: TrendingSong[];
-  us: TrendingSong[];
-  de: TrendingSong[];
-  gb: TrendingSong[];
-}
+export type { MultiCountryTrends };
 
 interface TrendingCountryTabsProps {
   trends: MultiCountryTrends;
@@ -100,22 +95,24 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
   const defaultCountry = initialCountry || (isTr ? 'tr' : 'us');
   const [selectedCountry, setSelectedCountry] = useState<'tr' | 'us' | 'de' | 'gb'>(defaultCountry);
   const [selectedGenre, setSelectedGenre] = useState<string>('all');
-  const [sortBy, setSortBy] = useState<'rank' | 'velocity' | 'views'>('rank');
+  const [sortBy, setSortBy] = useState<'rank' | 'views'>('rank');
   const [countFilter, setCountFilter] = useState<'all' | 'top10' | 'top5'>('all');
 
-  const rawCountrySongs = trends[selectedCountry] || trends.tr || [];
+  // Seçili ülkede gerçekten bulunan türler; boş tür filtresi gösterilmez.
+  const availableGenres = useMemo(
+    () => new Set((trends[selectedCountry] || []).map((s) => s.genre).filter(Boolean)),
+    [trends, selectedCountry],
+  );
 
   // Filter by genre & sort
   const filteredAndSortedSongs = useMemo(() => {
-    let result = [...rawCountrySongs];
+    let result = [...(trends[selectedCountry] || trends.tr || [])];
 
     if (selectedGenre !== 'all') {
       result = result.filter((s) => s.genre === selectedGenre);
     }
 
-    if (sortBy === 'velocity') {
-      result.sort((a, b) => b.gain24h - a.gain24h);
-    } else if (sortBy === 'views') {
+    if (sortBy === 'views') {
       result.sort((a, b) => b.views - a.views);
     } else {
       result.sort((a, b) => a.rank - b.rank);
@@ -124,7 +121,7 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
     if (countFilter === 'top5') return result.slice(0, 5);
     if (countFilter === 'top10') return result.slice(0, 10);
     return result.slice(0, 20);
-  }, [rawCountrySongs, selectedGenre, sortBy, countFilter]);
+  }, [trends, selectedCountry, selectedGenre, sortBy, countFilter]);
 
   const nf = new Intl.NumberFormat(isTr ? 'tr-TR' : 'en-US');
   const activeCountryObj = COUNTRIES.find((c) => c.id === selectedCountry) || COUNTRIES[0];
@@ -140,7 +137,10 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
             return (
               <button
                 key={c.id}
-                onClick={() => setSelectedCountry(c.id as 'tr' | 'us' | 'de' | 'gb')}
+                onClick={() => {
+                  setSelectedCountry(c.id as 'tr' | 'us' | 'de' | 'gb');
+                  setSelectedGenre('all');
+                }}
                 className={`group flex items-center gap-2.5 px-4 py-2.5 rounded-2xl text-sm font-bold transition-all duration-300 ${
                   isActive
                     ? 'bg-gradient-to-r from-[#FF0033] to-[#CC0029] text-white shadow-lg shadow-[#FF0033]/30 scale-105'
@@ -192,7 +192,7 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
             <SlidersHorizontal className="h-3.5 w-3.5" />
             {isTr ? 'Tür:' : 'Genre:'}
           </span>
-          {GENRE_FILTERS.map((gf) => {
+          {GENRE_FILTERS.filter((gf) => gf.id === 'all' || availableGenres.has(gf.id)).map((gf) => {
             const active = selectedGenre === gf.id;
             return (
               <button
@@ -225,15 +225,6 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
             }`}
           >
             {isTr ? 'Sıra' : 'Rank'}
-          </button>
-          <button
-            type="button"
-            onClick={() => setSortBy('velocity')}
-            className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold transition ${
-              sortBy === 'velocity' ? 'bg-[#FF0033] text-white font-bold' : 'text-zinc-400 hover:text-white bg-zinc-800/60'
-            }`}
-          >
-            {isTr ? '24s İvme (+)' : '24h Velocity (+)'}
           </button>
           <button
             type="button"
@@ -300,18 +291,18 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
             </h2>
             <p className="text-xs text-zinc-400">
               {isTr
-                ? 'Canlı YouTube Data API verileri ve son 24 saatlik ivme analizi.'
-                : 'Live YouTube Data API metrics and 24-hour velocity breakdown.'}
+                ? "YouTube'un resmî “En Popüler Müzik” listesinden; izlenme ve beğeni sayılarıyla."
+                : "From YouTube's official “Most Popular Music” chart, with view and like counts."}
             </p>
           </div>
         </div>
 
         <Link
-          href={`/${locale}/fiyatlandirma`}
+          href={`/${locale}/order`}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-xs font-bold hover:bg-emerald-500/25 transition shrink-0"
         >
           <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
-          <span>{isTr ? 'Klibinizi Bu Listeye Taşıyın →' : 'Promote Your Video to Trending →'}</span>
+          <span>{isTr ? 'Kendi klibinizi tanıtın →' : 'Promote your own video →'}</span>
         </Link>
       </div>
 

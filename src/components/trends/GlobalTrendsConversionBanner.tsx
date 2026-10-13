@@ -15,6 +15,7 @@ import {
   TrendingUp,
   Zap,
 } from 'lucide-react';
+import { formatMoney, quote, type Region } from '@/lib/pricing';
 
 interface GlobalTrendsConversionBannerProps {
   locale: string;
@@ -42,8 +43,6 @@ const TIERS = [
     views: 25000,
     labelTr: 'Başlangıç İvmesi',
     labelEn: 'Starter Momentum',
-    priceTry: 2500,
-    priceUsd: 90,
     days: '2-4',
     pkgParam: 'views',
   },
@@ -52,8 +51,6 @@ const TIERS = [
     views: 50000,
     labelTr: 'Liste Adayı',
     labelEn: 'Chart Contender',
-    priceTry: 4900,
-    priceUsd: 175,
     days: '3-5',
     pkgParam: 'views',
   },
@@ -62,8 +59,6 @@ const TIERS = [
     views: 100000,
     labelTr: 'Trend Çıkışı (En Popüler)',
     labelEn: 'Trending Breakthrough (Top)',
-    priceTry: 9500,
-    priceUsd: 350,
     days: '5-7',
     pkgParam: 'views',
     highlight: true,
@@ -73,8 +68,6 @@ const TIERS = [
     views: 250000,
     labelTr: 'Viral Global Hit',
     labelEn: 'Global Viral Hit',
-    priceTry: 22500,
-    priceUsd: 875,
     days: '7-12',
     pkgParam: 'views',
   },
@@ -92,7 +85,10 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
   const activeTier = TIERS.find((t) => t.id === selectedTierId) || TIERS[2];
 
   const currency = isTr ? (activeRegion.id === 'tr' || activeRegion.id === 'global' ? 'TRY' : 'USD') : 'USD';
-  const priceDisplay = currency === 'TRY' ? `₺${activeTier.priceTry.toLocaleString('tr-TR')}` : `$${activeTier.priceUsd}`;
+  // Fiyatlar her zaman sipariş sayfasıyla aynı motordan hesaplanır.
+  const priceFor = (views: number) =>
+    formatMoney(quote({ views, region: activeRegion.regionParam as Region, currency }).total, currency, locale);
+  const priceDisplay = priceFor(activeTier.views);
 
   // Pre-fill direct order link
   const orderHref = `/${locale}/order?views=${activeTier.views}&region=${activeRegion.regionParam}&pkg=${activeTier.pkgParam}&currency=${currency}`;
@@ -221,7 +217,7 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
             <div className="grid grid-cols-1 gap-2">
               {TIERS.map((tier) => {
                 const active = selectedTierId === tier.id;
-                const price = currency === 'TRY' ? `₺${tier.priceTry.toLocaleString('tr-TR')}` : `$${tier.priceUsd}`;
+                const price = priceFor(tier.views);
                 return (
                   <button
                     key={tier.id}

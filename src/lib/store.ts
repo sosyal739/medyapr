@@ -22,6 +22,7 @@ export type Order = {
   contact?: string;
   videoUrl: string;
   videoId: string;
+  videoTitle?: string;
   format: Format;
   /** Eski siparişlerde yok → 'views' say. */
   pkg?: Package;

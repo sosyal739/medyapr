@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
-import { promises as fs } from 'fs';
-import path from 'path';
 import Link from 'next/link';
 import { Flame, ArrowRight } from 'lucide-react';
-import type { TrendingSong } from '@/components/home/TrendingMusicSection';
-import TrendingCountryTabs, { type MultiCountryTrends } from '@/components/trends/TrendingCountryTabs';
+import TrendingCountryTabs from '@/components/trends/TrendingCountryTabs';
+import { getTrends, type TrendingSong } from '@/lib/youtube';
+import { formatMoney, quote } from '@/lib/pricing';
 import GlobalTrendsConversionBanner from '@/components/trends/GlobalTrendsConversionBanner';
 import { getPageAlternates } from '@/lib/seo';
 
@@ -34,38 +33,27 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-async function getAllTrendingSongs(): Promise<MultiCountryTrends> {
-  try {
-    const file = path.join(process.cwd(), 'data', 'trending_songs.json');
-    const content = await fs.readFile(file, 'utf8');
-    const parsed = JSON.parse(content);
-    if (Array.isArray(parsed)) {
-      return { tr: parsed, us: [], de: [], gb: [] };
-    }
-    return {
-      tr: Array.isArray(parsed.tr) ? parsed.tr : [],
-      us: Array.isArray(parsed.us) ? parsed.us : [],
-      de: Array.isArray(parsed.de) ? parsed.de : [],
-      gb: Array.isArray(parsed.gb) ? parsed.gb : [],
-    };
-  } catch {
-    return { tr: [], us: [], de: [], gb: [] };
-  }
-}
+// Trend listesi 6 saatte bir yenilenir (YOUTUBE_API_KEY varsa canlı veri).
+export const revalidate = 21600;
 
 export default async function TrendlerPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isTr = locale === 'tr';
-  const allTrends = await getAllTrendingSongs();
+  const { trends: allTrends, updatedAt } = await getTrends();
   const primarySongs: TrendingSong[] = (isTr ? allTrends.tr : allTrends.us).length > 0
     ? (isTr ? allTrends.tr : allTrends.us)
     : allTrends.tr;
 
-  const todayStr = new Date().toLocaleDateString(isTr ? 'tr-TR' : 'en-US', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
+  const todayStr = updatedAt
+    ? new Date(updatedAt).toLocaleDateString(isTr ? 'tr-TR' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })
+    : null;
+
+  const region = isTr ? 'tr' : 'premium';
+  const currency = isTr ? 'TRY' : 'USD';
+  const price = (views: number) => {
+    const q = quote({ views, region, currency });
+    return `${formatMoney(q.total, currency, locale)} · ${isTr ? 'resmî Google Ads' : 'official Google Ads'}`;
+  };
 
   const schema = {
     '@context': 'https://schema.org',
@@ -127,10 +115,12 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
 
         {/* Header */}
         <div className="mb-10 border-b border-studio pb-8">
+{todayStr && (
           <div className="inline-flex items-center gap-2 rounded-full border border-zinc-700/60 bg-zinc-800/80 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5E7E] mb-3">
             <Flame className="h-4 w-4 animate-pulse text-[#FF0033]" />
-            {isTr ? `Günlük Canlı Güncelleme · ${todayStr}` : `Daily Live Charts · ${todayStr}`}
+            {isTr ? `Son güncelleme · ${todayStr}` : `Last updated · ${todayStr}`}
           </div>
+          )}
           <h1 className="text-3xl font-extrabold sm:text-5xl tracking-tight">
             {isTr ? (
               <>
@@ -150,8 +140,8 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
           </h1>
           <p className="mt-3 text-sm md:text-base text-zinc-300 max-w-3xl leading-relaxed">
             {isTr
-              ? 'YouTube Data API v3 üzerinden resmi olarak çekilen anlık Türkiye, ABD, Almanya ve İngiltere müzik trendleri sıralaması. Kliplerin toplam izlenmeleri, beğeni sayıları ve son 24 saatlik ivme analizi.'
-              : 'Real-time YouTube music trending charts across the United States, United Kingdom, Germany, and Turkey powered by official YouTube Data API. Total views, 24h velocity, and viral music video breakdown.'}
+              ? "YouTube'un Türkiye, ABD, Almanya ve İngiltere için yayınladığı resmî “En Popüler Müzik” listeleri. Kliplerin toplam izlenme ve beğeni sayıları."
+              : "YouTube's official “Most Popular Music” charts for Turkey, the US, Germany and the UK, with total views and likes."}
           </p>
         </div>
 
@@ -174,8 +164,8 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
             </h2>
             <p className="mt-3 text-sm sm:text-base text-zinc-300 leading-relaxed">
               {isTr
-                ? 'Bu listedeki kliplerin ortak noktası; ilk 24-48 saatte aldıkları yüksek izlenme tutunması (%65+ Retention) ve resmi Google Ads reklam ivmesidir. Bot panelleri kanalı algoritmada cezalandırırken, MedyaPR ile %100 resmi reklamlarla organik keşfet trafiğinizi başlatın.'
-                : 'Every breakout music video on these charts relies on high early audience retention (65%+) and official Google Ads discovery velocity in the first 48 hours. Avoid bot panels that trigger shadowbans — kickstart authentic algorithm recommendation with MedyaPR.'}
+                ? 'Kendi klibinizi resmî Google Ads video reklamlarıyla hedef kitlenize gösterin. Linkinizi yapıştırın, mevcut izlenmenizi görün, paketinizi seçin. Ödeme reklam onayından sonra alınır.'
+                : 'Show your own music video to your target audience with official Google Ads video ads. Paste your link, see your current views, pick a package. Payment starts after ad approval.'}
             </p>
           </div>
 
@@ -191,7 +181,7 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
                   <span className="text-3xl font-black text-white">50.000</span>
                   <span className="text-xs text-zinc-400 font-bold ml-1.5">{isTr ? 'Gerçek İzlenme' : 'Real Views'}</span>
                   <p className="text-xs text-emerald-400 font-semibold mt-1">
-                    {isTr ? '3.250 ₺ · İlk 48 Saat İvmesi' : '$120 · First 48h Momentum'}
+                    {price(50_000)}
                   </p>
                 </div>
                 <ul className="space-y-2.5 text-xs text-zinc-300 border-t border-zinc-800 pt-4">
@@ -202,7 +192,7 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
                 </ul>
               </div>
               <a
-                href={`/${locale}#calculator`}
+                href={`/${locale}/order?views=50000&region=${region}&currency=${currency}`}
                 className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-3 text-xs font-extrabold text-white hover:bg-zinc-700 transition"
               >
                 {isTr ? 'Paketi Seç & Başlat' : 'Select Plan & Start'}
@@ -223,19 +213,18 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
                   <span className="text-3xl font-black text-white">100.000</span>
                   <span className="text-xs text-zinc-400 font-bold ml-1.5">{isTr ? 'Gerçek İzlenme' : 'Real Views'}</span>
                   <p className="text-xs text-emerald-400 font-semibold mt-1">
-                    {isTr ? '5.500 ₺ · Önerilen Videolar Hedefi' : '$190 · Suggested Videos Target'}
+                    {price(100_000)}
                   </p>
                 </div>
                 <ul className="space-y-2.5 text-xs text-zinc-200 border-t border-zinc-800 pt-4">
                   <li className="flex items-center gap-2">✓ {isTr ? 'In-Stream + In-Feed Keşfet Reklamı' : 'In-Stream + In-Feed Discovery Ads'}</li>
-                  <li className="flex items-center gap-2">✓ {isTr ? '%65+ Ortalama İzleme Süresi (Retention)' : '65%+ Average Watch Time Retention'}</li>
                   <li className="flex items-center gap-2">✓ {isTr ? 'Benzer Sanatçıların Kitlelerine Gösterim' : 'Target Fans of Similar Hit Artists'}</li>
                   <li className="flex items-center gap-2">✓ {isTr ? 'Detaylı Kampanya ve Dönüşüm Raporu' : 'Comprehensive Campaign & Conversion Report'}</li>
                   <li className="flex items-center gap-2 font-bold text-emerald-400">✓ {isTr ? '%50 Onayda, %50 Bitince Ödeme' : '50% Upfront, 50% on Delivery'}</li>
                 </ul>
               </div>
               <a
-                href={`/${locale}#calculator`}
+                href={`/${locale}/order?views=100000&region=${region}&currency=${currency}`}
                 className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-4 py-3 text-xs font-black text-white shadow-lg shadow-[#FF0033]/30 hover:brightness-110 transition"
               >
                 {isTr ? 'Hemen Başlat' : 'Launch Now'} <ArrowRight className="h-4 w-4" />
@@ -250,21 +239,20 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
                 </span>
                 <h3 className="text-xl font-extrabold text-white mt-1">Viral Breakthrough</h3>
                 <div className="mt-4 mb-5">
-                  <span className="text-3xl font-black text-white">250.000+</span>
+                  <span className="text-3xl font-black text-white">250.000</span>
                   <span className="text-xs text-zinc-400 font-bold ml-1.5">{isTr ? 'Gerçek İzlenme' : 'Real Views'}</span>
                   <p className="text-xs text-emerald-400 font-semibold mt-1">
-                    {isTr ? '11.500 ₺ · YouTube Trend 20 Listesi' : '$390 · Trending Chart Target'}
+                    {price(250_000)}
                   </p>
                 </div>
                 <ul className="space-y-2.5 text-xs text-zinc-300 border-t border-zinc-800 pt-4">
                   <li className="flex items-center gap-2">✓ {isTr ? 'YouTube Shorts + Video Reklam Karması' : 'YouTube Shorts + Video Ads Mix'}</li>
                   <li className="flex items-center gap-2">✓ {isTr ? 'Türkiye & Avrupa (Gurbetçi) Kitle Hedefi' : 'US, UK, DE & Global Cross-Audience'}</li>
-                  <li className="flex items-center gap-2">✓ {isTr ? 'Radyo & Yapımcı Radarına Girme Desteği' : 'Radio & A&R Label Radar Exposure'}</li>
-                  <li className="flex items-center gap-2">✓ {isTr ? '7/24 Öncelikli Danışmanlık Hattı' : '24/7 Priority PR Strategist Line'}</li>
+                  <li className="flex items-center gap-2">✓ {isTr ? 'Öncelikli WhatsApp / Telegram desteği' : 'Priority WhatsApp / Telegram support'}</li>
                 </ul>
               </div>
               <a
-                href={`/${locale}#calculator`}
+                href={`/${locale}/order?views=250000&region=${region}&currency=${currency}`}
                 className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-3 text-xs font-extrabold text-white hover:bg-zinc-700 transition"
               >
                 {isTr ? 'Paketi Seç & Başlat' : 'Select Plan & Start'}
@@ -304,7 +292,7 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
           </p>
           <p>
             {isTr
-              ? 'Bu sayfada yer alan video başlıkları, küçük resimler ve izlenme istatistikleri doğrudan resmi YouTube Data API v3 aracılığıyla çekilmektedir. Listede yer alan eserler ve telif hakları ilgili sanatçılara ve yapım şirketlerine aittir. Listede bulunmak sanatçıların sitemizle ticari ilişkisi olduğu anlamına gelmez.'
+              ? 'Bu sayfada yer alan video başlıkları, küçük resimler ve izlenme istatistikleri resmî YouTube Data API v3 aracılığıyla alınır ve periyodik olarak güncellenir. Listede yer alan eserler ve telif hakları ilgili sanatçılara ve yapım şirketlerine aittir. Listede bulunmak sanatçıların sitemizle ticari ilişkisi olduğu anlamına gelmez.'
               : 'Video titles, thumbnails, and view statistics displayed on this chart are retrieved via official YouTube Data API v3. All copyrights and trademarks belong to their respective artists and record labels. Inclusion on this chart does not imply commercial endorsement.'}
           </p>
         </div>

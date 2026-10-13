@@ -8,7 +8,6 @@ import {
   Play,
   Pause,
   ShieldCheck,
-  Flame,
   TrendingUp,
   ThumbsUp,
   Eye,
@@ -18,6 +17,7 @@ import {
   Award,
   Users,
   MessageCircle,
+  Search,
 } from 'lucide-react';
 import { getAppStrings } from '@/lib/i18n/app-strings';
 import { consultHref } from '@/lib/contact';
@@ -162,13 +162,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:28px_28px] opacity-40" />
 
       {/* Floating Animated Badges (Top & Bottom) */}
-      <div className="pointer-events-none absolute top-12 left-6 lg:left-24 z-20 hidden md:flex items-center gap-2.5 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-slow">
-        <Flame className="h-4 w-4 text-[#FF0033] animate-pulse" />
-        <span>{isTr ? 'Canlı Algoritma: YouTube Trendleri' : 'Live Algorithm: YouTube Trends'}</span>
-        <span className="text-emerald-400 font-semibold">{isTr ? '(+490K / 24s)' : '(+490K / 24h)'}</span>
-      </div>
-
-      <div className="pointer-events-none absolute bottom-8 left-6 lg:left-20 z-20 hidden md:flex items-center gap-2.5 rounded-2xl border border-cyan-500/30 bg-zinc-900/90 px-4 py-2.5 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-drift">
+            <div className="pointer-events-none absolute bottom-8 left-6 lg:left-20 z-20 hidden md:flex items-center gap-2.5 rounded-2xl border border-cyan-500/30 bg-zinc-900/90 px-4 py-2.5 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-drift">
         <span className="relative flex h-2 w-2">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00E5FF] opacity-75" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00E5FF]" />
@@ -213,43 +207,37 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
             )}
           </p>
 
-          {/* Action CTAs */}
-          <div className="flex flex-wrap items-center gap-4 pt-1">
-            <a
-              href="#calculator"
-              className="group relative inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-8 py-4 text-base font-extrabold text-white shadow-xl shadow-[#FF0033]/35 transition-all duration-300 hover:scale-105 hover:shadow-[#FF0033]/55"
-            >
-              {isTr ? 'Fiyatı Hesapla & Sipariş Ver' : 'Calculate Price & Order'}
-              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
-
-            <a
-              href={consultHref(calcT.consultMsg)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 rounded-2xl border border-emerald-400/40 bg-emerald-500/10 px-7 py-4 text-base font-bold text-emerald-300 backdrop-blur-md transition-all duration-300 hover:border-emerald-400 hover:bg-emerald-500/20 hover:text-white shadow-lg"
-            >
-              <MessageCircle className="h-5 w-5" />
-              {calcT.consult}
-            </a>
-
+          {/* Birincil eylem: link yapıştır → sipariş sihirbazı (JS olmadan da çalışan düz form) */}
+          <form action={`/${locale}/order`} method="get" className="rounded-3xl border border-white/15 bg-white/[0.06] p-2 shadow-2xl shadow-black/30 backdrop-blur-md sm:flex sm:items-center sm:gap-2">
+            <label htmlFor="hero-video" className="sr-only">{isTr ? 'YouTube video linki' : 'YouTube video link'}</label>
+            <div className="relative flex-1">
+              <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-zinc-400" />
+              <input
+                id="hero-video"
+                name="video"
+                type="url"
+                inputMode="url"
+                required
+                placeholder={isTr ? 'YouTube video linkinizi yapıştırın' : 'Paste your YouTube video link'}
+                className="w-full rounded-2xl bg-transparent py-4 pl-12 pr-4 text-base text-white placeholder-zinc-400 outline-none"
+              />
+            </div>
             <button
-              type="button"
-              onClick={togglePlay}
-              className="inline-flex items-center gap-2.5 rounded-2xl border border-white/20 bg-white/10 px-7 py-4 text-base font-bold text-white backdrop-blur-md transition-all duration-300 hover:border-[#FF0033]/50 hover:bg-[#FF0033]/15 hover:text-white shadow-lg cursor-pointer"
+              type="submit"
+              className="group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-7 py-4 text-base font-extrabold text-white shadow-xl shadow-[#FF0033]/35 transition-all hover:brightness-110 sm:mt-0 sm:w-auto"
             >
-              {isPlaying ? (
-                <>
-                  <Pause className="h-4 w-4 fill-white text-white" />
-                  {isTr ? 'Sesli Anlatımı Durdur' : 'Stop Audio'}
-                </>
-              ) : (
-                <>
-                  <Play className="h-4 w-4 fill-white text-white" />
-                  {isTr ? 'Sesli Anlatımı Dinle' : 'Listen to Audio'}
-                </>
-              )}
+              {isTr ? 'Videomu Bul' : 'Find My Video'}
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </button>
+          </form>
+          <div className="-mt-2 flex flex-wrap items-center gap-x-5 gap-y-2 px-1 text-sm">
+            <span className="text-zinc-400">{isTr ? 'Videonuzu bulalım, izlenmesini görün, paketinizi seçin.' : 'We find your video, show its views, you pick a package.'}</span>
+            <a href="#calculator" className="font-semibold text-white underline decoration-[#FF0033]/60 underline-offset-4 hover:text-[#FF6B6B]">
+              {isTr ? 'Önce fiyatlara bak' : 'See prices first'}
+            </a>
+            <a href={consultHref(calcT.consultMsg)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-emerald-300 hover:text-white">
+              <MessageCircle className="h-4 w-4" /> {calcT.consult}
+            </a>
           </div>
 
           {/* Süreç & Aşamalı Ödeme Güvencesi */}
