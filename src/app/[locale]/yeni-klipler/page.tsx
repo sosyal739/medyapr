@@ -147,8 +147,8 @@ export default async function NewReleasesPage({ params }: Props) {
                         <Calendar className="h-3.5 w-3.5 text-zinc-500" />
                         <span>{rel.releaseDate}</span>
                       </span>
-                      <span className="font-semibold text-red-400">
-                        {rel.views} İzlenme
+                      <span className="font-semibold text-zinc-400 text-[11px] bg-white/5 px-2 py-0.5 rounded-full">
+                        {rel.channel}
                       </span>
                     </div>
 

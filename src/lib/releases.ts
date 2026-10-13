@@ -16,8 +16,8 @@ export interface NewRelease {
   producer?: string;
   instagramHandle?: string;
   twitterHandle?: string;
-  views: string;
-  likes: string;
+  views?: string;
+  likes?: string;
   summary: string;
   review: string;
   targetAudience: string;

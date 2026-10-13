@@ -211,23 +211,25 @@ export default async function ReleaseDetailPage({ params }: Props) {
             </p>
           </div>
 
-          <div className="flex flex-col items-end gap-1.5 shrink-0">
-            <div className="flex items-center gap-4 bg-zinc-900/80 border border-white/10 px-4 py-2.5 rounded-2xl">
-              <div>
-                <div className="text-[11px] font-semibold text-zinc-400">Doğrulanmış İzlenme</div>
-                <div className="text-sm font-black text-red-400">{rel.views}</div>
+          <div className="flex items-center gap-3 shrink-0">
+            <a
+              href={`https://www.youtube.com/watch?v=${rel.videoId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2.5 bg-zinc-900/90 hover:bg-zinc-800 border border-white/10 px-4 py-2.5 rounded-2xl transition group"
+            >
+              <div className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
+              <div className="text-left">
+                <div className="text-[10px] text-zinc-400 font-medium">{isTr ? 'Canlı YouTube Verisi' : 'Live YouTube Data'}</div>
+                <div className="text-xs font-bold text-white group-hover:text-red-400 transition flex items-center gap-1">
+                  <span>{isTr ? "YouTube'da İzle & Sayıları Gör" : 'View Live Stats'}</span>
+                  <ExternalLink className="h-3 w-3" />
+                </div>
               </div>
-              <div className="h-6 w-px bg-white/10" />
-              <div>
-                <div className="text-[11px] font-semibold text-zinc-400">Beğeni</div>
-                <div className="text-sm font-black text-white">{rel.likes}</div>
-              </div>
-            </div>
-            <span className="text-[10px] text-zinc-500 font-medium">
-              {isTr ? `Son kontrol: ${rel.lastChecked || '13 Ekim, 16:45'}` : `Verified: ${rel.lastChecked || 'Oct 13, 16:45'}`}
-            </span>
+            </a>
           </div>
         </div>
+
 
 
         {/* Credits Box */}
