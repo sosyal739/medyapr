@@ -277,7 +277,10 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
 
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/85 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] backdrop-blur-xl">
               {/* ── Video alanı: 1080p Tanıtım Filmi Oynatıcı ── */}
-              <div className="group relative aspect-video w-full select-none overflow-hidden bg-slate-900">
+              <div
+                onClick={togglePlay}
+                className="group relative aspect-video w-full select-none overflow-hidden bg-slate-900 cursor-pointer"
+              >
                 <video
                   ref={videoRef}
                   src="/video/medyapr_tanitim.mp4"
@@ -298,7 +301,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                 )}
 
                 {/* Üst: marka + durum */}
-                <div className="absolute inset-x-3 top-3 z-20 flex items-center justify-between gap-2 sm:inset-x-4 sm:top-4">
+                <div className="pointer-events-none absolute inset-x-3 top-3 z-20 flex items-center justify-between gap-2 sm:inset-x-4 sm:top-4">
                   <div className="flex items-center gap-2 rounded-full bg-black/55 px-3 py-1.5 text-xs font-bold text-white ring-1 ring-white/15 backdrop-blur-md">
                     <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FF0033]">
                       <Play className="ml-px h-2.5 w-2.5 fill-white text-white" />
@@ -322,25 +325,43 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                   )}
                 </div>
 
-                {/* Orta: oynat */}
-                <div className="pointer-events-none absolute inset-0 z-30 flex items-center justify-center">
-                  <button
-                    type="button"
-                    onClick={togglePlay}
-                    aria-label={isPlaying ? (isTr ? 'Durdur' : 'Pause') : (isTr ? 'Sesli tanıtımı başlat' : 'Play audio brief')}
-                    className="pointer-events-auto relative flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-gradient-to-tr from-[#FF0033] to-[#FF5E7E] text-white shadow-[0_10px_35px_rgba(255,0,51,0.5)] ring-4 ring-white/80 transition-transform duration-300 hover:scale-110 active:scale-95 sm:h-20 sm:w-20"
-                  >
-                    {isPlaying ? <Pause className="h-7 w-7 fill-white sm:h-8 sm:w-8" /> : <Play className="ml-1 h-7 w-7 fill-white sm:h-8 sm:w-8" />}
-                    {isPlaying && <span className="pointer-events-none absolute -inset-3 animate-ping rounded-full border-2 border-white/70 opacity-70" />}
-                  </button>
-                </div>
+                {/* Orta: Sadece video duraklatıldığında veya başlamadığında gösterilir (Oynatırken görünmez) */}
+                {!isPlaying && (
+                  <div className="pointer-events-none absolute inset-0 z-30 flex items-center justify-center animate-[fadeIn_0.3s_ease-out]">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        togglePlay();
+                      }}
+                      aria-label={isTr ? 'Videoyu başlat' : 'Play video'}
+                      className="pointer-events-auto relative flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-gradient-to-tr from-[#FF0033] to-[#FF5E7E] text-white shadow-[0_10px_35px_rgba(255,0,51,0.5)] ring-4 ring-white/80 transition-transform duration-300 hover:scale-110 active:scale-95 sm:h-20 sm:w-20"
+                    >
+                      <Play className="ml-1 h-7 w-7 fill-white sm:h-8 sm:w-8" />
+                      <span className="pointer-events-none absolute -inset-3 animate-ping rounded-full border-2 border-white/70 opacity-70" />
+                    </button>
+                  </div>
+                )}
 
-                {/* Alt: başlık, süre, ses, ilerleme */}
-                <div className="absolute inset-x-0 bottom-0 z-20 px-3 pb-3 pt-8 sm:px-4 sm:pb-4">
+                {/* Alt: başlık, süre, ses, ilerleme (Kontroller) */}
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                  className={`absolute inset-x-0 bottom-0 z-20 px-3 pb-3 pt-8 sm:px-4 sm:pb-4 transition-opacity duration-300 ${isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}
+                >
                   <div className="mb-2 flex items-center justify-between gap-3">
-                    <span className="truncate text-xs font-extrabold text-white sm:text-sm">
-                      {isTr ? 'Hizmet kapsamı ve süreç anlatımı' : 'Service scope and process overview'}
-                    </span>
+                    <div className="flex items-center gap-2 truncate">
+                      <button
+                        type="button"
+                        onClick={togglePlay}
+                        className="cursor-pointer p-1 text-white/90 transition-colors hover:text-white"
+                        aria-label={isPlaying ? (isTr ? 'Durdur' : 'Pause') : (isTr ? 'Oynat' : 'Play')}
+                      >
+                        {isPlaying ? <Pause className="h-4 w-4 fill-white text-white" /> : <Play className="h-4 w-4 fill-white text-white" />}
+                      </button>
+                      <span className="truncate text-xs font-extrabold text-white sm:text-sm">
+                        {isTr ? 'Hizmet kapsamı ve süreç anlatımı' : 'Service scope and process overview'}
+                      </span>
+                    </div>
                     <div className="flex shrink-0 items-center gap-3 text-white/90">
                       <span className="font-mono text-[11px] font-bold tabular-nums">
                         {formatSec(currentTime)} / {formatSec(duration)}
