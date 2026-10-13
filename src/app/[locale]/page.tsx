@@ -4,6 +4,7 @@ import HeroSection from '@/components/home/HeroSection';
 import TrustBadges from '@/components/home/TrustBadges';
 import CalculatorSection from '@/components/calc/CalculatorSection';
 import TrendingMusicSection from '@/components/home/TrendingMusicSection';
+import ArtistTestimonialsMarquee from '@/components/home/ArtistTestimonialsMarquee';
 import ComparisonSection from '@/components/home/ComparisonSection';
 import ServicesGrid from '@/components/home/ServicesGrid';
 import HowItWorks from '@/components/home/HowItWorks';
@@ -136,6 +137,7 @@ export default async function HomePage({ params }: Props) {
       <TrustBadges dict={dict} locale={locale} />
       <CalculatorSection locale={locale} />
       <TrendingMusicSection songs={trendingSongs} locale={locale} />
+      <ArtistTestimonialsMarquee locale={locale} />
       <ComparisonSection locale={locale} />
       <ServicesGrid dict={dict} locale={locale} />
       <HowItWorks dict={dict} locale={locale} />
