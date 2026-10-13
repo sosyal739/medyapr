@@ -400,7 +400,7 @@ h1, h2, h3, h4, h5, h6 {
 .animate-marquee-left-1 {
   display: flex;
   width: max-content;
-  animation: marquee 40s linear infinite;
+  animation: marquee 60s linear infinite;
 }
 
 .animate-marquee-left-2 {

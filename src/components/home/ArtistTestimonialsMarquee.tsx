@@ -21,7 +21,7 @@ interface ArtistTestimonial {
   quoteEn: string;
 }
 
-const testimonialsRow1: ArtistTestimonial[] = [
+const testimonials: ArtistTestimonial[] = [
   {
     id: 'artist-1',
     nameTr: 'Rap Sanatçısı',
@@ -102,9 +102,7 @@ const testimonialsRow1: ArtistTestimonial[] = [
     quoteEn:
       'For the artists on our roster, two things are non-negotiable: YouTube Studio transparency and zero bots. We\'ve run 14 music campaigns with MedyaPR. The end-of-campaign Google Ads analytics and cost optimization are strictly enterprise-grade.',
   },
-];
 
-const testimonialsRow2: ArtistTestimonial[] = [
   {
     id: 'artist-5',
     nameTr: 'Akustik Sanatçısı',
@@ -328,22 +326,12 @@ export default function ArtistTestimonialsMarquee({ locale = 'tr' }: ArtistTesti
         {/* Right Fade Gradient */}
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 md:w-48 bg-gradient-to-l from-[#14161A] to-transparent z-20" />
 
-        {/* Track 1 (Scrolling Right to Left) */}
-        <div className="flex overflow-hidden py-3">
+        {/* Single Silky-Smooth Continuous Track (Right to Left) */}
+        <div className="flex overflow-hidden py-4">
           <div className="animate-marquee-left-1 flex gap-6">
-            {testimonialsRow1.map((item, idx) => renderCard(item, idx))}
-            {testimonialsRow1.map((item, idx) =>
-              renderCard(item, idx + testimonialsRow1.length)
-            )}
-          </div>
-        </div>
-
-        {/* Track 2 (Scrolling Right to Left with subtle speed offset) */}
-        <div className="flex overflow-hidden py-3">
-          <div className="animate-marquee-left-2 flex gap-6">
-            {testimonialsRow2.map((item, idx) => renderCard(item, idx))}
-            {testimonialsRow2.map((item, idx) =>
-              renderCard(item, idx + testimonialsRow2.length)
+            {testimonials.map((item, idx) => renderCard(item, idx))}
+            {testimonials.map((item, idx) =>
+              renderCard(item, idx + testimonials.length)
             )}
           </div>
         </div>
