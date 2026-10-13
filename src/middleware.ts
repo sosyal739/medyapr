@@ -39,7 +39,21 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  /* Detect preferred locale:
+  /* 0. Arama motoru robotları (Googlebot, Bingbot, YandexBot vb.) için:
+     Googlebot ABD IP'si üzerinden tarasa dahi, ana domain (/ ) ASLA /en'e yönlendirilmemelidir.
+     Birincil pazar ve ana dil Türkçe (/tr) olduğu için botlar daima /tr'ye 307 (Geçici) ile yönlendirilir.
+     Bu sayede kök alan adı Google indeksinde /en olarak kalıcı kilitlenmez.
+  */
+  const userAgent = request.headers.get('user-agent') || '';
+  const isBot = /bot|googlebot|crawler|spider|robot|crawling|google|bing|yandex|duckduck|slurp|baiduspider/i.test(userAgent);
+
+  if (isBot) {
+    const redirectUrl = request.nextUrl.clone();
+    redirectUrl.pathname = `/tr${pathname === '/' ? '' : pathname}`;
+    return NextResponse.redirect(redirectUrl, 307);
+  }
+
+  /* Detect preferred locale for human visitors:
      1. Prioritize explicit NEXT_LOCALE cookie if present (user manual preference)
      2. Edge Geolocation: If visitor is outside Turkey (country !== 'TR'), route to 'en'
      3. Fallback to Accept-Language header
@@ -72,11 +86,11 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  /* Redirect to locale-prefixed path with 308 Permanent Redirect */
+  /* Redirect to locale-prefixed path with 307 Temporary Redirect */
   const redirectUrl = request.nextUrl.clone();
   redirectUrl.pathname = `/${targetLocale}${pathname === '/' ? '' : pathname}`;
 
-  const response = NextResponse.redirect(redirectUrl, 308);
+  const response = NextResponse.redirect(redirectUrl, 307);
   response.cookies.set('NEXT_LOCALE', targetLocale, {
     path: '/',
     maxAge: 31536000,

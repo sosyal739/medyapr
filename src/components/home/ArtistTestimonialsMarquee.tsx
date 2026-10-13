@@ -240,13 +240,10 @@ export default function ArtistTestimonialsMarquee({ locale = 'tr' }: ArtistTesti
         <div className="pt-3 border-t border-white/5">
           {/* Star Rating & Badge */}
           <div className="flex items-center justify-between gap-2 mb-3">
-            <div className="flex gap-0.5" aria-label="5 stars rating">
-              {Array.from({ length: 5 }, (_, i) => (
-                <Star
-                  key={i}
-                  className="h-3.5 w-3.5 fill-amber-400 text-amber-400"
-                />
-              ))}
+            <div className="inline-flex items-center gap-1.5" aria-label="5/5 yıldız">
+              <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+              <span className="text-xs font-black text-amber-400 tabular-nums">5.0</span>
+              <span className="text-[11px] text-zinc-400 font-medium">/ 5.0</span>
             </div>
             <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-950/40 border border-emerald-500/20 px-2 py-0.5 rounded-full">
               {isTr ? item.badgeTr : item.badgeEn}

@@ -285,7 +285,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                   ref={videoRef}
                   src="/video/medyapr_tanitim.mp4"
                   poster="/video/poster.jpg"
-                  preload="metadata"
+                  preload="none"
                   playsInline
                   onTimeUpdate={handleTimeUpdate}
                   onEnded={handleEnded}

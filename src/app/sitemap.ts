@@ -62,6 +62,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const post of posts) {
     const postDate = parseTurkishDate(post.date);
     for (const locale of LOCALES) {
+      if (locale === 'en' && (!post.title_en || !post.paragraphs_en || post.paragraphs_en.length === 0)) {
+        continue;
+      }
       entries.push({
         url: `${BASE_URL}/${locale}/blog/${post.slug}`,
         lastModified: postDate,

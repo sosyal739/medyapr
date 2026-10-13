@@ -73,6 +73,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: 'Yazı Bulunamadı' };
 
   const isTr = locale === 'tr';
+  const hasEn = Boolean(post.title_en && post.paragraphs_en && post.paragraphs_en.length > 0);
   const postTitle = (!isTr && post.title_en) ? post.title_en : post.title;
   const postSummary = (!isTr && post.summary_en) ? post.summary_en : post.summary;
 
@@ -81,6 +82,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       absolute: postTitle,
     },
     description: postSummary,
+    robots: (!isTr && !hasEn) ? { index: false, follow: true } : undefined,
     alternates: getPageAlternates(locale, `/blog/${slug}`),
     openGraph: {
       title: postTitle,
