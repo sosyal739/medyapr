@@ -85,3 +85,30 @@ export async function getArtistBySlug(slug: string): Promise<Artist | null> {
   const artists = await getArtists();
   return artists.find((a) => a.slug === slug) ?? null;
 }
+
+const TURKISH_STOPWORDS = [
+  ' için ', ' nasıl ', ' nedir', ' olan ', ' olarak ', ' ile ', ' bir ',
+  ' veya ', ' daha ', ' göre ', ' şarkı', ' müzik', ' izlenme', ' reklam',
+];
+
+export function isPostFullyTranslatedEn(post: BlogPost): boolean {
+  if (!post.title_en || !post.summary_en || !post.paragraphs_en || post.paragraphs_en.length === 0) {
+    return false;
+  }
+  if (post.title_en.trim() === post.title.trim()) {
+    return false;
+  }
+  if (post.summary_en.trim() === post.summary.trim()) {
+    return false;
+  }
+  const combinedEn = ` ${post.paragraphs_en.join(' ').toLowerCase()} `;
+  let trHits = 0;
+  for (const w of TURKISH_STOPWORDS) {
+    if (combinedEn.includes(w)) {
+      trHits += 1;
+      if (trHits >= 2) return false;
+    }
+  }
+  return true;
+}
+

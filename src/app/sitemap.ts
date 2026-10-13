@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getPosts, getArtists } from '@/lib/content';
+import { getPosts, getArtists, isPostFullyTranslatedEn } from '@/lib/content';
 import { getNewReleases, isReleaseIndexable } from '@/lib/releases';
 
 const BASE_URL = 'https://medyapr.com';
@@ -62,7 +62,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const post of posts) {
     const postDate = parseTurkishDate(post.date);
     for (const locale of LOCALES) {
-      if (locale === 'en' && (!post.title_en || !post.paragraphs_en || post.paragraphs_en.length === 0)) {
+      if (locale === 'en' && !isPostFullyTranslatedEn(post)) {
         continue;
       }
       entries.push({

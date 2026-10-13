@@ -16,7 +16,7 @@ import {
   Table as TableIcon,
   Quote,
 } from 'lucide-react';
-import { getPosts, getPostBySlug } from '@/lib/content';
+import { getPosts, getPostBySlug, isPostFullyTranslatedEn } from '@/lib/content';
 import { getPageAlternates, toIsoDateString } from '@/lib/seo';
 
 function parseParagraphWithLinks(text: string, locale: string) {
@@ -73,9 +73,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: 'Yazı Bulunamadı' };
 
   const isTr = locale === 'tr';
-  const hasEn = Boolean(post.title_en && post.paragraphs_en && post.paragraphs_en.length > 0);
-  const postTitle = (!isTr && post.title_en) ? post.title_en : post.title;
-  const postSummary = (!isTr && post.summary_en) ? post.summary_en : post.summary;
+  const hasEn = isPostFullyTranslatedEn(post);
+  const postTitle = (!isTr && hasEn && post.title_en) ? post.title_en : post.title;
+  const postSummary = (!isTr && hasEn && post.summary_en) ? post.summary_en : post.summary;
+  const trCanonical = `https://medyapr.com/tr/blog/${slug}`;
+
+  const alternates = hasEn
+    ? getPageAlternates(locale, `/blog/${slug}`)
+    : {
+        canonical: trCanonical,
+        languages: {
+          'tr-TR': trCanonical,
+          'x-default': trCanonical,
+        },
+      };
 
   return {
     title: {
@@ -83,7 +94,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     description: postSummary,
     robots: (!isTr && !hasEn) ? { index: false, follow: true } : undefined,
-    alternates: getPageAlternates(locale, `/blog/${slug}`),
+    alternates,
     openGraph: {
       title: postTitle,
       description: postSummary,
@@ -124,15 +135,16 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const isTr = locale === 'tr';
-  const postTitle = (!isTr && post.title_en) ? post.title_en : post.title;
-  const postSummary = (!isTr && post.summary_en) ? post.summary_en : post.summary;
+  const hasEn = isPostFullyTranslatedEn(post);
+  const postTitle = (!isTr && hasEn && post.title_en) ? post.title_en : post.title;
+  const postSummary = (!isTr && hasEn && post.summary_en) ? post.summary_en : post.summary;
   const postCategory = (!isTr && post.category_en) ? post.category_en : post.category;
   const postReadTime = (!isTr && post.readTime_en) ? post.readTime_en : post.readTime;
   const postAuthorRole = (!isTr && post.authorRole_en) ? post.authorRole_en : post.authorRole;
-  const postQuickFact = (!isTr && post.quickFact_en) ? post.quickFact_en : post.quickFact;
-  const postTable = (!isTr && post.table_en) ? post.table_en : post.table;
-  const postFaqs = (!isTr && post.faqs_en) ? post.faqs_en : post.faqs;
-  const postParagraphs = (!isTr && post.paragraphs_en) ? post.paragraphs_en : (post.paragraphs || []);
+  const postQuickFact = (!isTr && hasEn && post.quickFact_en) ? post.quickFact_en : post.quickFact;
+  const postTable = (!isTr && hasEn && post.table_en) ? post.table_en : post.table;
+  const postFaqs = (!isTr && hasEn && post.faqs_en) ? post.faqs_en : post.faqs;
+  const postParagraphs = (!isTr && hasEn && post.paragraphs_en) ? post.paragraphs_en : (post.paragraphs || []);
   const postTags = (!isTr && post.tags_en) ? post.tags_en : post.tags;
 
   // Schema.org Graph (BlogPosting + BreadcrumbList + FAQPage)
@@ -144,8 +156,8 @@ export default async function BlogPostPage({ params }: Props) {
       description: postSummary,
       image: post.image,
       datePublished: toIsoDateString(post.date),
-      inLanguage: isTr ? 'tr-TR' : 'en-US',
-      mainEntityOfPage: `https://medyapr.com/${locale}/blog/${slug}`,
+      inLanguage: (isTr || !hasEn) ? 'tr-TR' : 'en-US',
+      mainEntityOfPage: (isTr || !hasEn) ? `https://medyapr.com/tr/blog/${slug}` : `https://medyapr.com/${locale}/blog/${slug}`,
       author: {
         '@type': 'Organization',
         name: 'MedyaPR',
