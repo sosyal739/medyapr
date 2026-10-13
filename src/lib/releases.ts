@@ -27,19 +27,37 @@ export interface NewRelease {
 }
 
 /**
- * Google Scaled Content Abuse Önleme Kuralı (Spam Guardrail):
- * Bir klip sayfası ANCAK şu şartları karşılıyorsa Google dizinine açılır:
- * 1. Açıkça isIndexable: false olarak işaretlenmemiş olmalı.
- * 2. En az 80 kelimelik özgün editoryal not / müzik analizi içermeli.
- * 3. Doğrulanmış en az bir yönetmen / yapımcı künyesi bulunmalı.
- * Şartları karşılamayan basit veri kartları sayfada görüntülenir ama Google'a NOINDEX kalır.
+ * KESİN SPAM ÖNLEME EMNİYET KİLİDİ (Zero-Spam Mutation Gate):
+ * Kullanıcı yanlışlıkla 'yayına al / indexle' dese dahi, aşağıdaki katı şartları
+ * sağlamayan hiçbir klip sayfası Google dizinine AÇILAMAZ ve sitemap'e GİREMEZ.
+ *
+ * Şartlar (Google Thin Content & Scaled Content Abuse Koruması):
+ * 1. Açıkça 'isIndexable === true' olarak onaylanmış olmalı (varsayılan: false).
+ * 2. İnceleme metni (review) EN AZ 120 gerçek kelimeden oluşmalı.
+ * 3. Doğrulanmış gerçek bir yönetmen veya prodüksiyon künyesi bulunmalı.
+ * 4. Geçerli 11 karakterli YouTube videoId bulunmalı.
+ *
+ * Bu şartları sağlamayan sayfalar kullanıcıya ve sosyal medyaya açık kalır
+ * fakat Google'a kesin olarak 'noindex, follow' verilir. Böylece ana site
+ * ve fiyat sayfaları hiçbir zaman spam cezası riskiyle karşılaşmaz.
  */
 export function isReleaseIndexable(rel: NewRelease): boolean {
-  if (rel.isIndexable === false) return false;
+  // Katı kural: Açıkça true denmemişse VARSAYILAN OLARAK NOINDEX!
+  if (rel.isIndexable !== true) return false;
+
   const wordCount = (rel.review || '').trim().split(/\s+/).filter(Boolean).length;
-  const hasCredits = Boolean(rel.director && rel.director !== 'Bilinmiyor' && rel.director !== 'Belirtilmedi');
-  return wordCount >= 70 && hasCredits;
+  const hasCredits = Boolean(
+    rel.director &&
+    rel.director !== 'Bilinmiyor' &&
+    rel.director !== 'Belirtilmedi' &&
+    rel.director.trim().length >= 3
+  );
+  const hasValidVideoId = Boolean(rel.videoId && /^[\w-]{11}$/.test(rel.videoId));
+
+  // En az 120 kelimelik özgün insan analizi + doğrulanmış künye şart
+  return wordCount >= 120 && hasCredits && hasValidVideoId;
 }
+
 
 export async function getNewReleases(): Promise<NewRelease[]> {
   try {
