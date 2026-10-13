@@ -33,14 +33,15 @@
     "name": "BLOK3",
     "genre": "Türkçe Rap / Drill / Trap",
     "bio": "Gerçek adı Hakan Aydın olan BLOK3; 'Vur', 'Affetmem', 'Baybay', 'Aklına Ben Gelicem' ve 'Laf Anlamaz' hitleriyle YouTube ve dijital listelerde yüz milyonlarca dinlenmeye ulaşarak Türk rap müziğinin zirvesine yerleşti.",
-    "latestHit": "Laf Anlamaz",
-    "hitVideoId": "8bW96T_l2s4",
-    "image": "https://i.ytimg.com/vi/aCskh283c74/hqdefault.jpg",
+    "latestHit": "Vur",
+    "hitVideoId": "2AOOIHLg6zI",
+    "image": "https://i.ytimg.com/vi/2AOOIHLg6zI/hqdefault.jpg",
     "viewsTotal": "850.000.000+",
     "monthlyAudience": "7.8 Milyon Dinleyici",
     "topSongs": [
-      { "title": "Aklına Ben Gelicem", "views": "180M", "videoId": "aCskh283c74" },
-      { "title": "Baybay", "views": "145M", "videoId": "8bW96T_l2s4" }
+      { "title": "Vur", "views": "140M", "videoId": "2AOOIHLg6zI" },
+      { "title": "Aklına Ben Gelicem", "views": "180M", "videoId": "ooygpXIRfdM" },
+      { "title": "Baybay", "views": "110M", "videoId": "44G5iSzSNcE" }
     ]
   },
   {
@@ -54,7 +55,7 @@
     "viewsTotal": "450.000.000+",
     "monthlyAudience": "5.4 Milyon Dinleyici",
     "topSongs": [
-      { "title": "Ateşe Düştüm", "views": "190M", "videoId": "z1k8v9W2m1g" },
+      { "title": "Ateşe Düştüm", "views": "190M", "videoId": "RQmXet6kZ-Y" },
       { "title": "Karakış (ft. Kibariye)", "views": "1.2M", "videoId": "__tPePTVHF8" }
     ]
   },
