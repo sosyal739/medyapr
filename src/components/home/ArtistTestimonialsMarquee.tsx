@@ -4,7 +4,8 @@ import { Star, Sparkles, CheckCircle2, Eye, Music } from 'lucide-react';
 
 interface ArtistTestimonial {
   id: string;
-  name: string;
+  nameTr: string;
+  nameEn: string;
   roleTr: string;
   roleEn: string;
   genreTr: string;
@@ -23,9 +24,10 @@ interface ArtistTestimonial {
 const testimonialsRow1: ArtistTestimonial[] = [
   {
     id: 'artist-1',
-    name: 'Berkant "Vortex" E.',
-    roleTr: 'Rap Sanatçısı & Söz Yazarı',
-    roleEn: 'Rap Artist & Songwriter',
+    nameTr: 'Rap Sanatçısı',
+    nameEn: 'Rap Artist',
+    roleTr: 'MedyaPR Müşterisi • Trap & Hip-Hop',
+    roleEn: 'MedyaPR Client • Trap & Hip-Hop',
     genreTr: '#TürkçeRap',
     genreEn: '#HipHop',
     icon: '🎤',
@@ -42,9 +44,10 @@ const testimonialsRow1: ArtistTestimonial[] = [
   },
   {
     id: 'artist-2',
-    name: 'Selin Karaca',
-    roleTr: 'Pop Şarkıcısı • Bağımsız Sanatçı',
-    roleEn: 'Pop Singer • Independent Artist',
+    nameTr: 'Pop Şarkıcısı',
+    nameEn: 'Pop Singer',
+    roleTr: 'MedyaPR Müşterisi • Solo Sanatçı',
+    roleEn: 'MedyaPR Client • Solo Artist',
     genreTr: '#PopMüzik',
     genreEn: '#PopMusic',
     icon: '🎵',
@@ -61,9 +64,10 @@ const testimonialsRow1: ArtistTestimonial[] = [
   },
   {
     id: 'artist-3',
-    name: 'Kaan Demir (Son Dakika)',
-    roleTr: 'Alternatif Rock Grubu • Vokal & Gitar',
-    roleEn: 'Alternative Rock Band • Vocals & Guitar',
+    nameTr: 'Alternatif Rock Grubu',
+    nameEn: 'Alternative Rock Band',
+    roleTr: 'MedyaPR Müşterisi • Canlı Performans',
+    roleEn: 'MedyaPR Client • Live Session',
     genreTr: '#AlternatifRock',
     genreEn: '#AltRock',
     icon: '🎸',
@@ -80,9 +84,10 @@ const testimonialsRow1: ArtistTestimonial[] = [
   },
   {
     id: 'artist-4',
-    name: 'Emre Can Bilgin',
-    roleTr: 'Müzik Prodüktörü • Melodik Records',
-    roleEn: 'Music Producer • Melodik Records',
+    nameTr: 'Müzik Prodüktörü',
+    nameEn: 'Music Producer',
+    roleTr: 'MedyaPR Kurumsal Partneri • Bağımsız Label',
+    roleEn: 'MedyaPR Corporate Partner • Independent Label',
     genreTr: '#MüzikYapım',
     genreEn: '#MusicLabel',
     icon: '🎛️',
@@ -102,9 +107,10 @@ const testimonialsRow1: ArtistTestimonial[] = [
 const testimonialsRow2: ArtistTestimonial[] = [
   {
     id: 'artist-5',
-    name: 'Derya Yıldırım',
-    roleTr: 'Akustik Müzisyen • YouTube Creator',
-    roleEn: 'Acoustic Musician • YouTube Creator',
+    nameTr: 'Akustik Sanatçısı',
+    nameEn: 'Acoustic Artist',
+    roleTr: 'MedyaPR Müşterisi • YouTube Creator',
+    roleEn: 'MedyaPR Client • YouTube Creator',
     genreTr: '#Akustik',
     genreEn: '#Acoustic',
     icon: '🎙️',
@@ -121,9 +127,10 @@ const testimonialsRow2: ArtistTestimonial[] = [
   },
   {
     id: 'artist-6',
-    name: 'Mert "Aethel" Soylu',
-    roleTr: 'DJ & Elektronik Müzik Prodüktörü',
-    roleEn: 'DJ & Electronic Music Producer',
+    nameTr: 'DJ & Müzik Prodüktörü',
+    nameEn: 'DJ & Music Producer',
+    roleTr: 'MedyaPR Global Müşterisi • Elektronik Müzik',
+    roleEn: 'MedyaPR Global Client • Electronic Music',
     genreTr: '#EDM #Elektronik',
     genreEn: '#Electronic',
     icon: '🎧',
@@ -140,9 +147,10 @@ const testimonialsRow2: ArtistTestimonial[] = [
   },
   {
     id: 'artist-7',
-    name: 'Murat Şahin',
-    roleTr: 'Yorumcu & Besteci',
-    roleEn: 'Singer & Composer',
+    nameTr: 'Yorumcu & Besteci',
+    nameEn: 'Composer & Vocalist',
+    roleTr: 'MedyaPR Müşterisi • Klip Lansmanı',
+    roleEn: 'MedyaPR Client • Music Video Launch',
     genreTr: '#ModernArabesk',
     genreEn: '#WorldMusic',
     icon: '🎻',
@@ -159,9 +167,10 @@ const testimonialsRow2: ArtistTestimonial[] = [
   },
   {
     id: 'artist-8',
-    name: 'Cemre & Deniz (Neva)',
-    roleTr: 'Bağımsız Müzik İkilisi',
-    roleEn: 'Indie Music Duo',
+    nameTr: 'Indie Pop İkilisi',
+    nameEn: 'Indie Pop Duo',
+    roleTr: 'MedyaPR Müşterisi • Bağımsız Müzisyenler',
+    roleEn: 'MedyaPR Client • Independent Musicians',
     genreTr: '#IndiePop',
     genreEn: '#IndiePop',
     icon: '🎹',
@@ -201,7 +210,7 @@ export default function ArtistTestimonialsMarquee({ locale = 'tr' }: ArtistTesti
               <div>
                 <div className="flex items-center gap-1.5">
                   <h4 className="font-bold text-white text-base leading-tight">
-                    {item.name}
+                    {isTr ? item.nameTr : item.nameEn}
                   </h4>
                   <CheckCircle2 className="h-4 w-4 text-[#00C9A7] flex-shrink-0" />
                 </div>
