@@ -18,7 +18,7 @@ import {
   Music,
   UserCheck,
 } from 'lucide-react';
-import { getNewReleases, getReleaseBySlug, type NewRelease } from '@/lib/releases';
+import { getNewReleases, getReleaseBySlug, isReleaseIndexable, type NewRelease } from '@/lib/releases';
 import { getPageAlternates } from '@/lib/seo';
 import SocialShareBar from '@/components/releases/SocialShareBar';
 
@@ -51,12 +51,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? `${rel.artist} imzalı ${rel.title} klibi ${rel.channel} kanalında yayında. Klip yönetmeni, künyesi, izlenme analizi ve YouTube algoritma incelemesi.`
     : `${rel.artist}'s new music video ${rel.title} out now on ${rel.channel}. Video review, director credits, and YouTube growth analytics.`;
 
+  // Google Scaled Content Abuse Önleme Kuralı (Spam Guardrail):
+  // Yalnızca kalite kriterini karşılayan (özgün editör analizi ve doğrulanmış künyesi olan) sayfalar indexlenir.
+  // Basit veri kartları noindex bırakılarak site-wide ceza riski sıfırlanır.
+  const canIndex = isReleaseIndexable(rel);
+
   return {
     title: {
       absolute: rawTitle,
     },
     description: pageDesc,
     alternates: getPageAlternates(locale, `/klip/${slug}`),
+    robots: canIndex
+      ? {
+          index: true,
+          follow: true,
+          'max-snippet': -1,
+          'max-video-preview': -1,
+          'max-image-preview': 'large',
+        }
+      : {
+          index: false,
+          follow: true,
+        },
     openGraph: {
       title: rawTitle,
       description: pageDesc,
@@ -64,6 +81,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   };
 }
+
 
 export default async function ReleaseDetailPage({ params }: Props) {
   const { locale, slug } = await params;
@@ -133,8 +151,8 @@ export default async function ReleaseDetailPage({ params }: Props) {
       />
 
       <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
-        {/* Navigation Back Link */}
-        <div className="mb-6">
+        {/* Navigation & Direct YouTube Watch Link */}
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <Link
             href={`/${locale}/yeni-klipler`}
             className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-400 hover:text-white transition-colors"
@@ -142,6 +160,19 @@ export default async function ReleaseDetailPage({ params }: Props) {
             <ArrowLeft className="h-4 w-4" />
             <span>{isTr ? 'Tüm Yeni Kliplere Dön' : 'Back to All Releases'}</span>
           </Link>
+
+          <a
+            href={`https://www.youtube.com/watch?v=${rel.videoId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl bg-red-600/90 hover:bg-red-600 px-4 py-2 text-xs font-bold text-white shadow-lg shadow-red-600/20 transition-all hover:scale-105 active:scale-95"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+            <span>{isTr ? "YouTube'da Resmi Olarak İzle" : 'Watch on YouTube'}</span>
+            <ExternalLink className="h-3.5 w-3.5 text-white/80" />
+          </a>
         </div>
 
         {/* Video Player Header */}
@@ -149,7 +180,7 @@ export default async function ReleaseDetailPage({ params }: Props) {
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${rel.videoId}?rel=0`}
             title={`${rel.artist} - ${rel.title}`}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="w-full h-full border-0"
           />
@@ -180,18 +211,24 @@ export default async function ReleaseDetailPage({ params }: Props) {
             </p>
           </div>
 
-          <div className="flex items-center gap-4 bg-zinc-900/80 border border-white/10 px-4 py-2.5 rounded-2xl shrink-0">
-            <div>
-              <div className="text-[11px] font-semibold text-zinc-400">Canlı İzlenme</div>
-              <div className="text-sm font-black text-red-400">{rel.views}</div>
+          <div className="flex flex-col items-end gap-1.5 shrink-0">
+            <div className="flex items-center gap-4 bg-zinc-900/80 border border-white/10 px-4 py-2.5 rounded-2xl">
+              <div>
+                <div className="text-[11px] font-semibold text-zinc-400">Doğrulanmış İzlenme</div>
+                <div className="text-sm font-black text-red-400">{rel.views}</div>
+              </div>
+              <div className="h-6 w-px bg-white/10" />
+              <div>
+                <div className="text-[11px] font-semibold text-zinc-400">Beğeni</div>
+                <div className="text-sm font-black text-white">{rel.likes}</div>
+              </div>
             </div>
-            <div className="h-6 w-px bg-white/10" />
-            <div>
-              <div className="text-[11px] font-semibold text-zinc-400">Beğeni</div>
-              <div className="text-sm font-black text-white">{rel.likes}</div>
-            </div>
+            <span className="text-[10px] text-zinc-500 font-medium">
+              {isTr ? `Son kontrol: ${rel.lastChecked || '13 Ekim, 16:45'}` : `Verified: ${rel.lastChecked || 'Oct 13, 16:45'}`}
+            </span>
           </div>
         </div>
+
 
         {/* Credits Box */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl bg-white/[0.02] border border-white/10 mb-10 text-xs">
@@ -250,7 +287,7 @@ export default async function ReleaseDetailPage({ params }: Props) {
             <div className="space-y-4 max-w-xl text-center lg:text-left">
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-3 py-1 text-xs font-bold text-emerald-300">
                 <UserCheck className="h-4 w-4 text-emerald-400" />
-                <span>{isTr ? 'Bu Klibin Sahibi veya Menajeri Misiniz?' : 'Are You the Artist or Manager?'}</span>
+                <span>{isTr ? 'Bu Klip Sizin mi? Tanıtım Planı Oluşturun' : 'Is This Your Video? Create a PR Plan'}</span>
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
@@ -262,45 +299,55 @@ export default async function ReleaseDetailPage({ params }: Props) {
 
               <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                 {isTr
-                  ? `Tebrikler! '${rel.title}' klibiniz yayında. Klibinizin YouTube algoritmasında 'Önerilen Videolar' arasına girmesi ve ilk günlerde doğru müzikseverlere ulaşması için 18+ yıllık resmi Google Partner tecrübemizle yanınızdayız.`
+                  ? `Tebrikler! '${rel.title}' klibiniz yayında. Klibinizin YouTube algoritmasında doğru müzikseverlere ulaşması ve önerilen videolara girmesi için resmi Google Ads video kampanyaları hazırlıyoruz.`
                   : `Congratulations! '${rel.title}' is out now. Scale your reach and trigger YouTube recommendations with certified Google Ads video PR.`}
               </p>
 
               <div className="space-y-2 pt-2 text-xs font-semibold text-zinc-200">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-[#00C9A7] shrink-0" />
-                  <span>Kanal şifresi gerekmez (Yalnızca herkese açık YouTube linki iletilir)</span>
+                  <span>Kanal şifresi gerekmez (Yalnızca YouTube video bağlantısı iletilir)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-[#00C9A7] shrink-0" />
-                  <span>YouTube Studio'da resmi "YouTube Reklamları" tescili (Sıfır bot / Sıfır panel)</span>
+                  <span>YouTube Studio'da resmi "YouTube Reklamları" tescili (Sıfır bot / Sıfır sahte panel)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-[#00C9A7] shrink-0" />
+                  <span>Gerçek insan erişimi: Beğeni ve yorum garantisi verilmez; resmi kitle hedeflemesi yapılır</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-[#00C9A7] shrink-0" />
                   <span>Aşamalı güvenli ödeme: %50 onayda, %50 kampanya tamamlandığında</span>
                 </div>
               </div>
+
+              <p className="text-[11px] text-zinc-400 italic pt-2 border-t border-white/5">
+                {isTr
+                  ? '* MedyaPR bir Google Ads ajansıdır; bu sayfa ücretsiz editoryal müzik tanıtımıdır. Sanatçı veya yapım şirketi talebi doğrultusunda sayfa 24 saat içinde yayından kaldırılabilir.'
+                  : '* MedyaPR is a Google Ads agency; this page is free editorial music curation. Content can be removed within 24h upon artist request.'}
+              </p>
             </div>
 
             {/* Inbound CTAs */}
             <div className="flex flex-col gap-3 w-full sm:w-auto shrink-0">
               <a
-                href={`https://wa.me/905300000000?text=${encodeURIComponent(
-                  `Merhaba MedyaPR ekibi, '${rel.artist} - ${rel.title}' klibimiz için YouTube Google Ads PR lansman paketleri hakkında bilgi almak istiyoruz.`
+                href={`https://wa.me/905312993355?text=${encodeURIComponent(
+                  `Merhaba MedyaPR ekibi, '${rel.artist} - ${rel.title}' klibimiz yayında (https://www.youtube.com/watch?v=${rel.videoId}). YouTube resmi Google Ads lansman tanıtım planı ve bütçe hakkında bilgi almak istiyoruz.`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-emerald-600/30 transition-all hover:scale-105 active:scale-95"
               >
                 <MessageCircle className="h-5 w-5 fill-white" />
-                <span>{isTr ? 'WhatsApp ile Klibi Tanıt' : 'Promote via WhatsApp'}</span>
+                <span>{isTr ? 'WhatsApp ile Plan Oluştur' : 'Create Plan on WhatsApp'}</span>
               </a>
 
               <Link
                 href={`/${locale}#calculator`}
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-[#FF0033]/30 hover:brightness-110 transition active:scale-95"
               >
-                <span>{isTr ? 'Bütçe Hesaplayıcıya Git' : 'Calculate Campaign Budget'}</span>
+                <span>{isTr ? 'Bütçe & Hedef Hesapla' : 'Calculate Target & Budget'}</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

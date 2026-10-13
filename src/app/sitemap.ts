@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getPosts, getArtists } from '@/lib/content';
-import { getNewReleases } from '@/lib/releases';
+import { getNewReleases, isReleaseIndexable } from '@/lib/releases';
 
 const BASE_URL = 'https://medyapr.com';
 const LOCALES = ['tr', 'en'] as const;
@@ -83,8 +83,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  // Dynamic Releases (Yeni Klipler)
+  // Dynamic Releases (Yeni Klipler) - Google Scaled Content Abuse Önleme Kuralı
+  // Yalnızca kalite kriterini karşılayan (özgün editör analizi ve künyesi olan) sayfalar sitemap'e girer.
   for (const release of releases) {
+    if (!isReleaseIndexable(release)) continue;
     const releaseDate = release.releaseDate ? new Date(`${release.releaseDate}T08:00:00.000Z`) : STABLE_SITE_DATE;
     for (const locale of LOCALES) {
       entries.push({
