@@ -201,7 +201,7 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
 
             {/* Paket 2: Growth Momentum (Öne Çıkan) */}
             <div className="rounded-2xl border-2 border-[#FF0033] bg-gradient-to-b from-[#FF0033]/15 via-zinc-900/90 to-zinc-950 p-6 flex flex-col justify-between shadow-xl shadow-[#FF0033]/20 relative">
-              <span className="absolute -top-3 right-6 rounded-full bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-3 py-0.5 text-[10px] font-black text-white uppercase tracking-wider shadow-md">
+              <span className="absolute -top-3 right-6 rounded-full bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-3 py-0.5 text-[10px] font-black text-white uppercase tracking-wider shadow-md">
                 {isTr ? 'En Popüler Klip Lansmanı' : 'Most Popular Launch'}
               </span>
               <div>
@@ -225,7 +225,7 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
               </div>
               <a
                 href={`/${locale}/order?views=100000&region=${region}&currency=${currency}`}
-                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-4 py-3 text-xs font-black text-white shadow-lg shadow-[#FF0033]/30 hover:brightness-110 transition"
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-4 py-3 text-xs font-black text-white shadow-lg shadow-[#FF0033]/30 hover:brightness-110 transition"
               >
                 {isTr ? 'Hemen Başlat' : 'Launch Now'} <ArrowRight className="h-4 w-4" />
               </a>

@@ -145,7 +145,7 @@ export default function TrackView({
           >
             {isTr ? "YouTube'da Aç" : 'Open on YouTube'} <ExternalLink className="h-3.5 w-3.5" />
           </a>
-          <span className="rounded-xl bg-[#FF0033] px-4 py-2 text-xs font-extrabold text-white shadow-lg shadow-[#FF0033]/30">
+          <span className="rounded-xl bg-[#D9002B] px-4 py-2 text-xs font-extrabold text-white shadow-lg shadow-[#FF0033]/30">
             {statusLabels[o.status] || o.status}
           </span>
         </div>

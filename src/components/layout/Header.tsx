@@ -43,7 +43,7 @@ export default function Header({ dict, locale }: HeaderProps) {
           <div className="flex items-center justify-between h-16 lg:h-[72px]">
             {/* Brand Logo */}
             <Link href={`/${locale}`} className="flex items-center gap-2.5 group">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#FF0033] to-[#CC0029] rounded-xl flex items-center justify-center shadow-lg shadow-[#FF0033]/30 group-hover:shadow-[#FF0033]/50 transition-all duration-300 group-hover:scale-105">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#E0002E] to-[#CC0029] rounded-xl flex items-center justify-center shadow-lg shadow-[#FF0033]/30 group-hover:shadow-[#FF0033]/50 transition-all duration-300 group-hover:scale-105">
                 <Play className="h-5 w-5 fill-white text-white ml-0.5" />
               </div>
               <div className="flex flex-col">
@@ -138,7 +138,7 @@ export default function Header({ dict, locale }: HeaderProps) {
               {/* Order Now CTA */}
               <Link
                 href={`/${locale}#calculator`}
-                className="px-4 py-2 text-xs bg-gradient-to-r from-[#FF0033] to-[#CC0029] text-white font-extrabold rounded-xl shadow-lg shadow-[#FF0033]/30 hover:scale-105 transition-all"
+                className="px-4 py-2 text-xs bg-gradient-to-r from-[#E0002E] to-[#CC0029] text-white font-extrabold rounded-xl shadow-lg shadow-[#FF0033]/30 hover:scale-105 transition-all"
               >
                 {isTr ? 'Sipariş Ver' : 'Order Now'}
               </Link>
@@ -242,7 +242,7 @@ export default function Header({ dict, locale }: HeaderProps) {
 
               <Link
                 href={`/${locale}#calculator`}
-                className="w-full px-4 py-3 rounded-xl text-center text-sm font-extrabold bg-[#FF0033] text-white shadow-lg shadow-[#FF0033]/30"
+                className="w-full px-4 py-3 rounded-xl text-center text-sm font-extrabold bg-[#D9002B] text-white shadow-lg shadow-[#FF0033]/30"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {isTr ? 'Hemen Başla' : 'Order Now'}

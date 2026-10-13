@@ -273,7 +273,7 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
         <button
           type="submit"
           disabled={!ready || busy}
-          className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-6 py-4 font-bold text-white shadow-lg shadow-[#FF0033]/30 transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-40"
+          className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-6 py-4 font-bold text-white shadow-lg shadow-[#FF0033]/30 transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-40"
         >
           {busy ? (
             <>

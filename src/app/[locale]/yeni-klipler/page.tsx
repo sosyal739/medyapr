@@ -57,8 +57,8 @@ export default async function NewReleasesPage({ params }: Props) {
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF0033]/40 bg-[#FF0033]/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5E7E]">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF0033] opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF0033]" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#D9002B] opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#D9002B]" />
             </span>
             <Video className="h-3.5 w-3.5 text-[#FF0033]" />
             <span>{isTr ? 'Klip Lansman Radarı' : 'Video Release Radar'}</span>
@@ -134,7 +134,7 @@ export default async function NewReleasesPage({ params }: Props) {
 
                     {/* Play Button Overlay */}
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="h-12 w-12 rounded-full bg-[#FF0033] flex items-center justify-center text-white shadow-xl shadow-[#FF0033]/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                      <div className="h-12 w-12 rounded-full bg-[#D9002B] flex items-center justify-center text-white shadow-xl shadow-[#FF0033]/50 transform scale-75 group-hover:scale-100 transition-transform duration-300">
                         <Play className="h-5 w-5 fill-white ml-0.5" />
                       </div>
                     </div>
@@ -210,7 +210,7 @@ export default async function NewReleasesPage({ params }: Props) {
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <Link
                 href={`/${locale}#calculator`}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-[#FF0033]/30 hover:brightness-110 transition active:scale-95"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-[#FF0033]/30 hover:brightness-110 transition active:scale-95"
               >
                 <span>{isTr ? 'Bütçeni Hesapla' : 'Calculate Budget'}</span>
                 <ArrowRight className="h-4 w-4" />

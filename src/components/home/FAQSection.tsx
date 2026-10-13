@@ -70,7 +70,7 @@ export default function FAQSection({ dict, locale = 'tr' }: FAQSectionProps) {
                   <div
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-xl transition-all duration-300 ${
                       isOpen
-                        ? 'bg-gradient-to-r from-[#FF0033] to-[#CC0029] text-white shadow-md shadow-[#FF0033]/30 rotate-180'
+                        ? 'bg-gradient-to-r from-[#E0002E] to-[#CC0029] text-white shadow-md shadow-[#FF0033]/30 rotate-180'
                         : 'bg-white/5 text-zinc-400'
                     }`}
                   >

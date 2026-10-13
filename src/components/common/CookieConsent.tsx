@@ -18,8 +18,8 @@ export default function CookieConsent({ dict, locale }: CookieConsentProps) {
     title: locale === 'tr' ? 'Çerez ve Gizlilik Tercihleri' : 'Cookie & Privacy Preferences',
     description:
       locale === 'tr'
-        ? 'MedyaPR olarak, sitemizde güvenli bir deneyim sunmak, resmi Google Ads reklam performansını analiz etmek ve ziyaretçi trafiğini ölçümlemek için KVKK ve GDPR standartlarına tam uyumlu çerezler kullanıyoruz.'
-        : 'At MedyaPR, we use cookies fully compliant with GDPR and KVKK regulations to ensure browsing security, analyze official Google Ads performance, and measure visitor traffic.',
+        ? 'Sitemizi geliştirmek ve Google Ads performansını ölçmek için çerez kullanıyoruz.'
+        : 'We use cookies to improve the site and measure Google Ads performance.',
     badge: locale === 'tr' ? 'KVKK & GDPR Güvencesi' : 'GDPR & KVKK Compliant',
     accept_all: locale === 'tr' ? 'Tümünü Kabul Et' : 'Accept All',
     necessary_only: locale === 'tr' ? 'Sadece Zorunlu' : 'Necessary Only',
@@ -99,7 +99,7 @@ export default function CookieConsent({ dict, locale }: CookieConsentProps) {
   if (!mounted || !isOpen) return null;
 
   return (
-    <aside
+    <div
       aria-label={t.title}
       role="dialog"
       aria-modal="false"
@@ -164,13 +164,13 @@ export default function CookieConsent({ dict, locale }: CookieConsentProps) {
 
           <button
             onClick={() => saveConsent('all')}
-            className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#FF0033] to-[#CC0029] hover:from-red-500 hover:to-red-700 shadow-md shadow-[#FF0033]/25 hover:shadow-[#FF0033]/40 hover:scale-[1.02] active:scale-[0.98] transition-all text-center"
+            className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#E0002E] to-[#CC0029] hover:from-red-500 hover:to-red-700 shadow-md shadow-[#FF0033]/25 hover:shadow-[#FF0033]/40 hover:scale-[1.02] active:scale-[0.98] transition-all text-center"
           >
             <Check className="h-3.5 w-3.5" />
             {t.accept_all}
           </button>
         </div>
       </div>
-    </aside>
+    </div>
   );
 }

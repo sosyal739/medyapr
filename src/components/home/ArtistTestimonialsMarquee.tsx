@@ -207,9 +207,9 @@ export default function ArtistTestimonialsMarquee({ locale = 'tr' }: ArtistTesti
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
-                  <h4 className="font-bold text-white text-base leading-tight">
+                  <h3 className="font-bold text-white text-base leading-tight">
                     {isTr ? item.nameTr : item.nameEn}
-                  </h4>
+                  </h3>
                   <CheckCircle2 className="h-4 w-4 text-[#00C9A7] flex-shrink-0" />
                 </div>
                 <p className="text-xs text-zinc-400 mt-0.5 font-medium">
@@ -220,7 +220,7 @@ export default function ArtistTestimonialsMarquee({ locale = 'tr' }: ArtistTesti
 
             {/* YouTube Badge */}
             <div className="flex items-center gap-1 rounded-full bg-red-950/60 border border-red-500/30 px-2.5 py-1 text-[11px] font-semibold text-red-300">
-              <span className="flex h-1.5 w-1.5 rounded-full bg-[#FF0033] animate-pulse" />
+              <span className="flex h-1.5 w-1.5 rounded-full bg-[#D9002B] animate-pulse" />
               <span>YouTube</span>
             </div>
           </div>
@@ -279,8 +279,8 @@ export default function ArtistTestimonialsMarquee({ locale = 'tr' }: ArtistTesti
         {/* Live Ticker Pill */}
         <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#FF0033]/40 bg-[#FF0033]/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5E7E]">
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF0033] opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF0033]" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#D9002B] opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#D9002B]" />
           </span>
           <Sparkles className="h-3.5 w-3.5 text-[#FF0033]" />
           <span>

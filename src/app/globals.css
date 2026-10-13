@@ -11,8 +11,8 @@
   --color-success: #00C9A7;
   --color-warning: #F59E0B;
 
-  --font-heading: 'Montserrat', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-heading: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+  --font-body: var(--font-inter), 'Inter', system-ui, sans-serif;
 }
 
 :root {
@@ -123,6 +123,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ===== Custom Animations ===== */
+/* Hero: opacity 0'dan başlamaz; ilk boyama (FCP/LCP) gecikmesin */
+@keyframes heroRise {
+  from { transform: translateY(16px); }
+  to { transform: translateY(0); }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -562,4 +568,10 @@ h1, h2, h3, h4, h5, h6 {
   background: #fff;
   border: 4px solid #ff0033;
   box-shadow: 0 0 0 6px rgba(255, 0, 51, 0.18);
+}
+
+/* Ekran dışı bölümlerin layout/boyama maliyetini erteler */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
 }

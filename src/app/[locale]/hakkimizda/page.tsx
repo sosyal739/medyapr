@@ -86,7 +86,7 @@ export default async function AboutPage({ params }: Props) {
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-[#1A1A2E] via-[#16213E] to-[#1A1A2E] py-20 lg:py-28 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#FF0033] rounded-full blur-[120px]" />
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#D9002B] rounded-full blur-[120px]" />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center">
           <h1 className="text-4xl lg:text-6xl font-black text-white mb-6">{dict.about.title}</h1>
@@ -124,7 +124,7 @@ export default async function AboutPage({ params }: Props) {
                 key={i}
                 className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-[#FF0033] to-[#CC0029] rounded-xl flex items-center justify-center mb-5 shadow-lg shadow-[#FF0033]/20">
+                <div className="w-14 h-14 bg-gradient-to-br from-[#E0002E] to-[#CC0029] rounded-xl flex items-center justify-center mb-5 shadow-lg shadow-[#FF0033]/20">
                   <v.icon size={24} className="text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-[#1A1A2E] mb-2">{v.title}</h3>

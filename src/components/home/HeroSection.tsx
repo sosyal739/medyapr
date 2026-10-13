@@ -161,7 +161,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 lg:flex-row lg:items-center lg:gap-12 md:px-8 lg:px-12">
         {/* ── Sol Kolon: Başlık, Açıklama ve CTA ── */}
-        <div className="flex flex-1 flex-col gap-6 animate-[fadeInUp_0.7s_ease-out_both]">
+        <div className="flex flex-1 flex-col gap-6 animate-[heroRise_0.5s_ease-out_both]">
           {/* Badge */}
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#FF0033]/40 bg-[#FF0033]/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5E7E] backdrop-blur-md shadow-lg shadow-[#FF0033]/10">
             <Award className="h-3.5 w-3.5 text-[#FF0033]" />
@@ -210,7 +210,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
             </div>
             <button
               type="submit"
-              className="group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-7 py-4 text-base font-extrabold text-white shadow-xl shadow-[#FF0033]/35 transition-all hover:brightness-110 sm:mt-0 sm:w-auto"
+              className="group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-7 py-4 text-base font-extrabold text-white shadow-xl shadow-[#FF0033]/35 transition-all hover:brightness-110 sm:mt-0 sm:w-auto"
             >
               {isTr ? 'Videomu Bul' : 'Find My Video'}
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -271,7 +271,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
         </div>
 
         {/* ── Sağ Kolon: Sesli Tanıtım Oynatıcı + Örnek Kampanya Metrikleri ── */}
-        <div className="flex flex-1 justify-center animate-[fadeInUp_0.9s_ease-out_0.2s_both] w-full">
+        <div className="flex flex-1 justify-center animate-[heroRise_0.6s_ease-out_both] w-full">
           <div className="relative w-full max-w-2xl">
             <div className="pointer-events-none absolute -inset-4 rounded-[36px] bg-gradient-to-r from-red-500/20 via-pink-400/10 to-sky-400/20 blur-3xl opacity-70" />
 
@@ -284,7 +284,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                 <video
                   ref={videoRef}
                   src="/video/medyapr_tanitim.mp4"
-                  poster="/video/poster.jpg"
+                  poster="/video/poster.webp"
                   preload="none"
                   playsInline
                   onTimeUpdate={handleTimeUpdate}
@@ -303,7 +303,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                 {/* Üst: marka + durum */}
                 <div className="pointer-events-none absolute inset-x-3 top-3 z-20 flex items-center justify-between gap-2 sm:inset-x-4 sm:top-4">
                   <div className="flex items-center gap-2 rounded-full bg-black/55 px-3 py-1.5 text-xs font-bold text-white ring-1 ring-white/15 backdrop-blur-md">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FF0033]">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#D9002B]">
                       <Play className="ml-px h-2.5 w-2.5 fill-white text-white" />
                     </span>
                     {isTr ? 'MedyaPR Tanıtım Filmi' : 'MedyaPR Commercial Film'}

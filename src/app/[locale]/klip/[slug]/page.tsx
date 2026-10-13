@@ -347,7 +347,7 @@ export default async function ReleaseDetailPage({ params }: Props) {
 
               <Link
                 href={`/${locale}#calculator`}
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-[#FF0033]/30 hover:brightness-110 transition active:scale-95"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-[#FF0033]/30 hover:brightness-110 transition active:scale-95"
               >
                 <span>{isTr ? 'Bütçe & Hedef Hesapla' : 'Calculate Target & Budget'}</span>
                 <ArrowRight className="h-4 w-4" />

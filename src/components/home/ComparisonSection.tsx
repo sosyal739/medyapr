@@ -364,7 +364,7 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
 
             <Link
               href={`/${locale}#calc`}
-              className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-[0_4px_20px_rgba(255,0,51,0.35)] hover:brightness-110 transition active:scale-95"
+              className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-[0_4px_20px_rgba(255,0,51,0.35)] hover:brightness-110 transition active:scale-95"
             >
               <span>{isTr ? 'Bütçeni Hesapla & Başla' : 'Calculate & Launch'}</span>
               <ArrowRight className="h-4 w-4" />

@@ -4,15 +4,9 @@ import re
 import os
 import re
 
-local_path = ".next/server/app/tr.html"
-if os.path.exists(local_path):
-    with open(local_path, "r", encoding="utf-8") as f:
-        data = f.read()
-    print(f"Reading from local file: {local_path}")
-else:
-    url = "https://medyapr.com/tr"
-    data = urllib.request.urlopen(url).read().decode('utf-8')
-    print(f"Reading from URL: {url}")
+url = "https://medyapr.com/tr"
+data = urllib.request.urlopen(url).read().decode('utf-8')
+print(f"Reading from URL: {url}")
 print(f"Total HTML: {len(data):,} bytes ({len(data)/1024:.2f} KB)")
 
 # Find all section tags

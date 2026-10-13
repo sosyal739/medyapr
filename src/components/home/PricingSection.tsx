@@ -145,7 +145,7 @@ export default function PricingSection({ dict, locale = 'tr' }: PricingSectionPr
                 {/* Popular badge */}
                 {isPopular && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <span className="rounded-full bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-4 py-1 text-xs font-bold text-white shadow-md shadow-[#FF0033]/25">
+                    <span className="rounded-full bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-4 py-1 text-xs font-bold text-white shadow-md shadow-[#FF0033]/25">
                       {locale === 'tr' ? '⭐ Popüler' : '⭐ Most Popular'}
                     </span>
                   </div>
@@ -216,10 +216,10 @@ export default function PricingSection({ dict, locale = 'tr' }: PricingSectionPr
                 <button
                   className={`mt-auto w-full rounded-xl py-3 text-sm font-semibold transition-all duration-300 ${
                     isPopular
-                      ? 'bg-gradient-to-r from-[#FF0033] to-[#CC0029] text-white shadow-lg shadow-[#FF0033]/25 hover:shadow-xl hover:shadow-[#FF0033]/30'
+                      ? 'bg-gradient-to-r from-[#E0002E] to-[#CC0029] text-white shadow-lg shadow-[#FF0033]/25 hover:shadow-xl hover:shadow-[#FF0033]/30'
                       : isEnterprise
                       ? 'border-2 border-[#1A1A2E] text-[#1A1A2E] hover:bg-[#1A1A2E] hover:text-white'
-                      : 'border-2 border-[#FF0033]/20 text-[#FF0033] hover:bg-[#FF0033] hover:text-white'
+                      : 'border-2 border-[#FF0033]/20 text-[#FF0033] hover:bg-[#D9002B] hover:text-white'
                   }`}
                 >
                   {plan.cta ?? t.cta}

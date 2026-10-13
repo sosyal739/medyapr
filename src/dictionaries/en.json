@@ -295,7 +295,7 @@
   },
   "cookie_consent": {
     "title": "Cookie & Privacy Preferences",
-    "description": "At MedyaPR, we use cookies fully compliant with GDPR and KVKK regulations to ensure browsing security, analyze official Google Ads performance, and measure visitor traffic.",
+    "description": "We use cookies to improve the site and measure Google Ads performance.",
     "badge": "GDPR & KVKK Compliant",
     "accept_all": "Accept All",
     "necessary_only": "Necessary Only",

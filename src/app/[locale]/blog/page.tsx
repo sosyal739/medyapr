@@ -196,7 +196,7 @@ export default async function BlogIndexPage({
                   href={href}
                   className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-semibold transition-all duration-200 border ${
                     isActive
-                      ? 'bg-gradient-to-r from-[#FF0033] to-[#CC0029] text-white border-red-500/80 shadow-lg shadow-[#FF0033]/30 scale-105'
+                      ? 'bg-gradient-to-r from-[#E0002E] to-[#CC0029] text-white border-red-500/80 shadow-lg shadow-[#FF0033]/30 scale-105'
                       : 'bg-zinc-900/80 text-zinc-300 border-zinc-700/60 hover:border-zinc-500 hover:text-white hover:bg-zinc-800'
                   }`}
                 >
@@ -228,7 +228,7 @@ export default async function BlogIndexPage({
                   alt={filteredPosts[0].title}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <span className="absolute top-3 left-3 rounded-full bg-[#FF0033] px-3 py-1 text-xs font-bold text-white shadow-lg">
+                <span className="absolute top-3 left-3 rounded-full bg-[#D9002B] px-3 py-1 text-xs font-bold text-white shadow-lg">
                   {(!isTr && filteredPosts[0].category_en) ? filteredPosts[0].category_en : filteredPosts[0].category}
                 </span>
               </div>
@@ -319,7 +319,7 @@ export default async function BlogIndexPage({
             </p>
             <Link
               href={`/${locale}/blog`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#FF0033] text-white text-xs font-bold"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#D9002B] text-white text-xs font-bold"
             >
               {isTr ? 'Tüm Yazıları Gör' : 'View All Posts'}
             </Link>

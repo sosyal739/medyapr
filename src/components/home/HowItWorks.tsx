@@ -81,10 +81,10 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
                 <div>
                   {/* Step Number */}
                   <div className="mb-6 flex items-center justify-between">
-                    <span className="font-mono text-3xl font-black text-white/20 group-hover:text-[#FF0033] transition-colors">
+                    <span className="font-mono text-3xl font-black text-white/45 group-hover:text-[#FF0033] transition-colors">
                       {item.step}
                     </span>
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-800/80 border border-zinc-700/60 text-[#FF4D6D] group-hover:scale-110 group-hover:bg-[#FF0033] group-hover:text-white transition-all">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-800/80 border border-zinc-700/60 text-[#FF4D6D] group-hover:scale-110 group-hover:bg-[#D9002B] group-hover:text-white transition-all">
                       <Icon className="h-6 w-6" />
                     </div>
                   </div>
@@ -124,9 +124,9 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
                 <span className="inline-block rounded-full bg-blue-500/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-blue-300 border border-blue-500/30 mb-2">
                   {isTr ? 'Ajanslar & Yapım Şirketleri' : 'Agencies & Production Studios'}
                 </span>
-                <h4 className="text-lg font-extrabold text-white">
+                <h3 className="text-lg font-extrabold text-white">
                   {isTr ? 'Kurumsal Müşteriler İçin Ödeme İş Bitiminde' : 'For Corporate Clients: Payment Upon Delivery'}
-                </h4>
+                </h3>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-300">
                   {isTr ? (
                     <>Kurumsal müşteriler, yapım şirketleri ve ajanslar için ödeme <strong className="text-white font-semibold">doğrudan iş bitiminde</strong> alınmaktadır. Kampanya tamamlandığında resmi YouTube Studio &amp; Google Ads performans raporu tarafınıza iletilir ve faturalandırılır.</>
@@ -148,9 +148,9 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
                 <span className="inline-block rounded-full bg-amber-500/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-amber-300 border border-amber-500/30 mb-2">
                   {isTr ? 'Şeffaf Fiyatlandırma Notu' : 'Transparent Pricing Policy'}
                 </span>
-                <h4 className="text-lg font-extrabold text-white">
+                <h3 className="text-lg font-extrabold text-white">
                   {isTr ? 'Fiyat Videonun Uzunluğuna Göre Değişiklik Gösterebilir' : 'Pricing May Vary Based On Video Duration'}
-                </h4>
+                </h3>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-300">
                   {isTr ? (
                     <>Web sitemizdeki hesaplayıcı tutarları standart video süreleri baz alınarak hazırlanmıştır. Google reklam maliyetleri gereği <strong className="text-white font-semibold">fiyat, videonun uzunluğuna</strong>, hedefleme derinliğine ve seçilen reklam formatına göre değişiklik gösterebilir.</>
@@ -167,7 +167,7 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
         <div className="mt-14 text-center">
           <a
             href="#calculator"
-            className="inline-flex items-center gap-2 rounded-2xl bg-[#FF0033] px-8 py-4 font-extrabold text-white shadow-xl shadow-[#FF0033]/30 hover:bg-[#E6002E] transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 rounded-2xl bg-[#D9002B] px-8 py-4 font-extrabold text-white shadow-xl shadow-[#FF0033]/30 hover:bg-[#E6002E] transition-all hover:scale-105"
           >
             {isTr ? 'Hemen Fiyatını Hesapla & Başlat' : 'Calculate Your Price & Start'}
             <ArrowRight className="h-5 w-5" />

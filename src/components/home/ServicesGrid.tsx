@@ -20,7 +20,7 @@ export default function ServicesGrid({ dict, locale = 'tr' }: ServicesGridProps)
       badge: isTr ? 'En Çok Tercih Edilen' : 'Most Popular',
       icon: Play,
       accent: 'border-[#FF0033]/40 bg-[#FF0033]/5',
-      badgeColor: 'bg-[#FF0033]/20 text-[#FF4D6D]',
+      badgeColor: 'bg-[#FF0033]/20 text-[#FF8FA3]',
     },
     {
       title: isTr ? 'YouTube Shorts Video Reklamları' : 'YouTube Shorts Video Ads',

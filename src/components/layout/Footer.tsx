@@ -20,7 +20,7 @@ export default function Footer({ dict, locale }: FooterProps) {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link href={`/${locale}`} className="flex items-center gap-2 mb-5">
-              <div className="w-9 h-9 bg-gradient-to-br from-[#FF0033] to-[#CC0029] rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-9 h-9 bg-gradient-to-br from-[#E0002E] to-[#CC0029] rounded-xl flex items-center justify-center shadow-lg">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                 </svg>
@@ -60,7 +60,7 @@ export default function Footer({ dict, locale }: FooterProps) {
                 href="https://www.youtube.com/@medyapr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-zinc-800/80 border border-zinc-700/60 rounded-xl flex items-center justify-center hover:bg-[#FF0033] hover:border-[#FF0033] transition-all duration-300 hover:scale-110 shadow-md"
+                className="w-10 h-10 bg-zinc-800/80 border border-zinc-700/60 rounded-xl flex items-center justify-center hover:bg-[#D9002B] hover:border-[#FF0033] transition-all duration-300 hover:scale-110 shadow-md"
                 aria-label="YouTube"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -83,7 +83,7 @@ export default function Footer({ dict, locale }: FooterProps) {
 
           {/* Services Column */}
           <div>
-            <h4 className="text-base font-bold mb-5 text-white">{dict.footer.services}</h4>
+            <h3 className="text-base font-bold mb-5 text-white">{dict.footer.services}</h3>
             <ul className="space-y-3">
               {(dict.services?.items || []).slice(0, 6).map((service, idx: number) => (
                 <li key={idx}>
@@ -100,7 +100,7 @@ export default function Footer({ dict, locale }: FooterProps) {
 
           {/* Company Column */}
           <div>
-            <h4 className="text-base font-bold mb-5 text-white">{dict.footer.company}</h4>
+            <h3 className="text-base font-bold mb-5 text-white">{dict.footer.company}</h3>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -123,7 +123,7 @@ export default function Footer({ dict, locale }: FooterProps) {
                   href={`/${locale}/yeni-klipler`}
                   className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200 flex items-center gap-1.5"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF0033] animate-pulse"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D9002B] animate-pulse"></span>
                   {locale === 'tr' ? 'Yeni Çıkan Klipler' : 'New Music Videos'}
                 </Link>
               </li>
@@ -172,7 +172,7 @@ export default function Footer({ dict, locale }: FooterProps) {
 
           {/* Legal / Contact Column */}
           <div>
-            <h4 className="text-base font-bold mb-5 text-white">{dict.footer.legal}</h4>
+            <h3 className="text-base font-bold mb-5 text-white">{dict.footer.legal}</h3>
             <ul className="space-y-3">
               <li>
                 <Link

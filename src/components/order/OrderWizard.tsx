@@ -327,7 +327,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
                 onClick={() => setViews(p)}
                 aria-pressed={views === p}
                 className={`rounded-xl px-3.5 py-2 text-sm font-bold transition ${
-                  views === p ? 'bg-[#FF0033] text-white shadow-md shadow-red-500/30' : 'border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10 hover:text-white'
+                  views === p ? 'bg-[#D9002B] text-white shadow-md shadow-red-500/30' : 'border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10 hover:text-white'
                 }`}
               >
                 {short(p)}
@@ -419,7 +419,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
                 type="button"
                 onClick={() => setCurrency(cur)}
                 aria-pressed={currency === cur}
-                className={`rounded-lg px-2 py-1 text-[11px] font-bold transition ${currency === cur ? 'bg-[#FF0033] text-white' : 'text-zinc-400 hover:text-white'}`}
+                className={`rounded-lg px-2 py-1 text-[11px] font-bold transition ${currency === cur ? 'bg-[#D9002B] text-white' : 'text-zinc-400 hover:text-white'}`}
               >
                 {cur}
               </button>
@@ -466,7 +466,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
         <button
           type="submit"
           disabled={!ready || busy}
-          className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-6 py-4 text-base font-extrabold text-white shadow-xl shadow-red-500/25 transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100"
+          className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-6 py-4 text-base font-extrabold text-white shadow-xl shadow-red-500/25 transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100"
         >
           {busy ? <><Loader2 className="h-5 w-5 animate-spin" /> {t.order.submitting}</> : <>{isTr ? 'Siparişi Gönder' : 'Place Order'} <ArrowRight className="h-5 w-5" /></>}
         </button>
@@ -508,7 +508,7 @@ function Step({ n, title, dim, children }: { n: number; title: string; dim?: boo
   return (
     <section className={`rounded-3xl border border-studio bg-studio-card p-5 shadow-xl backdrop-blur-xl transition-opacity sm:p-6 ${dim ? 'opacity-50' : ''}`}>
       <h3 className="mb-4 flex items-center gap-3 text-base font-extrabold text-white sm:text-lg">
-        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#FF0033] text-sm font-black">{n}</span>
+        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#D9002B] text-sm font-black">{n}</span>
         {title}
       </h3>
       {children}

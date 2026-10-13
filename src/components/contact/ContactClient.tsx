@@ -231,7 +231,7 @@ export default function ContactClient({ locale }: Props) {
                   href="mailto:info@medyapr.com"
                   className="flex items-center gap-4 p-4 rounded-xl border border-zinc-800 bg-zinc-800/40 hover:border-red-500/50 hover:bg-red-500/10 transition-all group"
                 >
-                  <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center group-hover:bg-[#FF0033] transition-colors">
+                  <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center group-hover:bg-[#D9002B] transition-colors">
                     <Mail size={22} className="text-[#FF5E7E] group-hover:text-white transition-colors" />
                   </div>
                   <div>

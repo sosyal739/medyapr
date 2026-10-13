@@ -38,8 +38,8 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
           <div>
             <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#FF0033]/40 bg-[#FF0033]/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5E7E]">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF0033] opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF0033]" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#D9002B] opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#D9002B]" />
               </span>
               <Flame className="h-4 w-4 text-[#FF0033]" />
               {isTr ? 'YouTube Türkiye Müzik Listesi' : 'YouTube Music Charts'}
@@ -64,7 +64,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
               onClick={() => setFilter('top10')}
               className={`flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2 text-xs font-extrabold transition-all duration-200 ${
                 filter === 'top10'
-                  ? 'bg-gradient-to-r from-[#FF0033] to-[#CC0029] text-white shadow-lg shadow-red-500/30 border border-red-400/40 scale-102'
+                  ? 'bg-gradient-to-r from-[#E0002E] to-[#CC0029] text-white shadow-lg shadow-red-500/30 border border-red-400/40 scale-102'
                   : 'bg-zinc-800/60 text-zinc-300 hover:text-white hover:bg-zinc-700/70 border border-zinc-700/50 shadow-xs'
               }`}
             >
@@ -76,7 +76,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
               onClick={() => setFilter('all')}
               className={`flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2 text-xs font-extrabold transition-all duration-200 ${
                 filter === 'all'
-                  ? 'bg-gradient-to-r from-[#FF0033] to-[#CC0029] text-white shadow-lg shadow-red-500/30 border border-red-400/40 scale-102'
+                  ? 'bg-gradient-to-r from-[#E0002E] to-[#CC0029] text-white shadow-lg shadow-red-500/30 border border-red-400/40 scale-102'
                   : 'bg-zinc-800/60 text-zinc-300 hover:text-white hover:bg-zinc-700/70 border border-zinc-700/50 shadow-xs'
               }`}
             >
@@ -88,7 +88,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
               onClick={() => setFilter('top5')}
               className={`flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2 text-xs font-extrabold transition-all duration-200 ${
                 filter === 'top5'
-                  ? 'bg-gradient-to-r from-[#FF0033] to-[#CC0029] text-white shadow-lg shadow-red-500/30 border border-red-400/40 scale-102'
+                  ? 'bg-gradient-to-r from-[#E0002E] to-[#CC0029] text-white shadow-lg shadow-red-500/30 border border-red-400/40 scale-102'
                   : 'bg-zinc-800/60 text-zinc-300 hover:text-white hover:bg-zinc-700/70 border border-zinc-700/50 shadow-xs'
               }`}
             >
@@ -131,8 +131,8 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                   </div>
                   {isFirst && (
                     <span className="absolute -top-1.5 -right-1.5 flex h-3.5 w-3.5">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF0033] opacity-75" />
-                      <span className="relative inline-flex h-3.5 w-3.5 rounded-full bg-[#FF0033]" />
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#D9002B] opacity-75" />
+                      <span className="relative inline-flex h-3.5 w-3.5 rounded-full bg-[#D9002B]" />
                     </span>
                   )}
                 </div>
@@ -151,7 +151,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                     className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 backdrop-blur-xs transition-opacity duration-300 group-hover:opacity-100"
                     title={isTr ? 'YouTube\'da Aç' : 'Watch on YouTube'}
                   >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FF0033] text-white shadow-lg">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D9002B] text-white shadow-lg">
                       <Play className="ml-0.5 h-5 w-5 fill-white" />
                     </div>
                   </a>
@@ -166,7 +166,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                       </span>
                       {isFirst && (
                         <div className="flex items-end gap-0.5 h-3.5 px-1.5 py-0.5 rounded bg-black/40 border border-white/20" title={isTr ? 'Şu An Canlı Zirvede' : 'Currently #1 on Trending'}>
-                          <div className="w-0.5 bg-[#FF0033] rounded-full animate-eq-1" />
+                          <div className="w-0.5 bg-[#D9002B] rounded-full animate-eq-1" />
                           <div className="w-0.5 bg-white rounded-full animate-eq-2" />
                           <div className="w-0.5 bg-amber-400 rounded-full animate-eq-3" />
                         </div>
@@ -261,7 +261,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
 
             <a
               href={`/${locale}/order`}
-              className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-8 py-4 text-base font-extrabold text-white shadow-xl shadow-[#FF0033]/30 transition-all hover:scale-105 hover:shadow-[#FF0033]/40"
+              className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-8 py-4 text-base font-extrabold text-white shadow-xl shadow-[#FF0033]/30 transition-all hover:scale-105 hover:shadow-[#FF0033]/40"
             >
               {isTr ? 'Videomu Tanıt' : 'Promote My Video'}
               <ArrowRight className="h-5 w-5" />

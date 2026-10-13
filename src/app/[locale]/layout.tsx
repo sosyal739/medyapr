@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Inter, Montserrat } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { locales, type Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/dictionaries';
@@ -8,6 +9,9 @@ import CookieConsent from '@/components/common/CookieConsent';
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 import { ThemeProvider } from '@/components/theme/ThemeContext';
 import MobileStickyBar from '@/components/layout/MobileStickyBar';
+
+const inter = Inter({ subsets: ['latin', 'latin-ext'], weight: ['300','400','500','600','700','800','900'], display: 'swap', variable: '--font-inter' });
+const montserrat = Montserrat({ subsets: ['latin', 'latin-ext'], weight: ['400','500','600','700','800','900'], display: 'swap', variable: '--font-montserrat' });
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -77,11 +81,8 @@ export default async function LocaleLayout({ params, children }: Props) {
   const dict = await getDictionary(locale as Locale);
 
   return (
-    <html lang={locale} className="scroll-smooth">
+    <html lang={locale} className={`scroll-smooth ${inter.variable} ${montserrat.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
         {/* Schema.org Unified Graph: Organization, Person, ProfessionalService, WebSite */}
         <script
           type="application/ld+json"
@@ -139,7 +140,7 @@ export default async function LocaleLayout({ params, children }: Props) {
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-app-base text-zinc-100 antialiased selection:bg-[#FF0033] selection:text-white transition-colors duration-400">
+      <body className="min-h-screen flex flex-col bg-app-base text-zinc-100 antialiased selection:bg-[#D9002B] selection:text-white transition-colors duration-400">
         <ThemeProvider>
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-EEBZ16SNQ9'} />
           <Header dict={dict} locale={locale} />

@@ -212,7 +212,7 @@ export default async function ArtistDetailPage({ params }: Props) {
           <div className="mt-6 flex flex-wrap items-center gap-4">
             <Link
               href={`/${locale}#calculator`}
-              className="inline-flex items-center gap-2 rounded-xl bg-[#FF0033] px-7 py-3.5 text-sm font-extrabold text-white shadow-xl shadow-[#FF0033]/30 hover:bg-[#E6002E] transition"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#D9002B] px-7 py-3.5 text-sm font-extrabold text-white shadow-xl shadow-[#FF0033]/30 hover:bg-[#E6002E] transition"
             >
               {isTr ? 'Fiyatı Hesapla & Kampanya Başlat' : 'Calculate Pricing & Launch'} <ArrowRight className="h-4 w-4" />
             </Link>

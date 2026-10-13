@@ -295,7 +295,7 @@
   },
   "cookie_consent": {
     "title": "Çerez ve Gizlilik Tercihleri",
-    "description": "MedyaPR olarak, sitemizde güvenli bir deneyim sunmak, resmi Google Ads reklam performansını analiz etmek ve ziyaretçi trafiğini ölçümlemek için KVKK ve GDPR standartlarına tam uyumlu çerezler kullanıyoruz.",
+    "description": "Sitemizi geliştirmek ve Google Ads performansını ölçmek için çerez kullanıyoruz.",
     "badge": "KVKK & GDPR Güvencesi",
     "accept_all": "Tümünü Kabul Et",
     "necessary_only": "Sadece Zorunlu",

@@ -143,7 +143,7 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
                 }}
                 className={`group flex items-center gap-2.5 px-4 py-2.5 rounded-2xl text-sm font-bold transition-all duration-300 ${
                   isActive
-                    ? 'bg-gradient-to-r from-[#FF0033] to-[#CC0029] text-white shadow-lg shadow-[#FF0033]/30 scale-105'
+                    ? 'bg-gradient-to-r from-[#E0002E] to-[#CC0029] text-white shadow-lg shadow-[#FF0033]/30 scale-105'
                     : 'bg-zinc-800/80 hover:bg-zinc-700/80 text-zinc-300 border border-zinc-700/60'
                 }`}
               >
@@ -165,19 +165,19 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
         <div className="flex items-center gap-1.5 bg-zinc-900/80 border border-zinc-700/60 p-1.5 rounded-2xl text-xs font-semibold text-zinc-300">
           <button
             onClick={() => setCountFilter('top5')}
-            className={`px-3 py-1.5 rounded-xl transition ${countFilter === 'top5' ? 'bg-[#FF0033] text-white' : 'hover:text-white'}`}
+            className={`px-3 py-1.5 rounded-xl transition ${countFilter === 'top5' ? 'bg-[#D9002B] text-white' : 'hover:text-white'}`}
           >
             Top 5
           </button>
           <button
             onClick={() => setCountFilter('top10')}
-            className={`px-3 py-1.5 rounded-xl transition ${countFilter === 'top10' ? 'bg-[#FF0033] text-white' : 'hover:text-white'}`}
+            className={`px-3 py-1.5 rounded-xl transition ${countFilter === 'top10' ? 'bg-[#D9002B] text-white' : 'hover:text-white'}`}
           >
             Top 10
           </button>
           <button
             onClick={() => setCountFilter('all')}
-            className={`px-3 py-1.5 rounded-xl transition ${countFilter === 'all' ? 'bg-[#FF0033] text-white' : 'hover:text-white'}`}
+            className={`px-3 py-1.5 rounded-xl transition ${countFilter === 'all' ? 'bg-[#D9002B] text-white' : 'hover:text-white'}`}
           >
             {isTr ? 'Tümü' : 'All'}
           </button>
@@ -221,7 +221,7 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
             type="button"
             onClick={() => setSortBy('rank')}
             className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold transition ${
-              sortBy === 'rank' ? 'bg-[#FF0033] text-white font-bold' : 'text-zinc-400 hover:text-white bg-zinc-800/60'
+              sortBy === 'rank' ? 'bg-[#D9002B] text-white font-bold' : 'text-zinc-400 hover:text-white bg-zinc-800/60'
             }`}
           >
             {isTr ? 'Sıra' : 'Rank'}
@@ -230,7 +230,7 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
             type="button"
             onClick={() => setSortBy('views')}
             className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold transition ${
-              sortBy === 'views' ? 'bg-[#FF0033] text-white font-bold' : 'text-zinc-400 hover:text-white bg-zinc-800/60'
+              sortBy === 'views' ? 'bg-[#D9002B] text-white font-bold' : 'text-zinc-400 hover:text-white bg-zinc-800/60'
             }`}
           >
             {isTr ? 'Toplam İzlenme' : 'Total Views'}
@@ -264,7 +264,7 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
 
             <Link
               href={`/${locale}/order?views=50000&pkg=views&region=premium`}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] text-xs font-black text-white hover:brightness-110 shadow-md shadow-[#FF0033]/30 transition"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] text-xs font-black text-white hover:brightness-110 shadow-md shadow-[#FF0033]/30 transition"
             >
               <span>{isTr ? activeGenrePlaybook.ctaTr : activeGenrePlaybook.ctaEn}</span>
               <ArrowRight className="h-3.5 w-3.5" />
@@ -353,7 +353,7 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
                     className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                     aria-label="Play on YouTube"
                   >
-                    <div className="h-10 w-10 rounded-full bg-[#FF0033] flex items-center justify-center text-white shadow-lg shadow-[#FF0033]/50">
+                    <div className="h-10 w-10 rounded-full bg-[#D9002B] flex items-center justify-center text-white shadow-lg shadow-[#FF0033]/50">
                       <Play className="h-5 w-5 fill-white ml-0.5" />
                     </div>
                   </a>

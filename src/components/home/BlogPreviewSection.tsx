@@ -76,7 +76,7 @@ export default function BlogPreviewSection({ posts, locale }: BlogPreviewSection
                       alt={postTitle}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <span className="absolute top-3 left-3 rounded-full bg-[#FF0033] px-3 py-1 text-xs font-bold text-white shadow-lg">
+                    <span className="absolute top-3 left-3 rounded-full bg-[#D9002B] px-3 py-1 text-xs font-bold text-white shadow-lg">
                       {postCategory}
                     </span>
                   </div>

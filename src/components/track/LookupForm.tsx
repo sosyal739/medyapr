@@ -34,7 +34,7 @@ export default function LookupForm({
       />
       <button
         type="submit"
-        className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#FF0033] px-6 py-3.5 font-bold text-white shadow-lg shadow-[#FF0033]/30 hover:bg-[#E6002E] transition hover:scale-105"
+        className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#D9002B] px-6 py-3.5 font-bold text-white shadow-lg shadow-[#FF0033]/30 hover:bg-[#E6002E] transition hover:scale-105"
       >
         <Search className="h-4 w-4" />
         {cta}

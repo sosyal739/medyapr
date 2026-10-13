@@ -67,7 +67,7 @@ export default function AdminPanel() {
         className="mx-auto max-w-sm space-y-3"
       >
         <input type="password" autoFocus placeholder="Admin şifresi" value={key} onChange={(e) => setKey(e.target.value)} className={`${field} w-full`} />
-        <button className="w-full rounded-lg bg-[#FF0033] py-2.5 font-bold text-white">Giriş</button>
+        <button className="w-full rounded-lg bg-[#D9002B] py-2.5 font-bold text-white">Giriş</button>
         {err && <p className="text-sm text-red-600">{err}</p>}
       </form>
     );

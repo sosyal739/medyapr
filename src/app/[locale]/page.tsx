@@ -136,16 +136,30 @@ export default async function HomePage({ params }: Props) {
       <HeroSection dict={dict} locale={locale} />
       <TrustBadges dict={dict} locale={locale} />
       <CalculatorSection locale={locale} />
-      <TrendingMusicSection songs={trendingSongs} locale={locale} />
-      <ArtistTestimonialsMarquee locale={locale} />
-      <ComparisonSection locale={locale} />
-      <ServicesGrid dict={dict} locale={locale} />
-      <HowItWorks dict={dict} locale={locale} />
-      <BlogPreviewSection
+      <div className="cv-auto">
+        <TrendingMusicSection songs={trendingSongs} locale={locale} />
+      </div>
+      <div className="cv-auto">
+        <ArtistTestimonialsMarquee locale={locale} />
+      </div>
+      <div className="cv-auto">
+        <ComparisonSection locale={locale} />
+      </div>
+      <div className="cv-auto">
+        <ServicesGrid dict={dict} locale={locale} />
+      </div>
+      <div className="cv-auto">
+        <HowItWorks dict={dict} locale={locale} />
+      </div>
+      <div className="cv-auto">
+        <BlogPreviewSection
         posts={blogPosts.slice(0, 3).map((p) => ({ ...p, paragraphs: [], paragraphs_en: [], faqs: [], faqs_en: [], table: undefined, table_en: undefined }))}
         locale={locale}
-      />
-      <FAQSection dict={dict} locale={locale} />
+        />
+      </div>
+      <div className="cv-auto">
+        <FAQSection dict={dict} locale={locale} />
+      </div>
     </>
   );
 }

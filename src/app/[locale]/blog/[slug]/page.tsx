@@ -387,7 +387,7 @@ export default async function BlogPostPage({ params }: Props) {
                     </div>
                     <Link
                       href={`/${locale}#calculator`}
-                      className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-5 py-3 text-xs font-black text-white shadow-lg shadow-[#FF0033]/30 hover:scale-105 transition"
+                      className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-5 py-3 text-xs font-black text-white shadow-lg shadow-[#FF0033]/30 hover:scale-105 transition"
                     >
                       {isTr ? 'Fiyat Hesapla' : 'Calculate Pricing'} <ArrowRight className="h-3.5 w-3.5" />
                     </Link>
@@ -473,7 +473,7 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="mt-6 flex flex-wrap items-center gap-4">
             <Link
               href={`/${locale}#calculator`}
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-7 py-3.5 text-sm font-extrabold text-white shadow-xl shadow-[#FF0033]/30 hover:scale-105 transition"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-7 py-3.5 text-sm font-extrabold text-white shadow-xl shadow-[#FF0033]/30 hover:scale-105 transition"
             >
               {isTr ? 'Fiyatı Hesapla & Başlat' : 'Calculate Pricing & Launch'}{' '}
               <ArrowRight className="h-4 w-4" />

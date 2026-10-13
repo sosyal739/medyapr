@@ -97,7 +97,7 @@ export default async function ServicesPage({ params }: Props) {
       {/* Hero Banner */}
       <section className="relative bg-gradient-to-br from-[#1A1A2E] via-[#16213E] to-[#1A1A2E] py-20 lg:py-28 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#FF0033] rounded-full blur-[120px]" />
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#D9002B] rounded-full blur-[120px]" />
           <div className="absolute bottom-10 right-20 w-96 h-96 bg-[#FF6B6B] rounded-full blur-[150px]" />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center">

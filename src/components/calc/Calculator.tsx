@@ -130,7 +130,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                     onClick={() => setViews(p)}
                     className={`rounded-xl px-3 py-1.5 text-xs font-bold transition-all duration-200 ${
                       active
-                        ? 'bg-[#FF0033] text-white shadow-md shadow-red-500/30 scale-105'
+                        ? 'bg-[#D9002B] text-white shadow-md shadow-red-500/30 scale-105'
                         : 'bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/5'
                     }`}
                   >
@@ -325,7 +325,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                   onClick={() => setCurrency(c)}
                   aria-pressed={currency === c}
                   className={`rounded-lg px-2.5 py-1 text-xs font-bold transition-all ${
-                    currency === c ? 'bg-[#FF0033] text-white shadow-md' : 'text-zinc-400 hover:text-white'
+                    currency === c ? 'bg-[#D9002B] text-white shadow-md' : 'text-zinc-400 hover:text-white'
                   }`}
                 >
                   {c}
@@ -377,7 +377,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
           {/* Siparişi Başlat Butonu */}
           <Link
             href={href}
-            className="group mt-5 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#FF0033] to-[#CC0029] px-6 py-4 text-base font-extrabold text-white shadow-xl shadow-red-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
+            className="group mt-5 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-6 py-4 text-base font-extrabold text-white shadow-xl shadow-red-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
           >
             <span>{t.cta}</span>
             <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
