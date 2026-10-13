@@ -120,6 +120,15 @@ export default function Footer({ dict, locale }: FooterProps) {
               </li>
               <li>
                 <Link
+                  href={`/${locale}/yeni-klipler`}
+                  className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200 flex items-center gap-1.5"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF0033] animate-pulse"></span>
+                  {locale === 'tr' ? 'Yeni Çıkan Klipler' : 'New Music Videos'}
+                </Link>
+              </li>
+              <li>
+                <Link
                   href={`/${locale}/sanatcilar`}
                   className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200"
                 >

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getPosts, getArtists } from '@/lib/content';
+import { getNewReleases } from '@/lib/releases';
 
 const BASE_URL = 'https://medyapr.com';
 const LOCALES = ['tr', 'en'] as const;
@@ -25,6 +26,7 @@ function parseTurkishDate(dateStr?: string): Date {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getPosts();
   const artists = await getArtists();
+  const releases = await getNewReleases();
 
   const staticRoutes = [
     '',
@@ -34,6 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/sss',
     '/iletisim',
     '/trendler',
+    '/yeni-klipler',
     '/sanatcilar',
     '/blog',
     '/gizlilik',
@@ -49,8 +52,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       entries.push({
         url: `${BASE_URL}/${locale}${route}`,
         lastModified: STABLE_SITE_DATE,
-        changeFrequency: route === '' || route === '/trendler' ? 'daily' : 'weekly',
-        priority: route === '' ? 1.0 : route === '/fiyatlandirma' || route === '/blog' ? 0.9 : 0.8,
+        changeFrequency: route === '' || route === '/trendler' || route === '/yeni-klipler' ? 'daily' : 'weekly',
+        priority: route === '' ? 1.0 : route === '/fiyatlandirma' || route === '/blog' || route === '/yeni-klipler' ? 0.9 : 0.8,
       });
     }
   }
@@ -80,5 +83,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
+  // Dynamic Releases (Yeni Klipler)
+  for (const release of releases) {
+    const releaseDate = release.releaseDate ? new Date(`${release.releaseDate}T08:00:00.000Z`) : STABLE_SITE_DATE;
+    for (const locale of LOCALES) {
+      entries.push({
+        url: `${BASE_URL}/${locale}/klip/${release.slug}`,
+        lastModified: releaseDate,
+        changeFrequency: 'weekly',
+        priority: 0.85,
+      });
+    }
+  }
+
   return entries;
 }
+
