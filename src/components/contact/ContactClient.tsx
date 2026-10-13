@@ -84,8 +84,8 @@ export default function ContactClient({ locale }: Props) {
             </h2>
             <p className="text-xs text-zinc-400 mb-6 leading-relaxed">
               {isTr
-                ? 'Sitemizde online ödeme yoktur. Teklifinizi iletin, videonuzu analiz edip detaylı dönüş yapalım; onay alınca işlem başlar. Fiyatlandırma video uzunluğuna göre değişebilir.'
-                : 'No online checkout on our site. Submit your quote, we will analyze your video and reply in detail; work begins upon approval. Pricing may vary based on video length.'}
+                ? 'Teklifinizi iletin, videonuzu analiz edip detaylı dönüş yapalım; onay alınca işlem başlar. Fiyatlandırma video uzunluğuna göre değişebilir.'
+                : 'Submit your quote, we will analyze your video and reply in detail; work begins upon approval. Pricing may vary based on video length.'}
             </p>
 
             {isSubmitted && (
@@ -194,7 +194,7 @@ export default function ContactClient({ locale }: Props) {
           <div className="space-y-6">
             <div className="rounded-2xl border border-zinc-800 bg-zinc-900/80 p-8 backdrop-blur-xl shadow-xl">
               <h3 className="text-xl font-bold text-white mb-2">
-                {isTr ? 'Doğrudan Yazılı İletişim & Analiz Kanalları' : 'Direct Written Support & Analysis Channels'}
+                {isTr ? 'Hızlı Teklif & Analiz Kanalları' : 'Direct Quote & Analysis Channels'}
               </h3>
               <p className="text-xs text-zinc-400 mb-6 leading-relaxed">
                 {isTr
@@ -212,7 +212,7 @@ export default function ContactClient({ locale }: Props) {
                     <MessageCircle size={22} className="text-emerald-400 group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white">{isTr ? 'WhatsApp Hızlı Teklif & Analiz Hattı' : 'WhatsApp Quote & Analysis Desk'}</p>
+                    <p className="font-semibold text-white">{isTr ? 'WhatsApp Teklif & Analiz Hattı' : 'WhatsApp Quote & Analysis Desk'}</p>
                     <p className="text-xs text-zinc-400">
                       {isTr ? 'Teklifi iletin, analiz edip detaylı dönüş yapalım (7/24 Aktif)' : 'Submit your quote for detailed video analysis (24/7 Active)'}
                     </p>
@@ -231,7 +231,7 @@ export default function ContactClient({ locale }: Props) {
                   <div>
                     <p className="font-semibold text-white">{isTr ? 'Telegram Teklif & Onay Hattı' : 'Telegram Quote & Approval Desk'}</p>
                     <p className="text-xs text-zinc-400">
-                      {isTr ? 'Anlık yazılı iletişim, video analizi ve kampanya başlatma' : 'Instant written support, video analysis, and campaign activation'}
+                      {isTr ? 'Anlık iletişim, video analizi ve kampanya başlatma' : 'Instant support, video analysis, and campaign activation'}
                     </p>
                   </div>
                 </a>
@@ -251,7 +251,7 @@ export default function ContactClient({ locale }: Props) {
               </div>
             </div>
 
-            {/* Why Written Communication & No Online Payment Card */}
+            {/* Process Explanation Card */}
             <div className="rounded-2xl border border-red-500/30 bg-gradient-to-br from-[#1F0E13] to-[#2B1017] p-8 text-white">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-[#FF0033]/20 rounded-xl flex items-center justify-center text-[#FF0033] shrink-0">
@@ -259,21 +259,21 @@ export default function ContactClient({ locale }: Props) {
                 </div>
                 <div>
                   <p className="font-bold text-base sm:text-lg text-white">
-                    {isTr ? 'Neden Sesli Arama veya Online Ödeme Yok?' : 'Why No Voice Calls or Online Checkout?'}
+                    {isTr ? 'Teknik Video Analizi & Kampanya Onay Süreci' : 'Technical Video Analysis & Campaign Approval'}
                   </p>
                   <p className="text-zinc-400 text-xs">
-                    {isTr ? 'Önce Teknik Video Analizi • Onay Alınca İşlem Başlar' : 'Technical Video Analysis First • Starts Upon Approval'}
+                    {isTr ? 'Teklifi İletin • Analiz Edelim • Onay Alınca İşlem Başlar' : 'Submit Quote • Video Analysis • Starts Upon Approval'}
                   </p>
                 </div>
               </div>
               <p className="text-zinc-300 text-xs leading-relaxed mb-3">
                 {isTr
-                  ? 'YouTube reklam kampanyalarında her videonun uzunluğu, kategori yapısı ve Google Ads reklam politikalarına uygunluğu farklıdır. Sesli telefon görüşmesinde video bağlantısı teknik olarak incelenemediği ve onay öncesi otomatik tahsilat yapılmadığı için tüm süreç WhatsApp ve Telegram üzerinden yazılı yürütülür. Teklifinizi iletin, videonuzu analiz edip detaylı dönüş yapalım; onay alınca işlem başlar. (Fiyatlandırma video uzunluğuna göre değişebilir.)'
-                  : 'Every YouTube video differs in duration, category, and Google Ads policy eligibility. Because video links cannot be inspected over voice calls and we never charge before pre-approval, all operations run in writing via WhatsApp and Telegram. Submit your quote, let us analyze your video and reply in detail; work begins upon approval. (Pricing may vary based on video length.)'}
+                  ? 'YouTube reklam kampanyalarında her videonun uzunluğu, kategori yapısı ve Google Ads reklam politikalarına uygunluğu farklıdır. Video bağlantınızın ve kanal verinizin eksiksiz incelenebilmesi için tüm teklif, analiz ve onay süreçleri WhatsApp ve Telegram üzerinden uzman ekibimizle yürütülür. Teklifinizi iletin, videonuzu analiz edip detaylı dönüş yapalım; onay alınca işlem başlar. (Fiyatlandırma video uzunluğuna göre değişebilir.)'
+                  : 'Every YouTube video differs in duration, category, and Google Ads policy eligibility. To accurately inspect your video link and channel metrics, all quote, analysis, and approval steps are managed via WhatsApp and Telegram with our specialist team. Submit your quote, let us analyze your video and reply in detail; work begins upon approval. (Pricing may vary based on video length.)'}
               </p>
               <div className="pt-3 border-t border-zinc-800 flex items-center justify-between text-xs text-zinc-400">
                 <span>{isTr ? '18+ Yıllık Google Partner Ekibi' : '18+ Years Google Partner Team'}</span>
-                <span className="text-emerald-400 font-medium">{isTr ? '● 7/24 Yazılı Analiz' : '● 24/7 Written Analysis'}</span>
+                <span className="text-emerald-400 font-medium">{isTr ? '● 7/24 Uzman Analizi' : '● 24/7 Specialist Analysis'}</span>
               </div>
             </div>
           </div>

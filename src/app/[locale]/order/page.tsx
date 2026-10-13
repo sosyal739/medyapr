@@ -32,8 +32,8 @@ export default async function OrderPage({ params, searchParams }: Props) {
           </h1>
           <p className="mt-2 text-sm text-white/75 md:text-base max-w-3xl leading-relaxed">
             {isTr
-              ? 'Sitemizde online ödeme veya sesli çağrı hattı yoktur; tüm süreç WhatsApp ve Telegram üzerinden yazılı yürütülür. Video linkinizi yapıştırıp teklifinizi iletin; videonuzu analiz edip detaylı dönüş yapalım. Onay alınca işlem başlar. (Fiyatlandırma video uzunluğuna göre değişebilir.)'
-              : 'There is no online checkout or voice call center on our site; all communication runs via WhatsApp and Telegram. Paste your link and submit your quote; we will analyze your video and reply in detail. Work begins upon approval. (Pricing may vary based on video length.)'}
+              ? 'Video linkinizi yapıştırın ve hedef izlenme sayısını seçerek teklifinizi iletin. Uzman ekibimiz videonuzu analiz edip WhatsApp veya Telegram üzerinden detaylı dönüş yapsın; onay alınca işlem başlar. (Fiyatlandırma video uzunluğuna göre değişebilir.)'
+              : 'Paste your video link, select your target views, and submit your quote. Our specialists will analyze your video and reply in detail via WhatsApp or Telegram; work begins upon approval. (Pricing may vary based on video length.)'}
           </p>
         </div>
 

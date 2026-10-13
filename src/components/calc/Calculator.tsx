@@ -286,11 +286,11 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                 </span>
                 <span>
                   <strong className="text-white">
-                    {isTr ? 'Online Ödeme Yok • Analiz & Onay Modeli:' : 'No Online Checkout • Analysis & Approval Model:'}
+                    {isTr ? 'Analiz & Onay Süreci:' : 'Analysis & Approval Workflow:'}
                   </strong>{' '}
                   {isTr ? (
                     <>
-                      Teklifi iletin, videonuzu analiz edip WhatsApp / Telegram üzerinden detaylı dönüş yapalım. Onay alınca işlem başlar (Onayda{' '}
+                      Teklifinizi iletin, videonuzu analiz edip WhatsApp / Telegram üzerinden detaylı dönüş yapalım. Onay alınca işlem başlar (Onayda{' '}
                       <span className="text-emerald-400 font-bold">%50</span>, bitince <span className="text-emerald-400 font-bold">%50</span>).
                     </>
                   ) : (

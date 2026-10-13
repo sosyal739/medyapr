@@ -5,8 +5,8 @@ export interface FAQItem {
 
 export const FAQS_TR: FAQItem[] = [
   {
-    question: 'Neden sitemizde online ödeme veya sesli telefon hattı yok? Süreç nasıl işliyor?',
-    answer: 'Her YouTube videosunun reklam maliyeti ve uygunluğu; videonun uzunluğuna, içeriğine ve Google Ads politikalarına göre değişir. Sesli görüşmede video linki teknik olarak incelenemediği ve onay öncesi otomatik tahsilat yapılmadığı için sitemizde online ödeme veya çağrı merkezi bulunmaz; tüm iletişim WhatsApp ve Telegram üzerinden yazılı yürütülür. Teklifinizi iletin, videonuzu analiz edip detaylı dönüş yapalım; onay alınca işlem başlar.',
+    question: 'Teklif, video analizi ve kampanya başlatma süreci nasıl işliyor?',
+    answer: 'Her YouTube videosunun reklam maliyeti ve uygunluğu; videonun uzunluğuna, içeriğine ve Google Ads kriterlerine göre incelenir. Video bağlantınızın ve kanal verinizin eksiksiz değerlendirilebilmesi için tüm iletişim ve onay adımları WhatsApp ve Telegram üzerinden uzman ekibimizle yürütülür. Teklifinizi iletin, videonuzu analiz edip detaylı dönüş yapalım; onay alınca işlem başlar.',
   },
   {
     question: 'Fiyatlandırma videonun uzunluğuna göre değişebilir mi?',
@@ -14,7 +14,7 @@ export const FAQS_TR: FAQItem[] = [
   },
   {
     question: 'Ödeme ne zaman ve nasıl yapılır?',
-    answer: 'Sitemizde kredi kartıyla otomatik online ödeme yoktur. Teklifinizi ilettikten sonra uzmanlarımız videonuzu inceler ve detaylı dönüş yapar. Videonuz Google Ads reklam onayından geçtiğinde ödemenin yarısı (%50), kampanya tamamlandığında ise kalanı (%50) alınır. Kurumsal müşteriler ve yapım şirketleri için ödeme iş bitimindedir.',
+    answer: 'Teklifinizi ilettikten sonra uzmanlarımız videonuzu inceler ve WhatsApp veya Telegram üzerinden detaylı dönüş yapar. Videonuz Google Ads reklam onayından geçtiğinde ödemenin yarısı (%50), kampanya tamamlandığında ise kalanı (%50) alınır. Kurumsal müşteriler ve yapım şirketleri için ödeme iş bitimindedir.',
   },
   {
     question: 'Kampanyaları kim yönetiyor ve sektördeki tecrübeniz nedir?',
@@ -48,8 +48,8 @@ export const FAQS_TR: FAQItem[] = [
 
 export const FAQS_EN: FAQItem[] = [
   {
-    question: 'Why is there no online payment or voice call line on the site? How does it work?',
-    answer: 'Every YouTube video varies in duration, content, and Google Ads policy eligibility. Because video links cannot be technically inspected over a phone call and we never charge before pre-analysis, we do not use automated online checkout or call centers; all communication runs in writing via WhatsApp and Telegram. Submit your quote, we will analyze your video and reply in detail; work begins upon approval.',
+    question: 'How does the quote, video analysis, and campaign activation process work?',
+    answer: 'Every YouTube video is evaluated for duration, content, and Google Ads policy eligibility. To accurately inspect your video link and channel metrics, all communication and approval steps are managed via WhatsApp and Telegram with our specialist team. Submit your quote, we will analyze your video and reply in detail; work begins upon approval.',
   },
   {
     question: 'Can pricing vary depending on video length?',
@@ -57,7 +57,7 @@ export const FAQS_EN: FAQItem[] = [
   },
   {
     question: 'When and how is payment made?',
-    answer: 'There is no automated credit card checkout on our website. Once you submit your quote and our team analyzes your video, work begins upon Google Ads approval: 50% is collected upon approval and 50% upon completion (100% upon completion for verified corporate clients).',
+    answer: 'Once you submit your quote and our team analyzes your video, we share the details via WhatsApp or Telegram. Work begins upon Google Ads approval: 50% is collected upon approval and 50% upon completion (100% upon completion for verified corporate clients).',
   },
   {
     question: 'Who manages the campaigns and what is your industry experience?',

@@ -186,8 +186,8 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
         </h2>
         <p className="mt-2 text-sm text-zinc-300 leading-relaxed">
           {isTr
-            ? 'Sitemizde online ödeme bulunmamaktadır. Videonuzu (süre, içerik ve Google Ads uygunluğu açısından) analiz edip size detaylı dönüş yapabilmemiz için lütfen WhatsApp veya Telegram üzerinden teklifinizi iletin. Onay alınca işlem başlar.'
-            : 'There is no online payment on our site. Please reach out on WhatsApp or Telegram below so we can analyze your video (duration, content, and Google Ads compliance) and reply in detail. Work begins upon approval.'}
+            ? 'Videonuzu (süre, içerik ve Google Ads uygunluğu açısından) analiz edip size detaylı dönüş yapabilmemiz için lütfen WhatsApp veya Telegram üzerinden teklifinizi iletin. Onay alınca işlem başlar.'
+            : 'Please reach out on WhatsApp or Telegram below so we can analyze your video (duration, content, and Google Ads compliance) and reply in detail. Work begins upon approval.'}
         </p>
 
         <div className="mt-6 inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-3">
@@ -384,14 +384,14 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
         </Step>
 
         {/* ── 3. İletişim ── */}
-        <Step n={3} title={isTr ? 'Size nasıl ulaşalım? (WhatsApp / Telegram)' : 'How do we reach you? (WhatsApp / Telegram)'} dim={!videoReady}>
+        <Step n={3} title={isTr ? 'Detaylı analiz dönüşü için iletişim bilginiz' : 'Your contact info for detailed analysis reply'} dim={!videoReady}>
           <div className="mb-4 rounded-2xl border border-blue-500/25 bg-blue-500/[0.06] p-3.5 text-xs leading-relaxed text-zinc-300">
             <strong className="text-white">
-              {isTr ? 'Neden sesli çağrı hattı veya online ödeme yok?' : 'Why no voice call line or online payment?'}
+              {isTr ? 'Uzman Video Analizi & Onay Süreci:' : 'Specialist Video Analysis & Approval Process:'}
             </strong>{' '}
             {isTr
-              ? 'Her YouTube videosu; süresi, içeriği ve Google Ads reklam politikalarına uygunluğu açısından uzmanlarımızca yazılı olarak incelenir. Teklifinizi iletin, videonuzu analiz edip size WhatsApp veya Telegram üzerinden detaylı dönüş yapalım; onay alınca işlem başlar.'
-              : 'Every YouTube video must be inspected in writing for runtime, content, and Google Ads policy compliance. Submit your quote; we will analyze your video and reply in detail on WhatsApp or Telegram. Work begins upon approval.'}
+              ? 'Her YouTube videosu; süresi, içeriği ve Google Ads reklam kriterlerine uygunluğu açısından uzmanlarımızca incelenir. Teklifinizi iletin, videonuzu analiz edip size WhatsApp veya Telegram üzerinden detaylı dönüş yapalım; onay alınca işlem başlar.'
+              : 'Every YouTube video is reviewed for runtime, content, and Google Ads eligibility. Submit your quote; we will analyze your video and reply in detail on WhatsApp or Telegram. Work begins upon approval.'}
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             <div>
@@ -494,7 +494,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
         )}
         <p className="mt-4 flex items-center justify-center gap-1.5 text-center text-[11px] text-white/60">
           <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-emerald-400" />
-          {isTr ? 'Online ödeme yoktur • Analiz sonrası onay alınca işlem başlar' : 'No online payment • Starts after analysis & approval'}
+          {isTr ? 'Analiz sonrası WhatsApp / Telegram dönüşü • Onay alınca işlem başlar' : 'Detailed reply via WhatsApp / Telegram • Starts upon approval'}
         </p>
       </aside>
     </form>

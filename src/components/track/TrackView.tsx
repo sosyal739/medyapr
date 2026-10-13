@@ -188,7 +188,7 @@ export default function TrackView({
             <div className="space-y-2.5 max-w-2xl">
               <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-bold text-emerald-300">
                 <ShieldCheck className="h-4 w-4 text-emerald-400" />
-                {isTr ? 'Online Ödeme Yoktur • WhatsApp & Telegram İletişim' : 'No Online Checkout • WhatsApp & Telegram Support'}
+                {isTr ? 'Teknik Video Analizi • WhatsApp & Telegram Onay Süreci' : 'Technical Video Analysis • WhatsApp & Telegram Approval'}
               </div>
               <h4 className="text-xl font-extrabold text-white">
                 {isTr ? 'Tahmini Teklif Tutarı:' : 'Estimated Quote:'}{' '}
@@ -196,14 +196,14 @@ export default function TrackView({
               </h4>
               {isTr ? (
                 <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                  Sitemizde otomatik online ödeme veya sesli çağrı merkezi bulunmamaktadır. İlettiğiniz video linki;{' '}
+                  İlettiğiniz video linki;{' '}
                   <strong className="text-white">video uzunluğu, hedef kitle ve Google Ads reklam politikalarına uygunluk</strong>{' '}
                   açısından incelenmektedir. Teklif kodunuzu (<strong className="text-white font-mono bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700/60">{o.id}</strong>) WhatsApp veya Telegram üzerinden bize iletin; analiz edip detaylı dönüş yapalım. Onay alınca işleminiz başlar.{' '}
                   <span className="text-amber-300 font-semibold">(Fiyatlandırma video uzunluğuna göre değişebilir.)</span>
                 </p>
               ) : (
                 <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                  We do not use automated online checkout or voice call centers. Your video link is inspected for{' '}
+                  Your video link is inspected for{' '}
                   <strong className="text-white">runtime, target audience, and Google Ads policy compliance</strong>. Send your quote code (<strong className="text-white font-mono bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700/60">{o.id}</strong>) via WhatsApp or Telegram below; we will analyze your video and reply in detail. Work begins upon approval.{' '}
                   <span className="text-amber-300 font-semibold">(Pricing may vary based on video length.)</span>
                 </p>

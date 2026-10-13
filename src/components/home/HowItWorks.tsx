@@ -16,16 +16,16 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
       step: '01',
       title: isTr ? 'Teklifinizi & Video Linkinizi İletin' : 'Submit Your Quote & Video Link',
       description: isTr
-        ? 'Sitemizde online ödeme veya sesli çağrı hattı yoktur; şifre istenmez. Video linkinizi ve hedef izlenmenizi teklif formumuzdan, WhatsApp veya Telegram üzerinden bize iletin.'
-        : 'No online checkout or voice call center; no passwords required. Share your video link and target views via our quote form, WhatsApp, or Telegram.',
+        ? 'Şifre veya kanal yetkisi gerekmez. Video linkinizi ve hedef izlenmenizi teklif formumuzdan, WhatsApp veya Telegram üzerinden bize iletin.'
+        : 'No passwords or channel access required. Share your video link and target views via our quote form, WhatsApp, or Telegram.',
       icon: Play,
     },
     {
       step: '02',
       title: isTr ? 'Analiz Edip Detaylı Dönüş Yapalım' : 'Video Analysis & Detailed Reply',
       description: isTr
-        ? '18+ yıllık tecrübeli Google Partner uzmanlarımız videonuzun süresini, içeriğini ve Google Ads uygunluğunu analiz edip size yazılı ve detaylı dönüş yapar. (Fiyatlandırma video uzunluğuna göre değişebilir.)'
-        : 'Our certified Google Partner specialists analyze your video duration, content, and Google Ads compliance, then send you a detailed written reply. (Pricing may vary based on video length.)',
+        ? '18+ yıllık tecrübeli Google Partner uzmanlarımız videonuzun süresini, içeriğini ve Google Ads uygunluğunu analiz edip size detaylı dönüş yapar. (Fiyatlandırma video uzunluğuna göre değişebilir.)'
+        : 'Our certified Google Partner specialists analyze your video duration, content, and Google Ads compliance, then send you a detailed reply. (Pricing may vary based on video length.)',
       icon: Sparkles,
     },
     {
@@ -47,14 +47,14 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
       {/* Floating Animated Badge (Moving Object) */}
       <div className="pointer-events-none absolute top-12 right-8 lg:right-20 z-20 hidden md:flex items-center gap-2 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-reverse">
         <Sparkles className="h-4 w-4 text-[#FF4D6D]" />
-        <span>{isTr ? 'Online Ödeme Yok • Analiz & Onayda Başlar' : 'No Online Checkout • Starts After Analysis & Approval'}</span>
+        <span>{isTr ? 'Teklifi İlet • Analiz Sonrası Onayda Başlar' : 'Submit Quote • Starts After Analysis & Approval'}</span>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 md:px-8 lg:px-12">
         {/* Header */}
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <span className="mb-3 inline-block rounded-full border border-zinc-700/60 bg-zinc-800/80 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-zinc-300">
-            {isTr ? 'WhatsApp & Telegram Yazılı Süreç' : 'WhatsApp & Telegram Written Workflow'}
+            {isTr ? 'Şeffaf & Güvenli 3 Adım' : '3 Transparent Steps'}
           </span>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-white">
             {isTr ? 'Süreç' : 'How It'}{' '}
@@ -64,8 +64,8 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-zinc-300">
             {isTr
-              ? 'Sitemizde online ödeme yoktur. Teklifinizi iletin, videonuzu analiz edip detaylı dönüş yapalım; onay alınca işlem başlar.'
-              : 'There is no online payment on our site. Submit your quote, let us analyze your video and reply in detail; work begins upon approval.'}
+              ? 'Teklifinizi iletin, videonuzu analiz edip WhatsApp veya Telegram üzerinden detaylı dönüş yapalım; onay alınca işlem başlar.'
+              : 'Submit your quote, let us analyze your video and reply in detail via WhatsApp or Telegram; work begins upon approval.'}
           </p>
         </div>
 
