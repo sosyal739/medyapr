@@ -1249,3 +1249,20 @@ canvas {
     padding-block: 0.4rem;
   }
 }
+
+/* ===== Hareket kontrolü ===== */
+/* Ekran dışındaki sürekli animasyonlar durur (MotionGuard işaretler) */
+.anim-paused {
+  animation-play-state: paused !important;
+}
+/* İşletim sisteminde "hareketi azalt" açıksa dekoratif animasyonlar durur, içerik ve işlevler aynı kalır */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

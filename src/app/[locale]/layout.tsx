@@ -9,6 +9,7 @@ import CookieConsent from '@/components/common/CookieConsent';
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 import { ThemeProvider } from '@/components/theme/ThemeContext';
 import MobileStickyBar from '@/components/layout/MobileStickyBar';
+import MotionGuard from '@/components/common/MotionGuard';
 
 const inter = Inter({ subsets: ['latin', 'latin-ext'], weight: ['300','400','500','600','700','800','900'], display: 'swap', variable: '--font-inter' });
 const montserrat = Montserrat({ subsets: ['latin', 'latin-ext'], weight: ['400','500','600','700','800','900'], display: 'swap', variable: '--font-montserrat' });
@@ -149,6 +150,7 @@ export default async function LocaleLayout({ params, children }: Props) {
           <Footer dict={dict} locale={locale} />
           <CookieConsent dict={dict} locale={locale} />
           <MobileStickyBar locale={locale} />
+          <MotionGuard />
         </ThemeProvider>
         
         {/* WhatsApp Floating Button (Desktop) */}
