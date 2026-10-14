@@ -35,24 +35,173 @@
   --ambient-blur-opacity: 0.16;
 }
 
-[data-theme='black-room'] {
-  /* Gece Modu: Siyah Oda (Pitch Black OLED Audio Mastering Room) */
-  --bg-app: #000000;
-  --bg-gradient-start: #040406;
-  --bg-gradient-mid: #0A0A0E;
-  --bg-gradient-end: #020203;
-  --surface-card: #0C0C10;
-  --surface-card-subtle: #08080A;
-  --surface-card-hover: #14141A;
-  --surface-border: rgba(255, 255, 255, 0.08);
-  --surface-border-strong: rgba(255, 0, 51, 0.4);
-  --header-bg: rgba(6, 6, 8, 0.94);
-  --tab-dock-bg: rgba(12, 12, 16, 0.9);
-  --text-main: #FFFFFF;
-  --text-body: #B0B5C0;
-  --text-muted: #6B7280;
-  --ambient-red-opacity: 0.32;
-  --ambient-blur-opacity: 0.25;
+
+/* ===== Gündüz Modu: buzlu beyaz-gri =====
+   Tailwind v4 renkleri CSS değişkenidir; koyu palet tersine çevrilir, böylece
+   text-white / bg-zinc-900 gibi yüzlerce sınıf elle değiştirilmeden uyum sağlar. */
+[data-theme='light'] {
+  color-scheme: light;
+  --bg-app: #E9EDF3;
+  --bg-gradient-start: #F4F6FA;
+  --bg-gradient-mid: #E9EDF3;
+  --bg-gradient-end: #DFE5EE;
+  --surface-card: rgba(255, 255, 255, 0.72);
+  --surface-card-subtle: rgba(255, 255, 255, 0.55);
+  --surface-card-hover: rgba(255, 255, 255, 0.9);
+  --surface-border: rgba(15, 23, 42, 0.12);
+  --surface-border-strong: rgba(15, 23, 42, 0.22);
+  --header-bg: rgba(244, 246, 250, 0.82);
+  --tab-dock-bg: rgba(255, 255, 255, 0.7);
+  --text-main: #0F172A;
+  --text-body: #334155;
+  --text-muted: #64748B;
+  --ambient-red-opacity: 0.1;
+  --ambient-blur-opacity: 0.08;
+
+  --color-white: #0F172A;
+  --color-zinc-50: #020617;
+  --color-zinc-100: #0F172A;
+  --color-zinc-200: #1E293B;
+  --color-zinc-300: #334155;
+  --color-zinc-400: #475569;
+  --color-zinc-500: #64748B;
+  --color-zinc-600: #94A3B8;
+  --color-zinc-700: #CBD5E1;
+  --color-zinc-800: #E2E8F0;
+  --color-zinc-900: #F1F5F9;
+  --color-zinc-950: #F8FAFC;
+  --color-gray-300: #334155;
+  --color-gray-400: #475569;
+  --color-gray-500: #64748B;
+  --color-gray-600: #475569;
+  --color-slate-300: #334155;
+  --color-slate-400: #475569;
+  --color-emerald-300: #047857;
+  --color-emerald-400: #059669;
+  --color-green-400: #15803D;
+  --color-sky-300: #0369A1;
+  --color-sky-400: #0284C7;
+  --color-amber-300: #B45309;
+  --color-amber-400: #B45309;
+  --color-yellow-300: #A16207;
+  --color-yellow-400: #A16207;
+  --color-blue-300: #1D4ED8;
+  --color-blue-400: #2563EB;
+  --color-cyan-300: #0E7490;
+  --color-cyan-400: #0E7490;
+  --color-red-300: #B91C1C;
+  --color-red-400: #DC2626;
+  --color-rose-300: #BE123C;
+  --color-rose-400: #E11D48;
+  --color-violet-300: #6D28D9;
+  --color-purple-300: #7E22CE;
+  --color-orange-300: #C2410C;
+  --color-orange-400: #EA580C;
+  --color-teal-300: #0F766E;
+  --color-teal-400: #0D9488;
+}
+
+/* Gündüz modunda koyu kalan "adalar": kırmızı/renkli düğmeler, video oynatıcı, koyu CTA şeritleri.
+   İçlerindeki text-white / zinc yazılar orijinal (açık) renklerine döner. */
+[data-theme='light'] :is(.tab-pill-active,
+  .keep-white,
+  .bg-emerald-600,
+  .bg-sky-600,
+  [class^='bg-[#D9002B]'], [class*=' bg-[#D9002B]'],
+  [class^='from-[#E0002E]'], [class*=' from-[#E0002E]'],
+  [class^='from-[#FF0033]'], [class*=' from-[#FF0033]'],
+  [class^='bg-[#E6002E]'], [class*=' bg-[#E6002E]'],
+  [class^='bg-[#25D366]'], [class*=' bg-[#25D366]'],
+  [class^='from-[#1A1A2E]'], [class*=' from-[#1A1A2E]'],
+  [class^='from-[#1A0B14]'], [class*=' from-[#1A0B14]'],
+  [class^='from-[#1F0E13]'], [class*=' from-[#1F0E13]'],
+  [class^='via-[#16213E]'], [class*=' via-[#16213E]'],
+  [class^='via-[#161224]'], [class*=' via-[#161224]'],
+  [class^='to-[#0E0E1B]'], [class*=' to-[#0E0E1B]'],
+  [class^='to-[#2B1017]'], [class*=' to-[#2B1017]'],
+  [class^='to-[#99001F]'], [class*=' to-[#99001F]'],
+  [class^='bg-slate-950'], [class*=' bg-slate-950'],
+  [class^='bg-slate-900'], [class*=' bg-slate-900'],
+  [class^='bg-black'], [class*=' bg-black'],
+  [class^='from-black'], [class*=' from-black'],
+  [class*='top-3'][class*='absolute']) {
+  --color-white: #FFFFFF;
+  --color-zinc-50: #FAFAFA;
+  --color-zinc-100: #F4F4F5;
+  --color-zinc-200: #E4E4E7;
+  --color-zinc-300: #D4D4D8;
+  --color-zinc-400: #9F9FA9;
+  --color-zinc-500: #71717B;
+  --color-zinc-600: #52525C;
+  --color-zinc-700: #3F3F46;
+  --color-zinc-800: #27272A;
+  --color-zinc-900: #18181B;
+  --color-zinc-950: #09090B;
+  --color-gray-300: #D1D5DC;
+  --color-gray-400: #99A1AF;
+  --color-gray-500: #6A7282;
+  --color-gray-600: #4A5565;
+  --color-slate-300: #CAD5E2;
+  --color-slate-400: #90A1B9;
+  --color-emerald-300: #5EE9B5;
+  --color-emerald-400: #00D492;
+  --color-green-400: #05DF72;
+  --color-sky-300: #74D4FF;
+  --color-sky-400: #00BCFF;
+  --color-amber-300: #FFD230;
+  --color-amber-400: #FFBA00;
+  --color-yellow-300: #FFDF20;
+  --color-yellow-400: #FAC800;
+  --color-blue-300: #8EC5FF;
+  --color-blue-400: #51A2FF;
+  --color-cyan-300: #53EAFD;
+  --color-cyan-400: #00D3F3;
+  --color-red-300: #FFA2A2;
+  --color-red-400: #FF6467;
+  --color-rose-300: #FFA1AD;
+  --color-rose-400: #FF637E;
+  --color-violet-300: #C4B4FF;
+  --color-purple-300: #DAB2FF;
+  --color-orange-300: #FFB86A;
+  --color-orange-400: #FF8904;
+  --color-teal-300: #46ECD5;
+  --color-teal-400: #00D5BE;
+}
+
+/* Sabit koyu onuyla yazılmış kart zeminleri gündüz modunda buzlu beyaz olur */
+[data-theme='light'] :is([class^='bg-[#12141A]'], [class*=' bg-[#12141A]'], [class^='bg-[#16191E]'], [class*=' bg-[#16191E]'], [class^='bg-[#1A1E26]'], [class*=' bg-[#1A1E26]']) {
+  background-color: rgba(255, 255, 255, 0.72);
+}
+[data-theme='light'] :is([class^='from-[#14161A]'], [class*=' from-[#14161A]'], [class^='from-[#181B22]'], [class*=' from-[#181B22]'], [class^='from-[#1C2029]'], [class*=' from-[#1C2029]']) {
+  --tw-gradient-from: rgba(255, 255, 255, 0.85);
+}
+[data-theme='light'] [class^='via-[#15171D]'], [class*=' via-[#15171D]'] {
+  --tw-gradient-via: rgba(248, 250, 252, 0.85);
+}
+[data-theme='light'] :is([class^='to-[#111317]'], [class*=' to-[#111317]'], [class^='to-[#14161C]'], [class*=' to-[#14161C]']) {
+  --tw-gradient-to: rgba(233, 237, 243, 0.9);
+}
+
+/* Buzlu cam yüzeyler */
+[data-theme='light'] .bg-studio-card,
+[data-theme='light'] [class*='backdrop-blur'] {
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(16px) saturate(1.4);
+}
+[data-theme='light'] body {
+  background-image: radial-gradient(ellipse at 15% 0%, rgba(255, 255, 255, 0.9), transparent 55%), radial-gradient(ellipse at 90% 10%, rgba(255, 0, 51, 0.05), transparent 45%);
+  background-attachment: fixed;
+}
+[data-theme='light'] :is(input, textarea, select) {
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #0F172A;
+}
+[data-theme='light'] ::placeholder {
+  color: #64748B;
+}
+[data-theme='light'] .theme-toggle {
+  border-color: rgba(15, 23, 42, 0.2);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 /* ===== Base Styles ===== */
@@ -574,4 +723,35 @@ h1, h2, h3, h4, h5, h6 {
 .cv-auto {
   content-visibility: auto;
   contain-intrinsic-size: auto 900px;
+}
+
+/* ===== Mobil uyum güvenceleri ===== */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+img,
+video,
+iframe,
+canvas {
+  max-width: 100%;
+}
+@media (pointer: coarse) {
+  button:not([aria-label]):not([class*="rounded-full"]),
+  [role="button"]:not([aria-label]) {
+    min-height: 40px;
+  }
+  select,
+  input:not([type="range"]):not([type="checkbox"]):not([type="radio"]) {
+    min-height: 44px;
+  }
+  input[type="range"] {
+    min-height: 32px;
+    touch-action: pan-y;
+  }
+  footer a {
+    display: inline-block;
+    padding-block: 0.4rem;
+  }
 }

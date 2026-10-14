@@ -239,7 +239,7 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
                     </div>
                     <div className="text-right">
                       <div className="text-sm sm:text-base font-black text-amber-300">{price}</div>
-                      <div className="text-[10px] opacity-75">{tier.days} {isTr ? 'gün' : 'days'}</div>
+                      <div className="text-[11px] opacity-75">{tier.days} {isTr ? 'gün' : 'days'}</div>
                     </div>
                   </button>
                 );

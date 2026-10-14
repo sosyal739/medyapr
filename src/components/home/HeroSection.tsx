@@ -310,7 +310,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                   </div>
 
                   {isPlaying ? (
-                    <div className="flex items-center gap-2 rounded-full bg-emerald-500 px-3 py-1.5 text-[10px] font-black text-white shadow-md shadow-emerald-500/30">
+                    <div className="flex items-center gap-2 rounded-full bg-emerald-500 px-3 py-1.5 text-[11px] font-black text-white shadow-md shadow-emerald-500/30">
                       <span className="flex h-3.5 items-end gap-0.5" aria-hidden="true">
                         <span className="w-0.5 rounded-full bg-white animate-eq-1" />
                         <span className="w-0.5 rounded-full bg-white animate-eq-2" />
@@ -319,7 +319,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                       {isTr ? 'VİDEO OYNUYOR' : 'PLAYING'}
                     </div>
                   ) : (
-                    <div className="rounded-full bg-black/55 px-3 py-1.5 text-[10px] font-bold text-white/90 ring-1 ring-white/15 backdrop-blur-md">
+                    <div className="rounded-full bg-black/55 px-3 py-1.5 text-[11px] font-bold text-white/90 ring-1 ring-white/15 backdrop-blur-md">
                       {isTr ? '00:50 • İzleyin' : '00:50 • Watch'}
                     </div>
                   )}
@@ -398,7 +398,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                     </span>
                     {isTr ? 'Örnek Kampanya Paneli' : 'Sample Campaign Dashboard'}
                   </span>
-                  <span className="text-[10px] font-medium text-zinc-500">{isTr ? 'Örnek veri' : 'Illustrative data'}</span>
+                  <span className="text-[11px] font-medium text-zinc-500">{isTr ? 'Örnek veri' : 'Illustrative data'}</span>
                 </div>
 
                 <div className="grid grid-cols-2 gap-2.5 p-3 sm:grid-cols-4 sm:p-4">
@@ -471,14 +471,14 @@ function Metric({
 }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-3">
-      <div className={`flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider ${tone}`}>
+      <div className={`flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider ${tone}`}>
         {icon}
         {label}
       </div>
       <div className="mt-1.5 flex items-baseline gap-1.5">
         <span className="font-[family-name:var(--font-heading)] text-lg font-black tabular-nums tracking-tight text-white sm:text-xl">{value}</span>
         {delta && (
-          <span key={deltaKey} className={`text-[10px] font-bold ${tone} animate-[fadeInUp_0.4s_ease-out_both]`}>
+          <span key={deltaKey} className={`text-[11px] font-bold ${tone} animate-[fadeInUp_0.4s_ease-out_both]`}>
             {delta}
           </span>
         )}

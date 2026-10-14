@@ -190,7 +190,7 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
                     ? 'Temel Kural & Doğrulanmış Veri (AEO Quick Fact)'
                     : 'Core Principle & Verified Fact (AEO)'}
                 </span>
-                <span className="rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-[10px] font-bold text-emerald-300 border border-emerald-500/40">
+                <span className="rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-[11px] font-bold text-emerald-300 border border-emerald-500/40">
                   Google Partner
                 </span>
               </div>

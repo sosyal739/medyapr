@@ -880,7 +880,7 @@ function Choice({ on, onClick, title, desc, tag }: { on: boolean; onClick: () =>
     >
       <div className="flex items-center justify-between gap-2">
         <span className="text-sm font-extrabold text-white">{title}</span>
-        {tag && <span className="rounded-full border border-amber-500/40 bg-amber-500/20 px-2 py-0.5 text-[10px] font-black text-amber-300">{tag}</span>}
+        {tag && <span className="rounded-full border border-amber-500/40 bg-amber-500/20 px-2 py-0.5 text-[11px] font-black text-amber-300">{tag}</span>}
       </div>
       <div className="mt-0.5 text-xs text-zinc-400">{desc}</div>
     </button>

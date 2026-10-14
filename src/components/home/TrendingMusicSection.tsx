@@ -172,7 +172,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                         </div>
                       )}
                       {song.isNew && (
-                        <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-bold text-emerald-400">
+                        <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[11px] font-bold text-emerald-400">
                           {isTr ? 'YENİ GİRİŞ' : 'NEW'}
                         </span>
                       )}
@@ -197,7 +197,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                       {song.blogSlug && (
                         <Link
                           href={`/${locale}/blog/${song.blogSlug}`}
-                          className="inline-flex items-center gap-1 rounded-md bg-white/10 px-2 py-0.5 text-[10px] font-bold text-zinc-300 hover:bg-[#FF0033]/30 hover:text-white transition"
+                          className="inline-flex items-center gap-1 rounded-md bg-white/10 px-2 py-0.5 text-[11px] font-bold text-zinc-300 hover:bg-[#FF0033]/30 hover:text-white transition"
                           title={isTr ? 'Sanatçı & Klip Analizi' : 'Analysis'}
                         >
                           {isTr ? 'Analiz' : 'Review'}

@@ -150,7 +150,7 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
                 <span className="text-lg">{c.flag}</span>
                 <span className="tracking-tight">{isTr ? c.labelTr : c.labelEn}</span>
                 <span
-                  className={`text-[10px] px-1.5 py-0.5 rounded-full uppercase tracking-wider ${
+                  className={`text-[11px] px-1.5 py-0.5 rounded-full uppercase tracking-wider ${
                     isActive ? 'bg-white/20 text-white' : 'bg-zinc-700/80 text-zinc-400 group-hover:text-zinc-200'
                   }`}
                 >
@@ -244,7 +244,7 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
           <div className="space-y-1 text-center md:text-left">
             <h3 className="text-sm sm:text-base font-extrabold text-white flex items-center justify-center md:justify-start gap-2">
               <span>{isTr ? activeGenrePlaybook.titleTr : activeGenrePlaybook.titleEn}</span>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30 uppercase">
+              <span className="text-[11px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30 uppercase">
                 {isTr ? 'Strateji Rehberi' : 'Strategy Guide'}
               </span>
             </h3>
@@ -360,7 +360,7 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
 
                   {/* Genre pill on thumbnail */}
                   {genreInfo && (
-                    <span className="absolute bottom-2 left-2 px-2 py-0.5 rounded-md bg-black/75 backdrop-blur-md text-[10px] font-bold text-white border border-white/10">
+                    <span className="absolute bottom-2 left-2 px-2 py-0.5 rounded-md bg-black/75 backdrop-blur-md text-[11px] font-bold text-white border border-white/10">
                       {genreInfo.icon} {isTr ? genreInfo.tr : genreInfo.en}
                     </span>
                   )}

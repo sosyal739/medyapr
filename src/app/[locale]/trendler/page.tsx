@@ -201,7 +201,7 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
 
             {/* Paket 2: Growth Momentum (Öne Çıkan) */}
             <div className="rounded-2xl border-2 border-[#FF0033] bg-gradient-to-b from-[#FF0033]/15 via-zinc-900/90 to-zinc-950 p-6 flex flex-col justify-between shadow-xl shadow-[#FF0033]/20 relative">
-              <span className="absolute -top-3 right-6 rounded-full bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-3 py-0.5 text-[10px] font-black text-white uppercase tracking-wider shadow-md">
+              <span className="absolute -top-3 right-6 rounded-full bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-3 py-0.5 text-[11px] font-black text-white uppercase tracking-wider shadow-md">
                 {isTr ? 'En Popüler Klip Lansmanı' : 'Most Popular Launch'}
               </span>
               <div>

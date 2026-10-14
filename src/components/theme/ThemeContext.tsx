@@ -2,66 +2,47 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-type Theme = 'grey' | 'black-room';
+/** dark = Gece Modu (varsayılan, mevcut siyah görünüm), light = Gündüz Modu (buzlu beyaz-gri). */
+type Theme = 'dark' | 'light';
 
 interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
   setTheme: (theme: Theme) => void;
-  isBlackRoom: boolean;
+  isLight: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  theme: 'grey',
+  theme: 'dark',
   toggleTheme: () => {},
   setTheme: () => {},
-  isBlackRoom: false,
+  isLight: false,
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('grey');
-  const [mounted, setMounted] = useState(false);
+  const [theme, setThemeState] = useState<Theme>('dark');
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- hidrasyon sonrası tarayıcı depolamasını okuma
-    setMounted(true);
-    try {
-      const saved = localStorage.getItem('medyapr_theme') as Theme | null;
-      if (saved === 'black-room' || saved === 'grey') {
-        setThemeState(saved);
-        document.documentElement.setAttribute('data-theme', saved);
-      } else {
-        document.documentElement.setAttribute('data-theme', 'grey');
-      }
-    } catch {
-      document.documentElement.setAttribute('data-theme', 'grey');
-    }
+    // Ön yükleme betiği data-theme'i zaten ayarladı; React durumunu onunla eşitle.
+    const current = document.documentElement.getAttribute('data-theme');
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hidrasyon sonrası tarayıcı durumunu okuma
+    if (current === 'light') setThemeState('light');
   }, []);
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
     try {
       localStorage.setItem('medyapr_theme', newTheme);
-      document.documentElement.setAttribute('data-theme', newTheme);
     } catch {
       // ignore localStorage errors
     }
   };
 
-  const toggleTheme = () => {
-    const nextTheme = theme === 'grey' ? 'black-room' : 'grey';
-    setTheme(nextTheme);
-  };
+  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
   return (
-    <ThemeContext.Provider
-      value={{
-        theme,
-        toggleTheme,
-        setTheme,
-        isBlackRoom: theme === 'black-room',
-      }}
-    >
+    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme, isLight: theme === 'light' }}>
       {children}
     </ThemeContext.Provider>
   );

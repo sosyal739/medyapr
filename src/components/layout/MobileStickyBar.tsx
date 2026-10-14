@@ -22,7 +22,7 @@ export default function MobileStickyBar({ locale = 'tr' }: MobileStickyBarProps)
           href={`https://wa.me/905312993355?text=${waText}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-lg shadow-emerald-950/50 transition-all active:scale-95"
+          className="flex-1 inline-flex items-center justify-center gap-2 min-h-[44px] min-w-0 py-2.5 px-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-lg shadow-emerald-950/50 transition-all active:scale-95"
           aria-label={isTr ? 'WhatsApp ile Hemen İletişime Geç' : 'Contact via WhatsApp'}
         >
           <MessageCircle className="h-4 w-4 fill-white" />
@@ -34,17 +34,17 @@ export default function MobileStickyBar({ locale = 'tr' }: MobileStickyBarProps)
           href={TELEGRAM_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs shadow-lg shadow-sky-950/50 transition-all active:scale-95"
+          className="inline-flex items-center justify-center gap-1.5 min-h-[44px] py-2.5 px-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs shadow-lg shadow-sky-950/50 transition-all active:scale-95"
           aria-label={isTr ? 'Telegram ile İletişime Geç' : 'Contact via Telegram'}
         >
           <Send className="h-4 w-4" />
-          <span>Telegram</span>
+          <span className="hidden min-[360px]:inline">Telegram</span>
         </a>
 
         {/* Instant Pricing Calculator CTA */}
         <Link
           href={`/${locale}#calculator`}
-          className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] hover:brightness-110 text-white font-extrabold text-xs shadow-lg shadow-[#FF0033]/30 transition-all active:scale-95"
+          className="flex-1 inline-flex items-center justify-center gap-2 min-h-[44px] min-w-0 py-2.5 px-2.5 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] hover:brightness-110 text-white font-extrabold text-xs shadow-lg shadow-[#FF0033]/30 transition-all active:scale-95"
         >
           <Calculator className="h-4 w-4" />
           <span>{isTr ? 'Fiyat Hesapla' : 'Get Quote'}</span>

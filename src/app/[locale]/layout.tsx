@@ -81,8 +81,9 @@ export default async function LocaleLayout({ params, children }: Props) {
   const dict = await getDictionary(locale as Locale);
 
   return (
-    <html lang={locale} className={`scroll-smooth ${inter.variable} ${montserrat.variable}`}>
+    <html lang={locale} className={`scroll-smooth ${inter.variable} ${montserrat.variable}`} data-theme="dark" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: "try{if(localStorage.getItem('medyapr_theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}" }} />
         {/* Schema.org Unified Graph: Organization, Person, ProfessionalService, WebSite */}
         <script
           type="application/ld+json"

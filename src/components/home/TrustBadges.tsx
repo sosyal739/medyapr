@@ -44,7 +44,7 @@ export default function TrustBadges({ dict, locale = 'tr' }: TrustBadgesProps) {
                 <Icon className="h-4 w-4" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-white/65">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-white/65">
                   {item.label}
                 </span>
                 <span className="text-xs font-bold text-white">{item.value}</span>

@@ -220,7 +220,7 @@ export default async function ReleaseDetailPage({ params }: Props) {
             >
               <div className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
               <div className="text-left">
-                <div className="text-[10px] text-zinc-400 font-medium">{isTr ? 'Canlı YouTube Verisi' : 'Live YouTube Data'}</div>
+                <div className="text-[11px] text-zinc-400 font-medium">{isTr ? 'Canlı YouTube Verisi' : 'Live YouTube Data'}</div>
                 <div className="text-xs font-bold text-white group-hover:text-red-400 transition flex items-center gap-1">
                   <span>{isTr ? "YouTube'da İzle & Sayıları Gör" : 'View Live Stats'}</span>
                   <ExternalLink className="h-3 w-3" />

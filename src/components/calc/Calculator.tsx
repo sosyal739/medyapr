@@ -189,7 +189,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                       </span>
                       {tag && (
                         <span
-                          className={`text-[10px] font-black px-2 py-0.5 rounded-full border ${
+                          className={`text-[11px] font-black px-2 py-0.5 rounded-full border ${
                             r === 'global'
                               ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
                               : r === 'premium'
@@ -236,7 +236,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="text-lg">{p === 'views' ? '▶️' : '💬'}</span>
                       <span
-                        className={`text-[10px] font-black px-2 py-0.5 rounded-full border ${
+                        className={`text-[11px] font-black px-2 py-0.5 rounded-full border ${
                           p === 'engagement'
                             ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
                             : 'bg-white/10 text-zinc-300 border-white/10'

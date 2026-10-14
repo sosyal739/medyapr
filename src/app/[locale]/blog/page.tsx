@@ -203,7 +203,7 @@ export default async function BlogIndexPage({
                   <Icon className={`h-4 w-4 ${isActive ? 'text-white' : 'text-[#FF6B6B]'}`} />
                   <span>{isTr ? cat.labelTr : cat.labelEn}</span>
                   <span
-                    className={`ml-1 px-1.5 py-0.5 rounded-full text-[10px] font-extrabold ${
+                    className={`ml-1 px-1.5 py-0.5 rounded-full text-[11px] font-extrabold ${
                       isActive ? 'bg-black/30 text-white' : 'bg-white/10 text-zinc-400'
                     }`}
                   >

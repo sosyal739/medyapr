@@ -287,7 +287,7 @@ export default async function BlogPostPage({ params }: Props) {
                   <span className="text-xs font-black uppercase tracking-wider text-[#FF6B6B]">
                     {isTr ? 'Özet Bilgi & Hızlı Yanıt (Quick Fact)' : 'Quick Fact & Verified Summary'}
                   </span>
-                  <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-bold text-emerald-300 border border-emerald-500/30">
+                  <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[11px] font-bold text-emerald-300 border border-emerald-500/30">
                     {isTr ? 'Doğrulanmış Veri' : 'Verified Data'}
                   </span>
                 </div>
@@ -383,7 +383,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {isMidArticle && (
                   <div className="my-8 rounded-2xl border border-[#FF0033]/30 bg-gradient-to-r from-[#FF0033]/15 via-zinc-900 to-zinc-950 p-5 sm:p-6 backdrop-blur-xl shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="space-y-1">
-                      <span className="text-[10px] font-black uppercase tracking-wider text-[#FF6B6B] bg-[#FF0033]/20 px-2.5 py-0.5 rounded-full inline-block">
+                      <span className="text-[11px] font-black uppercase tracking-wider text-[#FF6B6B] bg-[#FF0033]/20 px-2.5 py-0.5 rounded-full inline-block">
                         {isTr ? '🎯 Kendi Klibinizi Başlatın' : '🎯 Promote Your Music Video'}
                       </span>
                       <h4 className="text-base sm:text-lg font-bold text-white">
@@ -448,10 +448,10 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="space-y-1 text-center sm:text-left">
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
               <span className="font-extrabold text-white text-base">{post.author}</span>
-              <span className="rounded-full bg-blue-500/20 px-2.5 py-0.5 text-[10px] font-bold text-blue-300 border border-blue-500/30">
+              <span className="rounded-full bg-blue-500/20 px-2.5 py-0.5 text-[11px] font-bold text-blue-300 border border-blue-500/30">
                 {isTr ? 'Resmi Google Partner' : 'Official Google Partner'}
               </span>
-              <span className="rounded-full bg-amber-500/20 px-2.5 py-0.5 text-[10px] font-bold text-amber-300 border border-amber-500/30">
+              <span className="rounded-full bg-amber-500/20 px-2.5 py-0.5 text-[11px] font-bold text-amber-300 border border-amber-500/30">
                 {isTr ? '18+ Yıllık Tecrübe' : '18+ Years Track Record'}
               </span>
             </div>
@@ -534,7 +534,7 @@ export default async function BlogPostPage({ params }: Props) {
                       alt={(!isTr && rel.title_en) ? rel.title_en : rel.title}
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                     />
-                    <span className="absolute top-2.5 left-2.5 rounded-lg bg-black/70 px-2 py-0.5 text-[10px] font-bold text-white backdrop-blur-md">
+                    <span className="absolute top-2.5 left-2.5 rounded-lg bg-black/70 px-2 py-0.5 text-[11px] font-bold text-white backdrop-blur-md">
                       {(!isTr && rel.category_en) ? rel.category_en : rel.category}
                     </span>
                   </div>

@@ -50,7 +50,7 @@ export default function Header({ dict, locale }: HeaderProps) {
                 <span className="text-xl font-black text-white tracking-tight leading-none">
                   Medya<span className="text-[#FF0033]">PR</span>
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 leading-tight">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 leading-tight">
                   {isTr ? 'Resmi Video PR & Ads' : 'Official Video PR & Ads'}
                 </span>
               </div>
