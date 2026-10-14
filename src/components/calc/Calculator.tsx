@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Check, Clock, Globe2, MessageCircle, Send, ShieldCheck, Sparkles, Tag, ThumbsUp } from 'lucide-react';
+import { ArrowRight, Check, Clock, Mail, MessageCircle, Search, Send, ShieldCheck, Sparkles, Tag, ThumbsUp } from 'lucide-react';
 import {
   CURRENCIES,
   MAX_VIEWS,
@@ -10,13 +10,14 @@ import {
   PACKAGES,
   REGIONS,
   formatMoney,
+  parseYouTubeId,
   quote,
   type Currency,
   type Format,
   type Package,
   type Region,
 } from '@/lib/pricing';
-import { consultHref, TELEGRAM_URL } from '@/lib/contact';
+import { consultHref, telegramHref } from '@/lib/contact';
 import type { AppStrings } from '@/lib/i18n/app-strings';
 
 const PRESETS = [1_000, 5_000, 10_000, 25_000, 50_000, 100_000, 250_000, 500_000, 1_000_000];
@@ -57,12 +58,21 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
   const [pkg, setPkg] = useState<Package>('views');
   const [region, setRegion] = useState<Region>(isTr ? 'tr' : 'premium');
   const [currency, setCurrency] = useState<Currency>(isTr ? 'TRY' : 'USD');
+  const [videoUrl, setVideoUrl] = useState('');
 
   const q = useMemo(() => quote({ views, format, pkg, region, currency }), [views, format, pkg, region, currency]);
   const animTotal = useAnimatedNumber(q.total);
   const nf = new Intl.NumberFormat(isTr ? 'tr-TR' : 'en-US');
 
-  const href = `/${locale}/order?views=${q.views}&format=${format}&pkg=${pkg}&region=${region}&currency=${currency}`;
+  const videoParam = videoUrl.trim() ? `&video=${encodeURIComponent(videoUrl.trim())}` : '';
+  const href = `/${locale}/order?views=${q.views}&format=${format}&pkg=${pkg}&region=${region}&currency=${currency}${videoParam}`;
+  const mailOrderHref = `${href}&channel=email`;
+  const hasValidVideo = !!parseYouTubeId(videoUrl);
+
+  const pkgMessage = isTr
+    ? `Merhaba, YouTube videom için seçtiğim paketi iletmek ve detaylı analiz / teklif almak istiyorum.\n${videoUrl.trim() ? `\n🎬 Video Linki: ${videoUrl.trim()}` : ''}\n📦 Seçilen Paket: ${nf.format(q.views)} İzlenme • ${t.packages[pkg].name} • ${t.regions[region].name}\n💰 Tahmini Teklif: ${formatMoney(q.total, currency, locale)} (Video uzunluğuna göre değişebilir)`
+    : `Hello, I would like to submit my selected package and request a detailed video analysis & quote.\n${videoUrl.trim() ? `\n🎬 Video Link: ${videoUrl.trim()}` : ''}\n📦 Selected Package: ${nf.format(q.views)} Views • ${t.packages[pkg].name} • ${t.regions[region].name}\n💰 Estimated Quote: ${formatMoney(q.total, currency, locale)} (May vary by video length)`;
+
 
   return (
     <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-[#181B22]/95 via-[#15171D]/95 to-[#111317]/95 p-6 sm:p-8 lg:p-10 text-white shadow-2xl backdrop-blur-2xl">
@@ -379,34 +389,69 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
             </div>
           </div>
 
-          {/* Teklifi İlet Butonu */}
-          <Link
-            href={href}
-            className="group mt-5 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-6 py-4 text-base font-extrabold text-white shadow-xl shadow-red-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
-          >
-            <span>{t.cta}</span>
-            <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
-          </Link>
+          {/* YouTube Video Linki Girişi + 3 Analiz Kanalı */}
+          <div className="mt-5 space-y-3">
+            <div>
+              <label htmlFor="calc-video-url" className="mb-1.5 block text-[11px] font-bold uppercase tracking-wider text-zinc-400">
+                {isTr ? 'YouTube Video Linkiniz (Pakete Ekle)' : 'Your YouTube Video Link (Attach to Package)'}
+              </label>
+              <div className="relative">
+                <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
+                <input
+                  id="calc-video-url"
+                  type="url"
+                  inputMode="url"
+                  value={videoUrl}
+                  onChange={(e) => setVideoUrl(e.target.value)}
+                  placeholder="https://www.youtube.com/watch?v=..."
+                  className="w-full rounded-xl border border-white/15 bg-black/30 py-2.5 pl-10 pr-3 text-xs text-white placeholder-zinc-500 outline-none transition focus:border-[#FF0033] focus:ring-2 focus:ring-[#FF0033]/20"
+                />
+              </div>
+              {hasValidVideo && (
+                <p className="mt-1 text-[11px] font-semibold text-emerald-400">
+                  ✓ {isTr ? 'Video linki pakete eklendi' : 'Video link attached to package'}
+                </p>
+              )}
+            </div>
 
-          <div className="mt-2.5 grid grid-cols-2 gap-2">
-            <a
-              href={consultHref(t.consultMsg)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 rounded-2xl border border-emerald-400/40 bg-emerald-500/10 px-3 py-3 text-xs font-bold text-emerald-300 transition-all hover:border-emerald-400 hover:bg-emerald-500/20 hover:text-white"
+            <Link
+              href={href}
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-6 py-4 text-base font-extrabold text-white shadow-xl shadow-red-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
-              <MessageCircle className="h-4 w-4 shrink-0" />
-              <span>WhatsApp</span>
-            </a>
-            <a
-              href={TELEGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 rounded-2xl border border-sky-400/40 bg-sky-500/10 px-3 py-3 text-xs font-bold text-sky-300 transition-all hover:border-sky-400 hover:bg-sky-500/20 hover:text-white"
-            >
-              <Send className="h-4 w-4 shrink-0" />
-              <span>Telegram</span>
-            </a>
+              <span>{t.cta}</span>
+              <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
+            </Link>
+
+            <div className="grid grid-cols-3 gap-2">
+              <a
+                href={consultHref(pkgMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 rounded-2xl border border-emerald-400/40 bg-emerald-500/10 px-2.5 py-3 text-[11px] sm:text-xs font-bold text-emerald-300 transition-all hover:border-emerald-400 hover:bg-emerald-500/20 hover:text-white"
+              >
+                <MessageCircle className="h-3.5 w-3.5 shrink-0" />
+                <span>{isTr ? 'WhatsApp Analiz' : 'WhatsApp'}</span>
+              </a>
+              <a
+                href={telegramHref(pkgMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  navigator.clipboard?.writeText(pkgMessage).catch(() => {});
+                }}
+                className="inline-flex items-center justify-center gap-1.5 rounded-2xl border border-sky-400/40 bg-sky-500/10 px-2.5 py-3 text-[11px] sm:text-xs font-bold text-sky-300 transition-all hover:border-sky-400 hover:bg-sky-500/20 hover:text-white"
+              >
+                <Send className="h-3.5 w-3.5 shrink-0" />
+                <span>{isTr ? 'Telegram Analiz' : 'Telegram'}</span>
+              </a>
+              <Link
+                href={mailOrderHref}
+                className="inline-flex items-center justify-center gap-1.5 rounded-2xl border border-amber-400/40 bg-amber-500/10 px-2.5 py-3 text-[11px] sm:text-xs font-bold text-amber-300 transition-all hover:border-amber-400 hover:bg-amber-500/20 hover:text-white"
+              >
+                <Mail className="h-3.5 w-3.5 shrink-0" />
+                <span>{isTr ? 'Mail ile Analiz' : 'Via Email'}</span>
+              </Link>
+            </div>
           </div>
 
           {/* Güvence Maddeleri */}
@@ -425,4 +470,5 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
     </div>
   );
 }
+
 
