@@ -159,13 +159,13 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
       video?.views !== undefined ? (isTr ? `Mevcut İzlenme: ${nf.format(video.views)}` : `Current Views: ${nf.format(video.views)}`) : '',
     ]
       .filter(Boolean)
-      .join(' • ');
-    const senderLine = [name.trim(), contact.trim(), email.trim()].filter(Boolean).join(' • ');
+      .join(' - ');
+    const senderLine = [name.trim(), contact.trim(), email.trim()].filter(Boolean).join(' - ');
     const noteLine = note.trim() ? (isTr ? `\nNot: ${note.trim()}` : `\nNote: ${note.trim()}`) : '';
 
     return isTr
-      ? `Merhaba, YouTube videom için seçtiğim paketi iletmek ve detaylı analiz / teklif almak istiyorum.\n\n${codeLine}🎬 Video: ${titleLine}${url}\n${statsLine ? `📊 ${statsLine}\n` : ''}📦 Seçilen Paket: ${nf.format(q.views)} İzlenme • ${pkgName} • ${regionName}\n💰 Tahmini Teklif: ${totalText} (Video uzunluğuna göre değişebilir)${senderLine ? `\n👤 İletişim: ${senderLine}` : ''}${noteLine}`
-      : `Hello, I would like to submit my selected package and request a detailed video analysis & quote.\n\n${codeLine}🎬 Video: ${titleLine}${url}\n${statsLine ? `📊 ${statsLine}\n` : ''}📦 Selected Package: ${nf.format(q.views)} Views • ${pkgName} • ${regionName}\n💰 Estimated Quote: ${totalText} (May vary by video length)${senderLine ? `\n👤 Contact: ${senderLine}` : ''}${noteLine}`;
+      ? `Merhaba, YouTube videom için seçtiğim paketi iletmek ve detaylı analiz / teklif almak istiyorum.\n\n${codeLine}Video: ${titleLine}${url}\n${statsLine ? `Video Bilgisi: ${statsLine}\n` : ''}Seçilen Paket: ${nf.format(q.views)} İzlenme - ${pkgName} - ${regionName}\nTahmini Teklif: ${totalText} (Video uzunluğuna göre değişebilir)${senderLine ? `\nİletişim: ${senderLine}` : ''}${noteLine}`
+      : `Hello, I would like to submit my selected package and request a detailed video analysis & quote.\n\n${codeLine}Video: ${titleLine}${url}\n${statsLine ? `Video Info: ${statsLine}\n` : ''}Selected Package: ${nf.format(q.views)} Views - ${pkgName} - ${regionName}\nEstimated Quote: ${totalText} (May vary by video length)${senderLine ? `\nContact: ${senderLine}` : ''}${noteLine}`;
   };
 
   function ensureVideoEntered(): boolean {

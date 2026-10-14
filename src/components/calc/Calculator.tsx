@@ -70,8 +70,8 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
   const hasValidVideo = !!parseYouTubeId(videoUrl);
 
   const pkgMessage = isTr
-    ? `Merhaba, YouTube videom için seçtiğim paketi iletmek ve detaylı analiz / teklif almak istiyorum.\n${videoUrl.trim() ? `\n🎬 Video Linki: ${videoUrl.trim()}` : ''}\n📦 Seçilen Paket: ${nf.format(q.views)} İzlenme • ${t.packages[pkg].name} • ${t.regions[region].name}\n💰 Tahmini Teklif: ${formatMoney(q.total, currency, locale)} (Video uzunluğuna göre değişebilir)`
-    : `Hello, I would like to submit my selected package and request a detailed video analysis & quote.\n${videoUrl.trim() ? `\n🎬 Video Link: ${videoUrl.trim()}` : ''}\n📦 Selected Package: ${nf.format(q.views)} Views • ${t.packages[pkg].name} • ${t.regions[region].name}\n💰 Estimated Quote: ${formatMoney(q.total, currency, locale)} (May vary by video length)`;
+    ? `Merhaba, YouTube videom için seçtiğim paketi iletmek ve detaylı analiz / teklif almak istiyorum.${videoUrl.trim() ? `\n\nVideo Linki: ${videoUrl.trim()}` : ''}\nSeçilen Paket: ${nf.format(q.views)} İzlenme - ${t.packages[pkg].name} - ${t.regions[region].name}\nTahmini Teklif: ${formatMoney(q.total, currency, locale)} (Video uzunluğuna göre değişebilir)`
+    : `Hello, I would like to submit my selected package and request a detailed video analysis & quote.${videoUrl.trim() ? `\n\nVideo Link: ${videoUrl.trim()}` : ''}\nSelected Package: ${nf.format(q.views)} Views - ${t.packages[pkg].name} - ${t.regions[region].name}\nEstimated Quote: ${formatMoney(q.total, currency, locale)} (May vary by video length)`;
 
 
   return (
