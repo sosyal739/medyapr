@@ -170,6 +170,9 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
 
           {/* Title */}
           <h1 className="text-4xl font-black leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl text-white">
+            <span className="block text-sm sm:text-base font-extrabold uppercase tracking-wider text-zinc-300 mb-2">
+              {isTr ? 'YouTube Klip Tanıtımı & Resmi Google Ads Video Reklam' : 'YouTube Music Video Promotion & Official Google Ads PR'}
+            </span>
             {isTr ? 'Klibinizi' : 'Put Your Video'}{' '}
             <span className="bg-gradient-to-r from-[#FF0033] via-[#FF5E7E] to-[#FF9E79] bg-clip-text text-transparent">
               {isTr ? 'Doğru Kitleye Ulaştırın' : 'In Front of the Right Audience'}

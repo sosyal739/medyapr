@@ -397,12 +397,20 @@ export default async function BlogPostPage({ params }: Props) {
                           : '100% YouTube Studio verified views with 50/50 phased payment security.'}
                       </p>
                     </div>
-                    <Link
-                      href={`/${locale}#calculator`}
-                      className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-5 py-3 text-xs font-black text-white shadow-lg shadow-[#FF0033]/30 hover:scale-105 transition"
-                    >
-                      {isTr ? 'Fiyat Hesapla' : 'Calculate Pricing'} <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
+                    <div className="flex flex-wrap shrink-0 items-center gap-2.5">
+                      <Link
+                        href={`/${locale}/fiyatlandirma`}
+                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-5 py-3 text-xs font-black text-white shadow-lg shadow-[#FF0033]/30 hover:scale-105 transition"
+                      >
+                        {isTr ? 'YouTube Reklam Fiyatları' : 'Calculate Ad Pricing'} <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                      <Link
+                        href={`/${locale}/order`}
+                        className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-xs font-bold text-white hover:bg-white/10 transition"
+                      >
+                        {isTr ? 'Klip Analizi İste' : 'Request Video Audit'}
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>
@@ -482,22 +490,26 @@ export default async function BlogPostPage({ params }: Props) {
             </p>
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center gap-4">
+          <div className="mt-6 flex flex-wrap items-center gap-3.5">
             <Link
-              href={`/${locale}#calculator`}
+              href={`/${locale}/fiyatlandirma`}
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-7 py-3.5 text-sm font-extrabold text-white shadow-xl shadow-[#FF0033]/30 hover:scale-105 transition"
             >
-              {isTr ? 'Fiyatı Hesapla & Başlat' : 'Calculate Pricing & Launch'}{' '}
+              {isTr ? 'YouTube Reklam Fiyatları & Hesaplama' : 'YouTube Ad Pricing & Calculator'}{' '}
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <a
-              href="https://wa.me/905312993355"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-zinc-700/60 bg-zinc-800/80 px-6 py-3.5 text-sm font-bold text-white hover:bg-zinc-700 transition"
+            <Link
+              href={`/${locale}/order`}
+              className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/15 px-6 py-3.5 text-sm font-extrabold text-emerald-300 hover:bg-emerald-500/25 transition"
             >
-              {isTr ? 'Bize Danışın (WhatsApp)' : 'Consult via WhatsApp'}
-            </a>
+              {isTr ? 'Video Linki Gir & Analiz İste' : 'Submit Video Link & Request Audit'}
+            </Link>
+            <Link
+              href={`/${locale}/hizmetler`}
+              className="inline-flex items-center gap-2 rounded-xl border border-zinc-700/60 bg-zinc-800/80 px-5 py-3.5 text-sm font-bold text-zinc-200 hover:bg-zinc-700 transition"
+            >
+              {isTr ? 'Google Ads YouTube İzlenme Paketleri' : 'Google Ads YouTube View Packages'}
+            </Link>
           </div>
         </div>
 

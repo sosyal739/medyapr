@@ -17,12 +17,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: {
       absolute: isTr
-        ? 'YouTube Klip PR & Video Reklam Hizmetleri | MedyaPR'
-        : 'YouTube Music PR & Video Ad Services | MedyaPR',
+        ? 'Google Ads YouTube İzlenme & Klip PR Hizmetleri | MedyaPR'
+        : 'YouTube Music PR & Google Ads Video Services | MedyaPR',
     },
     description: isTr
-      ? 'In-Stream, Shorts ve Keşfet reklamları ile YouTube kanalınızı büyütün. 18+ yıllık tecrübe, resmi Google Ads altyapısı ve şeffaf performans takibi.'
-      : 'Grow your YouTube channel with In-Stream, Shorts and In-Feed ads. 18+ years experience, official Google Ads platform, and real-time performance tracking.',
+      ? 'Resmi Google Ads ile YouTube organik izlenme, şarkı ve klip tanıtımı, Shorts reklamları ve 4000 saat paketleri. Şifre istenmez, %50 onayda güvenli ödeme.'
+      : 'Grow your YouTube channel with official Google Ads In-Stream, Shorts and Discovery campaigns. 18+ years experience, zero bots, and 50/50 phased payment.',
     alternates: getPageAlternates(locale, '/hizmetler'),
   };
 }
@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ServicesPage({ params }: Props) {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
+  const isTr = locale === 'tr';
 
   const iconMap: Record<string, LucideIcon> = {
     play: Play,
@@ -55,30 +56,30 @@ export default async function ServicesPage({ params }: Props) {
                   {
                     '@type': 'ListItem',
                     position: 1,
-                    name: locale === 'tr' ? 'Ana Sayfa' : 'Home',
+                    name: isTr ? 'Ana Sayfa' : 'Home',
                     item: `https://medyapr.com/${locale}`,
                   },
                   {
                     '@type': 'ListItem',
                     position: 2,
-                    name: locale === 'tr' ? 'Hizmetler' : 'Services',
+                    name: isTr ? 'YouTube Reklam & PR Hizmetleri' : 'Services',
                     item: `https://medyapr.com/${locale}/hizmetler`,
                   },
                 ],
               },
               {
                 '@type': 'Service',
-                name: locale === 'tr' ? 'YouTube Klip PR ve Video Reklam Hizmetleri' : 'YouTube Video & Music PR Services',
+                name: isTr ? 'YouTube Klip PR ve Google Ads Video Reklam Hizmetleri' : 'YouTube Video & Music PR Services',
                 provider: {
                   '@type': 'Organization',
                   name: 'MedyaPR',
                   url: 'https://medyapr.com',
                 },
-                serviceType: locale === 'tr' ? 'Dijital Müzik PR ve Video Reklam Yönetimi' : 'Digital Music PR and Video Ad Management',
+                serviceType: isTr ? 'Dijital Müzik PR ve Video Reklam Yönetimi' : 'Digital Music PR and Video Ad Management',
                 description: dict.services.subtitle,
                 hasOfferCatalog: {
                   '@type': 'OfferCatalog',
-                  name: locale === 'tr' ? 'MedyaPR YouTube Hizmet Kataloğu' : 'MedyaPR YouTube Services Catalog',
+                  name: isTr ? 'MedyaPR YouTube Hizmet Kataloğu' : 'MedyaPR YouTube Services Catalog',
                   itemListElement: (dict.services?.items || []).map((s) => ({
                     '@type': 'Offer',
                     itemOffered: {
@@ -101,7 +102,7 @@ export default async function ServicesPage({ params }: Props) {
           <div className="absolute bottom-10 right-20 w-96 h-96 bg-[#FF6B6B] rounded-full blur-[150px]" />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-4xl lg:text-6xl font-black text-white mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-6">
             {dict.services.title}
           </h1>
           <p className="text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto">
@@ -112,7 +113,20 @@ export default async function ServicesPage({ params }: Props) {
 
       {/* Services Grid */}
       <section className="py-16 lg:py-24 bg-[#FAFAFA]">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <h2 className="text-2xl sm:text-3xl font-black text-[#1A1A2E]">
+              {isTr
+                ? 'Resmi Google Ads ile YouTube Kanal ve Klip Büyütme Çözümleri'
+                : 'Official Google Ads YouTube Channel & Music Video Growth Solutions'}
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base">
+              {isTr
+                ? 'Tüm paketlerimiz %100 resmi Google Ads reklam altyapısıyla çalışır, YouTube Studio Analytics’te şeffafça raporlanır ve kanal şifresi gerektirmez.'
+                : 'All packages run on 100% official Google Ads infrastructure, report transparently in YouTube Studio Analytics, and never require passwords.'}
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {dict.services.items.map((service, idx: number) => {
               const IconComponent = iconMap[service.icon] || Play;
@@ -146,7 +160,7 @@ export default async function ServicesPage({ params }: Props) {
 
                   {/* Features */}
                   <ul className="space-y-2 mb-6">
-                    {['Google Ads', locale === 'tr' ? 'Gerçek İzlenme' : 'Real Views', locale === 'tr' ? 'Hedefli Kitle' : 'Targeted Audience'].map((feature, i) => (
+                    {['Google Ads', isTr ? 'Gerçek İzlenme' : 'Real Views', isTr ? 'Hedefli Kitle' : 'Targeted Audience'].map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
                         <Check size={14} className="text-green-500 flex-shrink-0" />
                         {feature}
@@ -155,13 +169,21 @@ export default async function ServicesPage({ params }: Props) {
                   </ul>
 
                   {/* CTA */}
-                  <Link
-                    href={`/${locale}/iletisim`}
-                    className="inline-flex items-center gap-2 text-[#FF0033] font-semibold text-sm group-hover:gap-3 transition-all"
-                  >
-                    {dict.pricing?.cta || (locale === 'tr' ? 'Hemen Başla' : 'Get Started')}
-                    <ArrowRight size={16} />
-                  </Link>
+                  <div className="flex items-center justify-between pt-2 border-t border-gray-100">
+                    <Link
+                      href={`/${locale}/fiyatlandirma`}
+                      className="inline-flex items-center gap-2 text-[#FF0033] font-bold text-sm group-hover:gap-3 transition-all"
+                    >
+                      {isTr ? 'Fiyatları Hesapla' : 'Calculate Pricing'}
+                      <ArrowRight size={16} />
+                    </Link>
+                    <Link
+                      href={`/${locale}/order`}
+                      className="text-xs font-semibold text-gray-500 hover:text-[#1A1A2E] underline"
+                    >
+                      {isTr ? 'Analiz İste' : 'Request Review'}
+                    </Link>
+                  </div>
 
                   {/* Hover border accent */}
                   <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FF0033] to-[#FF6B6B] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
