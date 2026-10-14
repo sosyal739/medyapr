@@ -18,23 +18,41 @@ export async function POST(req: Request) {
 
   const videoUrl = String(b.videoUrl ?? '').trim();
   const videoId = parseYouTubeId(videoUrl);
+  const channel = (['whatsapp', 'telegram', 'email'].includes(String(b.channel)) ? String(b.channel) : 'whatsapp') as
+    | 'whatsapp'
+    | 'telegram'
+    | 'email';
   const email = String(b.email ?? '').trim().toLowerCase();
-  const name = String(b.name ?? '').trim().slice(0, 80);
+  const rawName = String(b.name ?? '').trim().slice(0, 80);
   const contact = String(b.contact ?? '').trim().slice(0, 80) || undefined;
-  const format = b.format as Format;
+  const note = String(b.note ?? '').trim().slice(0, 400) || undefined;
+  const format = (FORMATS.includes(b.format as Format) ? b.format : 'instream') as Format;
   const pkg = (PACKAGES.includes(b.pkg as Package) ? b.pkg : 'views') as Package;
-  const region = b.region as Region;
-  const currency = b.currency as Currency;
-  const payment = 'iban' as const; // Kart ödemesi şu an kapalı.
+  const region = (REGIONS.includes(b.region as Region) ? b.region : 'tr') as Region;
+  const currency = (CURRENCIES.includes(b.currency as Currency) ? b.currency : 'TRY') as Currency;
+  const payment = 'iban' as const;
 
   if (!videoId) return NextResponse.json({ error: 'invalid_video' }, { status: 422 });
-  // Siparişler WhatsApp/Telegram üzerinden yürür: iletişim zorunlu, e-posta isteğe bağlı.
-  if (!contact || contact.replace(/[^\w@+]/g, '').length < 5) return NextResponse.json({ error: 'invalid_contact' }, { status: 422 });
-  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return NextResponse.json({ error: 'invalid_email' }, { status: 422 });
-  if (name.length < 2) return NextResponse.json({ error: 'invalid_name' }, { status: 422 });
-  if (!FORMATS.includes(format) || !REGIONS.includes(region) || !CURRENCIES.includes(currency))
-    return NextResponse.json({ error: 'invalid_options' }, { status: 422 });
-  if (b.terms !== true) return NextResponse.json({ error: 'terms_required' }, { status: 422 });
+
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const contactValid = !!contact && contact.replace(/[^\w@+]/g, '').length >= 5;
+
+  if (channel === 'email') {
+    if (!emailValid) return NextResponse.json({ error: 'invalid_email' }, { status: 422 });
+  } else if (email && !emailValid) {
+    return NextResponse.json({ error: 'invalid_email' }, { status: 422 });
+  }
+
+  const name =
+    rawName.length >= 2
+      ? rawName
+      : emailValid
+        ? email.split('@')[0]
+        : contactValid
+          ? contact!
+          : channel === 'telegram'
+            ? 'Telegram Analiz Talebi'
+            : 'WhatsApp Analiz Talebi';
 
   // Video gerçekten var mı? Ağ hatasında (undefined) siparişi engelleme.
   const video = await getVideoInfo(videoId);
@@ -43,10 +61,13 @@ export async function POST(req: Request) {
   // Fiyat DAİMA sunucuda yeniden hesaplanır.
   const q = quote({ views: clampViews(Number(b.views)), format, pkg, region, currency });
 
+  const channelLabel =
+    channel === 'email' ? '✉️ E-Posta (Mail) ile Analiz' : channel === 'telegram' ? '✈️ Telegram ile Analiz' : '💬 WhatsApp ile Analiz';
+
   const order = await createOrder({
     email,
     name,
-    contact,
+    contact: contact || (channel === 'email' ? email : channelLabel),
     videoUrl,
     videoId,
     format,
@@ -56,32 +77,35 @@ export async function POST(req: Request) {
     currency,
     total: q.total,
     payment,
+    paymentNote: note ? `${channelLabel} — Not: ${note}` : channelLabel,
     videoTitle: video?.title || undefined,
     startViews: video?.views,
   });
+
   // Bildirim: başarısız olsa bile sipariş kaydı etkilenmez (notifyOwner fırlatmaz).
   const fmt = (n: number) => new Intl.NumberFormat('tr-TR').format(n);
   await notifyOwner({
-    subject: `🛒 Yeni Sipariş ${order.id}: ${order.name} — ${fmt(order.total)} ${order.currency}`,
-    replyTo: email || undefined,
+    subject: `🎯 Yeni Teklif & Analiz Talebi (${channel.toUpperCase()}) ${order.id}: ${order.name} — ${fmt(order.total)} ${order.currency}`,
+    replyTo: emailValid ? email : undefined,
     html: renderMail(
-      '🛒 Yeni Sipariş Alındı',
+      `🎯 Yeni Video Analiz & Teklif Talebi (${channelLabel})`,
       [
         ['Takip Kodu', escapeHtml(order.id)],
-        ['Ad Soyad', escapeHtml(name)],
-        ['WhatsApp / Telegram', escapeHtml(contact)],
+        ['İletişim Kanalı', escapeHtml(channelLabel)],
+        ['Ad / Sanatçı', escapeHtml(name)],
         ['E-Posta', escapeHtml(email)],
-        ['Video', escapeHtml(video?.title ? `${video.title} — ${video.channel}
-${videoUrl}` : videoUrl)],
+        ['WhatsApp / Telegram', escapeHtml(contact || '')],
+        ['Müşteri Notu', escapeHtml(note || '')],
+        ['Video', escapeHtml(video?.title ? `${video.title} — ${video.channel}\n${videoUrl}` : videoUrl)],
         ['Başlangıç İzlenmesi', video?.views !== undefined ? fmt(video.views) : ''],
-        ['Paket', escapeHtml(`${order.pkg ?? 'views'} • ${order.format} • ${order.region} • ${fmt(order.views)} izlenme`)],
-        ['Tutar', escapeHtml(`${fmt(order.total)} ${order.currency}`)],
-        ['Ödeme', order.payment === 'iban' ? 'IBAN / Havale' : 'Kart'],
+        ['Seçilen Paket', escapeHtml(`${order.pkg ?? 'views'} • ${order.format} • ${order.region} • ${fmt(order.views)} izlenme`)],
+        ['Tahmini Tutar', escapeHtml(`${fmt(order.total)} ${order.currency} (Video uzunluğuna göre değişebilir)`)],
         ['Takip Linki', `https://medyapr.com/tr/track/${escapeHtml(order.id)}`],
       ],
-      `Bu bildirim <strong>medyapr.com</strong> sipariş formundan gönderildi • ${new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' })}`,
+      `Bu bildirim <strong>medyapr.com</strong> teklif ve analiz sayfasından gönderildi • ${new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' })}`,
     ),
   });
 
-  return NextResponse.json({ id: order.id, total: order.total, currency: order.currency, payment: order.payment }, { status: 201 });
+  return NextResponse.json({ id: order.id, total: order.total, currency: order.currency, payment: order.payment, channel }, { status: 201 });
 }
+
