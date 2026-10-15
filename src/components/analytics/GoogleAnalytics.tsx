@@ -67,6 +67,30 @@ export default function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
               page_path: window.location.pathname,
               send_page_view: true
             });
+            gtag('config', 'AW-11081445035');
+
+            // Automatic Google Ads Lead Conversion Tracking (WhatsApp, Telegram & Email Briefs)
+            document.addEventListener('click', function(e) {
+              try {
+                var target = e.target && e.target.closest ? e.target.closest('a') : null;
+                if (!target || !target.href) return;
+                var href = target.href.toLowerCase();
+                if (href.indexOf('wa.me/') !== -1 || href.indexOf('api.whatsapp.com') !== -1 || href.indexOf('t.me/') !== -1 || href.indexOf('mailto:info@medyapr.com') !== -1) {
+                  var channel = href.indexOf('t.me/') !== -1 ? 'telegram' : (href.indexOf('mailto:') !== -1 ? 'email' : 'whatsapp');
+                  gtag('event', 'conversion', {
+                    'send_to': 'AW-11081445035/q5ZlCL6wop4dEKvdhaQp',
+                    'value': 100.0,
+                    'currency': 'TRY'
+                  });
+                  gtag('event', 'generate_lead', {
+                    'event_category': 'artist_pr_lead',
+                    'event_label': channel,
+                    'value': 100.0,
+                    'currency': 'TRY'
+                  });
+                }
+              } catch(err) {}
+            }, true);
           `,
         }}
       />
