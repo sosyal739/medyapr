@@ -43,7 +43,7 @@ export default function MobileStickyBar({ locale = 'tr' }: MobileStickyBarProps)
 
         {/* Instant Pricing Calculator CTA */}
         <Link
-          href={`/${locale}#calculator`}
+          href={`/${locale}/fiyatlandirma`}
           className="flex-1 inline-flex items-center justify-center gap-2 min-h-[44px] min-w-0 py-2.5 px-2.5 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] hover:brightness-110 text-white font-extrabold text-xs shadow-lg shadow-[#FF0033]/30 transition-all active:scale-95"
         >
           <Calculator className="h-4 w-4" />

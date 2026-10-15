@@ -98,21 +98,21 @@ export default function Header({ dict, locale }: HeaderProps) {
               </Link>
 
               <Link
-                href={`/${locale}#calculator`}
+                href={`/${locale}/fiyatlandirma`}
                 className="px-3 py-1.5 rounded-xl text-xs xl:text-sm font-semibold text-zinc-300 hover:text-white hover:bg-zinc-800/90 border border-transparent hover:border-zinc-600/50 shadow-xs hover:-translate-y-0.5 transition-all duration-200"
               >
-                {isTr ? 'Hesaplayıcı' : 'Calculator'}
+                {isTr ? 'Fiyatlar & Hesapla' : 'Pricing & Calculator'}
               </Link>
 
               <Link
-                href={`/${locale}#why-google-ads`}
+                href={`/${locale}/hizmetler`}
                 className="px-3 py-1.5 rounded-xl text-xs xl:text-sm font-semibold text-zinc-300 hover:text-white hover:bg-zinc-800/90 border border-transparent hover:border-zinc-600/50 shadow-xs hover:-translate-y-0.5 transition-all duration-200"
               >
-                {isTr ? 'Neden Ads?' : 'Why Ads?'}
+                {isTr ? 'Hizmetler' : 'Services'}
               </Link>
 
               <Link
-                href={`/${locale}#faq`}
+                href={`/${locale}/sss`}
                 className="px-3 py-1.5 rounded-xl text-xs xl:text-sm font-semibold text-zinc-300 hover:text-white hover:bg-zinc-800/90 border border-transparent hover:border-zinc-600/50 shadow-xs hover:-translate-y-0.5 transition-all duration-200"
               >
                 {isTr ? 'SSS' : 'FAQ'}
@@ -137,10 +137,10 @@ export default function Header({ dict, locale }: HeaderProps) {
 
               {/* Order Now CTA */}
               <Link
-                href={`/${locale}#calculator`}
+                href={`/${locale}/order`}
                 className="px-4 py-2 text-xs bg-gradient-to-r from-[#E0002E] to-[#CC0029] text-white font-extrabold rounded-xl shadow-lg shadow-[#FF0033]/30 hover:scale-105 transition-all"
               >
-                {isTr ? 'Sipariş Ver' : 'Order Now'}
+                {isTr ? 'Sipariş & Analiz' : 'Order & Audit'}
               </Link>
             </div>
 
@@ -208,21 +208,21 @@ export default function Header({ dict, locale }: HeaderProps) {
                 {isTr ? 'Müzik & Büyüme Blogu' : 'Blog'}
               </Link>
               <Link
-                href={`/${locale}#calculator`}
+                href={`/${locale}/fiyatlandirma`}
                 className="px-4 py-3 rounded-xl text-base font-semibold text-white/80 hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {isTr ? 'Fiyat Hesapla' : 'Calculator'}
+                {isTr ? 'Fiyatlar & Hesaplama' : 'Pricing & Calculator'}
               </Link>
               <Link
-                href={`/${locale}#why-google-ads`}
+                href={`/${locale}/hizmetler`}
                 className="px-4 py-3 rounded-xl text-base font-semibold text-white/80 hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {isTr ? 'Neden Google Ads?' : 'Why Google Ads?'}
+                {isTr ? 'Hizmetler & Paketler' : 'Services & Packages'}
               </Link>
               <Link
-                href={`/${locale}#faq`}
+                href={`/${locale}/sss`}
                 className="px-4 py-3 rounded-xl text-base font-semibold text-white/80 hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -241,11 +241,11 @@ export default function Header({ dict, locale }: HeaderProps) {
               </Link>
 
               <Link
-                href={`/${locale}#calculator`}
+                href={`/${locale}/order`}
                 className="w-full px-4 py-3 rounded-xl text-center text-sm font-extrabold bg-[#D9002B] text-white shadow-lg shadow-[#FF0033]/30"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {isTr ? 'Hemen Başla' : 'Order Now'}
+                {isTr ? 'Sipariş & Analiz İste' : 'Order & Request Audit'}
               </Link>
             </nav>
           </div>

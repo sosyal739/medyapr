@@ -209,18 +209,18 @@ export default async function NewReleasesPage({ params }: Props) {
 
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <Link
-                href={`/${locale}#calculator`}
+                href={`/${locale}/fiyatlandirma`}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-[#FF0033]/30 hover:brightness-110 transition active:scale-95"
               >
-                <span>{isTr ? 'Bütçeni Hesapla' : 'Calculate Budget'}</span>
+                <span>{isTr ? 'YouTube Reklam Fiyatları' : 'Calculate Budget'}</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
 
               <Link
-                href={`/${locale}/iletisim`}
+                href={`/${locale}/order`}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 border border-white/20 px-6 py-3 text-sm font-semibold text-white hover:bg-white/15 transition"
               >
-                <span>{isTr ? 'Klip Danışmanlığı Al' : 'Get Consultation'}</span>
+                <span>{isTr ? 'Klip Analizi İste' : 'Request Video Audit'}</span>
               </Link>
             </div>
           </div>

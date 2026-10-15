@@ -145,6 +145,14 @@ export default function Footer({ dict, locale }: FooterProps) {
               </li>
               <li>
                 <Link
+                  href={`/${locale}/order`}
+                  className="text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors duration-200"
+                >
+                  {locale === 'tr' ? 'Klip Analizi & Reklam Siparişi' : 'Video Audit & Ad Order'}
+                </Link>
+              </li>
+              <li>
+                <Link
                   href={`/${locale}/blog`}
                   className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200"
                 >

@@ -13,7 +13,7 @@ import {
   Share2,
   Lightbulb,
 } from 'lucide-react';
-import { getPosts, type BlogPost } from '@/lib/content';
+import { getPosts, isPostFullyTranslatedEn, type BlogPost } from '@/lib/content';
 import { getPageAlternates, toIsoDateString } from '@/lib/seo';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -58,8 +58,9 @@ export default async function BlogIndexPage({
   const { locale } = await params;
   const resolvedSearchParams = searchParams ? await searchParams : {};
   const activeCategoryKey = resolvedSearchParams.kategori || 'all';
-  const allPosts = await getPosts();
+  const rawPosts = await getPosts();
   const isTr = locale === 'tr';
+  const allPosts = isTr ? rawPosts : rawPosts.filter(isPostFullyTranslatedEn);
 
   const activeCategory = CATEGORIES.find((c) => c.key === activeCategoryKey) || CATEGORIES[0];
 

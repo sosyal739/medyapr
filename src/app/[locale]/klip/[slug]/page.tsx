@@ -346,11 +346,18 @@ export default async function ReleaseDetailPage({ params }: Props) {
               </a>
 
               <Link
-                href={`/${locale}#calculator`}
+                href={`/${locale}/fiyatlandirma`}
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-[#FF0033]/30 hover:brightness-110 transition active:scale-95"
               >
-                <span>{isTr ? 'Bütçe & Hedef Hesapla' : 'Calculate Target & Budget'}</span>
+                <span>{isTr ? 'YouTube Reklam Fiyatlarını Hesapla' : 'Calculate Target & Budget'}</span>
                 <ArrowRight className="h-4 w-4" />
+              </Link>
+
+              <Link
+                href={`/${locale}/order`}
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-7 py-3 text-xs font-bold text-zinc-200 hover:bg-white/10 transition"
+              >
+                <span>{isTr ? 'Online Analiz & Sipariş Formu' : 'Online Audit & Order Form'}</span>
               </Link>
             </div>
           </div>

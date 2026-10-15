@@ -209,12 +209,18 @@ export default async function ArtistDetailPage({ params }: Props) {
                 : `Target fans who listen to ${artist.name} and similar artists. Amplify your new release across YouTube In-Stream and Shorts ads to millions.`}
             </p>
           </div>
-          <div className="mt-6 flex flex-wrap items-center gap-4">
+          <div className="mt-6 flex flex-wrap items-center gap-3.5">
             <Link
-              href={`/${locale}#calculator`}
+              href={`/${locale}/fiyatlandirma`}
               className="inline-flex items-center gap-2 rounded-xl bg-[#D9002B] px-7 py-3.5 text-sm font-extrabold text-white shadow-xl shadow-[#FF0033]/30 hover:bg-[#E6002E] transition"
             >
-              {isTr ? 'Fiyatı Hesapla & Kampanya Başlat' : 'Calculate Pricing & Launch'} <ArrowRight className="h-4 w-4" />
+              {isTr ? 'YouTube Reklam Fiyatlarını Hesapla' : 'Calculate YouTube Ad Pricing'} <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href={`/${locale}/order`}
+              className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/15 px-6 py-3.5 text-sm font-extrabold text-emerald-300 hover:bg-emerald-500/25 transition"
+            >
+              {isTr ? 'Klip Linki Gir & Analiz İste' : 'Submit Video Link & Request Audit'}
             </Link>
           </div>
         </div>

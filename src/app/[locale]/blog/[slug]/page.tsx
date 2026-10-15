@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import Link from 'next/link';
 import {
   Calendar,
@@ -63,12 +63,10 @@ type Props = {
 
 export async function generateStaticParams() {
   const posts = await getPosts();
-  return ['tr', 'en'].flatMap((locale) =>
-    posts.map((post) => ({
-      locale,
-      slug: post.slug,
-    }))
-  );
+  return [
+    ...posts.map((post) => ({ locale: 'tr', slug: post.slug })),
+    ...posts.filter(isPostFullyTranslatedEn).map((post) => ({ locale: 'en', slug: post.slug })),
+  ];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -87,7 +85,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     : {
         canonical: trCanonical,
         languages: {
-          'tr-TR': trCanonical,
+          tr: trCanonical,
           'x-default': trCanonical,
         },
       };
@@ -119,7 +117,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPostPage({ params }: Props) {
   const { locale, slug } = await params;
   const post = await getPostBySlug(slug);
-  const allPosts = await getPosts();
+  const rawPosts = await getPosts();
+  const isTr = locale === 'tr';
+
+  if (!post) {
+    notFound();
+  }
+
+  const hasEn = isPostFullyTranslatedEn(post);
+  if (!isTr && !hasEn) {
+    permanentRedirect(`/tr/blog/${slug}`);
+  }
+
+  const allPosts = isTr ? rawPosts : rawPosts.filter(isPostFullyTranslatedEn);
   const catKeyMap: Record<string, string> = {
     'Sosyal Medya': 'sosyal-medya',
     'Nasıl Yapılır?': 'nasil-yapilir',
@@ -133,13 +143,6 @@ export default async function BlogPostPage({ params }: Props) {
   const sameCatPosts = allPosts.filter((p) => p.slug !== slug && p.category === post?.category);
   const otherCatPosts = allPosts.filter((p) => p.slug !== slug && p.category !== post?.category);
   const relatedPosts = [...sameCatPosts, ...otherCatPosts].slice(0, 3);
-
-  if (!post) {
-    notFound();
-  }
-
-  const isTr = locale === 'tr';
-  const hasEn = isPostFullyTranslatedEn(post);
   const postTitle = (!isTr && hasEn && post.title_en) ? post.title_en : post.title;
   const postSummary = (!isTr && hasEn && post.summary_en) ? post.summary_en : post.summary;
   const postCategory = (!isTr && post.category_en) ? post.category_en : post.category;
