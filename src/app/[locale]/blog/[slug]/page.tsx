@@ -31,8 +31,12 @@ function parseParagraphWithLinks(text: string, locale: string) {
     }
     const label = match[1];
     let href = match[2];
-    if (href.startsWith('/') && !href.startsWith(`/${locale}`)) {
-      href = `/${locale}${href}`;
+    if (href.startsWith('/')) {
+      href = href.replace(/^\/(tr|en)(?=\/|$|#)/, '');
+      if (href === '' || href === '#calculator' || href === '/#calculator') {
+        href = '/fiyatlandirma';
+      }
+      href = `/${locale}${href.startsWith('/') ? href : `/${href}`}`;
     }
     parts.push(
       <Link

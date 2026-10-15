@@ -11,6 +11,7 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/api') ||
     pathname.startsWith('/images') ||
     pathname.startsWith('/icons') ||
+    pathname.startsWith('/video') ||
     pathname === '/robots.txt' ||
     pathname === '/sitemap.xml' ||
     pathname === '/llms.txt' ||
@@ -20,86 +21,48 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  /* Check if path already has a valid locale */
+  /* Guard against accidental double-locale prefixes (e.g. /en/tr/... or /tr/en/...) */
+  if (pathname.startsWith('/en/tr/') || pathname === '/en/tr') {
+    const cleanPath = pathname.replace(/^\/en\/tr/, '/tr');
+    return NextResponse.redirect(new URL(cleanPath, 'https://medyapr.com'), 308);
+  }
+  if (pathname.startsWith('/tr/en/') || pathname === '/tr/en') {
+    const cleanPath = pathname.replace(/^\/tr\/en/, '/en');
+    return NextResponse.redirect(new URL(cleanPath, 'https://medyapr.com'), 308);
+  }
+
+  /* Check if path already has a valid locale (/tr or /en) */
   const pathLocale = locales.find(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
   if (pathLocale) {
-    const currentCookie = request.cookies.get('NEXT_LOCALE')?.value;
-    if (currentCookie !== pathLocale) {
-      const response = NextResponse.next();
-      response.cookies.set('NEXT_LOCALE', pathLocale, {
-        path: '/',
-        maxAge: 31536000,
-        sameSite: 'lax',
-      });
-      return response;
-    }
     return NextResponse.next();
   }
 
-  /* 0. Arama motoru robotları (Googlebot, Bingbot, YandexBot vb.) için:
-     Googlebot ABD IP'si üzerinden tarasa dahi, ana domain (/ ) ASLA /en'e yönlendirilmemelidir.
-     Birincil pazar ve ana dil Türkçe (/tr) olduğu için botlar daima /tr'ye 307 (Geçici) ile yönlendirilir.
-     Bu sayede kök alan adı Google indeksinde /en olarak kalıcı kilitlenmez.
-  */
-  const userAgent = request.headers.get('user-agent') || '';
-  const isBot = /bot|googlebot|crawler|spider|robot|crawling|google|bing|yandex|duckduck|slurp|baiduspider/i.test(userAgent);
-
-  if (isBot) {
-    const redirectUrl = request.nextUrl.clone();
-    redirectUrl.pathname = `/tr${pathname === '/' ? '' : pathname}`;
-    return NextResponse.redirect(redirectUrl, 307);
-  }
-
-  /* Detect preferred locale for human visitors:
-     1. Prioritize explicit NEXT_LOCALE cookie if present (user manual preference)
-     2. Edge Geolocation: If visitor is outside Turkey (country !== 'TR'), route to 'en'
-     3. Fallback to Accept-Language header
-     4. Default to 'tr' for Turkey visitors
+  /* Google Search Console & Multilingual SEO Standard:
+     Do NOT use IP geolocation or User-Agent sniffing to split redirects between /tr and /en,
+     as Googlebot (HTTP crawler) and Google Web Rendering Service (WRS from US IPs) receive
+     conflicting 307 redirects, causing "Redirect error" (Yeniden yönlendirme hatası) in GSC.
+     Instead:
+     - Only honor an explicit NEXT_LOCALE cookie if a human user manually switched language.
+     - Otherwise, deterministically redirect all non-locale URLs (/, /fiyatlandirma, etc.)
+       to the primary canonical locale (/tr) with 308 Permanent Redirect in a single hop.
   */
   const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value as Locale | undefined;
-  let targetLocale: Locale = defaultLocale; // 'tr'
+  const targetLocale: Locale =
+    cookieLocale && locales.includes(cookieLocale) ? cookieLocale : defaultLocale; // 'tr'
 
-  if (cookieLocale && locales.includes(cookieLocale)) {
-    targetLocale = cookieLocale;
-  } else {
-    // Vercel Edge / Cloudflare Geolocation header
-    const country = (
-      request.headers.get('x-vercel-ip-country') ||
-      request.headers.get('cf-ipcountry') ||
-      request.headers.get('x-country-code') ||
-      (request as NextRequest & { geo?: { country?: string } }).geo?.country ||
-      ''
-    ).toUpperCase();
+  const targetPathname = `/${targetLocale}${pathname === '/' ? '' : pathname}`;
+  const redirectUrl = new URL(targetPathname + request.nextUrl.search, request.nextUrl.origin);
 
-    if (country) {
-      // Türkiye dışındaki tüm dünya ülkelerine (US, DE, GB, FR vb.) İngilizce arayüz
-      targetLocale = country === 'TR' ? 'tr' : 'en';
-    } else {
-      // Ülke başlığı yoksa (yerel geliştirme veya proxy arkası):
-      const acceptLanguage = request.headers.get('accept-language') || '';
-      // Tarayıcısında Türkçe dil sinyali olanlara 'tr', diğer herkese 'en'
-      const hasTurkish = /tr([-_][A-Za-z]+)?(,|;|$)/i.test(acceptLanguage);
-      targetLocale = hasTurkish ? 'tr' : 'en';
-    }
-  }
-
-  /* Redirect to locale-prefixed path with 307 Temporary Redirect */
-  const redirectUrl = request.nextUrl.clone();
-  redirectUrl.pathname = `/${targetLocale}${pathname === '/' ? '' : pathname}`;
-
-  const response = NextResponse.redirect(redirectUrl, 307);
-  response.cookies.set('NEXT_LOCALE', targetLocale, {
-    path: '/',
-    maxAge: 31536000,
-    sameSite: 'lax',
-  });
-
-  return response;
+  // Use 308 Permanent Redirect for default canonical path (/tr), 307 only when driven by user cookie
+  const statusCode = targetLocale === defaultLocale ? 308 : 307;
+  return NextResponse.redirect(redirectUrl, statusCode);
 }
 
 export const config = {
-  matcher: ['/((?!_next|api|images|icons|robots.txt|sitemap.xml|llms.txt|llms-full.txt|favicon.ico|logo.png|og-image.jpg).*)'],
+  matcher: [
+    '/((?!_next|api|images|icons|video|robots.txt|sitemap.xml|llms.txt|llms-full.txt|favicon.ico|logo.png|og-image.jpg).*)',
+  ],
 };
