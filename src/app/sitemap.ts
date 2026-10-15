@@ -32,6 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '',
     '/fiyatlandirma',
     '/order',
+    '/klip-pr',
     '/hizmetler',
     '/hakkimizda',
     '/sss',

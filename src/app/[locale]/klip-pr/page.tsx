@@ -40,10 +40,8 @@ export async function generateMetadata({
   return {
     title: { absolute: title },
     description,
-    // Paid-media dedicated landing page: noindex prevents organic keyword cannibalization
-    // while AdsBot-Google evaluates full 10/10 landing page quality and policy compliance.
     robots: {
-      index: false,
+      index: true,
       follow: true,
     },
     alternates: getPageAlternates(locale, '/klip-pr'),
@@ -92,8 +90,59 @@ export default async function KlipPrLandingPage({
         },
       ];
 
+  const schemaGraph = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: isTr ? 'Ana Sayfa' : 'Home',
+            item: `https://medyapr.com/${locale}`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: isTr ? 'Müzik Klibi Dijital PR & Lansman' : 'Music Video Digital PR & Launch',
+            item: `https://medyapr.com/${locale}/klip-pr`,
+          },
+        ],
+      },
+      {
+        '@type': 'Service',
+        name: isTr
+          ? 'Müzik Klibi Dijital PR, Lansman ve Medya Planlama Hizmeti'
+          : 'Music Video Digital PR, Launch and Media Planning Service',
+        provider: {
+          '@type': 'Organization',
+          name: 'MedyaPR',
+          url: 'https://medyapr.com',
+        },
+        serviceType: isTr ? 'Müzik PR ve Video Medya Planlama' : 'Music PR and Video Media Planning',
+        areaServed: ['TR', 'DE', 'Global'],
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((item) => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.a,
+          },
+        })),
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-app-base text-white py-12 md:py-20 relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
+      />
       {/* Ambient Studio Lighting */}
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-[480px] w-[850px] rounded-full bg-[#FF0033]/12 blur-[150px]" />
 
