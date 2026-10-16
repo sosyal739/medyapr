@@ -253,15 +253,21 @@ export default async function HomePage({ params }: Props) {
             </table>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2 text-xs font-bold">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-2 text-xs font-bold">
             <Link href={`/${locale}/fiyatlandirma`} className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white">
               💰 {isTr ? 'YouTube Reklam & İzlenme Fiyatları' : 'YouTube Ad & View Pricing'} →
             </Link>
             <Link href={`/${locale}/order`} className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-emerald-500/50 transition text-white">
               🚀 {isTr ? 'Video Linki Gir & Analiz İste' : 'Submit Video & Request Analysis'} →
             </Link>
+            <Link href={`/${locale}/klip-pr`} className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white">
+              🎵 {isTr ? 'Müzik Klibi Dijital PR & Şarkı Tanıtımı' : 'Music Video Digital PR & Launch Agency'} →
+            </Link>
             <Link href={`/${locale}/blog/youtube-klip-tanitimi-google-ads-rehberi`} className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white">
-              📘 {isTr ? 'YouTube Klip Reklamı Nasıl Verilir?' : 'How to Run Music Video Ads'} →
+              📘 {isTr ? 'YouTube Klip Tanıtımı Nasıl Yapılır?' : 'How to Run Music Video Ads'} →
+            </Link>
+            <Link href={`/${locale}/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen`} className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white">
+              📱 {isTr ? 'YouTube Shorts Reklam Verme Rehberi' : 'YouTube Shorts Ad Promotion Guide'} →
             </Link>
             <Link href={`/${locale}/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi`} className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white">
               ⏱️ {isTr ? 'YouTube 4000 Saat İzlenme Rehberi' : 'YouTube 4,000 Watch Hours Guide'} →

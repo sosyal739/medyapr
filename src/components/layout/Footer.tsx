@@ -153,6 +153,14 @@ export default function Footer({ dict, locale }: FooterProps) {
               </li>
               <li>
                 <Link
+                  href={`/${locale}/klip-pr`}
+                  className="text-sm font-semibold text-[#FF6B6B] hover:text-white transition-colors duration-200"
+                >
+                  {locale === 'tr' ? 'Müzik Klibi Dijital PR & Lansman' : 'Music Video Digital PR & Launch'}
+                </Link>
+              </li>
+              <li>
+                <Link
                   href={`/${locale}/blog`}
                   className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200"
                 >

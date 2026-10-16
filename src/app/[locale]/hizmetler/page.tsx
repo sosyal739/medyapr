@@ -281,12 +281,26 @@ export default async function ServicesPage({ params }: Props) {
                 </details>
               ))}
             </div>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-3.5">
               <Link href={`/${locale}/order`} className="inline-flex items-center gap-2 rounded-xl bg-[#D9002B] px-6 py-3 font-bold text-white hover:brightness-110">
                 {isTr ? 'Ücretsiz video analizi iste' : 'Request a free video review'}
               </Link>
               <Link href={`/${locale}/fiyatlandirma`} className="inline-flex items-center gap-2 rounded-xl border border-gray-300 px-6 py-3 font-bold text-[#1A1A2E] hover:bg-gray-50">
-                {isTr ? 'Fiyatlara bak' : 'See pricing'}
+                {isTr ? 'YouTube Reklam Fiyatları' : 'See pricing'}
+              </Link>
+              <Link href={`/${locale}/klip-pr`} className="inline-flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-6 py-3 font-bold text-[#CC0029] hover:bg-red-100">
+                {isTr ? 'Müzik Klibi Dijital PR & Lansman Planlama' : 'Music Video Digital PR & Launch Plan'}
+              </Link>
+            </div>
+            <div className="mt-6 pt-6 border-t border-gray-100 flex flex-wrap gap-4 text-xs font-bold text-[#CC0029]">
+              <Link href={`/${locale}/blog/youtube-klip-tanitimi-google-ads-rehberi`} className="hover:underline">
+                → {isTr ? 'YouTube Klip Tanıtımı Nasıl Yapılır? (Resmi Google Ads Rehberi)' : 'How to Promote a Music Video on YouTube'}
+              </Link>
+              <Link href={`/${locale}/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen`} className="hover:underline">
+                → {isTr ? 'YouTube Shorts Reklam Verme & Demand Gen Rehberi' : 'YouTube Shorts Ad Promotion Guide'}
+              </Link>
+              <Link href={`/${locale}/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi`} className="hover:underline">
+                → {isTr ? 'YouTube 4000 Saat İzlenme Süresi Doldurma Rehberi' : 'YouTube 4,000 Watch Hours Guide'}
               </Link>
             </div>
           </div>

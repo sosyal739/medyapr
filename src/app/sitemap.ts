@@ -4,7 +4,7 @@ import { getNewReleases, isReleaseIndexable } from '@/lib/releases';
 
 const BASE_URL = 'https://medyapr.com';
 const LOCALES = ['tr', 'en'] as const;
-const STABLE_SITE_DATE = new Date('2026-10-10T08:00:00.000Z');
+const STABLE_SITE_DATE = new Date('2026-10-16T20:00:00.000Z');
 
 function parseTurkishDate(dateStr?: string): Date {
   if (!dateStr) return STABLE_SITE_DATE;
