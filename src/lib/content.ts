@@ -26,6 +26,10 @@ export interface BlogPost {
   paragraphs: string[];
   /** Analiz yazısından aynı sanatçının "kimdir" yazısına bağ (slug) */
   bioSlug?: string;
+  /** Yalnızca İngilizce yayınlanır (küresel trend yazıları); TR listede, sitemap'te ve hreflang'ta yer almaz. */
+  enOnly?: boolean;
+  /** Yalnızca Türkçe yayınlanır (Türkiye'ye özgü sanatçı/konu yazıları); EN çevirisi hazırlanmaz. */
+  trOnly?: boolean;
   title_en?: string;
   summary_en?: string;
   category_en?: string;
@@ -94,6 +98,8 @@ const TURKISH_STOPWORDS = [
 ];
 
 export function isPostFullyTranslatedEn(post: BlogPost): boolean {
+  if (post.trOnly) return false;
+  if (post.enOnly) return true;
   if (!post.title_en || !post.summary_en || !post.paragraphs_en || post.paragraphs_en.length === 0) {
     return false;
   }
@@ -114,3 +120,12 @@ export function isPostFullyTranslatedEn(post: BlogPost): boolean {
   return true;
 }
 
+
+/** Dil için görünür yazılar. EN'de İngilizceye özel (küresel) yazılar öne alınır. */
+export function postsForLocale(posts: BlogPost[], locale: string): BlogPost[] {
+  if (locale === 'en') {
+    const en = posts.filter(isPostFullyTranslatedEn);
+    return [...en.filter((p) => p.enOnly), ...en.filter((p) => !p.enOnly)];
+  }
+  return posts.filter((p) => !p.enOnly);
+}

@@ -16,9 +16,9 @@ import {
   Table as TableIcon,
   Quote,
 } from 'lucide-react';
-import { getPosts, getPostBySlug, isPostFullyTranslatedEn } from '@/lib/content';
+import { getPosts, getPostBySlug, isPostFullyTranslatedEn, postsForLocale } from '@/lib/content';
 import ArtistClaimBox from '@/components/common/ArtistClaimBox';
-import { getPageAlternates, toIsoDateString } from '@/lib/seo';
+import { displayDate, getPageAlternates, toIsoDateString } from '@/lib/seo';
 
 function parseParagraphWithLinks(text: string, locale: string) {
   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
@@ -65,7 +65,7 @@ type Props = {
 export async function generateStaticParams() {
   const posts = await getPosts();
   return [
-    ...posts.map((post) => ({ locale: 'tr', slug: post.slug })),
+    ...posts.filter((post) => !post.enOnly).map((post) => ({ locale: 'tr', slug: post.slug })),
     ...posts.filter(isPostFullyTranslatedEn).map((post) => ({ locale: 'en', slug: post.slug })),
   ];
 }
@@ -81,7 +81,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const postSummary = (!isTr && hasEn && post.summary_en) ? post.summary_en : post.summary;
   const trCanonical = `https://medyapr.com/tr/blog/${slug}`;
 
-  const alternates = hasEn
+  const alternates = post.enOnly
+    ? { canonical: `https://medyapr.com/en/blog/${slug}`, languages: { en: `https://medyapr.com/en/blog/${slug}` } }
+    : hasEn
     ? getPageAlternates(locale, `/blog/${slug}`)
     : {
         canonical: trCanonical,
@@ -125,12 +127,16 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
+  if (isTr && post.enOnly) {
+    notFound();
+  }
+
   const hasEn = isPostFullyTranslatedEn(post);
   if (!isTr && !hasEn) {
     permanentRedirect(`/tr/blog/${slug}`);
   }
 
-  const allPosts = isTr ? rawPosts : rawPosts.filter(isPostFullyTranslatedEn);
+  const allPosts = postsForLocale(rawPosts, locale);
   const catKeyMap: Record<string, string> = {
     'Sosyal Medya': 'sosyal-medya',
     'Nasıl Yapılır?': 'nasil-yapilir',
@@ -280,7 +286,7 @@ export default async function BlogPostPage({ params }: Props) {
               <strong className="text-white">{post.author}</strong> ({postAuthorRole})
             </span>
             <span className="flex items-center gap-1.5">
-              <Calendar className="h-4 w-4 text-zinc-500" /> {post.date}
+              <Calendar className="h-4 w-4 text-zinc-500" /> {displayDate(post.date, locale)}
             </span>
             <span className="flex items-center gap-1.5">
               <Clock className="h-4 w-4 text-zinc-500" /> {postReadTime} {isTr ? 'okuma' : 'read'}
@@ -586,7 +592,7 @@ export default async function BlogPostPage({ params }: Props) {
                       {(!isTr && rel.title_en) ? rel.title_en : rel.title}
                     </h4>
                     <div className="flex items-center justify-between text-[11px] text-zinc-400 pt-2 border-t border-zinc-800">
-                      <span>{rel.date}</span>
+                      <span>{displayDate(rel.date, locale)}</span>
                       <span className="font-semibold text-white/80 group-hover:translate-x-0.5 transition flex items-center gap-1">
                         {isTr ? 'Oku →' : 'Read →'}
                       </span>

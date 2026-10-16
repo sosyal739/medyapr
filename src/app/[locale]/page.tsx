@@ -14,7 +14,7 @@ import HowItWorks from '@/components/home/HowItWorks';
 import BlogPreviewSection from '@/components/home/BlogPreviewSection';
 import FAQSection from '@/components/home/FAQSection';
 import { getTrends } from '@/lib/youtube';
-import { getPosts } from '@/lib/content';
+import { getPosts, postsForLocale } from '@/lib/content';
 import { getFaqs } from '@/data/faqs';
 
 type Props = {
@@ -44,7 +44,7 @@ export default async function HomePage({ params }: Props) {
   const dict = await getDictionary(locale as Locale);
   const { trends } = await getTrends();
   const trendingSongs = locale === 'tr' ? trends.tr : trends.us.length ? trends.us : trends.tr;
-  const blogPosts = await getPosts();
+  const blogPosts = postsForLocale(await getPosts(), locale);
 
   return (
     <>

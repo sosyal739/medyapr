@@ -13,8 +13,8 @@ import {
   Share2,
   Lightbulb,
 } from 'lucide-react';
-import { getPosts, isPostFullyTranslatedEn, type BlogPost } from '@/lib/content';
-import { getPageAlternates, toIsoDateString } from '@/lib/seo';
+import { getPosts, postsForLocale, type BlogPost } from '@/lib/content';
+import { getPageAlternates, toIsoDateString, displayDate } from '@/lib/seo';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -60,7 +60,7 @@ export default async function BlogIndexPage({
   const activeCategoryKey = resolvedSearchParams.kategori || 'all';
   const rawPosts = await getPosts();
   const isTr = locale === 'tr';
-  const allPosts = isTr ? rawPosts : rawPosts.filter(isPostFullyTranslatedEn);
+  const allPosts = postsForLocale(rawPosts, locale);
 
   const activeCategory = CATEGORIES.find((c) => c.key === activeCategoryKey) || CATEGORIES[0];
 
@@ -236,7 +236,7 @@ export default async function BlogIndexPage({
               <div className="space-y-4">
                 <div className="flex items-center gap-4 text-xs text-white/50">
                   <span className="flex items-center gap-1.5">
-                    <Calendar className="h-3.5 w-3.5 text-[#FF6B6B]" /> {filteredPosts[0].date}
+                    <Calendar className="h-3.5 w-3.5 text-[#FF6B6B]" /> {displayDate(filteredPosts[0].date, locale)}
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Clock className="h-3.5 w-3.5 text-white/40" /> {(!isTr && filteredPosts[0].readTime_en) ? filteredPosts[0].readTime_en : filteredPosts[0].readTime}
@@ -284,7 +284,7 @@ export default async function BlogIndexPage({
                     </div>
                     <div className="flex items-center gap-4 text-xs text-white/50 mb-3">
                       <span className="flex items-center gap-1.5">
-                        <Calendar className="h-3.5 w-3.5 text-[#FF6B6B]" /> {post.date}
+                        <Calendar className="h-3.5 w-3.5 text-[#FF6B6B]" /> {displayDate(post.date, locale)}
                       </span>
                       <span className="flex items-center gap-1.5">
                         <Clock className="h-3.5 w-3.5 text-white/40" /> {postReadTime}

@@ -67,6 +67,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       if (locale === 'en' && !isPostFullyTranslatedEn(post)) {
         continue;
       }
+      if (locale === 'tr' && post.enOnly) {
+        continue;
+      }
       entries.push({
         url: `${BASE_URL}/${locale}/blog/${post.slug}`,
         lastModified: postDate,

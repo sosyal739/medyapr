@@ -39,3 +39,12 @@ export function toIsoDateString(dateStr?: string): string {
   }
   return '2026-10-10';
 }
+
+/** "13 Ekim 2026" biçimindeki kaydı dile uygun gösterir (EN: "October 13, 2026"). */
+export function displayDate(dateStr: string | undefined, locale: string): string {
+  if (!dateStr || locale === 'tr') return dateStr ?? '';
+  const iso = toIsoDateString(dateStr);
+  const d = new Date(`${iso}T12:00:00Z`);
+  if (Number.isNaN(d.getTime())) return dateStr;
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+}
