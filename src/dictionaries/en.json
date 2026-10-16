@@ -41,7 +41,7 @@
   },
   "services": {
     "title": "YouTube Music Video Promotion, Google Ads & View Services",
-    "subtitle": "Official Google Ads video campaigns for song promotion, real views, subscribers, and 4,000 watch hours",
+    "subtitle": "Official Google Ads video campaigns for song promotion, targeted views, subscribers, and engagement campaigns",
     "items": [
       {
         "title": "YouTube Views",
@@ -68,10 +68,10 @@
         "badge": ""
       },
       {
-        "title": "YouTube Watch Hours",
-        "description": "We help you reach the 4,000 watch hours required for monetization.",
-        "icon": "clock",
-        "badge": "Monetization"
+        "title": "Free Video Analysis",
+        "description": "Send your video link and we will review its length and Google Ads eligibility, then reply with a clear quote.",
+        "icon": "search",
+        "badge": "Free"
       },
       {
         "title": "YouTube Shorts Views",
@@ -206,7 +206,7 @@
       {
         "name": "Zeynep Kaya",
         "role": "YouTuber",
-        "content": "I reached the 4,000 watch hours needed for monetization thanks to MedyaPR. Professional and reliable service.",
+        "content": "I checked in YouTube Studio myself that the traffic showed up as YouTube Ads. The process was transparent and easy to follow.",
         "rating": 5
       },
       {

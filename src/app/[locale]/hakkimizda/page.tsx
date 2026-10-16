@@ -8,6 +8,8 @@ type Props = {
 };
 
 import { getPageAlternates } from '@/lib/seo';
+import Link from 'next/link';
+import { WHATSAPP_URL, TELEGRAM_URL, PUBLIC_EMAIL } from '@/lib/contact';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -131,6 +133,66 @@ export default async function AboutPage({ params }: Props) {
                 <p className="text-gray-600 text-sm leading-relaxed">{v.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Çalışma şeklimiz, içerik ilkeleri ve iletişim */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4 max-w-4xl space-y-14">
+          <div>
+            <h2 className="text-2xl lg:text-3xl font-black text-[#1A1A2E] mb-4">
+              {locale === 'tr' ? 'Ne yapıyoruz?' : 'What we do'}
+            </h2>
+            <p className="text-gray-700 leading-relaxed">
+              {locale === 'tr'
+                ? 'Müzisyenlerin, yapım şirketlerinin ve markaların YouTube videolarını resmi Google Ads video reklamlarıyla doğru izleyiciyle buluşturuyoruz. Kampanyalar ülke, dil, ilgi alanı ve müzik türüne göre hedeflenir; sonuçlar YouTube Studio\'da "YouTube Reklamları" kaynağı olarak görünür. Ayrıca Türkiye\'de yayınlanan klipleri ve YouTube müzik trendlerini Klip Radarı ve blogumuzda derliyoruz.'
+                : 'We put YouTube videos from musicians, labels and brands in front of the right viewers with official Google Ads video campaigns. Campaigns are targeted by country, language, interests and music genre, and results appear in YouTube Studio under the "YouTube Ads" source. We also compile new Turkish music videos and YouTube music trends in our Release Radar and blog.'}
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl lg:text-3xl font-black text-[#1A1A2E] mb-4">
+              {locale === 'tr' ? 'Çalışma ilkelerimiz' : 'How we work'}
+            </h2>
+            <ul className="space-y-3 text-gray-700 leading-relaxed list-disc pl-5">
+              <li>{locale === 'tr' ? 'Önce analiz, sonra teklif: videonuzu inceler, ne yapılabileceğini net yazarız. Onayınız olmadan kampanya başlamaz.' : 'Review first, then quote: we look at your video and state clearly what can be done. No campaign starts without your approval.'}</li>
+              <li>{locale === 'tr' ? 'Kanal şifresi veya yetki istemeyiz; yalnızca herkese açık video linki gerekir.' : 'We never ask for channel passwords or access; a public video link is all we need.'}</li>
+              <li>{locale === 'tr' ? 'Bot, panel veya sahte hesap kullanmayız. Reklam izlenmeleri Google Ads üzerinden gelir.' : 'We do not use bots, panels or fake accounts. Ad views come through Google Ads.'}</li>
+              <li>{locale === 'tr' ? 'Garanti edemeyeceğimiz sözü vermeyiz: beğeni, yorum ve abone sayıları kampanya hedeflemesine bağlıdır, önceden garanti edilmez.' : 'We do not promise what we cannot guarantee: likes, comments and subscribers depend on targeting and are not guaranteed in advance.'}</li>
+              <li>{locale === 'tr' ? 'Ödeme iki aşamalıdır: yarısı onayda, yarısı kampanya bitince. Reklam onay almazsa ön ödeme iade edilir.' : 'Payment has two stages: half at approval, half at completion. If the ad is not approved, any prepayment is refunded.'}</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl lg:text-3xl font-black text-[#1A1A2E] mb-4">
+              {locale === 'tr' ? 'Blog ve Klip Radarı içeriklerimiz nasıl hazırlanır?' : 'How our blog and Release Radar content is made'}
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              {locale === 'tr'
+                ? 'Sanatçı biyografilerindeki doğum tarihi ve gerçek ad gibi bilgiler birden çok güvenilir kaynakla karşılaştırılarak yazılır. İzlenme sayıları YouTube\'dan alınır ve zamanla değişir; sayfadaki rakamlar yazının hazırlandığı tarihe aittir. Klip sayfalarındaki yorumlar editör görüşüdür ve sanatçı, plak şirketi veya YouTube ile bağlantılı değildir.'
+                : 'Details in artist profiles, such as birth date and real name, are checked against several reliable sources. View counts come from YouTube and change over time; figures on a page reflect the date it was written. Commentary on video pages is editorial opinion and is not affiliated with the artist, label or YouTube.'}
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              {locale === 'tr'
+                ? 'Bir bilgiyi düzeltmemizi veya bir sayfanın kaldırılmasını isterseniz bize yazın; 24 saat içinde dönüş yapıyoruz.'
+                : 'If you would like us to correct a detail or remove a page, write to us; we reply within 24 hours.'}
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-gray-200 bg-white p-6 sm:p-8">
+            <h2 className="text-2xl font-black text-[#1A1A2E] mb-3">
+              {locale === 'tr' ? 'Bize ulaşın' : 'Contact us'}
+            </h2>
+            <p className="text-gray-600 mb-5">
+              {locale === 'tr' ? 'Video linkinizi gönderin, ücretsiz analizle ne yapılabileceğini anlatalım.' : 'Send your video link and we will explain what can be done with a free review.'}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="rounded-xl bg-[#25D366] px-5 py-3 font-bold text-white hover:brightness-110">WhatsApp</a>
+              <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="rounded-xl bg-sky-600 px-5 py-3 font-bold text-white hover:brightness-110">Telegram</a>
+              <a href={`mailto:${PUBLIC_EMAIL}`} className="rounded-xl border border-gray-300 px-5 py-3 font-bold text-[#1A1A2E] hover:bg-gray-50">{PUBLIC_EMAIL}</a>
+              <Link href={`/${locale}/order`} className="rounded-xl bg-[#D9002B] px-5 py-3 font-bold text-white hover:brightness-110">{locale === 'tr' ? 'Ücretsiz analiz iste' : 'Request a free review'}</Link>
+            </div>
           </div>
         </div>
       </section>

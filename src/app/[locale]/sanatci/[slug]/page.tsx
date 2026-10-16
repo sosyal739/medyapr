@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, Play, Sparkles, Music, Users, ExternalLink } fro
 import { getArtists, getArtistBySlug } from '@/lib/content';
 
 import { getPageAlternates } from '@/lib/seo';
+import ArtistClaimBox from '@/components/common/ArtistClaimBox';
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -193,6 +194,8 @@ export default async function ArtistDetailPage({ params }: Props) {
             ))}
           </div>
         </div>
+
+        <ArtistClaimBox artistName={artist.name} pageUrl={`https://medyapr.com/${locale}/sanatci/${artist.slug}`} locale={locale} source="artist_page" />
 
         {/* Pitch for Managers & Musicians */}
         <div className="rounded-3xl border border-[#FF0033]/40 bg-studio-card p-8 md:p-10 shadow-2xl">

@@ -35,6 +35,7 @@ import {
   type Region,
 } from '@/lib/pricing';
 import { consultHref, mailtoHref, telegramHref } from '@/lib/contact';
+import { trackEvent } from '@/lib/analytics';
 import type { AppStrings } from '@/lib/i18n/app-strings';
 
 type Video = {
@@ -219,6 +220,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
         const data = await res.json().catch(() => ({}));
         if (res.ok && data.id) {
           setDone({ id: data.id, channel: targetChannel });
+          trackEvent('order_request_submitted', { channel: targetChannel, views, pkg, region, currency });
         }
       } catch {
         // WhatsApp/Telegram zaten açıldığı için hata gösterme
@@ -276,6 +278,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
         return;
       }
       setDone({ id: data.id, channel: 'email' });
+      trackEvent('order_request_submitted', { channel: 'email', views, pkg, region, currency });
       setBusy(false);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {

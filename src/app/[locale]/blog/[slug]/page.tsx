@@ -17,6 +17,7 @@ import {
   Quote,
 } from 'lucide-react';
 import { getPosts, getPostBySlug, isPostFullyTranslatedEn } from '@/lib/content';
+import ArtistClaimBox from '@/components/common/ArtistClaimBox';
 import { getPageAlternates, toIsoDateString } from '@/lib/seo';
 
 function parseParagraphWithLinks(text: string, locale: string) {
@@ -142,6 +143,11 @@ export default async function BlogPostPage({ params }: Props) {
 
   const sameCatPosts = allPosts.filter((p) => p.slug !== slug && p.category === post?.category);
   const otherCatPosts = allPosts.filter((p) => p.slug !== slug && p.category !== post?.category);
+  const isBioPost = /kimdir/.test(post.slug);
+  const bioArtistName = isBioPost
+    ? ((!isTr && post.title_en ? post.title_en.match(/^Who is (.+?)\?/i)?.[1] : undefined) ?? post.title.split(/ Kimdir/i)[0]).trim()
+    : '';
+  const bioPost = post.bioSlug ? allPosts.find((p) => p.slug === post.bioSlug) : undefined;
   const relatedPosts = [...sameCatPosts, ...otherCatPosts].slice(0, 3);
   const postTitle = (!isTr && hasEn && post.title_en) ? post.title_en : post.title;
   const postSummary = (!isTr && hasEn && post.summary_en) ? post.summary_en : post.summary;
@@ -292,10 +298,10 @@ export default async function BlogPostPage({ params }: Props) {
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-black uppercase tracking-wider text-[#FF6B6B]">
-                    {isTr ? 'Özet Bilgi & Hızlı Yanıt (Quick Fact)' : 'Quick Fact & Verified Summary'}
+                    {isTr ? 'Özet Bilgi' : 'Quick Facts'}
                   </span>
                   <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[11px] font-bold text-emerald-300 border border-emerald-500/30">
-                    {isTr ? 'Doğrulanmış Veri' : 'Verified Data'}
+                    {isTr ? 'Kısa Yanıt' : 'Short Answer'}
                   </span>
                 </div>
                 <blockquote className="text-sm sm:text-base font-medium leading-relaxed text-zinc-200 italic">
@@ -304,6 +310,20 @@ export default async function BlogPostPage({ params }: Props) {
               </div>
             </div>
           </div>
+        )}
+
+        {/* Sanatçı "kimdir" sayfasına yönlendirme: bilgi sorguları tek sayfada toplanır */}
+        {bioPost && (
+          <Link
+            href={`/${locale}/blog/${bioPost.slug}`}
+            className="mb-10 -mt-4 flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-zinc-200 transition hover:border-[#FF0033]/50 hover:bg-white/[0.07]"
+          >
+            <span>
+              <span className="block text-xs text-zinc-400">{isTr ? 'Sanatçıyı tanıyın' : 'About the artist'}</span>
+              <span className="font-bold text-white">{(!isTr && bioPost.title_en) ? bioPost.title_en : bioPost.title}</span>
+            </span>
+            <ArrowRight className="h-4 w-4 shrink-0" />
+          </Link>
         )}
 
         {/* Featured YouTube Video Embed or 16:9 Image */}
@@ -521,6 +541,10 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         {/* ── Topic Cluster: Related Articles ── */}
+        {isBioPost && bioArtistName && (
+          <ArtistClaimBox artistName={bioArtistName} pageUrl={`https://medyapr.com/${locale}/blog/${post.slug}`} locale={locale} source="bio_post" />
+        )}
+
         {relatedPosts.length > 0 && (
           <div className="mt-14 border-t border-studio pt-12">
             <div className="flex items-center justify-between mb-6">

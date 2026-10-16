@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: {
       absolute: isTr
         ? 'Dünya & Türkiye YouTube Trend Müzik Klipleri | MedyaPR'
-        : 'Global & Trending YouTube Music Videos (US, UK, DE, TR) | MedyaPR',
+        : 'Trending YouTube Music Videos: US, UK, DE, TR | MedyaPR',
     },
     description: isTr
       ? 'YouTube Türkiye, ABD, Almanya ve İngiltere canlı müzik trendleri sıralaması. Günlük izlenme artışları, resmi liste verileri ve klip PR stratejileri.'
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title: isTr
         ? 'Dünya & Türkiye YouTube Trend Müzik Klipleri | MedyaPR'
-        : 'Global & Trending YouTube Music Videos (US, UK, DE, TR) | MedyaPR',
+        : 'Trending YouTube Music Videos: US, UK, DE, TR | MedyaPR',
       description: isTr
         ? 'YouTube Türkiye, ABD, Almanya ve İngiltere canlı müzik trendleri sıralaması. Günlük izlenme artışları ve resmi liste verileri.'
         : 'Real-time trending YouTube music videos across the US, UK, Germany, and Turkey.',

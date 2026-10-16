@@ -41,7 +41,7 @@
   },
   "services": {
     "title": "YouTube Klip Tanıtımı, Reklam Verme ve İzlenme Hizmetleri",
-    "subtitle": "Resmi Google Ads video reklamları ile şarkı tanıtımı, gerçek organik izlenme, abone ve 4000 saat izlenme çözümleri",
+    "subtitle": "Resmi Google Ads video reklamları ile şarkı tanıtımı, hedefli izlenme, abone ve etkileşim kampanyaları",
     "items": [
       {
         "title": "YouTube İzlenme",
@@ -68,10 +68,10 @@
         "badge": ""
       },
       {
-        "title": "YouTube İzlenme Saati",
-        "description": "Monetizasyon için gereken 4000 saat izlenme süresine ulaşmanızı sağlıyoruz.",
-        "icon": "clock",
-        "badge": "Monetizasyon"
+        "title": "Ücretsiz Video Analizi",
+        "description": "Video linkinizi iletin; süresini ve Google Ads uygunluğunu inceleyip size net bir teklifle dönelim.",
+        "icon": "search",
+        "badge": "Ücretsiz"
       },
       {
         "title": "YouTube Shorts İzlenme",
@@ -206,7 +206,7 @@
       {
         "name": "Zeynep Kaya",
         "role": "YouTuber",
-        "content": "Monetizasyon için gereken 4000 saate MedyaPR sayesinde ulaştım. Profesyonel ve güvenilir hizmet.",
+        "content": "Kampanya raporunda trafiğin YouTube Reklamları olarak göründüğünü Studio'da kendim doğruladım. Süreç şeffaf ve anlaşılırdı.",
         "rating": 5
       },
       {

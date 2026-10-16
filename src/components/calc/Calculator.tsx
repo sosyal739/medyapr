@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { trackEvent } from '@/lib/analytics';
 import Link from 'next/link';
 import { ArrowRight, Check, Clock, Mail, MessageCircle, Search, Send, ShieldCheck, Sparkles, Tag, ThumbsUp } from 'lucide-react';
 import {
@@ -59,6 +60,18 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
   const [region, setRegion] = useState<Region>(isTr ? 'tr' : 'premium');
   const [currency, setCurrency] = useState<Currency>(isTr ? 'TRY' : 'USD');
   const [videoUrl, setVideoUrl] = useState('');
+  const usedTracked = useRef(false);
+  const firstRender = useRef(true);
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    if (!usedTracked.current) {
+      usedTracked.current = true;
+      trackEvent('calculator_used', { views, pkg, region });
+    }
+  }, [views, pkg, region]);
 
   const q = useMemo(() => quote({ views, format, pkg, region, currency }), [views, format, pkg, region, currency]);
   const animTotal = useAnimatedNumber(q.total);

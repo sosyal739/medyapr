@@ -24,6 +24,8 @@ export interface BlogPost {
     answer: string;
   }[];
   paragraphs: string[];
+  /** Analiz yazısından aynı sanatçının "kimdir" yazısına bağ (slug) */
+  bioSlug?: string;
   title_en?: string;
   summary_en?: string;
   category_en?: string;
