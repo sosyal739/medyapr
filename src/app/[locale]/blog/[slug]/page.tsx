@@ -16,9 +16,19 @@ import {
   Table as TableIcon,
   Quote,
 } from 'lucide-react';
-import { getPosts, getPostBySlug, isPostFullyTranslatedEn, postsForLocale } from '@/lib/content';
+import {
+  getPosts,
+  getPostBySlug,
+  getArPosts,
+  getArPostBySlug,
+  getArTranslationMap,
+  getPostsForLocale,
+  postCategoryKey,
+  isPostFullyTranslatedEn,
+} from '@/lib/content';
 import ArtistClaimBox from '@/components/common/ArtistClaimBox';
-import { displayDate, getPageAlternates, toIsoDateString } from '@/lib/seo';
+import { displayDate, getPageAlternates, toIsoDateString, SITE_URL, TR_EN } from '@/lib/seo';
+import { schemaLang } from '@/lib/i18n/config';
 
 function parseParagraphWithLinks(text: string, locale: string) {
   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
@@ -33,7 +43,7 @@ function parseParagraphWithLinks(text: string, locale: string) {
     const label = match[1];
     let href = match[2];
     if (href.startsWith('/')) {
-      href = href.replace(/^\/(tr|en)(?=\/|$|#)/, '');
+      href = href.replace(/^\/(tr|en|ar)(?=\/|$|#)/, '');
       if (href === '' || href === '#calculator' || href === '/#calculator') {
         href = '/fiyatlandirma';
       }
@@ -64,14 +74,44 @@ type Props = {
 
 export async function generateStaticParams() {
   const posts = await getPosts();
+  const arPosts = await getArPosts();
   return [
     ...posts.filter((post) => !post.enOnly).map((post) => ({ locale: 'tr', slug: post.slug })),
     ...posts.filter(isPostFullyTranslatedEn).map((post) => ({ locale: 'en', slug: post.slug })),
+    ...arPosts.map((post) => ({ locale: 'ar', slug: post.slug })),
   ];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
+
+  if (locale === 'ar') {
+    const arPost = await getArPostBySlug(slug);
+    if (!arPost) return { title: 'المقال غير موجود', robots: { index: false, follow: true } };
+    // Arapça yazı bir Türkçe yazının çevirisiyse hreflang çifti kurulur; aksi halde yalnızca Arapça yayınlanır.
+    const trTwin = arPost.translationOf ? await getPostBySlug(arPost.translationOf) : null;
+    const arUrl = `${SITE_URL}/ar/blog/${slug}`;
+    const languages: Record<string, string> = { ar: arUrl };
+    if (trTwin && !trTwin.enOnly) languages.tr = `${SITE_URL}/tr/blog/${trTwin.slug}`;
+    if (trTwin && isPostFullyTranslatedEn(trTwin)) languages.en = `${SITE_URL}/en/blog/${trTwin.slug}`;
+    languages['x-default'] = languages.tr ?? arUrl;
+    return {
+      title: { absolute: arPost.title },
+      description: arPost.summary,
+      alternates: { canonical: arUrl, languages },
+      openGraph: {
+        title: arPost.title,
+        description: arPost.summary,
+        images: [{ url: arPost.image, width: 1200, height: 675, alt: arPost.title }],
+        type: 'article',
+        locale: 'ar_AR',
+        publishedTime: toIsoDateString(arPost.date),
+        authors: [arPost.author],
+      },
+      twitter: { card: 'summary_large_image', title: arPost.title, description: arPost.summary, images: [arPost.image] },
+    };
+  }
+
   const post = await getPostBySlug(slug);
   if (!post) return { title: 'Yazı Bulunamadı' };
 
@@ -92,6 +132,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           'x-default': trCanonical,
         },
       };
+
+  const arSlug = (await getArTranslationMap())[slug];
+  if (arSlug) (alternates.languages as Record<string, string>).ar = `${SITE_URL}/ar/blog/${arSlug}`;
 
   return {
     title: {
@@ -119,11 +162,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { locale, slug } = await params;
-  const post = await getPostBySlug(slug);
-  const rawPosts = await getPosts();
   const isTr = locale === 'tr';
+  const isAr = locale === 'ar';
+  const post = isAr ? await getArPostBySlug(slug) : await getPostBySlug(slug);
 
   if (!post) {
+    // Yanlış dil önekiyle gelen adres: yazı başka dilde varsa kalıcı yönlendirme (404 değil).
+    if (isAr) {
+      const trPost = await getPostBySlug(slug);
+      if (trPost) permanentRedirect(trPost.enOnly ? `/en/blog/${slug}` : `/tr/blog/${slug}`);
+    } else if (await getArPostBySlug(slug)) {
+      permanentRedirect(`/ar/blog/${slug}`);
+    }
     notFound();
   }
 
@@ -132,24 +182,16 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const hasEn = isPostFullyTranslatedEn(post);
-  if (!isTr && !hasEn) {
+  if (!isTr && !isAr && !hasEn) {
     permanentRedirect(`/tr/blog/${slug}`);
   }
 
-  const allPosts = postsForLocale(rawPosts, locale);
-  const catKeyMap: Record<string, string> = {
-    'Sosyal Medya': 'sosyal-medya',
-    'Nasıl Yapılır?': 'nasil-yapilir',
-    'Tavsiye': 'tavsiye',
-    'Kimdir?': 'kimdir',
-    'Resmi Video PR & Google Ads': 'video-pr',
-    'Şarkı & Klip Analizleri': 'analizler',
-  };
-  const categoryKey = post ? (catKeyMap[post.category] || 'all') : 'all';
+  const allPosts = await getPostsForLocale(locale);
+  const categoryKey = postCategoryKey(post);
 
   const sameCatPosts = allPosts.filter((p) => p.slug !== slug && p.category === post?.category);
   const otherCatPosts = allPosts.filter((p) => p.slug !== slug && p.category !== post?.category);
-  const isBioPost = /kimdir/.test(post.slug);
+  const isBioPost = !isAr && /kimdir/.test(post.slug);
   const bioArtistName = isBioPost
     ? ((!isTr && post.title_en ? post.title_en.match(/^Who is (.+?)\?/i)?.[1] : undefined) ?? post.title.split(/ Kimdir/i)[0]).trim()
     : '';
@@ -175,8 +217,8 @@ export default async function BlogPostPage({ params }: Props) {
       description: postSummary,
       image: post.image,
       datePublished: toIsoDateString(post.date),
-      inLanguage: (isTr || !hasEn) ? 'tr-TR' : 'en-US',
-      mainEntityOfPage: (isTr || !hasEn) ? `https://medyapr.com/tr/blog/${slug}` : `https://medyapr.com/${locale}/blog/${slug}`,
+      inLanguage: isAr ? schemaLang('ar') : (isTr || !hasEn) ? 'tr-TR' : 'en-US',
+      mainEntityOfPage: isAr ? `https://medyapr.com/ar/blog/${slug}` : (isTr || !hasEn) ? `https://medyapr.com/tr/blog/${slug}` : `https://medyapr.com/${locale}/blog/${slug}`,
       author: {
         '@type': 'Organization',
         name: 'MedyaPR',
@@ -551,6 +593,7 @@ export default async function BlogPostPage({ params }: Props) {
             </Link>
           </div>
 
+          {!isAr && (
           <div className="mt-6 pt-5 border-t border-white/10">
             <p className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 mb-3">
               {isTr ? '📌 Sanatçılar İçin Öne Çıkan Resmi YouTube Rehberleri:' : '📌 Featured Official YouTube Guides for Artists:'}
@@ -594,6 +637,7 @@ export default async function BlogPostPage({ params }: Props) {
               </Link>
             </div>
           </div>
+          )}
         </div>
 
         {/* ── Topic Cluster: Related Articles ── */}

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { locales, type Locale } from '@/lib/i18n/config';
+import { locales, localeDir, ogLocale, schemaLang, type Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/dictionaries';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: dict.metadata.description,
       type: 'website',
       url: `https://medyapr.com/${locale}`,
-      locale: locale === 'tr' ? 'tr_TR' : 'en_US',
+      locale: ogLocale(locale),
       siteName: 'MedyaPR',
       images: [
         {
@@ -79,7 +79,7 @@ export default async function LocaleLayout({ params, children }: Props) {
   const dict = await getDictionary(locale as Locale);
 
   return (
-    <html lang={locale} className="scroll-smooth" data-theme="dark" suppressHydrationWarning>
+    <html lang={locale} dir={localeDir(locale)} className="scroll-smooth" data-theme="dark" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: "try{if(localStorage.getItem('medyapr_theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}" }} />
         {/* Schema.org Unified Graph: Organization, Person, ProfessionalService, WebSite */}
@@ -105,7 +105,7 @@ export default async function LocaleLayout({ params, children }: Props) {
                     contactType: 'customer support',
                     email: 'info@medyapr.com',
                     url: `https://medyapr.com/${locale}/iletisim`,
-                    availableLanguage: ['Turkish', 'English'],
+                    availableLanguage: ['Turkish', 'English', 'Arabic'],
                   },
                   sameAs: [
                     'https://wa.me/905312993355',
@@ -131,7 +131,7 @@ export default async function LocaleLayout({ params, children }: Props) {
                   name: 'MedyaPR',
                   url: 'https://medyapr.com',
                   description: dict.metadata.description,
-                  inLanguage: locale === 'tr' ? 'tr-TR' : 'en-US',
+                  inLanguage: schemaLang(locale),
                   publisher: { '@id': 'https://medyapr.com/#organization' },
                 },
               ],

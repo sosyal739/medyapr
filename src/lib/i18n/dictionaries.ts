@@ -9,6 +9,7 @@ import type { Locale } from './config';
 const dictionaries = {
   tr: () => import('@/dictionaries/tr.json').then((module) => module.default),
   en: () => import('@/dictionaries/en.json').then((module) => module.default),
+  ar: () => import('@/dictionaries/ar.json').then((module) => module.default),
 };
 
 /**

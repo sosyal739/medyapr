@@ -13,7 +13,7 @@ import {
   Share2,
   Lightbulb,
 } from 'lucide-react';
-import { getPosts, postsForLocale, type BlogPost } from '@/lib/content';
+import { getPostsForLocale, postCategoryKey } from '@/lib/content';
 import { getPageAlternates, toIsoDateString, displayDate } from '@/lib/seo';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -58,16 +58,15 @@ export default async function BlogIndexPage({
   const { locale } = await params;
   const resolvedSearchParams = searchParams ? await searchParams : {};
   const activeCategoryKey = resolvedSearchParams.kategori || 'all';
-  const rawPosts = await getPosts();
   const isTr = locale === 'tr';
-  const allPosts = postsForLocale(rawPosts, locale);
+  const allPosts = await getPostsForLocale(locale);
 
   const activeCategory = CATEGORIES.find((c) => c.key === activeCategoryKey) || CATEGORIES[0];
 
   const filteredPosts =
     activeCategory.match === null
       ? allPosts
-      : allPosts.filter((p) => p.category === activeCategory.match);
+      : allPosts.filter((p) => postCategoryKey(p) === activeCategory.key);
 
   const schema = {
     '@context': 'https://schema.org',
@@ -184,7 +183,10 @@ export default async function BlogIndexPage({
               const count =
                 cat.match === null
                   ? allPosts.length
-                  : allPosts.filter((p) => p.category === cat.match).length;
+                  : allPosts.filter((p) => postCategoryKey(p) === cat.key).length;
+
+              // Arapça blogda yazısı olmayan kategori sekmesi gösterilmez (boş sayfa SEO'ya zarar verir).
+              if (locale === 'ar' && cat.match !== null && count === 0) return null;
 
               const href =
                 cat.key === 'all'

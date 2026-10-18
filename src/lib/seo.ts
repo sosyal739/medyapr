@@ -1,23 +1,26 @@
+import { intlLocale, locales, type Locale } from '@/lib/i18n/config';
+
 export const SITE_URL = 'https://medyapr.com';
+
+/** Türkiye/İngilizce dünyasına özgü sayfalar (sanatçı, klip): Arapça sürümü yoktur. */
+export const TR_EN: readonly Locale[] = ['tr', 'en'];
 
 /**
  * Üretilen sayfa için kesin ve eksiksiz canonical ve hreflang alternates nesnesi döner.
- * @param locale 'tr' | 'en'
+ * Yalnızca sayfanın gerçekten var olduğu dilleri listeler; olmayan bir çeviriye hreflang verilmez.
+ * @param locale 'tr' | 'en' | 'ar'
  * @param path Sayfa yolu (örn: '/blog', '/trendler', '/sanatcilar')
+ * @param available Sayfanın yayınlandığı diller (varsayılan: hepsi)
  */
-export function getPageAlternates(locale: string, path: string = '') {
+export function getPageAlternates(locale: string, path: string = '', available: readonly Locale[] = locales) {
   const cleanPath = path ? (path.startsWith('/') ? path : `/${path}`) : '';
-  const currentUrl = `${SITE_URL}/${locale}${cleanPath}`;
-  const trUrl = `${SITE_URL}/tr${cleanPath}`;
-  const enUrl = `${SITE_URL}/en${cleanPath}`;
+  const url = (l: string) => `${SITE_URL}/${l}${cleanPath}`;
+  const languages: Record<string, string> = Object.fromEntries(available.map((l) => [l, url(l)]));
+  languages['x-default'] = url(available.includes('tr') ? 'tr' : available[0]);
 
   return {
-    canonical: currentUrl,
-    languages: {
-      tr: trUrl,
-      en: enUrl,
-      'x-default': trUrl,
-    },
+    canonical: url(locale),
+    languages,
   };
 }
 
@@ -46,5 +49,5 @@ export function displayDate(dateStr: string | undefined, locale: string): string
   const iso = toIsoDateString(dateStr);
   const d = new Date(`${iso}T12:00:00Z`);
   if (Number.isNaN(d.getTime())) return dateStr;
-  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+  return d.toLocaleDateString(intlLocale(locale), { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 }
