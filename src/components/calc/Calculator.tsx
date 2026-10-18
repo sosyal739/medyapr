@@ -61,7 +61,6 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
   const [pkg, setPkg] = useState<Package>('views');
   const [region, setRegion] = useState<Region>(isTr ? 'tr' : 'premium');
   const [country, setCountry] = useState(DEFAULT_COUNTRY(locale));
-  const [turkishOnly, setTurkishOnly] = useState(true);
   const [currency, setCurrency] = useState<Currency>(isTr ? 'TRY' : 'USD');
   const [videoUrl, setVideoUrl] = useState('');
   const usedTracked = useRef(false);
@@ -78,12 +77,12 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
   }, [views, pkg, region]);
 
   const q = useMemo(() => quote({ views, format, pkg, region, currency, country }), [views, format, pkg, region, currency, country]);
-  const regionLabel = region === 'premium' ? `${countryName(country, locale)}${turkishOnly ? (isTr ? ' (Türkçe konuşanlar)' : ' (Turkish speakers)') : ''}` : t.regions[region].name;
+  const regionLabel = region === 'premium' ? `${countryName(country, locale)}` : t.regions[region].name;
   const animTotal = useAnimatedNumber(q.total);
   const nf = new Intl.NumberFormat(isTr ? 'tr-TR' : 'en-US');
 
   const videoParam = videoUrl.trim() ? `&video=${encodeURIComponent(videoUrl.trim())}` : '';
-  const href = `/${locale}/order?views=${q.views}&format=${format}&pkg=${pkg}&region=${region}&currency=${currency}${region === 'premium' ? `&country=${country}&tro=${turkishOnly ? 1 : 0}` : ''}${videoParam}`;
+  const href = `/${locale}/order?views=${q.views}&format=${format}&pkg=${pkg}&region=${region}&currency=${currency}${region === 'premium' ? `&country=${country}` : ''}${videoParam}`;
   const mailOrderHref = `${href}&channel=email`;
   const hasValidVideo = !!parseYouTubeId(videoUrl);
 
@@ -213,7 +212,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                   >
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="text-lg">
-                        {r === 'tr' ? '🇹🇷' : r === 'global' ? '🌍' : '💎'}
+                        {r === 'tr' ? '🇹🇷' : r === 'global' ? '🌍' : '🗺️'}
                       </span>
                       {tag && (
                         <span
@@ -236,7 +235,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
               })}
             </div>
             {region === 'premium' && (
-              <CountryPicker locale={locale} country={country} onCountry={setCountry} turkishOnly={turkishOnly} onTurkishOnly={setTurkishOnly} />
+              <CountryPicker locale={locale} country={country} onCountry={setCountry} />
             )}
           </div>
 

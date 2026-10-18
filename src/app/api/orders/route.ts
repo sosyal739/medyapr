@@ -33,7 +33,6 @@ export async function POST(req: Request) {
   const pkg = (PACKAGES.includes(b.pkg as Package) ? b.pkg : 'views') as Package;
   const region = (REGIONS.includes(b.region as Region) ? b.region : 'tr') as Region;
   const country = region === 'premium' && isCountryCode(b.country) ? String(b.country).toUpperCase() : undefined;
-  const turkishOnly = region === 'premium' ? b.turkishOnly !== false : undefined;
   const currency = (CURRENCIES.includes(b.currency as Currency) ? b.currency : 'TRY') as Currency;
   const payment = 'iban' as const;
 
@@ -110,7 +109,7 @@ export async function POST(req: Request) {
         ['Başlangıç İzlenmesi', video?.views !== undefined ? fmt(video.views) : ''],
         ['Beğeni', video?.likes !== undefined ? fmt(video.likes) + (video.views ? ` (%${((video.likes / video.views) * 100).toFixed(1)})` : '') : ''],
         ['Yorum', video?.comments !== undefined ? fmt(video.comments) : ''],
-        ['Hedef Ülke', region === 'premium' ? escapeHtml(`${country ? countryName(country, 'tr') : 'Belirtilmedi'}${turkishOnly ? ' — Sadece Türkçe konuşanlar' : ''}`) : region === 'global' ? 'Global (karma)' : 'Türkiye'],
+        ['Hedef Ülke', region === 'premium' ? escapeHtml(`${country ? countryName(country, 'tr') : 'Belirtilmedi'}`) : region === 'global' ? 'Global (tüm ülkeler karışık)' : 'Türkiye (Türkçe konuşanlar)'],
         ['Seçilen Paket', escapeHtml(`${order.pkg ?? 'views'} • ${order.format} • ${order.region} • ${fmt(order.views)} izlenme`)],
         ['Tahmini Tutar', escapeHtml(`${fmt(order.total)} ${order.currency} (Video uzunluğuna göre değişebilir)`)],
         ['Takip Linki', `https://medyapr.com/tr/track/${escapeHtml(order.id)}`],

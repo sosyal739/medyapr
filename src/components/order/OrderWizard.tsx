@@ -64,7 +64,6 @@ export type WizardInitial = {
   videoUrl?: string;
   channel?: AnalysisChannel;
   country?: string;
-  turkishOnly?: boolean;
 };
 
 const PRESETS = [1_000, 5_000, 10_000, 25_000, 50_000, 100_000, 250_000, 500_000, 1_000_000];
@@ -86,7 +85,6 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
   const [views, setViews] = useState(initial.views);
   const [region, setRegion] = useState<Region>(initial.region);
   const [country, setCountry] = useState(initial.country || DEFAULT_COUNTRY(locale));
-  const [turkishOnly, setTurkishOnly] = useState(initial.turkishOnly ?? true);
   const [pkg, setPkg] = useState<Package>(initial.pkg);
   const [currency, setCurrency] = useState<Currency>(initial.currency);
   const [channel, setChannel] = useState<AnalysisChannel>(initial.channel ?? 'whatsapp');
@@ -156,7 +154,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
   const pkgName = c.packages[pkg].name;
   const regionName =
     region === 'premium'
-      ? `${countryName(country, locale)}${turkishOnly ? (isTr ? ' (Türkçe konuşanlar)' : ' (Turkish speakers)') : ''}`
+      ? `${countryName(country, locale)}`
       : c.regions[region].name;
   const totalText = formatMoney(q.total, currency, locale);
   const durText = video?.durationSec ? duration(video.durationSec) : '';
@@ -247,7 +245,6 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             note,
             locale,
             country: region === 'premium' ? country : undefined,
-            turkishOnly: region === 'premium' ? turkishOnly : undefined,
           }),
         });
         const data = await res.json().catch(() => ({}));
@@ -294,7 +291,6 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           note,
           locale,
           country: region === 'premium' ? country : undefined,
-          turkishOnly: region === 'premium' ? turkishOnly : undefined,
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -567,7 +563,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             ))}
           </div>
           {region === 'premium' && (
-            <CountryPicker locale={locale} country={country} onCountry={setCountry} turkishOnly={turkishOnly} onTurkishOnly={setTurkishOnly} />
+            <CountryPicker locale={locale} country={country} onCountry={setCountry} />
           )}
 
           <h4 className="mb-2 mt-6 text-sm font-bold text-white">{c.pkg}</h4>

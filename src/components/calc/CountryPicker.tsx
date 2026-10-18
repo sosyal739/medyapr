@@ -3,19 +3,15 @@
 import { useMemo } from 'react';
 import { countryOptions } from '@/lib/countries';
 
-/** "Diğer ülkeler" seçilince açılan ülke listesi ve Türkçe konuşan kitle seçeneği. */
+/** "Ülke seç" seçilince açılan ülke listesi. */
 export default function CountryPicker({
   locale,
   country,
   onCountry,
-  turkishOnly,
-  onTurkishOnly,
 }: {
   locale: string;
   country: string;
   onCountry: (code: string) => void;
-  turkishOnly: boolean;
-  onTurkishOnly: (v: boolean) => void;
 }) {
   const isTr = locale === 'tr';
   const options = useMemo(() => countryOptions(locale), [locale]);
@@ -23,7 +19,7 @@ export default function CountryPicker({
   const rest = options.filter((o) => !o.popular);
 
   return (
-    <div className="mt-3 grid gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-3.5 sm:grid-cols-[1fr_auto] sm:items-center">
+    <div className="mt-3 grid gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-3.5 sm:grid-cols-1">
       <label className="block">
         <span className="mb-1.5 block text-xs font-semibold text-white/85">{isTr ? 'Hedef ülke' : 'Target country'}</span>
         <select
@@ -42,15 +38,6 @@ export default function CountryPicker({
             ))}
           </optgroup>
         </select>
-      </label>
-      <label className="flex cursor-pointer items-center gap-2 text-sm text-zinc-200 sm:pt-5">
-        <input
-          type="checkbox"
-          checked={turkishOnly}
-          onChange={(e) => onTurkishOnly(e.target.checked)}
-          className="h-4 w-4 accent-[#D9002B]"
-        />
-        {isTr ? 'Sadece Türkçe konuşanlara göster' : 'Show only to Turkish speakers'}
       </label>
     </div>
   );

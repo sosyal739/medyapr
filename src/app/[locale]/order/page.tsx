@@ -133,7 +133,6 @@ export default async function OrderPage({ params, searchParams }: Props) {
             videoUrl: sp.video?.slice(0, 300),
             channel: pick(CHANNELS, sp.channel, 'whatsapp'),
             country: isCountryCode(sp.country) ? sp.country.toUpperCase() : undefined,
-            turkishOnly: sp.tro !== '0',
           }}
         />
 

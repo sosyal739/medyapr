@@ -198,8 +198,8 @@ export default async function PricingPage({ params }: Props) {
           </div>
           <p className="text-xs text-zinc-400">
             {isTr
-              ? 'Fiyatlar tahminidir. Avrupa, ABD ve Kanada dışındaki ülkeler (Arap ülkeleri, Azerbaycan, Balkanlar, Asya vb.) Türkiye fiyatından hesaplanır; ülkeyi hesaplayıcıda “Diğer ülkeler” ile seçebilirsiniz.'
-              : 'Prices are estimates. Countries outside Europe, the US and Canada (Arab countries, Azerbaijan, the Balkans, Asia, etc.) are priced like Turkey; pick the country under “Other countries” in the calculator.'}
+              ? 'Fiyatlar tahminidir. Avrupa, ABD ve Kanada dışındaki ülkeler (Arap ülkeleri, Azerbaycan, Balkanlar, Asya vb.) Türkiye fiyatından hesaplanır; ülkeyi hesaplayıcıda “Ülke seç” ile seçebilirsiniz.'
+              : 'Prices are estimates. Countries outside Europe, the US and Canada (Arab countries, Azerbaijan, the Balkans, Asia, etc.) are priced like Turkey; pick the country under “Pick a country” in the calculator.'}
           </p>
 
           {/* SSS / FAQ Accordion */}
