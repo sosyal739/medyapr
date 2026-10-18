@@ -86,6 +86,20 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
   const href = `/${locale}/order?views=${q.views}&format=${format}&pkg=${pkg}&region=${region}&currency=${currency}${region === 'premium' ? `&country=${country}` : ''}${videoParam}`;
   const mailOrderHref = `${href}&channel=email`;
   const hasValidVideo = !!parseYouTubeId(videoUrl);
+  const [vInfo, setVInfo] = useState<{ title: string; channel: string; thumbnail: string; views?: number; likes?: number; comments?: number } | null>(null);
+  const [vLoading, setVLoading] = useState(false);
+  useEffect(() => {
+    if (!hasValidVideo) { setVInfo(null); setVLoading(false); return; }
+    const ctl = new AbortController();
+    setVLoading(true);
+    const tm = setTimeout(() => {
+      fetch('/api/video?url=' + encodeURIComponent(videoUrl.trim()), { signal: ctl.signal })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => { setVInfo(d && d.title ? d : null); setVLoading(false); })
+        .catch(() => {});
+    }, 350);
+    return () => { clearTimeout(tm); ctl.abort(); };
+  }, [videoUrl, hasValidVideo]);
 
   // wa.me yönlendirmesi emojileri bozduğu için ▸ işareti ve *kalın* etiket kullanılır
   const pkgMessage = [
@@ -430,6 +444,28 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                   className="w-full rounded-xl border border-white/15 bg-black/30 py-2.5 pl-10 pr-3 text-xs text-white placeholder-zinc-500 outline-none transition focus:border-[#FF0033] focus:ring-2 focus:ring-[#FF0033]/20"
                 />
               </div>
+              {hasValidVideo && (vLoading || vInfo) && (
+                <div className="mt-2 flex gap-3 rounded-xl border border-white/10 bg-black/30 p-2">
+                  {vInfo ? (
+                    <>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={vInfo.thumbnail} alt="" className="h-14 w-24 shrink-0 rounded-lg object-cover" />
+                      <div className="min-w-0 text-xs">
+                        <p className="line-clamp-2 font-semibold text-white">{vInfo.title}</p>
+                        <p className="truncate text-zinc-400">{vInfo.channel}</p>
+                        {typeof vInfo.views === 'number' && (
+                          <p className="mt-0.5 text-[11px] text-zinc-300">
+                            {nf.format(vInfo.views)} {isTr ? 'izlenme' : 'views'}
+                            {typeof vInfo.likes === 'number' ? ' · ' + nf.format(vInfo.likes) + (isTr ? ' beğeni' : ' likes') : ''}
+                          </p>
+                        )}
+                      </div>
+                    </>
+                  ) : (
+                    <p className="p-1 text-xs text-zinc-400">{isTr ? 'Video bulunuyor…' : 'Finding video…'}</p>
+                  )}
+                </div>
+              )}
               {hasValidVideo && (
                 <p className="mt-1 text-[11px] font-semibold text-emerald-400">
                   ✓ {isTr ? 'Video linki pakete eklendi' : 'Video link attached to package'}
