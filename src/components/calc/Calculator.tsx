@@ -82,9 +82,19 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
   const mailOrderHref = `${href}&channel=email`;
   const hasValidVideo = !!parseYouTubeId(videoUrl);
 
-  const pkgMessage = isTr
-    ? `Merhaba, YouTube videom için PR / reklam çalışması planlıyorum. Videomu analiz edip bana teklif verir misiniz?${videoUrl.trim() ? `\n\nVideo Linki: ${videoUrl.trim()}` : ''}\nDüşündüğüm paket: ${nf.format(q.views)} İzlenme - ${t.packages[pkg].name} - ${t.regions[region].name}\nTahmini Teklif: ${formatMoney(q.total, currency, locale)} (Video uzunluğuna göre değişebilir)`
-    : `Hello, I am planning a PR / ad campaign for my YouTube video. Could you review it and send me a quote?${videoUrl.trim() ? `\n\nVideo Link: ${videoUrl.trim()}` : ''}\nPackage I have in mind: ${nf.format(q.views)} Views - ${t.packages[pkg].name} - ${t.regions[region].name}\nEstimated Quote: ${formatMoney(q.total, currency, locale)} (May vary by video length)`;
+  // wa.me yönlendirmesi emojileri bozduğu için ▸ işareti ve *kalın* etiket kullanılır
+  const pkgMessage = [
+    isTr
+      ? 'Merhaba, YouTube videom için PR / reklam çalışması planlıyorum. Videomu analiz edip bana teklif verir misiniz?'
+      : 'Hello, I am planning a PR / ad campaign for my YouTube video. Could you review it and send me a quote?',
+    videoUrl.trim() ? `▸ *${isTr ? 'Video linki' : 'Video link'}:* ${videoUrl.trim()}` : '',
+    [
+      `▸ *${isTr ? 'Düşündüğüm paket' : 'Package I have in mind'}:* ${nf.format(q.views)} ${isTr ? 'İzlenme' : 'Views'} - ${t.packages[pkg].name} - ${t.regions[region].name}`,
+      `▸ *${isTr ? 'Tahmini teklif' : 'Estimated quote'}:* ${formatMoney(q.total, currency, locale)} (${isTr ? 'video uzunluğuna göre değişebilir' : 'may vary by video length'})`,
+    ].join('\n'),
+  ]
+    .filter(Boolean)
+    .join('\n\n');
 
 
   return (

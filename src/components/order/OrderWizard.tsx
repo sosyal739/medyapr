@@ -153,44 +153,42 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
   const totalText = formatMoney(q.total, currency, locale);
   const durText = video?.durationSec ? duration(video.durationSec) : '';
 
-  const buildPackageMessage = (orderId?: string) => {
-    const codeLine = orderId ? (isTr ? `Talep Kodu: ${orderId}\n` : `Request Code: ${orderId}\n`) : '';
-    // Video bloğu: yalnızca bilinen alanlar yazılır (YouTube API anahtarı yoksa istatistikler boş kalır)
+  /**
+   * Hazır mesaj. rich=false (WhatsApp): wa.me yönlendirmesi emojileri bozduğu için ▸ işareti ve *kalın* etiket kullanır.
+   * rich=true (Telegram panosu, e-posta): her satırın başında emoji bulunur.
+   */
+  const buildPackageMessage = (orderId?: string, rich = false) => {
     const pubText = video?.publishedAt
       ? new Date(video.publishedAt).toLocaleDateString(isTr ? 'tr-TR' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })
       : '';
-    const likeRate =
-      video?.views && video.likes !== undefined
-        ? isTr
-          ? `%${((video.likes / video.views) * 100).toFixed(1).replace('.', ',')}`
-          : `${((video.likes / video.views) * 100).toFixed(1)}%`
-        : '';
     const L = isTr
-      ? { title: 'Video', channel: 'Kanal', link: 'Link', pub: 'Yayın tarihi', dur: 'Süre', views: 'İzlenme', likes: 'Beğeni', comments: 'Yorum', rate: 'beğeni oranı' }
-      : { title: 'Video', channel: 'Channel', link: 'Link', pub: 'Published', dur: 'Duration', views: 'Views', likes: 'Likes', comments: 'Comments', rate: 'like rate' };
-    const metaLine = [pubText && `${L.pub}: ${pubText}`, durText && `${L.dur}: ${durText}`].filter(Boolean).join(' · ');
-    const statLine = [
-      video?.views !== undefined && `${L.views}: ${nf.format(video.views)}`,
-      video?.likes !== undefined && `${L.likes}: ${nf.format(video.likes)}${likeRate ? ` (${L.rate} ${likeRate})` : ''}`,
-      video?.comments !== undefined && `${L.comments}: ${nf.format(video.comments)}`,
-    ]
-      .filter(Boolean)
-      .join(' · ');
-    const videoBlock = [
-      video?.title && `${L.title}: ${video.title}`,
-      video?.channel && `${L.channel}: ${video.channel}`,
-      `${L.link}: ${url}`,
-      metaLine,
-      statLine,
-    ]
-      .filter(Boolean)
-      .join('\n');
-    const senderLine = name.trim();
-    const noteLine = note.trim() ? (isTr ? `\nNot: ${note.trim()}` : `\nNote: ${note.trim()}`) : '';
+      ? { code: 'Talep Kodu', title: 'Video', channel: 'Kanal', link: 'Link', pub: 'Yayın tarihi', dur: 'Süre', views: 'İzlenme', likes: 'Beğeni', comments: 'Yorum', pkg: 'Düşündüğüm paket', quote: 'Tahmini teklif', name: 'İsim', note: 'Not' }
+      : { code: 'Request code', title: 'Video', channel: 'Channel', link: 'Link', pub: 'Published', dur: 'Duration', views: 'Views', likes: 'Likes', comments: 'Comments', pkg: 'Package I have in mind', quote: 'Estimated quote', name: 'Name', note: 'Note' };
+    const line = (emoji: string, label: string, value?: string | number | false) =>
+      value === undefined || value === false || value === '' ? '' : rich ? `${emoji} ${label}: ${value}` : `▸ *${label}:* ${value}`;
 
-    return isTr
-      ? `Merhaba, YouTube videom için PR / reklam çalışması planlıyorum. Videomu analiz edip bana teklif verir misiniz?\n\n${codeLine}${videoBlock}\n\nDüşündüğüm paket: ${nf.format(q.views)} İzlenme - ${pkgName} - ${regionName}\nTahmini Teklif: ${totalText} (Video uzunluğuna göre değişebilir)${senderLine ? `\nİletişim: ${senderLine}` : ''}${noteLine}`
-      : `Hello, I am planning a PR / ad campaign for my YouTube video. Could you review it and send me a quote?\n\n${codeLine}${videoBlock}\n\nPackage I have in mind: ${nf.format(q.views)} Views - ${pkgName} - ${regionName}\nEstimated Quote: ${totalText} (May vary by video length)${senderLine ? `\nContact: ${senderLine}` : ''}${noteLine}`;
+    const videoLines = [
+      line('🔖', L.code, orderId),
+      line('🎬', L.title, video?.title),
+      line('📺', L.channel, video?.channel),
+      line('🔗', L.link, url),
+      line('📅', L.pub, pubText),
+      line('⏱', L.dur, durText),
+      line('👁', L.views, video?.views !== undefined && nf.format(video.views)),
+      line('👍', L.likes, video?.likes !== undefined && nf.format(video.likes)),
+      line('💬', L.comments, video?.comments !== undefined && nf.format(video.comments)),
+    ].filter(Boolean);
+    const offerLines = [
+      line('📦', L.pkg, `${nf.format(q.views)} ${isTr ? 'İzlenme' : 'Views'} - ${pkgName} - ${regionName}`),
+      line('💰', L.quote, `${totalText} (${isTr ? 'video uzunluğuna göre değişebilir' : 'may vary by video length'})`),
+      line('👤', L.name, name.trim()),
+      line('📝', L.note, note.trim()),
+    ].filter(Boolean);
+
+    const intro = isTr
+      ? 'Merhaba, YouTube videom için PR / reklam çalışması planlıyorum. Videomu analiz edip bana teklif verir misiniz?'
+      : 'Hello, I am planning a PR / ad campaign for my YouTube video. Could you review it and send me a quote?';
+    return [intro, videoLines.join('\n'), offerLines.join('\n')].filter(Boolean).join('\n\n');
   };
 
   function ensureVideoEntered(): boolean {
@@ -216,7 +214,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
     if (targetChannel === 'whatsapp' || targetChannel === 'telegram') {
       const msg = buildPackageMessage();
       if (targetChannel === 'telegram') {
-        navigator.clipboard?.writeText(msg).catch(() => {});
+        navigator.clipboard?.writeText(buildPackageMessage(undefined, true)).catch(() => {});
       }
       const targetHref = targetChannel === 'whatsapp' ? consultHref(msg) : telegramHref(msg);
       window.open(targetHref, '_blank', 'noopener,noreferrer');
@@ -320,6 +318,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
 
   if (done) {
     const msg = buildPackageMessage(done.id);
+    const richMsg = buildPackageMessage(done.id, true); // e-posta gövdesinde emoji sorun çıkarmaz
     const mailSubject = isTr
       ? `YouTube Video Analiz & Teklif Talebi (${done.id}) - ${video?.title || url}`
       : `YouTube Video Analysis & Quote Request (${done.id}) - ${video?.title || url}`;
@@ -379,7 +378,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             <Send className="h-4 w-4 shrink-0" /> {isTr ? 'Telegram ile İlet' : 'Send via Telegram'}
           </a>
           <a
-            href={mailtoHref(mailSubject, msg)}
+            href={mailtoHref(mailSubject, richMsg)}
             className="inline-flex items-center justify-center gap-2 rounded-2xl border border-amber-400/40 bg-amber-500/15 px-4 py-3.5 text-sm font-bold text-amber-200 transition hover:bg-amber-500/25 hover:text-white"
           >
             <Mail className="h-4 w-4 shrink-0" /> {isTr ? 'Mail Uygulamasıyla Gönder' : 'Open in Mail App'}

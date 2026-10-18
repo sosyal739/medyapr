@@ -25,7 +25,7 @@ export function telegramHref(message?: string): string {
 }
 
 export function mailtoHref(subject: string, body: string): string {
-  return `mailto:${PUBLIC_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(cleanChatMessage(body))}`;
+  return `mailto:${PUBLIC_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 
