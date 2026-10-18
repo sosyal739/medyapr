@@ -6,7 +6,7 @@ import { countryName, DEFAULT_COUNTRY } from '@/lib/countries';
 import CountryPicker from './CountryPicker';
 import Flag from '@/components/common/Flag';
 import Link from 'next/link';
-import { ArrowRight, Check, Mail, MessageCircle, Search, Send, ShieldCheck, Sparkles, Tag, ThumbsUp } from 'lucide-react';
+import { ArrowRight, Check, Mail, MessageCircle, Play, Send, ShieldCheck, Sparkles, Tag, ThumbsUp } from 'lucide-react';
 import {
   CURRENCIES,
   MAX_VIEWS,
@@ -438,11 +438,11 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
           {/* YouTube Video Linki Girişi + 3 Analiz Kanalı */}
           <div className="mt-5 space-y-3">
             <div>
-              <label htmlFor="calc-video-url" className="mb-1.5 block text-[11px] font-bold uppercase tracking-wider text-zinc-400">
-                {isAr ? 'رابط فيديو يوتيوب الخاص بك (يُضاف إلى الباقة)' : isTr ? 'YouTube Video Linkiniz (Pakete Ekle)' : 'Your YouTube Video Link (Attach to Package)'}
+              <label htmlFor="calc-video-url" className="mb-2 block text-sm font-extrabold text-white">
+                {isAr ? 'الصق رابط فيديو يوتيوب لتظهر المعاينة' : isTr ? 'Video linkinizi yapıştırın, videonuz burada görünsün' : 'Paste your YouTube link to preview your video here'}
               </label>
-              <div className="relative">
-                <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
+              <div className={`relative rounded-2xl ${hasValidVideo ? '' : 'hero-cta-glow'}`}>
+                <Play className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 fill-[#FF0033] text-[#FF0033]" />
                 <input
                   id="calc-video-url"
                   type="url"
@@ -450,20 +450,20 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                   value={videoUrl}
                   onChange={(e) => setVideoUrl(e.target.value)}
                   placeholder="https://www.youtube.com/watch?v=..."
-                  className="w-full rounded-xl border border-white/15 bg-black/30 py-2.5 pl-10 pr-3 text-xs text-white placeholder-zinc-500 outline-none transition focus:border-[#FF0033] focus:ring-2 focus:ring-[#FF0033]/20"
+                  className="w-full rounded-2xl border-2 border-[#FF0033]/60 bg-black/30 py-4 pl-12 pr-3 text-sm font-medium text-white placeholder-zinc-400 outline-none transition focus:border-[#FF0033] focus:ring-2 focus:ring-[#FF0033]/30"
                 />
               </div>
               {hasValidVideo && (vLoading || vInfo) && (
-                <div className="mt-2 flex gap-3 rounded-xl border border-white/10 bg-black/30 p-2">
+                <div className="mt-2 flex gap-3 rounded-xl border border-white/15 bg-white/[0.06] p-2">
                   {vInfo ? (
                     <>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={vInfo.thumbnail} alt="" className="h-14 w-24 shrink-0 rounded-lg object-cover" />
-                      <div className="min-w-0 text-xs">
-                        <p className="line-clamp-2 font-semibold text-white">{vInfo.title}</p>
-                        <p className="truncate text-zinc-400">{vInfo.channel}</p>
+                      <img src={vInfo.thumbnail} alt="" className="h-20 w-36 shrink-0 rounded-lg object-cover" />
+                      <div className="min-w-0 text-sm">
+                        <p className="line-clamp-2 font-bold text-white">{vInfo.title}</p>
+                        <p className="truncate text-zinc-300">{vInfo.channel}</p>
                         {typeof vInfo.views === 'number' && (
-                          <p className="mt-0.5 text-[11px] text-zinc-300">
+                          <p className="mt-1 text-xs text-zinc-300">
                             {nf.format(vInfo.views)} {isAr ? 'مشاهدات' : isTr ? 'izlenme' : 'views'}
                             {typeof vInfo.likes === 'number' ? ' · ' + nf.format(vInfo.likes) + (isAr ? ' إعجاب' : isTr ? ' beğeni' : ' likes') : ''}
                           </p>
@@ -525,14 +525,13 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
           {/* Güvence Maddeleri */}
           <div className="mt-4 space-y-2 border-t border-white/10 pt-3.5">
             {t.perks.map((p) => (
-              <div key={p} className="flex items-center gap-2 text-xs text-zinc-300">
+              <div key={p} className="flex items-center gap-2 text-sm text-zinc-200">
                 <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
                 <span>{p}</span>
               </div>
             ))}
           </div>
 
-          <p className="mt-3 text-[11px] leading-relaxed text-zinc-400">{t.note}</p>
         </aside>
       </div>
     </div>

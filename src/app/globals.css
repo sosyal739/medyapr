@@ -1356,3 +1356,7 @@ canvas {
 @media (prefers-reduced-motion: reduce) {
   .hero-cta-glow, .hero-cta-ping { animation: none; }
 }
+
+[data-theme='light'] .calc-range {
+  background: linear-gradient(to right, #e0002e var(--pct, 50%), rgba(24, 28, 38, 0.18) var(--pct, 50%));
+}
