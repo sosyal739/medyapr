@@ -95,6 +95,7 @@ export async function POST(req: Request) {
         ['Takip Kodu', escapeHtml(order.id)],
         ['İletişim Kanalı', escapeHtml(channelLabel)],
         ['Ziyaretçi Dili', escapeHtml(LANG_NAME[visitorLocale])],
+        ['Talep', 'YouTube videosu için PR / reklam çalışması planlıyor; videonun analiz edilip teklif verilmesini bekliyor.'],
         ['Ad / Sanatçı', escapeHtml(name)],
         ['E-Posta', escapeHtml(email)],
         ['WhatsApp / Telegram', escapeHtml(contact || '')],

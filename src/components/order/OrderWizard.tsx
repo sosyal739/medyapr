@@ -189,8 +189,8 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
     const noteLine = note.trim() ? (isTr ? `\nNot: ${note.trim()}` : `\nNote: ${note.trim()}`) : '';
 
     return isTr
-      ? `Merhaba, YouTube videom için seçtiğim paketi iletmek ve detaylı analiz / teklif almak istiyorum.\n\n${codeLine}${videoBlock}\n\nSeçilen Paket: ${nf.format(q.views)} İzlenme - ${pkgName} - ${regionName}\nTahmini Teklif: ${totalText} (Video uzunluğuna göre değişebilir)${senderLine ? `\nİletişim: ${senderLine}` : ''}${noteLine}`
-      : `Hello, I would like to submit my selected package and request a detailed video analysis & quote.\n\n${codeLine}${videoBlock}\n\nSelected Package: ${nf.format(q.views)} Views - ${pkgName} - ${regionName}\nEstimated Quote: ${totalText} (May vary by video length)${senderLine ? `\nContact: ${senderLine}` : ''}${noteLine}`;
+      ? `Merhaba, YouTube videom için PR / reklam çalışması planlıyorum. Videomu analiz edip bana teklif verir misiniz?\n\n${codeLine}${videoBlock}\n\nDüşündüğüm paket: ${nf.format(q.views)} İzlenme - ${pkgName} - ${regionName}\nTahmini Teklif: ${totalText} (Video uzunluğuna göre değişebilir)${senderLine ? `\nİletişim: ${senderLine}` : ''}${noteLine}`
+      : `Hello, I am planning a PR / ad campaign for my YouTube video. Could you review it and send me a quote?\n\n${codeLine}${videoBlock}\n\nPackage I have in mind: ${nf.format(q.views)} Views - ${pkgName} - ${regionName}\nEstimated Quote: ${totalText} (May vary by video length)${senderLine ? `\nContact: ${senderLine}` : ''}${noteLine}`;
   };
 
   function ensureVideoEntered(): boolean {
