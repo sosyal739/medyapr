@@ -38,8 +38,8 @@ export default function CookieConsent({ dict, locale }: CookieConsentProps) {
     try {
       const stored = localStorage.getItem('medyapr_cookie_consent');
       if (!stored) {
-        // Small delay so page renders first without abrupt flash
-        timer = setTimeout(() => setIsOpen(true), 1500);
+        // Prompt appearance without abrupt flash
+        timer = setTimeout(() => setIsOpen(true), 300);
       }
     } catch {
       // Fallback if localStorage is restricted

@@ -15,7 +15,12 @@ export default function GoogleAnalytics({ gaId, measurementId }: GoogleAnalytics
 
   return (
     <>
-      {/* Google Consent Mode v2 Setup (Default: Granted so all visitors appear in GA4 immediately unless explicitly declined) */}
+      {/* 
+        Google Consent Mode v2 (Resmi GDPR & KVKK Uyumluluk Standardı)
+        1. AB / AEA / İsviçre / Birleşik Krallık için GDPR gereği varsayılan: 'denied' (Açık rıza şartı)
+        2. Türkiye (KVKK) ve diğer ülkeler için varsayılan: 'granted' (Kullanıcı dilediğinde reddedebilir)
+        3. Kullanıcı daha önce seçim yapmışsa hafızadan anında senkronize edilir
+      */}
       <Script
         id="google-consent-mode"
         strategy="beforeInteractive"
@@ -23,20 +28,38 @@ export default function GoogleAnalytics({ gaId, measurementId }: GoogleAnalytics
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
+
+            // AB / AEA Ülkeleri (GDPR Kapsamı) için varsayılan 'denied'
+            gtag('consent', 'default', {
+              'analytics_storage': 'denied',
+              'ad_storage': 'denied',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied',
+              'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH'],
+              'wait_for_update': 500
+            });
+
+            // Türkiye (KVKK) ve AB dışı ülkeler için varsayılan 'granted'
             gtag('consent', 'default', {
               'analytics_storage': 'granted',
               'ad_storage': 'granted',
               'ad_user_data': 'granted',
-              'ad_personalization': 'granted',
-              'wait_for_update': 500
+              'ad_personalization': 'granted'
             });
 
-            // Only restrict if user explicitly declined in CookieConsent
+            // Kullanıcının kayıtlı çerez tercihini anında uygula
             try {
-              var storedConsent = localStorage.getItem('medyapr_cookie_consent');
-              if (storedConsent) {
-                var parsed = JSON.parse(storedConsent);
-                if (parsed.declined === true || parsed.analytics === false) {
+              var stored = localStorage.getItem('medyapr_cookie_consent');
+              if (stored) {
+                var p = JSON.parse(stored);
+                if (p.consent === 'all' || p.analytics === true) {
+                  gtag('consent', 'update', {
+                    'analytics_storage': 'granted',
+                    'ad_storage': 'granted',
+                    'ad_user_data': 'granted',
+                    'ad_personalization': 'granted'
+                  });
+                } else if (p.declined === true || p.consent === 'necessary') {
                   gtag('consent', 'update', {
                     'analytics_storage': 'denied',
                     'ad_storage': 'denied',
@@ -69,7 +92,7 @@ export default function GoogleAnalytics({ gaId, measurementId }: GoogleAnalytics
             });
             gtag('config', 'AW-11081445035');
 
-            // Direct & Clean Lead Conversion Tracking (WhatsApp, Telegram & Email)
+            // Temiz ve Doğrudan İletişim Dönüşüm Takibi (WhatsApp, Telegram & E-posta)
             document.addEventListener('click', function(e) {
               try {
                 var target = e.target && e.target.closest ? e.target.closest('a') : null;
