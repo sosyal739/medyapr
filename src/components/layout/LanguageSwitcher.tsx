@@ -1,8 +1,9 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { Globe } from 'lucide-react';
-import { locales, localeNames, type Locale } from '@/lib/i18n/config';
+import { Check, ChevronDown, Globe } from 'lucide-react';
+import { locales } from '@/lib/i18n/config';
 
 interface LanguageSwitcherProps {
   currentLocale: string;
@@ -19,7 +20,7 @@ const NO_AR_SECTIONS = new Set(['sanatcilar', 'sanatci', 'klip', 'yeni-klipler']
  * Dil değiştirince gidilecek yol. Aynı içeriğin olmadığı yerde (yalnızca bir dilde yayınlanan blog yazısı,
  * Arapçası olmayan bölüm) 404 yerine o dilin blog ana sayfasına / ana sayfasına gidilir.
  */
-function targetPath(pathname: string, from: string, to: Locale, arTwins: Record<string, string>): string {
+function targetPath(pathname: string, from: string, to: string, arTwins: Record<string, string>): string {
   const rest = pathname.split('/').filter(Boolean).slice(1); // [locale, ...rest] -> rest
   if (rest[0] === 'blog' && rest[1]) {
     const slug = decodeURIComponent(rest[1]);
@@ -36,61 +37,104 @@ function targetPath(pathname: string, from: string, to: Locale, arTwins: Record<
   return `/${to}${rest.length ? `/${rest.join('/')}` : ''}`;
 }
 
-export default function LanguageSwitcher({
-  currentLocale,
-  className = '',
-  variant = 'header',
-  arTwins = {},
-}: LanguageSwitcherProps) {
+/** Dillerin kendi alfabesiyle yazılmış adları (menüde her dil kendi adıyla görünür). */
+const LANGUAGE_NAMES: Record<string, string> = {
+  tr: 'Türkçe',
+  en: 'English',
+  ar: 'العربية',
+};
+
+export default function LanguageSwitcher({ currentLocale, className = '', variant = 'header', arTwins = {} }: LanguageSwitcherProps) {
   const pathname = usePathname();
   const router = useRouter();
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement | null>(null);
 
-  const others = locales.filter((l) => l !== currentLocale);
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: MouseEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
 
-  const handleSwitch = (target: Locale) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    // Seçilen dil 1 yıl çerezde saklanır (kök adres için tek yönlendirme).
+  const switchTo = (target: string) => {
+    setOpen(false);
+    if (target === currentLocale) return;
+    // Seçilen dili 1 yıl hatırla
     document.cookie = `NEXT_LOCALE=${target}; path=/; max-age=31536000; SameSite=Lax`;
     router.push(targetPath(pathname, currentLocale, target, arTwins));
   };
 
+  const label = LANGUAGE_NAMES[currentLocale] ?? currentLocale;
+  const ariaLabel = currentLocale === 'ar' ? 'اللغة' : currentLocale === 'tr' ? 'Dil seçimi' : 'Language';
+
+  // Mobil menü: tüm diller alt alta
   if (variant === 'mobile') {
     return (
-      <div className={`flex flex-col gap-2 ${className}`}>
-        {others.map((l) => (
+      <div className={`rounded-xl border border-zinc-700/60 bg-zinc-900/80 p-1.5 ${className}`} role="group" aria-label={ariaLabel}>
+        <div className="flex items-center gap-2 px-3 pb-1 pt-2 text-xs font-semibold text-zinc-400">
+          <Globe className="h-3.5 w-3.5 text-[#FF0033]" />
+          {currentLocale === 'ar' ? 'اللغة' : currentLocale === 'tr' ? 'Dil' : 'Language'}
+        </div>
+        {locales.map((l) => (
           <button
             key={l}
-            onClick={handleSwitch(l)}
-            className="flex items-center justify-between w-full px-4 py-3 rounded-xl text-sm font-semibold text-zinc-200 bg-zinc-900/80 border border-zinc-700/60 hover:bg-zinc-800 transition-all"
-            aria-label={`Switch language to ${localeNames[l]}`}
+            type="button"
+            onClick={() => switchTo(l)}
+            aria-current={l === currentLocale}
             lang={l}
+            className={`flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold transition ${l === currentLocale ? 'bg-white/10 text-white' : 'text-zinc-300 hover:bg-white/5'}`}
           >
-            <span className="flex items-center gap-2.5">
-              <Globe className="h-4 w-4 text-[#FF0033]" />
-              <span>{localeNames[l]}</span>
-            </span>
-            <span className="px-2 py-0.5 rounded-md text-xs font-bold uppercase bg-white/10 text-white">{l}</span>
+            {LANGUAGE_NAMES[l] ?? l}
+            {l === currentLocale && <Check className="h-4 w-4 text-[#FF5E7E]" />}
           </button>
         ))}
       </div>
     );
   }
 
+  // Masaüstü: açılır menü
   return (
-    <div className={`inline-flex items-center gap-1 ${className}`}>
-      {others.map((l, i) => (
-        <button
-          key={l}
-          onClick={handleSwitch(l)}
-          className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-bold text-zinc-300 hover:text-white hover:bg-white/10 transition-all border border-zinc-700/60 hover:border-zinc-500 shadow-xs group"
-          aria-label={`Switch language to ${localeNames[l]}`}
-          title={localeNames[l]}
-          lang={l}
-        >
-          {i === 0 && <Globe className="h-3.5 w-3.5 text-zinc-400 group-hover:text-[#FF0033] transition-colors" />}
-          <span className="uppercase tracking-wider font-extrabold">{l}</span>
-        </button>
-      ))}
+    <div ref={rootRef} className={`relative ${className}`}>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        aria-label={ariaLabel}
+        className="group inline-flex items-center gap-1.5 rounded-xl border border-zinc-700/60 px-2.5 py-1.5 text-xs font-bold text-zinc-300 shadow-xs transition-all hover:border-zinc-500 hover:bg-white/10 hover:text-white"
+      >
+        <Globe className="h-3.5 w-3.5 text-zinc-400 transition-colors group-hover:text-[#FF0033]" />
+        <span lang={currentLocale}>{label}</span>
+        <ChevronDown className={`h-3 w-3 text-zinc-500 transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+      {open && (
+        <ul role="menu" className="absolute right-0 top-full z-50 mt-1.5 min-w-[9rem] overflow-hidden rounded-xl border border-white/15 bg-zinc-950 py-1 shadow-2xl">
+          {locales.map((l) => (
+            <li key={l} role="none">
+              <button
+                type="button"
+                role="menuitem"
+                lang={l}
+                onClick={() => switchTo(l)}
+                className={`flex w-full items-center justify-between gap-3 px-3.5 py-2 text-left text-sm transition hover:bg-white/10 ${l === currentLocale ? 'font-bold text-white' : 'text-zinc-300'}`}
+              >
+                {LANGUAGE_NAMES[l] ?? l}
+                {l === currentLocale && <Check className="h-4 w-4 text-[#FF5E7E]" />}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

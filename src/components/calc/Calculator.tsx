@@ -2,6 +2,9 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { trackEvent } from '@/lib/analytics';
+import { countryName, DEFAULT_COUNTRY } from '@/lib/countries';
+import CountryPicker from './CountryPicker';
+import Flag from '@/components/common/Flag';
 import Link from 'next/link';
 import { ArrowRight, Check, Mail, MessageCircle, Search, Send, ShieldCheck, Sparkles, Tag, ThumbsUp } from 'lucide-react';
 import {
@@ -55,10 +58,11 @@ function useAnimatedNumber(target: number, ms = 350) {
 export default function Calculator({ locale, t }: { locale: string; t: AppStrings['calc'] }) {
   const isTr = locale === 'tr';
   const isAr = locale === 'ar';
-  const [views, setViews] = useState(25_000);
+  const [views, setViews] = useState(1_000); // açılışta en düşük fiyat görünsün (1K = ₺100)
   const [format] = useState<Format>('instream');
   const [pkg, setPkg] = useState<Package>('views');
-  const [region, setRegion] = useState<Region>(isTr ? 'tr' : isAr ? 'global' : 'premium');
+  const [region, setRegion] = useState<Region>('global');
+  const [country, setCountry] = useState(DEFAULT_COUNTRY(locale));
   const [currency, setCurrency] = useState<Currency>(isTr ? 'TRY' : 'USD');
   const [videoUrl, setVideoUrl] = useState('');
   const usedTracked = useRef(false);
@@ -74,14 +78,29 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
     }
   }, [views, pkg, region]);
 
-  const q = useMemo(() => quote({ views, format, pkg, region, currency }), [views, format, pkg, region, currency]);
+  const q = useMemo(() => quote({ views, format, pkg, region, currency, country }), [views, format, pkg, region, currency, country]);
+  const regionLabel = region === 'premium' ? `${countryName(country, locale)}` : t.regions[region].name;
   const animTotal = useAnimatedNumber(q.total);
   const nf = new Intl.NumberFormat(isAr ? 'ar-u-nu-latn-ca-gregory' : isTr ? 'tr-TR' : 'en-US');
 
   const videoParam = videoUrl.trim() ? `&video=${encodeURIComponent(videoUrl.trim())}` : '';
-  const href = `/${locale}/order?views=${q.views}&format=${format}&pkg=${pkg}&region=${region}&currency=${currency}${videoParam}`;
+  const href = `/${locale}/order?views=${q.views}&format=${format}&pkg=${pkg}&region=${region}&currency=${currency}${region === 'premium' ? `&country=${country}` : ''}${videoParam}`;
   const mailOrderHref = `${href}&channel=email`;
   const hasValidVideo = !!parseYouTubeId(videoUrl);
+  const [vInfo, setVInfo] = useState<{ title: string; channel: string; thumbnail: string; views?: number; likes?: number; comments?: number } | null>(null);
+  const [vLoading, setVLoading] = useState(false);
+  useEffect(() => {
+    if (!hasValidVideo) { setVInfo(null); setVLoading(false); return; }
+    const ctl = new AbortController();
+    setVLoading(true);
+    const tm = setTimeout(() => {
+      fetch('/api/video?url=' + encodeURIComponent(videoUrl.trim()), { signal: ctl.signal })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((d) => { setVInfo(d && d.title ? d : null); setVLoading(false); })
+        .catch(() => {});
+    }, 350);
+    return () => { clearTimeout(tm); ctl.abort(); };
+  }, [videoUrl, hasValidVideo]);
 
   // wa.me yönlendirmesi emojileri bozduğu için ▸ işareti ve *kalın* etiket kullanılır
   const pkgMessage = [
@@ -90,7 +109,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
       : 'Hello, I am planning a PR / ad campaign for my YouTube video. Could you review it and send me a quote?',
     videoUrl.trim() ? `▸ *${isTr ? 'Video linki' : 'Video link'}:* ${videoUrl.trim()}` : '',
     [
-      `▸ *${isTr ? 'Düşündüğüm paket' : 'Package I have in mind'}:* ${nf.format(q.views)} ${isTr ? 'İzlenme' : 'Views'} - ${t.packages[pkg].name} - ${t.regions[region].name}`,
+      `▸ *${isTr ? 'Düşündüğüm paket' : 'Package I have in mind'}:* ${nf.format(q.views)} ${isTr ? 'İzlenme' : 'Views'} - ${t.packages[pkg].name} - ${regionLabel}`,
       `▸ *${isTr ? 'Tahmini teklif' : 'Estimated quote'}:* ${formatMoney(q.total, currency, locale)} (${isTr ? 'video uzunluğuna göre değişebilir' : 'may vary by video length'})`,
     ].join('\n'),
   ]
@@ -186,7 +205,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
               </div>
               {region === 'global' && (
                 <span className="text-[11px] font-black text-amber-300 bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 rounded-full">
-                  {isAr ? 'ابتداءً من $3.50 لكل 1K مع خصم تصاعدي 🔥' : isTr ? '1K: ₺100 Başlayan Kademeli Tarife 🔥' : 'From $3.50/1K Progressive Discount 🔥'}
+                  {isAr ? 'ابتداءً من 2.70$ لكل 1K مع خصم تصاعدي 🔥' : isTr ? '1K: ₺100 Başlayan Kademeli Tarife 🔥' : 'From $2.70/1K Progressive Discount 🔥'}
                 </span>
               )}
             </div>
@@ -208,8 +227,8 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                     }`}
                   >
                     <div className="flex items-center justify-between mb-1.5">
-                      <span className="text-lg">
-                        {r === 'tr' ? '🇹🇷' : r === 'global' ? '🌍' : '💎'}
+                      <span className="inline-flex h-6 items-center text-lg">
+                        {r === 'tr' ? <Flag code="TR" /> : r === 'global' ? '🌍' : on ? <Flag code={country} /> : '🗺️'}
                       </span>
                       {tag && (
                         <span
@@ -231,6 +250,9 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                 );
               })}
             </div>
+            {region === 'premium' && (
+              <CountryPicker locale={locale} country={country} onCountry={setCountry} />
+            )}
           </div>
 
           {/* Adım 3: Paket Türü */}
@@ -431,6 +453,28 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                   className="w-full rounded-xl border border-white/15 bg-black/30 py-2.5 pl-10 pr-3 text-xs text-white placeholder-zinc-500 outline-none transition focus:border-[#FF0033] focus:ring-2 focus:ring-[#FF0033]/20"
                 />
               </div>
+              {hasValidVideo && (vLoading || vInfo) && (
+                <div className="mt-2 flex gap-3 rounded-xl border border-white/10 bg-black/30 p-2">
+                  {vInfo ? (
+                    <>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={vInfo.thumbnail} alt="" className="h-14 w-24 shrink-0 rounded-lg object-cover" />
+                      <div className="min-w-0 text-xs">
+                        <p className="line-clamp-2 font-semibold text-white">{vInfo.title}</p>
+                        <p className="truncate text-zinc-400">{vInfo.channel}</p>
+                        {typeof vInfo.views === 'number' && (
+                          <p className="mt-0.5 text-[11px] text-zinc-300">
+                            {nf.format(vInfo.views)} {isAr ? 'مشاهدات' : isTr ? 'izlenme' : 'views'}
+                            {typeof vInfo.likes === 'number' ? ' · ' + nf.format(vInfo.likes) + (isAr ? ' إعجاب' : isTr ? ' beğeni' : ' likes') : ''}
+                          </p>
+                        )}
+                      </div>
+                    </>
+                  ) : (
+                    <p className="p-1 text-xs text-zinc-400">{isAr ? 'جارٍ البحث عن الفيديو…' : isTr ? 'Video bulunuyor…' : 'Finding video…'}</p>
+                  )}
+                </div>
+              )}
               {hasValidVideo && (
                 <p className="mt-1 text-[11px] font-semibold text-emerald-400">
                   ✓ {isAr ? 'تمت إضافة رابط الفيديو إلى الباقة' : isTr ? 'Video linki pakete eklendi' : 'Video link attached to package'}

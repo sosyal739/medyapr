@@ -35,6 +35,9 @@ import {
 } from '@/lib/pricing';
 import { consultHref, mailtoHref, telegramHref } from '@/lib/contact';
 import { trackEvent } from '@/lib/analytics';
+import { countryName, DEFAULT_COUNTRY } from '@/lib/countries';
+import CountryPicker from '@/components/calc/CountryPicker';
+import Flag from '@/components/common/Flag';
 import type { AppStrings } from '@/lib/i18n/app-strings';
 
 type Video = {
@@ -61,6 +64,7 @@ export type WizardInitial = {
   currency: Currency;
   videoUrl?: string;
   channel?: AnalysisChannel;
+  country?: string;
 };
 
 const PRESETS = [1_000, 5_000, 10_000, 25_000, 50_000, 100_000, 250_000, 500_000, 1_000_000];
@@ -83,6 +87,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
   );
   const [views, setViews] = useState(initial.views);
   const [region, setRegion] = useState<Region>(initial.region);
+  const [country, setCountry] = useState(initial.country || DEFAULT_COUNTRY(locale));
   const [pkg, setPkg] = useState<Package>(initial.pkg);
   const [currency, setCurrency] = useState<Currency>(initial.currency);
   const [channel, setChannel] = useState<AnalysisChannel>(initial.channel ?? 'whatsapp');
@@ -101,7 +106,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
   const abort = useRef<AbortController | null>(null);
   const lastId = useRef<string | null>(null);
 
-  const q = useMemo(() => quote({ views, format: initial.format, pkg, region, currency }), [views, initial.format, pkg, region, currency]);
+  const q = useMemo(() => quote({ views, format: initial.format, pkg, region, currency, country }), [views, initial.format, pkg, region, currency, country]);
 
   async function runLookup(raw: string) {
     const id = parseYouTubeId(raw);
@@ -150,7 +155,10 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 
   const pkgName = c.packages[pkg].name;
-  const regionName = c.regions[region].name;
+  const regionName =
+    region === 'premium'
+      ? `${countryName(country, locale)}`
+      : c.regions[region].name;
   const totalText = formatMoney(q.total, currency, locale);
   const durText = video?.durationSec ? duration(video.durationSec) : '';
 
@@ -241,6 +249,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             contact: '',
             note,
             locale,
+            country: region === 'premium' ? country : undefined,
           }),
         });
         const data = await res.json().catch(() => ({}));
@@ -288,6 +297,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           contact,
           note,
           locale,
+          country: region === 'premium' ? country : undefined,
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -328,9 +338,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
   if (done) {
     const msg = buildPackageMessage(done.id);
     const richMsg = buildPackageMessage(done.id, true); // e-posta gövdesinde emoji sorun çıkarmaz
-    const mailSubject = isAr
-      ? `تحليل فيديو يوتيوب وطلب عرض سعر (${done.id}) - ${video?.title || url}`
-      : isTr
+    const mailSubject = isTr
       ? `YouTube Video Analiz & Teklif Talebi (${done.id}) - ${video?.title || url}`
       : `YouTube Video Analysis & Quote Request (${done.id}) - ${video?.title || url}`;
 
@@ -574,9 +582,12 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           <h4 className="mb-2 mt-6 text-sm font-bold text-white">{c.region}</h4>
           <div className="grid gap-2 sm:grid-cols-3">
             {REGIONS.map((r) => (
-              <Choice key={r} on={region === r} onClick={() => setRegion(r)} title={`${r === 'tr' ? '🇹🇷' : r === 'global' ? '🌍' : '💎'} ${c.regions[r].name}`} desc={c.regions[r].desc} />
+              <Choice key={r} on={region === r} onClick={() => setRegion(r)} title={<span className="inline-flex items-center gap-2">{r === 'tr' ? <Flag code="TR" /> : r === 'global' ? '🌍' : region === 'premium' ? <Flag code={country} /> : '🗺️'}{c.regions[r].name}</span>} desc={c.regions[r].desc} />
             ))}
           </div>
+          {region === 'premium' && (
+            <CountryPicker locale={locale} country={country} onCountry={setCountry} />
+          )}
 
           <h4 className="mb-2 mt-6 text-sm font-bold text-white">{c.pkg}</h4>
           <div className="grid gap-2 sm:grid-cols-2">
@@ -903,7 +914,7 @@ function Step({ n, title, dim, children }: { n: number; title: string; dim?: boo
   );
 }
 
-function Choice({ on, onClick, title, desc, tag }: { on: boolean; onClick: () => void; title: string; desc: string; tag?: string }) {
+function Choice({ on, onClick, title, desc, tag }: { on: boolean; onClick: () => void; title: React.ReactNode; desc: string; tag?: string }) {
   return (
     <button
       type="button"

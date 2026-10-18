@@ -26,17 +26,17 @@ const REGION_OPTIONS = [
   { id: 'gb', labelTr: '🇬🇧 İngiltere (UK)', labelEn: '🇬🇧 UK Charts', labelAr: '🇬🇧 قوائم بريطانيا', regionParam: 'premium', currencyTr: 'USD', currencyEn: 'USD' , currencyAr: 'USD'},
   { id: 'de', labelTr: '🇩🇪 Almanya (DE)', labelEn: '🇩🇪 Germany (DE)', labelAr: '🇩🇪 ألمانيا (DE)', regionParam: 'premium', currencyTr: 'USD', currencyEn: 'USD' , currencyAr: 'USD'},
   { id: 'tr', labelTr: '🇹🇷 Türkiye (TR)', labelEn: '🇹🇷 Turkey (TR)', labelAr: '🇹🇷 تركيا (TR)', regionParam: 'tr', currencyTr: 'TRY', currencyEn: 'TRY' , currencyAr: 'TRY'},
-  { id: 'global', labelTr: '🌍 Küresel Mix', labelEn: '🌍 Global Mix', labelAr: '🌍 عالمي مختلط', regionParam: 'global', currencyTr: 'TRY', currencyEn: 'USD' , currencyAr: 'USD'},
+  { id: 'global', labelTr: '🌍 Global', labelEn: '🌍 Global', labelAr: '🌍 عالمي', regionParam: 'global', currencyTr: 'TRY', currencyEn: 'USD' , currencyAr: 'USD'},
 ] as const;
 
 /**
- * Arapça sitenin pazarları. Fiyat motorunda Arap ülkeleri için ayrı kademe yoktur; hepsi karma global
- * kademesiyle tahmin edilir, nihai teklif video incelendikten sonra verilir.
+ * Arapça sitenin pazarları. Arap ülkeleri Avrupa/ABD/Kanada dışında kaldığı için fiyat motorunda ülke koduyla
+ * (SA/EG/MA) Türkiye kademesi uygulanır; "Küresel Mix" ise karma global tablodur. Nihai teklif video incelendikten sonra verilir.
  */
 const AR_REGION_OPTIONS = [
-  { id: 'sa', labelTr: '🇸🇦 Suudi Arabistan ve Körfez', labelEn: '🇸🇦 Saudi Arabia & Gulf', labelAr: '🇸🇦 السعودية والخليج', regionParam: 'global', currencyTr: 'USD', currencyEn: 'USD', currencyAr: 'USD' },
-  { id: 'eg', labelTr: '🇪🇬 Mısır', labelEn: '🇪🇬 Egypt', labelAr: '🇪🇬 مصر', regionParam: 'global', currencyTr: 'USD', currencyEn: 'USD', currencyAr: 'USD' },
-  { id: 'ma', labelTr: '🇲🇦 Fas ve Mağrip', labelEn: '🇲🇦 Morocco & Maghreb', labelAr: '🇲🇦 المغرب والمغرب العربي', regionParam: 'global', currencyTr: 'USD', currencyEn: 'USD', currencyAr: 'USD' },
+  { id: 'sa', labelTr: '🇸🇦 Suudi Arabistan ve Körfez', labelEn: '🇸🇦 Saudi Arabia & Gulf', labelAr: '🇸🇦 السعودية والخليج', regionParam: 'premium', currencyTr: 'USD', currencyEn: 'USD', currencyAr: 'USD' },
+  { id: 'eg', labelTr: '🇪🇬 Mısır', labelEn: '🇪🇬 Egypt', labelAr: '🇪🇬 مصر', regionParam: 'premium', currencyTr: 'USD', currencyEn: 'USD', currencyAr: 'USD' },
+  { id: 'ma', labelTr: '🇲🇦 Fas ve Mağrip', labelEn: '🇲🇦 Morocco & Maghreb', labelAr: '🇲🇦 المغرب والمغرب العربي', regionParam: 'premium', currencyTr: 'USD', currencyEn: 'USD', currencyAr: 'USD' },
   { id: 'global', labelTr: '🌍 Küresel Mix', labelEn: '🌍 Global Mix', labelAr: '🌍 عالمي مختلط', regionParam: 'global', currencyTr: 'USD', currencyEn: 'USD', currencyAr: 'USD' },
 ] as const;
 
@@ -105,11 +105,11 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
   const currency = isTr ? (activeRegion.id === 'tr' || activeRegion.id === 'global' ? 'TRY' : 'USD') : 'USD';
   // Fiyatlar her zaman sipariş sayfasıyla aynı motordan hesaplanır.
   const priceFor = (views: number) =>
-    formatMoney(quote({ views, region: activeRegion.regionParam as Region, currency }).total, currency, locale);
+    formatMoney(quote({ views, region: activeRegion.regionParam as Region, currency, country: activeRegion.id.toUpperCase() }).total, currency, locale);
   const priceDisplay = priceFor(activeTier.views);
 
   // Pre-fill direct order link
-  const orderHref = `/${locale}/order?views=${activeTier.views}&region=${activeRegion.regionParam}&pkg=${activeTier.pkgParam}&currency=${currency}`;
+  const orderHref = `/${locale}/order?views=${activeTier.views}&region=${activeRegion.regionParam}${activeRegion.regionParam === 'premium' ? `&country=${activeRegion.id.toUpperCase()}` : ''}&pkg=${activeTier.pkgParam}&currency=${currency}`;
 
   // Pre-fill WhatsApp message
   const waMessage = isTr

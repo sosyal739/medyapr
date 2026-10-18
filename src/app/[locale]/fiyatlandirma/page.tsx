@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: isAr
       ? 'حاسبة أسعار الترويج لفيديو كليب على يوتيوب ومشاهدات Google Ads لعام 2026. أسعار متدرجة وشفافة من 1K إلى 1M مشاهدة حقيقية.'
       : isTr
-      ? '2026 YouTube klip tanıtımı, video reklam verme ve 1.000 izlenme fiyatları. Karma Global 1K: 100 TL’den başlayan resmi Google Ads paketleri ve canlı hesaplama.'
+      ? '2026 YouTube klip tanıtımı, video reklam verme ve 1.000 izlenme fiyatları. Global 1K: 100 TL’den başlayan resmi Google Ads paketleri ve canlı hesaplama.'
       : '2026 YouTube music video promotion and Google Ads view pricing calculator. Transparent tiered rates from 1K to 1M real views.',
     alternates: getPageAlternates(locale, '/fiyatlandirma'),
   };
@@ -61,7 +61,7 @@ export default async function PricingPage({ params }: Props) {
         {
           question: 'YouTube 1.000 izlenme reklam ücreti 2026 yılında ne kadar?',
           answer:
-            'MedyaPR resmi Google Ads video reklam paketlerinde 1.000 izlenme (1K) maliyeti Karma Global hedeflemede 100 TL (yüksek hacimli paketlerde 60 TL’ye kadar düşer), Türkiye hedefli kampanyalarda ise tahmini olarak 125 TL’den başlar, büyük paketlerde 1K başına yaklaşık 90 TL’ye kadar düşer (100K = 8.999 TL). Fiyatlar tahminidir; videonun uzunluğuna, hedef ülkeye ve reklam türüne göre değişebilir.',
+            'MedyaPR resmi Google Ads video reklam paketlerinde 1.000 izlenme (1K) maliyeti Global hedeflemede 100 TL (yüksek hacimli paketlerde 60 TL’ye kadar düşer), Türkiye hedefli kampanyalarda ise tahmini olarak 125 TL’den başlar, büyük paketlerde 1K başına yaklaşık 90 TL’ye kadar düşer (100K = 8.999 TL). Fiyatlar tahminidir; videonun uzunluğuna, hedef ülkeye ve reklam türüne göre değişebilir.',
         },
         {
           question: 'YouTube klip reklamı verirken ödemeyi nasıl yapıyorum?',
@@ -83,7 +83,7 @@ export default async function PricingPage({ params }: Props) {
         {
           question: 'How much does 1,000 YouTube ad views cost in 2026?',
           answer:
-            'With MedyaPR official Google Ads campaigns, 1,000 real views start from $3 (100 TRY) on Blended Global packages and $4–$6 on targeted country packages, with automatic volume discounts up to 40% on larger tiers.',
+            'With MedyaPR official Google Ads campaigns, 1,000 real views start from $3 (100 TRY) on Global packages and $4–$6 on targeted country packages, with automatic volume discounts up to 40% on larger tiers.',
         },
         {
           question: 'How do payments work?',
@@ -190,10 +190,10 @@ export default async function PricingPage({ params }: Props) {
 
           <blockquote className="rounded-2xl border-l-4 border-emerald-500 bg-white/[0.03] p-5 text-sm sm:text-base text-zinc-200 italic">
             {isAr
-              ? '«حقيقة سريعة عن الأسعار: تبدأ 1,000 مشاهدة حقيقية عبر Google Ads على يوتيوب من 100 TRY ($3) في الباقات العالمية المختلطة ومن 125 TRY ($3.4) في باقات الاستهداف لتركيا، مع خصومات على الباقات الأكبر. الأسعار تقديرية وتختلف حسب مدة الفيديو.»'
+              ? '“معلومة سريعة عن الأسعار: تبدأ كل 1,000 مشاهدة حقيقية على يوتيوب عبر Google Ads من 100 ليرة تركية (3$) في الباقات العالمية ومن 125 ليرة تركية (3.4$) في الباقات الموجّهة إلى تركيا، مع خصومات على الباقات الأكبر. الأسعار تقديرية وتختلف حسب مدة الفيديو.”'
               : isTr
-              ? '“Özet Fiyat Bilgisi: MedyaPR’de 1.000 gerçek Google Ads YouTube izlenmesi Karma Global paketlerde 100 TL’den (büyük paketlerde 1K: 60 TL), Türkiye hedefli kampanyalarda ise tahmini 125 TL’den (100K pakette 1K: yaklaşık 90 TL) başlar. Şifre istenmez; fiyatlar tahminidir ve video süresine göre değişebilir.”'
-              : '“Quick Pricing Fact: 1,000 authentic Google Ads YouTube views start at 100 TRY ($3) on Blended Global plans and 125 TRY ($3.4) on Turkey-targeted plans, with volume discounts on larger packs. Prices are estimates and vary by video length.”'}
+              ? '“Özet Fiyat Bilgisi: MedyaPR’de 1.000 gerçek Google Ads YouTube izlenmesi Global paketlerde 100 TL’den (büyük paketlerde 1K: 60 TL), Türkiye hedefli kampanyalarda ise tahmini 125 TL’den (100K pakette 1K: yaklaşık 90 TL) başlar. Şifre istenmez; fiyatlar tahminidir ve video süresine göre değişebilir.”'
+              : '“Quick Pricing Fact: 1,000 authentic Google Ads YouTube views start at 100 TRY ($3) on Global plans and 125 TRY ($3.4) on Turkey-targeted plans, with volume discounts on larger packs. Prices are estimates and vary by video length.”'}
           </blockquote>
 
           <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02]">
@@ -201,16 +201,18 @@ export default async function PricingPage({ params }: Props) {
               <thead>
                 <tr className="border-b border-white/10 bg-white/[0.04] text-zinc-300 uppercase font-extrabold">
                   <th className="py-3.5 px-4">{isAr ? 'المشاهدات المستهدفة (السعر التقديري)' : isTr ? 'Hedef İzlenme (tahmini fiyat)' : 'Target Views (estimated price)'}</th>
-                  <th className="py-3.5 px-4">{isAr ? 'عالمي مختلط' : isTr ? 'Karma Global (🔥 İndirimli)' : 'Blended Global'}</th>
+                  <th className="py-3.5 px-4">{isAr ? 'عالمي' : isTr ? 'Global (🔥 İndirimli)' : 'Global'}</th>
                   <th className="py-3.5 px-4">{isAr ? 'استهداف تركيا' : isTr ? 'Türkiye Hedefli' : 'Turkey Targeted'}</th>
-                  <th className="py-3.5 px-4">{isAr ? 'الدول المميزة (Tier-1) (DE / EU / US)' : isTr ? 'Almanya / Avrupa / ABD' : 'Tier-1 (DE / EU / US)'}</th>
+                  <th className="py-3.5 px-4">{isAr ? 'أوروبا / كندا' : isTr ? 'Avrupa / Kanada' : 'Europe / Canada'}</th>
+                  <th className="py-3.5 px-4">{isAr ? 'الولايات المتحدة' : isTr ? 'ABD' : 'USA'}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10 text-zinc-200">
                 {PRICE_ROWS.map((v) => {
                   const g = quote({ views: v, region: 'global', currency: 'TRY' });
                   const t = quote({ views: v, region: 'tr', currency: 'TRY' });
-                  const p = quote({ views: v, region: 'premium', currency: 'TRY' });
+                  const p = quote({ views: v, region: 'premium', country: 'DE', currency: 'TRY' });
+                  const u = quote({ views: v, region: 'premium', country: 'US', currency: 'TRY' });
                   return (
                     <tr key={v}>
                       <td className="py-3.5 px-4 font-bold text-white">
@@ -219,12 +221,20 @@ export default async function PricingPage({ params }: Props) {
                       <td className="py-3.5 px-4 text-amber-300 font-bold">{formatMoney(g.total, 'TRY', locale)}</td>
                       <td className="py-3.5 px-4">{formatMoney(t.total, 'TRY', locale)}</td>
                       <td className="py-3.5 px-4">{formatMoney(p.total, 'TRY', locale)}</td>
+                      <td className="py-3.5 px-4">{formatMoney(u.total, 'TRY', locale)}</td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
           </div>
+          <p className="text-xs text-zinc-400">
+            {isAr
+              ? 'الأسعار تقديرية. الدول خارج أوروبا والولايات المتحدة وكندا (ومنها الدول العربية وأذربيجان والبلقان وآسيا وغيرها) تُسعَّر مثل تركيا؛ اختر دولتك من «اختر دولة» في الحاسبة.'
+              : isTr
+              ? 'Fiyatlar tahminidir. Avrupa, ABD ve Kanada dışındaki ülkeler (Arap ülkeleri, Azerbaycan, Balkanlar, Asya vb.) Türkiye fiyatından hesaplanır; ülkeyi hesaplayıcıda “Ülke seç” ile seçebilirsiniz.'
+              : 'Prices are estimates. Countries outside Europe, the US and Canada (Arab countries, Azerbaijan, the Balkans, Asia, etc.) are priced like Turkey; pick the country under “Pick a country” in the calculator.'}
+          </p>
 
           {/* SSS / FAQ Accordion */}
           <div className="space-y-4 pt-4">

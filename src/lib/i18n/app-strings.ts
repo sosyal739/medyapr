@@ -34,9 +34,9 @@ const tr = {
       discovery: { name: 'Keşfet / Arama', desc: 'YouTube aramasında ve önerilenlerde görünürlük' },
     },
     regions: {
-      tr: { name: 'Türkiye', desc: 'Türkçe hedef kitle', tag: 'Standart' },
-      global: { name: 'Karma Global', desc: '1K: ₺100 • Kademeli İndirimli', tag: '1K: ₺100 🔥' },
-      premium: { name: 'Premium Ülkeler', desc: 'ABD, UK, Almanya vb.', tag: 'Tier-1 Kitle' },
+      tr: { name: 'Türkiye', desc: 'Sadece Türkçe konuşan kitle', tag: 'Standart' },
+      global: { name: 'Global', desc: 'Tüm ülkeler karışık', tag: '1K: ₺100 🔥' },
+      premium: { name: 'Ülke seç', desc: 'Listeden ülkenizi seçin', tag: '' },
     },
     total: 'Tahmini Teklif Tutarı',
     discount: 'Paket İndirimi',
@@ -150,9 +150,9 @@ const en: Strings = {
       discovery: { name: 'Discovery / In-Feed', desc: 'Visibility in YouTube search and recommendations' },
     },
     regions: {
-      tr: { name: 'Turkey', desc: 'Turkish audience targeting', tag: 'Standard' },
-      global: { name: 'Mixed Global', desc: 'From $3.50/1K • Progressive Discount', tag: 'Global Mix 🔥' },
-      premium: { name: 'Premium Countries', desc: 'US, UK, Germany, etc.', tag: 'Tier-1 Markets' },
+      tr: { name: 'Turkey', desc: 'Turkish-speaking audience only', tag: 'Standard' },
+      global: { name: 'Global', desc: 'All countries mixed', tag: 'Best price 🔥' },
+      premium: { name: 'Pick a country', desc: 'Choose your country from the list', tag: '' },
     },
     total: 'Estimated Quote',
     discount: 'Package Discount',
@@ -276,18 +276,18 @@ const ar: Strings = {
     "regions": {
       "tr": {
         "name": "تركيا",
-        "desc": "استهداف الجمهور التركي",
+        "desc": "للجمهور الناطق بالتركية فقط",
         "tag": "قياسي"
       },
       "global": {
-        "name": "عالمي مختلط",
-        "desc": "ابتداءً من $3.50 لكل 1K • خصم تدريجي",
-        "tag": "عالمي مختلط 🔥"
+        "name": "عالمي",
+        "desc": "كل الدول مجتمعة",
+        "tag": "أفضل سعر 🔥"
       },
       "premium": {
-        "name": "الدول المميزة",
-        "desc": "الولايات المتحدة وبريطانيا وألمانيا وغيرها",
-        "tag": "أسواق Tier-1"
+        "name": "اختر دولة",
+        "desc": "اختر دولتك من القائمة",
+        "tag": ""
       }
     },
     "total": "عرض السعر التقديري",

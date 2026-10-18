@@ -252,8 +252,8 @@ export default async function HomePage({ params }: Props) {
                   </td>
                 </tr>
                 <tr>
-                  <td className="py-3.5 px-4 font-bold text-white">{isAr ? 'مشاهدات يوتيوب عالمية مختلطة' : isTr ? 'Karma Global YouTube İzlenme Paketi' : 'Blended Global YouTube Views'}</td>
-                  <td className="py-3.5 px-4">{isAr ? 'شبكة Google Ads العالمية للفيديو' : 'Google Ads Global Video Ağı'}</td>
+                  <td className="py-3.5 px-4 font-bold text-white">{isAr ? 'مشاهدات يوتيوب عالمية' : isTr ? 'Global YouTube İzlenme Paketi' : 'Global YouTube Views'}</td>
+                  <td className="py-3.5 px-4">Google Ads Global Video Ağı</td>
                   <td className="py-3.5 px-4 text-amber-300 font-bold">{isAr ? 'خصم للكميات الكبيرة' : isTr ? '1.000 İzlenme: ₺100 🔥' : 'High-Volume Discounted'}</td>
                   <td className="py-3.5 px-4">{isAr ? 'تحليل أولًا ثم عرض سعر' : isTr ? 'Önce analiz, sonra teklif' : 'Review first, then quote'}</td>
                   <td className="py-3.5 px-4">

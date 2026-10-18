@@ -3,9 +3,15 @@
  * bu dosyayı kullanır. Fiyatı istemciden ASLA kabul etme; sunucu yeniden hesaplar.
  */
 
+import { isHighPriceCountry, isUsCountry } from './countries';
+
 export const FORMATS = ['instream', 'shorts', 'discovery'] as const;
 export type Format = (typeof FORMATS)[number];
 
+/**
+ * Hedef bölge. 'premium' anahtarı geriye dönük uyumluluk için korunur ve "Diğer ülkeler" anlamına gelir:
+ * seçilen ülke Avrupa/ABD/Kanada ise yüksek tablo, değilse Türkiye tablosu uygulanır (bkz. src/lib/countries.ts).
+ */
 export const REGIONS = ['tr', 'global', 'premium'] as const;
 export type Region = (typeof REGIONS)[number];
 
@@ -48,19 +54,32 @@ export const TR_PRICE_TIERS: readonly [number, number][] = [
 ];
 
 /**
- * Premium ülkeler (ABD, İngiltere, Almanya vb.) fiyat tablosu (TL). Türkiye fiyatı düştüğünde
- * değişmemesi için ayrı tutulur; eski Türkiye tablosunun 2 katıdır.
+ * Avrupa (AB + EFTA + İngiltere) ve Kanada fiyat tablosu (TL). 1K = 350 TL (19 Ekim 2026'da 500'den indirildi;
+ * tüm kademeler aynı oranla (x0,70) güncellendi). Anahtar adı eski sürümden kalma (PREMIUM).
  */
 export const PREMIUM_PRICE_TIERS: readonly [number, number][] = [
-  [1_000, 500],
-  [5_000, 2_400],
-  [10_000, 4_000],
-  [25_000, 8_200],
-  [50_000, 15_000],
-  [100_000, 24_000],
-  [250_000, 52_000],
-  [500_000, 100_000],
-  [1_000_000, 180_000],
+  [1_000, 350],
+  [5_000, 1_680],
+  [10_000, 2_800],
+  [25_000, 5_740],
+  [50_000, 10_500],
+  [100_000, 16_800],
+  [250_000, 36_400],
+  [500_000, 70_000],
+  [1_000_000, 126_000],
+];
+
+/** ABD fiyat tablosu (TL). 1K = 450 TL; kademeler eski tablonun x0,90'ıdır. */
+export const US_PRICE_TIERS: readonly [number, number][] = [
+  [1_000, 450],
+  [5_000, 2_160],
+  [10_000, 3_600],
+  [25_000, 7_380],
+  [50_000, 13_500],
+  [100_000, 21_600],
+  [250_000, 46_800],
+  [500_000, 90_000],
+  [1_000_000, 162_000],
 ];
 
 /**
@@ -125,13 +144,14 @@ export function interpolateTiers(v: number, tiers: readonly [number, number][]):
   return tiers[0][1];
 }
 
-export function getPriceTry(views: number, region: Region): number {
+export function getPriceTry(views: number, region: Region, country?: string): number {
   const v = clampViews(views);
   if (region === 'global') {
     return interpolateTiers(v, GLOBAL_PRICE_TIERS);
   }
   if (region === 'premium') {
-    return interpolateTiers(v, PREMIUM_PRICE_TIERS);
+    if (isUsCountry(country)) return interpolateTiers(v, US_PRICE_TIERS);
+    return interpolateTiers(v, isHighPriceCountry(country) ? PREMIUM_PRICE_TIERS : TR_PRICE_TIERS);
   }
   return interpolateTiers(v, TR_PRICE_TIERS);
 }
@@ -146,19 +166,24 @@ export function quote(input: {
   pkg?: Package;
   region: Region;
   currency: Currency;
+  /** Yalnızca region === 'premium' (Diğer ülkeler) için anlamlı. */
+  country?: string;
 }): Quote {
   const views = clampViews(input.views);
   const format = input.format || 'instream';
   const pkg = input.pkg || 'views';
   const pkgFactor = pkg === 'engagement' ? 1 + ENGAGEMENT_UPLIFT : 1;
   const { region, currency } = input;
+  const country = region === 'premium' ? (input.country || 'US').toUpperCase() : undefined;
+  const high = region === 'premium' && isHighPriceCountry(country);
+  const us = region === 'premium' && isUsCountry(country);
 
   // 1.000 izlenme baz tavan liste fiyatı
-  const baseRatePerKTry = region === 'global' ? 100 : region === 'premium' ? 500 : 125;
+  const baseRatePerKTry = region === 'global' ? 100 : us ? 450 : high ? 350 : 125;
   const subtotalTry = (views / 1000) * baseRatePerKTry * pkgFactor;
 
   // Kademeli paket fiyatı (hacim arttıkça birim maliyet düşer)
-  const totalTry = Math.round(getPriceTry(views, region) * pkgFactor);
+  const totalTry = Math.round(getPriceTry(views, region, country) * pkgFactor);
 
   // Hacim indirimi
   const discountTry = Math.max(0, subtotalTry - totalTry);
@@ -196,7 +221,7 @@ export function quote(input: {
 
 export function formatMoney(amount: number, currency: Currency, locale: string): string {
   // Arapçada da Latin rakam ve "$221" biçimi kullanılır (ar yerel ayarı sağdan sola metinde "$US 221" gibi bozuk görünür).
-  return new Intl.NumberFormat(locale === 'tr' ? 'tr-TR' : 'en-US', {
+  return new Intl.NumberFormat(locale === 'ar' ? 'ar-u-nu-latn-ca-gregory' : locale === 'tr' ? 'tr-TR' : 'en-US', {
     style: 'currency',
     currency,
     maximumFractionDigits: amount >= 100 ? 0 : 2,

@@ -19,6 +19,7 @@ import {
   Search,
 } from 'lucide-react';
 import { getAppStrings } from '@/lib/i18n/app-strings';
+import { parseYouTubeId } from '@/lib/pricing';
 import { consultHref } from '@/lib/contact';
 
 interface HeroSectionProps {
@@ -33,6 +34,8 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
   const isAr = locale === 'ar';
   // Video ve Oynatıcı Ref & Durumları
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const heroFormRef = useRef<HTMLFormElement | null>(null);
+  const [analyzing, setAnalyzing] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(50.8); // Video & Ses süresi ~50.8 sn
@@ -207,7 +210,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
           </p>
 
           {/* Birincil eylem: link yapıştır → sipariş sihirbazı (JS olmadan da çalışan düz form) */}
-          <form action={`/${locale}/order`} method="get" className="rounded-3xl border border-white/15 bg-white/[0.06] p-2 shadow-2xl shadow-black/30 backdrop-blur-md sm:flex sm:items-center sm:gap-2">
+          <form ref={heroFormRef} action={`/${locale}/order`} method="get" className="rounded-3xl border border-white/15 bg-white/[0.06] p-2 shadow-2xl shadow-black/30 backdrop-blur-md sm:flex sm:items-center sm:gap-2">
             <label htmlFor="hero-video" className="sr-only">{isAr ? 'رابط فيديو يوتيوب' : isTr ? 'YouTube video linki' : 'YouTube video link'}</label>
             <div className="relative flex-1">
               <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-zinc-400" />
@@ -217,6 +220,11 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                 type="url"
                 inputMode="url"
                 required
+                onChange={(e) => {
+                  if (!parseYouTubeId(e.target.value.trim())) return;
+                  setAnalyzing(true);
+                  heroFormRef.current?.requestSubmit();
+                }}
                 placeholder={isAr ? 'الصق رابط فيديو يوتيوب' : isTr ? 'YouTube video linkinizi yapıştırın' : 'Paste your YouTube video link'}
                 className="w-full rounded-2xl bg-transparent py-4 pl-12 pr-4 text-base text-white placeholder-zinc-400 outline-none"
               />
@@ -225,7 +233,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
               type="submit"
               className="group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-7 py-4 text-base font-extrabold text-white shadow-xl shadow-[#FF0033]/35 transition-all hover:brightness-110 sm:mt-0 sm:w-auto"
             >
-              {isAr ? 'ابحث عن فيديوي' : isTr ? 'Videomu Bul' : 'Find My Video'}
+              {analyzing ? (isAr ? 'جارٍ التحليل…' : isTr ? 'Analiz ediliyor…' : 'Analyzing…') : isAr ? 'حلّل' : isTr ? 'Analiz Et' : 'Analyze'}
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </button>
           </form>

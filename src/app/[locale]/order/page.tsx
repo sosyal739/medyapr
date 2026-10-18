@@ -4,6 +4,7 @@ import OrderWizard from '@/components/order/OrderWizard';
 import { getAppStrings } from '@/lib/i18n/app-strings';
 import { getPageAlternates } from '@/lib/seo';
 import { CURRENCIES, FORMATS, PACKAGES, REGIONS, clampViews, type Currency, type Format, type Package, type Region } from '@/lib/pricing';
+import { isCountryCode } from '@/lib/countries';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -142,13 +143,14 @@ export default async function OrderPage({ params, searchParams }: Props) {
           locale={locale}
           t={t}
           initial={{
-            views: clampViews(Number(sp.views) || 25_000),
+            views: clampViews(Number(sp.views) || 1_000),
             format: pick<Format>(FORMATS, sp.format, 'instream'),
             pkg: pick<Package>(PACKAGES, sp.pkg, 'views'),
-            region: pick<Region>(REGIONS, sp.region, isTr ? 'tr' : isAr ? 'global' : 'premium'),
+            region: pick<Region>(REGIONS, sp.region, 'global'),
             currency: pick<Currency>(CURRENCIES, sp.currency, isTr ? 'TRY' : 'USD'),
             videoUrl: sp.video?.slice(0, 300),
             channel: pick(CHANNELS, sp.channel, 'whatsapp'),
+            country: isCountryCode(sp.country) ? sp.country.toUpperCase() : undefined,
           }}
         />
 
