@@ -228,6 +228,10 @@
     "subtitle": "Merak ettikleriniz",
     "items": [
       {
+        "question": "Tanınmış sanatçılar ve kurumsal firmalar için ödeme iş bitiminde mi alınıyor?",
+        "answer": "Evet, başvuru üzerine değerlendiriyoruz. Tanınmış sanatçılar ve kurumsal firmalar sipariş sırasında \"İş bitiminde ödeme\" talebini işaretleyebilir. Başvuruyu inceleriz, onaylanırsa kampanya başlar; iş bittiğinde raporu paylaşır, ardından ödemeyi alırız. Onaylanmayan siparişler normal ödeme akışıyla devam eder."
+      },
+      {
         "question": "Google Ads ile izlenme güvenli mi?",
         "answer": "Evet, %100 güvenlidir. Google'ın kendi reklam platformunu kullanıyoruz. YouTube'un kendi reklamları gibi çalışır, kanalınıza herhangi bir zarar vermez."
       },

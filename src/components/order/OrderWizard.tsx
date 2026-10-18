@@ -95,6 +95,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
   const contact = ''; // WhatsApp/Telegram/Mail akışlarında telefon istenmez
   const [email, setEmail] = useState('');
   const [note, setNote] = useState('');
+  const [payLater, setPayLater] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [done, setDone] = useState<{ id: string; channel: AnalysisChannel } | null>(null);
@@ -192,6 +193,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
       line('💰', L.quote, `${totalText} (${isTr ? 'video uzunluğuna göre değişebilir' : 'may vary by video length'})`),
       line('👤', L.name, name.trim()),
       line('📝', L.note, note.trim()),
+      line('🤝', isAr ? 'طلب الدفع' : isTr ? 'Ödeme talebi' : 'Payment request', payLater && (isAr ? 'الدفع بعد إتمام العمل (للمراجعة)' : isTr ? 'İş bitiminde ödeme (değerlendirme için)' : 'Pay after completion (for review)')),
     ].filter(Boolean);
 
     const intro = isTr
@@ -248,6 +250,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             email: '',
             contact: '',
             note,
+            payLater,
             locale,
             country: region === 'premium' ? country : undefined,
           }),
@@ -296,6 +299,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           email,
           contact,
           note,
+          payLater,
           locale,
           country: region === 'premium' ? country : undefined,
         }),
@@ -728,6 +732,25 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
                   placeholder={isAr ? 'مثال: تاريخ الإصدار، الجمهور المستهدف' : isTr ? 'Örn: Klip çıkış tarihi, hedef ülke vb.' : 'e.g. Release date, target audience'}
                 />
               </div>
+              <label htmlFor="w-paylater" className="flex cursor-pointer items-start gap-3 rounded-xl border border-emerald-500/25 bg-emerald-500/10 p-3">
+                <input
+                  id="w-paylater"
+                  type="checkbox"
+                  checked={payLater}
+                  onChange={(e) => setPayLater(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 shrink-0 accent-emerald-500"
+                />
+                <span className="text-xs leading-relaxed text-white/85">
+                  <strong className="block text-white">
+                    {isAr ? 'فنان معروف / شركة؟ الدفع بعد إتمام العمل' : isTr ? 'Tanınmış sanatçı / kurumsal firma mısınız? İş bitiminde ödeme' : 'Established artist / company? Pay after completion'}
+                  </strong>
+                  {isAr
+                    ? 'يخضع للمراجعة: نراجع طلبك، وعند الموافقة تبدأ الحملة ويتم الدفع بعد تسليم التقرير.'
+                    : isTr
+                      ? 'Başvuru üzerine değerlendirilir: onaylanırsa kampanya başlar, rapor teslim edildikten sonra ödeme alınır.'
+                      : 'Subject to review: if approved, the campaign starts and payment is collected after the report is delivered.'}
+                </span>
+              </label>
             </div>
 
             {/* 3 Doğrudan Gönderim Butonu */}

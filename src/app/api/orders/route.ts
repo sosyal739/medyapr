@@ -27,6 +27,7 @@ export async function POST(req: Request) {
   const rawName = String(b.name ?? '').trim().slice(0, 80);
   const contact = String(b.contact ?? '').trim().slice(0, 80) || undefined;
   const note = String(b.note ?? '').trim().slice(0, 400) || undefined;
+  const payLater = b.payLater === true;
   const visitorLocale = ['tr', 'en', 'ar'].includes(String(b.locale)) ? String(b.locale) : 'tr';
   const LANG_NAME: Record<string, string> = { tr: 'Türkçe', en: 'İngilizce', ar: 'Arapça' };
   const format = (FORMATS.includes(b.format as Format) ? b.format : 'instream') as Format;
@@ -81,7 +82,7 @@ export async function POST(req: Request) {
     currency,
     total: q.total,
     payment,
-    paymentNote: note ? `${channelLabel} — Not: ${note}` : channelLabel,
+    paymentNote: [channelLabel, payLater ? 'İŞ BİTİMİNDE ÖDEME TALEBİ' : '', note ? `Not: ${note}` : ''].filter(Boolean).join(' — '),
     videoTitle: video?.title || undefined,
     startViews: video?.views,
   });
@@ -89,7 +90,7 @@ export async function POST(req: Request) {
   // Bildirim: başarısız olsa bile sipariş kaydı etkilenmez (notifyOwner fırlatmaz).
   const fmt = (n: number) => new Intl.NumberFormat('tr-TR').format(n);
   await notifyOwner({
-    subject: `[${visitorLocale.toUpperCase()}] 🎯 Yeni Teklif & Analiz Talebi (${channel.toUpperCase()}) ${order.id}: ${order.name} — ${fmt(order.total)} ${order.currency}`,
+    subject: `[${visitorLocale.toUpperCase()}] ${payLater ? '🤝 İş bitiminde ödeme talebi • ' : ''}🎯 Yeni Teklif & Analiz Talebi (${channel.toUpperCase()}) ${order.id}: ${order.name} — ${fmt(order.total)} ${order.currency}`,
     replyTo: emailValid ? email : undefined,
     html: renderMail(
       `🎯 Yeni Video Analiz & Teklif Talebi (${channelLabel})`,
@@ -101,6 +102,7 @@ export async function POST(req: Request) {
         ['Ad / Sanatçı', escapeHtml(name)],
         ['E-Posta', escapeHtml(email)],
         ['WhatsApp / Telegram', escapeHtml(contact || '')],
+        ['Ödeme Talebi', payLater ? '🤝 İş bitiminde ödeme başvurusu (tanınmış sanatçı / kurumsal) — değerlendirmeniz bekleniyor' : ''],
         ['Müşteri Notu', escapeHtml(note || '')],
         ['Video', escapeHtml(video?.title ? `${video.title} — ${video.channel}\n${videoUrl}` : videoUrl)],
         ['Kanal', escapeHtml(video?.channel || '')],

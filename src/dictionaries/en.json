@@ -228,6 +228,10 @@
     "subtitle": "Everything you need to know",
     "items": [
       {
+        "question": "Can well-known artists and companies pay after the work is finished?",
+        "answer": "Yes, on request and subject to review. Established artists and corporate companies can tick \"Pay after completion\" when ordering. We review the request; if approved, the campaign starts, we share the report when the work is done, and payment is collected afterwards. Requests that are not approved continue with the standard payment flow."
+      },
+      {
         "question": "Are Google Ads views safe?",
         "answer": "Yes, they are 100% safe. We use Google's own advertising platform. It works just like YouTube's own ads and will not harm your channel in any way."
       },

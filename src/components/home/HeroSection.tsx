@@ -285,6 +285,10 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
             </span>
             <span className="flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0" />
+              {isAr ? 'للفنانين المعروفين والشركات: الدفع بعد إتمام العمل (بعد المراجعة)' : isTr ? 'Tanınmış sanatçı ve firmalara iş bitiminde ödeme (onayla)' : 'Pay after completion for established artists & companies (on approval)'}
+            </span>
+            <span className="flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0" />
               {isAr ? 'بلا بوتات • تقرير أداء شامل بعد الحملة' : isTr ? 'Bot Yok • Çıkışta Detaylı Performans Raporu' : 'Zero Bots • Comprehensive Post-Campaign Performance Report'}
             </span>
           </div>
