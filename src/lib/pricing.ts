@@ -3,7 +3,7 @@
  * bu dosyayı kullanır. Fiyatı istemciden ASLA kabul etme; sunucu yeniden hesaplar.
  */
 
-import { isHighPriceCountry } from './countries';
+import { isHighPriceCountry, isUsCountry } from './countries';
 
 export const FORMATS = ['instream', 'shorts', 'discovery'] as const;
 export type Format = (typeof FORMATS)[number];
@@ -54,19 +54,32 @@ export const TR_PRICE_TIERS: readonly [number, number][] = [
 ];
 
 /**
- * Premium ülkeler (ABD, İngiltere, Almanya vb.) fiyat tablosu (TL). Türkiye fiyatı düştüğünde
- * değişmemesi için ayrı tutulur; eski Türkiye tablosunun 2 katıdır.
+ * Avrupa (AB + EFTA + İngiltere) ve Kanada fiyat tablosu (TL). 1K = 350 TL (19 Ekim 2026'da 500'den indirildi;
+ * tüm kademeler aynı oranla (x0,70) güncellendi). Anahtar adı eski sürümden kalma (PREMIUM).
  */
 export const PREMIUM_PRICE_TIERS: readonly [number, number][] = [
-  [1_000, 500],
-  [5_000, 2_400],
-  [10_000, 4_000],
-  [25_000, 8_200],
-  [50_000, 15_000],
-  [100_000, 24_000],
-  [250_000, 52_000],
-  [500_000, 100_000],
-  [1_000_000, 180_000],
+  [1_000, 350],
+  [5_000, 1_680],
+  [10_000, 2_800],
+  [25_000, 5_740],
+  [50_000, 10_500],
+  [100_000, 16_800],
+  [250_000, 36_400],
+  [500_000, 70_000],
+  [1_000_000, 126_000],
+];
+
+/** ABD fiyat tablosu (TL). 1K = 450 TL; kademeler eski tablonun x0,90'ıdır. */
+export const US_PRICE_TIERS: readonly [number, number][] = [
+  [1_000, 450],
+  [5_000, 2_160],
+  [10_000, 3_600],
+  [25_000, 7_380],
+  [50_000, 13_500],
+  [100_000, 21_600],
+  [250_000, 46_800],
+  [500_000, 90_000],
+  [1_000_000, 162_000],
 ];
 
 /**
@@ -137,6 +150,7 @@ export function getPriceTry(views: number, region: Region, country?: string): nu
     return interpolateTiers(v, GLOBAL_PRICE_TIERS);
   }
   if (region === 'premium') {
+    if (isUsCountry(country)) return interpolateTiers(v, US_PRICE_TIERS);
     return interpolateTiers(v, isHighPriceCountry(country) ? PREMIUM_PRICE_TIERS : TR_PRICE_TIERS);
   }
   return interpolateTiers(v, TR_PRICE_TIERS);
@@ -162,9 +176,10 @@ export function quote(input: {
   const { region, currency } = input;
   const country = region === 'premium' ? (input.country || 'US').toUpperCase() : undefined;
   const high = region === 'premium' && isHighPriceCountry(country);
+  const us = region === 'premium' && isUsCountry(country);
 
   // 1.000 izlenme baz tavan liste fiyatı
-  const baseRatePerKTry = region === 'global' ? 100 : high ? 500 : 125;
+  const baseRatePerKTry = region === 'global' ? 100 : us ? 450 : high ? 350 : 125;
   const subtotalTry = (views / 1000) * baseRatePerKTry * pkgFactor;
 
   // Kademeli paket fiyatı (hacim arttıkça birim maliyet düşer)

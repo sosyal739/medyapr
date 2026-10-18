@@ -36,6 +36,10 @@ export function isCountryCode(v: unknown): v is string {
   return typeof v === 'string' && CODE_SET.has(v.toUpperCase());
 }
 
+export function isUsCountry(code?: string): boolean {
+  return !!code && code.toUpperCase() === 'US';
+}
+
 export function isHighPriceCountry(code?: string): boolean {
   return !!code && HIGH_PRICE_COUNTRIES.has(code.toUpperCase());
 }

@@ -174,7 +174,8 @@ export default async function PricingPage({ params }: Props) {
                   <th className="py-3.5 px-4">{isTr ? 'Hedef İzlenme (tahmini fiyat)' : 'Target Views (estimated price)'}</th>
                   <th className="py-3.5 px-4">{isTr ? 'Global (🔥 İndirimli)' : 'Global'}</th>
                   <th className="py-3.5 px-4">{isTr ? 'Türkiye Hedefli' : 'Turkey Targeted'}</th>
-                  <th className="py-3.5 px-4">{isTr ? 'Avrupa / ABD / Kanada' : 'Europe / US / Canada'}</th>
+                  <th className="py-3.5 px-4">{isTr ? 'Avrupa / Kanada' : 'Europe / Canada'}</th>
+                  <th className="py-3.5 px-4">{isTr ? 'ABD' : 'USA'}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10 text-zinc-200">
@@ -182,6 +183,7 @@ export default async function PricingPage({ params }: Props) {
                   const g = quote({ views: v, region: 'global', currency: 'TRY' });
                   const t = quote({ views: v, region: 'tr', currency: 'TRY' });
                   const p = quote({ views: v, region: 'premium', country: 'DE', currency: 'TRY' });
+                  const u = quote({ views: v, region: 'premium', country: 'US', currency: 'TRY' });
                   return (
                     <tr key={v}>
                       <td className="py-3.5 px-4 font-bold text-white">
@@ -190,6 +192,7 @@ export default async function PricingPage({ params }: Props) {
                       <td className="py-3.5 px-4 text-amber-300 font-bold">{formatMoney(g.total, 'TRY', locale)}</td>
                       <td className="py-3.5 px-4">{formatMoney(t.total, 'TRY', locale)}</td>
                       <td className="py-3.5 px-4">{formatMoney(p.total, 'TRY', locale)}</td>
+                      <td className="py-3.5 px-4">{formatMoney(u.total, 'TRY', locale)}</td>
                     </tr>
                   );
                 })}
