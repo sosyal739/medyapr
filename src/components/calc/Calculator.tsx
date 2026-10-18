@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { trackEvent } from '@/lib/analytics';
 import { countryName, DEFAULT_COUNTRY } from '@/lib/countries';
 import CountryPicker from './CountryPicker';
+import Flag from '@/components/common/Flag';
 import Link from 'next/link';
 import { ArrowRight, Check, Mail, MessageCircle, Search, Send, ShieldCheck, Sparkles, Tag, ThumbsUp } from 'lucide-react';
 import {
@@ -211,8 +212,8 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                     }`}
                   >
                     <div className="flex items-center justify-between mb-1.5">
-                      <span className="text-lg">
-                        {r === 'tr' ? '🇹🇷' : r === 'global' ? '🌍' : '🗺️'}
+                      <span className="inline-flex h-6 items-center text-lg">
+                        {r === 'tr' ? <Flag code="TR" /> : r === 'global' ? '🌍' : on ? <Flag code={country} /> : '🗺️'}
                       </span>
                       {tag && (
                         <span

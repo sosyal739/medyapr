@@ -37,6 +37,7 @@ import { consultHref, mailtoHref, telegramHref } from '@/lib/contact';
 import { trackEvent } from '@/lib/analytics';
 import { countryName, DEFAULT_COUNTRY } from '@/lib/countries';
 import CountryPicker from '@/components/calc/CountryPicker';
+import Flag from '@/components/common/Flag';
 import type { AppStrings } from '@/lib/i18n/app-strings';
 
 type Video = {
@@ -559,7 +560,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           <h4 className="mb-2 mt-6 text-sm font-bold text-white">{c.region}</h4>
           <div className="grid gap-2 sm:grid-cols-3">
             {REGIONS.map((r) => (
-              <Choice key={r} on={region === r} onClick={() => setRegion(r)} title={`${r === 'tr' ? '🇹🇷' : r === 'global' ? '🌍' : '🗺️'} ${c.regions[r].name}`} desc={c.regions[r].desc} />
+              <Choice key={r} on={region === r} onClick={() => setRegion(r)} title={<span className="inline-flex items-center gap-2">{r === 'tr' ? <Flag code="TR" /> : r === 'global' ? '🌍' : region === 'premium' ? <Flag code={country} /> : '🗺️'}{c.regions[r].name}</span>} desc={c.regions[r].desc} />
             ))}
           </div>
           {region === 'premium' && (
@@ -883,7 +884,7 @@ function Step({ n, title, dim, children }: { n: number; title: string; dim?: boo
   );
 }
 
-function Choice({ on, onClick, title, desc, tag }: { on: boolean; onClick: () => void; title: string; desc: string; tag?: string }) {
+function Choice({ on, onClick, title, desc, tag }: { on: boolean; onClick: () => void; title: React.ReactNode; desc: string; tag?: string }) {
   return (
     <button
       type="button"
