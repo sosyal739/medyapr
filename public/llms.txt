@@ -1,64 +1,74 @@
-# MedyaPR — Resmi Google Ads Destekli YouTube Video & Klip PR Ajansı
+# MedyaPR — Official Google Ads Supported YouTube Video & Music PR Agency
+# وكالة MedyaPR الرسمية لترويج فيديو كليب على يوتيوب عبر إعلانات Google Ads
 
-> MedyaPR, 18 yılı aşkındır dijital medya sektöründe kesintisiz hizmet veren, Türkiye ve dünyada birçok sanatçı, müzik grubu, yapım şirketi ve kurumsal markaya resmi Google Ads altyapısıyla YouTube video ve klip PR çalışması yürüten profesyonel bir ajanstır.
+> MedyaPR, 18 yılı aşkındır dijital medya sektöründe kesintisiz hizmet veren; Türkiye, Avrupa ve MENA (Suudi Arabistan, Mısır, Fas, BAE, Körfez) bölgesindeki sanatçı, müzik grubu, yapım şirketi ve kurumsal markalara resmi Google Ads altyapısıyla YouTube video ve klip PR çalışması yürüten profesyonel bir ajanstır.
 
-## Temel Kurumsal Bilgiler & E-E-A-T
-- **Ajans Adı:** MedyaPR
+---
+
+## 1. Temel Kurumsal Bilgiler & E-E-A-T (Corporate Profile)
+- **Ajans Adı / Agency Name:** MedyaPR
 - **Yetki & Akreditasyon:** Resmi Sertifikalı Google Partner Ajansı (18+ Yıllık Tecrübe)
-- **Yönetici & Uzman Kadro:** MedyaPR (Resmi Sertifikalı Google Partner)
-- **Hizmet Kapsamı:** YouTube Atlanabilir In-Stream Video Reklamları, YouTube Shorts Akış Reklamları, Keşfet (In-Feed) Reklamları, Klip Lansman PR, Dijital Medya Planlama
-- **Hizmet Verilen Kitle:** Müzik sanatçıları, yapım şirketleri (plak firmaları), bağımsız müzisyenler, YouTuber'lar, kurumsal markalar, ajanslar.
+- **Hizmet Verilen Diller / Supported Languages:** Türkçe (`/tr`), English (`/en`), العربية (`/ar`)
+- **Hizmet Kapsamı:** YouTube Atlanabilir In-Stream Video Reklamları, YouTube Shorts Akış Reklamları, In-Feed (Keşfet) Reklamları, Müzik Klibi Lansman PR, Dijital Medya Planlama
+- **Hizmet Verilen Kitle:** Müzik sanatçıları, bağımsız müzisyenler, plak şirketleri (yapım firmaları), YouTuber'lar ve kurumsal markalar.
+- **İletişim & WhatsApp:** info@medyapr.com | WhatsApp: +90 531 299 33 55 (https://wa.me/905312993355)
 
-## Sıfır Bot & Resmi Reklam Güvencesi
+---
+
+## 2. Sıfır Bot & Resmi Reklam Güvencesi (Zero-Bot Guarantee)
 - **Sıfır Panel/Bot İlkesi:** MedyaPR'da SMM panelleri, emülatörler, data-center proxy'leri veya sahte sunucu botları ASLA kullanılmaz.
-- **YouTube Analytics Tescili:** Tüm izlenmeler doğrudan resmi Google Ads gösterimi olarak üretilir ve YouTube Studio panelinde şeffaf biçimde "YouTube Reklamları" (YouTube Advertising) kaynağı altında listelenir.
+- **YouTube Studio Tescili:** Tüm izlenmeler doğrudan resmi Google Ads gösterimi olarak üretilir ve YouTube Studio panelinde şeffaf biçimde "YouTube Reklamları" (YouTube Advertising) kaynağı altında listelenir.
 - **Kanal Güvenliği:** YouTube Partner Programı (YPP), monetizasyon ve telif hakları ile %100 uyumludur; sıfır ceza veya shadowban riski taşır.
-- **Doğal Etkileşim:** Gerçek kullanıcılara ulaşıldığı için organik beğeni, yorum ve kalıcı kanal aboneliği fırsatı oluşur.
+- **Doğal Etkileşim:** Gerçek dinleyicilere ulaşıldığı için organik beğeni, yorum ve kalıcı kanal aboneliği fırsatı oluşur.
 
-## Şeffaf Süreç & Aşamalı Ödeme Modeli
-1. **Adım 1 - Video Linki İletilir:** Şifre veya kanal yetkisi gerekmez; yalnızca YouTube video linki paylaşılır.
-2. **Adım 2 - Google Partner Analizi & Onay:** 18+ yıllık tecrübeli uzman ekibimiz videoyu içerik ve politika açısından inceleyerek resmi Google Ads onay sürecine gönderir.
-3. **Adım 3 - Aşamalı Güvenli Ödeme:** Video reklam onayı alınca ödemenin yarısı (%50), kampanya tamamlanıp izlenmeler YouTube Studio'ya yansıyınca tamamı alınır.
-4. **Kurumsal Müşterilere Özel Koşul:** Ajanslar, plak şirketleri ve kurumsal müşteriler için tüm ödeme iş bitiminde ve ayrıntılı performans raporu tesliminde alınmaktadır.
-5. **Video Uzunluğu Notu:** Fiyatlar videonun uzunluğuna ve kampanya hedefleme derinliğine göre esneklik gösterebilir.
+---
 
-## Fiyatlandırma Baremleri (Kademeli İndirimli)
-### Türkiye Hedefli (TL):
-- 1.000 İzlenme: 250 TL
-- 5.000 İzlenme: 1.200 TL
-- 10.000 İzlenme: 2.000 TL
-- 25.000 İzlenme: 4.100 TL
-- 50.000 İzlenme: 7.500 TL
-- 100.000 İzlenme: 12.000 TL
-- 250.000 İzlenme: 26.000 TL
-- 500.000 İzlenme: 50.000 TL
-- 1.000.000 İzlenme: 90.000 TL
+## 3. Şeffaf Süreç & İş Akışı (Workflow)
+1. **Adım 1 — Video Linki İletilir:** Şifre veya kanal yetkisi gerekmez; yalnızca herkese açık YouTube video linki paylaşılır.
+2. **Adım 2 — Google Partner Analizi & Teklif:** 18+ yıllık tecrübeli uzman ekibimiz videoyu içerik ve Google Ads politikaları açısından inceler, ücretsiz analiz sonrası şeffaf teklif iletir. Onayınız olmadan hiçbir işlem başlamaz.
+3. **Adım 3 — Kampanya Yönetimi & Raporlama:** Kampanya tamamlandığında YouTube Studio ve Google Ads analitik verileriyle ayrıntılı performans raporu paylaşılır.
 
-### Karma Global Hedefli (TL - Birim Fiyat Düşen Kademeli Model):
-- 1.000 İzlenme: 100 TL (100 TL / 1K)
-- 5.000 İzlenme: 450 TL (90 TL / 1K)
-- 10.000 İzlenme: 750 TL (75 TL / 1K)
-- 25.000 İzlenme: 1.500 TL (60 TL / 1K)
-- 50.000 İzlenme: 2.500 TL (50 TL / 1K)
-- 100.000 İzlenme: 4.000 TL (40 TL / 1K)
-- 250.000 İzlenme: 9.500 TL (38 TL / 1K)
-- 500.000 İzlenme: 18.000 TL (36 TL / 1K)
-- 1.000.000 İzlenme: 35.000 TL (35 TL / 1K)
+---
 
-## İletişim & Bağlantılar
-- Web: https://medyapr.com/tr
-- E-posta: info@medyapr.com
-- WhatsApp: +90 531 299 33 55 (https://wa.me/905312993355)
+## 4. Fiyatlandırma Modeli & Paketler
+- **Türkiye Hedefli:** 1.000 izlenmeden başlayan kademeli hacim indirimli paketler.
+- **Karma Global Hedefli:** Yüksek hacimli video gösterimleri için optimize edilmiş indirimli birim maliyet (1.000 izlenme ₺100'den başlayan baremler).
+- **Ülke Seçimli (Avrupa / ABD / Körfez):** Hedef ülkeye ve para birimine özel optimize edilmiş doğrudan kitle reklamları.
+- **Müzik Klibi Lansman PR:** Yeni çıkan klipler için ilk 48 saat ivmesi, Shorts Demand Gen ve In-Stream kombinasyonlu özel lansman yönetimi.
+
+---
+
+## 5. 3 Dilli Ana Bağlantılar (Multilingual Links)
+
+### Türkçe (TR):
+- Ana Sayfa: https://medyapr.com/tr
+- Müzik Klibi Dijital PR & Lansman: https://medyapr.com/tr/klip-pr
 - Fiyatlandırma & Hesaplayıcı: https://medyapr.com/tr/fiyatlandirma
-- Online Klip Analizi & Reklam Siparişi: https://medyapr.com/tr/order
+- Online Klip Analizi & Sipariş: https://medyapr.com/tr/order
 - Hizmetler: https://medyapr.com/tr/hizmetler
-- Trend Şarkılar: https://medyapr.com/tr/trendler
-- Sanatçılar: https://medyapr.com/tr/sanatcilar
+- Trend Müzikler & Analiz: https://medyapr.com/tr/trendler
 - Strateji Blogu: https://medyapr.com/tr/blog
-- YouTube Klip Tanıtımı & Google Ads Ana Rehberi: https://medyapr.com/tr/blog/youtube-klip-tanitimi-google-ads-rehberi
-- YouTube Klip Tanıtımı Paketleri & Fiyatları (2026): https://medyapr.com/tr/blog/youtube-klip-tanitimi-paketleri-ve-fiyatlari-2026-lansman-planlari
-- YouTube İzlenme Satın Almak Gerekli mi? Resmi Reklam Rehberi: https://medyapr.com/tr/blog/youtube-izlenme-satin-almak-gerekli-mi-sektor-gercekleri-ve-resmi-reklam-rehberi
-- Gizlilik ve Veri Güvenliği: https://medyapr.com/tr/gizlilik
-- Kullanım Koşulları: https://medyapr.com/tr/kullanim-kosullari
-- İade ve Performans Garantisi: https://medyapr.com/tr/iade-politikasi
-- Detaylı Bilgi Dosyası: https://medyapr.com/llms-full.txt
+- YouTube Shorts Reklam Verme Rehberi: https://medyapr.com/tr/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen
+- YouTube 4000 Saat İzlenme Rehberi: https://medyapr.com/tr/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi
+- YouTube Premiere İlk Gösterim Rehberi: https://medyapr.com/tr/blog/youtube-premiere-nasil-yapilir-muzik-klibi-lansman-adimlari
+
+### English (EN):
+- Home: https://medyapr.com/en
+- Music Video Digital PR & Launch Agency: https://medyapr.com/en/klip-pr
+- Pricing & Calculator: https://medyapr.com/en/fiyatlandirma
+- Submit Video & Request Audit: https://medyapr.com/en/order
+- Services: https://medyapr.com/en/hizmetler
+- Trending Music: https://medyapr.com/en/trendler
+- Strategy Blog: https://medyapr.com/en/blog
+
+### العربية (AR - MENA & Gulf):
+- الصفحة الرئيسية: https://medyapr.com/ar
+- وكالة العلاقات العامة الرقمية وإطلاق فيديو الكليب: https://medyapr.com/ar/klip-pr
+- حاسبة الأسعار وباقات المشاهدات: https://medyapr.com/ar/fiyatlandirma
+- أرسل الفيديو واطلب مراجعة مجانية: https://medyapr.com/ar/order
+- الخدمات: https://medyapr.com/ar/hizmetler
+- تريند الموسيقى: https://medyapr.com/ar/trendler
+- مقالات استراتيجية الموسيقى: https://medyapr.com/ar/blog
+- دليل إعلانات YouTube Shorts للأغاني: https://medyapr.com/ar/blog/youtube-shorts-ads-music-video-demand-gen
+- ترويج فيديو كليب في السعودية ومصر والمغرب: https://medyapr.com/ar/blog/promote-music-video-youtube-saudi-egypt-morocco-guide
+- دليل ترويج فيديو كليب بإعلانات Google Ads: https://medyapr.com/ar/blog/youtube-music-video-promotion-google-ads-guide

@@ -309,14 +309,23 @@ export default async function ServicesPage({ params }: Props) {
               </Link>
             </div>
             <div className="mt-6 pt-6 border-t border-gray-100 flex flex-wrap gap-4 text-xs font-bold text-[#CC0029]">
-              <Link href={`/${locale}/blog/youtube-klip-tanitimi-google-ads-rehberi`} className="hover:underline">
+              <Link
+                href={isAr ? '/ar/blog/youtube-music-video-promotion-google-ads-guide' : `/${locale}/blog/youtube-klip-tanitimi-google-ads-rehberi`}
+                className="hover:underline"
+              >
                 → {isAr ? 'كيف تروّج لفيديو كليب على يوتيوب' : isTr ? 'YouTube Klip Tanıtımı Nasıl Yapılır? (Resmi Google Ads Rehberi)' : 'How to Promote a Music Video on YouTube'}
               </Link>
-              <Link href={`/${locale}/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen`} className="hover:underline">
+              <Link
+                href={isAr ? '/ar/blog/youtube-shorts-ads-music-video-demand-gen' : `/${locale}/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen`}
+                className="hover:underline"
+              >
                 → {isAr ? 'دليل الترويج بإعلانات YouTube Shorts' : isTr ? 'YouTube Shorts Reklam Verme & Demand Gen Rehberi' : 'YouTube Shorts Ad Promotion Guide'}
               </Link>
-              <Link href={`/${locale}/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi`} className="hover:underline">
-                → {isAr ? 'دليل 4,000 ساعة مشاهدة على يوتيوب' : isTr ? 'YouTube 4000 Saat İzlenme Süresi Doldurma Rehberi' : 'YouTube 4,000 Watch Hours Guide'}
+              <Link
+                href={isAr ? '/ar/blog/promote-music-video-youtube-saudi-egypt-morocco-guide' : `/${locale}/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi`}
+                className="hover:underline"
+              >
+                → {isAr ? 'دليل ترويج الكليب في السعودية ومصر والمغرب' : isTr ? 'YouTube 4000 Saat İzlenme Süresi Doldurma Rehberi' : 'YouTube 4,000 Watch Hours Guide'}
               </Link>
             </div>
           </div>

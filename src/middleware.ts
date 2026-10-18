@@ -21,14 +21,17 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  /* Guard against accidental double-locale prefixes (e.g. /en/tr/... or /tr/en/...) */
-  if (pathname.startsWith('/en/tr/') || pathname === '/en/tr') {
-    const cleanPath = pathname.replace(/^\/en\/tr/, '/tr');
-    return NextResponse.redirect(new URL(cleanPath, 'https://medyapr.com'), 308);
-  }
-  if (pathname.startsWith('/tr/en/') || pathname === '/tr/en') {
-    const cleanPath = pathname.replace(/^\/tr\/en/, '/en');
-    return NextResponse.redirect(new URL(cleanPath, 'https://medyapr.com'), 308);
+  /* Guard against accidental double-locale prefixes (e.g. /en/tr/..., /tr/en/..., /ar/tr/..., /tr/ar/..., /ar/en/..., /en/ar/...) */
+  for (const l1 of locales) {
+    for (const l2 of locales) {
+      if (l1 !== l2) {
+        const prefix = `/${l1}/${l2}`;
+        if (pathname.startsWith(`${prefix}/`) || pathname === prefix) {
+          const cleanPath = pathname.replace(new RegExp(`^/${l1}/${l2}`), `/${l2}`);
+          return NextResponse.redirect(new URL(cleanPath, 'https://medyapr.com'), 308);
+        }
+      }
+    }
   }
 
   /* Check if path already has a valid locale (/tr or /en) */

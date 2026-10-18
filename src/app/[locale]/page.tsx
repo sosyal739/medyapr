@@ -287,14 +287,23 @@ export default async function HomePage({ params }: Props) {
             <Link href={`/${locale}/klip-pr`} className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white">
               🎵 {isAr ? 'وكالة العلاقات العامة الرقمية وإطلاق فيديو الكليب' : isTr ? 'Müzik Klibi Dijital PR & Şarkı Tanıtımı' : 'Music Video Digital PR & Launch Agency'} →
             </Link>
-            <Link href={`/${locale}/blog/youtube-klip-tanitimi-google-ads-rehberi`} className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white">
+            <Link
+              href={isAr ? '/ar/blog/youtube-music-video-promotion-google-ads-guide' : `/${locale}/blog/youtube-klip-tanitimi-google-ads-rehberi`}
+              className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+            >
               📘 {isAr ? 'كيف تروّج لفيديو الكليب بالإعلانات' : isTr ? 'YouTube Klip Tanıtımı Nasıl Yapılır?' : 'How to Run Music Video Ads'} →
             </Link>
-            <Link href={`/${locale}/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen`} className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white">
+            <Link
+              href={isAr ? '/ar/blog/youtube-shorts-ads-music-video-demand-gen' : `/${locale}/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen`}
+              className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+            >
               📱 {isAr ? 'دليل الترويج بإعلانات YouTube Shorts' : isTr ? 'YouTube Shorts Reklam Verme Rehberi' : 'YouTube Shorts Ad Promotion Guide'} →
             </Link>
-            <Link href={`/${locale}/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi`} className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white">
-              ⏱️ {isAr ? 'دليل 4,000 ساعة مشاهدة على يوتيوب' : isTr ? 'YouTube 4000 Saat İzlenme Rehberi' : 'YouTube 4,000 Watch Hours Guide'} →
+            <Link
+              href={isAr ? '/ar/blog/promote-music-video-youtube-saudi-egypt-morocco-guide' : `/${locale}/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi`}
+              className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+            >
+              ⏱️ {isAr ? 'ترويج الكليب في السعودية ومصر والمغرب' : isTr ? 'YouTube 4000 Saat İzlenme Rehberi' : 'YouTube 4,000 Watch Hours Guide'} →
             </Link>
           </div>
         </div>

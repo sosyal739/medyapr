@@ -1,8 +1,9 @@
 import React from 'react';
 import Script from 'next/script';
 
-export default function GoogleAnalytics({ measurementId }: { measurementId?: string }) {
-  if (!measurementId) return null;
+export default function GoogleAnalytics({ measurementId, gaId }: { measurementId?: string; gaId?: string }) {
+  const id = measurementId || gaId;
+  if (!id) return null;
 
   return (
     <>
@@ -40,7 +41,7 @@ export default function GoogleAnalytics({ measurementId }: { measurementId?: str
 
       {/* Global Site Tag (gtag.js) - Google Analytics 4 & Google Ads */}
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${id}`}
         strategy="afterInteractive"
       />
       <Script
@@ -51,7 +52,7 @@ export default function GoogleAnalytics({ measurementId }: { measurementId?: str
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${measurementId}', {
+            gtag('config', '${id}', {
               page_path: window.location.pathname,
               send_page_view: true
             });
