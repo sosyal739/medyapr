@@ -1,13 +1,21 @@
+'use client';
+
 import React from 'react';
 import Script from 'next/script';
 
-export default function GoogleAnalytics({ measurementId, gaId }: { measurementId?: string; gaId?: string }) {
-  const id = measurementId || gaId;
+interface GoogleAnalyticsProps {
+  gaId?: string;
+  measurementId?: string;
+}
+
+export default function GoogleAnalytics({ gaId, measurementId }: GoogleAnalyticsProps) {
+  const id = measurementId || gaId || process.env.NEXT_PUBLIC_GA_ID || 'G-EEBZ16SNQ9';
+
   if (!id) return null;
 
   return (
     <>
-      {/* Google Consent Mode v2 (Default: Denied until user consents) */}
+      {/* Google Consent Mode v2 Setup (Default: Granted so all visitors appear in GA4 immediately unless explicitly declined) */}
       <Script
         id="google-consent-mode"
         strategy="beforeInteractive"
@@ -16,23 +24,26 @@ export default function GoogleAnalytics({ measurementId, gaId }: { measurementId
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('consent', 'default', {
-              'ad_storage': 'denied',
-              'ad_user_data': 'denied',
-              'ad_personalization': 'denied',
-              'analytics_storage': 'denied',
+              'analytics_storage': 'granted',
+              'ad_storage': 'granted',
+              'ad_user_data': 'granted',
+              'ad_personalization': 'granted',
               'wait_for_update': 500
             });
-            
-            // Check existing consent
+
+            // Only restrict if user explicitly declined in CookieConsent
             try {
-              var savedConsent = localStorage.getItem('cookie_consent');
-              if (savedConsent === 'accepted') {
-                gtag('consent', 'update', {
-                  'ad_storage': 'granted',
-                  'ad_user_data': 'granted',
-                  'ad_personalization': 'granted',
-                  'analytics_storage': 'granted'
-                });
+              var storedConsent = localStorage.getItem('medyapr_cookie_consent');
+              if (storedConsent) {
+                var parsed = JSON.parse(storedConsent);
+                if (parsed.declined === true || parsed.analytics === false) {
+                  gtag('consent', 'update', {
+                    'analytics_storage': 'denied',
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied'
+                  });
+                }
               }
             } catch (e) {}
           `,
@@ -58,15 +69,7 @@ export default function GoogleAnalytics({ measurementId, gaId }: { measurementId
             });
             gtag('config', 'AW-11081445035');
 
-            // Akıllı Anti-Bot & Kaliteli İletişim Filtresi
-            // Yanlışlıkla basıp çıkanları veya botları dönüşüm saymaz
-            var pageEntryTime = Date.now();
-            var userInteracted = false;
-
-            window.addEventListener('scroll', function() { userInteracted = true; }, { passive: true, once: true });
-            window.addEventListener('touchstart', function() { userInteracted = true; }, { passive: true, once: true });
-            window.addEventListener('mousemove', function() { userInteracted = true; }, { passive: true, once: true });
-
+            // Direct & Clean Lead Conversion Tracking (WhatsApp, Telegram & Email)
             document.addEventListener('click', function(e) {
               try {
                 var target = e.target && e.target.closest ? e.target.closest('a') : null;
@@ -80,43 +83,24 @@ export default function GoogleAnalytics({ measurementId, gaId }: { measurementId
 
                 if (isContactLink) {
                   var channel = href.indexOf('t.me/') !== -1 ? 'telegram' : (href.indexOf('mailto:') !== -1 ? 'email' : 'whatsapp');
-                  
-                  // Filtre 1: Sayfada en az 6 saniye geçirmemişse ve etkileşimi yoksa (kazara dokunma / bot)
-                  var timeOnPage = (Date.now() - pageEntryTime) / 1000;
-                  var isIntentional = timeOnPage >= 6 && userInteracted;
 
-                  // Filtre 2: Oturum başına sadece 1 defa dönüşüm sayılsın (mükerrer tıklamaları engeller)
-                  var sessionKey = 'medyapr_conv_' + channel;
-                  var alreadyTracked = false;
-                  try {
-                    alreadyTracked = !!sessionStorage.getItem(sessionKey);
-                  } catch(ex) {}
-
-                  // GA4'te her tıklama olay bazında kaydedilsin (analiz için)
                   gtag('event', channel + '_click', {
                     'event_category': 'artist_pr_lead',
-                    'event_label': channel,
-                    'time_on_page_sec': Math.round(timeOnPage),
-                    'is_intentional': isIntentional
+                    'event_label': channel
                   });
 
-                  // Google Ads Dönüşümü: SADECE sayfada en az 6 saniye kalmış, etkileşim göstermiş ve ilk kez tıklayan gerçek kullanıcılar için tetiklenir!
-                  if (isIntentional && !alreadyTracked) {
-                    try { sessionStorage.setItem(sessionKey, '1'); } catch(ex) {}
+                  gtag('event', 'generate_lead', {
+                    'event_category': 'artist_pr_lead',
+                    'event_label': channel,
+                    'value': 100.0,
+                    'currency': 'TRY'
+                  });
 
-                    gtag('event', 'conversion', {
-                      'send_to': 'AW-11081445035/q5ZlCL6wop4dEKvdhaQp',
-                      'value': 100.0,
-                      'currency': 'TRY'
-                    });
-
-                    gtag('event', 'generate_lead', {
-                      'event_category': 'artist_pr_lead',
-                      'event_label': channel,
-                      'value': 100.0,
-                      'currency': 'TRY'
-                    });
-                  }
+                  gtag('event', 'conversion', {
+                    'send_to': 'AW-11081445035/q5ZlCL6wop4dEKvdhaQp',
+                    'value': 100.0,
+                    'currency': 'TRY'
+                  });
                 }
               } catch(err) {}
             }, true);
