@@ -88,6 +88,10 @@ export default function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
                     'value': 100.0,
                     'currency': 'TRY'
                   });
+                  gtag('event', channel + '_click', {
+                    'event_category': 'artist_pr_lead',
+                    'event_label': channel
+                  });
                 }
               } catch(err) {}
             }, true);
