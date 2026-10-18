@@ -263,7 +263,7 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
             </Link>
 
             <Link
-              href={`/${locale}/order?views=50000&pkg=views&region=premium`}
+              href={`/${locale}/order?views=50000&pkg=views&region=premium&country=US`}
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] text-xs font-black text-white hover:brightness-110 shadow-md shadow-[#FF0033]/30 transition"
             >
               <span>{isTr ? activeGenrePlaybook.ctaTr : activeGenrePlaybook.ctaEn}</span>

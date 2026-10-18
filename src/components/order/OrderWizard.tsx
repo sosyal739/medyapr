@@ -35,6 +35,8 @@ import {
 } from '@/lib/pricing';
 import { consultHref, mailtoHref, telegramHref } from '@/lib/contact';
 import { trackEvent } from '@/lib/analytics';
+import { countryName, DEFAULT_COUNTRY } from '@/lib/countries';
+import CountryPicker from '@/components/calc/CountryPicker';
 import type { AppStrings } from '@/lib/i18n/app-strings';
 
 type Video = {
@@ -61,6 +63,8 @@ export type WizardInitial = {
   currency: Currency;
   videoUrl?: string;
   channel?: AnalysisChannel;
+  country?: string;
+  turkishOnly?: boolean;
 };
 
 const PRESETS = [1_000, 5_000, 10_000, 25_000, 50_000, 100_000, 250_000, 500_000, 1_000_000];
@@ -81,6 +85,8 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
   );
   const [views, setViews] = useState(initial.views);
   const [region, setRegion] = useState<Region>(initial.region);
+  const [country, setCountry] = useState(initial.country || DEFAULT_COUNTRY(locale));
+  const [turkishOnly, setTurkishOnly] = useState(initial.turkishOnly ?? true);
   const [pkg, setPkg] = useState<Package>(initial.pkg);
   const [currency, setCurrency] = useState<Currency>(initial.currency);
   const [channel, setChannel] = useState<AnalysisChannel>(initial.channel ?? 'whatsapp');
@@ -99,7 +105,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
   const abort = useRef<AbortController | null>(null);
   const lastId = useRef<string | null>(null);
 
-  const q = useMemo(() => quote({ views, format: initial.format, pkg, region, currency }), [views, initial.format, pkg, region, currency]);
+  const q = useMemo(() => quote({ views, format: initial.format, pkg, region, currency, country }), [views, initial.format, pkg, region, currency, country]);
 
   async function runLookup(raw: string) {
     const id = parseYouTubeId(raw);
@@ -148,7 +154,10 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 
   const pkgName = c.packages[pkg].name;
-  const regionName = c.regions[region].name;
+  const regionName =
+    region === 'premium'
+      ? `${countryName(country, locale)}${turkishOnly ? (isTr ? ' (Türkçe konuşanlar)' : ' (Turkish speakers)') : ''}`
+      : c.regions[region].name;
   const totalText = formatMoney(q.total, currency, locale);
   const durText = video?.durationSec ? duration(video.durationSec) : '';
 
@@ -237,6 +246,8 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             contact: '',
             note,
             locale,
+            country: region === 'premium' ? country : undefined,
+            turkishOnly: region === 'premium' ? turkishOnly : undefined,
           }),
         });
         const data = await res.json().catch(() => ({}));
@@ -282,6 +293,8 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           contact,
           note,
           locale,
+          country: region === 'premium' ? country : undefined,
+          turkishOnly: region === 'premium' ? turkishOnly : undefined,
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -550,9 +563,12 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           <h4 className="mb-2 mt-6 text-sm font-bold text-white">{c.region}</h4>
           <div className="grid gap-2 sm:grid-cols-3">
             {REGIONS.map((r) => (
-              <Choice key={r} on={region === r} onClick={() => setRegion(r)} title={`${r === 'tr' ? '🇹🇷' : r === 'global' ? '🌍' : '💎'} ${c.regions[r].name}`} desc={c.regions[r].desc} />
+              <Choice key={r} on={region === r} onClick={() => setRegion(r)} title={`${r === 'tr' ? '🇹🇷' : r === 'global' ? '🌍' : '🗺️'} ${c.regions[r].name}`} desc={c.regions[r].desc} />
             ))}
           </div>
+          {region === 'premium' && (
+            <CountryPicker locale={locale} country={country} onCountry={setCountry} turkishOnly={turkishOnly} onTurkishOnly={setTurkishOnly} />
+          )}
 
           <h4 className="mb-2 mt-6 text-sm font-bold text-white">{c.pkg}</h4>
           <div className="grid gap-2 sm:grid-cols-2">

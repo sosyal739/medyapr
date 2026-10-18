@@ -35,8 +35,8 @@ const tr = {
     },
     regions: {
       tr: { name: 'Türkiye', desc: 'Türkçe hedef kitle', tag: 'Standart' },
-      global: { name: 'Karma Global', desc: '1K: ₺100 • Kademeli İndirimli', tag: '1K: ₺100 🔥' },
-      premium: { name: 'Premium Ülkeler', desc: 'ABD, UK, Almanya vb.', tag: 'Tier-1 Kitle' },
+      global: { name: 'Global', desc: 'Karma dünya kitlesi • Kademeli indirimli', tag: '1K: ₺100 🔥' },
+      premium: { name: 'Diğer ülkeler', desc: 'Listeden ülke seçin', tag: 'Ülke seç' },
     },
     total: 'Tahmini Teklif Tutarı',
     discount: 'Paket İndirimi',
@@ -151,8 +151,8 @@ const en: Strings = {
     },
     regions: {
       tr: { name: 'Turkey', desc: 'Turkish audience targeting', tag: 'Standard' },
-      global: { name: 'Mixed Global', desc: 'From $3.50/1K • Progressive Discount', tag: 'Global Mix 🔥' },
-      premium: { name: 'Premium Countries', desc: 'US, UK, Germany, etc.', tag: 'Tier-1 Markets' },
+      global: { name: 'Global', desc: 'Mixed worldwide audience • Volume discounts', tag: 'Best price 🔥' },
+      premium: { name: 'Other countries', desc: 'Pick a country from the list', tag: 'Pick country' },
     },
     total: 'Estimated Quote',
     discount: 'Package Discount',

@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { trackEvent } from '@/lib/analytics';
+import { countryName, DEFAULT_COUNTRY } from '@/lib/countries';
+import CountryPicker from './CountryPicker';
 import Link from 'next/link';
 import { ArrowRight, Check, Mail, MessageCircle, Search, Send, ShieldCheck, Sparkles, Tag, ThumbsUp } from 'lucide-react';
 import {
@@ -58,6 +60,8 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
   const [format] = useState<Format>('instream');
   const [pkg, setPkg] = useState<Package>('views');
   const [region, setRegion] = useState<Region>(isTr ? 'tr' : 'premium');
+  const [country, setCountry] = useState(DEFAULT_COUNTRY(locale));
+  const [turkishOnly, setTurkishOnly] = useState(true);
   const [currency, setCurrency] = useState<Currency>(isTr ? 'TRY' : 'USD');
   const [videoUrl, setVideoUrl] = useState('');
   const usedTracked = useRef(false);
@@ -73,12 +77,13 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
     }
   }, [views, pkg, region]);
 
-  const q = useMemo(() => quote({ views, format, pkg, region, currency }), [views, format, pkg, region, currency]);
+  const q = useMemo(() => quote({ views, format, pkg, region, currency, country }), [views, format, pkg, region, currency, country]);
+  const regionLabel = region === 'premium' ? `${countryName(country, locale)}${turkishOnly ? (isTr ? ' (Türkçe konuşanlar)' : ' (Turkish speakers)') : ''}` : t.regions[region].name;
   const animTotal = useAnimatedNumber(q.total);
   const nf = new Intl.NumberFormat(isTr ? 'tr-TR' : 'en-US');
 
   const videoParam = videoUrl.trim() ? `&video=${encodeURIComponent(videoUrl.trim())}` : '';
-  const href = `/${locale}/order?views=${q.views}&format=${format}&pkg=${pkg}&region=${region}&currency=${currency}${videoParam}`;
+  const href = `/${locale}/order?views=${q.views}&format=${format}&pkg=${pkg}&region=${region}&currency=${currency}${region === 'premium' ? `&country=${country}&tro=${turkishOnly ? 1 : 0}` : ''}${videoParam}`;
   const mailOrderHref = `${href}&channel=email`;
   const hasValidVideo = !!parseYouTubeId(videoUrl);
 
@@ -89,7 +94,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
       : 'Hello, I am planning a PR / ad campaign for my YouTube video. Could you review it and send me a quote?',
     videoUrl.trim() ? `▸ *${isTr ? 'Video linki' : 'Video link'}:* ${videoUrl.trim()}` : '',
     [
-      `▸ *${isTr ? 'Düşündüğüm paket' : 'Package I have in mind'}:* ${nf.format(q.views)} ${isTr ? 'İzlenme' : 'Views'} - ${t.packages[pkg].name} - ${t.regions[region].name}`,
+      `▸ *${isTr ? 'Düşündüğüm paket' : 'Package I have in mind'}:* ${nf.format(q.views)} ${isTr ? 'İzlenme' : 'Views'} - ${t.packages[pkg].name} - ${regionLabel}`,
       `▸ *${isTr ? 'Tahmini teklif' : 'Estimated quote'}:* ${formatMoney(q.total, currency, locale)} (${isTr ? 'video uzunluğuna göre değişebilir' : 'may vary by video length'})`,
     ].join('\n'),
   ]
@@ -230,6 +235,9 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                 );
               })}
             </div>
+            {region === 'premium' && (
+              <CountryPicker locale={locale} country={country} onCountry={setCountry} turkishOnly={turkishOnly} onTurkishOnly={setTurkishOnly} />
+            )}
           </div>
 
           {/* Adım 3: Paket Türü */}

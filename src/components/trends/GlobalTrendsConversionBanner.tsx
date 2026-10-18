@@ -26,7 +26,7 @@ const REGION_OPTIONS = [
   { id: 'gb', labelTr: '🇬🇧 İngiltere (UK)', labelEn: '🇬🇧 UK Charts', regionParam: 'premium', currencyTr: 'USD', currencyEn: 'USD' },
   { id: 'de', labelTr: '🇩🇪 Almanya (DE)', labelEn: '🇩🇪 Germany (DE)', regionParam: 'premium', currencyTr: 'USD', currencyEn: 'USD' },
   { id: 'tr', labelTr: '🇹🇷 Türkiye (TR)', labelEn: '🇹🇷 Turkey (TR)', regionParam: 'tr', currencyTr: 'TRY', currencyEn: 'TRY' },
-  { id: 'global', labelTr: '🌍 Küresel Mix', labelEn: '🌍 Global Mix', regionParam: 'global', currencyTr: 'TRY', currencyEn: 'USD' },
+  { id: 'global', labelTr: '🌍 Global', labelEn: '🌍 Global', regionParam: 'global', currencyTr: 'TRY', currencyEn: 'USD' },
 ] as const;
 
 const GENRE_OPTIONS = [
@@ -87,11 +87,11 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
   const currency = isTr ? (activeRegion.id === 'tr' || activeRegion.id === 'global' ? 'TRY' : 'USD') : 'USD';
   // Fiyatlar her zaman sipariş sayfasıyla aynı motordan hesaplanır.
   const priceFor = (views: number) =>
-    formatMoney(quote({ views, region: activeRegion.regionParam as Region, currency }).total, currency, locale);
+    formatMoney(quote({ views, region: activeRegion.regionParam as Region, currency, country: activeRegion.id.toUpperCase() }).total, currency, locale);
   const priceDisplay = priceFor(activeTier.views);
 
   // Pre-fill direct order link
-  const orderHref = `/${locale}/order?views=${activeTier.views}&region=${activeRegion.regionParam}&pkg=${activeTier.pkgParam}&currency=${currency}`;
+  const orderHref = `/${locale}/order?views=${activeTier.views}&region=${activeRegion.regionParam}${activeRegion.regionParam === 'premium' ? `&country=${activeRegion.id.toUpperCase()}` : ''}&pkg=${activeTier.pkgParam}&currency=${currency}`;
 
   // Pre-fill WhatsApp message
   const waMessage = isTr
