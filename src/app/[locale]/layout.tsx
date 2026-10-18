@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Inter, Montserrat } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { locales, type Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/dictionaries';
@@ -11,8 +10,6 @@ import { ThemeProvider } from '@/components/theme/ThemeContext';
 import MobileStickyBar from '@/components/layout/MobileStickyBar';
 import MotionGuard from '@/components/common/MotionGuard';
 
-const inter = Inter({ subsets: ['latin', 'latin-ext'], weight: ['300','400','500','600','700','800','900'], display: 'swap', variable: '--font-inter' });
-const montserrat = Montserrat({ subsets: ['latin', 'latin-ext'], weight: ['400','500','600','700','800','900'], display: 'swap', variable: '--font-montserrat' });
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -82,7 +79,7 @@ export default async function LocaleLayout({ params, children }: Props) {
   const dict = await getDictionary(locale as Locale);
 
   return (
-    <html lang={locale} className={`scroll-smooth ${inter.variable} ${montserrat.variable}`} data-theme="dark" suppressHydrationWarning>
+    <html lang={locale} className="scroll-smooth" data-theme="dark" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: "try{if(localStorage.getItem('medyapr_theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}" }} />
         {/* Schema.org Unified Graph: Organization, Person, ProfessionalService, WebSite */}
