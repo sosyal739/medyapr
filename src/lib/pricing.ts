@@ -22,27 +22,45 @@ export const MIN_VIEWS = 1_000;
 export const MAX_VIEWS = 1_000_000;
 
 /**
- * Türkiye temel fiyat tablosu (TL cinsinden).
- * 1.000 (1K) = 250 TL
- * 5.000 (5K) = 1.200 TL
- * 10.000 (10K) = 2.000 TL
- * 25.000 (25K) = 4.100 TL
- * 50.000 (50K) = 7.500 TL
- * 100.000 (100K) = 12.000 TL
- * 250.000 (250K) = 26.000 TL
- * 500.000 (500K) = 50.000 TL
- * 1.000.000 (1M) = 90.000 TL
+ * Türkiye temel fiyat tablosu (TL cinsinden), 18 Ekim 2026'da güncellendi.
+ * Sahibin verdiği noktalar: 1K = 125, 5K = 575, 10K = 1.000, 50K = 4.750, 100K = 8.999.
+ * Aradaki ve üstteki kademeler (25K, 250K, 500K, 1M) birim fiyat düşüşünü sürdürecek biçimde türetildi.
+ * 1.000 (1K) = 125 TL (125/1K)
+ * 5.000 (5K) = 575 TL (115/1K)
+ * 10.000 (10K) = 1.000 TL (100/1K)
+ * 25.000 (25K) = 2.400 TL (96/1K)
+ * 50.000 (50K) = 4.750 TL (95/1K)
+ * 100.000 (100K) = 8.999 TL (~90/1K)
+ * 250.000 (250K) = 19.500 TL (78/1K)
+ * 500.000 (500K) = 37.500 TL (75/1K)
+ * 1.000.000 (1M) = 67.500 TL (67,5/1K)
  */
 export const TR_PRICE_TIERS: readonly [number, number][] = [
-  [1_000, 250],
-  [5_000, 1_200],
-  [10_000, 2_000],
-  [25_000, 4_100],
-  [50_000, 7_500],
-  [100_000, 12_000],
-  [250_000, 26_000],
-  [500_000, 50_000],
-  [1_000_000, 90_000],
+  [1_000, 125],
+  [5_000, 575],
+  [10_000, 1_000],
+  [25_000, 2_400],
+  [50_000, 4_750],
+  [100_000, 8_999],
+  [250_000, 19_500],
+  [500_000, 37_500],
+  [1_000_000, 67_500],
+];
+
+/**
+ * Premium ülkeler (ABD, İngiltere, Almanya vb.) fiyat tablosu (TL). Türkiye fiyatı düştüğünde
+ * değişmemesi için ayrı tutulur; eski Türkiye tablosunun 2 katıdır.
+ */
+export const PREMIUM_PRICE_TIERS: readonly [number, number][] = [
+  [1_000, 500],
+  [5_000, 2_400],
+  [10_000, 4_000],
+  [25_000, 8_200],
+  [50_000, 15_000],
+  [100_000, 24_000],
+  [250_000, 52_000],
+  [500_000, 100_000],
+  [1_000_000, 180_000],
 ];
 
 /**
@@ -113,7 +131,7 @@ export function getPriceTry(views: number, region: Region): number {
     return interpolateTiers(v, GLOBAL_PRICE_TIERS);
   }
   if (region === 'premium') {
-    return Math.round(interpolateTiers(v, TR_PRICE_TIERS) * 2.0);
+    return interpolateTiers(v, PREMIUM_PRICE_TIERS);
   }
   return interpolateTiers(v, TR_PRICE_TIERS);
 }
@@ -136,7 +154,7 @@ export function quote(input: {
   const { region, currency } = input;
 
   // 1.000 izlenme baz tavan liste fiyatı
-  const baseRatePerKTry = region === 'global' ? 100 : region === 'premium' ? 500 : 250;
+  const baseRatePerKTry = region === 'global' ? 100 : region === 'premium' ? 500 : 125;
   const subtotalTry = (views / 1000) * baseRatePerKTry * pkgFactor;
 
   // Kademeli paket fiyatı (hacim arttıkça birim maliyet düşer)
