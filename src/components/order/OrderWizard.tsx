@@ -7,7 +7,6 @@ import {
   ArrowRight,
   Check,
   CheckCircle2,
-  Clock,
   Copy,
   Eye,
   Loader2,
@@ -766,10 +765,6 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           <SummaryRow k={c.region} v={regionName} />
           <SummaryRow k={c.pkg} v={pkgName} />
           <SummaryRow k={c.per1k} v={formatMoney(q.perThousand, currency, locale)} />
-          <div className="flex items-center justify-between text-white/75">
-            <dt className="inline-flex items-center gap-1"><Clock className="h-3.5 w-3.5" /> {c.eta}</dt>
-            <dd className="font-semibold">{q.etaDays[0]}–{q.etaDays[1]} {c.days}</dd>
-          </div>
         </dl>
 
         <div className="mt-4 flex items-end justify-between">

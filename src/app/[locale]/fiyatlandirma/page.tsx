@@ -175,7 +175,6 @@ export default async function PricingPage({ params }: Props) {
                   <th className="py-3.5 px-4">{isTr ? 'Karma Global (🔥 İndirimli)' : 'Blended Global'}</th>
                   <th className="py-3.5 px-4">{isTr ? 'Türkiye Hedefli' : 'Turkey Targeted'}</th>
                   <th className="py-3.5 px-4">{isTr ? 'Almanya / Avrupa / ABD' : 'Tier-1 (DE / EU / US)'}</th>
-                  <th className="py-3.5 px-4">{isTr ? 'Tahmini Süre' : 'Est. Delivery'}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10 text-zinc-200">
@@ -191,7 +190,6 @@ export default async function PricingPage({ params }: Props) {
                       <td className="py-3.5 px-4 text-amber-300 font-bold">{formatMoney(g.total, 'TRY', locale)}</td>
                       <td className="py-3.5 px-4">{formatMoney(t.total, 'TRY', locale)}</td>
                       <td className="py-3.5 px-4">{formatMoney(p.total, 'TRY', locale)}</td>
-                      <td className="py-3.5 px-4">{t.etaDays[0]}–{t.etaDays[1]} {isTr ? 'gün' : 'days'}</td>
                     </tr>
                   );
                 })}

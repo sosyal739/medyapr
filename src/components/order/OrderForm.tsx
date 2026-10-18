@@ -241,7 +241,6 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
               accent
             />
           )}
-          <Row k={c.eta} v={`${q.etaDays[0]}–${q.etaDays[1]} ${c.days}`} />
         </dl>
 
         <div className="mt-5 flex items-end justify-between border-t border-white/10 pt-4">

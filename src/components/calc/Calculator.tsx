@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { trackEvent } from '@/lib/analytics';
 import Link from 'next/link';
-import { ArrowRight, Check, Clock, Mail, MessageCircle, Search, Send, ShieldCheck, Sparkles, Tag, ThumbsUp } from 'lucide-react';
+import { ArrowRight, Check, Mail, MessageCircle, Search, Send, ShieldCheck, Sparkles, Tag, ThumbsUp } from 'lucide-react';
 import {
   CURRENCIES,
   MAX_VIEWS,
@@ -401,12 +401,6 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
             <div className="flex items-center justify-between text-zinc-300">
               <span className="text-zinc-400">{t.per1k}</span>
               <span className="font-bold text-white">{formatMoney(q.perThousand, currency, locale)}</span>
-            </div>
-            <div className="flex items-center justify-between text-zinc-300">
-              <span className="text-zinc-400 inline-flex items-center gap-1">
-                <Clock className="h-3.5 w-3.5 text-zinc-500" /> {t.eta}
-              </span>
-              <span className="font-bold text-zinc-200">{q.etaDays[0]}–{q.etaDays[1]} {t.days}</span>
             </div>
           </div>
 
