@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         : 'Frequently Asked Questions | MedyaPR Video PR',
     },
     description: isTr
-      ? 'YouTube klip tanıtımı, resmi Google Ads reklam süreçleri, aşamalı ödeme modeli ve kanal güvenliği hakkında merak edilen tüm soruların yanıtları.'
-      : 'Find answers about YouTube video PR, official Google Ads campaign workflows, phased payments, channel security, and real retention metrics.',
+      ? 'YouTube klip tanıtımı, resmi Google Ads reklam süreçleri, ödeme süreci ve kanal güvenliği hakkında merak edilen tüm soruların yanıtları.'
+      : 'Find answers about YouTube video PR, official Google Ads campaign workflows, payment process, channel security, and real retention metrics.',
     alternates: getPageAlternates(locale, '/sss'),
   };
 }

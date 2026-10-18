@@ -265,7 +265,7 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
               <span>•</span>
               <span className="text-emerald-400 font-bold flex items-center gap-1">
                 <ShieldCheck className="h-3.5 w-3.5" />
-                <span>{isTr ? '%50 Onayda, %50 Teslimatta Ödeme' : '50% on Approval, 50% on Completion'}</span>
+                <span>{isTr ? 'Önce Analiz, Sonra Teklif' : 'Review First, Then Quote'}</span>
               </span>
             </div>
           </div>

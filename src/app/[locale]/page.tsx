@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         : 'YouTube Music Video Promotion & Google Ads PR | MedyaPR',
     },
     description: isTr
-      ? 'Resmi Google Ads ile YouTube klip tanıtımı, şarkı reklamı ve gerçek izlenme paketleri. Şifre istenmez; %50 reklam onayında, %50 iş bitiminde güvenli ödeme.'
-      : 'Official Google Ads YouTube music video promotion and real view packages. No password required; 50% payment upon ad approval, 50% upon campaign completion.',
+      ? 'Resmi Google Ads ile YouTube klip tanıtımı, şarkı reklamı ve gerçek izlenme paketleri. Şifre istenmez; önce ücretsiz analiz, sonra teklif.'
+      : 'Official Google Ads YouTube music video promotion and real view packages. No password required; free review first, then a quote.',
     alternates: getPageAlternates(locale, ''),
   };
 }
@@ -70,8 +70,8 @@ export default async function HomePage({ params }: Props) {
                 '@type': 'HowTo',
                 name: locale === 'tr' ? 'YouTube Klip Tanıtımı ve Video PR Nasıl Yapılır?' : 'How YouTube Music Video PR Works',
                 description: locale === 'tr'
-                  ? 'MedyaPR ile YouTube video ve klip tanıtımının 4 adımlı resmi Google Ads onay, aşamalı ödeme ve yayın süreci.'
-                  : '4-step official Google Ads video campaign workflow: submission, review, phased payment, and delivery.',
+                  ? 'MedyaPR ile YouTube video ve klip tanıtımının 4 adımlı resmi Google Ads onay ve yayın süreci.'
+                  : '4-step official Google Ads video campaign workflow: submission, review, approval, and delivery.',
                 totalTime: 'P2D',
                 step: [
                   {
@@ -95,10 +95,10 @@ export default async function HomePage({ params }: Props) {
                   {
                     '@type': 'HowToStep',
                     position: 3,
-                    name: locale === 'tr' ? 'Aşamalı Güvenli Ödeme' : 'Phased Safe Payment',
+                    name: locale === 'tr' ? 'Önce Analiz, Sonra Teklif' : 'Review First, Then Quote',
                     text: locale === 'tr'
-                      ? 'Video reklam onayı alınca ödemenin yarısı (%50), kampanya tamamlandığında kalanı alınır. Kurumsal müşterilerde tüm ödeme iş bitimindedir.'
-                      : '50% upon official ad approval, 50% upon campaign delivery. Corporate clients pay 100% on delivery.',
+                      ? 'Videonuz incelenir, net bir teklif iletilir; onayınız olmadan kampanya başlamaz.'
+                      : 'Your video is reviewed and a clear quote is sent; no campaign starts without your approval.',
                     url: `https://medyapr.com/${locale}#how-it-works`,
                   },
                   {
@@ -211,7 +211,7 @@ export default async function HomePage({ params }: Props) {
                   <th className="py-3.5 px-4">{isTr ? 'Hizmet & Paket Türü' : 'Service & Package'}</th>
                   <th className="py-3.5 px-4">{isTr ? 'Trafik Kaynağı' : 'Traffic Source'}</th>
                   <th className="py-3.5 px-4">{isTr ? 'Başlangıç Baremi' : 'Starting Rate'}</th>
-                  <th className="py-3.5 px-4">{isTr ? 'Ödeme Güvencesi' : 'Payment Security'}</th>
+                  <th className="py-3.5 px-4">{isTr ? 'Süreç' : 'Process'}</th>
                   <th className="py-3.5 px-4">{isTr ? 'Hızlı İşlem' : 'Action'}</th>
                 </tr>
               </thead>
@@ -219,8 +219,8 @@ export default async function HomePage({ params }: Props) {
                 <tr>
                   <td className="py-3.5 px-4 font-bold text-white">{isTr ? 'YouTube Klip Tanıtımı (Türkiye Hedefli)' : 'Targeted Country Music Video PR'}</td>
                   <td className="py-3.5 px-4">Google Ads In-Stream & Keşfet</td>
-                  <td className="py-3.5 px-4 text-emerald-400 font-bold">{isTr ? '1.000 İzlenme: ₺200’den başlayan' : 'Tiered Custom CPV'}</td>
-                  <td className="py-3.5 px-4">{isTr ? '%50 Onayda, %50 Bitince' : '50% Approval / 50% Delivery'}</td>
+                  <td className="py-3.5 px-4 text-emerald-400 font-bold">{isTr ? '1.000 İzlenme: tahmini ₺125’ten başlayan' : 'Tiered Custom CPV'}</td>
+                  <td className="py-3.5 px-4">{isTr ? 'Önce analiz, sonra teklif' : 'Review first, then quote'}</td>
                   <td className="py-3.5 px-4">
                     <Link href={`/${locale}/fiyatlandirma`} className="font-bold text-[#FF6B6B] underline">
                       {isTr ? 'Fiyat Hesapla →' : 'Calculate →'}
@@ -231,7 +231,7 @@ export default async function HomePage({ params }: Props) {
                   <td className="py-3.5 px-4 font-bold text-white">{isTr ? 'Karma Global YouTube İzlenme Paketi' : 'Blended Global YouTube Views'}</td>
                   <td className="py-3.5 px-4">Google Ads Global Video Ağı</td>
                   <td className="py-3.5 px-4 text-amber-300 font-bold">{isTr ? '1.000 İzlenme: ₺100 🔥' : 'High-Volume Discounted'}</td>
-                  <td className="py-3.5 px-4">{isTr ? '%50 Onayda, %50 Bitince' : '50% Approval / 50% Delivery'}</td>
+                  <td className="py-3.5 px-4">{isTr ? 'Önce analiz, sonra teklif' : 'Review first, then quote'}</td>
                   <td className="py-3.5 px-4">
                     <Link href={`/${locale}/order`} className="font-bold text-emerald-400 underline">
                       {isTr ? 'Analiz İste →' : 'Request Analysis →'}

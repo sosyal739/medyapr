@@ -93,12 +93,12 @@ export default async function RefundPage({ params }: Props) {
 
           <section className="space-y-4 text-sm sm:text-base text-zinc-300 leading-relaxed">
             <h2 className="text-lg font-bold text-white">
-              {isTr ? '2. Aşamalı Ödeme Güvencesi' : '2. Phased Payment Security'}
+              {isTr ? '2. Ödeme ve Hizmet Güvencesi' : '2. Payment and Service Assurance'}
             </h2>
             <p>
               {isTr
-                ? 'MedyaPR standart olarak tüm müşterilerine aşamalı ödeme modeli uygular: Ödemenin yarısı (%50) video onaylandığında, kalan yarısı (%50) ise kampanya tamamlanıp YouTube Studio\'ya yansıdığında alınır. Hedeflenen izlenme teslim edilmeden ikinci ödeme asla talep edilmez.'
-                : 'With our phased payment model (50% on approval, 50% on full delivery), your budget is completely secured at all stages of promotion.'}
+                ? 'Ödeme planı, teklif aşamasında yazılı olarak netleştirilir. Hedeflenen izlenme teslim edilmeden kalan tutar için ödeme talep edilmez.'
+                : 'The payment plan is agreed in writing at the quote stage. No payment is requested for the remaining amount before the target views are delivered.'}
             </p>
           </section>
 

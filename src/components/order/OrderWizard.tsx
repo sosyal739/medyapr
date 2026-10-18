@@ -787,16 +787,9 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           </p>
         )}
 
-        <div className="mt-4 space-y-1.5 rounded-2xl border border-white/10 bg-white/[0.03] p-3 text-xs">
-          <div className="flex justify-between text-zinc-300">
-            <span>{isTr ? 'Onay alınca başlar (%50)' : 'Starts on approval (50%)'}</span>
-            <span className="font-bold text-emerald-400">{formatMoney(Math.round(q.total / 2), currency, locale)}</span>
-          </div>
-          <div className="flex justify-between text-zinc-300">
-            <span>{isTr ? 'Kampanya bitince (%50)' : 'On completion (50%)'}</span>
-            <span className="font-bold">{formatMoney(q.total - Math.round(q.total / 2), currency, locale)}</span>
-          </div>
-        </div>
+        <p className="mt-4 rounded-2xl border border-white/10 bg-white/[0.03] p-3 text-xs text-zinc-300">
+          {isTr ? 'Tutar tahminidir; analizden sonra kesin teklif iletilir. Onayınız olmadan kampanya başlamaz.' : 'This amount is an estimate; a final quote follows our review. No campaign starts without your approval.'}
+        </p>
 
         {error && <p className="mt-4 rounded-xl border border-red-500/30 bg-red-500/20 p-3 text-xs text-red-200">{error}</p>}
 

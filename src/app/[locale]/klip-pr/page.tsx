@@ -64,7 +64,7 @@ export default async function KlipPrLandingPage({
         },
         {
           q: 'Ödeme ve faturalandırma süreci nasıl işliyor?',
-          a: 'Sanatçı ve yapımcılar için %100 şeffaf aşamalı model uygulanır: Klibiniz incelenip medya planı ve reklam onayı tamamlandığında bütçenin %50’si, kampanya hedeflenen medya planına ulaşıp tamamlandığında kalan %50’si ödenir.',
+          a: 'Önce klibiniz incelenir ve medya planı hazırlanır; ödeme planı teklif aşamasında yazılı olarak netleştirilir. Onayınız olmadan kampanya başlamaz.',
         },
         {
           q: 'Hangi müzik türleri ve sanatçılar için uygundur?',
@@ -81,8 +81,8 @@ export default async function KlipPrLandingPage({
           a: 'No. We never ask for your channel password or login credentials. Only your public music video link is needed to configure and launch your campaign.',
         },
         {
-          q: 'How does the phased 50/50 payment structure work?',
-          a: 'Once your music video passes compliance review and your campaign is approved, 50% of the budget is paid. The remaining 50% is paid upon campaign completion.',
+          q: 'How does payment work?',
+          a: 'Your music video is reviewed first and a media plan is prepared; the payment plan is agreed in writing at the quote stage. No campaign starts without your approval.',
         },
         {
           q: 'Do you use bots or artificial engagement panels?',
@@ -195,7 +195,7 @@ export default async function KlipPrLandingPage({
             </div>
             <div className="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-zinc-900/80 px-3 py-3">
               <ShieldCheck className="h-4 w-4 text-sky-400 shrink-0" />
-              <span>{isTr ? '%50 Onayda • %50 Bitince' : '50/50 Phased Payment'}</span>
+              <span>{isTr ? 'Önce Analiz • Sonra Teklif' : 'Review First • Then Quote'}</span>
             </div>
             <div className="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-zinc-900/80 px-3 py-3">
               <BarChart3 className="h-4 w-4 text-amber-400 shrink-0" />
@@ -240,12 +240,12 @@ export default async function KlipPrLandingPage({
                 02
               </div>
               <h3 className="text-lg font-extrabold text-white">
-                {isTr ? 'Kampanya Kurulumu & %50 Onay Güvencesi' : 'Campaign Setup & 50% Approval Security'}
+                {isTr ? 'Kampanya Kurulumu & Onay' : 'Campaign Setup & Approval'}
               </h3>
               <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                 {isTr
-                  ? 'Medya planınız hazırlanır ve resmi reklam politikalarına uygun şekilde onaya sunulur. Kampanyanız onaylandığında ilk %50 ödemeniz alınarak yayın başlatılır.'
-                  : 'Your media plan is configured and submitted for official ad policy review. Once approved, 50% payment initiates the live campaign.'}
+                  ? 'Medya planınız hazırlanır ve resmi reklam politikalarına uygun şekilde onaya sunulur. Kampanyanız onaylandığında yayın başlatılır.'
+                  : 'Your media plan is configured and submitted for official ad policy review. Once approved, the live campaign starts.'}
               </p>
             </div>
 
@@ -258,7 +258,7 @@ export default async function KlipPrLandingPage({
               </h3>
               <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                 {isTr
-                  ? 'Yayın süresince bütçeniz en yüksek izleyici ilgisi gösteren kitle segmentlerine göre optimize edilir. Süreç tamamlandığında şeffaf sonuçlarla kalan %50 ödeme tamamlanır.'
+                  ? 'Yayın süresince bütçeniz en yüksek izleyici ilgisi gösteren kitle segmentlerine göre optimize edilir. Süreç tamamlandığında sonuçlar şeffaf biçimde raporlanır.'
                   : 'Throughout the launch, your media budget is optimized toward top-performing listener segments, concluding with final reporting.'}
               </p>
             </div>

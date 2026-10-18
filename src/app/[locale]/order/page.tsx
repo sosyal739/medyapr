@@ -45,7 +45,7 @@ export default async function OrderPage({ params, searchParams }: Props) {
         {
           question: 'Neden doğrudan kartla ödeme yerine analiz ve onay süreci var?',
           answer:
-            'Her müzik klibinin ve YouTube videosunun süresi, kategorisi ve reklam politikası uygunluğu farklıdır. Kanalınızın güvenliği ve bütçenizin en verimli şekilde kullanılması için önce teknik video analizi yapılır; Google Ads reklam onayı alındıktan sonra %50, iş bitiminde %50 güvenli ödeme uygulanır.',
+            'Her müzik klibinin ve YouTube videosunun süresi, kategorisi ve reklam politikası uygunluğu farklıdır. Kanalınızın güvenliği ve bütçenizin en verimli şekilde kullanılması için önce teknik video analizi yapılır; Google Ads reklam onayı alındıktan sonra kampanya başlatılır.',
         },
       ]
     : [
@@ -143,8 +143,8 @@ export default async function OrderPage({ params, searchParams }: Props) {
           </h2>
           <blockquote className="rounded-2xl border-l-4 border-[#FF0033] bg-white/[0.03] p-5 text-sm text-zinc-200 italic">
             {isTr
-              ? '“MedyaPR’de tüm YouTube izlenme ve klip tanıtım kampanyaları sertifikalı Google Partner uzmanları tarafından yürütülür. Kanal şifresi istenmez; teklifiniz incelendikten sonra %50 reklam onayında, %50 kampanya bitiminde ödeme güvencesiyle çalışılır.”'
-              : '“All YouTube video promotion campaigns at MedyaPR are managed by certified Google Partner specialists with zero passwords required and 50/50 phased payment security.”'}
+              ? '“MedyaPR’de tüm YouTube izlenme ve klip tanıtım kampanyaları sertifikalı Google Partner uzmanları tarafından yürütülür. Kanal şifresi istenmez; teklifiniz incelendikten sonra onayınızla çalışılır.”'
+              : '“All YouTube video promotion campaigns at MedyaPR are managed by certified Google Partner specialists with zero passwords required.”'}
           </blockquote>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {orderFaqs.map((f, i) => (

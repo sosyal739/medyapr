@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         : 'Terms of Service | MedyaPR Official Video PR',
     },
     description: isTr
-      ? 'MedyaPR hizmet kullanım şartları. Kampanya onay süreçleri, YouTube reklam politikaları, aşamalı ödeme şartları ve kurumsal hizmet kuralları.'
-      : 'Terms and conditions of MedyaPR video promotion services. Campaign approval, Google Ads policy compliance, phased payments, and service rules.',
+      ? 'MedyaPR hizmet kullanım şartları. Kampanya onay süreçleri, YouTube reklam politikaları, ödeme koşulları ve kurumsal hizmet kuralları.'
+      : 'Terms and conditions of MedyaPR video promotion services. Campaign approval, Google Ads policy compliance, payment terms, and service rules.',
     alternates: getPageAlternates(locale, '/kullanim-kosullari'),
   };
 }
@@ -93,12 +93,12 @@ export default async function TermsPage({ params }: Props) {
           <section className="space-y-4 text-sm sm:text-base text-zinc-300 leading-relaxed">
             <h2 className="text-lg font-bold text-white flex items-center gap-2">
               <AlertCircle className="h-5 w-5 text-amber-400" />
-              {isTr ? '2. Reklam Onayı ve Aşamalı Ödeme Koşulları' : '2. Approval and Phased Payment Terms'}
+              {isTr ? '2. Reklam Onayı ve Ödeme Koşulları' : '2. Approval and Payment Terms'}
             </h2>
             <p>
               {isTr
-                ? 'Sipariş verildiğinde video Google Partner uzmanlarımız tarafından ön incelemeden geçirilir ve Google Ads onay sürecine iletilir. Video resmi reklam onayı aldığı anda toplam tutarın %50\'si peşin, kampanya tamamlandığında ise kalan %50\'si tahsil edilir. Kurumsal müşteriler ve plak şirketleri için tüm ödeme iş bitimindedir.'
-                : 'Phased payment structure: 50% upon official Google Ads campaign approval, and 50% upon full delivery. Corporate clients and record labels pay 100% upon delivery.'}
+                ? 'Sipariş verildiğinde video Google Partner uzmanlarımız tarafından ön incelemeden geçirilir ve Google Ads onay sürecine iletilir. Ödeme planı teklif aşamasında yazılı olarak netleştirilir; sitede online ödeme alınmaz.'
+                : 'The payment plan is agreed in writing at the quote stage; no online payment is taken on the site.'}
             </p>
           </section>
 

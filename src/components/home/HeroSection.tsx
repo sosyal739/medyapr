@@ -229,7 +229,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
             </a>
           </div>
 
-          {/* Süreç & Aşamalı Ödeme Güvencesi */}
+          {/* Süreç */}
           <div className="rounded-2xl border border-white/15 bg-white/[0.04] p-3.5 text-xs text-zinc-300 backdrop-blur-md shadow-lg">
             <div className="flex flex-wrap items-center gap-2">
               <span className="font-extrabold text-white flex items-center gap-1.5">
@@ -240,10 +240,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
               <span className="text-zinc-500">➔</span>
               <span className="text-zinc-200">{isTr ? 'Google Ads Reklam Onayı' : 'Google Ads Approval'}</span>
               <span className="text-zinc-500">➔</span>
-              <span className="text-emerald-400 font-bold">{isTr ? '%50 Onayda, %50 Bitince Ödeme' : '50% On Approval, 50% On Delivery'}</span>
-              <span className="rounded-md bg-blue-500/20 px-2 py-0.5 text-[11px] font-bold text-blue-300 border border-blue-500/30">
-                {isTr ? 'Kurumsala İş Bitiminde' : 'Verified Accounts Pay on Delivery'}
-              </span>
+              <span className="text-emerald-400 font-bold">{isTr ? 'Analiz & Teklif' : 'Review & Quote'}</span>
             </div>
             <p className="mt-1.5 text-[11px] text-zinc-400">
               {isTr

@@ -14,7 +14,7 @@ export const FAQS_TR: FAQItem[] = [
   },
   {
     question: 'Ödeme ne zaman ve nasıl yapılır?',
-    answer: 'Teklifinizi ilettikten sonra uzmanlarımız videonuzu inceler ve WhatsApp veya Telegram üzerinden detaylı dönüş yapar. Videonuz Google Ads reklam onayından geçtiğinde ödemenin yarısı (%50), kampanya tamamlandığında ise kalanı (%50) alınır. Kurumsal müşteriler ve yapım şirketleri için ödeme iş bitimindedir.',
+    answer: 'Teklifinizi ilettikten sonra uzmanlarımız videonuzu inceler ve WhatsApp veya Telegram üzerinden detaylı dönüş yapar. Sitede online ödeme alınmaz; ödeme planı teklifi onayladıktan sonra sizinle netleştirilir.',
   },
   {
     question: 'Kampanyaları kim yönetiyor ve sektördeki tecrübeniz nedir?',
@@ -57,7 +57,7 @@ export const FAQS_EN: FAQItem[] = [
   },
   {
     question: 'When and how is payment made?',
-    answer: 'Once you submit your quote and our team analyzes your video, we share the details via WhatsApp or Telegram. Work begins upon Google Ads approval: 50% is collected upon approval and 50% upon completion (100% upon completion for verified corporate clients).',
+    answer: 'Once you submit your quote and our team analyzes your video, we share the details via WhatsApp or Telegram. Work begins upon Google Ads approval. There is no online payment on the site; the payment plan is agreed after you approve the quote.',
   },
   {
     question: 'Who manages the campaigns and what is your industry experience?',

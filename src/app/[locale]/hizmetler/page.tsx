@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         : 'YouTube Music PR & Google Ads Video Services | MedyaPR',
     },
     description: isTr
-      ? 'Resmi Google Ads ile YouTube klip tanıtımı, hedefli izlenme, abone ve etkileşim kampanyaları, Shorts reklamları. Şifre istenmez, ücretsiz video analizi, aşamalı ödeme.'
-      : 'Grow your YouTube channel with official Google Ads In-Stream, Shorts and Discovery campaigns. 18+ years experience, zero bots, and 50/50 phased payment.',
+      ? 'Resmi Google Ads ile YouTube klip tanıtımı, hedefli izlenme, abone ve etkileşim kampanyaları, Shorts reklamları. Şifre istenmez, ücretsiz video analizi.'
+      : 'Grow your YouTube channel with official Google Ads In-Stream, Shorts and Discovery campaigns. 18+ years experience and zero bots.',
     alternates: getPageAlternates(locale, '/hizmetler'),
   };
 }
@@ -214,8 +214,8 @@ export default async function ServicesPage({ params }: Props) {
               {[
                 [isTr ? 'Video linkini iletin' : 'Send your video link', isTr ? 'Yalnızca herkese açık YouTube linki yeterli. Kanal şifresi veya yetki istemiyoruz.' : 'A public YouTube link is enough. We never ask for channel passwords or access.'],
                 [isTr ? 'Analiz ve teklif' : 'Review and quote', isTr ? 'Videonun süresini, içeriğini ve Google Ads uygunluğunu inceleyip WhatsApp, Telegram veya e-posta ile teklifle dönüyoruz.' : 'We check length, content and Google Ads eligibility, then reply by WhatsApp, Telegram or email with a quote.'],
-                [isTr ? 'Reklam onayı ve başlangıç' : 'Ad approval and start', isTr ? 'Siz onaylayınca reklam Google Ads onayına gönderilir; onay çıkınca yayın başlar. Ödemenin ilk yarısı bu aşamada alınır.' : 'Once you approve, the ad is submitted to Google Ads. When it is approved, delivery starts. The first half of the payment is taken at this stage.'],
-                [isTr ? 'Raporlama ve ikinci ödeme' : 'Reporting and second payment', isTr ? 'Kampanya bitince YouTube Studio ve Google Ads verileriyle rapor paylaşılır; kalan yarı bu aşamada ödenir.' : 'When the campaign ends we share a report based on YouTube Studio and Google Ads data; the remaining half is paid at this stage.'],
+                [isTr ? 'Reklam onayı ve başlangıç' : 'Ad approval and start', isTr ? 'Siz onaylayınca reklam Google Ads onayına gönderilir; onay çıkınca yayın başlar.' : 'Once you approve, the ad is submitted to Google Ads. When it is approved, delivery starts.'],
+                [isTr ? 'Raporlama' : 'Reporting', isTr ? 'Kampanya bitince YouTube Studio ve Google Ads verileriyle rapor paylaşılır.' : 'When the campaign ends we share a report based on YouTube Studio and Google Ads data.'],
               ].map(([t, d], i) => (
                 <li key={i} className="rounded-2xl border border-gray-100 bg-[#FAFAFA] p-6">
                   <p className="text-sm font-bold text-[#CC0029] mb-1">{isTr ? `Adım ${i + 1}` : `Step ${i + 1}`}</p>
@@ -270,7 +270,7 @@ export default async function ServicesPage({ params }: Props) {
                 [isTr ? 'Hangi videolar için hizmet veriyorsunuz?' : 'Which videos do you work with?', isTr ? 'Müzik klipleri, şarkı videoları, canlı performanslar ve kurumsal tanıtım videoları. Video herkese açık veya liste dışı olmalı.' : 'Music videos, song videos, live performances and brand videos. The video must be public or unlisted.'],
                 [isTr ? 'Ne kadar sürede sonuç görülür?' : 'How long does it take?', isTr ? 'Reklam onayından sonra yayın genellikle birkaç gün içinde tamamlanır. Süre hacme ve hedeflemeye göre değişir, teklifte yazılır.' : 'After ad approval, delivery usually completes within a few days. The time depends on volume and targeting and is stated in the quote.'],
                 [isTr ? 'Reklam onay almazsa ne olur?' : 'What if the ad is not approved?', isTr ? 'Video Google Ads politikaları nedeniyle onay almazsa komisyon veya işlem ücreti kesilmez, yapılmış ön ödeme iade edilir. Ayrıntılar iade politikasındadır.' : 'If the video is not approved under Google Ads policies, no commission or fee is charged and any prepayment is refunded. Details are in the refund policy.'],
-                [isTr ? 'Nasıl ödeme yapılır?' : 'How do payments work?', isTr ? 'Sitede online ödeme alınmaz. Ödemeyi teklifi onayladıktan sonra yapıyorsunuz: yarısı onayda, yarısı kampanya bitince. Kurumsal müşterilerde ödeme iş bitiminde yapılabilir.' : 'There is no online payment on the site. You pay after approving the quote: half at approval, half when the campaign ends. Corporate clients can pay at completion.'],
+                [isTr ? 'Nasıl ödeme yapılır?' : 'How do payments work?', isTr ? 'Sitede online ödeme alınmaz. Ödeme planı, teklifi onayladıktan sonra sizinle netleştirilir.' : 'There is no online payment on the site. The payment plan is agreed with you after you approve the quote.'],
               ].map(([q, a], i) => (
                 <details key={i} className="group p-5">
                   <summary className="cursor-pointer list-none font-bold text-[#1A1A2E] flex items-center justify-between gap-4">

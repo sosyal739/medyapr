@@ -426,8 +426,8 @@ export default async function BlogPostPage({ params }: Props) {
                       </h4>
                       <p className="text-xs text-zinc-300">
                         {isTr
-                          ? '%100 YouTube Studio tescilli, aşamalı güvenli ödeme (%50 onayda, %50 bitince).'
-                          : '100% YouTube Studio verified views with 50/50 phased payment security.'}
+                          ? '%100 YouTube Studio tescilli resmi reklam izlenmeleri.'
+                          : '100% YouTube Studio verified official ad views.'}
                       </p>
                     </div>
                     <div className="flex flex-wrap shrink-0 items-center gap-2.5">
@@ -518,8 +518,8 @@ export default async function BlogPostPage({ params }: Props) {
             </h3>
             <p className="text-sm text-zinc-300 leading-relaxed">
               {isTr
-                ? 'Bot panelleriyle kanalınızı riske atmayın. Şarkınız için yaş, müzik zevki ve bölge hedefli resmi Google Ads kampanyası başlatın; video onaylanınca %50, iş bitiminde kalanı ödeyin.'
-                : "Avoid shady bot panels that damage your channel's algorithmic standing. Launch a targeted official Google Ads video campaign with age, genre, and geographic audience targeting. 50% upfront on approval, 50% upon successful completion."}
+                ? 'Bot panelleriyle kanalınızı riske atmayın. Şarkınız için yaş, müzik zevki ve bölge hedefli resmi Google Ads kampanyası başlatın; ücretsiz video analizi için bize yazın.'
+                : "Avoid shady bot panels that damage your channel's algorithmic standing. Launch a targeted official Google Ads video campaign with age, genre, and geographic audience targeting. Message us for a free video review."}
             </p>
           </div>
 

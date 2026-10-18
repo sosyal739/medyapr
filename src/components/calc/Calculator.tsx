@@ -311,7 +311,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
               ))}
             </div>
 
-            {/* Süreç & Aşamalı Ödeme Güvencesi Şeridi */}
+            {/* Süreç Şeridi */}
             <div className="mt-3.5 rounded-2xl border border-blue-500/30 bg-gradient-to-r from-blue-950/40 via-zinc-900/60 to-zinc-900/80 p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-2.5 text-zinc-200">
                 <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-500/20 text-blue-400 font-black text-[11px]">
@@ -323,13 +323,11 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                   </strong>{' '}
                   {isTr ? (
                     <>
-                      Teklifinizi iletin, videonuzu analiz edip WhatsApp / Telegram üzerinden detaylı dönüş yapalım. Onay alınca işlem başlar (Onayda{' '}
-                      <span className="text-emerald-400 font-bold">%50</span>, bitince <span className="text-emerald-400 font-bold">%50</span>).
+                      Teklifinizi iletin, videonuzu analiz edip WhatsApp / Telegram üzerinden detaylı dönüş yapalım. Onay alınca işlem başlar.
                     </>
                   ) : (
                     <>
-                      Submit your quote; we analyze your video and reply in detail via WhatsApp / Telegram. Work starts upon approval (
-                      <span className="text-emerald-400 font-bold">50%</span> on approval, <span className="text-emerald-400 font-bold">50%</span> after delivery).
+                      Submit your quote; we analyze your video and reply in detail via WhatsApp / Telegram. Work starts upon approval.
                     </>
                   )}
                 </span>

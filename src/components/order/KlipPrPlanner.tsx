@@ -156,7 +156,7 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
         </div>
         <div className="shrink-0 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-xs text-emerald-300 font-bold flex items-center gap-2">
           <ShieldCheck className="h-5 w-5 text-emerald-400 shrink-0" />
-          <span>{isTr ? '%50 Onayda • %50 İş Bitiminde Ödeme' : '50% on Approval • 50% on Completion'}</span>
+          <span>{isTr ? 'Önce Analiz • Sonra Teklif' : 'Review First • Then Quote'}</span>
         </div>
       </div>
 
@@ -344,8 +344,8 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
               </div>
               <p className="leading-relaxed text-zinc-400">
                 {isTr
-                  ? 'Klibiniz uzman ekibimizce incelenir, hedef kitle kırılımları hazırlanır. Kampanya reklam onayı aldıktan sonra %50, süreç tamamlandığında kalan %50 ödeme alınır.'
-                  : 'Your video is reviewed by our specialists. 50% payment upon campaign ad approval, 50% upon completion and reporting.'}
+                  ? 'Klibiniz uzman ekibimizce incelenir, hedef kitle kırılımları hazırlanır. Kampanya reklam onayı aldıktan sonra yayına alınır.'
+                  : 'Your video is reviewed by our specialists. The campaign goes live after ad approval.'}
               </p>
             </div>
           </div>

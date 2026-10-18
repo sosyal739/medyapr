@@ -160,7 +160,7 @@ export default async function AboutPage({ params }: Props) {
               <li>{locale === 'tr' ? 'Kanal şifresi veya yetki istemeyiz; yalnızca herkese açık video linki gerekir.' : 'We never ask for channel passwords or access; a public video link is all we need.'}</li>
               <li>{locale === 'tr' ? 'Bot, panel veya sahte hesap kullanmayız. Reklam izlenmeleri Google Ads üzerinden gelir.' : 'We do not use bots, panels or fake accounts. Ad views come through Google Ads.'}</li>
               <li>{locale === 'tr' ? 'Garanti edemeyeceğimiz sözü vermeyiz: beğeni, yorum ve abone sayıları kampanya hedeflemesine bağlıdır, önceden garanti edilmez.' : 'We do not promise what we cannot guarantee: likes, comments and subscribers depend on targeting and are not guaranteed in advance.'}</li>
-              <li>{locale === 'tr' ? 'Ödeme iki aşamalıdır: yarısı onayda, yarısı kampanya bitince. Reklam onay almazsa ön ödeme iade edilir.' : 'Payment has two stages: half at approval, half at completion. If the ad is not approved, any prepayment is refunded.'}</li>
+              <li>{locale === 'tr' ? 'Ödeme planı teklif aşamasında netleştirilir. Reklam onay almazsa ön ödeme iade edilir.' : 'The payment plan is agreed at the quote stage. If the ad is not approved, any prepayment is refunded.'}</li>
             </ul>
           </div>
 

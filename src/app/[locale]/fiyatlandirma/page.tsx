@@ -4,10 +4,14 @@ import { getDictionary } from '@/lib/i18n/dictionaries';
 import { type Locale } from '@/lib/i18n/config';
 import CalculatorSection from '@/components/calc/CalculatorSection';
 import { getPageAlternates } from '@/lib/seo';
+import { formatMoney, quote } from '@/lib/pricing';
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+/** Tablodaki hacimler; fiyatlar src/lib/pricing.ts motorundan hesaplanır (tek kaynak, tahmini). */
+const PRICE_ROWS = [1_000, 5_000, 10_000, 25_000, 50_000, 100_000, 250_000, 1_000_000];
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -21,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     description: isTr
       ? '2026 YouTube klip tanıtımı, video reklam verme ve 1.000 izlenme fiyatları. Karma Global 1K: 100 TL’den başlayan resmi Google Ads paketleri ve canlı hesaplama.'
-      : '2026 YouTube music video promotion and Google Ads view pricing calculator. Transparent tiered rates from 1K to 1M real views with 50/50 phased payment.',
+      : '2026 YouTube music video promotion and Google Ads view pricing calculator. Transparent tiered rates from 1K to 1M real views.',
     alternates: getPageAlternates(locale, '/fiyatlandirma'),
   };
 }
@@ -36,12 +40,12 @@ export default async function PricingPage({ params }: Props) {
         {
           question: 'YouTube 1.000 izlenme reklam ücreti 2026 yılında ne kadar?',
           answer:
-            'MedyaPR resmi Google Ads video reklam paketlerinde 1.000 izlenme (1K) maliyeti Karma Global hedeflemede 100 TL (yüksek hacimli paketlerde 60 TL’ye kadar düşer), Türkiye hedefli kampanyalarda ise paket hacmine göre 120 TL ile 200 TL arasındadır. Fiyatlandırma videonun uzunluğuna göre esneklik gösterebilir.',
+            'MedyaPR resmi Google Ads video reklam paketlerinde 1.000 izlenme (1K) maliyeti Karma Global hedeflemede 100 TL (yüksek hacimli paketlerde 60 TL’ye kadar düşer), Türkiye hedefli kampanyalarda ise tahmini olarak 125 TL’den başlar, büyük paketlerde 1K başına yaklaşık 90 TL’ye kadar düşer (100K = 8.999 TL). Fiyatlar tahminidir; videonun uzunluğuna, hedef ülkeye ve reklam türüne göre değişebilir.',
         },
         {
           question: 'YouTube klip reklamı verirken ödemeyi nasıl yapıyorum?',
           answer:
-            'Sitemizden video linkinizi ve paketinizi ilettiğinizde uzman ekibimiz klibinizi analiz eder. Videonuz Google Ads reklam onayından geçtikten sonra ödemenin %50’si, kampanya tamamlanıp raporlandığında kalan %50’si ödenir. Kurumsal yapım şirketlerinde ödeme iş bitimindedir.',
+            'Sitemizden video linkinizi ve paketinizi ilettiğinizde uzman ekibimiz klibinizi analiz eder. Sitede online ödeme alınmaz; ödeme planı teklifi onayladıktan sonra sizinle netleştirilir. Videonuz Google Ads onayından geçmezse yapılmış ön ödeme iade edilir.',
         },
         {
           question: 'Fiyatlandırma neden video uzunluğuna göre değişebilir?',
@@ -61,9 +65,9 @@ export default async function PricingPage({ params }: Props) {
             'With MedyaPR official Google Ads campaigns, 1,000 real views start from $3 (100 TRY) on Blended Global packages and $4–$6 on targeted country packages, with automatic volume discounts up to 40% on larger tiers.',
         },
         {
-          question: 'How does the 50/50 phased payment work?',
+          question: 'How do payments work?',
           answer:
-            'Submit your YouTube link and package for technical review. Once your video receives official Google Ads approval, 50% is paid to launch and the remaining 50% is paid upon campaign completion.',
+            'Submit your YouTube link and package for technical review. There is no online payment on the site; the payment plan is agreed with you after you approve the quote. If your video is not approved by Google Ads, any prepayment is refunded.',
         },
       ];
 
@@ -159,15 +163,15 @@ export default async function PricingPage({ params }: Props) {
 
           <blockquote className="rounded-2xl border-l-4 border-emerald-500 bg-white/[0.03] p-5 text-sm sm:text-base text-zinc-200 italic">
             {isTr
-              ? '“Özet Fiyat Bilgisi: MedyaPR’de 1.000 gerçek Google Ads YouTube izlenmesi Karma Global paketlerde 100 TL’den (büyük paketlerde 1K: 60 TL), Türkiye hedefli kampanyalarda ise 200 TL’den (büyük paketlerde 1K: 120 TL) başlar. Şifre istenmez; ödemenin %50’si reklam onayında, %50’si kampanya bitiminde yapılır.”'
-              : '“Quick Pricing Fact: 1,000 authentic Google Ads YouTube views start at 100 TRY ($3) on Blended Global plans and 200 TRY ($6) on Turkey-targeted plans, with up to 40% volume discounts.”'}
+              ? '“Özet Fiyat Bilgisi: MedyaPR’de 1.000 gerçek Google Ads YouTube izlenmesi Karma Global paketlerde 100 TL’den (büyük paketlerde 1K: 60 TL), Türkiye hedefli kampanyalarda ise tahmini 125 TL’den (100K pakette 1K: yaklaşık 90 TL) başlar. Şifre istenmez; fiyatlar tahminidir ve video süresine göre değişebilir.”'
+              : '“Quick Pricing Fact: 1,000 authentic Google Ads YouTube views start at 100 TRY ($3) on Blended Global plans and 125 TRY ($3.4) on Turkey-targeted plans, with volume discounts on larger packs. Prices are estimates and vary by video length.”'}
           </blockquote>
 
           <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02]">
             <table className="w-full text-left text-xs sm:text-sm">
               <thead>
                 <tr className="border-b border-white/10 bg-white/[0.04] text-zinc-300 uppercase font-extrabold">
-                  <th className="py-3.5 px-4">{isTr ? 'Hedef İzlenme Paketi' : 'Target View Package'}</th>
+                  <th className="py-3.5 px-4">{isTr ? 'Hedef İzlenme (tahmini fiyat)' : 'Target Views (estimated price)'}</th>
                   <th className="py-3.5 px-4">{isTr ? 'Karma Global (🔥 İndirimli)' : 'Blended Global'}</th>
                   <th className="py-3.5 px-4">{isTr ? 'Türkiye Hedefli' : 'Turkey Targeted'}</th>
                   <th className="py-3.5 px-4">{isTr ? 'Almanya / Avrupa / ABD' : 'Tier-1 (DE / EU / US)'}</th>
@@ -175,55 +179,22 @@ export default async function PricingPage({ params }: Props) {
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10 text-zinc-200">
-                <tr>
-                  <td className="py-3.5 px-4 font-bold text-white">1.000 İzlenme (1K)</td>
-                  <td className="py-3.5 px-4 text-amber-300 font-bold">₺100</td>
-                  <td className="py-3.5 px-4">₺200</td>
-                  <td className="py-3.5 px-4">₺360</td>
-                  <td className="py-3.5 px-4">1–2 {isTr ? 'gün' : 'days'}</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 font-bold text-white">10.000 İzlenme (10K)</td>
-                  <td className="py-3.5 px-4 text-amber-300 font-bold">₺880</td>
-                  <td className="py-3.5 px-4">₺1.750</td>
-                  <td className="py-3.5 px-4">₺3.150</td>
-                  <td className="py-3.5 px-4">1–3 {isTr ? 'gün' : 'days'}</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 font-bold text-white">25.000 İzlenme (25K)</td>
-                  <td className="py-3.5 px-4 text-amber-300 font-bold">₺2.050</td>
-                  <td className="py-3.5 px-4">₺4.100</td>
-                  <td className="py-3.5 px-4">₺7.380</td>
-                  <td className="py-3.5 px-4">1–3 {isTr ? 'gün' : 'days'}</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 font-bold text-white">50.000 İzlenme (50K)</td>
-                  <td className="py-3.5 px-4 text-amber-300 font-bold">₺3.750</td>
-                  <td className="py-3.5 px-4">₺7.500</td>
-                  <td className="py-3.5 px-4">₺13.500</td>
-                  <td className="py-3.5 px-4">2–4 {isTr ? 'gün' : 'days'}</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 font-bold text-white">100.000 İzlenme (100K)</td>
-                  <td className="py-3.5 px-4 text-amber-300 font-bold">₺6.750</td>
-                  <td className="py-3.5 px-4">₺13.500</td>
-                  <td className="py-3.5 px-4">₺24.300</td>
-                  <td className="py-3.5 px-4">3–6 {isTr ? 'gün' : 'days'}</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 font-bold text-white">250.000 İzlenme (250K)</td>
-                  <td className="py-3.5 px-4 text-amber-300 font-bold">₺15.625</td>
-                  <td className="py-3.5 px-4">₺31.250</td>
-                  <td className="py-3.5 px-4">₺56.250</td>
-                  <td className="py-3.5 px-4">4–8 {isTr ? 'gün' : 'days'}</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 font-bold text-white">1.000.000 İzlenme (1M)</td>
-                  <td className="py-3.5 px-4 text-amber-300 font-bold">₺60.000</td>
-                  <td className="py-3.5 px-4">₺120.000</td>
-                  <td className="py-3.5 px-4">₺216.000</td>
-                  <td className="py-3.5 px-4">10–21 {isTr ? 'gün' : 'days'}</td>
-                </tr>
+                {PRICE_ROWS.map((v) => {
+                  const g = quote({ views: v, region: 'global', currency: 'TRY' });
+                  const t = quote({ views: v, region: 'tr', currency: 'TRY' });
+                  const p = quote({ views: v, region: 'premium', currency: 'TRY' });
+                  return (
+                    <tr key={v}>
+                      <td className="py-3.5 px-4 font-bold text-white">
+                        {new Intl.NumberFormat(isTr ? 'tr-TR' : 'en-US').format(v)} {isTr ? 'İzlenme' : 'Views'}
+                      </td>
+                      <td className="py-3.5 px-4 text-amber-300 font-bold">{formatMoney(g.total, 'TRY', locale)}</td>
+                      <td className="py-3.5 px-4">{formatMoney(t.total, 'TRY', locale)}</td>
+                      <td className="py-3.5 px-4">{formatMoney(p.total, 'TRY', locale)}</td>
+                      <td className="py-3.5 px-4">{t.etaDays[0]}–{t.etaDays[1]} {isTr ? 'gün' : 'days'}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

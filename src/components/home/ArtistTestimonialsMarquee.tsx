@@ -119,9 +119,9 @@ const testimonials: ArtistTestimonial[] = [
     badgeTr: 'Doğrulanmış Kanal Büyümesi',
     badgeEn: 'Verified Channel Growth',
     quoteTr:
-      'Kanal şifresi veya yetki istememeleri en başından büyük güven verdi; sadece klip linkini ilettim. Aşamalı ödeme sistemiyle kampanya onaylandığında %50, tamamlandığında kalanı ödedim. Akustik dinleyici kitleme tam 12\'den ulaştık. Hem YouTube hem de canlı konserlerimin dinleyicisi büyüdü.',
+      'Kanal şifresi veya yetki istememeleri en başından büyük güven verdi; sadece klip linkini ilettim. Süreç baştan sona şeffaftı, kampanya onayımla başladı. Akustik dinleyici kitleme tam 12\'den ulaştık. Hem YouTube hem de canlı konserlerimin dinleyicisi büyüdü.',
     quoteEn:
-      'Not needing passwords or manager access gave me immense trust from day one; I only provided the video link. The phased payment model (50% on ad approval, 50% on completion) is extremely fair. My acoustic audience grew both on YouTube and at my live gigs.',
+      'Not needing passwords or manager access gave me immense trust from day one; I only provided the video link. The process was transparent from start to finish and the campaign began only with my approval. My acoustic audience grew both on YouTube and at my live gigs.',
   },
   {
     id: 'artist-6',
@@ -359,8 +359,8 @@ export default function ArtistTestimonialsMarquee({ locale = 'tr' }: ArtistTesti
             <CheckCircle2 className="h-4 w-4 text-[#00C9A7]" />
             <span>
               {isTr
-                ? 'Kanal Şifresi İstenmez • Aşamalı Güvenli Ödeme'
-                : 'No Passwords Required • Phased Secure Payment'}
+                ? 'Kanal Şifresi İstenmez • Önce Analiz, Sonra Teklif'
+                : 'No Passwords Required • Review First, Then Quote'}
             </span>
           </div>
         </div>

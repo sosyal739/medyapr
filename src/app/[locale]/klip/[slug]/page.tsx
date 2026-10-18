@@ -320,7 +320,7 @@ export default async function ReleaseDetailPage({ params }: Props) {
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-[#00C9A7] shrink-0" />
-                  <span>Aşamalı güvenli ödeme: %50 onayda, %50 kampanya tamamlandığında</span>
+                  <span>Önce analiz, sonra teklif: onayınız olmadan kampanya başlamaz</span>
                 </div>
               </div>
 

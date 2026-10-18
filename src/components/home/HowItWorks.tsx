@@ -32,8 +32,8 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
       step: '03',
       title: isTr ? 'Onay Alınca İşlem Başlar' : 'Work Begins Upon Approval',
       description: isTr
-        ? 'Detaylar üzerinde mutabık kalınıp videonuz Google Ads reklam onayından geçtiğinde işleminiz başlar. %50 onayda, %50 iş bitiminde güvenli ödeme modeli uygulanır.'
-        : 'Once details are confirmed and your video passes Google Ads approval, your campaign begins. Phased payment: 50% on approval, 50% upon completion.',
+        ? 'Detaylar üzerinde mutabık kalınıp videonuz Google Ads reklam onayından geçtiğinde işleminiz başlar.'
+        : 'Once details are confirmed and your video passes Google Ads approval, your campaign begins.',
       icon: CreditCard,
     },
   ];

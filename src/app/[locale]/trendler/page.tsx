@@ -188,7 +188,7 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
                   <li className="flex items-center gap-2">✓ {isTr ? 'Atlanabilir In-Stream Resmi Reklam' : 'Skippable In-Stream Official Ads'}</li>
                   <li className="flex items-center gap-2">✓ {isTr ? '%100 YouTube Studio / Analytics Tescili' : '100% YouTube Studio / Analytics Verified'}</li>
                   <li className="flex items-center gap-2">✓ {isTr ? 'Müzik Türü & Demografik Hedefleme' : 'Music Genre & Demographic Targeting'}</li>
-                  <li className="flex items-center gap-2">✓ {isTr ? '%50 Onayda, %50 Bitince Ödeme' : '50% Upfront, 50% on Delivery'}</li>
+                  <li className="flex items-center gap-2">✓ {isTr ? 'Önce Analiz, Sonra Teklif' : 'Review First, Then Quote'}</li>
                 </ul>
               </div>
               <a
@@ -220,7 +220,7 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
                   <li className="flex items-center gap-2">✓ {isTr ? 'In-Stream + In-Feed Keşfet Reklamı' : 'In-Stream + In-Feed Discovery Ads'}</li>
                   <li className="flex items-center gap-2">✓ {isTr ? 'Benzer Sanatçıların Kitlelerine Gösterim' : 'Target Fans of Similar Hit Artists'}</li>
                   <li className="flex items-center gap-2">✓ {isTr ? 'Detaylı Kampanya ve Dönüşüm Raporu' : 'Comprehensive Campaign & Conversion Report'}</li>
-                  <li className="flex items-center gap-2 font-bold text-emerald-400">✓ {isTr ? '%50 Onayda, %50 Bitince Ödeme' : '50% Upfront, 50% on Delivery'}</li>
+                  <li className="flex items-center gap-2 font-bold text-emerald-400">✓ {isTr ? 'Önce Analiz, Sonra Teklif' : 'Review First, Then Quote'}</li>
                 </ul>
               </div>
               <a
