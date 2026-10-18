@@ -1,0 +1,10 @@
+/* ===== Logo: gece = beyaz yazı, gündüz = lacivert yazı ===== */
+.brand-logo-light {
+  display: none;
+}
+[data-theme='light'] .brand-logo-dark {
+  display: none;
+}
+[data-theme='light'] .brand-logo-light {
+  display: block;
+}

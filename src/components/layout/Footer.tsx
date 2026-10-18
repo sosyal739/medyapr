@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import BrandLogo from '@/components/common/BrandLogo';
 import type { Dictionary } from '@/lib/i18n/dictionaries';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
@@ -19,15 +20,8 @@ export default function Footer({ dict, locale }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link href={`/${locale}`} className="flex items-center gap-2 mb-5">
-              <div className="w-9 h-9 bg-gradient-to-br from-[#E0002E] to-[#CC0029] rounded-xl flex items-center justify-center shadow-lg">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                </svg>
-              </div>
-              <span className="text-xl font-extrabold tracking-tight">
-                Medya<span className="text-[#FF0033]">PR</span>
-              </span>
+            <Link href={`/${locale}`} className="mb-5 inline-flex" aria-label="MedyaPR">
+              <BrandLogo className="h-9" />
             </Link>
             <p className="text-zinc-400 text-sm leading-relaxed mb-6">
               {dict.footer.description}
