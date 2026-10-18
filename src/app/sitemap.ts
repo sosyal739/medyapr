@@ -1,9 +1,12 @@
 import type { MetadataRoute } from 'next';
-import { getPosts, getArtists, isPostFullyTranslatedEn } from '@/lib/content';
+import { getPosts, getArPosts, getArtists, isPostFullyTranslatedEn } from '@/lib/content';
 import { getNewReleases, isReleaseIndexable } from '@/lib/releases';
 
 const BASE_URL = 'https://medyapr.com';
-const LOCALES = ['tr', 'en'] as const;
+const LOCALES = ['tr', 'en', 'ar'] as const;
+/** Türkiye/İngilizce içerikli bölümler (sanatçı, klip): Arapça sürümü yoktur. */
+const TR_EN_ONLY = ['tr', 'en'] as const;
+const TR_EN_ONLY_ROUTES = new Set(['/yeni-klipler', '/sanatcilar']);
 const STABLE_SITE_DATE = new Date('2026-10-18T00:00:00.000Z');
 
 function parseTurkishDate(dateStr?: string): Date {
@@ -51,6 +54,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static routes
   for (const locale of LOCALES) {
     for (const route of staticRoutes) {
+      if (locale === 'ar' && TR_EN_ONLY_ROUTES.has(route)) continue;
       entries.push({
         url: `${BASE_URL}/${locale}${route}`,
         lastModified: STABLE_SITE_DATE,
@@ -63,7 +67,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Dynamic Blog Posts
   for (const post of posts) {
     const postDate = parseTurkishDate(post.date);
-    for (const locale of LOCALES) {
+    for (const locale of TR_EN_ONLY) {
       if (locale === 'en' && !isPostFullyTranslatedEn(post)) {
         continue;
       }
@@ -79,9 +83,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
+  // Arapça blog yazıları (ayrı havuz: posts_ar.json)
+  for (const post of await getArPosts()) {
+    entries.push({
+      url: `${BASE_URL}/ar/blog/${post.slug}`,
+      lastModified: parseTurkishDate(post.date),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    });
+  }
+
   // Dynamic Artists
   for (const artist of artists) {
-    for (const locale of LOCALES) {
+    for (const locale of TR_EN_ONLY) {
       entries.push({
         url: `${BASE_URL}/${locale}/sanatci/${artist.slug}`,
         lastModified: STABLE_SITE_DATE,
@@ -96,7 +110,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const release of releases) {
     if (!isReleaseIndexable(release)) continue;
     const releaseDate = release.releaseDate ? new Date(`${release.releaseDate}T08:00:00.000Z`) : STABLE_SITE_DATE;
-    for (const locale of LOCALES) {
+    for (const locale of TR_EN_ONLY) {
       entries.push({
         url: `${BASE_URL}/${locale}/klip/${release.slug}`,
         lastModified: releaseDate,

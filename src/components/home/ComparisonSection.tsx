@@ -24,103 +24,133 @@ interface ComparisonSectionProps {
 export default function ComparisonSection({ locale }: ComparisonSectionProps) {
   const isTr = locale === 'tr';
 
+  const isAr = locale === 'ar';
+
   const rows = [
     {
       icon: Bot,
-      feature: isTr ? 'Görüntüleme Teknolojisi' : 'Viewing Technology',
-      subtitle: isTr ? 'İzlenme altyapısı ve doğrulama' : 'Traffic delivery infrastructure',
-      bot: isTr
+      feature: isAr ? 'تقنية المشاهدة' : isTr ? 'Görüntüleme Teknolojisi' : 'Viewing Technology',
+      subtitle: isAr ? 'البنية التقنية لتوصيل المشاهدات' : isTr ? 'İzlenme altyapısı ve doğrulama' : 'Traffic delivery infrastructure',
+      bot: isAr
+        ? 'تُستخدم لوحات SMM والمحاكيات وبوتات مراكز البيانات الوهمية.'
+        : isTr
         ? 'SMM panelleri, emülatörler ve sahte veri merkezi botları kullanılır.'
         : 'SMM panels, emulators, and fake datacenter bots used.',
-      botBadge: isTr ? 'Sahte Trafik' : 'Fake Bots',
-      ads: isTr
+      botBadge: isAr ? 'بوتات وهمية' : isTr ? 'Sahte Trafik' : 'Fake Bots',
+      ads: isAr
+        ? 'لا تُستخدم أبدًا. حملات فيديو Google Ads رسمية 100%.'
+        : isTr
         ? 'ASLA KULLANILMAZ. %100 Resmi Google Ads video gösterimi yapılır.'
         : 'NEVER USED. 100% Official Google Ads video campaigns.',
-      adsBadge: isTr ? 'Sıfır Bot Garantisi' : 'Zero Bot Guarantee',
+      adsBadge: isAr ? 'ضمان انعدام البوتات' : isTr ? 'Sıfır Bot Garantisi' : 'Zero Bot Guarantee',
       highlight: true,
     },
     {
       icon: Globe,
-      feature: isTr ? 'Trafik & İzleyici Kaynağı' : 'Audience & Traffic Source',
-      subtitle: isTr ? 'Hedefleme ve demografi' : 'Targeting & demographics',
-      bot: isTr
+      feature: isAr ? 'الجمهور ومصدر الزيارات' : isTr ? 'Trafik & İzleyici Kaynağı' : 'Audience & Traffic Source',
+      subtitle: isAr ? 'الاستهداف والفئات السكانية' : isTr ? 'Hedefleme ve demografi' : 'Targeting & demographics',
+      bot: isAr
+        ? 'شبكات بروكسي من مراكز البيانات ومجموعات محاكيات بلا مشاهدين حقيقيين.'
+        : isTr
         ? 'Rastgele bot ağları ve proxy sunucuları; izleyen gerçek insan yoktur.'
         : 'Datacenter proxy networks and emulator pools with zero real viewers.',
-      botBadge: isTr ? 'Hedefsiz Veri' : 'Untargeted',
-      ads: isTr
+      botBadge: isAr ? 'بلا استهداف' : isTr ? 'Hedefsiz Veri' : 'Untargeted',
+      ads: isAr
+        ? 'مستمعون حقيقيون يُستهدفون حسب نوع الموسيقى والاهتمامات واللغة والموقع.'
+        : isTr
         ? 'Müzik türü, ilgi alanı, dil ve konuma göre hedeflenen gerçek dinleyiciler.'
         : 'Real listeners targeted by music genre, interest, language, and location.',
-      adsBadge: isTr ? 'Gerçek Hedef Kitle' : 'Targeted Audience',
+      adsBadge: isAr ? 'جمهور مستهدف' : isTr ? 'Gerçek Hedef Kitle' : 'Targeted Audience',
       highlight: false,
     },
     {
       icon: BarChart3,
-      feature: isTr ? 'YouTube Studio Doğrulaması' : 'YouTube Studio Verification',
-      subtitle: isTr ? 'Analitik trafik kaynağı kaydı' : 'Analytics traffic source origin',
-      bot: isTr
+      feature: isAr ? 'التوثيق في YouTube Studio' : isTr ? 'YouTube Studio Doğrulaması' : 'YouTube Studio Verification',
+      subtitle: isAr ? 'مصدر الزيارات في التحليلات' : isTr ? 'Analitik trafik kaynağı kaydı' : 'Analytics traffic source origin',
+      bot: isAr
+        ? 'لا تظهر، أو تُصنَّف كزيارات مشبوهة «مباشرة / غير معروفة».'
+        : isTr
         ? 'Görünmez veya algoritmada şüpheli "Bilinmeyen / Doğrudan" olarak işaretlenir.'
         : 'Missing or flagged as suspicious "Direct / Unknown" traffic.',
-      botBadge: isTr ? 'Spam Şüphesi' : 'Flagged Spam',
-      ads: isTr
+      botBadge: isAr ? 'مصنّفة كسبام' : isTr ? 'Spam Şüphesi' : 'Flagged Spam',
+      ads: isAr
+        ? 'تُسجَّل مباشرة تحت «إعلانات يوتيوب» في YouTube Studio الرسمي.'
+        : isTr
         ? 'Resmi YouTube Studio\'da doğrudan "YouTube Reklamları" sekmesinde tescillenir.'
         : 'Directly logged under "YouTube Advertising" in official YouTube Studio.',
-      adsBadge: isTr ? 'Resmi Studio Kaydı' : 'Official Studio Log',
+      adsBadge: isAr ? 'سجل Studio الرسمي' : isTr ? 'Resmi Studio Kaydı' : 'Official Studio Log',
       highlight: true,
     },
     {
       icon: TrendingDown,
-      feature: isTr ? 'İzlenme Silinme / Düşme Riski' : 'View Drop & Deletion Risk',
-      subtitle: isTr ? 'Kalıcılık ve garanti süresi' : 'Permanence & lifetime guarantee',
-      bot: isTr
+      feature: isAr ? 'خطر انخفاض المشاهدات وحذفها' : isTr ? 'İzlenme Silinme / Düşme Riski' : 'View Drop & Deletion Risk',
+      subtitle: isAr ? 'الدوام والضمان مدى الحياة' : isTr ? 'Kalıcılık ve garanti süresi' : 'Permanence & lifetime guarantee',
+      bot: isAr
+        ? 'خطر شديد. يحذف يوتيوب مشاهدات البوتات والمحاكيات بشكل دوري.'
+        : isTr
         ? 'Aşırı yüksek risk. YouTube periyodik bot temizliği yaptığında tamamı silinir.'
         : 'Extreme risk. YouTube routinely wipes out bot and emulator views.',
-      botBadge: isTr ? 'Geri Düşer' : 'Views Dropped',
-      ads: isTr
+      botBadge: isAr ? 'تنخفض المشاهدات' : isTr ? 'Geri Düşer' : 'Views Dropped',
+      ads: isAr
+        ? 'بلا أي مخاطر. مشاهدات إعلانات Google الرسمية دائمة مدى الحياة.'
+        : isTr
         ? 'SIFIR RİSK. Google Ads resmi reklam gösterimidir, ömür boyu kalıcıdır.'
         : 'ZERO RISK. Official Google ad views are permanent for a lifetime.',
-      adsBadge: isTr ? 'Ömür Boyu Kalıcı' : 'Lifetime Permanent',
+      adsBadge: isAr ? 'دائمة مدى الحياة' : isTr ? 'Ömür Boyu Kalıcı' : 'Lifetime Permanent',
       highlight: false,
     },
     {
       icon: Lock,
-      feature: isTr ? 'Kanal Güvenliği & Para Kazanma' : 'Channel Safety & YPP',
-      subtitle: isTr ? 'Monetizasyon ve ceza durumu' : 'Monetization & penalty safety',
-      bot: isTr
+      feature: isAr ? 'أمان القناة وبرنامج YPP' : isTr ? 'Kanal Güvenliği & Para Kazanma' : 'Channel Safety & YPP',
+      subtitle: isAr ? 'أمان الربح والعقوبات' : isTr ? 'Monetizasyon ve ceza durumu' : 'Monetization & penalty safety',
+      bot: isAr
+        ? 'قد تؤدي إلى الحظر الخفي أو تجميد المشاهدات أو إغلاق القناة نهائيًا.'
+        : isTr
         ? 'Algoritma shadowban uygular, önerilenlerden düşürür veya kanalı kapatır.'
         : 'Carries shadowban, view freezing, or permanent channel termination.',
-      botBadge: isTr ? 'Shadowban Riski' : 'Shadowban Risk',
-      ads: isTr
+      botBadge: isAr ? 'خطر الحظر الخفي' : isTr ? 'Shadowban Riski' : 'Shadowban Risk',
+      ads: isAr
+        ? 'متوافقة 100% مع برنامج شركاء يوتيوب وإرشادات المجتمع.'
+        : isTr
         ? 'Tamamen güvenli. YouTube Partner Programı (YPP) ve Topluluk Kuralları ile %100 uyumlu.'
         : '100% compliant with YouTube Partner Program & Community Guidelines.',
-      adsBadge: isTr ? '%100 YPP Uyumlu' : '100% Compliant',
+      adsBadge: isAr ? 'متوافقة 100%' : isTr ? '%100 YPP Uyumlu' : '100% Compliant',
       highlight: false,
     },
     {
       icon: Flame,
-      feature: isTr ? 'Organik Etkileşim & Fırsatlar' : 'Organic Engagement & Spillover',
-      subtitle: isTr ? 'Beğeni, yorum ve abone kazanımı' : 'Likes, comments & subscribers',
-      bot: isTr
+      feature: isAr ? 'التفاعل الطبيعي والأثر الإضافي' : isTr ? 'Organik Etkileşim & Fırsatlar' : 'Organic Engagement & Spillover',
+      subtitle: isAr ? 'الإعجابات والتعليقات والمشتركون' : isTr ? 'Beğeni, yorum ve abone kazanımı' : 'Likes, comments & subscribers',
+      bot: isAr
+        ? 'بلا قيمة حقيقية؛ فالبوتات لا تعجب ولا تعلّق ولا تصبح معجبين حقيقيين.'
+        : isTr
         ? 'Sıfır değer; botlar şarkıyı dinlemez, yorum yapmaz, konserine gelmez.'
         : 'Zero real value; bots cannot like, comment, or become genuine fans.',
-      botBadge: isTr ? 'Sıfır Etkileşim' : 'Zero Fans',
-      ads: isTr
+      botBadge: isAr ? 'بلا معجبين' : isTr ? 'Sıfır Etkileşim' : 'Zero Fans',
+      ads: isAr
+        ? 'مستمعون حقيقيون يتفاعلون بالإعجابات والتعليقات الصادقة والاشتراكات.'
+        : isTr
         ? 'Gerçek dinleyicilerden doğal beğeni, samimi yorumlar ve kalıcı kanal aboneliği.'
         : 'Real listeners interact with likes, authentic comments, and subscriptions.',
-      adsBadge: isTr ? 'Doğal Abone & Yorum' : 'Real Fans & Comments',
+      adsBadge: isAr ? 'معجبون وتعليقات حقيقية' : isTr ? 'Doğal Abone & Yorum' : 'Real Fans & Comments',
       highlight: true,
     },
     {
       icon: FileText,
-      feature: isTr ? 'Performans Raporlama' : 'Performance Reporting',
-      subtitle: isTr ? 'Kampanya sonu şeffaf veri' : 'Post-campaign transparency',
-      bot: isTr
+      feature: isAr ? 'تقارير الأداء' : isTr ? 'Performans Raporlama' : 'Performance Reporting',
+      subtitle: isAr ? 'الشفافية بعد الحملة' : isTr ? 'Kampanya sonu şeffaf veri' : 'Post-campaign transparency',
+      bot: isAr
+        ? 'لا توجد تقارير، أو لقطات شاشة مزوّرة من لوحات خارجية.'
+        : isTr
         ? 'Raporlama yoktur veya sahte panel ekran görüntüleri iletilir.'
         : 'None or manipulated third-party panel screenshots.',
-      botBadge: isTr ? 'Şeffaf Değil' : 'Opaque',
-      ads: isTr
+      botBadge: isAr ? 'غير شفافة' : isTr ? 'Şeffaf Değil' : 'Opaque',
+      ads: isAr
+        ? 'يُسلَّم تقرير تحليلي شامل ورسمي لأداء Google Ads.'
+        : isTr
         ? 'Kampanya tamamlandığında ayrıntılı resmi Google Ads analitik raporu paylaşılır.'
         : 'Comprehensive official Google Ads performance analytics report delivered.',
-      adsBadge: isTr ? 'Şeffaf PDF Raporu' : 'Verified PDF Report',
+      adsBadge: isAr ? 'تقرير PDF موثّق' : isTr ? 'Şeffaf PDF Raporu' : 'Verified PDF Report',
       highlight: false,
     },
   ];
@@ -138,7 +168,9 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
       <div className="pointer-events-none absolute top-14 left-6 lg:left-16 z-20 hidden md:flex items-center gap-2 rounded-2xl border border-rose-500/30 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-rose-300 shadow-2xl backdrop-blur-xl animate-float-slow">
         <ShieldAlert className="h-4 w-4 text-rose-400" />
         <span>
-          {isTr
+          {isAr
+            ? 'تحذير من البوتات: لوحات SMM تضر بسمعة القناة'
+            : isTr
             ? 'Bot Uyarısı: Sahte Paneller Videoyu Çöpe Atar'
             : 'Bot Warning: SMM Panels Damage Channel Authority'}
         </span>
@@ -147,7 +179,9 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
       <div className="pointer-events-none absolute bottom-14 right-6 lg:right-16 z-20 hidden md:flex items-center gap-2 rounded-2xl border border-emerald-500/30 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-emerald-300 shadow-2xl backdrop-blur-xl animate-float-reverse">
         <ShieldCheck className="h-4 w-4 text-emerald-400" />
         <span>
-          {isTr
+          {isAr
+            ? 'Google Ads: متوافق 100% مع YPP والربح'
+            : isTr
             ? 'Google Ads: %100 YPP & Monetizasyon Uyumlu'
             : 'Google Ads: 100% YPP & Monetization Compliant'}
         </span>
@@ -159,19 +193,21 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
           <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-emerald-300">
             <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
             <span>
-              {isTr ? 'Şeffaf & Yasal Karşılaştırma' : 'Transparent Comparison'}
+              {isAr ? 'مقارنة شفافة' : isTr ? 'Şeffaf & Yasal Karşılaştırma' : 'Transparent Comparison'}
             </span>
           </div>
 
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-white">
-            {isTr ? 'Google Ads ile Gerçek Reklam vs' : 'Google Ads Official vs'}{' '}
+            {isAr ? 'Google Ads الرسمي مقابل' : isTr ? 'Google Ads ile Gerçek Reklam vs' : 'Google Ads Official vs'}{' '}
             <span className="text-rose-400 line-through decoration-[#FF0033] decoration-2">
-              {isTr ? 'SMM Bot Panelleri' : 'SMM Bot Panels'}
+              {isAr ? 'لوحات بوتات SMM' : isTr ? 'SMM Bot Panelleri' : 'SMM Bot Panels'}
             </span>
           </h2>
 
           <p className="mt-4 text-sm leading-relaxed text-zinc-300 sm:text-base">
-            {isTr
+            {isAr
+              ? 'لماذا يتجنب الفنانون وصنّاع المحتوى اللوحات الوهمية؟ إليك الفروق الملموسة التي تحمي قناتك:'
+              : isTr
               ? 'Sanatçılar ve video sahipleri neden bot izlenmelerden uzak durmalı? İşte kanalınızın geleceğini belirleyen somut farklar:'
               : 'Why music artists and creators avoid fake panels. The concrete differences that safeguard your channel:'}
           </p>
@@ -186,7 +222,9 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
             <div>
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="text-xs font-black uppercase tracking-wider text-emerald-400">
-                  {isTr
+                  {isAr
+                    ? 'القاعدة الأساسية وحقيقة موثّقة (AEO)'
+                    : isTr
                     ? 'Temel Kural & Doğrulanmış Veri (AEO Quick Fact)'
                     : 'Core Principle & Verified Fact (AEO)'}
                 </span>
@@ -195,7 +233,9 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
                 </span>
               </div>
               <blockquote className="text-xs sm:text-sm md:text-base font-medium leading-relaxed text-zinc-200">
-                {isTr
+                {isAr
+                  ? 'تقيّم خوارزمية يوتيوب جودة المشاهدات بناءً على الاحتفاظ بالمشاهدين ووقت المشاهدة ومصدر الزيارات الحقيقي. وتُسجَّل حملات MedyaPR عبر إعلانات Google Ads الرسمية تحت «إعلانات يوتيوب» في YouTube Studio، مما يحافظ على أرباح القناة بنسبة 100% دون أي خطر للحظر الخفي، ويحفّز التوصيات الطبيعية بشكل إيجابي.'
+                  : isTr
                   ? 'YouTube algoritması, yüklenen videoların izlenmelerini yalnızca adet olarak değil; izleme süresi (Watch Time), kitle tutunma oranı (Retention) ve trafik kaynağı orijinine göre değerlendirir. MedyaPR tarafından yönetilen resmi Google Ads gösterimleri YouTube Studio analitiklerinde doğrudan "YouTube Reklamları" sekmesinde tescillenir, kanal monetizasyonunu %100 korur ve sıfır shadowban riskiyle organik önerilenler algoritmasını pozitif tetikler.'
                   : 'The YouTube algorithm evaluates view quality based on retention, watch time, and authentic traffic source. MedyaPR official Google Ads campaigns are logged under "YouTube Advertising" in YouTube Studio, preserving 100% channel monetization with zero shadowban risk while positively triggering organic recommendations.'}
               </blockquote>
@@ -205,15 +245,17 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
 
         {/* Mobile Horizontal Scroll Hint */}
         <div className="mb-3 flex items-center justify-between text-xs text-zinc-400 md:hidden px-2">
-          <span>← Tabloyu yana kaydırarak karşılaştırın →</span>
-          <span className="text-emerald-400 font-semibold">2 Kolon</span>
+          <span>{isAr ? '← مرّر الجدول جانبيًا للمقارنة →' : '← Tabloyu yana kaydırarak karşılaştırın →'}</span>
+          <span className="text-emerald-400 font-semibold">{isAr ? 'عمودان' : '2 Kolon'}</span>
         </div>
 
         {/* Premium Elevated Comparison Matrix Table */}
         <div className="relative overflow-x-auto rounded-3xl border border-white/10 bg-[#12141A]/95 shadow-[0_20px_60px_rgba(0,0,0,0.6)] backdrop-blur-2xl">
           <table className="w-full text-left border-collapse min-w-[760px]">
             <caption className="sr-only">
-              {isTr
+              {isAr
+                ? 'جدول مقارنة بين Google Ads الرسمي ولوحات بوتات SMM'
+                : isTr
                 ? 'Google Ads ve SMM Bot Panelleri Karşılaştırma Tablosu'
                 : 'Official Google Ads vs SMM Bot Panels Comparison Matrix'}
             </caption>
@@ -228,7 +270,7 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
                 >
                   <div className="flex items-center gap-2">
                     <span className="flex h-2 w-2 rounded-full bg-zinc-400" />
-                    <span>{isTr ? 'Değerlendirme Kriteri' : 'Criteria'}</span>
+                    <span>{isAr ? 'المعيار' : isTr ? 'Değerlendirme Kriteri' : 'Criteria'}</span>
                   </div>
                 </th>
 
@@ -240,13 +282,15 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
                   <div className="flex flex-col gap-1.5">
                     <div className="inline-flex items-center gap-1.5 rounded-full bg-rose-500/15 border border-rose-500/30 px-3 py-1 text-[11px] font-bold text-rose-300 w-fit">
                       <ShieldAlert className="h-3.5 w-3.5 text-rose-400" />
-                      <span>{isTr ? 'YÜKSEK RİSK & GEÇİCİ' : 'HIGH RISK & FAKE'}</span>
+                      <span>{isAr ? 'عالي الخطورة ووهمي' : isTr ? 'YÜKSEK RİSK & GEÇİCİ' : 'HIGH RISK & FAKE'}</span>
                     </div>
                     <span className="text-base font-bold text-rose-300">
-                      {isTr ? 'SMM / Bot Panelleri' : 'SMM Bot Panels'}
+                      {isAr ? 'لوحات بوتات SMM' : isTr ? 'SMM / Bot Panelleri' : 'SMM Bot Panels'}
                     </span>
                     <span className="text-xs text-rose-400/70 font-normal">
-                      {isTr
+                      {isAr
+                        ? 'بوتات مراكز البيانات والسكربتات'
+                        : isTr
                         ? 'Sahte sunucu botları & emülatörler'
                         : 'Datacenter bots & scripts'}
                     </span>
@@ -263,16 +307,20 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
                     <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/25 border border-emerald-400/50 px-3 py-1 text-[11px] font-bold text-emerald-300 w-fit shadow-[0_0_15px_rgba(16,185,129,0.3)]">
                       <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
                       <span>
-                        {isTr
+                        {isAr
+                          ? '👑 آمن 100% وموصى به'
+                          : isTr
                           ? '👑 %100 GÜVENLİ & ÖNERİLEN'
                           : '👑 100% SAFE & RECOMMENDED'}
                       </span>
                     </div>
                     <span className="text-base font-bold text-emerald-300">
-                      {isTr ? 'MedyaPR (Resmi Google Ads)' : 'MedyaPR (Official Ads)'}
+                      {isAr ? 'MedyaPR (إعلانات رسمية)' : isTr ? 'MedyaPR (Resmi Google Ads)' : 'MedyaPR (Official Ads)'}
                     </span>
                     <span className="text-xs text-emerald-400/70 font-normal">
-                      {isTr
+                      {isAr
+                        ? 'فريق Google Partner معتمد'
+                        : isTr
                         ? '18+ Yıllık Resmi Google Partner'
                         : 'Certified Google Partner Team'}
                     </span>
@@ -356,7 +404,9 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
                 ✓
               </span>
               <span>
-                {isTr
+                {isAr
+                  ? 'بلا أي خطر على قناتك: مع MedyaPR جميع المشاهدات دائمة مدى الحياة وتُسجَّل كإعلانات يوتيوب رسمية في Studio.'
+                  : isTr
                   ? 'Kanalınızı riske atmayın: MedyaPR ile tüm izlenmeler ömür boyu kalıcıdır ve YouTube Studio\'da resmi Google Ads gösterimi olarak tescillenir.'
                   : 'Zero risk for your channel: With MedyaPR, all views are permanent for a lifetime and registered as official YouTube Ads in Studio.'}
               </span>
@@ -366,7 +416,7 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
               href={`/${locale}#calc`}
               className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-[0_4px_20px_rgba(255,0,51,0.35)] hover:brightness-110 transition active:scale-95"
             >
-              <span>{isTr ? 'Bütçeni Hesapla & Başla' : 'Calculate & Launch'}</span>
+              <span>{isAr ? 'احسب وابدأ' : isTr ? 'Bütçeni Hesapla & Başla' : 'Calculate & Launch'}</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

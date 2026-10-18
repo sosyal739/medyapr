@@ -4,22 +4,28 @@ import Link from 'next/link';
 import { Users, Play, ArrowRight, TrendingUp } from 'lucide-react';
 import { getArtists } from '@/lib/content';
 
-import { getPageAlternates } from '@/lib/seo';
+import { getPageAlternates, TR_EN } from '@/lib/seo';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
+
+  const isAr = locale === 'ar';
   return {
     title: {
-      absolute: isTr ? 'Trend Türk Sanatçılar & Müzik Grupları | MedyaPR' : 'Trending Turkish Artists & Music Groups | MedyaPR',
+      absolute: isAr ? 'أشهر الفنانين والفرق الموسيقية التركية رواجًا | MedyaPR' : isTr ? 'Trend Türk Sanatçılar & Müzik Grupları | MedyaPR' : 'Trending Turkish Artists & Music Groups | MedyaPR',
     },
-    description: isTr
+    description: isAr
+      ? 'أبرز الفنانين الأكثر رواجًا في قوائم يوتيوب الموسيقية في تركيا، وكليباتهم الناجحة، وسيرهم الذاتية، وتحليلات جمهورهم.'
+      : isTr
       ? 'YouTube Türkiye müzik listelerinde zirvede yer alan sanatçılar, en popüler klipleri, biyografileri ve dijital dinleyici istatistikleri.'
       : 'Top trending artists in Turkey YouTube music charts, hit video clips, artist biographies, and audience analytics.',
-    alternates: getPageAlternates(locale, '/sanatcilar'),
+    alternates: getPageAlternates(locale, '/sanatcilar', TR_EN),
     openGraph: {
-      title: isTr ? 'Trend Türk Sanatçılar & Müzik Grupları | MedyaPR' : 'Trending Turkish Artists & Music Groups | MedyaPR',
-      description: isTr
+      title: isAr ? 'أشهر الفنانين والفرق الموسيقية التركية رواجًا | MedyaPR' : isTr ? 'Trend Türk Sanatçılar & Müzik Grupları | MedyaPR' : 'Trending Turkish Artists & Music Groups | MedyaPR',
+      description: isAr
+        ? 'أبرز الفنانين الأكثر رواجًا في قوائم يوتيوب الموسيقية في تركيا.'
+        : isTr
         ? 'YouTube Türkiye müzik listelerinde zirvede yer alan sanatçılar, en popüler klipleri, biyografileri ve dijital dinleyici istatistikleri.'
         : 'Top trending artists in Turkey YouTube music charts.',
       url: `https://medyapr.com/${locale}/sanatcilar`,
@@ -33,6 +39,8 @@ export default async function SanatcilarPage({ params }: { params: Promise<{ loc
   const artists = await getArtists();
   const isTr = locale === 'tr';
 
+  const isAr = locale === 'ar';
+
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -42,21 +50,23 @@ export default async function SanatcilarPage({ params }: { params: Promise<{ loc
           {
             '@type': 'ListItem',
             position: 1,
-            name: isTr ? 'Ana Sayfa' : 'Home',
+            name: isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home',
             item: `https://medyapr.com/${locale}`,
           },
           {
             '@type': 'ListItem',
             position: 2,
-            name: isTr ? 'Sanatçılar' : 'Artists',
+            name: isAr ? 'الفنانون' : isTr ? 'Sanatçılar' : 'Artists',
             item: `https://medyapr.com/${locale}/sanatcilar`,
           },
         ],
       },
       {
         '@type': 'ItemList',
-        name: isTr ? 'Öne Çıkan Türk Sanatçılar ve Müzik Grupları' : 'Featured Turkish Music Artists and Groups',
-        description: isTr
+        name: isAr ? 'فنانون وفرق موسيقية تركية مميزة' : isTr ? 'Öne Çıkan Türk Sanatçılar ve Müzik Grupları' : 'Featured Turkish Music Artists and Groups',
+        description: isAr
+          ? 'أبرز الموسيقيين والفنانين والفرق على يوتيوب تركيا.'
+          : isTr
           ? 'YouTube Türkiye listelerinin en çok dinlenen müzisyenleri ve klip istatistikleri.'
           : 'Leading musicians, artists, and bands in YouTube Turkey.',
         itemListElement: artists.map((a, idx) => ({
@@ -83,20 +93,29 @@ export default async function SanatcilarPage({ params }: { params: Promise<{ loc
         {/* Breadcrumb */}
         <div className="mb-4 flex items-center gap-2 text-xs text-zinc-400">
           <Link href={`/${locale}`} className="hover:text-white transition">
-            {isTr ? 'Ana Sayfa' : 'Home'}
+            {isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home'}
           </Link>
           <span>/</span>
-          <span className="text-[#FF6B6B]">{isTr ? 'Sanatçılar' : 'Artists'}</span>
+          <span className="text-[#FF6B6B]">{isAr ? 'الفنانون' : isTr ? 'Sanatçılar' : 'Artists'}</span>
         </div>
 
         {/* Header */}
         <div className="mb-14 border-b border-studio pb-8">
           <span className="inline-flex items-center gap-2 rounded-full border border-zinc-700/60 bg-zinc-800/80 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5E7E] mb-3">
             <Users className="h-4 w-4 text-[#FF0033]" />
-            {isTr ? 'Sanatçı & Grup Rehberi' : 'Artists Directory'}
+            {isAr ? 'دليل الفنانين' : isTr ? 'Sanatçı & Grup Rehberi' : 'Artists Directory'}
           </span>
           <h1 className="text-3xl font-extrabold sm:text-5xl tracking-tight">
-            {isTr ? (
+            {isAr
+              ? (
+              <>
+                الأكثر رواجًا{' '}
+                <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
+                  الفنانون والفرق
+                </span>
+              </>
+            )
+              : isTr ? (
               <>
                 Trend{' '}
                 <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
@@ -113,7 +132,9 @@ export default async function SanatcilarPage({ params }: { params: Promise<{ loc
             )}
           </h1>
           <p className="mt-3 text-sm md:text-base text-zinc-300 max-w-2xl leading-relaxed">
-            {isTr
+            {isAr
+              ? 'تعرّف على أبرز الفنانين الأتراك المتصدرين للقوائم الموسيقية.'
+              : isTr
               ? 'YouTube Türkiye müzik listelerinde milyonlarca dinleyiciye ulaşan sanatçıların kariyerleri, hit parçaları ve büyüme verileri.'
               : 'Discover top Turkish musical artists dominating the charts.'}
           </p>
@@ -149,7 +170,7 @@ export default async function SanatcilarPage({ params }: { params: Promise<{ loc
                 </div>
 
                 <p className="text-xs text-white/50 mb-3">
-                  {isTr ? 'Son Hit:' : 'Latest Hit:'} <strong className="text-white">{artist.latestHit}</strong>
+                  {isAr ? 'أحدث أغنية ناجحة:' : isTr ? 'Son Hit:' : 'Latest Hit:'} <strong className="text-white">{artist.latestHit}</strong>
                 </p>
 
                 <p className="text-sm leading-relaxed text-white/65 line-clamp-3">
@@ -158,7 +179,7 @@ export default async function SanatcilarPage({ params }: { params: Promise<{ loc
               </div>
 
               <div className="mt-6 flex items-center justify-between border-t border-white/5 pt-4 text-xs font-semibold text-[#FF6B6B]">
-                <span>{isTr ? 'Sanatçı Profilini İncele' : 'View Artist Profile'}</span>
+                <span>{isAr ? 'عرض ملف الفنان' : isTr ? 'Sanatçı Profilini İncele' : 'View Artist Profile'}</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>

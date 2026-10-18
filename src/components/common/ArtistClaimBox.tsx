@@ -20,6 +20,8 @@ interface ArtistClaimBoxProps {
  */
 export default function ArtistClaimBox({ artistName, pageUrl, locale, source }: ArtistClaimBoxProps) {
   const isTr = locale === 'tr';
+
+  const isAr = locale === 'ar';
   const [copied, setCopied] = useState<'link' | 'bio' | null>(null);
 
   const copy = async (kind: 'link' | 'bio') => {
@@ -45,10 +47,12 @@ export default function ArtistClaimBox({ artistName, pageUrl, locale, source }: 
   return (
     <aside className="my-10 rounded-3xl border border-white/10 bg-white/[0.04] p-6 sm:p-7">
       <h2 className="text-lg sm:text-xl font-black text-white">
-        {isTr ? 'Bu sayfa sizinle mi ilgili?' : 'Is this page about you?'}
+        {isAr ? 'هل هذه الصفحة عنك؟' : isTr ? 'Bu sayfa sizinle mi ilgili?' : 'Is this page about you?'}
       </h2>
       <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-300">
-        {isTr
+        {isAr
+          ? `إذا كنت ${artistName} أو تديرهم وكانت هناك معلومة خاطئة، راسلنا وسنصححها خلال 24 ساعة. يمكنك أيضًا إضافة هذه الصفحة إلى نبذتك الشخصية. كما نقدم لك مراجعة مجانية للترويج لفيديو الكليب القادم.`
+          : isTr
           ? `${artistName} sizseniz veya yönetiyorsanız, bir bilgi yanlışsa bize yazın, 24 saat içinde düzeltelim. İsterseniz sayfayı kendi biyografinize ekleyebilirsiniz. Yeni klibinizin tanıtımı için de ücretsiz analiz sunuyoruz.`
           : `If you are or manage ${artistName} and a detail is wrong, write to us and we will fix it within 24 hours. You can also add this page to your own bio. We offer a free review for promoting your next video.`}
       </p>
@@ -58,7 +62,7 @@ export default function ArtistClaimBox({ artistName, pageUrl, locale, source }: 
           onClick={() => trackEvent('claim_correction_click', { source })}
           className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2.5 text-sm font-bold text-white hover:bg-white/10"
         >
-          <Mail className="h-4 w-4" /> {isTr ? 'Bilgiyi düzelt' : 'Correct a detail'}
+          <Mail className="h-4 w-4" /> {isAr ? 'صحّح معلومة' : isTr ? 'Bilgiyi düzelt' : 'Correct a detail'}
         </a>
         <button
           type="button"
@@ -66,7 +70,7 @@ export default function ArtistClaimBox({ artistName, pageUrl, locale, source }: 
           className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2.5 text-sm font-bold text-white hover:bg-white/10"
         >
           {copied === 'bio' ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-          {copied === 'bio' ? (isTr ? 'Kopyalandı' : 'Copied') : isTr ? 'Biyografi bağlantısını kopyala' : 'Copy bio link'}
+          {copied === 'bio' ? (isAr ? 'تم النسخ' : isTr ? 'Kopyalandı' : 'Copied') : isAr ? 'انسخ رابط النبذة' : isTr ? 'Biyografi bağlantısını kopyala' : 'Copy bio link'}
         </button>
         <a
           href={consultHref(waMessage)}
@@ -75,13 +79,13 @@ export default function ArtistClaimBox({ artistName, pageUrl, locale, source }: 
           onClick={() => trackEvent('claim_promo_click', { source })}
           className="inline-flex items-center gap-2 rounded-xl bg-[#D9002B] px-4 py-2.5 text-sm font-bold text-white hover:brightness-110"
         >
-          <MessageCircle className="h-4 w-4" /> {isTr ? 'Klibim için analiz iste' : 'Request a review for my video'}
+          <MessageCircle className="h-4 w-4" /> {isAr ? 'اطلب مراجعة لفيديو الكليب الخاص بي' : isTr ? 'Klibim için analiz iste' : 'Request a review for my video'}
         </a>
         <Link
           href={`/${locale}/order`}
           className="inline-flex items-center gap-2 rounded-xl px-2 py-2.5 text-sm font-semibold text-zinc-300 underline underline-offset-4 hover:text-white"
         >
-          {isTr ? 'Fiyatla birlikte teklif al' : 'Get a quote with pricing'}
+          {isAr ? 'احصل على عرض سعر مع الأسعار' : isTr ? 'Fiyatla birlikte teklif al' : 'Get a quote with pricing'}
         </Link>
       </div>
     </aside>

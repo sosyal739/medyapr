@@ -54,10 +54,11 @@ function useAnimatedNumber(target: number, ms = 350) {
 
 export default function Calculator({ locale, t }: { locale: string; t: AppStrings['calc'] }) {
   const isTr = locale === 'tr';
+  const isAr = locale === 'ar';
   const [views, setViews] = useState(25_000);
   const [format] = useState<Format>('instream');
   const [pkg, setPkg] = useState<Package>('views');
-  const [region, setRegion] = useState<Region>(isTr ? 'tr' : 'premium');
+  const [region, setRegion] = useState<Region>(isTr ? 'tr' : isAr ? 'global' : 'premium');
   const [currency, setCurrency] = useState<Currency>(isTr ? 'TRY' : 'USD');
   const [videoUrl, setVideoUrl] = useState('');
   const usedTracked = useRef(false);
@@ -75,7 +76,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
 
   const q = useMemo(() => quote({ views, format, pkg, region, currency }), [views, format, pkg, region, currency]);
   const animTotal = useAnimatedNumber(q.total);
-  const nf = new Intl.NumberFormat(isTr ? 'tr-TR' : 'en-US');
+  const nf = new Intl.NumberFormat(isAr ? 'ar-u-nu-latn-ca-gregory' : isTr ? 'tr-TR' : 'en-US');
 
   const videoParam = videoUrl.trim() ? `&video=${encodeURIComponent(videoUrl.trim())}` : '';
   const href = `/${locale}/order?views=${q.views}&format=${format}&pkg=${pkg}&region=${region}&currency=${currency}${videoParam}`;
@@ -111,7 +112,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
             <div className="flex items-center justify-between gap-4 mb-3">
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-red-400">
-                  {isTr ? '1. Adım' : 'Step 1'}
+                  {isAr ? 'الخطوة 1' : isTr ? '1. Adım' : 'Step 1'}
                 </span>
                 <h3 className="text-base font-extrabold text-white">{t.views}</h3>
               </div>
@@ -128,7 +129,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                   aria-label={t.views}
                   className="w-28 sm:w-36 text-right font-[family-name:var(--font-heading)] text-2xl font-black tabular-nums bg-transparent text-white outline-none"
                 />
-                <span className="text-xs font-semibold text-zinc-400">{isTr ? 'izlenme' : 'views'}</span>
+                <span className="text-xs font-semibold text-zinc-400">{isAr ? 'مشاهدات' : isTr ? 'izlenme' : 'views'}</span>
               </div>
             </div>
 
@@ -145,7 +146,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                 style={{ ['--pct' as string]: `${toSlider(views) / 10}%` }}
               />
               <div className="mt-2 flex justify-between text-[11px] font-medium text-zinc-500">
-                <span>1.000 (Min)</span>
+                <span>{isAr ? '1.000 (الحد الأدنى)' : '1.000 (Min)'}</span>
                 <span>50.000</span>
                 <span>1.000.000 (1M)</span>
               </div>
@@ -179,13 +180,13 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
             <div className="flex items-center justify-between mb-3">
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-red-400">
-                  {isTr ? '2. Adım' : 'Step 2'}
+                  {isAr ? 'الخطوة 2' : isTr ? '2. Adım' : 'Step 2'}
                 </span>
                 <h3 className="text-base font-extrabold text-white">{t.region}</h3>
               </div>
               {region === 'global' && (
                 <span className="text-[11px] font-black text-amber-300 bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 rounded-full">
-                  {isTr ? '1K: ₺100 Başlayan Kademeli Tarife 🔥' : 'From $3.50/1K Progressive Discount 🔥'}
+                  {isAr ? 'ابتداءً من $3.50 لكل 1K مع خصم تصاعدي 🔥' : isTr ? '1K: ₺100 Başlayan Kademeli Tarife 🔥' : 'From $3.50/1K Progressive Discount 🔥'}
                 </span>
               )}
             </div>
@@ -236,7 +237,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
           <div>
             <div className="mb-3">
               <span className="text-[11px] font-bold uppercase tracking-wider text-red-400">
-                {isTr ? '3. Adım' : 'Step 3'}
+                {isAr ? 'الخطوة 3' : isTr ? '3. Adım' : 'Step 3'}
               </span>
               <h3 className="text-base font-extrabold text-white">{t.pkg}</h3>
             </div>
@@ -281,10 +282,10 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
           <div className="pt-1">
             <div className="mb-2.5 flex items-center justify-between">
               <span className="text-xs font-bold uppercase tracking-wider text-zinc-400">
-                {t.guaranteesTitle || (isTr ? '%100 Resmi Google Ads Güvencesi' : '100% Official Google Ads Standards')}
+                {t.guaranteesTitle || (isAr ? 'معايير Google Ads الرسمية 100%' : isTr ? '%100 Resmi Google Ads Güvencesi' : '100% Official Google Ads Standards')}
               </span>
               <span className="text-[11px] font-bold text-emerald-400 flex items-center gap-1">
-                <Check className="h-3 w-3 stroke-[3]" /> {isTr ? 'Tüm Paketlerde Standart' : 'Standard Across All Plans'}
+                <Check className="h-3 w-3 stroke-[3]" /> {isAr ? 'متوفر في جميع الباقات' : isTr ? 'Tüm Paketlerde Standart' : 'Standard Across All Plans'}
               </span>
             </div>
 
@@ -319,9 +320,15 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                 </span>
                 <span>
                   <strong className="text-white">
-                    {isTr ? 'Analiz & Onay Süreci:' : 'Analysis & Approval Workflow:'}
+                    {isAr ? 'مراحل التحليل والموافقة:' : isTr ? 'Analiz & Onay Süreci:' : 'Analysis & Approval Workflow:'}
                   </strong>{' '}
-                  {isTr ? (
+                  {isAr
+                    ? (
+                    <>
+                      أرسل طلب عرض السعر، وسنحلل فيديو الكليب ونرد عليك بالتفصيل عبر WhatsApp / Telegram. يبدأ العمل بعد موافقتك.
+                    </>
+                  )
+                    : isTr ? (
                     <>
                       Teklifinizi iletin, videonuzu analiz edip WhatsApp / Telegram üzerinden detaylı dönüş yapalım. Onay alınca işlem başlar.
                     </>
@@ -333,7 +340,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                 </span>
               </div>
               <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 text-[11px] font-bold text-amber-300">
-                {isTr ? '* Fiyatlandırma video uzunluğuna göre değişebilir' : '* Pricing may vary based on video length'}
+                {isAr ? '* قد تختلف الأسعار حسب مدة الفيديو' : isTr ? '* Fiyatlandırma video uzunluğuna göre değişebilir' : '* Pricing may vary based on video length'}
               </span>
             </div>
           </div>
@@ -345,7 +352,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
           <div className="flex items-center justify-between mb-5">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 px-2.5 py-1 text-[11px] font-bold text-emerald-400">
               <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-              {isTr ? 'Canlı Teklif Hesaplama' : 'Live Quote Estimator'}
+              {isAr ? 'حاسبة عرض السعر المباشرة' : isTr ? 'Canlı Teklif Hesaplama' : 'Live Quote Estimator'}
             </span>
 
             <div className="flex rounded-xl border border-white/10 bg-white/5 p-0.5" role="group" aria-label={t.currency}>
@@ -372,14 +379,16 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
               {formatMoney(animTotal, currency, locale)}
             </div>
             <p className="mt-1.5 text-[11px] font-semibold text-amber-300/90">
-              {isTr
+              {isAr
+                ? '* محسوب على المدة القياسية؛ وقد تختلف الأسعار حسب مدة الفيديو.'
+                : isTr
                 ? '* Standart klip süresi baz alınmıştır; fiyatlandırma video uzunluğuna göre değişebilir.'
                 : '* Based on standard duration; pricing may vary depending on video length.'}
             </p>
             {q.discountRate > 0 && (
               <div className="mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">
                 <Tag className="h-3 w-3" />
-                {isTr ? `%${Math.round(q.discountRate * 100)} İndirim Uygulandı` : `${Math.round(q.discountRate * 100)}% Discount Applied`}
+                {isAr ? `تم تطبيق خصم ${Math.round(q.discountRate * 100)}%` : isTr ? `%${Math.round(q.discountRate * 100)} İndirim Uygulandı` : `${Math.round(q.discountRate * 100)}% Discount Applied`}
               </div>
             )}
           </div>
@@ -387,11 +396,11 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
           {/* Döküm Detayları */}
           <div className="space-y-3 border-y border-white/10 py-4 text-sm">
             <div className="flex items-center justify-between text-zinc-300">
-              <span className="text-zinc-400">{isTr ? 'Hedef İzlenme' : 'Target Views'}</span>
-              <span className="font-bold text-white">{nf.format(q.views)} {isTr ? 'İzlenme' : 'Views'}</span>
+              <span className="text-zinc-400">{isAr ? 'المشاهدات المستهدفة' : isTr ? 'Hedef İzlenme' : 'Target Views'}</span>
+              <span className="font-bold text-white">{nf.format(q.views)} {isAr ? 'المشاهدات' : isTr ? 'İzlenme' : 'Views'}</span>
             </div>
             <div className="flex items-center justify-between text-zinc-300">
-              <span className="text-zinc-400">{isTr ? 'Hedef Kitle' : 'Audience Target'}</span>
+              <span className="text-zinc-400">{isAr ? 'الجمهور المستهدف' : isTr ? 'Hedef Kitle' : 'Audience Target'}</span>
               <span className="font-bold text-white">{t.regions[region].name}</span>
             </div>
             <div className="flex items-center justify-between text-zinc-300">
@@ -408,7 +417,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
           <div className="mt-5 space-y-3">
             <div>
               <label htmlFor="calc-video-url" className="mb-1.5 block text-[11px] font-bold uppercase tracking-wider text-zinc-400">
-                {isTr ? 'YouTube Video Linkiniz (Pakete Ekle)' : 'Your YouTube Video Link (Attach to Package)'}
+                {isAr ? 'رابط فيديو يوتيوب الخاص بك (يُضاف إلى الباقة)' : isTr ? 'YouTube Video Linkiniz (Pakete Ekle)' : 'Your YouTube Video Link (Attach to Package)'}
               </label>
               <div className="relative">
                 <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
@@ -424,7 +433,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
               </div>
               {hasValidVideo && (
                 <p className="mt-1 text-[11px] font-semibold text-emerald-400">
-                  ✓ {isTr ? 'Video linki pakete eklendi' : 'Video link attached to package'}
+                  ✓ {isAr ? 'تمت إضافة رابط الفيديو إلى الباقة' : isTr ? 'Video linki pakete eklendi' : 'Video link attached to package'}
                 </p>
               )}
             </div>
@@ -445,7 +454,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                 className="inline-flex items-center justify-center gap-1.5 rounded-2xl border border-emerald-400/40 bg-emerald-500/10 px-2.5 py-3 text-[11px] sm:text-xs font-bold text-emerald-300 transition-all hover:border-emerald-400 hover:bg-emerald-500/20 hover:text-white"
               >
                 <MessageCircle className="h-3.5 w-3.5 shrink-0" />
-                <span>{isTr ? 'WhatsApp Analiz' : 'WhatsApp'}</span>
+                <span>{isAr ? 'WhatsApp' : isTr ? 'WhatsApp Analiz' : 'WhatsApp'}</span>
               </a>
               <a
                 href={telegramHref(pkgMessage)}
@@ -457,14 +466,14 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
                 className="inline-flex items-center justify-center gap-1.5 rounded-2xl border border-sky-400/40 bg-sky-500/10 px-2.5 py-3 text-[11px] sm:text-xs font-bold text-sky-300 transition-all hover:border-sky-400 hover:bg-sky-500/20 hover:text-white"
               >
                 <Send className="h-3.5 w-3.5 shrink-0" />
-                <span>{isTr ? 'Telegram Analiz' : 'Telegram'}</span>
+                <span>{isAr ? 'Telegram' : isTr ? 'Telegram Analiz' : 'Telegram'}</span>
               </a>
               <Link
                 href={mailOrderHref}
                 className="inline-flex items-center justify-center gap-1.5 rounded-2xl border border-amber-400/40 bg-amber-500/10 px-2.5 py-3 text-[11px] sm:text-xs font-bold text-amber-300 transition-all hover:border-amber-400 hover:bg-amber-500/20 hover:text-white"
               >
                 <Mail className="h-3.5 w-3.5 shrink-0" />
-                <span>{isTr ? 'Mail ile Analiz' : 'Via Email'}</span>
+                <span>{isAr ? 'عبر البريد الإلكتروني' : isTr ? 'Mail ile Analiz' : 'Via Email'}</span>
               </Link>
             </div>
           </div>

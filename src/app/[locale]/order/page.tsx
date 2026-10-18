@@ -9,13 +9,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const isTr = locale === 'tr';
 
+  const isAr = locale === 'ar';
+
   return {
     title: {
-      absolute: isTr
+      absolute: isAr
+        ? 'اطلب إعلان فيديو يوتيوب وتحليلًا مجانيًا | MedyaPR'
+        : isTr
         ? 'YouTube Reklam Siparişi & Klip Analizi | MedyaPR'
         : 'YouTube Video Ad Order & Free Analysis | MedyaPR',
     },
-    description: isTr
+    description: isAr
+      ? 'الصق رابط فيديو يوتيوب، واختر باقة المشاهدات، واطلب تحليلًا فنيًا مجانيًا عبر WhatsApp أو Telegram أو البريد الإلكتروني. يبدأ العمل بعد موافقتك.'
+      : isTr
       ? 'YouTube video linkinizi yapıştırın, izlenme paketinizi seçin ve WhatsApp, Telegram veya Mail ile ücretsiz video analizi isteyin. Onay alınca işlem başlar.'
       : 'Paste your YouTube video link, select a view package, and request a free technical analysis via WhatsApp, Telegram, or Email. Work starts upon approval.',
     alternates: getPageAlternates(locale, '/order'),
@@ -32,10 +38,20 @@ export default async function OrderPage({ params, searchParams }: Props) {
   const sp = await searchParams;
   const t = getAppStrings(locale);
   const isTr = locale === 'tr';
+
+  const isAr = locale === 'ar';
   const pick = <T extends string>(list: readonly T[], v: string | undefined, d: T): T => (list.includes(v as T) ? (v as T) : d);
   const CHANNELS = ['whatsapp', 'telegram', 'email'] as const;
 
-  const orderFaqs = isTr
+  const orderFaqs = isAr
+    ? [
+        {
+          question: 'ماذا يحدث بعد إرسال رابط فيديو يوتيوب؟',
+          answer:
+            'يفحص خبراء Google Partner لدينا مدة الفيديو والجمهور المستهدف والتزامه بسياسات الإعلانات، ثم يردّون عليك عبر WhatsApp أو Telegram أو البريد الإلكتروني بخطة إطلاق مفصلة.',
+        },
+      ]
+    : isTr
     ? [
         {
           question: 'Video linkimi gönderdikten sonra süreç nasıl ilerliyor?',
@@ -70,26 +86,26 @@ export default async function OrderPage({ params, searchParams }: Props) {
                   {
                     '@type': 'ListItem',
                     position: 1,
-                    name: isTr ? 'Ana Sayfa' : 'Home',
+                    name: isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home',
                     item: `https://medyapr.com/${locale}`,
                   },
                   {
                     '@type': 'ListItem',
                     position: 2,
-                    name: isTr ? 'Sipariş & Video Analizi' : 'Order & Video Analysis',
+                    name: isAr ? 'الطلب وتحليل الفيديو' : isTr ? 'Sipariş & Video Analizi' : 'Order & Video Analysis',
                     item: `https://medyapr.com/${locale}/order`,
                   },
                 ],
               },
               {
                 '@type': 'Service',
-                name: isTr ? 'YouTube Reklam Siparişi ve Ücretsiz Klip Analizi' : 'YouTube Video Ad Order & Technical Review',
+                name: isAr ? 'طلب إعلان فيديو يوتيوب ومراجعة فنية' : isTr ? 'YouTube Reklam Siparişi ve Ücretsiz Klip Analizi' : 'YouTube Video Ad Order & Technical Review',
                 provider: {
                   '@type': 'Organization',
                   name: 'MedyaPR',
                   url: 'https://medyapr.com',
                 },
-                serviceType: isTr ? 'Resmi Google Ads YouTube Video Tanıtımı' : 'Official Google Ads YouTube Video Promotion',
+                serviceType: isAr ? 'الترويج لفيديو يوتيوب عبر إعلانات Google Ads الرسمية' : isTr ? 'Resmi Google Ads YouTube Video Tanıtımı' : 'Official Google Ads YouTube Video Promotion',
                 url: `https://medyapr.com/${locale}/order`,
               },
               {
@@ -111,10 +127,12 @@ export default async function OrderPage({ params, searchParams }: Props) {
       <div className="mx-auto max-w-6xl px-4 md:px-8 space-y-12">
         <div className="mb-6 md:mb-8">
           <h1 className="font-[family-name:var(--font-heading)] text-3xl font-extrabold text-white md:text-4xl">
-            {isTr ? 'Video Linkinizi Girin, Paketinizi Seçip Analiz İsteyin' : 'Enter Your Video Link, Pick a Package & Request Analysis'}
+            {isAr ? 'أدخل رابط الفيديو، واختر الباقة، واطلب التحليل' : isTr ? 'Video Linkinizi Girin, Paketinizi Seçip Analiz İsteyin' : 'Enter Your Video Link, Pick a Package & Request Analysis'}
           </h1>
           <p className="mt-2 text-sm text-white/75 md:text-base max-w-3xl leading-relaxed">
-            {isTr
+            {isAr
+              ? 'الصق رابط فيديو يوتيوب واختر الباقة المناسبة لهدفك، ثم أرسل طلب عرض السعر عبر WhatsApp أو Telegram أو البريد الإلكتروني. سيحلل خبراؤنا الفيديو ويردّون عليك بالتفصيل، ويبدأ العمل بعد موافقتك. (قد يختلف السعر حسب مدة الفيديو.)'
+              : isTr
               ? 'YouTube video linkinizi yapıştırın ve hedef paketinizi seçin; teklifinizi WhatsApp ile, Telegram ile veya Mail (E-Posta) ile bize iletin. Uzman ekibimiz videonuzu analiz edip detaylı dönüş yapsın, onay alınca işlem başlar. (Fiyatlandırma video uzunluğuna göre değişebilir.)'
               : 'Paste your YouTube video link and choose your target package; send your quote request via WhatsApp, Telegram, or Email. Our specialists will analyze your video and reply in detail; work begins upon approval. (Pricing may vary based on video length.)'}
           </p>
@@ -127,7 +145,7 @@ export default async function OrderPage({ params, searchParams }: Props) {
             views: clampViews(Number(sp.views) || 25_000),
             format: pick<Format>(FORMATS, sp.format, 'instream'),
             pkg: pick<Package>(PACKAGES, sp.pkg, 'views'),
-            region: pick<Region>(REGIONS, sp.region, isTr ? 'tr' : 'premium'),
+            region: pick<Region>(REGIONS, sp.region, isTr ? 'tr' : isAr ? 'global' : 'premium'),
             currency: pick<Currency>(CURRENCIES, sp.currency, isTr ? 'TRY' : 'USD'),
             videoUrl: sp.video?.slice(0, 300),
             channel: pick(CHANNELS, sp.channel, 'whatsapp'),
@@ -137,12 +155,16 @@ export default async function OrderPage({ params, searchParams }: Props) {
         {/* Sipariş & Analiz Süreci Bilgilendirme Bölümü (SEO & Güven) */}
         <div className="border-t border-white/10 pt-10 space-y-6">
           <h2 className="text-xl sm:text-2xl font-extrabold text-white">
-            {isTr
+            {isAr
+              ? 'كيف تتم عملية طلب إعلان فيديو يوتيوب والترويج الموسيقي'
+              : isTr
               ? 'YouTube Video Reklam ve Klip PR Sipariş Süreci Nasıl İşler?'
               : 'How the YouTube Video Ad & Music PR Order Workflow Operates'}
           </h2>
           <blockquote className="rounded-2xl border-l-4 border-[#FF0033] bg-white/[0.03] p-5 text-sm text-zinc-200 italic">
-            {isTr
+            {isAr
+              ? '«تُدار جميع حملات الترويج لفيديوهات يوتيوب في MedyaPR بواسطة خبراء Google Partner المعتمدين، دون الحاجة إلى أي كلمة مرور.»'
+              : isTr
               ? '“MedyaPR’de tüm YouTube izlenme ve klip tanıtım kampanyaları sertifikalı Google Partner uzmanları tarafından yürütülür. Kanal şifresi istenmez; teklifiniz incelendikten sonra onayınızla çalışılır.”'
               : '“All YouTube video promotion campaigns at MedyaPR are managed by certified Google Partner specialists with zero passwords required.”'}
           </blockquote>
@@ -156,11 +178,11 @@ export default async function OrderPage({ params, searchParams }: Props) {
           </div>
           <div className="flex flex-wrap gap-3 text-xs font-bold pt-2">
             <Link href={`/${locale}/fiyatlandirma`} className="text-[#FF6B6B] underline">
-              {isTr ? '← Tüm Paket Fiyatları ve Hesaplayıcı' : '← All Package Prices & Calculator'}
+              {isAr ? '→ جميع أسعار الباقات وحاسبة الأسعار' : isTr ? '← Tüm Paket Fiyatları ve Hesaplayıcı' : '← All Package Prices & Calculator'}
             </Link>
             <span className="text-zinc-600">•</span>
             <Link href={`/${locale}/hizmetler`} className="text-emerald-400 underline">
-              {isTr ? 'Google Ads YouTube Hizmetlerimiz' : 'Our Google Ads YouTube Services'}
+              {isAr ? 'خدمات يوتيوب عبر Google Ads لدينا' : isTr ? 'Google Ads YouTube Hizmetlerimiz' : 'Our Google Ads YouTube Services'}
             </Link>
           </div>
         </div>

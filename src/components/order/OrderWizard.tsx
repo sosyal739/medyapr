@@ -72,8 +72,10 @@ const duration = (s?: number) => (s ? `${Math.floor(s / 60)}:${String(s % 60).pa
 
 export default function OrderWizard({ locale, t, initial }: { locale: string; t: AppStrings; initial: WizardInitial }) {
   const isTr = locale === 'tr';
+
+  const isAr = locale === 'ar';
   const c = t.calc;
-  const nf = useMemo(() => new Intl.NumberFormat(isTr ? 'tr-TR' : 'en-US'), [isTr]);
+  const nf = useMemo(() => new Intl.NumberFormat(isAr ? 'ar-u-nu-latn-ca-gregory' : isTr ? 'tr-TR' : 'en-US'), [isTr]);
 
   const [url, setUrl] = useState(initial.videoUrl ?? '');
   const [lookup, setLookup] = useState<Lookup>(() =>
@@ -193,7 +195,9 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
   function ensureVideoEntered(): boolean {
     if (!videoReady) {
       setError(
-        isTr
+        isAr
+          ? 'يرجى لصق رابط فيديو يوتيوب في الخطوة 1 أولًا.'
+          : isTr
           ? 'Lütfen önce 1. adımda YouTube video linkinizi yapıştırın.'
           : 'Please paste your YouTube video link in Step 1 first.',
       );
@@ -255,7 +259,9 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
     // Mail (E-Posta) ile analiz isteği
     if (!emailValid) {
       setError(
-        isTr
+        isAr
+          ? 'يرجى إدخال بريد إلكتروني صحيح لنتمكن من إرسال تحليل الفيديو إليك.'
+          : isTr
           ? 'Mail ile analiz dönüşü yapabilmemiz için lütfen geçerli bir e-posta adresi girin.'
           : 'Please enter a valid email address so we can send your video analysis via email.',
       );
@@ -288,11 +294,15 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
       if (!res.ok) {
         setError(
           data.error === 'video_not_found'
-            ? isTr
+            ? isAr
+              ? 'لم يتم العثور على الفيديو. استخدم رابط فيديو عامًا أو غير مدرج.'
+              : isTr
               ? 'Video bulunamadı. Herkese açık veya liste dışı bir video linki girin.'
               : 'Video not found. Use a public or unlisted video link.'
             : data.error === 'invalid_email'
-              ? isTr
+              ? isAr
+                ? 'يرجى إدخال بريد إلكتروني صحيح.'
+                : isTr
                 ? 'Lütfen geçerli bir e-posta adresi girin.'
                 : 'Please enter a valid email address.'
               : t.order.error,
@@ -318,7 +328,9 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
   if (done) {
     const msg = buildPackageMessage(done.id);
     const richMsg = buildPackageMessage(done.id, true); // e-posta gövdesinde emoji sorun çıkarmaz
-    const mailSubject = isTr
+    const mailSubject = isAr
+      ? `تحليل فيديو يوتيوب وطلب عرض سعر (${done.id}) - ${video?.title || url}`
+      : isTr
       ? `YouTube Video Analiz & Teklif Talebi (${done.id}) - ${video?.title || url}`
       : `YouTube Video Analysis & Quote Request (${done.id}) - ${video?.title || url}`;
 
@@ -327,19 +339,27 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
         <CheckCircle2 className="mx-auto h-14 w-14 text-emerald-400" />
         <h2 className="mt-4 font-[family-name:var(--font-heading)] text-2xl font-extrabold text-white sm:text-3xl">
           {done.channel === 'email'
-            ? isTr
+            ? isAr
+              ? 'تم استلام باقتك وطلب التحليل عبر البريد الإلكتروني'
+              : isTr
               ? 'Paketiniz & Analiz Talebiniz Mail İle Alındı'
               : 'Your Package & Analysis Request Was Received by Email'
-            : isTr
+            : isAr
+              ? 'باقتك وطلب التحليل جاهزان'
+              : isTr
               ? 'Paketiniz & Analiz Talebiniz Oluşturuldu'
               : 'Your Package & Analysis Request Is Ready'}
         </h2>
         <p className="mt-2 text-sm text-zinc-300 leading-relaxed">
           {done.channel === 'email'
-            ? isTr
+            ? isAr
+              ? `تم إرسال الفيديو والباقة المختارة إلى فريقنا. بعد فحص المدة والمحتوى ومدى أهلية الفيديو لـ Google Ads، سنرسل ردًا مفصّلًا إلى ${email}. ويبدأ العمل عند الموافقة.`
+              : isTr
               ? `Videonuz (${video?.title || url}) ve seçtiğiniz paket uzman ekibimize iletildi. Süre, içerik ve Google Ads uygunluk analizini tamamlayıp ${email} adresinize detaylı dönüş yapacağız. Onay alınca işlem başlar.`
               : `Your video and selected package have been sent to our team. After checking duration, content, and Google Ads eligibility, we will send a detailed reply to ${email}. Work begins upon approval.`
-            : isTr
+            : isAr
+              ? 'أرسل تفاصيل باقتك المعبأة مسبقًا عبر WhatsApp أو Telegram أو البريد الإلكتروني أدناه لنحلل الفيديو ونرد عليك بالتفصيل. ويبدأ العمل عند الموافقة.'
+              : isTr
               ? 'Videonuzu (süre, içerik ve Google Ads uygunluğu açısından) analiz edip size detaylı dönüş yapabilmemiz için mesajınızı WhatsApp, Telegram veya Mail üzerinden iletebilirsiniz. Onay alınca işlem başlar.'
               : 'Send your pre-filled package details via WhatsApp, Telegram, or Email below so we can analyze your video and reply in detail. Work begins upon approval.'}
         </p>
@@ -366,7 +386,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-4 py-3.5 text-sm font-bold text-white shadow-lg shadow-emerald-900/40 transition hover:bg-emerald-500"
           >
-            <MessageCircle className="h-4 w-4 shrink-0" /> {isTr ? 'WhatsApp ile İlet' : 'Send via WhatsApp'}
+            <MessageCircle className="h-4 w-4 shrink-0" /> {isAr ? 'أرسل عبر WhatsApp' : isTr ? 'WhatsApp ile İlet' : 'Send via WhatsApp'}
           </a>
           <a
             href={telegramHref(msg)}
@@ -374,17 +394,19 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-2xl bg-sky-600 px-4 py-3.5 text-sm font-bold text-white shadow-lg shadow-sky-900/40 transition hover:bg-sky-500"
           >
-            <Send className="h-4 w-4 shrink-0" /> {isTr ? 'Telegram ile İlet' : 'Send via Telegram'}
+            <Send className="h-4 w-4 shrink-0" /> {isAr ? 'أرسل عبر Telegram' : isTr ? 'Telegram ile İlet' : 'Send via Telegram'}
           </a>
           <a
             href={mailtoHref(mailSubject, richMsg)}
             className="inline-flex items-center justify-center gap-2 rounded-2xl border border-amber-400/40 bg-amber-500/15 px-4 py-3.5 text-sm font-bold text-amber-200 transition hover:bg-amber-500/25 hover:text-white"
           >
-            <Mail className="h-4 w-4 shrink-0" /> {isTr ? 'Mail Uygulamasıyla Gönder' : 'Open in Mail App'}
+            <Mail className="h-4 w-4 shrink-0" /> {isAr ? 'افتح في تطبيق البريد' : isTr ? 'Mail Uygulamasıyla Gönder' : 'Open in Mail App'}
           </a>
         </div>
         <p className="mt-3 text-xs text-zinc-400">
-          {isTr
+          {isAr
+            ? '* الأسعار تقديرية للمدد القياسية وقد تختلف حسب مدة الفيديو.'
+            : isTr
             ? '* Fiyatlandırma standart klip süreleri baz alınarak hesaplanmıştır; video uzunluğuna göre değişebilir.'
             : '* Pricing is estimated for standard durations and may vary based on video length.'}
         </p>
@@ -402,14 +424,14 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             href={`/${locale}/track/${done.id}`}
             className="inline-flex items-center gap-2 text-sm font-semibold text-[#FF6B7A] hover:underline"
           >
-            {isTr ? 'Teklif & kampanya takip sayfası' : 'Quote & campaign tracking page'} <ArrowRight className="h-4 w-4" />
+            {isAr ? 'صفحة تتبع عرض السعر والحملة' : isTr ? 'Teklif & kampanya takip sayfası' : 'Quote & campaign tracking page'} <ArrowRight className="h-4 w-4" />
           </Link>
           <button
             type="button"
             onClick={() => setDone(null)}
             className="text-xs font-semibold text-zinc-400 underline hover:text-white"
           >
-            {isTr ? 'Paketi veya linki düzenle' : 'Edit package or link'}
+            {isAr ? 'عدّل الباقة أو الرابط' : isTr ? 'Paketi veya linki düzenle' : 'Edit package or link'}
           </button>
         </div>
       </div>
@@ -420,7 +442,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
     <form onSubmit={submit} className="grid gap-6 lg:grid-cols-[1.5fr_1fr] lg:gap-8">
       <div className="space-y-6">
         {/* ── 1. Video Linki ── */}
-        <Step n={1} title={isTr ? 'YouTube video linkinizi yapıştırın' : 'Paste your YouTube video link'}>
+        <Step n={1} title={isAr ? 'الصق رابط فيديو يوتيوب' : isTr ? 'YouTube video linkinizi yapıştırın' : 'Paste your YouTube video link'}>
           <div className="relative">
             <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
             <input
@@ -444,14 +466,16 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           {lookup.state === 'notfound' && (
             <p className="mt-2 flex items-center gap-1.5 text-xs text-rose-400">
               <XCircle className="h-4 w-4" />
-              {isTr
+              {isAr
+                ? 'لم يتم العثور على الفيديو. الفيديوهات الخاصة غير مدعومة؛ استخدم رابطًا عامًا أو غير مدرج.'
+                : isTr
                 ? 'Video bulunamadı. Gizli videolar desteklenmez; herkese açık veya liste dışı link girin.'
                 : 'Video not found. Private videos are not supported; use a public or unlisted link.'}
             </p>
           )}
           {lookup.state === 'loading' && (
             <div className="mt-3 flex items-center gap-2 text-sm text-zinc-400">
-              <Loader2 className="h-4 w-4 animate-spin" /> {isTr ? 'Videonuz aranıyor…' : 'Finding your video…'}
+              <Loader2 className="h-4 w-4 animate-spin" /> {isAr ? 'جارٍ البحث عن الفيديو…' : isTr ? 'Videonuz aranıyor…' : 'Finding your video…'}
             </div>
           )}
 
@@ -467,7 +491,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
               </div>
               <div className="min-w-0 flex-1 p-4">
                 <p className="flex items-center gap-1.5 text-xs font-bold text-emerald-400">
-                  <CheckCircle2 className="h-4 w-4" /> {isTr ? 'Videonuz bulundu' : 'Video found'}
+                  <CheckCircle2 className="h-4 w-4" /> {isAr ? 'تم العثور على الفيديو' : isTr ? 'Videonuz bulundu' : 'Video found'}
                 </p>
                 {video.title ? (
                   <p className="mt-1 line-clamp-2 font-bold text-white">{video.title}</p>
@@ -478,13 +502,13 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
 
                 {video.views !== undefined ? (
                   <div className="mt-3 flex flex-wrap gap-2">
-                    <Stat icon={<Eye className="h-3.5 w-3.5" />} label={isTr ? 'Mevcut izlenme' : 'Current views'} value={nf.format(video.views)} />
-                    {video.likes !== undefined && <Stat icon={<ThumbsUp className="h-3.5 w-3.5" />} label={isTr ? 'Beğeni' : 'Likes'} value={nf.format(video.likes)} />}
-                    {video.comments !== undefined && <Stat icon={<MessageSquare className="h-3.5 w-3.5" />} label={isTr ? 'Yorum' : 'Comments'} value={nf.format(video.comments)} />}
+                    <Stat icon={<Eye className="h-3.5 w-3.5" />} label={isAr ? 'المشاهدات الحالية' : isTr ? 'Mevcut izlenme' : 'Current views'} value={nf.format(video.views)} />
+                    {video.likes !== undefined && <Stat icon={<ThumbsUp className="h-3.5 w-3.5" />} label={isAr ? 'الإعجابات' : isTr ? 'Beğeni' : 'Likes'} value={nf.format(video.likes)} />}
+                    {video.comments !== undefined && <Stat icon={<MessageSquare className="h-3.5 w-3.5" />} label={isAr ? 'التعليقات' : isTr ? 'Yorum' : 'Comments'} value={nf.format(video.comments)} />}
                   </div>
                 ) : (
                   <p className="mt-2 text-[11px] text-zinc-500">
-                    {isTr ? 'Güncel izlenme sayısı ve video süresi analiz aşamasında kontrol edilir.' : 'Current view count and duration are checked during analysis.'}
+                    {isAr ? 'يتم التحقق من عدد المشاهدات الحالي ومدة الفيديو أثناء التحليل.' : isTr ? 'Güncel izlenme sayısı ve video süresi analiz aşamasında kontrol edilir.' : 'Current view count and duration are checked during analysis.'}
                   </p>
                 )}
               </div>
@@ -493,7 +517,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
         </Step>
 
         {/* ── 2. Paket Seçimi ── */}
-        <Step n={2} title={isTr ? 'Paketinizi ve hedef izlenmeyi seçin' : 'Select your package and target views'}>
+        <Step n={2} title={isAr ? 'اختر الباقة وعدد المشاهدات المستهدف' : isTr ? 'Paketinizi ve hedef izlenmeyi seçin' : 'Select your package and target views'}>
           <div className="flex flex-wrap gap-2">
             {PRESETS.map((p) => (
               <button
@@ -510,7 +534,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             ))}
           </div>
           <div className="mt-3 flex items-center gap-3">
-            <label htmlFor="custom-views" className="text-xs text-zinc-400">{isTr ? 'veya özel miktar:' : 'or custom amount:'}</label>
+            <label htmlFor="custom-views" className="text-xs text-zinc-400">{isAr ? 'أو كمية مخصصة:' : isTr ? 'veya özel miktar:' : 'or custom amount:'}</label>
             <input
               id="custom-views"
               inputMode="numeric"
@@ -527,8 +551,8 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           {video?.views !== undefined && (
             <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
               <div className="flex items-center justify-between text-xs text-zinc-400">
-                <span>{isTr ? 'Şu an' : 'Now'}: <strong className="text-white">{nf.format(video.views)}</strong></span>
-                <span>{isTr ? 'Kampanya hedefi' : 'Campaign target'}: <strong className="text-emerald-400">+{nf.format(q.views)}</strong></span>
+                <span>{isAr ? 'الآن' : isTr ? 'Şu an' : 'Now'}: <strong className="text-white">{nf.format(video.views)}</strong></span>
+                <span>{isAr ? 'هدف الحملة' : isTr ? 'Kampanya hedefi' : 'Campaign target'}: <strong className="text-emerald-400">+{nf.format(q.views)}</strong></span>
               </div>
               <div className="mt-2 flex h-2 overflow-hidden rounded-full bg-white/10">
                 <div className="bg-zinc-400" style={{ width: `${(video.views / (video.views + q.views)) * 100}%` }} />
@@ -536,13 +560,13 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
               </div>
               {(video.likes !== undefined || video.comments !== undefined) && (
                 <p className="mt-2 text-xs text-zinc-400">
-                  {video.likes !== undefined && <>{isTr ? 'Beğeni' : 'Likes'}: <strong className="text-white">{nf.format(video.likes)}</strong></>}
+                  {video.likes !== undefined && <>{isAr ? 'الإعجابات' : isTr ? 'Beğeni' : 'Likes'}: <strong className="text-white">{nf.format(video.likes)}</strong></>}
                   {video.likes !== undefined && video.comments !== undefined && ' · '}
-                  {video.comments !== undefined && <>{isTr ? 'Yorum' : 'Comments'}: <strong className="text-white">{nf.format(video.comments)}</strong></>}
+                  {video.comments !== undefined && <>{isAr ? 'التعليقات' : isTr ? 'Yorum' : 'Comments'}: <strong className="text-white">{nf.format(video.comments)}</strong></>}
                 </p>
               )}
               <p className="mt-2 text-xs text-zinc-300">
-                {isTr ? 'Hedeflenen toplam' : 'Target total'}: <strong className="text-white">≈ {nf.format(video.views + q.views)}</strong> {isTr ? 'izlenme' : 'views'}
+                {isAr ? 'الإجمالي المستهدف' : isTr ? 'Hedeflenen toplam' : 'Target total'}: <strong className="text-white">≈ {nf.format(video.views + q.views)}</strong> {isAr ? 'مشاهدات' : isTr ? 'izlenme' : 'views'}
               </p>
             </div>
           )}
@@ -567,13 +591,17 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
         <Step
           n={3}
           title={
-            isTr
+            isAr
+              ? 'أرسل باقتك واطلب التحليل (WhatsApp أو Telegram أو البريد الإلكتروني)'
+              : isTr
               ? 'Paketi gönderin ve analiz isteyin (WhatsApp, Telegram veya Mail)'
               : 'Send your package & request analysis (WhatsApp, Telegram, or Email)'
           }
         >
           <p className="mb-4 text-xs leading-relaxed text-zinc-300">
-            {isTr
+            {isAr
+              ? 'أرسل رابط الفيديو والباقة المختارة عبر القناة التي تفضلها. سيحلل خبراؤنا مدة الفيديو ومدى توافقه مع Google Ads ويردون عليك بالتفصيل؛ ويبدأ العمل عند الموافقة.'
+              : isTr
               ? 'Video linkinizi ve seçtiğiniz paketi size en uygun kanaldan bize iletin. Uzman ekibimiz videonuzun süresini ve Google Ads uygunluğunu analiz edip detaylı dönüş yapsın; onay alınca işlem başlar.'
               : 'Send your video link and selected package through your preferred channel. Our specialists will analyze your video duration and Google Ads compliance and reply in detail; work begins upon approval.'}
           </p>
@@ -592,10 +620,10 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             >
               <span className="inline-flex items-center gap-2 text-sm font-extrabold text-white">
                 <MessageCircle className="h-4 w-4 text-emerald-400" />
-                {isTr ? 'WhatsApp ile Analiz' : 'Via WhatsApp'}
+                {isAr ? 'عبر WhatsApp' : isTr ? 'WhatsApp ile Analiz' : 'Via WhatsApp'}
               </span>
               <span className="mt-1 text-[11px] text-zinc-400">
-                {isTr ? 'Paketi ve linki tek tıkla WhatsApp’tan gönderin' : 'Send link & package directly on WhatsApp'}
+                {isAr ? 'أرسل الرابط والباقة مباشرة عبر WhatsApp' : isTr ? 'Paketi ve linki tek tıkla WhatsApp’tan gönderin' : 'Send link & package directly on WhatsApp'}
               </span>
             </button>
 
@@ -611,10 +639,10 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             >
               <span className="inline-flex items-center gap-2 text-sm font-extrabold text-white">
                 <Send className="h-4 w-4 text-sky-400" />
-                {isTr ? 'Telegram ile Analiz' : 'Via Telegram'}
+                {isAr ? 'عبر Telegram' : isTr ? 'Telegram ile Analiz' : 'Via Telegram'}
               </span>
               <span className="mt-1 text-[11px] text-zinc-400">
-                {isTr ? 'Paketi ve linki tek tıkla Telegram’dan gönderin' : 'Send link & package directly on Telegram'}
+                {isAr ? 'أرسل الرابط والباقة مباشرة عبر Telegram' : isTr ? 'Paketi ve linki tek tıkla Telegram’dan gönderin' : 'Send link & package directly on Telegram'}
               </span>
             </button>
 
@@ -633,10 +661,10 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             >
               <span className="inline-flex items-center gap-2 text-sm font-extrabold text-white">
                 <Mail className="h-4 w-4 text-amber-400" />
-                {isTr ? 'Mail ile Analiz' : 'Via Email'}
+                {isAr ? 'عبر البريد الإلكتروني' : isTr ? 'Mail ile Analiz' : 'Via Email'}
               </span>
               <span className="mt-1 text-[11px] text-zinc-400">
-                {isTr ? 'E-postanızı yazın, analizi mailinize gönderelim' : 'Enter your email to receive the analysis'}
+                {isAr ? 'أدخل بريدك الإلكتروني لتصلك نتيجة التحليل' : isTr ? 'E-postanızı yazın, analizi mailinize gönderelim' : 'Enter your email to receive the analysis'}
               </span>
             </button>
           </div>
@@ -647,7 +675,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
               {channel === 'email' && (
                 <div>
                   <label htmlFor="w-email" className="mb-1.5 block text-xs font-semibold text-white/85">
-                    {isTr ? 'E-posta adresiniz (Zorunlu) *' : 'Your email address (Required) *'}
+                    {isAr ? 'بريدك الإلكتروني (مطلوب) *' : isTr ? 'E-posta adresiniz (Zorunlu) *' : 'Your email address (Required) *'}
                   </label>
                   <input
                     ref={emailInputRef}
@@ -666,7 +694,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
               )}
               <div>
                 <label htmlFor="w-name" className="mb-1.5 block text-xs font-semibold text-white/85">
-                  {isTr ? 'Ad / Sanatçı veya Kanal Adı (İsteğe bağlı)' : 'Name / Artist or Channel Name (Optional)'}
+                  {isAr ? 'الاسم / اسم الفنان أو القناة (اختياري)' : isTr ? 'Ad / Sanatçı veya Kanal Adı (İsteğe bağlı)' : 'Name / Artist or Channel Name (Optional)'}
                 </label>
                 <input
                   id="w-name"
@@ -674,19 +702,19 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className={inputClass}
-                  placeholder={isTr ? 'Örn: Sanatçı / Yapım Adı' : 'e.g. Artist / Label Name'}
+                  placeholder={isAr ? 'مثال: اسم الفنان / شركة الإنتاج' : isTr ? 'Örn: Sanatçı / Yapım Adı' : 'e.g. Artist / Label Name'}
                 />
               </div>
               <div>
                 <label htmlFor="w-note" className="mb-1.5 block text-xs font-semibold text-white/85">
-                  {isTr ? 'Ek Notunuz (İsteğe bağlı)' : 'Additional Note (Optional)'}
+                  {isAr ? 'ملاحظة إضافية (اختياري)' : isTr ? 'Ek Notunuz (İsteğe bağlı)' : 'Additional Note (Optional)'}
                 </label>
                 <input
                   id="w-note"
                   value={note}
                   onChange={(e) => setNote(e.target.value)}
                   className={inputClass}
-                  placeholder={isTr ? 'Örn: Klip çıkış tarihi, hedef ülke vb.' : 'e.g. Release date, target audience'}
+                  placeholder={isAr ? 'مثال: تاريخ الإصدار، الجمهور المستهدف' : isTr ? 'Örn: Klip çıkış tarihi, hedef ülke vb.' : 'e.g. Release date, target audience'}
                 />
               </div>
             </div>
@@ -700,7 +728,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-4 py-3.5 text-xs sm:text-sm font-extrabold text-white shadow-lg shadow-emerald-950/50 transition hover:bg-emerald-500 disabled:opacity-50"
               >
                 <MessageCircle className="h-4 w-4 shrink-0" />
-                <span>{isTr ? 'WhatsApp ile Analiz İste' : 'Request via WhatsApp'}</span>
+                <span>{isAr ? 'اطلب عبر WhatsApp' : isTr ? 'WhatsApp ile Analiz İste' : 'Request via WhatsApp'}</span>
               </button>
 
               <button
@@ -710,7 +738,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-sky-600 px-4 py-3.5 text-xs sm:text-sm font-extrabold text-white shadow-lg shadow-sky-950/50 transition hover:bg-sky-500 disabled:opacity-50"
               >
                 <Send className="h-4 w-4 shrink-0" />
-                <span>{isTr ? 'Telegram ile Analiz İste' : 'Request via Telegram'}</span>
+                <span>{isAr ? 'اطلب عبر Telegram' : isTr ? 'Telegram ile Analiz İste' : 'Request via Telegram'}</span>
               </button>
 
               <button
@@ -724,7 +752,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
                 ) : (
                   <Mail className="h-4 w-4 shrink-0" />
                 )}
-                <span>{isTr ? 'Mail ile Analiz İste' : 'Request via Email'}</span>
+                <span>{isAr ? 'اطلب عبر البريد الإلكتروني' : isTr ? 'Mail ile Analiz İste' : 'Request via Email'}</span>
               </button>
             </div>
           </div>
@@ -756,7 +784,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           <p className="mb-3 truncate text-xs text-zinc-400">{url}</p>
         ) : (
           <p className="mb-3 rounded-xl border border-amber-500/25 bg-amber-500/10 px-3 py-2 text-xs text-amber-200">
-            {isTr ? '1. adımda YouTube video linkinizi yapıştırın.' : 'Paste your YouTube video link in Step 1.'}
+            {isAr ? 'الصق رابط فيديو يوتيوب في الخطوة 1.' : isTr ? '1. adımda YouTube video linkinizi yapıştırın.' : 'Paste your YouTube video link in Step 1.'}
           </p>
         )}
 
@@ -772,18 +800,20 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           <span className="font-[family-name:var(--font-heading)] text-3xl font-extrabold tabular-nums">{totalText}</span>
         </div>
         <p className="mt-1.5 text-[11px] font-semibold text-amber-300/90">
-          {isTr
+          {isAr
+            ? '* قد يختلف السعر حسب مدة الفيديو.'
+            : isTr
             ? '* Fiyatlandırma video uzunluğuna göre değişebilir.'
             : '* Pricing may vary based on video length.'}
         </p>
         {q.discountRate > 0 && (
           <p className="mt-1 text-right text-xs font-bold text-emerald-400">
-            {isTr ? `%${Math.round(q.discountRate * 100)} hacim indirimi dahil` : `${Math.round(q.discountRate * 100)}% volume discount included`}
+            {isAr ? `خصم الكمية ${Math.round(q.discountRate * 100)}% مشمول` : isTr ? `%${Math.round(q.discountRate * 100)} hacim indirimi dahil` : `${Math.round(q.discountRate * 100)}% volume discount included`}
           </p>
         )}
 
         <p className="mt-4 rounded-2xl border border-white/10 bg-white/[0.03] p-3 text-xs text-zinc-300">
-          {isTr ? 'Tutar tahminidir; analizden sonra kesin teklif iletilir. Onayınız olmadan kampanya başlamaz.' : 'This amount is an estimate; a final quote follows our review. No campaign starts without your approval.'}
+          {isAr ? 'هذا المبلغ تقديري؛ سيصلك عرض السعر النهائي بعد المراجعة. ولا تبدأ أي حملة دون موافقتك.' : isTr ? 'Tutar tahminidir; analizden sonra kesin teklif iletilir. Onayınız olmadan kampanya başlamaz.' : 'This amount is an estimate; a final quote follows our review. No campaign starts without your approval.'}
         </p>
 
         {error && <p className="mt-4 rounded-xl border border-red-500/30 bg-red-500/20 p-3 text-xs text-red-200">{error}</p>}
@@ -791,7 +821,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
         {/* Sağ Özet Kutusu: 3 Kanaldan Paketi Gönder & Analiz İste */}
         <div className="mt-5 space-y-2.5">
           <p className="text-[11px] font-bold uppercase tracking-wider text-zinc-400">
-            {isTr ? 'Paketi Gönder & Analiz İste:' : 'Send Package & Request Analysis:'}
+            {isAr ? 'أرسل الباقة واطلب التحليل:' : isTr ? 'Paketi Gönder & Analiz İste:' : 'Send Package & Request Analysis:'}
           </p>
 
           <button
@@ -801,7 +831,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             className="flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-emerald-950/50 transition hover:bg-emerald-500 disabled:opacity-50"
           >
             <MessageCircle className="h-4 w-4 shrink-0" />
-            <span>{isTr ? 'WhatsApp ile Analiz İste' : 'Request Analysis on WhatsApp'}</span>
+            <span>{isAr ? 'اطلب التحليل عبر WhatsApp' : isTr ? 'WhatsApp ile Analiz İste' : 'Request Analysis on WhatsApp'}</span>
           </button>
 
           <button
@@ -811,7 +841,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             className="flex w-full items-center justify-center gap-2 rounded-2xl bg-sky-600 px-5 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-sky-950/50 transition hover:bg-sky-500 disabled:opacity-50"
           >
             <Send className="h-4 w-4 shrink-0" />
-            <span>{isTr ? 'Telegram ile Analiz İste' : 'Request Analysis on Telegram'}</span>
+            <span>{isAr ? 'اطلب التحليل عبر Telegram' : isTr ? 'Telegram ile Analiz İste' : 'Request Analysis on Telegram'}</span>
           </button>
 
           <button
@@ -825,13 +855,15 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             ) : (
               <Mail className="h-4 w-4 shrink-0" />
             )}
-            <span>{isTr ? 'Mail (E-Posta) ile Analiz İste' : 'Request Analysis via Email'}</span>
+            <span>{isAr ? 'اطلب التحليل عبر البريد الإلكتروني' : isTr ? 'Mail (E-Posta) ile Analiz İste' : 'Request Analysis via Email'}</span>
           </button>
         </div>
 
         <p className="mt-4 flex items-center justify-center gap-1.5 text-center text-[11px] text-white/60">
           <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-emerald-400" />
-          {isTr
+          {isAr
+            ? 'رد مفصّل بعد التحليل • يبدأ العمل عند الموافقة'
+            : isTr
             ? 'Analiz sonrası detaylı dönüş • Onay alınca işlem başlar'
             : 'Detailed reply after analysis • Starts upon approval'}
         </p>

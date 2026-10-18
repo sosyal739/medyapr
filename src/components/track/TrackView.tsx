@@ -57,7 +57,9 @@ export default function TrackView({
   const [o, setO] = useState(initial);
   const [copiedCode, setCopiedCode] = useState(false);
   const isTr = locale === 'tr';
-  const nf = new Intl.NumberFormat(isTr ? 'tr-TR' : 'en-US');
+
+  const isAr = locale === 'ar';
+  const nf = new Intl.NumberFormat(isAr ? 'ar-u-nu-latn-ca-gregory' : isTr ? 'tr-TR' : 'en-US');
   const statusLabels = isTr ? STATUS_LABELS_TR : STATUS_LABELS_EN;
 
   // Auto-refresh every 25s
@@ -92,7 +94,9 @@ export default function TrackView({
         <div className="flex items-center gap-3 rounded-2xl border border-emerald-500/40 bg-emerald-500/15 p-4 text-sm text-emerald-300 backdrop-blur-xl">
           <Sparkles className="h-5 w-5 shrink-0 text-emerald-400" />
           <span>
-            {isTr
+            {isAr
+              ? 'تم إنشاء طلب عرض السعر! احفظ هذا الرابط لتتابع التحليل والموافقة وتقدم الحملة لحظة بلحظة.'
+              : isTr
               ? 'Teklif talebiniz başarıyla oluşturuldu! Bu sayfanın bağlantısını saklayın; analiz, onay ve kampanya sürecini buradan anlık takip edebilirsiniz.'
               : 'Your quote request was created! Bookmark this URL to track analysis, approval, and campaign progress in real-time.'}
           </span>
@@ -113,14 +117,14 @@ export default function TrackView({
 
           <div>
             <div className="text-[11px] font-bold uppercase tracking-wider text-zinc-400">
-              {isTr ? 'Teklif & Takip Kodu' : 'Quote & Tracking Code'}
+              {isAr ? 'عرض السعر ورمز التتبع' : isTr ? 'Teklif & Takip Kodu' : 'Quote & Tracking Code'}
             </div>
             <div className="mt-1 flex items-center gap-2">
               <span className="font-mono text-2xl font-black text-white tracking-wide">{o.id}</span>
               <button
                 onClick={copyCode}
                 className="rounded-lg border border-zinc-700/60 bg-zinc-800/80 p-1.5 text-zinc-300 hover:text-white hover:border-zinc-500 transition"
-                title={isTr ? 'Kodu Kopyala' : 'Copy Code'}
+                title={isAr ? 'انسخ الرمز' : isTr ? 'Kodu Kopyala' : 'Copy Code'}
               >
                 {copiedCode ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
               </button>
@@ -135,7 +139,7 @@ export default function TrackView({
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-xl border border-zinc-700/60 bg-zinc-800/80 px-4 py-2 text-xs font-bold text-zinc-200 hover:bg-zinc-700 hover:text-white transition shadow-sm"
           >
-            {isTr ? "YouTube'da Aç" : 'Open on YouTube'} <ExternalLink className="h-3.5 w-3.5" />
+            {isAr ? 'افتح على يوتيوب' : isTr ? "YouTube'da Aç" : 'Open on YouTube'} <ExternalLink className="h-3.5 w-3.5" />
           </a>
           <span className="rounded-xl bg-[#D9002B] px-4 py-2 text-xs font-extrabold text-white shadow-lg shadow-[#FF0033]/30">
             {statusLabels[o.status] || o.status}
@@ -146,7 +150,7 @@ export default function TrackView({
       {/* Progress Timeline Steps */}
       <div className="rounded-3xl border border-studio bg-studio-card p-6 md:p-8 backdrop-blur-xl">
         <h3 className="text-xs font-bold uppercase tracking-wider text-white/50 mb-6">
-          {isTr ? 'Kampanya Aşamaları' : 'Campaign Milestones'}
+          {isAr ? 'مراحل الحملة' : isTr ? 'Kampanya Aşamaları' : 'Campaign Milestones'}
         </h3>
         <ol className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {STEPS.map((s, i) => {
@@ -188,13 +192,21 @@ export default function TrackView({
             <div className="space-y-2.5 max-w-2xl">
               <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-bold text-emerald-300">
                 <ShieldCheck className="h-4 w-4 text-emerald-400" />
-                {isTr ? 'Teknik Video Analizi • WhatsApp & Telegram Onay Süreci' : 'Technical Video Analysis • WhatsApp & Telegram Approval'}
+                {isAr ? 'تحليل تقني للفيديو • الموافقة عبر WhatsApp وTelegram' : isTr ? 'Teknik Video Analizi • WhatsApp & Telegram Onay Süreci' : 'Technical Video Analysis • WhatsApp & Telegram Approval'}
               </div>
               <h4 className="text-xl font-extrabold text-white">
-                {isTr ? 'Tahmini Teklif Tutarı:' : 'Estimated Quote:'}{' '}
+                {isAr ? 'عرض السعر التقديري:' : isTr ? 'Tahmini Teklif Tutarı:' : 'Estimated Quote:'}{' '}
                 <span className="text-[#FF6B6B]">{formatMoney(o.total, o.currency, locale)}</span>
               </h4>
-              {isTr ? (
+              {isAr
+                ? (
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  يتم فحص رابط الفيديو من حيث{' '}
+                  <strong className="text-white">المدة والجمهور المستهدف والتوافق مع سياسات Google Ads</strong>. أرسل رمز عرض السعر (<strong className="text-white font-mono bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700/60">{o.id}</strong>) عبر WhatsApp أو Telegram أدناه؛ وسنحلل الفيديو ونرد عليك بالتفصيل. ويبدأ العمل عند الموافقة.{' '}
+                  <span className="text-amber-300 font-semibold">(قد يختلف السعر حسب مدة الفيديو.)</span>
+                </p>
+              )
+                : isTr ? (
                 <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                   İlettiğiniz video linki;{' '}
                   <strong className="text-white">video uzunluğu, hedef kitle ve Google Ads reklam politikalarına uygunluk</strong>{' '}
@@ -218,7 +230,7 @@ export default function TrackView({
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-[#25D366]/30 hover:scale-105 transition"
               >
                 <MessageCircle className="h-5 w-5" />
-                {isTr ? 'WhatsApp ile Teklifi İlet' : 'Send Quote on WhatsApp'}
+                {isAr ? 'أرسل طلب العرض عبر WhatsApp' : isTr ? 'WhatsApp ile Teklifi İlet' : 'Send Quote on WhatsApp'}
               </a>
               <a
                 href={TELEGRAM_URL}
@@ -227,7 +239,7 @@ export default function TrackView({
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-sky-600 px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-sky-600/30 hover:scale-105 transition"
               >
                 <Send className="h-5 w-5" />
-                {isTr ? 'Telegram ile Teklifi İlet' : 'Send Quote on Telegram'}
+                {isAr ? 'أرسل عرض السعر عبر Telegram' : isTr ? 'Telegram ile Teklifi İlet' : 'Send Quote on Telegram'}
               </a>
             </div>
           </div>
@@ -244,12 +256,12 @@ export default function TrackView({
               {nf.format(done)}
             </div>
             <div className="mt-1 text-sm text-zinc-400">
-              {isTr ? 'Teslim Edilen İzlenme / Hedef:' : 'Delivered Views / Target:'} <strong className="text-white">{nf.format(o.views)}</strong>
+              {isAr ? 'المشاهدات المُسلَّمة / الهدف:' : isTr ? 'Teslim Edilen İzlenme / Hedef:' : 'Delivered Views / Target:'} <strong className="text-white">{nf.format(o.views)}</strong>
             </div>
           </div>
           <div className="mt-6 flex items-center gap-2 rounded-xl bg-zinc-900/60 border border-studio px-4 py-2 text-xs text-zinc-300">
             <ShieldCheck className="h-4 w-4 text-emerald-400" />
-            <span>{isTr ? 'Google Ads Resmi Video Gösterimleri' : 'Official Google Ads Video Impressions'}</span>
+            <span>{isAr ? 'مرات ظهور الفيديو الرسمية في Google Ads' : isTr ? 'Google Ads Resmi Video Gösterimleri' : 'Official Google Ads Video Impressions'}</span>
           </div>
         </div>
 
@@ -257,10 +269,10 @@ export default function TrackView({
         <div className="rounded-3xl border border-studio bg-studio-card p-6 md:p-8 backdrop-blur-xl shadow-2xl">
           <div className="mb-6 flex items-center justify-between">
             <h3 className="text-sm font-bold text-white uppercase tracking-wider">
-              {isTr ? 'Günlük İzlenme Performansı' : 'Daily View Performance'}
+              {isAr ? 'أداء المشاهدات اليومي' : isTr ? 'Günlük İzlenme Performansı' : 'Daily View Performance'}
             </h3>
             <span className="rounded-full bg-zinc-900/60 border border-studio px-3 py-1 text-xs text-zinc-400">
-              {o.stats.length} {isTr ? 'Günlük Veri' : 'Days of Data'}
+              {o.stats.length} {isAr ? 'أيام البيانات' : isTr ? 'Günlük Veri' : 'Days of Data'}
             </span>
           </div>
 
@@ -268,12 +280,14 @@ export default function TrackView({
             <div className="flex flex-col items-center justify-center py-16 text-center text-zinc-500">
               <Hourglass className="h-8 w-8 mb-3 opacity-40 animate-pulse" />
               <p className="text-sm">
-                {isTr
+                {isAr
+                  ? 'ستظهر الإحصاءات اليومية هنا فور انطلاق الحملة.'
+                  : isTr
                   ? 'Kampanya onaylandıktan sonra günlük izlenmeler burada listelenecektir.'
                   : 'Daily statistics will appear here once the campaign goes live.'}
               </p>
               <p className="text-xs text-zinc-600 mt-1">
-                {isTr ? 'Her gün otomatik olarak güncellenir.' : 'Updated automatically every 24 hours.'}
+                {isAr ? 'يتم التحديث تلقائيًا كل 24 ساعة.' : isTr ? 'Her gün otomatik olarak güncellenir.' : 'Updated automatically every 24 hours.'}
               </p>
             </div>
           ) : (
@@ -323,7 +337,7 @@ function Bars({ stats, locale }: { stats: DailyStat[]; locale: string }) {
     H = 200,
     pad = 28;
   const bw = Math.min(40, (W - pad * 2) / stats.length - 6);
-  const fmt = new Intl.NumberFormat(locale === 'tr' ? 'tr-TR' : 'en-US', { notation: 'compact' });
+  const fmt = new Intl.NumberFormat(locale === 'ar' ? 'ar-u-nu-latn-ca-gregory' : locale === 'tr' ? 'tr-TR' : 'en-US', { notation: 'compact' });
 
   return (
     <svg viewBox={`0 0 ${W} ${H + 28}`} className="w-full" role="img">

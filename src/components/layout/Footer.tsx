@@ -109,26 +109,30 @@ export default function Footer({ dict, locale }: FooterProps) {
                   href={`/${locale}/trendler`}
                   className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200"
                 >
-                  {locale === 'tr' ? 'Trend Şarkılar Analizi' : 'Trending Music Analytics'}
+                  {locale === 'ar' ? 'تحليلات الموسيقى الرائجة' : locale === 'tr' ? 'Trend Şarkılar Analizi' : 'Trending Music Analytics'}
                 </Link>
               </li>
-              <li>
-                <Link
-                  href={`/${locale}/yeni-klipler`}
-                  className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200 flex items-center gap-1.5"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D9002B] animate-pulse"></span>
-                  {locale === 'tr' ? 'Yeni Çıkan Klipler' : 'New Music Videos'}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={`/${locale}/sanatcilar`}
-                  className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200"
-                >
-                  {locale === 'tr' ? 'Popüler Sanatçılar' : 'Top Artists & Bands'}
-                </Link>
-              </li>
+              {locale !== 'ar' && (
+                <li>
+                  <Link
+                    href={`/${locale}/yeni-klipler`}
+                    className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200 flex items-center gap-1.5"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#D9002B] animate-pulse"></span>
+                    {locale === 'ar' ? 'كليبات جديدة' : locale === 'tr' ? 'Yeni Çıkan Klipler' : 'New Music Videos'}
+                  </Link>
+                </li>
+              )}
+              {locale !== 'ar' && (
+                <li>
+                  <Link
+                    href={`/${locale}/sanatcilar`}
+                    className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200"
+                  >
+                    {locale === 'ar' ? 'أبرز الفنانين والفرق' : locale === 'tr' ? 'Popüler Sanatçılar' : 'Top Artists & Bands'}
+                  </Link>
+                </li>
+              )}
               <li>
                 <Link
                   href={`/${locale}/fiyatlandirma`}
@@ -142,7 +146,7 @@ export default function Footer({ dict, locale }: FooterProps) {
                   href={`/${locale}/order`}
                   className="text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors duration-200"
                 >
-                  {locale === 'tr' ? 'Klip Analizi & Reklam Siparişi' : 'Video Audit & Ad Order'}
+                  {locale === 'ar' ? 'تحليل الفيديو وطلب الإعلان' : locale === 'tr' ? 'Klip Analizi & Reklam Siparişi' : 'Video Audit & Ad Order'}
                 </Link>
               </li>
               <li>
@@ -150,7 +154,7 @@ export default function Footer({ dict, locale }: FooterProps) {
                   href={`/${locale}/klip-pr`}
                   className="text-sm font-semibold text-[#FF6B6B] hover:text-white transition-colors duration-200"
                 >
-                  {locale === 'tr' ? 'Müzik Klibi Dijital PR & Lansman' : 'Music Video Digital PR & Launch'}
+                  {locale === 'ar' ? 'الترويج الرقمي وإطلاق فيديو الكليب' : locale === 'tr' ? 'Müzik Klibi Dijital PR & Lansman' : 'Music Video Digital PR & Launch'}
                 </Link>
               </li>
               <li>
@@ -218,7 +222,7 @@ export default function Footer({ dict, locale }: FooterProps) {
                   }}
                   className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200 cursor-pointer text-left"
                 >
-                  {dict.footer.cookie_settings || (locale === 'tr' ? 'Çerez Tercihleri' : 'Cookie Preferences')}
+                  {dict.footer.cookie_settings || (locale === 'ar' ? 'تفضيلات ملفات تعريف الارتباط' : locale === 'tr' ? 'Çerez Tercihleri' : 'Cookie Preferences')}
                 </button>
               </li>
             </ul>
@@ -242,15 +246,17 @@ export default function Footer({ dict, locale }: FooterProps) {
         <div className="container mx-auto px-4 py-5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-500">
-              © {currentYear} MedyaPR. {dict.footer.copyright?.replace(/©\s*\d{4}\s*(AdsViews|MedyaPR)\.\s*/, '') || (locale === 'tr' ? 'Tüm hakları saklıdır.' : 'All rights reserved.')}
+              © {currentYear} MedyaPR. {dict.footer.copyright?.replace(/©\s*\d{4}\s*(AdsViews|MedyaPR)\.\s*/, '') || (locale === 'ar' ? 'جميع الحقوق محفوظة.' : locale === 'tr' ? 'Tüm hakları saklıdır.' : 'All rights reserved.')}
             </p>
             <div className="flex items-center gap-4">
               <span className="text-xs text-gray-400">
-                {locale === 'tr'
+                {locale === 'ar'
+                  ? '💬 الدعم عبر WhatsApp وTelegram فقط • يبدأ العمل عند الموافقة'
+                  : locale === 'tr'
                   ? '💬 Sadece WhatsApp & Telegram İletişim • Analiz Sonrası Onayda Başlar'
                   : '💬 WhatsApp & Telegram Support Only • Starts Upon Approval'}
               </span>
-              <span className="text-xs text-gray-500">🔒 SSL Secured</span>
+              <span className="text-xs text-gray-500">{locale === 'ar' ? '🔒 اتصال آمن (SSL)' : '🔒 SSL Secured'}</span>
             </div>
           </div>
         </div>

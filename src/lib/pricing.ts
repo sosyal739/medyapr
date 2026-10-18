@@ -195,6 +195,7 @@ export function quote(input: {
 }
 
 export function formatMoney(amount: number, currency: Currency, locale: string): string {
+  // Arapçada da Latin rakam ve "$221" biçimi kullanılır (ar yerel ayarı sağdan sola metinde "$US 221" gibi bozuk görünür).
   return new Intl.NumberFormat(locale === 'tr' ? 'tr-TR' : 'en-US', {
     style: 'currency',
     currency,

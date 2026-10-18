@@ -12,13 +12,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
 
+  const isAr = locale === 'ar';
+
   return {
     title: {
-      absolute: isTr
+      absolute: isAr
+        ? 'شروط الاستخدام | MedyaPR للترويج الرسمي للفيديو'
+        : isTr
         ? 'Kullanım Koşulları | MedyaPR Resmi Video Ajansı'
         : 'Terms of Service | MedyaPR Official Video PR',
     },
-    description: isTr
+    description: isAr
+      ? 'شروط وأحكام خدمات الترويج للفيديو من MedyaPR. موافقة الحملات، والالتزام بسياسات Google Ads، وشروط الدفع، وقواعد الخدمة.'
+      : isTr
       ? 'MedyaPR hizmet kullanım şartları. Kampanya onay süreçleri, YouTube reklam politikaları, ödeme koşulları ve kurumsal hizmet kuralları.'
       : 'Terms and conditions of MedyaPR video promotion services. Campaign approval, Google Ads policy compliance, payment terms, and service rules.',
     alternates: getPageAlternates(locale, '/kullanim-kosullari'),
@@ -29,6 +35,8 @@ export default async function TermsPage({ params }: Props) {
   const { locale } = await params;
   const isTr = locale === 'tr';
 
+  const isAr = locale === 'ar';
+
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -36,13 +44,13 @@ export default async function TermsPage({ params }: Props) {
       {
         '@type': 'ListItem',
         position: 1,
-        name: isTr ? 'Ana Sayfa' : 'Home',
+        name: isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home',
         item: `https://medyapr.com/${locale}`,
       },
       {
         '@type': 'ListItem',
         position: 2,
-        name: isTr ? 'Kullanım Koşulları' : 'Terms of Service',
+        name: isAr ? 'شروط الاستخدام' : isTr ? 'Kullanım Koşulları' : 'Terms of Service',
         item: `https://medyapr.com/${locale}/kullanim-kosullari`,
       },
     ],
@@ -58,10 +66,10 @@ export default async function TermsPage({ params }: Props) {
         <div className="mb-6 flex items-center gap-2 text-xs text-zinc-400">
           <Link href={`/${locale}`} className="hover:text-white transition flex items-center gap-1">
             <ArrowLeft className="h-3 w-3" />
-            {isTr ? 'Ana Sayfa' : 'Home'}
+            {isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home'}
           </Link>
           <span>/</span>
-          <span className="text-[#FF6B6B]">{isTr ? 'Kullanım Koşulları' : 'Terms of Service'}</span>
+          <span className="text-[#FF6B6B]">{isAr ? 'شروط الاستخدام' : isTr ? 'Kullanım Koşulları' : 'Terms of Service'}</span>
         </div>
 
         <div className="rounded-3xl border border-zinc-800 bg-zinc-900/80 p-8 sm:p-12 backdrop-blur-xl shadow-2xl space-y-8">
@@ -71,20 +79,22 @@ export default async function TermsPage({ params }: Props) {
             </div>
             <div>
               <h1 className="text-2xl sm:text-3xl font-extrabold text-white">
-                {isTr ? 'Hizmet Kullanım Koşulları' : 'Terms of Service'}
+                {isAr ? 'شروط الاستخدام' : isTr ? 'Hizmet Kullanım Koşulları' : 'Terms of Service'}
               </h1>
               <p className="text-xs text-zinc-400 mt-1">
-                {isTr ? 'Yürürlük Tarihi: 10 Ekim 2026 • MedyaPR Resmi Sözleşmesi' : 'Effective Date: October 2026 • MedyaPR Terms'}
+                {isAr ? 'تاريخ السريان: أكتوبر 2026 • شروط MedyaPR' : isTr ? 'Yürürlük Tarihi: 10 Ekim 2026 • MedyaPR Resmi Sözleşmesi' : 'Effective Date: October 2026 • MedyaPR Terms'}
               </p>
             </div>
           </div>
 
           <section className="space-y-4 text-sm sm:text-base text-zinc-300 leading-relaxed">
             <h2 className="text-lg font-bold text-white">
-              {isTr ? '1. Hizmet Kapsamı ve Google Ads Reklam Ağı' : '1. Scope of Service & Google Ads Network'}
+              {isAr ? '1. نطاق الخدمة وشبكة Google Ads' : isTr ? '1. Hizmet Kapsamı ve Google Ads Reklam Ağı' : '1. Scope of Service & Google Ads Network'}
             </h2>
             <p>
-              {isTr
+              {isAr
+                ? 'تقدّم MedyaPR حملات فيديو مستهدفة حصريًا عبر شبكة Google Ads الرسمية. ولا تُستخدم أي خدمات بوتات أو لوحات SMM إطلاقًا.'
+                : isTr
                 ? 'MedyaPR, müşterilerinin YouTube videolarını ve müzik kliplerini resmi Google Ads video reklamları üzerinden hedef kitleye ulaştırır. Tüm izlenmeler doğrudan Google altyapısı üzerinden üretilir ve YouTube Studio analitiklerinde tescillenir. Sahte bot veya SMM panelleri kesinlikle kullanılmaz.'
                 : 'MedyaPR provides targeted video campaigns exclusively via the official Google Ads network. Zero bot or SMM panel services are utilized.'}
             </p>
@@ -93,10 +103,12 @@ export default async function TermsPage({ params }: Props) {
           <section className="space-y-4 text-sm sm:text-base text-zinc-300 leading-relaxed">
             <h2 className="text-lg font-bold text-white flex items-center gap-2">
               <AlertCircle className="h-5 w-5 text-amber-400" />
-              {isTr ? '2. Reklam Onayı ve Ödeme Koşulları' : '2. Approval and Payment Terms'}
+              {isAr ? '2. شروط الموافقة والدفع' : isTr ? '2. Reklam Onayı ve Ödeme Koşulları' : '2. Approval and Payment Terms'}
             </h2>
             <p>
-              {isTr
+              {isAr
+                ? 'يُتفق على خطة الدفع كتابيًا في مرحلة عرض السعر، ولا تُستلم أي مدفوعات أونلاين عبر الموقع.'
+                : isTr
                 ? 'Sipariş verildiğinde video Google Partner uzmanlarımız tarafından ön incelemeden geçirilir ve Google Ads onay sürecine iletilir. Ödeme planı teklif aşamasında yazılı olarak netleştirilir; sitede online ödeme alınmaz.'
                 : 'The payment plan is agreed in writing at the quote stage; no online payment is taken on the site.'}
             </p>
@@ -104,19 +116,21 @@ export default async function TermsPage({ params }: Props) {
 
           <section className="space-y-4 text-sm sm:text-base text-zinc-300 leading-relaxed">
             <h2 className="text-lg font-bold text-white">
-              {isTr ? '3. İçerik ve Politika Uyumluluğu' : '3. Content Policy Compliance'}
+              {isAr ? '3. الالتزام بسياسات المحتوى' : isTr ? '3. İçerik ve Politika Uyumluluğu' : '3. Content Policy Compliance'}
             </h2>
             <p>
-              {isTr
+              {isAr
+                ? 'لا يمكن اعتماد الفيديوهات المخالفة لإرشادات إعلانات Google. لا تُفرض أي رسوم على الحملات المرفوضة، وتُسترد أي دفعات مقدمة بالكامل.'
+                : isTr
                 ? 'Google Ads reklam politikalarına (telif hakları, şiddet, nefret söylemi vb.) aykırı olan videolar onay alamaz. Onay alamayan videolar için herhangi bir ücret talep edilmez veya peşin alınmışsa %100 iade edilir.'
                 : 'Videos violating Google Advertising guidelines cannot be approved. Rejected campaigns incur zero fees, and any deposits are fully refunded.'}
             </p>
           </section>
 
           <div className="pt-6 border-t border-zinc-800 text-xs text-zinc-400 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <span>{isTr ? 'Sözleşme soruları: info@medyapr.com' : 'Contract inquiries: info@medyapr.com'}</span>
+            <span>{isAr ? 'استفسارات العقود: info@medyapr.com' : isTr ? 'Sözleşme soruları: info@medyapr.com' : 'Contract inquiries: info@medyapr.com'}</span>
             <Link href={`/${locale}/iletisim`} className="text-[#FF6B6B] hover:underline font-semibold">
-              {isTr ? 'Uzmanımıza Danışın →' : 'Ask an Expert →'}
+              {isAr ? 'اسأل خبيرًا ←' : isTr ? 'Uzmanımıza Danışın →' : 'Ask an Expert →'}
             </Link>
           </div>
         </div>

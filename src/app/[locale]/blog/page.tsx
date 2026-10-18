@@ -19,17 +19,23 @@ import { getPageAlternates, toIsoDateString, displayDate } from '@/lib/seo';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
+
+  const isAr = locale === 'ar';
   return {
     title: {
-      absolute: isTr ? 'YouTube Müzik Video & Klip PR Blogu | MedyaPR' : 'YouTube Music Video & PR Strategy Blog | MedyaPR',
+      absolute: isAr ? 'مدونة استراتيجيات الترويج لفيديو كليب يوتيوب | MedyaPR' : isTr ? 'YouTube Müzik Video & Klip PR Blogu | MedyaPR' : 'YouTube Music Video & PR Strategy Blog | MedyaPR',
     },
-    description: isTr
+    description: isAr
+      ? 'أساليب نمو وسائل التواصل الاجتماعي، وخطط إطلاق فيديو كليب على يوتيوب، وسير الفنانين، وأدلة الخوارزمية، واستراتيجيات الترويج عبر إعلانات Google Ads الرسمية.'
+      : isTr
       ? 'Sosyal medya tüyoları, nasıl yapılır rehberleri, tavsiyeler, sanatçı biyografileri (kimdir), klip analizleri ve resmi Google Ads video PR stratejileri.'
       : 'Social media growth tactics, YouTube music video launch playbooks, artist biographies, algorithm guides, and official Google Ads PR strategies.',
     alternates: getPageAlternates(locale, '/blog'),
     openGraph: {
-      title: isTr ? 'YouTube Müzik Video & Klip PR Blogu | MedyaPR' : 'YouTube Music Video & PR Strategy Blog | MedyaPR',
-      description: isTr
+      title: isAr ? 'مدونة استراتيجيات الترويج لفيديو كليب يوتيوب | MedyaPR' : isTr ? 'YouTube Müzik Video & Klip PR Blogu | MedyaPR' : 'YouTube Music Video & PR Strategy Blog | MedyaPR',
+      description: isAr
+        ? 'أساليب نمو وسائل التواصل الاجتماعي، وخطط إطلاق فيديو كليب على يوتيوب، وسير الفنانين، وأدلة الخوارزمية، واستراتيجيات الترويج عبر إعلانات Google Ads الرسمية.'
+        : isTr
         ? 'Sosyal medya tüyoları, nasıl yapılır rehberleri, tavsiyeler, sanatçı biyografileri (kimdir), klip analizleri ve resmi Google Ads video PR stratejileri.'
         : 'Social media growth tactics, YouTube music video launch playbooks, artist biographies, algorithm guides, and official Google Ads PR strategies.',
       url: `https://medyapr.com/${locale}/blog`,
@@ -39,13 +45,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 const CATEGORIES = [
-  { key: 'all', labelTr: 'Tüm Rehberler', labelEn: 'All Guides', icon: BookOpen, match: null },
-  { key: 'sosyal-medya', labelTr: 'Sosyal Medya', labelEn: 'Social Media', icon: Share2, match: 'Sosyal Medya' },
-  { key: 'nasil-yapilir', labelTr: 'Nasıl Yapılır?', labelEn: 'How-To', icon: Sparkles, match: 'Nasıl Yapılır?' },
-  { key: 'tavsiye', labelTr: 'Tavsiye', labelEn: 'Tips & Strategy', icon: Lightbulb, match: 'Tavsiye' },
-  { key: 'kimdir', labelTr: 'Kimdir?', labelEn: 'Who Is?', icon: Users, match: 'Kimdir?' },
-  { key: 'video-pr', labelTr: 'Resmi Video PR', labelEn: 'Official Video PR', icon: TrendingUp, match: 'Resmi Video PR & Google Ads' },
-  { key: 'analizler', labelTr: 'Şarkı Analizleri', labelEn: 'Song Analysis', icon: Flame, match: 'Şarkı & Klip Analizleri' },
+  { key: 'all', labelTr: 'Tüm Rehberler', labelEn: 'All Guides', labelAr: 'جميع الأدلة', icon: BookOpen, match: null },
+  { key: 'sosyal-medya', labelTr: 'Sosyal Medya', labelEn: 'Social Media', labelAr: 'وسائل التواصل الاجتماعي', icon: Share2, match: 'Sosyal Medya' },
+  { key: 'nasil-yapilir', labelTr: 'Nasıl Yapılır?', labelEn: 'How-To', labelAr: 'كيف تفعل', icon: Sparkles, match: 'Nasıl Yapılır?' },
+  { key: 'tavsiye', labelTr: 'Tavsiye', labelEn: 'Tips & Strategy', labelAr: 'نصائح واستراتيجية', icon: Lightbulb, match: 'Tavsiye' },
+  { key: 'kimdir', labelTr: 'Kimdir?', labelEn: 'Who Is?', labelAr: 'من هو؟', icon: Users, match: 'Kimdir?' },
+  { key: 'video-pr', labelTr: 'Resmi Video PR', labelEn: 'Official Video PR', labelAr: 'الترويج الرسمي للفيديو', icon: TrendingUp, match: 'Resmi Video PR & Google Ads' },
+  { key: 'analizler', labelTr: 'Şarkı Analizleri', labelEn: 'Song Analysis', labelAr: 'تحليل الأغاني', icon: Flame, match: 'Şarkı & Klip Analizleri' },
 ];
 
 export default async function BlogIndexPage({
@@ -59,6 +65,8 @@ export default async function BlogIndexPage({
   const resolvedSearchParams = searchParams ? await searchParams : {};
   const activeCategoryKey = resolvedSearchParams.kategori || 'all';
   const isTr = locale === 'tr';
+
+  const isAr = locale === 'ar';
   const allPosts = await getPostsForLocale(locale);
 
   const activeCategory = CATEGORIES.find((c) => c.key === activeCategoryKey) || CATEGORIES[0];
@@ -77,21 +85,23 @@ export default async function BlogIndexPage({
           {
             '@type': 'ListItem',
             position: 1,
-            name: isTr ? 'Ana Sayfa' : 'Home',
+            name: isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home',
             item: `https://medyapr.com/${locale}`,
           },
           {
             '@type': 'ListItem',
             position: 2,
-            name: 'Blog',
+            name: isAr ? 'المدونة' : 'Blog',
             item: `https://medyapr.com/${locale}/blog`,
           },
         ],
       },
       {
         '@type': 'Blog',
-        name: isTr ? 'MedyaPR YouTube Video & Müzik PR Strateji Blogu' : 'MedyaPR YouTube Video & Music PR Strategy Blog',
-        description: isTr
+        name: isAr ? 'مدونة MedyaPR لاستراتيجيات الترويج لفيديو يوتيوب والموسيقى' : isTr ? 'MedyaPR YouTube Video & Müzik PR Strateji Blogu' : 'MedyaPR YouTube Video & Music PR Strategy Blog',
+        description: isAr
+          ? 'بورتريهات الفنانين، واستراتيجيات الترويج لفيديو كليب على يوتيوب، وتحليلات الخوارزمية، وأدلة إعلانات Google Ads الرسمية.'
+          : isTr
           ? 'Sanatçı biyografileri, trend şarkı analizleri, klip pazarlama dinamikleri ve resmi Google Ads büyüme rehberleri.'
           : 'Artist portraits, YouTube music video PR strategies, algorithm breakdowns, and official Google Ads guides.',
         url: `https://medyapr.com/${locale}/blog`,
@@ -123,14 +133,14 @@ export default async function BlogIndexPage({
         {/* Breadcrumb */}
         <div className="mb-4 flex items-center gap-2 text-xs text-zinc-400">
           <Link href={`/${locale}`} className="hover:text-white transition">
-            {isTr ? 'Ana Sayfa' : 'Home'}
+            {isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home'}
           </Link>
           <span>/</span>
-          <span className="text-[#FF6B6B]">{isTr ? 'Müzik & Video PR Blogu' : 'Music & Video PR Blog'}</span>
+          <span className="text-[#FF6B6B]">{isAr ? 'مدونة الترويج الموسيقي والفيديو' : isTr ? 'Müzik & Video PR Blogu' : 'Music & Video PR Blog'}</span>
           {activeCategory.key !== 'all' && (
             <>
               <span>/</span>
-              <span className="text-zinc-200">{isTr ? activeCategory.labelTr : activeCategory.labelEn}</span>
+              <span className="text-zinc-200">{isAr ? activeCategory.labelAr : isTr ? activeCategory.labelTr : activeCategory.labelEn}</span>
             </>
           )}
         </div>
@@ -139,10 +149,19 @@ export default async function BlogIndexPage({
         <div className="mb-10 border-b border-studio pb-8">
           <span className="inline-flex items-center gap-2 rounded-full border border-zinc-700/60 bg-zinc-800/80 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5E7E] mb-3">
             <BookOpen className="h-4 w-4 text-[#FF0033]" />
-            {isTr ? 'Trend & Müzik PR Stratejileri' : 'Insights & Analytics'}
+            {isAr ? 'رؤى وتحليلات' : isTr ? 'Trend & Müzik PR Stratejileri' : 'Insights & Analytics'}
           </span>
           <h1 className="text-3xl font-extrabold sm:text-5xl tracking-tight">
-            {isTr ? (
+            {isAr
+              ? (
+              <>
+                الموسيقى ويوتيوب{' '}
+                <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
+                  دليل الاستراتيجية
+                </span>
+              </>
+            )
+              : isTr ? (
               <>
                 Müzik &amp; YouTube{' '}
                 <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
@@ -159,7 +178,9 @@ export default async function BlogIndexPage({
             )}
           </h1>
           <p className="mt-3 text-sm md:text-base text-zinc-300 max-w-3xl leading-relaxed">
-            {isTr
+            {isAr
+              ? 'نظرة معمّقة على الموسيقى الرائجة، وملفات الفنانين، وخطط إطلاق الفيديو، وتحسين الخوارزمية.'
+              : isTr
               ? 'Sanatçı portreleri, YouTube trend şarkı analizleri, klip lansmanlarında ilk 48 saat taktikleri ve resmi Google Ads video kampanyalarıyla kanal büyütme sırları.'
               : 'Deep dives on trending music, artist profiles, video launch playbooks, and algorithm optimization.'}
           </p>
@@ -169,10 +190,10 @@ export default async function BlogIndexPage({
         <div className="mb-12">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-400">
-              {isTr ? 'Kategorilere Göre İncele' : 'Browse by Category'}
+              {isAr ? 'تصفّح حسب الفئة' : isTr ? 'Kategorilere Göre İncele' : 'Browse by Category'}
             </h2>
             <span className="text-xs text-zinc-400">
-              {filteredPosts.length} {isTr ? 'yazı listeleniyor' : 'articles found'}
+              {filteredPosts.length} {isAr ? 'مقالات' : isTr ? 'yazı listeleniyor' : 'articles found'}
             </span>
           </div>
 
@@ -204,7 +225,7 @@ export default async function BlogIndexPage({
                   }`}
                 >
                   <Icon className={`h-4 w-4 ${isActive ? 'text-white' : 'text-[#FF6B6B]'}`} />
-                  <span>{isTr ? cat.labelTr : cat.labelEn}</span>
+                  <span>{isAr ? cat.labelAr : isTr ? cat.labelTr : cat.labelEn}</span>
                   <span
                     className={`ml-1 px-1.5 py-0.5 rounded-full text-[11px] font-extrabold ${
                       isActive ? 'bg-black/30 text-white' : 'bg-white/10 text-zinc-400'
@@ -251,7 +272,7 @@ export default async function BlogIndexPage({
                   {(!isTr && filteredPosts[0].summary_en) ? filteredPosts[0].summary_en : filteredPosts[0].summary}
                 </p>
                 <div className="inline-flex items-center gap-2 text-sm font-bold text-[#FF6B6B] group-hover:translate-x-1 transition-transform">
-                  {isTr ? 'Yazıyı Oku' : 'Read Article'} <ArrowRight className="h-4 w-4" />
+                  {isAr ? 'اقرأ المقال' : isTr ? 'Yazıyı Oku' : 'Read Article'} <ArrowRight className="h-4 w-4" />
                 </div>
               </div>
             </div>
@@ -301,7 +322,7 @@ export default async function BlogIndexPage({
                   </div>
 
                 <div className="mt-6 flex items-center justify-between border-t border-white/5 pt-4 text-xs font-semibold text-[#FF6B6B]">
-                  <span>{isTr ? 'Devamını Oku' : 'Read More'}</span>
+                  <span>{isAr ? 'اقرأ المزيد' : isTr ? 'Devamını Oku' : 'Read More'}</span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
@@ -315,16 +336,16 @@ export default async function BlogIndexPage({
           <div className="rounded-3xl border border-zinc-800 bg-zinc-950/60 p-12 text-center my-12">
             <BookOpen className="h-12 w-12 text-zinc-600 mx-auto mb-4" />
             <h3 className="text-xl font-bold text-white mb-2">
-              {isTr ? 'Bu kategoride henüz yazı bulunmuyor' : 'No posts in this category yet'}
+              {isAr ? 'لا توجد مقالات في هذه الفئة بعد' : isTr ? 'Bu kategoride henüz yazı bulunmuyor' : 'No posts in this category yet'}
             </h3>
             <p className="text-sm text-zinc-400 mb-6">
-              {isTr ? 'Tüm rehber ve analizleri görmek için ana blog listesine dönebilirsiniz.' : 'Return to full blog list to see all guides and analysis.'}
+              {isAr ? 'عد إلى قائمة المدونة الكاملة لعرض جميع الأدلة والتحليلات.' : isTr ? 'Tüm rehber ve analizleri görmek için ana blog listesine dönebilirsiniz.' : 'Return to full blog list to see all guides and analysis.'}
             </p>
             <Link
               href={`/${locale}/blog`}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#D9002B] text-white text-xs font-bold"
             >
-              {isTr ? 'Tüm Yazıları Gör' : 'View All Posts'}
+              {isAr ? 'عرض كل المقالات' : isTr ? 'Tüm Yazıları Gör' : 'View All Posts'}
             </Link>
           </div>
         )}

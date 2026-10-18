@@ -20,12 +20,12 @@ interface KlipPrPlannerProps {
 }
 
 const GENRES = [
-  { id: 'pop', tr: 'Türkçe Pop & Dans', en: 'Pop & Dance' },
-  { id: 'rap', tr: 'Hip-Hop / Rap / Trap', en: 'Hip-Hop / Rap / Trap' },
-  { id: 'rock', tr: 'Rock & Alternatif', en: 'Rock & Alternative' },
-  { id: 'indie', tr: 'Akustik & Indie', en: 'Acoustic & Indie' },
-  { id: 'arabesk', tr: 'Arabesk / Halk / Fantezi', en: 'Traditional & Vocal' },
-  { id: 'edm', tr: 'Elektronik / EDM / Club', en: 'Electronic / EDM' },
+  { id: 'pop', tr: 'Türkçe Pop & Dans', en: 'Pop & Dance' , ar: 'بوب ودانس'},
+  { id: 'rap', tr: 'Hip-Hop / Rap / Trap', en: 'Hip-Hop / Rap / Trap' , ar: 'هيب هوب / راب / تراب'},
+  { id: 'rock', tr: 'Rock & Alternatif', en: 'Rock & Alternative' , ar: 'روك وألترناتيف'},
+  { id: 'indie', tr: 'Akustik & Indie', en: 'Acoustic & Indie' , ar: 'أكوستيك وإندي'},
+  { id: 'arabesk', tr: 'Arabesk / Halk / Fantezi', en: 'Traditional & Vocal' , ar: 'تراثي وغنائي'},
+  { id: 'edm', tr: 'Elektronik / EDM / Club', en: 'Electronic / EDM' , ar: 'إلكترونيك / EDM'},
 ];
 
 const REGIONS = [
@@ -33,16 +33,19 @@ const REGIONS = [
     id: 'tr',
     tr: 'Türkiye Geneli (Büyükşehir & Genç Dinleyici)',
     en: 'Turkey Nationwide (Core Music Audience)',
+    ar: 'تركيا بالكامل (جمهور الموسيقى الأساسي)',
   },
   {
     id: 'eu',
     tr: 'Türkiye + Avrupa (Almanya, Hollanda, Avusturya, İngiltere)',
     en: 'Turkey + Europe (Germany, NL, UK, AT)',
+    ar: 'تركيا + أوروبا (ألمانيا، هولندا، بريطانيا، النمسا)',
   },
   {
     id: 'global',
     tr: 'Küresel Karma Dinleyici Erişimi (Global Reach)',
     en: 'Global Multi-Region Music Audience',
+    ar: 'جمهور موسيقي عالمي من مناطق متعددة',
   },
 ];
 
@@ -51,34 +54,45 @@ const BUDGET_TIERS = [
     id: 'starter',
     trTitle: 'Başlangıç Single Lansmanı',
     enTitle: 'Starter Single Launch',
+    arTitle: 'إطلاق أغنية منفردة (البداية)',
     budgetTr: '1.500 TL – 4.000 TL Medya Bütçesi',
     budgetEn: '$50 – $150 Media Budget',
+    budgetAr: 'ميزانية إعلامية $50 – $150',
     reachTr: 'Yeni çıkan single ve akustik çalışmalar için ilk 48 saat hedef kitle tohumlama ve dinleyici keşif planı.',
     reachEn: 'First 48-hour audience seeding and discovery media plan for new singles.',
+    reachAr: 'خطة إعلامية لأول 48 ساعة لزرع الجمهور واكتشاف الأغاني المنفردة الجديدة.',
   },
   {
     id: 'pro',
     trTitle: 'Profesyonel Klip PR & Medya Planı',
     enTitle: 'Professional Video PR & Media Plan',
+    arTitle: 'ترويج احترافي للكليب وخطة إعلامية',
     budgetTr: '5.000 TL – 15.000 TL Medya Bütçesi',
     budgetEn: '$175 – $500 Media Budget',
+    budgetAr: 'ميزانية إعلامية $175 – $500',
     reachTr: 'Müzik türü, benzer sanatçı kitlesi ve yaş kırılımlı kapsamlı video reklam ve dijital PR yönetimi.',
     reachEn: 'Comprehensive genre, age, and affinity-targeted video ad & PR management.',
+    reachAr: 'إدارة شاملة لإعلانات الفيديو والترويج باستهداف النوع الموسيقي والعمر والاهتمامات المشابهة.',
     popular: true,
   },
   {
     id: 'label',
     trTitle: 'Yapım Şirketi & Majör Lansman',
     enTitle: 'Record Label & Major Release',
+    arTitle: 'شركات الإنتاج والإصدارات الكبرى',
     budgetTr: '20.000 TL+ Kurumsal Medya Bütçesi',
     budgetEn: '$700+ Custom Label Budget',
+    budgetAr: 'ميزانية مخصصة لشركات الإنتاج $700+',
     reachTr: ' Çok ülkeli yayın, In-Stream + Shorts + Keşfet tam huni medya planlaması ve özel kurumsal raporlama.',
     reachEn: 'Multi-country full-funnel video campaign management with dedicated executive reporting.',
+    reachAr: 'إدارة حملات فيديو متكاملة متعددة الدول مع تقارير تنفيذية مخصصة.',
   },
 ];
 
 export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
   const isTr = locale === 'tr';
+
+  const isAr = locale === 'ar';
   const [videoUrl, setVideoUrl] = useState('');
   const [artistOrSong, setArtistOrSong] = useState('');
   const [selectedGenre, setSelectedGenre] = useState(GENRES[1].id);
@@ -143,20 +157,22 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
         <div>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FF0033]/20 border border-[#FF0033]/40 px-3 py-1 text-xs font-extrabold text-[#FF6B6B] mb-2">
             <Sliders className="h-3.5 w-3.5" />
-            {isTr ? 'Ücretsiz Sanatçı & Klip Ön Analiz Formu' : 'Free Artist & Video Pre-Audit Brief'}
+            {isAr ? 'نموذج تحليل مبدئي مجاني للفنان والكليب' : isTr ? 'Ücretsiz Sanatçı & Klip Ön Analiz Formu' : 'Free Artist & Video Pre-Audit Brief'}
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-white">
-            {isTr ? 'Klip Lansman & Medya Planınızı Oluşturun' : 'Build Your Music Video Launch Brief'}
+            {isAr ? 'أنشئ خطة إطلاق كليبك' : isTr ? 'Klip Lansman & Medya Planınızı Oluşturun' : 'Build Your Music Video Launch Brief'}
           </h2>
           <p className="text-xs sm:text-sm text-zinc-300 mt-1">
-            {isTr
+            {isAr
+              ? 'لا حاجة لكلمة مرور أو الوصول إلى القناة. اختر النوع الموسيقي والمنطقة المستهدفة لتحصل على خطة إعلامية مخصصة.'
+              : isTr
               ? 'Şifre veya kanal yetkisi gerekmez. Şarkınızın tarzını ve hedef kitlenizi seçin, uzman ekibimiz klibinizi inceleyip medya planınızı hazırlasın.'
               : 'No password or channel access required. Select your genre and target region to receive a custom media plan.'}
           </p>
         </div>
         <div className="shrink-0 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-xs text-emerald-300 font-bold flex items-center gap-2">
           <ShieldCheck className="h-5 w-5 text-emerald-400 shrink-0" />
-          <span>{isTr ? 'Önce Analiz • Sonra Teklif' : 'Review First • Then Quote'}</span>
+          <span>{isAr ? 'تحليل أولًا • ثم عرض سعر' : isTr ? 'Önce Analiz • Sonra Teklif' : 'Review First • Then Quote'}</span>
         </div>
       </div>
 
@@ -166,14 +182,14 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
           {/* Step 1: Artist & Video Link */}
           <div className="space-y-4 rounded-2xl border border-white/10 bg-zinc-950/70 p-5">
             <label className="block text-xs font-extrabold uppercase tracking-wider text-zinc-300">
-              {isTr ? '1. Sanatçı / Şarkı Adı ve Klip Bağlantısı' : '1. Artist / Track Name & Video URL'}
+              {isAr ? '1. اسم الفنان / الأغنية ورابط الفيديو' : isTr ? '1. Sanatçı / Şarkı Adı ve Klip Bağlantısı' : '1. Artist / Track Name & Video URL'}
             </label>
             <div className="grid gap-3 sm:grid-cols-2">
               <input
                 type="text"
                 value={artistOrSong}
                 onChange={(e) => setArtistOrSong(e.target.value)}
-                placeholder={isTr ? 'Örn: Sanatçı - Şarkı Adı' : 'e.g. Artist - Track Title'}
+                placeholder={isAr ? 'مثال: الفنان - عنوان الأغنية' : isTr ? 'Örn: Sanatçı - Şarkı Adı' : 'e.g. Artist - Track Title'}
                 className="w-full rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:border-[#FF0033] focus:outline-none"
               />
               <input
@@ -181,7 +197,7 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
                 value={videoUrl}
                 onChange={(e) => setVideoUrl(e.target.value)}
                 disabled={isPreRelease}
-                placeholder={isTr ? 'Video Linki (varsa)' : 'Video Link (optional)'}
+                placeholder={isAr ? 'رابط الفيديو (اختياري)' : isTr ? 'Video Linki (varsa)' : 'Video Link (optional)'}
                 className="w-full rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:border-[#FF0033] focus:outline-none disabled:opacity-50"
               />
             </div>
@@ -193,7 +209,9 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
                 className="rounded border-zinc-600 bg-zinc-800 text-[#FF0033] focus:ring-[#FF0033]"
               />
               <span>
-                {isTr
+                {isAr
+                  ? 'كليبي لم يصدر بعد؛ أريد خطة إطلاق قبل الصدور'
+                  : isTr
                   ? 'Klibim henüz yayınlanmadı, çıkış tarihine özel ön lansman planı istiyorum'
                   : 'My video is not out yet; I want a pre-release launch plan'}
               </span>
@@ -204,7 +222,7 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
           <div className="space-y-3 rounded-2xl border border-white/10 bg-zinc-950/70 p-5">
             <label className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-zinc-300">
               <Music className="h-4 w-4 text-[#FF0033]" />
-              {isTr ? '2. Şarkınızın Müzik Türü (Kitle Eşleşmesi)' : '2. Music Genre (Audience Affinity)'}
+              {isAr ? '2. النوع الموسيقي (اهتمامات الجمهور)' : isTr ? '2. Şarkınızın Müzik Türü (Kitle Eşleşmesi)' : '2. Music Genre (Audience Affinity)'}
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
               {GENRES.map((g) => {
@@ -220,7 +238,7 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
                         : 'border-zinc-800 bg-zinc-900/80 text-zinc-300 hover:border-zinc-600 hover:text-white'
                     }`}
                   >
-                    {isTr ? g.tr : g.en}
+                    {isAr ? g.ar : isTr ? g.tr : g.en}
                   </button>
                 );
               })}
@@ -231,7 +249,7 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
           <div className="space-y-3 rounded-2xl border border-white/10 bg-zinc-950/70 p-5">
             <label className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-zinc-300">
               <Globe className="h-4 w-4 text-[#FF0033]" />
-              {isTr ? '3. Hedef Dinleyici Bölgesi' : '3. Target Listener Geography'}
+              {isAr ? '3. المنطقة الجغرافية للمستمعين المستهدفين' : isTr ? '3. Hedef Dinleyici Bölgesi' : '3. Target Listener Geography'}
             </label>
             <div className="space-y-2">
               {REGIONS.map((r) => {
@@ -247,7 +265,7 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
                         : 'border-zinc-800 bg-zinc-900/80 text-zinc-300 hover:border-zinc-600'
                     }`}
                   >
-                    <span>{isTr ? r.tr : r.en}</span>
+                    <span>{isAr ? r.ar : isTr ? r.tr : r.en}</span>
                     {active && <CheckCircle2 className="h-4 w-4 text-[#FF6B6B] shrink-0" />}
                   </button>
                 );
@@ -259,7 +277,7 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
           <div className="space-y-3 rounded-2xl border border-white/10 bg-zinc-950/70 p-5">
             <label className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-zinc-300">
               <Sparkles className="h-4 w-4 text-[#FF0033]" />
-              {isTr ? '4. Planlanan Medya & Lansman Bütçesi' : '4. Planned Media & Launch Budget Tier'}
+              {isAr ? '4. فئة ميزانية الإعلام والإطلاق' : isTr ? '4. Planlanan Medya & Lansman Bütçesi' : '4. Planned Media & Launch Budget Tier'}
             </label>
             <div className="grid gap-3">
               {BUDGET_TIERS.map((b) => {
@@ -277,14 +295,14 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
                   >
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <span className="text-sm font-extrabold text-white">
-                        {isTr ? b.trTitle : b.enTitle}
+                        {isAr ? b.arTitle : isTr ? b.trTitle : b.enTitle}
                       </span>
                       <span className="rounded-full bg-white/10 px-3 py-0.5 text-xs font-bold text-[#FF6B6B]">
-                        {isTr ? b.budgetTr : b.budgetEn}
+                        {isAr ? b.budgetAr : isTr ? b.budgetTr : b.budgetEn}
                       </span>
                     </div>
                     <p className="mt-1.5 text-xs text-zinc-300 leading-relaxed">
-                      {isTr ? b.reachTr : b.reachEn}
+                      {isAr ? b.reachAr : isTr ? b.reachTr : b.reachEn}
                     </p>
                   </button>
                 );
@@ -302,37 +320,37 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
               </div>
               <div>
                 <h3 className="text-base font-extrabold text-white">
-                  {isTr ? 'Medya Planı Özeti' : 'Media Plan Summary'}
+                  {isAr ? 'ملخص الخطة الإعلامية' : isTr ? 'Medya Planı Özeti' : 'Media Plan Summary'}
                 </h3>
                 <p className="text-xs text-zinc-400">
-                  {isTr ? '18+ Yıllık MedyaPR Uzman İncelemesi' : '18+ Years MedyaPR Specialist Audit'}
+                  {isAr ? 'تدقيق خبراء MedyaPR بخبرة تتجاوز 18 عامًا' : isTr ? '18+ Yıllık MedyaPR Uzman İncelemesi' : '18+ Years MedyaPR Specialist Audit'}
                 </p>
               </div>
             </div>
 
             <div className="space-y-3 text-xs sm:text-sm">
               <div className="flex justify-between gap-2 border-b border-white/5 pb-2.5">
-                <span className="text-zinc-400">{isTr ? 'Sanatçı / Eser:' : 'Artist / Track:'}</span>
+                <span className="text-zinc-400">{isAr ? 'الفنان / الأغنية:' : isTr ? 'Sanatçı / Eser:' : 'Artist / Track:'}</span>
                 <span className="font-bold text-white text-right">
-                  {artistOrSong.trim() || (isTr ? 'Belirtilmedi' : 'Not entered')}
+                  {artistOrSong.trim() || (isAr ? 'غير مُدخل' : isTr ? 'Belirtilmedi' : 'Not entered')}
                 </span>
               </div>
               <div className="flex justify-between gap-2 border-b border-white/5 pb-2.5">
-                <span className="text-zinc-400">{isTr ? 'Müzik Türü:' : 'Music Genre:'}</span>
+                <span className="text-zinc-400">{isAr ? 'النوع الموسيقي:' : isTr ? 'Müzik Türü:' : 'Music Genre:'}</span>
                 <span className="font-bold text-[#FF6B6B] text-right">
-                  {isTr ? genreObj.tr : genreObj.en}
+                  {isAr ? genreObj.ar : isTr ? genreObj.tr : genreObj.en}
                 </span>
               </div>
               <div className="flex justify-between gap-2 border-b border-white/5 pb-2.5">
-                <span className="text-zinc-400">{isTr ? 'Hedef Bölge:' : 'Target Region:'}</span>
+                <span className="text-zinc-400">{isAr ? 'المنطقة المستهدفة:' : isTr ? 'Hedef Bölge:' : 'Target Region:'}</span>
                 <span className="font-bold text-white text-right">
-                  {isTr ? regionObj.tr : regionObj.en}
+                  {isAr ? regionObj.ar : isTr ? regionObj.tr : regionObj.en}
                 </span>
               </div>
               <div className="flex justify-between gap-2 border-b border-white/5 pb-2.5">
-                <span className="text-zinc-400">{isTr ? 'Bütçe Planı:' : 'Budget Tier:'}</span>
+                <span className="text-zinc-400">{isAr ? 'فئة الميزانية:' : isTr ? 'Bütçe Planı:' : 'Budget Tier:'}</span>
                 <span className="font-bold text-emerald-400 text-right">
-                  {isTr ? budgetObj.budgetTr : budgetObj.budgetEn}
+                  {isAr ? budgetObj.budgetAr : isTr ? budgetObj.budgetTr : budgetObj.budgetEn}
                 </span>
               </div>
             </div>
@@ -340,10 +358,12 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
             <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4 space-y-2 text-xs text-zinc-300">
               <div className="font-bold text-white flex items-center gap-1.5">
                 <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
-                <span>{isTr ? 'Resmi Medya Planlama Güvencesi' : 'Official Media Planning Guarantee'}</span>
+                <span>{isAr ? 'ضمان التخطيط الإعلامي الرسمي' : isTr ? 'Resmi Medya Planlama Güvencesi' : 'Official Media Planning Guarantee'}</span>
               </div>
               <p className="leading-relaxed text-zinc-400">
-                {isTr
+                {isAr
+                  ? 'يراجع خبراؤنا الفيديو الخاص بك. وتنطلق الحملة بعد موافقة الإعلان.'
+                  : isTr
                   ? 'Klibiniz uzman ekibimizce incelenir, hedef kitle kırılımları hazırlanır. Kampanya reklam onayı aldıktan sonra yayına alınır.'
                   : 'Your video is reviewed by our specialists. The campaign goes live after ad approval.'}
               </p>
@@ -353,7 +373,9 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
           {/* 3 Direct Submission Channels */}
           <div className="mt-6 space-y-3 pt-4 border-t border-white/10">
             <p className="text-xs font-bold uppercase tracking-wider text-center text-zinc-400">
-              {isTr
+              {isAr
+                ? 'أرسل طلبك عبر القناة التي تفضلها'
+                : isTr
                 ? 'Tercih Ettiğiniz Kanaldan Analiz Talebini Gönderin'
                 : 'Send Your Brief via Your Preferred Channel'}
             </p>
@@ -365,7 +387,7 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
               className="flex w-full items-center justify-center gap-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 px-5 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-emerald-600/25 transition-all hover:scale-[1.01]"
             >
               <MessageCircle className="h-5 w-5 fill-white" />
-              <span>{isTr ? 'WhatsApp ile Lansman Analizi İste' : 'Request Audit via WhatsApp'}</span>
+              <span>{isAr ? 'اطلب التحليل عبر WhatsApp' : isTr ? 'WhatsApp ile Lansman Analizi İste' : 'Request Audit via WhatsApp'}</span>
             </a>
 
             <div className="grid grid-cols-2 gap-2.5">
@@ -376,7 +398,7 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
                 className="flex items-center justify-center gap-2 rounded-xl bg-sky-600 hover:bg-sky-500 px-4 py-3 text-xs font-extrabold text-white shadow-md transition-all"
               >
                 <Send className="h-4 w-4" />
-                <span>{isTr ? 'Telegram ile Gönder' : 'Send via Telegram'}</span>
+                <span>{isAr ? 'أرسل عبر Telegram' : isTr ? 'Telegram ile Gönder' : 'Send via Telegram'}</span>
               </a>
 
               <a
@@ -384,7 +406,7 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
                 className="flex items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 hover:bg-zinc-700 px-4 py-3 text-xs font-extrabold text-white transition-all"
               >
                 <Mail className="h-4 w-4 text-[#FF6B6B]" />
-                <span>{isTr ? 'E-Posta ile İste' : 'Request via Email'}</span>
+                <span>{isAr ? 'اطلب عبر البريد الإلكتروني' : isTr ? 'E-Posta ile İste' : 'Request via Email'}</span>
               </a>
             </div>
           </div>

@@ -9,13 +9,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const isTr = locale === 'tr';
 
+  const isAr = locale === 'ar';
+
   return {
     title: {
-      absolute: isTr
+      absolute: isAr
+        ? 'اتصل بنا | MedyaPR وكالة الترويج لفيديو يوتيوب'
+        : isTr
         ? 'İletişim | MedyaPR YouTube Video PR & Danışmanlık'
         : 'Contact Us | MedyaPR YouTube Video PR Agency',
     },
-    description: isTr
+    description: isAr
+      ? 'تواصل مع MedyaPR لحملات الترويج لفيديو الكليب على يوتيوب. تحليل إعلانات Google Ads الرسمية، وعروض أسعار مخصصة، ودعم عبر WhatsApp.'
+      : isTr
       ? 'YouTube video ve klip lansmanınız için bizimle iletişime geçin. Resmi Google Ads analizi, teklif alma ve WhatsApp hızlı destek hattı.'
       : 'Get in touch with MedyaPR for YouTube music video PR campaigns. Official Google Ads analysis, custom quotes, and WhatsApp support.',
     alternates: {

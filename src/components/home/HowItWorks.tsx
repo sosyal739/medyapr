@@ -11,27 +11,35 @@ interface HowItWorksProps {
 export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
   const isTr = locale === 'tr';
 
+  const isAr = locale === 'ar';
+
   const steps = [
     {
       step: '01',
-      title: isTr ? 'Teklifinizi & Video Linkinizi İletin' : 'Submit Your Quote & Video Link',
-      description: isTr
+      title: isAr ? 'أرسل طلب عرض السعر ورابط الفيديو' : isTr ? 'Teklifinizi & Video Linkinizi İletin' : 'Submit Your Quote & Video Link',
+      description: isAr
+        ? 'لا حاجة لكلمات المرور أو الوصول إلى القناة. شارك رابط الفيديو وعدد المشاهدات المستهدف عبر نموذج عرض السعر أو WhatsApp أو Telegram.'
+        : isTr
         ? 'Şifre veya kanal yetkisi gerekmez. Video linkinizi ve hedef izlenmenizi teklif formumuzdan, WhatsApp veya Telegram üzerinden bize iletin.'
         : 'No passwords or channel access required. Share your video link and target views via our quote form, WhatsApp, or Telegram.',
       icon: Play,
     },
     {
       step: '02',
-      title: isTr ? 'Analiz Edip Detaylı Dönüş Yapalım' : 'Video Analysis & Detailed Reply',
-      description: isTr
+      title: isAr ? 'تحليل الفيديو ورد مفصّل' : isTr ? 'Analiz Edip Detaylı Dönüş Yapalım' : 'Video Analysis & Detailed Reply',
+      description: isAr
+        ? 'يحلل خبراء Google Partner المعتمدون لدينا مدة الفيديو ومحتواه ومدى توافقه مع Google Ads، ثم يرسلون لك ردًا مفصّلًا. (قد يختلف السعر حسب مدة الفيديو.)'
+        : isTr
         ? '18+ yıllık tecrübeli Google Partner uzmanlarımız videonuzun süresini, içeriğini ve Google Ads uygunluğunu analiz edip size detaylı dönüş yapar. (Fiyatlandırma video uzunluğuna göre değişebilir.)'
         : 'Our certified Google Partner specialists analyze your video duration, content, and Google Ads compliance, then send you a detailed reply. (Pricing may vary based on video length.)',
       icon: Sparkles,
     },
     {
       step: '03',
-      title: isTr ? 'Onay Alınca İşlem Başlar' : 'Work Begins Upon Approval',
-      description: isTr
+      title: isAr ? 'يبدأ العمل عند الموافقة' : isTr ? 'Onay Alınca İşlem Başlar' : 'Work Begins Upon Approval',
+      description: isAr
+        ? 'بعد تأكيد التفاصيل واجتياز الفيديو موافقة Google Ads، تبدأ حملتك.'
+        : isTr
         ? 'Detaylar üzerinde mutabık kalınıp videonuz Google Ads reklam onayından geçtiğinde işleminiz başlar.'
         : 'Once details are confirmed and your video passes Google Ads approval, your campaign begins.',
       icon: CreditCard,
@@ -47,23 +55,25 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
       {/* Floating Animated Badge (Moving Object) */}
       <div className="pointer-events-none absolute top-12 right-8 lg:right-20 z-20 hidden md:flex items-center gap-2 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-reverse">
         <Sparkles className="h-4 w-4 text-[#FF4D6D]" />
-        <span>{isTr ? 'Teklifi İlet • Analiz Sonrası Onayda Başlar' : 'Submit Quote • Starts After Analysis & Approval'}</span>
+        <span>{isAr ? 'أرسل الطلب • يبدأ بعد التحليل والموافقة' : isTr ? 'Teklifi İlet • Analiz Sonrası Onayda Başlar' : 'Submit Quote • Starts After Analysis & Approval'}</span>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 md:px-8 lg:px-12">
         {/* Header */}
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <span className="mb-3 inline-block rounded-full border border-zinc-700/60 bg-zinc-800/80 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-zinc-300">
-            {isTr ? 'Şeffaf & Güvenli 3 Adım' : '3 Transparent Steps'}
+            {isAr ? '3 خطوات شفافة' : isTr ? 'Şeffaf & Güvenli 3 Adım' : '3 Transparent Steps'}
           </span>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-white">
-            {isTr ? 'Süreç' : 'How It'}{' '}
+            {isAr ? 'كيف' : isTr ? 'Süreç' : 'How It'}{' '}
             <span className="bg-gradient-to-r from-[#FF0033] to-[#FF6B6B] bg-clip-text text-transparent">
-              {isTr ? 'Nasıl İşler?' : 'Works'}
+              {isAr ? 'نعمل' : isTr ? 'Nasıl İşler?' : 'Works'}
             </span>
           </h2>
           <p className="mt-4 text-base leading-relaxed text-zinc-300">
-            {isTr
+            {isAr
+              ? 'أرسل طلب عرض السعر ودعنا نحلل فيديو الكليب ونرد عليك بالتفصيل عبر WhatsApp أو Telegram؛ ويبدأ العمل عند الموافقة.'
+              : isTr
               ? 'Teklifinizi iletin, videonuzu analiz edip WhatsApp veya Telegram üzerinden detaylı dönüş yapalım; onay alınca işlem başlar.'
               : 'Submit your quote, let us analyze your video and reply in detail via WhatsApp or Telegram; work begins upon approval.'}
           </p>
@@ -101,10 +111,10 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
                   <CheckCircle2 className="h-4 w-4 text-emerald-400" />
                   <span>
                     {idx === 0
-                      ? (isTr ? 'Şifre Gerektirmez' : 'No Password Required')
+                      ? (isAr ? 'لا حاجة لكلمة مرور' : isTr ? 'Şifre Gerektirmez' : 'No Password Required')
                       : idx === 1
-                      ? (isTr ? 'Resmi Politika Uyumu' : 'Official Policy Compliance')
-                      : (isTr ? 'Maksimum Müşteri Güveni' : 'Maximum Buyer Protection')}
+                      ? (isAr ? 'التزام بالسياسات الرسمية' : isTr ? 'Resmi Politika Uyumu' : 'Official Policy Compliance')
+                      : (isAr ? 'أقصى حماية للعميل' : isTr ? 'Maksimum Müşteri Güveni' : 'Maximum Buyer Protection')}
                   </span>
                 </div>
               </div>
@@ -122,13 +132,17 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
               </div>
               <div>
                 <span className="inline-block rounded-full bg-blue-500/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-blue-300 border border-blue-500/30 mb-2">
-                  {isTr ? 'Ajanslar & Yapım Şirketleri' : 'Agencies & Production Studios'}
+                  {isAr ? 'الوكالات واستوديوهات الإنتاج' : isTr ? 'Ajanslar & Yapım Şirketleri' : 'Agencies & Production Studios'}
                 </span>
                 <h3 className="text-lg font-extrabold text-white">
-                  {isTr ? 'Kurumsal Müşteriler İçin Ödeme İş Bitiminde' : 'For Corporate Clients: Payment Upon Delivery'}
+                  {isAr ? 'للعملاء من الشركات: الدفع عند التسليم' : isTr ? 'Kurumsal Müşteriler İçin Ödeme İş Bitiminde' : 'For Corporate Clients: Payment Upon Delivery'}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-300">
-                  {isTr ? (
+                  {isAr
+                    ? (
+                    <>بالنسبة لعملاء الشركات وشركات الإنتاج وشركات التسجيلات، يتم تحصيل الدفع <strong className="text-white font-semibold">مباشرة عند تسليم الحملة</strong>. وتُقدَّم تقارير YouTube Studio وGoogle Ads الرسمية مع فاتورة ضريبية.</>
+                  )
+                    : isTr ? (
                     <>Kurumsal müşteriler, yapım şirketleri ve ajanslar için ödeme <strong className="text-white font-semibold">doğrudan iş bitiminde</strong> alınmaktadır. Kampanya tamamlandığında resmi YouTube Studio &amp; Google Ads performans raporu tarafınıza iletilir ve faturalandırılır.</>
                   ) : (
                     <>For corporate clients, production houses, and record labels, payment is collected <strong className="text-white font-semibold">directly upon campaign delivery</strong>. Official YouTube Studio &amp; Google Ads reports are provided with tax invoicing.</>
@@ -146,13 +160,17 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
               </div>
               <div>
                 <span className="inline-block rounded-full bg-amber-500/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-amber-300 border border-amber-500/30 mb-2">
-                  {isTr ? 'Şeffaf Fiyatlandırma Notu' : 'Transparent Pricing Policy'}
+                  {isAr ? 'سياسة تسعير شفافة' : isTr ? 'Şeffaf Fiyatlandırma Notu' : 'Transparent Pricing Policy'}
                 </span>
                 <h3 className="text-lg font-extrabold text-white">
-                  {isTr ? 'Fiyat Videonun Uzunluğuna Göre Değişiklik Gösterebilir' : 'Pricing May Vary Based On Video Duration'}
+                  {isAr ? 'قد يختلف السعر حسب مدة الفيديو' : isTr ? 'Fiyat Videonun Uzunluğuna Göre Değişiklik Gösterebilir' : 'Pricing May Vary Based On Video Duration'}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-300">
-                  {isTr ? (
+                  {isAr
+                    ? (
+                    <>تعكس أسعار الحاسبة مدد الفيديو القياسية. وبسبب آلية مزاد Google، <strong className="text-white font-semibold">قد يتغير السعر حسب مدة الفيديو</strong>، وعمق الاستهداف، وصيغة الإعلان المختارة.</>
+                  )
+                    : isTr ? (
                     <>Web sitemizdeki hesaplayıcı tutarları standart video süreleri baz alınarak hazırlanmıştır. Google reklam maliyetleri gereği <strong className="text-white font-semibold">fiyat, videonun uzunluğuna</strong>, hedefleme derinliğine ve seçilen reklam formatına göre değişiklik gösterebilir.</>
                   ) : (
                     <>Calculator rates reflect standard video runtimes. Due to Google auction dynamics, <strong className="text-white font-semibold">pricing may adjust depending on video length</strong>, target audience depth, and selected ad format.</>
@@ -169,7 +187,7 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
             href="#calculator"
             className="inline-flex items-center gap-2 rounded-2xl bg-[#D9002B] px-8 py-4 font-extrabold text-white shadow-xl shadow-[#FF0033]/30 hover:bg-[#E6002E] transition-all hover:scale-105"
           >
-            {isTr ? 'Hemen Fiyatını Hesapla & Başlat' : 'Calculate Your Price & Start'}
+            {isAr ? 'احسب سعرك وابدأ' : isTr ? 'Hemen Fiyatını Hesapla & Başlat' : 'Calculate Your Price & Start'}
             <ArrowRight className="h-5 w-5" />
           </a>
         </div>

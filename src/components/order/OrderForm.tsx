@@ -30,7 +30,7 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
   const videoId = parseYouTubeId(videoUrl);
   const videoTouched = videoUrl.trim().length > 0;
   const ready = !!videoId && name.trim().length > 1 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && terms;
-  const nf = new Intl.NumberFormat(locale === 'tr' ? 'tr-TR' : 'en-US');
+  const nf = new Intl.NumberFormat(locale === 'ar' ? 'ar-u-nu-latn-ca-gregory' : locale === 'tr' ? 'tr-TR' : 'en-US');
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -105,7 +105,7 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
               value={name}
               onChange={(e) => setName(e.target.value)}
               className={inputClass}
-              placeholder={locale === 'tr' ? 'Ad Soyad veya Sanatçı Adı' : 'Full Name or Artist Name'}
+              placeholder={locale === 'ar' ? 'الاسم الكامل أو اسم الفنان' : locale === 'tr' ? 'Ad Soyad veya Sanatçı Adı' : 'Full Name or Artist Name'}
             />
           </div>
           <div>
@@ -134,7 +134,7 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
             value={contact}
             onChange={(e) => setContact(e.target.value)}
             className={inputClass}
-            placeholder={locale === 'tr' ? '+90 531 299 33 55 (WhatsApp Bildirimi İçin)' : '+1 555 0199 (For WhatsApp Updates)'}
+            placeholder={locale === 'ar' ? '+1 555 0199 (لتحديثات WhatsApp)' : locale === 'tr' ? '+90 531 299 33 55 (WhatsApp Bildirimi İçin)' : '+1 555 0199 (For WhatsApp Updates)'}
           />
         </div>
 
@@ -145,14 +145,14 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
               {
                 key: 'iban' as const,
                 icon: Banknote,
-                label: locale === 'tr' ? 'Banka Havalesi / FAST' : 'Bank Wire / Transfer',
-                desc: locale === 'tr' ? 'Ödeme planı teklifte netleştirilir' : 'Payment plan is agreed in the quote',
+                label: locale === 'ar' ? 'حوالة بنكية / تحويل' : locale === 'tr' ? 'Banka Havalesi / FAST' : 'Bank Wire / Transfer',
+                desc: locale === 'ar' ? 'يُتفق على خطة الدفع ضمن عرض السعر' : locale === 'tr' ? 'Ödeme planı teklifte netleştirilir' : 'Payment plan is agreed in the quote',
               },
               {
                 key: 'card' as const,
                 icon: CreditCard,
-                label: locale === 'tr' ? 'Kredi / Banka Kartı (Stripe)' : 'Credit / Debit Card (Stripe)',
-                desc: locale === 'tr' ? 'Şu an bakımda — Havale seçiniz' : 'Under maintenance — Choose Wire Transfer',
+                label: locale === 'ar' ? 'بطاقة ائتمان / خصم (Stripe)' : locale === 'tr' ? 'Kredi / Banka Kartı (Stripe)' : 'Credit / Debit Card (Stripe)',
+                desc: locale === 'ar' ? 'قيد الصيانة — اختر الحوالة البنكية' : locale === 'tr' ? 'Şu an bakımda — Havale seçiniz' : 'Under maintenance — Choose Wire Transfer',
               },
             ].map(({ key, icon: Icon, label, desc }) => (
               <button
@@ -182,10 +182,19 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
         <div className="rounded-2xl border border-blue-500/30 bg-blue-950/20 p-4 text-xs">
           <p className="font-bold text-white mb-1.5 flex items-center gap-1.5">
             <ShieldCheck className="h-4 w-4 text-emerald-400" />
-            {locale === 'tr' ? 'Süreç Nasıl İşler?' : 'How Does the Process Work?'}
+            {locale === 'ar' ? 'كيف تتم العملية؟' : locale === 'tr' ? 'Süreç Nasıl İşler?' : 'How Does the Process Work?'}
           </p>
           <ul className="space-y-1 text-zinc-300">
-            {locale === 'tr' ? (
+            {locale === 'ar'
+              ? (
+              <>
+                <li>• <strong>الخطوة 1:</strong> تتم مراجعة رابط الفيديو وتقديمه للحصول على موافقة Google Ads الرسمية.</li>
+                <li>• <strong>الخطوة 2:</strong> عند صدور موافقة الإعلان، تبدأ الحملة.</li>
+                <li>• <strong>الخطوة 3:</strong> عند اكتمال الحملة، يتم إرسال تقرير النتائج.</li>
+                <li className="text-amber-300 text-[11px] pt-0.5">* قد يختلف السعر حسب مدة الفيديو.</li>
+              </>
+            )
+              : locale === 'tr' ? (
               <>
                 <li>• <strong>1. Adım:</strong> Video linkiniz incelenir ve resmi Google Ads onay sürecine iletilir.</li>
                 <li>• <strong>2. Adım:</strong> Reklam onayı çıktığında kampanya başlatılır.</li>
@@ -211,7 +220,9 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
             className="mt-0.5 h-4 w-4 accent-[#FF0033] rounded"
           />
           <span>
-            {locale === 'tr'
+            {locale === 'ar'
+              ? 'لقد قرأت شروط الخدمة وسياسات الترويج بالفيديو في Google Ads وأوافق عليها.'
+              : locale === 'tr'
               ? 'Hizmet şartlarını ve Google Ads video gösterim kurallarını okudum, onaylıyorum.'
               : 'I have read and agree to the Terms of Service and Google Ads video promotion policies.'}
           </span>
@@ -251,7 +262,7 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
         </div>
 
         <p className="mt-3.5 rounded-2xl border border-white/10 bg-white/[0.03] p-3 text-xs text-zinc-300">
-          {locale === 'tr' ? 'Tutar tahminidir; analizden sonra kesin teklif iletilir.' : 'This amount is an estimate; a final quote follows our review.'}
+          {locale === 'ar' ? 'هذا المبلغ تقديري؛ سيصلك عرض السعر النهائي بعد المراجعة.' : locale === 'tr' ? 'Tutar tahminidir; analizden sonra kesin teklif iletilir.' : 'This amount is an estimate; a final quote follows our review.'}
         </p>
 
         {error && <p className="mt-4 rounded-xl bg-red-500/20 border border-red-500/30 p-3 text-xs text-red-200">{error}</p>}
@@ -266,12 +277,12 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
               <Loader2 className="h-5 w-5 animate-spin" /> {o.submitting}
             </>
           ) : (
-            locale === 'tr' ? 'Siparişi Onayla & Takip Kodu Al' : 'Confirm Order & Get Tracking Code'
+            locale === 'ar' ? 'أكّد الطلب واحصل على رمز التتبع' : locale === 'tr' ? 'Siparişi Onayla & Takip Kodu Al' : 'Confirm Order & Get Tracking Code'
           )}
         </button>
 
         <p className="mt-4 flex items-center justify-center gap-1.5 text-[11px] text-white/40">
-          <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" /> {locale === 'tr' ? '%100 Resmi Google Ads Altyapısı' : '100% Official Google Ads Network'}
+          <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" /> {locale === 'ar' ? 'شبكة Google Ads الرسمية 100%' : locale === 'tr' ? '%100 Resmi Google Ads Altyapısı' : '100% Official Google Ads Network'}
         </p>
       </aside>
     </form>

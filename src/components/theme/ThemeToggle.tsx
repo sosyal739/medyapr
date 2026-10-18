@@ -1,11 +1,15 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { useTheme } from './ThemeContext';
 import { Moon, Sun } from 'lucide-react';
 
 export default function ThemeToggle({ compact = false }: { compact?: boolean }) {
   const { toggleTheme, isLight } = useTheme();
-  const label = isLight ? 'Gece Moduna Geç' : 'Gündüz Moduna Geç';
+  const isAr = usePathname()?.startsWith('/ar') ?? false;
+  const label = isAr
+    ? isLight ? 'التبديل إلى الوضع الليلي' : 'التبديل إلى الوضع النهاري'
+    : isLight ? 'Gece Moduna Geç' : 'Gündüz Moduna Geç';
 
   return (
     <button
@@ -18,12 +22,12 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
       {isLight ? (
         <>
           <Moon className="h-4 w-4 text-indigo-500" />
-          {!compact && <span className="tracking-wide">Gece</span>}
+          {!compact && <span className="tracking-wide">{isAr ? 'ليلي' : 'Gece'}</span>}
         </>
       ) : (
         <>
           <Sun className="h-4 w-4 text-amber-400 transition-transform group-hover:rotate-45" />
-          {!compact && <span className="tracking-wide">Gündüz</span>}
+          {!compact && <span className="tracking-wide">{isAr ? 'نهاري' : 'Gündüz'}</span>}
         </>
       )}
     </button>

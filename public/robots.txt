@@ -6,6 +6,7 @@ Allow: /
 Disallow: /admin
 Disallow: /tr/admin
 Disallow: /en/admin
+Disallow: /ar/admin
 Disallow: /api/
 
 # AI Search & Generative Engine Crawlers (Allowed & Encouraged for Citations)

@@ -31,6 +31,11 @@ const nextConfig: NextConfig = {
         destination: '/en/:path*',
         permanent: true,
       },
+      // Türkiye/İngilizce dünyasına özgü bölümlerin Arapça sürümü yok: tek adımda İngilizceye.
+      { source: '/ar/sanatcilar', destination: '/en/sanatcilar', permanent: true },
+      { source: '/ar/yeni-klipler', destination: '/en/yeni-klipler', permanent: true },
+      { source: '/ar/sanatci/:slug', destination: '/en/sanatci/:slug', permanent: true },
+      { source: '/ar/klip/:slug', destination: '/en/klip/:slug', permanent: true },
       // Consolidated blog posts (with and without locale prefix to prevent 2-hop chains)
       {
         source: '/:locale(tr|en)/blog/youtube-music-video-promotion-cost-and-pricing-benchmarks-2026',

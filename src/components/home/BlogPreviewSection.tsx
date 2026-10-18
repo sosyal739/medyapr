@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { BookOpen, Calendar, Clock, ArrowRight, Sparkles } from 'lucide-react';
 import type { BlogPost } from '@/lib/content';
+import { displayDate } from '@/lib/seo';
 
 interface BlogPreviewSectionProps {
   posts: BlogPost[];
@@ -12,6 +13,8 @@ interface BlogPreviewSectionProps {
 
 export default function BlogPreviewSection({ posts, locale }: BlogPreviewSectionProps) {
   const isTr = locale === 'tr';
+
+  const isAr = locale === 'ar';
 
   return (
     <section id="blog" className="relative overflow-hidden bg-studio-gradient border-y border-studio py-24 text-white">
@@ -22,7 +25,7 @@ export default function BlogPreviewSection({ posts, locale }: BlogPreviewSection
       {/* Floating Animated Badge (Moving Object) */}
       <div className="pointer-events-none absolute top-10 right-8 lg:right-24 z-20 hidden md:flex items-center gap-2 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-slow">
         <Sparkles className="h-4 w-4 text-amber-400" />
-        <span>{isTr ? 'Haftalık Algoritma & Klip Analizleri' : 'Weekly Algorithm & Video Playbooks'}</span>
+        <span>{isAr ? 'أدلة أسبوعية عن الخوارزمية والفيديو' : isTr ? 'Haftalık Algoritma & Klip Analizleri' : 'Weekly Algorithm & Video Playbooks'}</span>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 md:px-8 lg:px-12">
@@ -31,16 +34,18 @@ export default function BlogPreviewSection({ posts, locale }: BlogPreviewSection
           <div>
             <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-zinc-700/60 bg-zinc-800/80 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-zinc-300">
               <BookOpen className="h-3.5 w-3.5 text-[#FF0033]" />
-              {isTr ? 'Müzik & YouTube Strateji Rehberi' : 'Music & Strategy Blog'}
+              {isAr ? 'مدونة الموسيقى والاستراتيجية' : isTr ? 'Müzik & YouTube Strateji Rehberi' : 'Music & Strategy Blog'}
             </span>
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-white">
-              {isTr ? 'Trend Analizleri &' : 'Trending Insights &'}{' '}
+              {isAr ? 'رؤى الترند و' : isTr ? 'Trend Analizleri &' : 'Trending Insights &'}{' '}
               <span className="bg-gradient-to-r from-[#FF0033] to-[#FF6B6B] bg-clip-text text-transparent">
-                {isTr ? 'Büyüme Taktikleri' : 'Growth Strategies'}
+                {isAr ? 'استراتيجيات النمو' : isTr ? 'Büyüme Taktikleri' : 'Growth Strategies'}
               </span>
             </h2>
             <p className="mt-3 text-sm md:text-base text-zinc-300 max-w-2xl leading-relaxed">
-              {isTr
+              {isAr
+                ? 'أدلة عملية للتسويق بالفيديو، وتحليل للأغاني الرائجة، وتكتيكات للنمو.'
+                : isTr
                 ? 'YouTube algoritmasının işleyişi, trend olan şarkıların ivme sırları ve bağımsız müzisyenlerin bilmesi gereken klip pazarlama rehberleri.'
                 : 'Actionable video marketing playbooks, trending track breakdowns, and growth tactics.'}
             </p>
@@ -50,7 +55,7 @@ export default function BlogPreviewSection({ posts, locale }: BlogPreviewSection
             href={`/${locale}/blog`}
             className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-zinc-700/60 bg-zinc-800/80 px-5 py-3 text-xs font-bold text-white hover:bg-zinc-700/80 hover:border-zinc-500/60 transition shadow-md"
           >
-            {isTr ? 'Tüm Yazıları Gör' : 'View All Posts'}
+            {isAr ? 'عرض كل المقالات' : isTr ? 'Tüm Yazıları Gör' : 'View All Posts'}
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -83,7 +88,7 @@ export default function BlogPreviewSection({ posts, locale }: BlogPreviewSection
 
                   <div className="flex items-center gap-4 text-xs text-zinc-400 mb-3">
                     <span className="flex items-center gap-1.5">
-                      <Calendar className="h-3.5 w-3.5 text-[#FF6B6B]" /> {post.date}
+                      <Calendar className="h-3.5 w-3.5 text-[#FF6B6B]" /> {isAr ? displayDate(post.date, 'ar') : post.date}
                     </span>
                     <span className="flex items-center gap-1.5">
                       <Clock className="h-3.5 w-3.5 text-zinc-500" /> {postReadTime}
@@ -99,7 +104,7 @@ export default function BlogPreviewSection({ posts, locale }: BlogPreviewSection
                 </div>
 
                 <div className="mt-6 flex items-center justify-between border-t border-zinc-800/80 pt-4 text-xs font-bold text-[#FF6B6B]">
-                  <span>{isTr ? 'Detaylı İncele' : 'Read Guide'}</span>
+                  <span>{isAr ? 'اقرأ الدليل' : isTr ? 'Detaylı İncele' : 'Read Guide'}</span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>

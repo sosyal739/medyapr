@@ -19,15 +19,19 @@ export default function CTASection({ dict, locale = 'tr' }: CTASectionProps) {
   const t = dict?.cta ?? {};
   const isTr = locale === 'tr';
 
-  const title = t.title ?? (isTr ? 'YouTube Kanalınızı Büyütmeye Hazır mısınız?' : 'Ready to Grow Your YouTube Channel?');
+  const isAr = locale === 'ar';
+
+  const title = t.title ?? (isAr ? 'هل أنت مستعد لتنمية قناتك على يوتيوب؟' : isTr ? 'YouTube Kanalınızı Büyütmeye Hazır mısınız?' : 'Ready to Grow Your YouTube Channel?');
   const subtitle =
     t.subtitle ??
-    (isTr
+    (isAr
+      ? "احصل على استشارة مجانية الآن، ولنضع معًا أفضل استراتيجية لقناتك."
+      : isTr
       ? 'Hemen başlayın ve Google Ads ile gerçek izleyicilere ulaşın. İlk kampanyanıza özel %20 indirim!'
       : "Get a free consultation now and let's find the best strategy for your channel together.");
-  const primaryBtn = t.button ?? (isTr ? 'Ücretsiz Başla' : 'Get Started');
-  const whatsappBtn = t.whatsapp ?? (isTr ? 'WhatsApp ile Ulaşın' : 'Contact via WhatsApp');
-  const telegramText = (isTr ? 'veya Telegram üzerinden yazın' : 'or reach out on Telegram');
+  const primaryBtn = t.button ?? (isAr ? 'ابدأ الآن' : isTr ? 'Ücretsiz Başla' : 'Get Started');
+  const whatsappBtn = t.whatsapp ?? (isAr ? 'تواصل عبر WhatsApp' : isTr ? 'WhatsApp ile Ulaşın' : 'Contact via WhatsApp');
+  const telegramText = (isAr ? 'أو راسلنا عبر Telegram' : isTr ? 'veya Telegram üzerinden yazın' : 'or reach out on Telegram');
   const telegramLink = TELEGRAM_URL;
   const whatsappLink = t.whatsappLink && t.whatsappLink !== '#' ? t.whatsappLink : WHATSAPP_URL;
 

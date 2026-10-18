@@ -37,8 +37,8 @@ export interface TrendingSong {
   genre?: 'hiphop' | 'pop' | 'indie' | 'edm' | 'rock';
 }
 
-export type TrendRegion = 'tr' | 'us' | 'de' | 'gb';
-export const TREND_REGIONS: TrendRegion[] = ['tr', 'us', 'de', 'gb'];
+import { TREND_REGIONS, type TrendRegion } from '@/lib/trend-regions';
+export { TREND_REGIONS, AR_TREND_REGIONS, type TrendRegion } from '@/lib/trend-regions';
 export type MultiCountryTrends = Record<TrendRegion, TrendingSong[]>;
 
 const API = 'https://www.googleapis.com/youtube/v3';

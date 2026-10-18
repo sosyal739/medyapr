@@ -11,7 +11,20 @@ interface TrustBadgesProps {
 export default function TrustBadges({ dict, locale = 'tr' }: TrustBadgesProps) {
   const isTr = locale === 'tr';
 
-  const items = isTr
+  const isAr = locale === 'ar';
+
+  const items = isAr
+    ? [
+        { label: 'سجل الخبرة', value: 'خبرة متواصلة تتجاوز 18 عامًا', icon: Award },
+        { label: 'الاعتماد الرسمي', value: 'مختصون معتمدون من Google Partner', icon: ShieldCheck },
+        { label: 'شبكة عالمية', value: 'فنانون وشركات إنتاج من حول العالم', icon: Users },
+        { label: 'استهداف الجمهور', value: 'استهداف النوع الموسيقي واللغة والفئة العمرية', icon: Zap },
+        { label: 'ضمان الأمان', value: 'بلا بوتات ولا لوحات SMM', icon: ShieldCheck },
+        { label: 'مصدر الترافيك', value: 'مصدر الترافيك موثّق كإعلانات يوتيوب', icon: BarChart2 },
+        { label: 'لمن هذه الخدمة؟', value: 'فنانون مستقلون وشركات إنتاج واستوديوهات', icon: CheckCircle },
+        { label: 'تفاعل طبيعي إضافي', value: 'إعجابات وتعليقات ومعجبون حقيقيون', icon: Headphones },
+      ]
+    : isTr
     ? [
         { label: 'Sektör Tecrübesi', value: '18+ Yıllık Kesintisiz Hizmet', icon: Award },
         { label: 'Resmi Yetki', value: 'Google İş Ortağı Partner Uzmanları', icon: ShieldCheck },

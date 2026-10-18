@@ -15,17 +15,19 @@ export default function CookieConsent({ dict, locale }: CookieConsentProps) {
   const [mounted, setMounted] = useState(false);
 
   const t = dict?.cookie_consent || {
-    title: locale === 'tr' ? 'Çerez ve Gizlilik Tercihleri' : 'Cookie & Privacy Preferences',
+    title: locale === 'ar' ? 'تفضيلات ملفات الارتباط والخصوصية' : locale === 'tr' ? 'Çerez ve Gizlilik Tercihleri' : 'Cookie & Privacy Preferences',
     description:
-      locale === 'tr'
+      locale === 'ar'
+        ? 'نستخدم ملفات تعريف الارتباط لتحسين الموقع وقياس أداء Google Ads.'
+        : locale === 'tr'
         ? 'Sitemizi geliştirmek ve Google Ads performansını ölçmek için çerez kullanıyoruz.'
         : 'We use cookies to improve the site and measure Google Ads performance.',
-    badge: locale === 'tr' ? 'KVKK & GDPR Güvencesi' : 'GDPR & KVKK Compliant',
-    accept_all: locale === 'tr' ? 'Tümünü Kabul Et' : 'Accept All',
-    necessary_only: locale === 'tr' ? 'Sadece Zorunlu' : 'Necessary Only',
-    decline: locale === 'tr' ? 'Reddet' : 'Decline',
-    privacy_policy: locale === 'tr' ? 'Gizlilik Politikası' : 'Privacy Policy',
-    cookie_settings: locale === 'tr' ? 'Çerez Ayarları' : 'Cookie Settings',
+    badge: locale === 'ar' ? 'متوافق مع GDPR وKVKK' : locale === 'tr' ? 'KVKK & GDPR Güvencesi' : 'GDPR & KVKK Compliant',
+    accept_all: locale === 'ar' ? 'قبول الكل' : locale === 'tr' ? 'Tümünü Kabul Et' : 'Accept All',
+    necessary_only: locale === 'ar' ? 'الضرورية فقط' : locale === 'tr' ? 'Sadece Zorunlu' : 'Necessary Only',
+    decline: locale === 'ar' ? 'رفض' : locale === 'tr' ? 'Reddet' : 'Decline',
+    privacy_policy: locale === 'ar' ? 'سياسة الخصوصية' : locale === 'tr' ? 'Gizlilik Politikası' : 'Privacy Policy',
+    cookie_settings: locale === 'ar' ? 'إعدادات ملفات الارتباط' : locale === 'tr' ? 'Çerez Ayarları' : 'Cookie Settings',
   };
 
   useEffect(() => {
@@ -127,7 +129,7 @@ export default function CookieConsent({ dict, locale }: CookieConsentProps) {
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            aria-label={locale === 'tr' ? 'Kapat' : 'Close'}
+            aria-label={locale === 'ar' ? 'إغلاق' : locale === 'tr' ? 'Kapat' : 'Close'}
             className="p-1 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-colors"
           >
             <X className="h-4 w-4" />

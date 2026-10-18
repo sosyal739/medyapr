@@ -146,7 +146,7 @@ export default function PricingSection({ dict, locale = 'tr' }: PricingSectionPr
                 {isPopular && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
                     <span className="rounded-full bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-4 py-1 text-xs font-bold text-white shadow-md shadow-[#FF0033]/25">
-                      {locale === 'tr' ? '⭐ Popüler' : '⭐ Most Popular'}
+                      {locale === 'ar' ? '⭐ الأكثر طلبًا' : locale === 'tr' ? '⭐ Popüler' : '⭐ Most Popular'}
                     </span>
                   </div>
                 )}

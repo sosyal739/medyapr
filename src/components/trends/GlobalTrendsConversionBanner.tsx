@@ -22,19 +22,30 @@ interface GlobalTrendsConversionBannerProps {
 }
 
 const REGION_OPTIONS = [
-  { id: 'us', labelTr: '🇺🇸 ABD (US Charts)', labelEn: '🇺🇸 US Billboard', regionParam: 'premium', currencyTr: 'USD', currencyEn: 'USD' },
-  { id: 'gb', labelTr: '🇬🇧 İngiltere (UK)', labelEn: '🇬🇧 UK Charts', regionParam: 'premium', currencyTr: 'USD', currencyEn: 'USD' },
-  { id: 'de', labelTr: '🇩🇪 Almanya (DE)', labelEn: '🇩🇪 Germany (DE)', regionParam: 'premium', currencyTr: 'USD', currencyEn: 'USD' },
-  { id: 'tr', labelTr: '🇹🇷 Türkiye (TR)', labelEn: '🇹🇷 Turkey (TR)', regionParam: 'tr', currencyTr: 'TRY', currencyEn: 'TRY' },
-  { id: 'global', labelTr: '🌍 Küresel Mix', labelEn: '🌍 Global Mix', regionParam: 'global', currencyTr: 'TRY', currencyEn: 'USD' },
+  { id: 'us', labelTr: '🇺🇸 ABD (US Charts)', labelEn: '🇺🇸 US Billboard', labelAr: '🇺🇸 بيلبورد الأمريكية', regionParam: 'premium', currencyTr: 'USD', currencyEn: 'USD' , currencyAr: 'USD'},
+  { id: 'gb', labelTr: '🇬🇧 İngiltere (UK)', labelEn: '🇬🇧 UK Charts', labelAr: '🇬🇧 قوائم بريطانيا', regionParam: 'premium', currencyTr: 'USD', currencyEn: 'USD' , currencyAr: 'USD'},
+  { id: 'de', labelTr: '🇩🇪 Almanya (DE)', labelEn: '🇩🇪 Germany (DE)', labelAr: '🇩🇪 ألمانيا (DE)', regionParam: 'premium', currencyTr: 'USD', currencyEn: 'USD' , currencyAr: 'USD'},
+  { id: 'tr', labelTr: '🇹🇷 Türkiye (TR)', labelEn: '🇹🇷 Turkey (TR)', labelAr: '🇹🇷 تركيا (TR)', regionParam: 'tr', currencyTr: 'TRY', currencyEn: 'TRY' , currencyAr: 'TRY'},
+  { id: 'global', labelTr: '🌍 Küresel Mix', labelEn: '🌍 Global Mix', labelAr: '🌍 عالمي مختلط', regionParam: 'global', currencyTr: 'TRY', currencyEn: 'USD' , currencyAr: 'USD'},
+] as const;
+
+/**
+ * Arapça sitenin pazarları. Fiyat motorunda Arap ülkeleri için ayrı kademe yoktur; hepsi karma global
+ * kademesiyle tahmin edilir, nihai teklif video incelendikten sonra verilir.
+ */
+const AR_REGION_OPTIONS = [
+  { id: 'sa', labelTr: '🇸🇦 Suudi Arabistan ve Körfez', labelEn: '🇸🇦 Saudi Arabia & Gulf', labelAr: '🇸🇦 السعودية والخليج', regionParam: 'global', currencyTr: 'USD', currencyEn: 'USD', currencyAr: 'USD' },
+  { id: 'eg', labelTr: '🇪🇬 Mısır', labelEn: '🇪🇬 Egypt', labelAr: '🇪🇬 مصر', regionParam: 'global', currencyTr: 'USD', currencyEn: 'USD', currencyAr: 'USD' },
+  { id: 'ma', labelTr: '🇲🇦 Fas ve Mağrip', labelEn: '🇲🇦 Morocco & Maghreb', labelAr: '🇲🇦 المغرب والمغرب العربي', regionParam: 'global', currencyTr: 'USD', currencyEn: 'USD', currencyAr: 'USD' },
+  { id: 'global', labelTr: '🌍 Küresel Mix', labelEn: '🌍 Global Mix', labelAr: '🌍 عالمي مختلط', regionParam: 'global', currencyTr: 'USD', currencyEn: 'USD', currencyAr: 'USD' },
 ] as const;
 
 const GENRE_OPTIONS = [
-  { id: 'hiphop', icon: '🔥', labelTr: 'Hip-Hop / Rap', labelEn: 'Hip-Hop / Rap' },
-  { id: 'indie', icon: '🌿', labelTr: 'Indie / Alternatif', labelEn: 'Indie / Alt' },
-  { id: 'edm', icon: '⚡', labelTr: 'EDM / Dans', labelEn: 'EDM / Electronic' },
-  { id: 'rock', icon: '🎸', labelTr: 'Rock / Metal', labelEn: 'Rock / Metal' },
-  { id: 'pop', icon: '✨', labelTr: 'Pop / Mainstream', labelEn: 'Pop / Mainstream' },
+  { id: 'hiphop', icon: '🔥', labelTr: 'Hip-Hop / Rap', labelEn: 'Hip-Hop / Rap' , labelAr: 'هيب هوب / راب'},
+  { id: 'indie', icon: '🌿', labelTr: 'Indie / Alternatif', labelEn: 'Indie / Alt' , labelAr: 'إندي / ألترناتيف'},
+  { id: 'edm', icon: '⚡', labelTr: 'EDM / Dans', labelEn: 'EDM / Electronic' , labelAr: 'EDM / إلكترونيك'},
+  { id: 'rock', icon: '🎸', labelTr: 'Rock / Metal', labelEn: 'Rock / Metal' , labelAr: 'روك / ميتال'},
+  { id: 'pop', icon: '✨', labelTr: 'Pop / Mainstream', labelEn: 'Pop / Mainstream' , labelAr: 'بوب / جماهيري'},
 ] as const;
 
 const TIERS = [
@@ -43,6 +54,7 @@ const TIERS = [
     views: 25000,
     labelTr: 'Başlangıç İvmesi',
     labelEn: 'Starter Momentum',
+    labelAr: 'زخم البداية',
     days: '2-4',
     pkgParam: 'views',
   },
@@ -51,6 +63,7 @@ const TIERS = [
     views: 50000,
     labelTr: 'Liste Adayı',
     labelEn: 'Chart Contender',
+    labelAr: 'منافس على القوائم',
     days: '3-5',
     pkgParam: 'views',
   },
@@ -59,6 +72,7 @@ const TIERS = [
     views: 100000,
     labelTr: 'Trend Çıkışı (En Popüler)',
     labelEn: 'Trending Breakthrough (Top)',
+    labelAr: 'اختراق الترند (الصدارة)',
     days: '5-7',
     pkgParam: 'views',
     highlight: true,
@@ -68,6 +82,7 @@ const TIERS = [
     views: 250000,
     labelTr: 'Viral Global Hit',
     labelEn: 'Global Viral Hit',
+    labelAr: 'نجاح عالمي منتشر',
     days: '7-12',
     pkgParam: 'views',
   },
@@ -76,11 +91,14 @@ const TIERS = [
 export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsConversionBannerProps) {
   const isTr = locale === 'tr';
 
-  const [selectedRegion, setSelectedRegion] = useState<string>('us');
+  const isAr = locale === 'ar';
+
+  const regionOptions: ReadonlyArray<(typeof REGION_OPTIONS)[number] | (typeof AR_REGION_OPTIONS)[number]> = isAr ? AR_REGION_OPTIONS : REGION_OPTIONS;
+  const [selectedRegion, setSelectedRegion] = useState<string>(isAr ? 'sa' : 'us');
   const [selectedGenre, setSelectedGenre] = useState<string>('hiphop');
   const [selectedTierId, setSelectedTierId] = useState<string>('trending');
 
-  const activeRegion = REGION_OPTIONS.find((r) => r.id === selectedRegion) || REGION_OPTIONS[0];
+  const activeRegion = regionOptions.find((r) => r.id === selectedRegion) || regionOptions[0];
   const activeGenre = GENRE_OPTIONS.find((g) => g.id === selectedGenre) || GENRE_OPTIONS[0];
   const activeTier = TIERS.find((t) => t.id === selectedTierId) || TIERS[2];
 
@@ -112,10 +130,19 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-[#FF0033]/50 bg-[#FF0033]/15 px-3.5 py-1 text-xs font-black uppercase tracking-wider text-[#FF6B6B] mb-2.5">
               <Rocket className="h-3.5 w-3.5 text-[#FF0033]" />
-              <span>{isTr ? 'KÜRESEL KLİP LANSMANI · 1-TIKLA BAŞLAT' : 'GLOBAL MUSIC VIDEO LAUNCH · 1-CLICK LAUNCH'}</span>
+              <span>{isAr ? 'إطلاق كليب عالمي · ابدأ بنقرة واحدة' : isTr ? 'KÜRESEL KLİP LANSMANI · 1-TIKLA BAŞLAT' : 'GLOBAL MUSIC VIDEO LAUNCH · 1-CLICK LAUNCH'}</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
-              {isTr ? (
+              {isAr
+                ? (
+                <>
+                  أطلق فيديوك إلى{' '}
+                  <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
+                    قوائم يوتيوب العالمية
+                  </span>
+                </>
+              )
+                : isTr ? (
                 <>
                   Kendi Klibinizi de{' '}
                   <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
@@ -133,7 +160,9 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
               )}
             </h2>
             <p className="mt-1 text-xs sm:text-sm text-zinc-300 max-w-2xl">
-              {isTr
+              {isAr
+                ? 'حدد سوقك المستهدف ونوعك الموسيقي؛ واقتحم الفيديوهات المقترحة وقوائم الراديو الخوارزمية عبر إعلانات Google Ads الرسمية.'
+                : isTr
                 ? 'Hedef pazarınızı ve müzik türünüzü seçin; resmi Google Ads In-Stream ve Shorts reklamlarıyla organik dinleyici kitlenizi anında büyütün.'
                 : 'Configure your target market and genre; break into Suggested Videos and algorithmic radio feeds via official Google Ads.'}
             </p>
@@ -142,7 +171,7 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
           <div className="flex items-center gap-3 shrink-0">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
               <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-              {isTr ? 'Canlı Kota Açık' : 'Live Capacity Open'}
+              {isAr ? 'الطاقة الاستيعابية متاحة الآن' : isTr ? 'Canlı Kota Açık' : 'Live Capacity Open'}
             </span>
           </div>
         </div>
@@ -153,10 +182,10 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
           <div className="space-y-2.5">
             <label className="text-xs font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
               <Globe2 className="h-3.5 w-3.5 text-[#FF6B6B]" />
-              <span>{isTr ? '1. Hedef Ülke / Pazar' : '1. Target Market'}</span>
+              <span>{isAr ? '1. السوق المستهدف' : isTr ? '1. Hedef Ülke / Pazar' : '1. Target Market'}</span>
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-1 gap-2">
-              {REGION_OPTIONS.map((reg) => {
+              {regionOptions.map((reg) => {
                 const active = selectedRegion === reg.id;
                 return (
                   <button
@@ -169,7 +198,7 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
                         : 'bg-zinc-800/80 hover:bg-zinc-700/80 text-zinc-300 border-zinc-700/60'
                     }`}
                   >
-                    <span>{isTr ? reg.labelTr : reg.labelEn}</span>
+                    <span>{isAr ? reg.labelAr : isTr ? reg.labelTr : reg.labelEn}</span>
                     {active && <Check className="h-3.5 w-3.5 stroke-[3]" />}
                   </button>
                 );
@@ -181,7 +210,7 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
           <div className="space-y-2.5">
             <label className="text-xs font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
               <Sparkles className="h-3.5 w-3.5 text-amber-400" />
-              <span>{isTr ? '2. Müzik Türü' : '2. Music Genre'}</span>
+              <span>{isAr ? '2. النوع الموسيقي' : isTr ? '2. Müzik Türü' : '2. Music Genre'}</span>
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-1 gap-2">
               {GENRE_OPTIONS.map((g) => {
@@ -199,7 +228,7 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
                   >
                     <span className="flex items-center gap-1.5">
                       <span>{g.icon}</span>
-                      <span>{isTr ? g.labelTr : g.labelEn}</span>
+                      <span>{isAr ? g.labelAr : isTr ? g.labelTr : g.labelEn}</span>
                     </span>
                     {active && <Check className="h-3.5 w-3.5 stroke-[3]" />}
                   </button>
@@ -212,7 +241,7 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
           <div className="space-y-2.5">
             <label className="text-xs font-bold uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
               <TrendingUp className="h-3.5 w-3.5 text-emerald-400" />
-              <span>{isTr ? '3. Lansman Hedefi' : '3. Launch Goal'}</span>
+              <span>{isAr ? '3. هدف الإطلاق' : isTr ? '3. Lansman Hedefi' : '3. Launch Goal'}</span>
             </label>
             <div className="grid grid-cols-1 gap-2">
               {TIERS.map((tier) => {
@@ -231,15 +260,15 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
                   >
                     <div>
                       <div className="font-extrabold text-white text-xs sm:text-sm">
-                        {tier.views.toLocaleString(isTr ? 'tr-TR' : 'en-US')} {isTr ? 'İzlenme' : 'Views'}
+                        {tier.views.toLocaleString(isAr ? 'ar-u-nu-latn-ca-gregory' : isTr ? 'tr-TR' : 'en-US')} {isAr ? 'المشاهدات' : isTr ? 'İzlenme' : 'Views'}
                       </div>
                       <div className="text-[11px] opacity-80 font-normal">
-                        {isTr ? tier.labelTr : tier.labelEn}
+                        {isAr ? tier.labelAr : isTr ? tier.labelTr : tier.labelEn}
                       </div>
                     </div>
                     <div className="text-right">
                       <div className="text-sm sm:text-base font-black text-amber-300">{price}</div>
-                      <div className="text-[11px] opacity-75">{tier.days} {isTr ? 'gün' : 'days'}</div>
+                      <div className="text-[11px] opacity-75">{tier.days} {isAr ? 'أيام' : isTr ? 'gün' : 'days'}</div>
                     </div>
                   </button>
                 );
@@ -252,20 +281,20 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
         <div className="mt-6 pt-6 border-t border-zinc-800/80 flex flex-col md:flex-row items-center justify-between gap-5 bg-zinc-950/60 p-4 sm:p-5 rounded-2xl border border-zinc-800/60">
           <div className="space-y-1 text-center md:text-left">
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-xs">
-              <span className="text-zinc-400">{isTr ? 'Seçilen Paket:' : 'Selected Package:'}</span>
+              <span className="text-zinc-400">{isAr ? 'الباقة المختارة:' : isTr ? 'Seçilen Paket:' : 'Selected Package:'}</span>
               <strong className="text-white font-extrabold">
-                {activeTier.views.toLocaleString(isTr ? 'tr-TR' : 'en-US')} {isTr ? 'İzlenme' : 'Views'} • {isTr ? activeGenre.labelTr : activeGenre.labelEn} ({isTr ? activeRegion.labelTr : activeRegion.labelEn})
+                {activeTier.views.toLocaleString(isAr ? 'ar-u-nu-latn-ca-gregory' : isTr ? 'tr-TR' : 'en-US')} {isAr ? 'المشاهدات' : isTr ? 'İzlenme' : 'Views'} • {isAr ? activeGenre.labelAr : isTr ? activeGenre.labelTr : activeGenre.labelEn} ({isAr ? activeRegion.labelAr : isTr ? activeRegion.labelTr : activeRegion.labelEn})
               </strong>
             </div>
             <div className="flex items-center justify-center md:justify-start gap-3 text-xs text-zinc-400">
               <span className="flex items-center gap-1">
                 <Clock className="h-3 w-3 text-zinc-500" />
-                <span>{activeTier.days} {isTr ? 'gün teslimat' : 'days delivery'}</span>
+                <span>{activeTier.days} {isAr ? 'أيام للتسليم' : isTr ? 'gün teslimat' : 'days delivery'}</span>
               </span>
               <span>•</span>
               <span className="text-emerald-400 font-bold flex items-center gap-1">
                 <ShieldCheck className="h-3.5 w-3.5" />
-                <span>{isTr ? 'Önce Analiz, Sonra Teklif' : 'Review First, Then Quote'}</span>
+                <span>{isAr ? 'تحليل أولًا ثم عرض سعر' : isTr ? 'Önce Analiz, Sonra Teklif' : 'Review First, Then Quote'}</span>
               </span>
             </div>
           </div>
@@ -275,7 +304,7 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
               href={orderHref}
               className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-6 py-3.5 text-xs sm:text-sm font-black text-white shadow-xl shadow-[#FF0033]/30 hover:brightness-110 active:scale-95 transition-all text-center"
             >
-              <span>{isTr ? 'Hemen Kampanyayı Başlat' : 'Launch Campaign in 1-Click'} ({priceDisplay})</span>
+              <span>{isAr ? 'ابدأ الحملة بنقرة واحدة' : isTr ? 'Hemen Kampanyayı Başlat' : 'Launch Campaign in 1-Click'} ({priceDisplay})</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
 
@@ -286,7 +315,7 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
               className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-xl border border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 px-5 py-3.5 text-xs sm:text-sm font-bold text-emerald-300 hover:text-white transition-all text-center"
             >
               <MessageCircle className="h-4 w-4 fill-emerald-400" />
-              <span>{isTr ? 'WhatsApp ile Danış' : 'Chat with PR Lead'}</span>
+              <span>{isAr ? 'تحدث مع مسؤول الترويج' : isTr ? 'WhatsApp ile Danış' : 'Chat with PR Lead'}</span>
             </a>
           </div>
         </div>
@@ -295,19 +324,19 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 pt-2 text-[11px] text-zinc-400">
           <div className="flex items-center gap-1.5">
             <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
-            <span>{isTr ? '%100 YouTube Studio Tescili' : '100% YouTube Studio Verified'}</span>
+            <span>{isAr ? 'موثّق 100% في YouTube Studio' : isTr ? '%100 YouTube Studio Tescili' : '100% YouTube Studio Verified'}</span>
           </div>
           <div className="flex items-center gap-1.5">
             <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
-            <span>{isTr ? 'Sıfır Bot / %100 Resmi Google Ads' : 'Zero Bots / Official Google Ads'}</span>
+            <span>{isAr ? 'بلا بوتات / إعلانات Google Ads الرسمية' : isTr ? 'Sıfır Bot / %100 Resmi Google Ads' : 'Zero Bots / Official Google Ads'}</span>
           </div>
           <div className="flex items-center gap-1.5">
             <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
-            <span>{isTr ? 'Şifre Gerekmez (Yalnızca Link)' : 'No Channel Password Needed'}</span>
+            <span>{isAr ? 'لا حاجة لكلمة مرور القناة' : isTr ? 'Şifre Gerekmez (Yalnızca Link)' : 'No Channel Password Needed'}</span>
           </div>
           <div className="flex items-center gap-1.5">
             <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
-            <span>{isTr ? '18+ Yıllık Kesintisiz Tecrübe' : '18+ Years Track Record'}</span>
+            <span>{isAr ? 'خبرة تتجاوز 18 عامًا' : isTr ? '18+ Yıllık Kesintisiz Tecrübe' : '18+ Years Track Record'}</span>
           </div>
         </div>
       </div>

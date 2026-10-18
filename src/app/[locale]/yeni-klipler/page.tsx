@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Play, Sparkles, Flame, Eye, ThumbsUp, Calendar, ArrowRight, Video, ExternalLink } from 'lucide-react';
 import { getNewReleases, type NewRelease } from '@/lib/releases';
-import { getPageAlternates } from '@/lib/seo';
+import { getPageAlternates, TR_EN } from '@/lib/seo';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -13,11 +13,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
 
-  const rawTitle = isTr
+  const isAr = locale === 'ar';
+
+  const rawTitle = isAr
+    ? 'كليبات تركية جديدة ورادار الإصدارات 2026 | MedyaPR'
+    : isTr
     ? 'Yeni Çıkan Müzik Klipleri ve Lansman Radarı 2026 | MedyaPR'
     : 'New Turkish Music Videos & Release Radar 2026 | MedyaPR';
 
-  const pageDesc = isTr
+  const pageDesc = isAr
+    ? 'أحدث الكليبات الصادرة هذا الأسبوع من netd music وDMC وSony Music وشركات الإنتاج المستقلة. مراجعات الكليبات وتحليلات يوتيوب.'
+    : isTr
     ? 'netd müzik, DMC, Sony Music ve bağımsız yapımlardan bugün ve bu hafta yayınlanan en yeni video klipler, müzikal analizler ve YouTube izlenme incelemeleri.'
     : 'Latest music videos released this week across netd music, DMC, Sony Music, and independent labels. Video reviews and YouTube analytics.';
 
@@ -26,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       absolute: rawTitle,
     },
     description: pageDesc,
-    alternates: getPageAlternates(locale, '/yeni-klipler'),
+    alternates: getPageAlternates(locale, '/yeni-klipler', TR_EN),
     openGraph: {
       title: rawTitle,
       description: pageDesc,
@@ -37,6 +43,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function NewReleasesPage({ params }: Props) {
   const { locale } = await params;
   const isTr = locale === 'tr';
+
+  const isAr = locale === 'ar';
   const releases = await getNewReleases();
 
   const channelBadgeColor: Record<string, string> = {
@@ -61,18 +69,20 @@ export default async function NewReleasesPage({ params }: Props) {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[#D9002B]" />
             </span>
             <Video className="h-3.5 w-3.5 text-[#FF0033]" />
-            <span>{isTr ? 'Klip Lansman Radarı' : 'Video Release Radar'}</span>
+            <span>{isAr ? 'رادار إصدارات الفيديو كليب' : isTr ? 'Klip Lansman Radarı' : 'Video Release Radar'}</span>
           </div>
 
           <h1 className="text-3xl md:text-5xl font-black tracking-tight text-white mb-4">
-            {isTr ? 'Türkiye\'de Yeni Çıkan' : 'Latest Released'}{' '}
+            {isAr ? 'أحدث الإصدارات' : isTr ? 'Türkiye\'de Yeni Çıkan' : 'Latest Released'}{' '}
             <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
-              {isTr ? 'Müzik Klipleri & Analizler' : 'Music Videos & Reviews'}
+              {isAr ? 'فيديو كليبات ومراجعات' : isTr ? 'Müzik Klipleri & Analizler' : 'Music Videos & Reviews'}
             </span>
           </h1>
 
           <p className="text-sm md:text-base text-zinc-300 leading-relaxed">
-            {isTr
+            {isAr
+              ? 'أحدث الفيديو كليبات الصادرة هذا الأسبوع من netd music وDMC وSony Music وشركات التسجيلات المستقلة، مع تحليل تحريري.'
+              : isTr
               ? 'netd müzik, DMC, Sony Music Türkiye ve bağımsız dağıtımlardan bugün ve bu hafta yayınlanan en yeni klipler, sanatsal kurgu incelemeleri ve YouTube algoritma analizleri.'
               : 'The freshest music videos released this week across netd music, DMC, Sony Music, and independent record labels with editorial analysis.'}
           </p>
@@ -81,7 +91,7 @@ export default async function NewReleasesPage({ params }: Props) {
         {/* Channels Highlight Bar */}
         <div className="mb-10 flex flex-wrap items-center justify-center gap-3">
           <span className="text-xs font-semibold text-zinc-400 mr-2">
-            {isTr ? 'Takip Edilen Dağıtım Kanalları:' : 'Monitored Channels:'}
+            {isAr ? 'القنوات المتابَعة:' : isTr ? 'Takip Edilen Dağıtım Kanalları:' : 'Monitored Channels:'}
           </span>
           <span className="rounded-full bg-red-950/60 border border-red-500/30 px-3 py-1 text-xs font-bold text-red-300">
             netd müzik
@@ -175,7 +185,7 @@ export default async function NewReleasesPage({ params }: Props) {
                     href={`/${locale}/klip/${rel.slug}`}
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-[#FF0033] transition-colors"
                   >
-                    <span>{isTr ? 'İncele & İzle' : 'Review & Watch'}</span>
+                    <span>{isAr ? 'راجع وشاهد' : isTr ? 'İncele & İzle' : 'Review & Watch'}</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
@@ -190,18 +200,20 @@ export default async function NewReleasesPage({ params }: Props) {
             <div className="max-w-2xl text-center lg:text-left">
               <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-3 py-1 text-xs font-bold text-emerald-300">
                 <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
-                <span>{isTr ? 'Sanatçılar ve Yapımcılar İçin' : 'For Artists & Producers'}</span>
+                <span>{isAr ? 'للفنانين والمنتجين' : isTr ? 'Sanatçılar ve Yapımcılar İçin' : 'For Artists & Producers'}</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
-                {isTr ? 'Yeni Bir Klip mi Yayınladınız?' : 'Did You Just Release a New Music Video?'}{' '}
+                {isAr ? 'هل أصدرت فيديو كليب جديدًا للتو؟' : isTr ? 'Yeni Bir Klip mi Yayınladınız?' : 'Did You Just Release a New Music Video?'}{' '}
                 <span className="bg-gradient-to-r from-[#FF0033] to-[#FF6B6B] bg-clip-text text-transparent">
-                  {isTr ? 'Doğru Kitleyle Buluşturalım' : 'Reach the Right Audience'}
+                  {isAr ? 'اصل إلى الجمهور المناسب' : isTr ? 'Doğru Kitleyle Buluşturalım' : 'Reach the Right Audience'}
                 </span>
               </h2>
 
               <p className="text-sm text-zinc-300 leading-relaxed">
-                {isTr
+                {isAr
+                  ? 'احصل على ترويج بإعلانات Google Ads الرسمية لفيديو الكليب خلال أول 48 ساعة الحاسمة. بلا بوتات، وبشفافية كاملة في YouTube Studio.'
+                  : isTr
                   ? 'Klibinizin ilk 48 saatte YouTube algoritmasında organik ivme yakalaması için resmi Google Partner güvencesiyle yanınızdayız. Bot veya panel yok; yalnızca YouTube Studio tescilli resmi Google Ads video reklamları.'
                   : 'Get official Google Ads video promotions for your music video within the critical first 48 hours. Zero bots, pure YouTube Studio transparency.'}
               </p>
@@ -212,7 +224,7 @@ export default async function NewReleasesPage({ params }: Props) {
                 href={`/${locale}/fiyatlandirma`}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-[#FF0033]/30 hover:brightness-110 transition active:scale-95"
               >
-                <span>{isTr ? 'YouTube Reklam Fiyatları' : 'Calculate Budget'}</span>
+                <span>{isAr ? 'احسب ميزانيتك' : isTr ? 'YouTube Reklam Fiyatları' : 'Calculate Budget'}</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
 
@@ -220,7 +232,7 @@ export default async function NewReleasesPage({ params }: Props) {
                 href={`/${locale}/order`}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 border border-white/20 px-6 py-3 text-sm font-semibold text-white hover:bg-white/15 transition"
               >
-                <span>{isTr ? 'Klip Analizi İste' : 'Request Video Audit'}</span>
+                <span>{isAr ? 'اطلب مراجعة الفيديو' : isTr ? 'Klip Analizi İste' : 'Request Video Audit'}</span>
               </Link>
             </div>
           </div>

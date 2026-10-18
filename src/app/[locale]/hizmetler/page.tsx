@@ -14,13 +14,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
 
+  const isAr = locale === 'ar';
+
   return {
     title: {
-      absolute: isTr
+      absolute: isAr
+        ? 'خدمات الترويج الموسيقي على يوتيوب وفيديو Google Ads | MedyaPR'
+        : isTr
         ? 'Google Ads YouTube İzlenme & Klip PR Hizmetleri | MedyaPR'
         : 'YouTube Music PR & Google Ads Video Services | MedyaPR',
     },
-    description: isTr
+    description: isAr
+      ? 'نمِّ قناتك على يوتيوب عبر حملات Google Ads الرسمية In-Stream وShorts والاكتشاف. خبرة تتجاوز 18 عامًا وبدون أي بوتات.'
+      : isTr
       ? 'Resmi Google Ads ile YouTube klip tanıtımı, hedefli izlenme, abone ve etkileşim kampanyaları, Shorts reklamları. Şifre istenmez, ücretsiz video analizi.'
       : 'Grow your YouTube channel with official Google Ads In-Stream, Shorts and Discovery campaigns. 18+ years experience and zero bots.',
     alternates: getPageAlternates(locale, '/hizmetler'),
@@ -31,6 +37,8 @@ export default async function ServicesPage({ params }: Props) {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
   const isTr = locale === 'tr';
+
+  const isAr = locale === 'ar';
 
   const iconMap: Record<string, LucideIcon> = {
     play: Play,
@@ -57,30 +65,30 @@ export default async function ServicesPage({ params }: Props) {
                   {
                     '@type': 'ListItem',
                     position: 1,
-                    name: isTr ? 'Ana Sayfa' : 'Home',
+                    name: isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home',
                     item: `https://medyapr.com/${locale}`,
                   },
                   {
                     '@type': 'ListItem',
                     position: 2,
-                    name: isTr ? 'YouTube Reklam & PR Hizmetleri' : 'Services',
+                    name: isAr ? 'الخدمات' : isTr ? 'YouTube Reklam & PR Hizmetleri' : 'Services',
                     item: `https://medyapr.com/${locale}/hizmetler`,
                   },
                 ],
               },
               {
                 '@type': 'Service',
-                name: isTr ? 'YouTube Klip PR ve Google Ads Video Reklam Hizmetleri' : 'YouTube Video & Music PR Services',
+                name: isAr ? 'خدمات الترويج لفيديو يوتيوب والموسيقى' : isTr ? 'YouTube Klip PR ve Google Ads Video Reklam Hizmetleri' : 'YouTube Video & Music PR Services',
                 provider: {
                   '@type': 'Organization',
                   name: 'MedyaPR',
                   url: 'https://medyapr.com',
                 },
-                serviceType: isTr ? 'Dijital Müzik PR ve Video Reklam Yönetimi' : 'Digital Music PR and Video Ad Management',
+                serviceType: isAr ? 'الترويج الموسيقي الرقمي وإدارة إعلانات الفيديو' : isTr ? 'Dijital Müzik PR ve Video Reklam Yönetimi' : 'Digital Music PR and Video Ad Management',
                 description: dict.services.subtitle,
                 hasOfferCatalog: {
                   '@type': 'OfferCatalog',
-                  name: isTr ? 'MedyaPR YouTube Hizmet Kataloğu' : 'MedyaPR YouTube Services Catalog',
+                  name: isAr ? 'كتالوج خدمات MedyaPR على يوتيوب' : isTr ? 'MedyaPR YouTube Hizmet Kataloğu' : 'MedyaPR YouTube Services Catalog',
                   itemListElement: (dict.services?.items || []).map((s) => ({
                     '@type': 'Offer',
                     itemOffered: {
@@ -117,12 +125,16 @@ export default async function ServicesPage({ params }: Props) {
         <div className="container mx-auto px-4 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <h2 className="text-2xl sm:text-3xl font-black text-[#1A1A2E]">
-              {isTr
+              {isAr
+                ? 'حلول رسمية عبر Google Ads لنمو قناة يوتيوب وفيديو الكليب'
+                : isTr
                 ? 'Resmi Google Ads ile YouTube Kanal ve Klip Büyütme Çözümleri'
                 : 'Official Google Ads YouTube Channel & Music Video Growth Solutions'}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base">
-              {isTr
+              {isAr
+                ? 'تعمل جميع الباقات على بنية Google Ads الرسمية 100%، وتُقدَّم تقاريرها بشفافية في YouTube Studio Analytics، ولا تتطلب أي كلمات مرور.'
+                : isTr
                 ? 'Tüm paketlerimiz %100 resmi Google Ads reklam altyapısıyla çalışır, YouTube Studio Analytics’te şeffafça raporlanır ve kanal şifresi gerektirmez.'
                 : 'All packages run on 100% official Google Ads infrastructure, report transparently in YouTube Studio Analytics, and never require passwords.'}
             </p>
@@ -162,8 +174,8 @@ export default async function ServicesPage({ params }: Props) {
                   {/* Features */}
                   <ul className="space-y-2 mb-6">
                     {(service.icon === 'search'
-                      ? [isTr ? 'Video süresi kontrolü' : 'Video length check', isTr ? 'Google Ads uygunluğu' : 'Google Ads eligibility', isTr ? 'Net teklif' : 'Clear quote']
-                      : ['Google Ads', isTr ? 'Gerçek İzlenme' : 'Real Views', isTr ? 'Hedefli Kitle' : 'Targeted Audience']
+                      ? [isAr ? 'فحص مدة الفيديو' : isTr ? 'Video süresi kontrolü' : 'Video length check', isAr ? 'أهلية Google Ads' : isTr ? 'Google Ads uygunluğu' : 'Google Ads eligibility', isAr ? 'عرض سعر واضح' : isTr ? 'Net teklif' : 'Clear quote']
+                      : ['Google Ads', isAr ? 'مشاهدات حقيقية' : isTr ? 'Gerçek İzlenme' : 'Real Views', isAr ? 'جمهور مستهدف' : isTr ? 'Hedefli Kitle' : 'Targeted Audience']
                     ).map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
                         <Check size={14} className="text-green-500 flex-shrink-0" />
@@ -178,14 +190,14 @@ export default async function ServicesPage({ params }: Props) {
                       href={`/${locale}/fiyatlandirma`}
                       className="inline-flex items-center gap-2 text-[#FF0033] font-bold text-sm group-hover:gap-3 transition-all"
                     >
-                      {isTr ? 'Fiyatları Hesapla' : 'Calculate Pricing'}
+                      {isAr ? 'احسب الأسعار' : isTr ? 'Fiyatları Hesapla' : 'Calculate Pricing'}
                       <ArrowRight size={16} />
                     </Link>
                     <Link
                       href={`/${locale}/order`}
                       className="text-xs font-semibold text-gray-500 hover:text-[#1A1A2E] underline"
                     >
-                      {isTr ? 'Analiz İste' : 'Request Review'}
+                      {isAr ? 'اطلب مراجعة' : isTr ? 'Analiz İste' : 'Request Review'}
                     </Link>
                   </div>
 
@@ -203,22 +215,24 @@ export default async function ServicesPage({ params }: Props) {
         <div className="container mx-auto px-4 max-w-5xl space-y-16">
           <div>
             <h2 className="text-2xl sm:text-3xl font-black text-[#1A1A2E] mb-3">
-              {isTr ? 'Süreç nasıl işliyor?' : 'How does it work?'}
+              {isAr ? 'كيف يعمل ذلك؟' : isTr ? 'Süreç nasıl işliyor?' : 'How does it work?'}
             </h2>
             <p className="text-gray-600 mb-8 max-w-3xl">
-              {isTr
+              {isAr
+                ? 'نراجع الفيديو الخاص بك أولًا، ثم نوضح ما يمكن تنفيذه في عرض سعر واضح. لا تبدأ أي حملة دون موافقتك.'
+                : isTr
                 ? 'Önce videonuzu inceliyoruz, sonra ne yapılabileceğini net bir teklifle anlatıyoruz. Onayınız olmadan hiçbir kampanya başlamaz.'
                 : 'We review your video first, then explain what can be done in a clear quote. No campaign starts without your approval.'}
             </p>
             <ol className="grid gap-5 sm:grid-cols-2">
               {[
-                [isTr ? 'Video linkini iletin' : 'Send your video link', isTr ? 'Yalnızca herkese açık YouTube linki yeterli. Kanal şifresi veya yetki istemiyoruz.' : 'A public YouTube link is enough. We never ask for channel passwords or access.'],
-                [isTr ? 'Analiz ve teklif' : 'Review and quote', isTr ? 'Videonun süresini, içeriğini ve Google Ads uygunluğunu inceleyip WhatsApp, Telegram veya e-posta ile teklifle dönüyoruz.' : 'We check length, content and Google Ads eligibility, then reply by WhatsApp, Telegram or email with a quote.'],
-                [isTr ? 'Reklam onayı ve başlangıç' : 'Ad approval and start', isTr ? 'Siz onaylayınca reklam Google Ads onayına gönderilir; onay çıkınca yayın başlar.' : 'Once you approve, the ad is submitted to Google Ads. When it is approved, delivery starts.'],
-                [isTr ? 'Raporlama' : 'Reporting', isTr ? 'Kampanya bitince YouTube Studio ve Google Ads verileriyle rapor paylaşılır.' : 'When the campaign ends we share a report based on YouTube Studio and Google Ads data.'],
+                [isAr ? 'أرسل رابط الفيديو' : isTr ? 'Video linkini iletin' : 'Send your video link', isAr ? 'يكفي رابط يوتيوب عام. لا نطلب أبدًا كلمات مرور القناة أو صلاحية الدخول إليها.' : isTr ? 'Yalnızca herkese açık YouTube linki yeterli. Kanal şifresi veya yetki istemiyoruz.' : 'A public YouTube link is enough. We never ask for channel passwords or access.'],
+                [isAr ? 'المراجعة وعرض السعر' : isTr ? 'Analiz ve teklif' : 'Review and quote', isAr ? 'نفحص المدة والمحتوى وأهلية Google Ads، ثم نرد عليك عبر WhatsApp أو Telegram أو البريد الإلكتروني مع عرض سعر.' : isTr ? 'Videonun süresini, içeriğini ve Google Ads uygunluğunu inceleyip WhatsApp, Telegram veya e-posta ile teklifle dönüyoruz.' : 'We check length, content and Google Ads eligibility, then reply by WhatsApp, Telegram or email with a quote.'],
+                [isAr ? 'موافقة الإعلان وبدء الحملة' : isTr ? 'Reklam onayı ve başlangıç' : 'Ad approval and start', isAr ? 'بعد موافقتك، يُرسل الإعلان إلى Google Ads. وعند اعتماده تبدأ عملية التسليم.' : isTr ? 'Siz onaylayınca reklam Google Ads onayına gönderilir; onay çıkınca yayın başlar.' : 'Once you approve, the ad is submitted to Google Ads. When it is approved, delivery starts.'],
+                [isAr ? 'التقرير' : isTr ? 'Raporlama' : 'Reporting', isAr ? 'عند انتهاء الحملة نشارك تقريرًا مبنيًا على بيانات YouTube Studio وGoogle Ads.' : isTr ? 'Kampanya bitince YouTube Studio ve Google Ads verileriyle rapor paylaşılır.' : 'When the campaign ends we share a report based on YouTube Studio and Google Ads data.'],
               ].map(([t, d], i) => (
                 <li key={i} className="rounded-2xl border border-gray-100 bg-[#FAFAFA] p-6">
-                  <p className="text-sm font-bold text-[#CC0029] mb-1">{isTr ? `Adım ${i + 1}` : `Step ${i + 1}`}</p>
+                  <p className="text-sm font-bold text-[#CC0029] mb-1">{isAr ? `الخطوة ${i + 1}` : isTr ? `Adım ${i + 1}` : `Step ${i + 1}`}</p>
                   <h3 className="text-lg font-bold text-[#1A1A2E] mb-2">{t}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{d}</p>
                 </li>
@@ -228,13 +242,13 @@ export default async function ServicesPage({ params }: Props) {
 
           <div>
             <h2 className="text-2xl sm:text-3xl font-black text-[#1A1A2E] mb-3">
-              {isTr ? 'Hangi reklam türleri kullanılıyor?' : 'Which ad formats do we use?'}
+              {isAr ? 'ما هي صيغ الإعلانات التي نستخدمها؟' : isTr ? 'Hangi reklam türleri kullanılıyor?' : 'Which ad formats do we use?'}
             </h2>
             <div className="grid gap-5 md:grid-cols-3">
               {[
-                [isTr ? 'Atlanabilir In-Stream' : 'Skippable In-Stream', isTr ? 'Reklam, diğer videoların başında veya ortasında gösterilir. Kullanıcı 5 saniye sonra atlayabilir. Klip tanıtımında en yaygın kullanılan biçimdir.' : 'The ad plays before or during other videos and can be skipped after 5 seconds. It is the most common format for music video promotion.'],
-                [isTr ? 'YouTube Shorts reklamı' : 'YouTube Shorts ads', isTr ? 'Dikey videolar Shorts akışında gösterilir. Kısa teaser veya nakaratı öne çıkaran dikey klip parçaları için uygundur.' : 'Vertical videos are shown in the Shorts feed. A good fit for short teasers or a vertical cut of your chorus.'],
-                [isTr ? 'In-Feed (keşif)' : 'In-Feed (discovery)', isTr ? 'Videonuz YouTube arama sonuçlarında ve ilgili videoların yanında görünür; izleyici tıklayarak izler.' : 'Your video appears in YouTube search results and next to related videos; viewers choose to click and watch.'],
+                [isAr ? 'إعلان In-Stream قابل للتخطي' : isTr ? 'Atlanabilir In-Stream' : 'Skippable In-Stream', isAr ? 'يُعرض الإعلان قبل الفيديوهات الأخرى أو أثناءها ويمكن تخطيه بعد 5 ثوانٍ. وهو الصيغة الأكثر شيوعًا للترويج لفيديو الكليب.' : isTr ? 'Reklam, diğer videoların başında veya ortasında gösterilir. Kullanıcı 5 saniye sonra atlayabilir. Klip tanıtımında en yaygın kullanılan biçimdir.' : 'The ad plays before or during other videos and can be skipped after 5 seconds. It is the most common format for music video promotion.'],
+                [isAr ? 'إعلانات YouTube Shorts' : isTr ? 'YouTube Shorts reklamı' : 'YouTube Shorts ads', isAr ? 'تُعرض الفيديوهات العمودية في خلاصة Shorts. مناسبة للمقاطع التشويقية القصيرة أو لقطة عمودية من كورال أغنيتك.' : isTr ? 'Dikey videolar Shorts akışında gösterilir. Kısa teaser veya nakaratı öne çıkaran dikey klip parçaları için uygundur.' : 'Vertical videos are shown in the Shorts feed. A good fit for short teasers or a vertical cut of your chorus.'],
+                [isAr ? 'In-Feed (الاكتشاف)' : isTr ? 'In-Feed (keşif)' : 'In-Feed (discovery)', isAr ? 'يظهر الفيديو الخاص بك في نتائج بحث يوتيوب وبجانب الفيديوهات ذات الصلة؛ ويختار المشاهد النقر والمشاهدة.' : isTr ? 'Videonuz YouTube arama sonuçlarında ve ilgili videoların yanında görünür; izleyici tıklayarak izler.' : 'Your video appears in YouTube search results and next to related videos; viewers choose to click and watch.'],
               ].map(([t, d], i) => (
                 <div key={i} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
                   <h3 className="text-lg font-bold text-[#1A1A2E] mb-2">{t}</h3>
@@ -243,7 +257,9 @@ export default async function ServicesPage({ params }: Props) {
               ))}
             </div>
             <p className="mt-6 text-sm text-gray-600 max-w-3xl">
-              {isTr
+              {isAr
+                ? 'يعتمد الاستهداف على الدولة واللغة والاهتمامات ونوع الموسيقى. تظهر المشاهدات الإعلانية في YouTube Studio ضمن مصدر الزيارات "YouTube Ads".'
+                : isTr
                 ? 'Hedefleme ülke, dil, ilgi alanı ve müzik türüne göre yapılır. Reklam izlenmeleri YouTube Studio\'da "YouTube Reklamları" kaynağı olarak görünür.'
                 : 'Targeting is based on country, language, interests and music genre. Ad views appear in YouTube Studio under the "YouTube Ads" traffic source.'}
             </p>
@@ -251,26 +267,26 @@ export default async function ServicesPage({ params }: Props) {
 
           <div className="rounded-3xl border border-amber-200 bg-amber-50 p-6 sm:p-8">
             <h2 className="text-xl sm:text-2xl font-black text-[#1A1A2E] mb-3">
-              {isTr ? 'Neleri yapmıyor, neleri garanti etmiyoruz?' : 'What we do not do, and what we cannot guarantee'}
+              {isAr ? 'ما لا نفعله وما لا يمكننا ضمانه' : isTr ? 'Neleri yapmıyor, neleri garanti etmiyoruz?' : 'What we do not do, and what we cannot guarantee'}
             </h2>
             <ul className="space-y-2 text-sm sm:text-base text-gray-700 leading-relaxed list-disc pl-5">
-              <li>{isTr ? 'Bot, panel veya sahte hesap kullanmıyoruz; kanal şifresi istemiyoruz.' : 'We do not use bots, panels or fake accounts, and we never ask for channel passwords.'}</li>
-              <li>{isTr ? 'Beğeni, yorum ve abone sayıları reklam görenlerin kendi kararıdır; bu sayıları önceden garanti edemeyiz. Etkileşim paketi bu yönde hedefleme ve kampanya kurgusu sunar.' : 'Likes, comments and subscribers depend on viewers; we cannot guarantee those numbers in advance. The engagement package offers targeting and campaign setup toward that goal.'}</li>
-              <li>{isTr ? 'Ücretli reklam izlenmeleri YouTube İş Ortağı Programı\'nın 4.000 saatlik izlenme şartına sayılmaz. Bu yüzden "izlenme saati" satmıyoruz.' : 'Paid ad views do not count toward the 4,000 watch hours required by the YouTube Partner Program, so we do not sell watch hours.'}</li>
-              <li>{isTr ? 'Fiyat video süresine, hedef ülkeye ve reklam türüne göre değişebilir; kesin tutar analizden sonra teklifte yazılır.' : 'Pricing varies with video length, target country and ad format; the exact amount is stated in the quote after our review.'}</li>
+              <li>{isAr ? 'لا نستخدم البوتات أو اللوحات أو الحسابات الوهمية، ولا نطلب أبدًا كلمات مرور القناة.' : isTr ? 'Bot, panel veya sahte hesap kullanmıyoruz; kanal şifresi istemiyoruz.' : 'We do not use bots, panels or fake accounts, and we never ask for channel passwords.'}</li>
+              <li>{isAr ? 'الإعجابات والتعليقات والمشتركون تعتمد على المشاهدين؛ ولا يمكننا ضمان هذه الأرقام مسبقًا. تقدّم باقة التفاعل الاستهداف وإعداد الحملة لتحقيق هذا الهدف.' : isTr ? 'Beğeni, yorum ve abone sayıları reklam görenlerin kendi kararıdır; bu sayıları önceden garanti edemeyiz. Etkileşim paketi bu yönde hedefleme ve kampanya kurgusu sunar.' : 'Likes, comments and subscribers depend on viewers; we cannot guarantee those numbers in advance. The engagement package offers targeting and campaign setup toward that goal.'}</li>
+              <li>{isAr ? 'لا تُحتسب المشاهدات الإعلانية المدفوعة ضمن 4,000 ساعة مشاهدة المطلوبة في برنامج شركاء يوتيوب، لذلك لا نبيع ساعات المشاهدة.' : isTr ? 'Ücretli reklam izlenmeleri YouTube İş Ortağı Programı\'nın 4.000 saatlik izlenme şartına sayılmaz. Bu yüzden "izlenme saati" satmıyoruz.' : 'Paid ad views do not count toward the 4,000 watch hours required by the YouTube Partner Program, so we do not sell watch hours.'}</li>
+              <li>{isAr ? 'يختلف السعر حسب مدة الفيديو والدولة المستهدفة وصيغة الإعلان؛ ويُحدَّد المبلغ الدقيق في عرض السعر بعد مراجعتنا.' : isTr ? 'Fiyat video süresine, hedef ülkeye ve reklam türüne göre değişebilir; kesin tutar analizden sonra teklifte yazılır.' : 'Pricing varies with video length, target country and ad format; the exact amount is stated in the quote after our review.'}</li>
             </ul>
           </div>
 
           <div>
             <h2 className="text-2xl sm:text-3xl font-black text-[#1A1A2E] mb-6">
-              {isTr ? 'Sık sorulan sorular' : 'Frequently asked questions'}
+              {isAr ? 'الأسئلة الشائعة' : isTr ? 'Sık sorulan sorular' : 'Frequently asked questions'}
             </h2>
             <div className="divide-y divide-gray-200 rounded-2xl border border-gray-100 bg-[#FAFAFA]">
               {[
-                [isTr ? 'Hangi videolar için hizmet veriyorsunuz?' : 'Which videos do you work with?', isTr ? 'Müzik klipleri, şarkı videoları, canlı performanslar ve kurumsal tanıtım videoları. Video herkese açık veya liste dışı olmalı.' : 'Music videos, song videos, live performances and brand videos. The video must be public or unlisted.'],
-                [isTr ? 'Teslimat ne kadar sürer?' : 'How fast is delivery?', isTr ? 'Teslimat hızı videoya ve hedeflemeye göre değişir; bazen bir gün içinde de tamamlanabilir. Netleşen süre teklifte yazılır.' : 'Delivery speed depends on the video and the targeting; it can sometimes be completed within a single day. The confirmed timing is stated in your quote.'],
-                [isTr ? 'Reklam onay almazsa ne olur?' : 'What if the ad is not approved?', isTr ? 'Video Google Ads politikaları nedeniyle onay almazsa komisyon veya işlem ücreti kesilmez, yapılmış ön ödeme iade edilir. Ayrıntılar iade politikasındadır.' : 'If the video is not approved under Google Ads policies, no commission or fee is charged and any prepayment is refunded. Details are in the refund policy.'],
-                [isTr ? 'Nasıl ödeme yapılır?' : 'How do payments work?', isTr ? 'Sitede online ödeme alınmaz. Ödeme planı, teklifi onayladıktan sonra sizinle netleştirilir.' : 'There is no online payment on the site. The payment plan is agreed with you after you approve the quote.'],
+                [isAr ? 'ما الفيديوهات التي تعملون معها؟' : isTr ? 'Hangi videolar için hizmet veriyorsunuz?' : 'Which videos do you work with?', isAr ? 'فيديوهات الكليب، وفيديوهات الأغاني، والحفلات المباشرة، وفيديوهات العلامات التجارية. يجب أن يكون الفيديو عامًا أو غير مدرج.' : isTr ? 'Müzik klipleri, şarkı videoları, canlı performanslar ve kurumsal tanıtım videoları. Video herkese açık veya liste dışı olmalı.' : 'Music videos, song videos, live performances and brand videos. The video must be public or unlisted.'],
+                [isAr ? 'ما سرعة التسليم؟' : isTr ? 'Teslimat ne kadar sürer?' : 'How fast is delivery?', isAr ? 'تعتمد سرعة التسليم على الفيديو والاستهداف؛ وقد يكتمل أحيانًا خلال يوم واحد. يُذكر الموعد المؤكد في عرض السعر.' : isTr ? 'Teslimat hızı videoya ve hedeflemeye göre değişir; bazen bir gün içinde de tamamlanabilir. Netleşen süre teklifte yazılır.' : 'Delivery speed depends on the video and the targeting; it can sometimes be completed within a single day. The confirmed timing is stated in your quote.'],
+                [isAr ? 'ماذا لو لم تتم الموافقة على الإعلان؟' : isTr ? 'Reklam onay almazsa ne olur?' : 'What if the ad is not approved?', isAr ? 'إذا لم تتم الموافقة على الفيديو وفق سياسات Google Ads، فلا تُحتسب أي عمولة أو رسوم ويُردّ أي مبلغ مدفوع مسبقًا. التفاصيل في سياسة الاسترداد.' : isTr ? 'Video Google Ads politikaları nedeniyle onay almazsa komisyon veya işlem ücreti kesilmez, yapılmış ön ödeme iade edilir. Ayrıntılar iade politikasındadır.' : 'If the video is not approved under Google Ads policies, no commission or fee is charged and any prepayment is refunded. Details are in the refund policy.'],
+                [isAr ? 'كيف تتم عملية الدفع؟' : isTr ? 'Nasıl ödeme yapılır?' : 'How do payments work?', isAr ? 'لا يوجد دفع إلكتروني على الموقع. يُتفق معك على خطة الدفع بعد موافقتك على عرض السعر.' : isTr ? 'Sitede online ödeme alınmaz. Ödeme planı, teklifi onayladıktan sonra sizinle netleştirilir.' : 'There is no online payment on the site. The payment plan is agreed with you after you approve the quote.'],
               ].map(([q, a], i) => (
                 <details key={i} className="group p-5">
                   <summary className="cursor-pointer list-none font-bold text-[#1A1A2E] flex items-center justify-between gap-4">
@@ -283,24 +299,24 @@ export default async function ServicesPage({ params }: Props) {
             </div>
             <div className="mt-8 flex flex-wrap gap-3.5">
               <Link href={`/${locale}/order`} className="inline-flex items-center gap-2 rounded-xl bg-[#D9002B] px-6 py-3 font-bold text-white hover:brightness-110">
-                {isTr ? 'Ücretsiz video analizi iste' : 'Request a free video review'}
+                {isAr ? 'اطلب مراجعة مجانية للفيديو' : isTr ? 'Ücretsiz video analizi iste' : 'Request a free video review'}
               </Link>
               <Link href={`/${locale}/fiyatlandirma`} className="inline-flex items-center gap-2 rounded-xl border border-gray-300 px-6 py-3 font-bold text-[#1A1A2E] hover:bg-gray-50">
-                {isTr ? 'YouTube Reklam Fiyatları' : 'See pricing'}
+                {isAr ? 'عرض الأسعار' : isTr ? 'YouTube Reklam Fiyatları' : 'See pricing'}
               </Link>
               <Link href={`/${locale}/klip-pr`} className="inline-flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-6 py-3 font-bold text-[#CC0029] hover:bg-red-100">
-                {isTr ? 'Müzik Klibi Dijital PR & Lansman Planlama' : 'Music Video Digital PR & Launch Plan'}
+                {isAr ? 'خطة الترويج الرقمي وإطلاق فيديو الكليب' : isTr ? 'Müzik Klibi Dijital PR & Lansman Planlama' : 'Music Video Digital PR & Launch Plan'}
               </Link>
             </div>
             <div className="mt-6 pt-6 border-t border-gray-100 flex flex-wrap gap-4 text-xs font-bold text-[#CC0029]">
               <Link href={`/${locale}/blog/youtube-klip-tanitimi-google-ads-rehberi`} className="hover:underline">
-                → {isTr ? 'YouTube Klip Tanıtımı Nasıl Yapılır? (Resmi Google Ads Rehberi)' : 'How to Promote a Music Video on YouTube'}
+                → {isAr ? 'كيف تروّج لفيديو كليب على يوتيوب' : isTr ? 'YouTube Klip Tanıtımı Nasıl Yapılır? (Resmi Google Ads Rehberi)' : 'How to Promote a Music Video on YouTube'}
               </Link>
               <Link href={`/${locale}/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen`} className="hover:underline">
-                → {isTr ? 'YouTube Shorts Reklam Verme & Demand Gen Rehberi' : 'YouTube Shorts Ad Promotion Guide'}
+                → {isAr ? 'دليل الترويج بإعلانات YouTube Shorts' : isTr ? 'YouTube Shorts Reklam Verme & Demand Gen Rehberi' : 'YouTube Shorts Ad Promotion Guide'}
               </Link>
               <Link href={`/${locale}/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi`} className="hover:underline">
-                → {isTr ? 'YouTube 4000 Saat İzlenme Süresi Doldurma Rehberi' : 'YouTube 4,000 Watch Hours Guide'}
+                → {isAr ? 'دليل 4,000 ساعة مشاهدة على يوتيوب' : isTr ? 'YouTube 4000 Saat İzlenme Süresi Doldurma Rehberi' : 'YouTube 4,000 Watch Hours Guide'}
               </Link>
             </div>
           </div>

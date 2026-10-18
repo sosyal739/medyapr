@@ -10,6 +10,8 @@ interface MobileStickyBarProps {
 
 export default function MobileStickyBar({ locale = 'tr' }: MobileStickyBarProps) {
   const isTr = locale === 'tr';
+
+  const isAr = locale === 'ar';
   const waText = isTr
     ? encodeURIComponent('Merhaba, YouTube klip tanıtımı ve reklam paketleri hakkında bilgi almak istiyorum.')
     : encodeURIComponent('Hello, I would like to get information about YouTube video PR and ad campaigns.');
@@ -23,10 +25,10 @@ export default function MobileStickyBar({ locale = 'tr' }: MobileStickyBarProps)
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 inline-flex items-center justify-center gap-2 min-h-[44px] min-w-0 py-2.5 px-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-lg shadow-emerald-950/50 transition-all active:scale-95"
-          aria-label={isTr ? 'WhatsApp ile Hemen İletişime Geç' : 'Contact via WhatsApp'}
+          aria-label={isAr ? 'تواصل عبر WhatsApp' : isTr ? 'WhatsApp ile Hemen İletişime Geç' : 'Contact via WhatsApp'}
         >
           <MessageCircle className="h-4 w-4 fill-white" />
-          <span>{isTr ? 'WhatsApp Danış' : 'WhatsApp'}</span>
+          <span>{isAr ? 'WhatsApp' : isTr ? 'WhatsApp Danış' : 'WhatsApp'}</span>
         </a>
 
         {/* Telegram Direct Contact Button */}
@@ -35,7 +37,7 @@ export default function MobileStickyBar({ locale = 'tr' }: MobileStickyBarProps)
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-1.5 min-h-[44px] py-2.5 px-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs shadow-lg shadow-sky-950/50 transition-all active:scale-95"
-          aria-label={isTr ? 'Telegram ile İletişime Geç' : 'Contact via Telegram'}
+          aria-label={isAr ? 'تواصل عبر Telegram' : isTr ? 'Telegram ile İletişime Geç' : 'Contact via Telegram'}
         >
           <Send className="h-4 w-4" />
           <span className="hidden min-[360px]:inline">Telegram</span>
@@ -47,7 +49,7 @@ export default function MobileStickyBar({ locale = 'tr' }: MobileStickyBarProps)
           className="flex-1 inline-flex items-center justify-center gap-2 min-h-[44px] min-w-0 py-2.5 px-2.5 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] hover:brightness-110 text-white font-extrabold text-xs shadow-lg shadow-[#FF0033]/30 transition-all active:scale-95"
         >
           <Calculator className="h-4 w-4" />
-          <span>{isTr ? 'Fiyat Hesapla' : 'Get Quote'}</span>
+          <span>{isAr ? 'احصل على عرض سعر' : isTr ? 'Fiyat Hesapla' : 'Get Quote'}</span>
         </Link>
       </div>
     </div>

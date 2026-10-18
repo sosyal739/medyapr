@@ -19,7 +19,7 @@ import {
   UserCheck,
 } from 'lucide-react';
 import { getNewReleases, getReleaseBySlug, isReleaseIndexable, type NewRelease } from '@/lib/releases';
-import { getPageAlternates } from '@/lib/seo';
+import { getPageAlternates, TR_EN } from '@/lib/seo';
 import SocialShareBar from '@/components/releases/SocialShareBar';
 
 type Props = {
@@ -39,15 +39,21 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const isTr = locale === 'tr';
+
+  const isAr = locale === 'ar';
   const rel = await getReleaseBySlug(slug);
 
-  if (!rel) return { title: isTr ? 'Klip Bulunamadı' : 'Video Not Found' };
+  if (!rel) return { title: isAr ? 'الكليب غير موجود' : isTr ? 'Klip Bulunamadı' : 'Video Not Found' };
 
-  const rawTitle = isTr
+  const rawTitle = isAr
+    ? `${rel.artist} - ${rel.title} مراجعة الكليب وتحليلاته | MedyaPR`
+    : isTr
     ? `${rel.artist} - ${rel.title} Klip İncelemesi | MedyaPR`
     : `${rel.artist} - ${rel.title} Video Review & Analytics | MedyaPR`;
 
-  const pageDesc = isTr
+  const pageDesc = isAr
+    ? `كليب ${rel.artist} الجديد ${rel.title} متاح الآن على ${rel.channel}. مراجعة الكليب، وبيانات المخرج وفريق العمل، وتحليلات نمو يوتيوب.`
+    : isTr
     ? `${rel.artist} imzalı ${rel.title} klibi ${rel.channel} kanalında yayında. Klip yönetmeni, künyesi, izlenme analizi ve YouTube algoritma incelemesi.`
     : `${rel.artist}'s new music video ${rel.title} out now on ${rel.channel}. Video review, director credits, and YouTube growth analytics.`;
 
@@ -61,7 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       absolute: rawTitle,
     },
     description: pageDesc,
-    alternates: getPageAlternates(locale, `/klip/${slug}`),
+    alternates: getPageAlternates(locale, `/klip/${slug}`, TR_EN),
     robots: canIndex
       ? {
           index: true,
@@ -86,6 +92,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ReleaseDetailPage({ params }: Props) {
   const { locale, slug } = await params;
   const isTr = locale === 'tr';
+
+  const isAr = locale === 'ar';
   const rel = await getReleaseBySlug(slug);
 
   if (!rel) {
@@ -120,13 +128,13 @@ export default async function ReleaseDetailPage({ params }: Props) {
                   {
                     '@type': 'ListItem',
                     position: 1,
-                    name: isTr ? 'Ana Sayfa' : 'Home',
+                    name: isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home',
                     item: `https://medyapr.com/${locale}`,
                   },
                   {
                     '@type': 'ListItem',
                     position: 2,
-                    name: isTr ? 'Yeni Klipler' : 'New Releases',
+                    name: isAr ? 'الإصدارات الجديدة' : isTr ? 'Yeni Klipler' : 'New Releases',
                     item: `https://medyapr.com/${locale}/yeni-klipler`,
                   },
                   {
@@ -158,7 +166,7 @@ export default async function ReleaseDetailPage({ params }: Props) {
             className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-400 hover:text-white transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
-            <span>{isTr ? 'Tüm Yeni Kliplere Dön' : 'Back to All Releases'}</span>
+            <span>{isAr ? 'العودة إلى كل الإصدارات' : isTr ? 'Tüm Yeni Kliplere Dön' : 'Back to All Releases'}</span>
           </Link>
 
           <a
@@ -170,7 +178,7 @@ export default async function ReleaseDetailPage({ params }: Props) {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
               <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
             </svg>
-            <span>{isTr ? "YouTube'da Resmi Olarak İzle" : 'Watch on YouTube'}</span>
+            <span>{isAr ? 'شاهد على يوتيوب' : isTr ? "YouTube'da Resmi Olarak İzle" : 'Watch on YouTube'}</span>
             <ExternalLink className="h-3.5 w-3.5 text-white/80" />
           </a>
         </div>
@@ -220,9 +228,9 @@ export default async function ReleaseDetailPage({ params }: Props) {
             >
               <div className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
               <div className="text-left">
-                <div className="text-[11px] text-zinc-400 font-medium">{isTr ? 'Canlı YouTube Verisi' : 'Live YouTube Data'}</div>
+                <div className="text-[11px] text-zinc-400 font-medium">{isAr ? 'بيانات يوتيوب المباشرة' : isTr ? 'Canlı YouTube Verisi' : 'Live YouTube Data'}</div>
                 <div className="text-xs font-bold text-white group-hover:text-red-400 transition flex items-center gap-1">
-                  <span>{isTr ? "YouTube'da İzle & Sayıları Gör" : 'View Live Stats'}</span>
+                  <span>{isAr ? 'عرض الإحصاءات المباشرة' : isTr ? "YouTube'da İzle & Sayıları Gör" : 'View Live Stats'}</span>
                   <ExternalLink className="h-3 w-3" />
                 </div>
               </div>
@@ -256,7 +264,7 @@ export default async function ReleaseDetailPage({ params }: Props) {
         <section className="mb-12">
           <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
             <Sparkles className="h-5 w-5 text-[#FF0033]" />
-            <span>{isTr ? 'Klip İncelemesi & Müzikal Analiz' : 'Video Review & Musical Analysis'}</span>
+            <span>{isAr ? 'مراجعة الكليب والتحليل الموسيقي' : isTr ? 'Klip İncelemesi & Müzikal Analiz' : 'Video Review & Musical Analysis'}</span>
           </h2>
 
           <div className="rounded-3xl border border-white/10 bg-[#16191E]/80 p-6 sm:p-8 backdrop-blur-md">
@@ -289,18 +297,20 @@ export default async function ReleaseDetailPage({ params }: Props) {
             <div className="space-y-4 max-w-xl text-center lg:text-left">
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-3 py-1 text-xs font-bold text-emerald-300">
                 <UserCheck className="h-4 w-4 text-emerald-400" />
-                <span>{isTr ? 'Bu Klip Sizin mi? Tanıtım Planı Oluşturun' : 'Is This Your Video? Create a PR Plan'}</span>
+                <span>{isAr ? 'هل هذا كليبك؟ أنشئ خطة ترويج' : isTr ? 'Bu Klip Sizin mi? Tanıtım Planı Oluşturun' : 'Is This Your Video? Create a PR Plan'}</span>
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
-                {isTr ? 'Klibinizi YouTube Algoritmasında' : 'Promote Your Video With'}{' '}
+                {isAr ? 'روّج لكليبك عبر' : isTr ? 'Klibinizi YouTube Algoritmasında' : 'Promote Your Video With'}{' '}
                 <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
-                  {isTr ? 'Resmi Google Ads ile Büyütün' : 'Official Google Ads'}
+                  {isAr ? 'إعلانات Google Ads الرسمية' : isTr ? 'Resmi Google Ads ile Büyütün' : 'Official Google Ads'}
                 </span>
               </h3>
 
               <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                {isTr
+                {isAr
+                  ? `مبروك! '${rel.title}' متاح الآن. وسّع انتشارك وادخل توصيات يوتيوب عبر الترويج للفيديو بإعلانات Google Ads المعتمدة.`
+                  : isTr
                   ? `Tebrikler! '${rel.title}' klibiniz yayında. Klibinizin YouTube algoritmasında doğru müzikseverlere ulaşması ve önerilen videolara girmesi için resmi Google Ads video kampanyaları hazırlıyoruz.`
                   : `Congratulations! '${rel.title}' is out now. Scale your reach and trigger YouTube recommendations with certified Google Ads video PR.`}
               </p>
@@ -325,7 +335,9 @@ export default async function ReleaseDetailPage({ params }: Props) {
               </div>
 
               <p className="text-[11px] text-zinc-400 italic pt-2 border-t border-white/5">
-                {isTr
+                {isAr
+                  ? '* MedyaPR وكالة إعلانات Google Ads؛ وهذه الصفحة تحريرية مجانية لعرض الموسيقى. يمكن حذف المحتوى خلال 24 ساعة بناءً على طلب الفنان.'
+                  : isTr
                   ? '* MedyaPR bir Google Ads ajansıdır; bu sayfa ücretsiz editoryal müzik tanıtımıdır. Sanatçı veya yapım şirketi talebi doğrultusunda sayfa 24 saat içinde yayından kaldırılabilir.'
                   : '* MedyaPR is a Google Ads agency; this page is free editorial music curation. Content can be removed within 24h upon artist request.'}
               </p>
@@ -342,14 +354,14 @@ export default async function ReleaseDetailPage({ params }: Props) {
                 className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-emerald-600/30 transition-all hover:scale-105 active:scale-95"
               >
                 <MessageCircle className="h-5 w-5 fill-white" />
-                <span>{isTr ? 'WhatsApp ile Plan Oluştur' : 'Create Plan on WhatsApp'}</span>
+                <span>{isAr ? 'أنشئ الخطة عبر WhatsApp' : isTr ? 'WhatsApp ile Plan Oluştur' : 'Create Plan on WhatsApp'}</span>
               </a>
 
               <Link
                 href={`/${locale}/fiyatlandirma`}
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-[#FF0033]/30 hover:brightness-110 transition active:scale-95"
               >
-                <span>{isTr ? 'YouTube Reklam Fiyatlarını Hesapla' : 'Calculate Target & Budget'}</span>
+                <span>{isAr ? 'احسب الهدف والميزانية' : isTr ? 'YouTube Reklam Fiyatlarını Hesapla' : 'Calculate Target & Budget'}</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
 
@@ -357,7 +369,7 @@ export default async function ReleaseDetailPage({ params }: Props) {
                 href={`/${locale}/order`}
                 className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-7 py-3 text-xs font-bold text-zinc-200 hover:bg-white/10 transition"
               >
-                <span>{isTr ? 'Online Analiz & Sipariş Formu' : 'Online Audit & Order Form'}</span>
+                <span>{isAr ? 'نموذج التحليل والطلب أونلاين' : isTr ? 'Online Analiz & Sipariş Formu' : 'Online Audit & Order Form'}</span>
               </Link>
             </div>
           </div>

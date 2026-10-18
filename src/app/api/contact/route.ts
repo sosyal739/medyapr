@@ -23,7 +23,7 @@ export async function POST(req: Request) {
   const phone = clean(b.phone, 40);
   const channelUrl = clean(b.channelUrl, 300);
   const message = typeof b.message === 'string' ? b.message.trim().slice(0, 3000) : '';
-  const lang = b.language === 'en' ? 'EN' : 'TR';
+  const lang = b.language === 'ar' ? 'AR' : b.language === 'en' ? 'EN' : 'TR';
 
   if (name.length < 2 || !message) return NextResponse.json({ error: 'missing_fields' }, { status: 400 });
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return NextResponse.json({ error: 'invalid_email' }, { status: 422 });

@@ -18,9 +18,11 @@ export default function TestimonialsSlider({ dict, locale = 'tr' }: Testimonials
   const t = dict?.testimonials ?? {};
   const isTr = locale === 'tr';
 
-  const sectionTitle = t.title ?? (isTr ? 'Müşterilerimiz Ne Diyor?' : 'What Our Clients Say');
+  const isAr = locale === 'ar';
+
+  const sectionTitle = t.title ?? (isAr ? 'ماذا يقول عملاؤنا' : isTr ? 'Müşterilerimiz Ne Diyor?' : 'What Our Clients Say');
   const sectionSubtitle =
-    t.subtitle ?? (isTr ? 'Binlerce müşterimizden bazılarının deneyimleri.' : 'Real customer experiences.');
+    t.subtitle ?? (isAr ? 'تجارب حقيقية من عملائنا.' : isTr ? 'Binlerce müşterimizden bazılarının deneyimleri.' : 'Real customer experiences.');
 
   const testimonials = t.items ?? [
     {

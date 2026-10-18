@@ -12,6 +12,8 @@ interface FAQSectionProps {
 
 export default function FAQSection({ dict, locale = 'tr' }: FAQSectionProps) {
   const isTr = locale === 'tr';
+
+  const isAr = locale === 'ar';
   const items = getFaqs(locale);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -28,7 +30,7 @@ export default function FAQSection({ dict, locale = 'tr' }: FAQSectionProps) {
       {/* Floating Animated Badge */}
       <div className="pointer-events-none absolute top-12 left-8 lg:left-24 z-20 hidden md:flex items-center gap-2 rounded-2xl border border-zinc-700/60 bg-zinc-900/90 px-4 py-2 text-xs font-bold text-white shadow-2xl backdrop-blur-xl animate-float-slow">
         <HelpCircle className="h-4 w-4 text-[#FF4D6D]" />
-        <span>{isTr ? '7/24 Şeffaf Yanıtlar & Destek' : '24/7 Transparent Answers & Support'}</span>
+        <span>{isAr ? 'إجابات شفافة ودعم على مدار الساعة 24/7' : isTr ? '7/24 Şeffaf Yanıtlar & Destek' : '24/7 Transparent Answers & Support'}</span>
       </div>
 
       <div className="relative mx-auto max-w-4xl px-4 md:px-8">
@@ -36,13 +38,15 @@ export default function FAQSection({ dict, locale = 'tr' }: FAQSectionProps) {
         <div className="mb-16 text-center">
           <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-zinc-700/60 bg-zinc-800/80 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-zinc-300">
             <HelpCircle className="h-3.5 w-3.5 text-[#FF0033]" />
-            {isTr ? 'Şeffaf Bilgilendirme' : 'FAQ'}
+            {isAr ? 'الأسئلة الشائعة' : isTr ? 'Şeffaf Bilgilendirme' : 'FAQ'}
           </span>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-white">
-            {isTr ? 'Sıkça Sorulan Sorular' : 'Frequently Asked Questions'}
+            {isAr ? 'الأسئلة الشائعة' : isTr ? 'Sıkça Sorulan Sorular' : 'Frequently Asked Questions'}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-zinc-300">
-            {isTr
+            {isAr
+              ? 'كل ما تحتاج معرفته عن آلية تنفيذ حملات فيديو Google Ads لدينا.'
+              : isTr
               ? 'Google Ads video kampanyaları ve sipariş süreci hakkında en çok merak edilenler.'
               : 'Everything you need to know about our Google Ads video delivery process.'}
           </p>
