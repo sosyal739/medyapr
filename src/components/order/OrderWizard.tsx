@@ -47,6 +47,7 @@ type Video = {
   likes?: number;
   comments?: number;
   durationSec?: number;
+  publishedAt?: string;
   source: 'api' | 'oembed';
 };
 
@@ -154,19 +155,42 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
 
   const buildPackageMessage = (orderId?: string) => {
     const codeLine = orderId ? (isTr ? `Talep Kodu: ${orderId}\n` : `Request Code: ${orderId}\n`) : '';
-    const titleLine = video?.title ? `${video.title}\n` : '';
-    const statsLine = [
-      durText ? (isTr ? `Süre: ${durText}` : `Duration: ${durText}`) : '',
-      video?.views !== undefined ? (isTr ? `Mevcut İzlenme: ${nf.format(video.views)}` : `Current Views: ${nf.format(video.views)}`) : '',
+    // Video bloğu: yalnızca bilinen alanlar yazılır (YouTube API anahtarı yoksa istatistikler boş kalır)
+    const pubText = video?.publishedAt
+      ? new Date(video.publishedAt).toLocaleDateString(isTr ? 'tr-TR' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })
+      : '';
+    const likeRate =
+      video?.views && video.likes !== undefined
+        ? isTr
+          ? `%${((video.likes / video.views) * 100).toFixed(1).replace('.', ',')}`
+          : `${((video.likes / video.views) * 100).toFixed(1)}%`
+        : '';
+    const L = isTr
+      ? { title: 'Video', channel: 'Kanal', link: 'Link', pub: 'Yayın tarihi', dur: 'Süre', views: 'İzlenme', likes: 'Beğeni', comments: 'Yorum', rate: 'beğeni oranı' }
+      : { title: 'Video', channel: 'Channel', link: 'Link', pub: 'Published', dur: 'Duration', views: 'Views', likes: 'Likes', comments: 'Comments', rate: 'like rate' };
+    const metaLine = [pubText && `${L.pub}: ${pubText}`, durText && `${L.dur}: ${durText}`].filter(Boolean).join(' · ');
+    const statLine = [
+      video?.views !== undefined && `${L.views}: ${nf.format(video.views)}`,
+      video?.likes !== undefined && `${L.likes}: ${nf.format(video.likes)}${likeRate ? ` (${L.rate} ${likeRate})` : ''}`,
+      video?.comments !== undefined && `${L.comments}: ${nf.format(video.comments)}`,
     ]
       .filter(Boolean)
-      .join(' - ');
+      .join(' · ');
+    const videoBlock = [
+      video?.title && `${L.title}: ${video.title}`,
+      video?.channel && `${L.channel}: ${video.channel}`,
+      `${L.link}: ${url}`,
+      metaLine,
+      statLine,
+    ]
+      .filter(Boolean)
+      .join('\n');
     const senderLine = [name.trim(), contact.trim(), email.trim()].filter(Boolean).join(' - ');
     const noteLine = note.trim() ? (isTr ? `\nNot: ${note.trim()}` : `\nNote: ${note.trim()}`) : '';
 
     return isTr
-      ? `Merhaba, YouTube videom için seçtiğim paketi iletmek ve detaylı analiz / teklif almak istiyorum.\n\n${codeLine}Video: ${titleLine}${url}\n${statsLine ? `Video Bilgisi: ${statsLine}\n` : ''}Seçilen Paket: ${nf.format(q.views)} İzlenme - ${pkgName} - ${regionName}\nTahmini Teklif: ${totalText} (Video uzunluğuna göre değişebilir)${senderLine ? `\nİletişim: ${senderLine}` : ''}${noteLine}`
-      : `Hello, I would like to submit my selected package and request a detailed video analysis & quote.\n\n${codeLine}Video: ${titleLine}${url}\n${statsLine ? `Video Info: ${statsLine}\n` : ''}Selected Package: ${nf.format(q.views)} Views - ${pkgName} - ${regionName}\nEstimated Quote: ${totalText} (May vary by video length)${senderLine ? `\nContact: ${senderLine}` : ''}${noteLine}`;
+      ? `Merhaba, YouTube videom için seçtiğim paketi iletmek ve detaylı analiz / teklif almak istiyorum.\n\n${codeLine}${videoBlock}\n\nSeçilen Paket: ${nf.format(q.views)} İzlenme - ${pkgName} - ${regionName}\nTahmini Teklif: ${totalText} (Video uzunluğuna göre değişebilir)${senderLine ? `\nİletişim: ${senderLine}` : ''}${noteLine}`
+      : `Hello, I would like to submit my selected package and request a detailed video analysis & quote.\n\n${codeLine}${videoBlock}\n\nSelected Package: ${nf.format(q.views)} Views - ${pkgName} - ${regionName}\nEstimated Quote: ${totalText} (May vary by video length)${senderLine ? `\nContact: ${senderLine}` : ''}${noteLine}`;
   };
 
   function ensureVideoEntered(): boolean {
@@ -215,6 +239,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             email,
             contact,
             note,
+            locale,
           }),
         });
         const data = await res.json().catch(() => ({}));
@@ -259,6 +284,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           email,
           contact,
           note,
+          locale,
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -510,6 +536,13 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
                 <div className="bg-zinc-400" style={{ width: `${(video.views / (video.views + q.views)) * 100}%` }} />
                 <div className="bg-gradient-to-r from-[#FF0033] to-[#FF6B6B]" style={{ width: `${(q.views / (video.views + q.views)) * 100}%` }} />
               </div>
+              {(video.likes !== undefined || video.comments !== undefined) && (
+                <p className="mt-2 text-xs text-zinc-400">
+                  {video.likes !== undefined && <>{isTr ? 'Beğeni' : 'Likes'}: <strong className="text-white">{nf.format(video.likes)}</strong></>}
+                  {video.likes !== undefined && video.comments !== undefined && ' · '}
+                  {video.comments !== undefined && <>{isTr ? 'Yorum' : 'Comments'}: <strong className="text-white">{nf.format(video.comments)}</strong></>}
+                </p>
+              )}
               <p className="mt-2 text-xs text-zinc-300">
                 {isTr ? 'Hedeflenen toplam' : 'Target total'}: <strong className="text-white">≈ {nf.format(video.views + q.views)}</strong> {isTr ? 'izlenme' : 'views'}
               </p>

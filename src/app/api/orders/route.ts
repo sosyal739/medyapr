@@ -26,6 +26,8 @@ export async function POST(req: Request) {
   const rawName = String(b.name ?? '').trim().slice(0, 80);
   const contact = String(b.contact ?? '').trim().slice(0, 80) || undefined;
   const note = String(b.note ?? '').trim().slice(0, 400) || undefined;
+  const visitorLocale = ['tr', 'en', 'ar'].includes(String(b.locale)) ? String(b.locale) : 'tr';
+  const LANG_NAME: Record<string, string> = { tr: 'Türkçe', en: 'İngilizce', ar: 'Arapça' };
   const format = (FORMATS.includes(b.format as Format) ? b.format : 'instream') as Format;
   const pkg = (PACKAGES.includes(b.pkg as Package) ? b.pkg : 'views') as Package;
   const region = (REGIONS.includes(b.region as Region) ? b.region : 'tr') as Region;
@@ -85,19 +87,25 @@ export async function POST(req: Request) {
   // Bildirim: başarısız olsa bile sipariş kaydı etkilenmez (notifyOwner fırlatmaz).
   const fmt = (n: number) => new Intl.NumberFormat('tr-TR').format(n);
   await notifyOwner({
-    subject: `🎯 Yeni Teklif & Analiz Talebi (${channel.toUpperCase()}) ${order.id}: ${order.name} — ${fmt(order.total)} ${order.currency}`,
+    subject: `[${visitorLocale.toUpperCase()}] 🎯 Yeni Teklif & Analiz Talebi (${channel.toUpperCase()}) ${order.id}: ${order.name} — ${fmt(order.total)} ${order.currency}`,
     replyTo: emailValid ? email : undefined,
     html: renderMail(
       `🎯 Yeni Video Analiz & Teklif Talebi (${channelLabel})`,
       [
         ['Takip Kodu', escapeHtml(order.id)],
         ['İletişim Kanalı', escapeHtml(channelLabel)],
+        ['Ziyaretçi Dili', escapeHtml(LANG_NAME[visitorLocale])],
         ['Ad / Sanatçı', escapeHtml(name)],
         ['E-Posta', escapeHtml(email)],
         ['WhatsApp / Telegram', escapeHtml(contact || '')],
         ['Müşteri Notu', escapeHtml(note || '')],
         ['Video', escapeHtml(video?.title ? `${video.title} — ${video.channel}\n${videoUrl}` : videoUrl)],
+        ['Kanal', escapeHtml(video?.channel || '')],
+        ['Yayın Tarihi', video?.publishedAt ? new Date(video.publishedAt).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' }) : ''],
+        ['Süre', video?.durationSec ? `${Math.floor(video.durationSec / 60)}:${String(video.durationSec % 60).padStart(2, '0')}` : ''],
         ['Başlangıç İzlenmesi', video?.views !== undefined ? fmt(video.views) : ''],
+        ['Beğeni', video?.likes !== undefined ? fmt(video.likes) + (video.views ? ` (%${((video.likes / video.views) * 100).toFixed(1)})` : '') : ''],
+        ['Yorum', video?.comments !== undefined ? fmt(video.comments) : ''],
         ['Seçilen Paket', escapeHtml(`${order.pkg ?? 'views'} • ${order.format} • ${order.region} • ${fmt(order.views)} izlenme`)],
         ['Tahmini Tutar', escapeHtml(`${fmt(order.total)} ${order.currency} (Video uzunluğuna göre değişebilir)`)],
         ['Takip Linki', `https://medyapr.com/tr/track/${escapeHtml(order.id)}`],
