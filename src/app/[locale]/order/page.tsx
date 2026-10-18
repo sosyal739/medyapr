@@ -125,10 +125,10 @@ export default async function OrderPage({ params, searchParams }: Props) {
           locale={locale}
           t={t}
           initial={{
-            views: clampViews(Number(sp.views) || 25_000),
+            views: clampViews(Number(sp.views) || 1_000),
             format: pick<Format>(FORMATS, sp.format, 'instream'),
             pkg: pick<Package>(PACKAGES, sp.pkg, 'views'),
-            region: pick<Region>(REGIONS, sp.region, isTr ? 'tr' : 'premium'),
+            region: pick<Region>(REGIONS, sp.region, 'global'),
             currency: pick<Currency>(CURRENCIES, sp.currency, isTr ? 'TRY' : 'USD'),
             videoUrl: sp.video?.slice(0, 300),
             channel: pick(CHANNELS, sp.channel, 'whatsapp'),

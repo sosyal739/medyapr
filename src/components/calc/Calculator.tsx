@@ -56,10 +56,10 @@ function useAnimatedNumber(target: number, ms = 350) {
 
 export default function Calculator({ locale, t }: { locale: string; t: AppStrings['calc'] }) {
   const isTr = locale === 'tr';
-  const [views, setViews] = useState(25_000);
+  const [views, setViews] = useState(1_000); // açılışta en düşük fiyat görünsün (1K = ₺100)
   const [format] = useState<Format>('instream');
   const [pkg, setPkg] = useState<Package>('views');
-  const [region, setRegion] = useState<Region>(isTr ? 'tr' : 'premium');
+  const [region, setRegion] = useState<Region>('global');
   const [country, setCountry] = useState(DEFAULT_COUNTRY(locale));
   const [currency, setCurrency] = useState<Currency>(isTr ? 'TRY' : 'USD');
   const [videoUrl, setVideoUrl] = useState('');
@@ -189,7 +189,7 @@ export default function Calculator({ locale, t }: { locale: string; t: AppString
               </div>
               {region === 'global' && (
                 <span className="text-[11px] font-black text-amber-300 bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 rounded-full">
-                  {isTr ? '1K: ₺100 Başlayan Kademeli Tarife 🔥' : 'From $3.50/1K Progressive Discount 🔥'}
+                  {isTr ? '1K: ₺100 Başlayan Kademeli Tarife 🔥' : 'From $2.70/1K Progressive Discount 🔥'}
                 </span>
               )}
             </div>
