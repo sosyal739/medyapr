@@ -86,7 +86,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
   const [currency, setCurrency] = useState<Currency>(initial.currency);
   const [channel, setChannel] = useState<AnalysisChannel>(initial.channel ?? 'whatsapp');
   const [name, setName] = useState('');
-  const [contact, setContact] = useState('');
+  const contact = ''; // WhatsApp/Telegram/Mail akışlarında telefon istenmez
   const [email, setEmail] = useState('');
   const [note, setNote] = useState('');
   const [busy, setBusy] = useState(false);
@@ -185,7 +185,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
     ]
       .filter(Boolean)
       .join('\n');
-    const senderLine = [name.trim(), contact.trim(), email.trim()].filter(Boolean).join(' - ');
+    const senderLine = name.trim();
     const noteLine = note.trim() ? (isTr ? `\nNot: ${note.trim()}` : `\nNote: ${note.trim()}`) : '';
 
     return isTr
@@ -236,8 +236,8 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
             currency,
             videoUrl: url,
             name,
-            email,
-            contact,
+            email: '',
+            contact: '',
             note,
             locale,
           }),
@@ -646,30 +646,26 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           {/* İletişim / Mail Bilgileri */}
           <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.02] p-4">
             <div className="grid gap-3 sm:grid-cols-2">
-              <div>
-                <label htmlFor="w-email" className="mb-1.5 block text-xs font-semibold text-white/85">
-                  {channel === 'email'
-                    ? isTr
-                      ? 'E-posta adresiniz (Zorunlu) *'
-                      : 'Your email address (Required) *'
-                    : isTr
-                      ? 'E-posta adresiniz (İsteğe bağlı)'
-                      : 'Your email address (Optional)'}
-                </label>
-                <input
-                  ref={emailInputRef}
-                  id="w-email"
-                  type="email"
-                  autoComplete="email"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    setError('');
-                  }}
-                  className={inputClass}
-                  placeholder="ornek@domain.com"
-                />
-              </div>
+              {channel === 'email' && (
+                <div>
+                  <label htmlFor="w-email" className="mb-1.5 block text-xs font-semibold text-white/85">
+                    {isTr ? 'E-posta adresiniz (Zorunlu) *' : 'Your email address (Required) *'}
+                  </label>
+                  <input
+                    ref={emailInputRef}
+                    id="w-email"
+                    type="email"
+                    autoComplete="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      setError('');
+                    }}
+                    className={inputClass}
+                    placeholder="ornek@domain.com"
+                  />
+                </div>
+              )}
               <div>
                 <label htmlFor="w-name" className="mb-1.5 block text-xs font-semibold text-white/85">
                   {isTr ? 'Ad / Sanatçı veya Kanal Adı (İsteğe bağlı)' : 'Name / Artist or Channel Name (Optional)'}
@@ -681,22 +677,6 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
                   onChange={(e) => setName(e.target.value)}
                   className={inputClass}
                   placeholder={isTr ? 'Örn: Sanatçı / Yapım Adı' : 'e.g. Artist / Label Name'}
-                />
-              </div>
-            </div>
-
-            <div className="mt-3 grid gap-3 sm:grid-cols-2">
-              <div>
-                <label htmlFor="w-contact" className="mb-1.5 block text-xs font-semibold text-white/85">
-                  {isTr ? 'WhatsApp veya Telegram (İsteğe bağlı)' : 'WhatsApp or Telegram (Optional)'}
-                </label>
-                <input
-                  id="w-contact"
-                  autoComplete="tel"
-                  value={contact}
-                  onChange={(e) => setContact(e.target.value)}
-                  className={inputClass}
-                  placeholder={isTr ? '+90 5XX XXX XX XX veya @kullanici' : '+1 555 0199 or @username'}
                 />
               </div>
               <div>
