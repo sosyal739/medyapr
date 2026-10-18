@@ -1360,3 +1360,10 @@ canvas {
 [data-theme='light'] .calc-range {
   background: linear-gradient(to right, #e0002e var(--pct, 50%), rgba(24, 28, 38, 0.18) var(--pct, 50%));
 }
+
+/* Mobil performans: dekoratif dev bulanık daireler (blur-[...]) telefonda ilk boyamayı yavaşlatır; küçük ekranda gizlenir. */
+@media (max-width: 767px) {
+  [class*='absolute'][class*=' blur-['] {
+    display: none !important;
+  }
+}
