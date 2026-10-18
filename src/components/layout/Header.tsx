@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import type { Dictionary } from '@/lib/i18n/dictionaries';
 import Link from 'next/link';
-import { Menu, X, Globe, Play, Sparkles, BookOpen, Users, Flame, Video } from 'lucide-react';
+import { Menu, X, Globe, Sparkles, BookOpen, Users, Flame, Video } from 'lucide-react';
+import BrandLogo from '@/components/common/BrandLogo';
 import ThemeToggle from '@/components/theme/ThemeToggle';
 import LanguageSwitcher from '@/components/layout/LanguageSwitcher';
 
@@ -42,18 +43,8 @@ export default function Header({ dict, locale }: HeaderProps) {
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex items-center justify-between h-16 lg:h-[72px]">
             {/* Brand Logo */}
-            <Link href={`/${locale}`} className="flex items-center gap-2.5 group">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#E0002E] to-[#CC0029] rounded-xl flex items-center justify-center shadow-lg shadow-[#FF0033]/30 group-hover:shadow-[#FF0033]/50 transition-all duration-300 group-hover:scale-105">
-                <Play className="h-5 w-5 fill-white text-white ml-0.5" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-black text-white tracking-tight leading-none">
-                  Medya<span className="text-[#FF0033]">PR</span>
-                </span>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 leading-tight">
-                  {isTr ? 'Resmi Video PR & Ads' : 'Official Video PR & Ads'}
-                </span>
-              </div>
+            <Link href={`/${locale}`} className="flex items-center" aria-label="MedyaPR">
+              <BrandLogo className="h-8 sm:h-9" />
             </Link>
 
             {/* Desktop Navigation — Tactile 3D Segmented Dock */}
