@@ -16,7 +16,6 @@ import {
   Award,
   Users,
   MessageCircle,
-  Search,
 } from 'lucide-react';
 import { getAppStrings } from '@/lib/i18n/app-strings';
 import { parseYouTubeId } from '@/lib/pricing';
@@ -210,10 +209,17 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
           </p>
 
           {/* Birincil eylem: link yapıştır → sipariş sihirbazı (JS olmadan da çalışan düz form) */}
-          <form ref={heroFormRef} action={`/${locale}/order`} method="get" className="rounded-3xl border border-white/15 bg-white/[0.06] p-2 shadow-2xl shadow-black/30 backdrop-blur-md sm:flex sm:items-center sm:gap-2">
+          <div className="inline-flex w-fit max-w-full items-center gap-2 rounded-full border border-[#FF0033]/40 bg-[#FF0033]/15 px-3.5 py-1.5 text-xs font-extrabold uppercase tracking-wider text-white">
+            <span className="relative flex h-2 w-2">
+              <span className="hero-cta-ping absolute inline-flex h-full w-full rounded-full bg-[#FF0033]" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF0033]" />
+            </span>
+            {isAr ? 'تحليل مجاني لفيديوك — ثوانٍ فقط' : isTr ? 'Ücretsiz video analizi — saniyeler içinde' : 'Free video analysis — in seconds'}
+          </div>
+          <form ref={heroFormRef} action={`/${locale}/order`} method="get" className="hero-cta-glow -mt-2 rounded-3xl border-2 border-[#FF0033]/60 bg-white/[0.08] p-2.5 backdrop-blur-md sm:flex sm:items-center sm:gap-2">
             <label htmlFor="hero-video" className="sr-only">{isAr ? 'رابط فيديو يوتيوب' : isTr ? 'YouTube video linki' : 'YouTube video link'}</label>
             <div className="relative flex-1">
-              <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-zinc-400" />
+              <Play className="pointer-events-none absolute left-4 top-1/2 h-6 w-6 -translate-y-1/2 fill-[#FF0033] text-[#FF0033]" />
               <input
                 id="hero-video"
                 name="video"
@@ -226,7 +232,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                   heroFormRef.current?.requestSubmit();
                 }}
                 placeholder={isAr ? 'الصق رابط فيديو يوتيوب' : isTr ? 'YouTube video linkinizi yapıştırın' : 'Paste your YouTube video link'}
-                className="w-full rounded-2xl bg-transparent py-4 pl-12 pr-4 text-base text-white placeholder-zinc-400 outline-none"
+                className="w-full rounded-2xl bg-transparent py-5 pl-14 pr-4 text-base font-medium text-white placeholder-zinc-300 outline-none sm:text-lg"
               />
             </div>
             <button

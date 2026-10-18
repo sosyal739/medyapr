@@ -1341,3 +1341,18 @@ canvas {
   direction: ltr;
 }
 
+
+/* Ana sayfa link kutusu: dikkat çekici kırmızı nabız */
+@keyframes heroGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 0, 51, 0.45), 0 20px 50px -15px rgba(255, 0, 51, 0.35); }
+  50% { box-shadow: 0 0 0 10px rgba(255, 0, 51, 0), 0 20px 60px -10px rgba(255, 0, 51, 0.5); }
+}
+@keyframes heroPing {
+  75%, 100% { transform: scale(2.4); opacity: 0; }
+}
+.hero-cta-glow { animation: heroGlow 2.4s ease-in-out infinite; }
+.hero-cta-glow:focus-within { animation: none; box-shadow: 0 0 0 4px rgba(255, 0, 51, 0.35); }
+.hero-cta-ping { animation: heroPing 1.6s cubic-bezier(0, 0, 0.2, 1) infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta-glow, .hero-cta-ping { animation: none; }
+}
