@@ -532,6 +532,12 @@ export default async function BlogPostPage({ params }: Props) {
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
+              href={`/${locale}/klip-pr`}
+              className="inline-flex items-center gap-2 rounded-xl border border-[#FF0033]/50 bg-[#FF0033]/15 px-6 py-3.5 text-sm font-extrabold text-white hover:bg-[#FF0033]/25 transition"
+            >
+              {isTr ? 'Müzik Klibi Dijital PR & Lansman' : 'Music Video Digital PR & Launch'}
+            </Link>
+            <Link
               href={`/${locale}/order`}
               className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/15 px-6 py-3.5 text-sm font-extrabold text-emerald-300 hover:bg-emerald-500/25 transition"
             >
@@ -543,6 +549,50 @@ export default async function BlogPostPage({ params }: Props) {
             >
               {isTr ? 'Google Ads YouTube İzlenme Paketleri' : 'Google Ads YouTube View Packages'}
             </Link>
+          </div>
+
+          <div className="mt-6 pt-5 border-t border-white/10">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 mb-3">
+              {isTr ? '📌 Sanatçılar İçin Öne Çıkan Resmi YouTube Rehberleri:' : '📌 Featured Official YouTube Guides for Artists:'}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-semibold">
+              <Link
+                href={`/${locale}/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen`}
+                className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
+              >
+                📱 {isTr ? 'YouTube Shorts Reklam Verme Rehberi' : 'YouTube Shorts Ad Promotion Guide'} →
+              </Link>
+              <Link
+                href={`/${locale}/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi`}
+                className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
+              >
+                ⏱️ {isTr ? 'YouTube 4000 Saat İzlenme Doldurma' : 'YouTube 4,000 Watch Hours Guide'} →
+              </Link>
+              <Link
+                href={`/${locale}/blog/youtube-premiere-nasil-yapilir-muzik-klibi-lansman-adimlari`}
+                className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
+              >
+                🎬 {isTr ? 'YouTube Premiere İlk Gösterim Kurgusu' : 'YouTube Premiere Music Video Setup'} →
+              </Link>
+              <Link
+                href={`/${locale}/blog/youtube-canli-yayini-nasil-baslatilir-ve-one-cikarilir`}
+                className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
+              >
+                🔴 {isTr ? 'YouTube Canlı Yayın Açma Şartları' : 'YouTube Live Stream Requirements'} →
+              </Link>
+              <Link
+                href={`/${locale}/blog/youtube-gizli-ve-liste-disi-video-farki-nedir`}
+                className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
+              >
+                🔒 {isTr ? 'YouTube Liste Dışı Video Ne Demek?' : 'YouTube Unlisted vs Private Videos'} →
+              </Link>
+              <Link
+                href={`/${locale}/blog/youtube-klip-tanitimi-google-ads-rehberi`}
+                className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
+              >
+                📘 {isTr ? 'YouTube Klip Tanıtımı Nasıl Yapılır?' : 'How to Promote a Music Video on YouTube'} →
+              </Link>
+            </div>
           </div>
         </div>
 
