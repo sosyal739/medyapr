@@ -264,8 +264,8 @@ export default async function LandingPageRoute({ params }: Props) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/en/blog/almanyadaki-turkler-icin-youtube-reklam-ve-video-pr-rehberi" className="text-sm text-zinc-300 hover:text-white">
-                      → YouTube Ads & Video PR Guide for Turkish Artists in Europe
+                    <Link href="/en/blog/youtube-music-chart-usa-october-2026-latin-and-hip-hop" className="text-sm text-zinc-300 hover:text-white">
+                      → YouTube USA Music Chart & Promotion Trends 2026
                     </Link>
                   </li>
                 </>

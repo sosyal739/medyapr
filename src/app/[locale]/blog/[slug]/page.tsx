@@ -124,7 +124,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const trCanonical = `https://medyapr.com/tr/blog/${slug}`;
 
   const alternates = post.enOnly
-    ? { canonical: `https://medyapr.com/en/blog/${slug}`, languages: { en: `https://medyapr.com/en/blog/${slug}` } }
+    ? { canonical: `https://medyapr.com/en/blog/${slug}`, languages: { en: `https://medyapr.com/en/blog/${slug}`, 'x-default': `https://medyapr.com/en/blog/${slug}` } }
     : hasEn
     ? getPageAlternates(locale, `/blog/${slug}`, TR_EN)
     : {
@@ -180,7 +180,7 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   if (isTr && post.enOnly) {
-    notFound();
+    permanentRedirect(`/en/blog/${slug}`);
   }
 
   const hasEn = isPostFullyTranslatedEn(post);
@@ -746,10 +746,10 @@ export default async function BlogPostPage({ params }: Props) {
                   💰 YouTube Video Ad Pricing & CPV Guide 2026 →
                 </Link>
                 <Link
-                  href="/en/blog/almanyadaki-turkler-icin-youtube-reklam-ve-video-pr-rehberi"
+                  href="/en/blog/youtube-music-chart-usa-october-2026-latin-and-hip-hop"
                   className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
                 >
-                  🌍 YouTube Ads for Turkish Artists in Europe →
+                  🇺🇸 YouTube USA Music Chart & PR Trends 2026 →
                 </Link>
               </div>
             )}

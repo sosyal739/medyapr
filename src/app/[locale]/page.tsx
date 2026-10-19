@@ -16,6 +16,7 @@ import FAQSection from '@/components/home/FAQSection';
 import { getTrends } from '@/lib/youtube';
 import { getPostsForLocale } from '@/lib/content';
 import { getFaqs } from '@/data/faqs';
+import { getLandingPages } from '@/data/landing';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -277,6 +278,29 @@ export default async function HomePage({ params }: Props) {
             </table>
           </div>
 
+          {/* 3 Ticari Açılış Sayfası (Doğrudan Ana Sayfa Otorite Köprüsü) */}
+          <div className="space-y-2.5 pt-2">
+            <h3 className="text-xs font-extrabold uppercase tracking-wider text-[#FF6B6B]">
+              {isAr
+                ? 'باقات الإعلانات الرسمية وصفحات الخدمة التجارية'
+                : isTr
+                ? 'Ticari Hizmet & Paket Sayfalarımız'
+                : 'Official Commercial Promotion & Pricing Pages'}
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-bold">
+              {getLandingPages(locale).map((lp) => (
+                <Link
+                  key={lp.slug}
+                  href={`/${locale}/${lp.slug}`}
+                  className="rounded-xl border border-[#FF0033]/35 bg-[#FF0033]/10 p-3.5 hover:bg-[#FF0033]/20 hover:border-[#FF0033]/60 transition text-white flex items-center justify-between gap-2"
+                >
+                  <span>🎯 {lp.keyword}</span>
+                  <span className="text-[#FF6B6B] shrink-0">{isAr ? '←' : '→'}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-2 text-xs font-bold">
             <Link href={`/${locale}/fiyatlandirma`} className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white">
               💰 {isAr ? 'أسعار إعلانات يوتيوب والمشاهدات' : isTr ? 'YouTube Reklam & İzlenme Fiyatları' : 'YouTube Ad & View Pricing'} →
@@ -287,24 +311,124 @@ export default async function HomePage({ params }: Props) {
             <Link href={`/${locale}/klip-pr`} className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white">
               🎵 {isAr ? 'وكالة العلاقات العامة الرقمية وإطلاق فيديو الكليب' : isTr ? 'Müzik Klibi Dijital PR & Şarkı Tanıtımı' : 'Music Video Digital PR & Launch Agency'} →
             </Link>
-            <Link
-              href={isAr ? '/ar/blog/youtube-music-video-promotion-google-ads-guide' : `/${locale}/blog/youtube-klip-tanitimi-google-ads-rehberi`}
-              className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
-            >
-              📘 {isAr ? 'كيف تروّج لفيديو الكليب بالإعلانات' : isTr ? 'YouTube Klip Tanıtımı Nasıl Yapılır?' : 'How to Run Music Video Ads'} →
-            </Link>
-            <Link
-              href={isAr ? '/ar/blog/youtube-shorts-ads-music-video-demand-gen' : `/${locale}/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen`}
-              className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
-            >
-              📱 {isAr ? 'دليل الترويج بإعلانات YouTube Shorts' : isTr ? 'YouTube Shorts Reklam Verme Rehberi' : 'YouTube Shorts Ad Promotion Guide'} →
-            </Link>
-            <Link
-              href={isAr ? '/ar/blog/promote-music-video-youtube-saudi-egypt-morocco-guide' : `/${locale}/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi`}
-              className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
-            >
-              ⏱️ {isAr ? 'ترويج الكليب في السعودية ومصر والمغرب' : isTr ? 'YouTube 4000 Saat İzlenme Rehberi' : 'YouTube 4,000 Watch Hours Guide'} →
-            </Link>
+            {isAr ? (
+              <>
+                <Link
+                  href="/ar/blog/youtube-saudi-arabia-music-chart-october-2026"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🇸🇦 قائمة يوتيوب للموسيقى في السعودية 2026 ←
+                </Link>
+                <Link
+                  href="/ar/blog/youtube-morocco-music-chart-october-2026"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🇲🇦 قائمة يوتيوب للموسيقى في المغرب 2026 ←
+                </Link>
+                <Link
+                  href="/ar/blog/is-buying-youtube-views-worth-it-official-ads-guide"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🛡️ هل شراء مشاهدات يوتيوب ضروري؟ الدليل الرسمي ←
+                </Link>
+                <Link
+                  href="/ar/blog/nancy-ajram-bastafizzak-youtube-analysis"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🎤 تحليل كليب نانسي عجرم «بستفزك» على يوتيوب ←
+                </Link>
+                <Link
+                  href="/ar/blog/tamer-hosny-etneen-magneen-youtube-analysis"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🎬 تحليل كليب تامر حسني «اتنين مجانين» على يوتيوب ←
+                </Link>
+                <Link
+                  href="/ar/blog/youtube-music-video-promotion-google-ads-guide"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  📘 كيف تروّج لفيديو الكليب عبر Google Ads ←
+                </Link>
+              </>
+            ) : isTr ? (
+              <>
+                <Link
+                  href="/tr/blog/youtube-klip-tanitimi-google-ads-rehberi"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  📘 YouTube Klip Tanıtımı Nasıl Yapılır? →
+                </Link>
+                <Link
+                  href="/tr/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  📱 YouTube Shorts Reklam Verme Rehberi →
+                </Link>
+                <Link
+                  href="/tr/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  ⏱️ YouTube 4000 Saat İzlenme Rehberi →
+                </Link>
+                <Link
+                  href="/tr/blog/youtube-video-reklam-fiyatlari-2026-cpv-butce-hesaplama"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  📊 YouTube Video Reklam Fiyatları 2026 & CPV →
+                </Link>
+                <Link
+                  href="/tr/blog/almanyadaki-turkler-icin-youtube-reklam-ve-video-pr-rehberi"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🇩🇪 Almanya ve Avrupa Türk Sanatçı PR Rehberi →
+                </Link>
+                <Link
+                  href="/tr/blog/youtube-trendlere-nasil-girilir-2026-algoritma-rehberi"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🔥 YouTube Trendlere Nasıl Girilir? (2026) →
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  href="/en/blog/youtube-klip-tanitimi-google-ads-rehberi"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  📘 How to Run Official Music Video Ads →
+                </Link>
+                <Link
+                  href="/en/blog/hip-hop-rap-youtube-video-promotion-pr-strategy-guide"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🎤 Hip-Hop & Rap Music Video PR Playbook →
+                </Link>
+                <Link
+                  href="/en/blog/rock-metal-music-video-promotion-youtube-strategy-guide"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🎸 Rock & Metal Music Video Promotion Guide →
+                </Link>
+                <Link
+                  href="/en/blog/youtube-music-chart-usa-october-2026-latin-and-hip-hop"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🇺🇸 YouTube USA Music Chart & PR Trends →
+                </Link>
+                <Link
+                  href="/en/blog/youtube-music-chart-uk-october-2026-diaspora-sounds"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🇬🇧 YouTube UK Music Chart & Promotion Guide →
+                </Link>
+                <Link
+                  href="/en/blog/sabrina-carpenter-espresso-youtube-video-strategy"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  ⭐ Sabrina Carpenter YouTube Video Strategy →
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </section>

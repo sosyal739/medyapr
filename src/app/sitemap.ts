@@ -8,7 +8,7 @@ const LOCALES = ['tr', 'en', 'ar'] as const;
 /** Türkiye/İngilizce içerikli bölümler (sanatçı, klip): Arapça sürümü yoktur. */
 const TR_EN_ONLY = ['tr', 'en'] as const;
 const TR_EN_ONLY_ROUTES = new Set(['/yeni-klipler', '/sanatcilar']);
-const STABLE_SITE_DATE = new Date('2026-10-18T00:00:00.000Z');
+const STABLE_SITE_DATE = new Date('2026-10-20T00:00:00.000Z');
 
 function parseTurkishDate(dateStr?: string): Date {
   if (!dateStr) return STABLE_SITE_DATE;
@@ -69,7 +69,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const lp of LANDING_PAGES) {
     entries.push({
       url: `${BASE_URL}/${lp.locale}/${lp.slug}`,
-      lastModified: new Date('2026-10-19T00:00:00.000Z'),
+      lastModified: new Date('2026-10-20T00:00:00.000Z'),
       changeFrequency: 'weekly',
       priority: 0.9,
     });
