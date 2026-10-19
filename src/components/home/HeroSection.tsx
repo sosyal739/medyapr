@@ -309,12 +309,12 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
               {/* ── Video alanı: 1080p Tanıtım Filmi Oynatıcı ── */}
               <div
                 onClick={togglePlay}
-                className="group relative aspect-video w-full select-none overflow-hidden bg-slate-900 cursor-pointer"
+                className={`group relative select-none overflow-hidden bg-slate-900 cursor-pointer ${locale === 'tr' ? 'aspect-video w-full' : 'mx-auto aspect-[9/16] h-[min(560px,78vh)]'}`}
               >
                 <video
                   ref={videoRef}
-                  src="/video/medyapr_tanitim.mp4"
-                  poster="/video/poster.webp"
+                  src={locale === 'tr' ? '/video/medyapr_tanitim.mp4' : `/video/medyapr_tanitim_${locale}.mp4`}
+                  poster={locale === 'tr' ? '/video/poster.webp' : `/video/poster_${locale}.webp`}
                   preload="none"
                   playsInline
                   onTimeUpdate={handleTimeUpdate}
@@ -350,7 +350,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                     </div>
                   ) : (
                     <div className="rounded-full bg-black/55 px-3 py-1.5 text-[11px] font-bold text-white/90 ring-1 ring-white/15 backdrop-blur-md">
-                      {isAr ? '00:50 • شاهد' : isTr ? '00:50 • İzleyin' : '00:50 • Watch'}
+                      {isAr ? '01:21 • شاهد' : isTr ? '00:50 • İzleyin' : `${locale === 'tr' ? '00:50' : locale === 'en' ? '01:22' : '01:21'} • Watch`}
                     </div>
                   )}
                 </div>
@@ -388,7 +388,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                       >
                         {isPlaying ? <Pause className="h-4 w-4 fill-white text-white" /> : <Play className="h-4 w-4 fill-white text-white" />}
                       </button>
-                      <span className="truncate text-xs font-extrabold text-white sm:text-sm">
+                      <span className={`truncate text-xs font-extrabold text-white sm:text-sm ${locale === 'tr' ? '' : 'hidden'}`}>
                         {isAr ? 'نطاق الخدمة ونظرة عامة على العملية' : isTr ? 'Hizmet kapsamı ve süreç anlatımı' : 'Service scope and process overview'}
                       </span>
                     </div>
