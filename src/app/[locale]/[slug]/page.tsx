@@ -2,12 +2,11 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CheckCircle2 } from 'lucide-react';
-import { getPageAlternates, SITE_URL } from '@/lib/seo';
+import { SITE_URL } from '@/lib/seo';
 import { getLandingPage, getLandingPages, LANDING_PAGES } from '@/data/landing';
 import type { LandingPage } from '@/data/landing/types';
 import { formatMoney, quote, type Currency } from '@/lib/pricing';
 import AnalysisCta from '@/components/common/AnalysisCta';
-import type { Locale } from '@/lib/i18n/config';
 
 /** Yalnızca tanımlı ticari sayfalar üretilir; diğer adresler 404 verir. */
 export const dynamicParams = false;
@@ -22,11 +21,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const page = getLandingPage(locale, slug);
   if (!page) return {};
+  const languages: Record<string, string> = {
+    [locale]: `${SITE_URL}/${locale}/${slug}`,
+  };
+  if (slug === 'youtube-klip-tanitimi' || slug === 'youtube-music-video-promotion') {
+    languages.tr = `${SITE_URL}/tr/youtube-klip-tanitimi`;
+    languages.en = `${SITE_URL}/en/youtube-music-video-promotion`;
+    languages['x-default'] = `${SITE_URL}/tr/youtube-klip-tanitimi`;
+  } else {
+    languages['x-default'] = `${SITE_URL}/${locale}/${slug}`;
+  }
   return {
     title: { absolute: page.title },
     description: page.description,
     robots: { index: true, follow: true },
-    alternates: getPageAlternates(locale, `/${slug}`, [locale as Locale]),
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/${slug}`,
+      languages,
+    },
     openGraph: { title: page.title, description: page.description, url: `${SITE_URL}/${locale}/${slug}`, type: 'website' },
   };
 }
@@ -186,7 +198,7 @@ export default async function LandingPageRoute({ params }: Props) {
 
         {others.length > 0 && (
           <nav aria-label={isAr ? 'صفحات ذات صلة' : isTr ? 'İlgili sayfalar' : 'Related pages'} className="mt-6 border-t border-white/10 pt-6">
-            <h2 className="text-sm font-extrabold uppercase tracking-wider text-zinc-400">{isAr ? 'صفحات ذات صلة' : isTr ? 'İlgili sayfalar' : 'Related pages'}</h2>
+            <h2 className="text-sm font-extrabold uppercase tracking-wider text-zinc-400">{isAr ? 'صفحات وأدلة ذات صلة' : isTr ? 'İlgili sayfalar & rehberler' : 'Related pages & guides'}</h2>
             <ul className="mt-3 space-y-2">
               {others.map((o) => (
                 <li key={o.slug}>
@@ -198,6 +210,66 @@ export default async function LandingPageRoute({ params }: Props) {
                   {isAr ? 'الأسعار والحاسبة' : isTr ? 'Fiyatlar & Hesaplayıcı' : 'Pricing & Calculator'}
                 </Link>
               </li>
+              {isAr ? (
+                <>
+                  <li>
+                    <Link href="/ar/blog/youtube-saudi-arabia-music-chart-october-2026" className="text-sm text-zinc-300 hover:text-white">
+                      → قائمة يوتيوب للموسيقى في السعودية: تحليل أكتوبر 2026
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/ar/blog/youtube-egypt-music-chart-october-2026" className="text-sm text-zinc-300 hover:text-white">
+                      → قائمة يوتيوب للموسيقى في مصر: الأغاني الأكثر رواجًا 2026
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/ar/blog/youtube-morocco-music-chart-october-2026" className="text-sm text-zinc-300 hover:text-white">
+                      → قائمة يوتيوب للموسيقى في المغرب: راي وراب ورجادة 2026
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/ar/blog/is-buying-youtube-views-worth-it-official-ads-guide" className="text-sm text-zinc-300 hover:text-white">
+                      → هل شراء مشاهدات يوتيوب ضروري؟ دليل الإعلانات الرسمية
+                    </Link>
+                  </li>
+                </>
+              ) : isTr ? (
+                <>
+                  <li>
+                    <Link href="/tr/blog/youtube-klip-tanitimi-google-ads-rehberi" className="text-sm text-zinc-300 hover:text-white">
+                      → YouTube Klip Tanıtımı: Resmi Google Ads Rehberi
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tr/blog/youtube-video-reklam-fiyatlari-2026-cpv-butce-hesaplama" className="text-sm text-zinc-300 hover:text-white">
+                      → YouTube Video Reklam Fiyatları 2026 & CPV Bütçe Hesaplama
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tr/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen" className="text-sm text-zinc-300 hover:text-white">
+                      → YouTube Shorts Reklamı Nasıl Verilir? (Demand Gen)
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link href="/en/blog/hip-hop-rap-youtube-video-promotion-pr-strategy-guide" className="text-sm text-zinc-300 hover:text-white">
+                      → Hip-Hop & Rap YouTube Video Promotion: PR Playbook 2026
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/en/blog/rock-metal-music-video-promotion-youtube-strategy-guide" className="text-sm text-zinc-300 hover:text-white">
+                      → Rock & Metal Music Video Promotion on YouTube
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/en/blog/almanyadaki-turkler-icin-youtube-reklam-ve-video-pr-rehberi" className="text-sm text-zinc-300 hover:text-white">
+                      → YouTube Ads & Video PR Guide for Turkish Artists in Europe
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </nav>
         )}
