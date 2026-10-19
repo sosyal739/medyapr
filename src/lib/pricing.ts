@@ -54,32 +54,32 @@ export const TR_PRICE_TIERS: readonly [number, number][] = [
 ];
 
 /**
- * Avrupa (AB + EFTA + İngiltere) ve Kanada fiyat tablosu (TL). 1K = 350 TL (19 Ekim 2026'da 500'den indirildi;
- * tüm kademeler aynı oranla (x0,70) güncellendi). Anahtar adı eski sürümden kalma (PREMIUM).
+ * Avrupa (AB + EFTA + İngiltere) ve Kanada fiyat tablosu (TL). 1K = 150 TL (≈ 4 USD); 19 Ekim 2026'da yeniden düzenlendi.
+ * Büyük kademelerde Türkiye fiyatının ~%8 üstünde tutulur. Anahtar adı eski sürümden kalma (PREMIUM).
  */
 export const PREMIUM_PRICE_TIERS: readonly [number, number][] = [
-  [1_000, 350],
-  [5_000, 1_680],
-  [10_000, 2_800],
-  [25_000, 5_740],
-  [50_000, 10_500],
-  [100_000, 16_800],
-  [250_000, 36_400],
-  [500_000, 70_000],
-  [1_000_000, 126_000],
+  [1_000, 150],
+  [5_000, 720],
+  [10_000, 1_200],
+  [25_000, 2_590],
+  [50_000, 5_130],
+  [100_000, 9_720],
+  [250_000, 21_060],
+  [500_000, 40_500],
+  [1_000_000, 72_900],
 ];
 
-/** ABD fiyat tablosu (TL). 1K = 450 TL; kademeler eski tablonun x0,90'ıdır. */
+/** ABD fiyat tablosu (TL). 1K = 185 TL (≈ 5 USD üst sınır); büyük kademelerde Türkiye fiyatının ~%15 üstü. */
 export const US_PRICE_TIERS: readonly [number, number][] = [
-  [1_000, 450],
-  [5_000, 2_160],
-  [10_000, 3_600],
-  [25_000, 7_380],
-  [50_000, 13_500],
-  [100_000, 21_600],
-  [250_000, 46_800],
-  [500_000, 90_000],
-  [1_000_000, 162_000],
+  [1_000, 185],
+  [5_000, 890],
+  [10_000, 1_480],
+  [25_000, 3_040],
+  [50_000, 5_550],
+  [100_000, 10_350],
+  [250_000, 22_430],
+  [500_000, 43_130],
+  [1_000_000, 77_630],
 ];
 
 /**
@@ -179,7 +179,7 @@ export function quote(input: {
   const us = region === 'premium' && isUsCountry(country);
 
   // 1.000 izlenme baz tavan liste fiyatı
-  const baseRatePerKTry = region === 'global' ? 100 : us ? 450 : high ? 350 : 125;
+  const baseRatePerKTry = region === 'global' ? 100 : us ? 185 : high ? 150 : 125;
   const subtotalTry = (views / 1000) * baseRatePerKTry * pkgFactor;
 
   // Kademeli paket fiyatı (hacim arttıkça birim maliyet düşer)
