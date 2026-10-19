@@ -302,14 +302,14 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
 
         {/* ── Sağ Kolon: Sesli Tanıtım Oynatıcı + Örnek Kampanya Metrikleri ── */}
         <div className="flex flex-1 justify-center animate-[heroRise_0.6s_ease-out_both] w-full">
-          <div className="relative w-full max-w-2xl">
+          <div className={`relative w-full ${locale === 'tr' ? 'max-w-2xl' : 'mx-auto max-w-[380px]'}`}>
             <div className="pointer-events-none absolute -inset-4 rounded-[36px] bg-gradient-to-r from-red-500/20 via-pink-400/10 to-sky-400/20 blur-3xl opacity-70" />
 
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/85 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] backdrop-blur-xl">
               {/* ── Video alanı: 1080p Tanıtım Filmi Oynatıcı ── */}
               <div
                 onClick={togglePlay}
-                className={`group relative select-none overflow-hidden bg-slate-900 cursor-pointer ${locale === 'tr' ? 'aspect-video w-full' : 'mx-auto aspect-[9/16] h-[min(560px,78vh)]'}`}
+                className={`group relative select-none overflow-hidden bg-slate-900 cursor-pointer ${locale === 'tr' ? 'aspect-video w-full' : 'aspect-[9/16] w-full'}`}
               >
                 <video
                   ref={videoRef}
@@ -431,7 +431,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                   <span className="text-[11px] font-medium text-zinc-500">{isAr ? 'بيانات توضيحية' : isTr ? 'Örnek veri' : 'Illustrative data'}</span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2.5 p-3 sm:grid-cols-4 sm:p-4">
+                <div className={`grid grid-cols-2 gap-2.5 p-3 sm:p-4 ${locale === 'tr' ? 'sm:grid-cols-4' : ''}`}>
                   <Metric
                     icon={<Eye className="h-3.5 w-3.5" />}
                     tone="text-emerald-400"
