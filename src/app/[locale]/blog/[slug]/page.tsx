@@ -27,6 +27,7 @@ import {
   isPostFullyTranslatedEn,
 } from '@/lib/content';
 import ArtistClaimBox from '@/components/common/ArtistClaimBox';
+import AnalysisCta from '@/components/common/AnalysisCta';
 import { displayDate, getPageAlternates, toIsoDateString, SITE_URL, TR_EN } from '@/lib/seo';
 import { schemaLang } from '@/lib/i18n/config';
 
@@ -688,6 +689,8 @@ export default async function BlogPostPage({ params }: Props) {
             )}
           </div>
         </div>
+
+        <AnalysisCta locale={locale} source="blog" />
 
         {/* ── Topic Cluster: Related Articles ── */}
         {isBioPost && bioArtistName && (

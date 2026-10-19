@@ -4,6 +4,7 @@ import Link from 'next/link';
 import BrandLogo from '@/components/common/BrandLogo';
 import type { Dictionary } from '@/lib/i18n/dictionaries';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { getLandingPages } from '@/data/landing';
 
 interface FooterProps {
   dict: Dictionary;
@@ -79,7 +80,17 @@ export default function Footer({ dict, locale }: FooterProps) {
           <div>
             <h3 className="text-base font-bold mb-5 text-white">{dict.footer.services}</h3>
             <ul className="space-y-3">
-              {(dict.services?.items || []).slice(0, 6).map((service, idx: number) => (
+              {getLandingPages(locale).map((lp) => (
+                <li key={lp.slug}>
+                  <Link
+                    href={`/${locale}/${lp.slug}`}
+                    className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200 hover:translate-x-1 inline-block"
+                  >
+                    {lp.keyword}
+                  </Link>
+                </li>
+              ))}
+              {(dict.services?.items || []).slice(0, 3).map((service, idx: number) => (
                 <li key={idx}>
                   <Link
                     href={`/${locale}/hizmetler`}

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { getPosts, getArPosts, getArtists, isPostFullyTranslatedEn } from '@/lib/content';
 import { getNewReleases, isReleaseIndexable } from '@/lib/releases';
+import { LANDING_PAGES } from '@/data/landing';
 
 const BASE_URL = 'https://medyapr.com';
 const LOCALES = ['tr', 'en', 'ar'] as const;
@@ -62,6 +63,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: route === '' ? 1.0 : route === '/fiyatlandirma' || route === '/blog' || route === '/yeni-klipler' ? 0.9 : 0.8,
       });
     }
+  }
+
+  // Ticari açılış sayfaları (yalnızca kendi dilinde)
+  for (const lp of LANDING_PAGES) {
+    entries.push({
+      url: `${BASE_URL}/${lp.locale}/${lp.slug}`,
+      lastModified: new Date('2026-10-19T00:00:00.000Z'),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    });
   }
 
   // Dynamic Blog Posts
