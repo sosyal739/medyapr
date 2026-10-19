@@ -5,7 +5,7 @@ export const TR_PAGES: LandingPage[] = [
     locale: 'tr',
     slug: 'youtube-klip-tanitimi',
     keyword: 'YouTube klip tanıtımı',
-    title: 'YouTube Klip Tanıtımı | Resmi Google Ads ile Klip Reklamı | MedyaPR',
+    title: 'YouTube Klip Tanıtımı: Resmi Google Ads Reklamı | MedyaPR',
     description:
       'YouTube klip tanıtımı resmi Google Ads video reklamlarıyla yapılır: bot yok, şifre yok. Klip linkinizi gönderin, ücretsiz analiz ve tahmini teklif alın.',
     h1: 'YouTube Klip Tanıtımı: Klibiniz Doğru Kitleye Ulaşsın',
@@ -136,10 +136,10 @@ export const TR_PAGES: LandingPage[] = [
     locale: 'tr',
     slug: 'youtube-reklam-fiyatlari',
     keyword: 'YouTube reklam fiyatları',
-    title: 'YouTube Reklam Fiyatları (Tahmini) | Klip & Video Tanıtımı | MedyaPR',
+    title: 'YouTube Reklam Verme Fiyatları 2026 | Klip PR | MedyaPR',
     description:
-      'YouTube video reklam fiyatları: Türkiye, global ve ülke bazlı tahmini izlenme paketi fiyatları. 1.000 izlenmeden başlar. Ücretsiz analiz ve teklif alın.',
-    h1: 'YouTube Reklam Fiyatları: İzlenme Paketlerinin Tahmini Ücretleri',
+      '2026 YouTube reklam verme fiyatları: Türkiye, global ve ülke bazlı tahmini klip izlenme paketi ücretleri. 1.000 izlenmeden başlar, ücretsiz analiz alın.',
+    h1: 'YouTube Reklam Fiyatları 2026: İzlenme Paketlerinin Tahmini Ücretleri',
     lead:
       'YouTube’da video reklam vermek istiyorsanız bütçenizi önceden bilmek istersiniz. Aşağıdaki tahmini fiyatlar hedef kitleye ve izlenme sayısına göre hesaplanır; kesin teklif videonuzun süresine göre netleşir.',
     areaServed: ['TR', 'Global'],

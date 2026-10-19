@@ -5,7 +5,7 @@ export const AR_PAGES: LandingPage[] = [
     locale: 'ar',
     slug: 'youtube-music-promotion-saudi-arabia',
     keyword: 'ترويج أغاني يوتيوب في السعودية',
-    title: 'ترويج أغاني يوتيوب في السعودية | إعلانات Google Ads الرسمية | MedyaPR',
+    title: 'ترويج أغاني يوتيوب في السعودية | Google Ads | MedyaPR',
     description:
       'ترويج أغاني وفيديو كليب على يوتيوب في السعودية عبر إعلانات Google Ads الرسمية. بلا بوتات ولا كلمات مرور. أرسل رابط فيديوك لمراجعة مجانية وعرض سعر تقديري.',
     h1: 'ترويج أغاني يوتيوب في السعودية: أوصل كليبك إلى الجمهور المناسب',
@@ -71,7 +71,7 @@ export const AR_PAGES: LandingPage[] = [
     locale: 'ar',
     slug: 'youtube-music-promotion-egypt',
     keyword: 'ترويج أغاني يوتيوب في مصر',
-    title: 'ترويج أغاني يوتيوب في مصر | إعلانات Google Ads الرسمية | MedyaPR',
+    title: 'ترويج أغاني يوتيوب في مصر | إعلانات Google Ads | MedyaPR',
     description:
       'ترويج أغاني وكليبات يوتيوب في مصر عبر إعلانات Google Ads الرسمية للمطربين والمهرجانات والبوب. بلا بوتات. أرسل رابط فيديوك لمراجعة مجانية وعرض سعر.',
     h1: 'ترويج أغاني يوتيوب في مصر: كليبك أمام جمهورك الحقيقي',
@@ -132,7 +132,7 @@ export const AR_PAGES: LandingPage[] = [
     locale: 'ar',
     slug: 'youtube-music-promotion-morocco',
     keyword: 'ترويج أغاني يوتيوب في المغرب',
-    title: 'ترويج أغاني يوتيوب في المغرب | إعلانات Google Ads الرسمية | MedyaPR',
+    title: 'ترويج أغاني يوتيوب في المغرب | Google Ads | MedyaPR',
     description:
       'ترويج أغاني وكليبات يوتيوب في المغرب عبر إعلانات Google Ads الرسمية للراب والبوب والشعبي. بلا بوتات ولا كلمات مرور. مراجعة مجانية وعرض سعر تقديري.',
     h1: 'ترويج أغاني يوتيوب في المغرب: أوصل أغنيتك لجمهور المغرب والمهجر',

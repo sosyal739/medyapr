@@ -9,6 +9,7 @@ type Props = {
 };
 
 import { getPageAlternates } from '@/lib/seo';
+import { getLandingPages } from '@/data/landing';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -308,7 +309,18 @@ export default async function ServicesPage({ params }: Props) {
                 {isAr ? 'خطة الترويج الرقمي وإطلاق فيديو الكليب' : isTr ? 'Müzik Klibi Dijital PR & Lansman Planlama' : 'Music Video Digital PR & Launch Plan'}
               </Link>
             </div>
-            <div className="mt-6 pt-6 border-t border-gray-100 flex flex-wrap gap-4 text-xs font-bold text-[#CC0029]">
+            <div className="mt-6 pt-6 border-t border-gray-100 flex flex-wrap gap-3 text-xs font-extrabold text-[#1A1A2E]">
+              {getLandingPages(locale).map((lp) => (
+                <Link
+                  key={lp.slug}
+                  href={`/${locale}/${lp.slug}`}
+                  className="rounded-lg border border-red-200 bg-red-50/70 px-3 py-1.5 text-[#CC0029] hover:bg-red-100 transition"
+                >
+                  ★ {lp.keyword} →
+                </Link>
+              ))}
+            </div>
+            <div className="mt-4 pt-4 border-t border-gray-100 flex flex-wrap gap-4 text-xs font-bold text-[#CC0029]">
               <Link
                 href={isAr ? '/ar/blog/youtube-music-video-promotion-google-ads-guide' : `/${locale}/blog/youtube-klip-tanitimi-google-ads-rehberi`}
                 className="hover:underline"

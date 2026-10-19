@@ -5,7 +5,7 @@ export const EN_PAGES: LandingPage[] = [
     locale: 'en',
     slug: 'youtube-music-video-promotion',
     keyword: 'YouTube music video promotion',
-    title: 'YouTube Music Video Promotion | Official Google Ads | MedyaPR',
+    title: 'YouTube Music Video Promotion | Google Ads PR | MedyaPR',
     description:
       'YouTube music video promotion run with official Google Ads video campaigns: no bots, no passwords. Send your link for a free video review and an estimated quote.',
     h1: 'YouTube Music Video Promotion That Reaches the Right Audience',
@@ -70,7 +70,7 @@ export const EN_PAGES: LandingPage[] = [
     locale: 'en',
     slug: 'google-ads-for-music-videos',
     keyword: 'Google Ads for music videos',
-    title: 'Google Ads for Music Videos | YouTube Video Ads for Artists | MedyaPR',
+    title: 'Google Ads for Music Videos | YouTube Artist Ads | MedyaPR',
     description:
       'Google Ads for music videos, managed by certified Google Partner specialists. Targeted YouTube video ads for artists and labels. Free video review and quote.',
     h1: 'Google Ads for Music Videos: YouTube Video Campaigns for Artists and Labels',
@@ -128,9 +128,9 @@ export const EN_PAGES: LandingPage[] = [
     locale: 'en',
     slug: 'promote-turkish-music-on-youtube',
     keyword: 'promote Turkish music on YouTube',
-    title: 'Promote Turkish Music on YouTube | Turkish Artists Abroad | MedyaPR',
+    title: 'Promote Turkish Music on YouTube | Artist Ads | MedyaPR',
     description:
-      'Promote Turkish music on YouTube: campaigns for Turkish artists and labels, including Turkish-speaking audiences in Germany, the UK, the US and beyond. Free video review.',
+      'Promote Turkish music on YouTube: official Google Ads campaigns for artists and labels in Turkey, Germany, the UK and the US. Free video review and quote.',
     h1: 'Promote Turkish Music on YouTube – In Turkey and Across the Diaspora',
     lead:
       'Turkish music travels: Turkish-speaking listeners live in Germany, the Netherlands, Belgium, France, the UK and the US. We help Turkish artists, labels and independent musicians reach them – and international audiences – with official Google Ads video campaigns.',

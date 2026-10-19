@@ -28,6 +28,7 @@ import {
 } from '@/lib/content';
 import ArtistClaimBox from '@/components/common/ArtistClaimBox';
 import AnalysisCta from '@/components/common/AnalysisCta';
+import { getLandingPages } from '@/data/landing';
 import { displayDate, getPageAlternates, toIsoDateString, SITE_URL, TR_EN } from '@/lib/seo';
 import { schemaLang } from '@/lib/i18n/config';
 
@@ -605,6 +606,20 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
 
           <div className="mt-6 pt-5 border-t border-white/10">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-2.5">
+              {isAr ? '🎯 خدمات الترويج الرسمية على يوتيوب:' : isTr ? '🎯 Resmi YouTube Reklam & Klip Tanıtım Sayfaları:' : '🎯 Official YouTube Music Promotion Pages:'}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs font-extrabold mb-5">
+              {getLandingPages(locale).map((lp) => (
+                <Link
+                  key={lp.slug}
+                  href={`/${locale}/${lp.slug}`}
+                  className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-2.5 text-emerald-200 hover:border-emerald-400 hover:bg-emerald-500/20 hover:text-white transition"
+                >
+                  🚀 {lp.keyword} →
+                </Link>
+              ))}
+            </div>
             <p className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 mb-3">
               {isAr ? '📌 أدلة يوتيوب الرسمية المميزة للفنانين:' : isTr ? '📌 Sanatçılar İçin Öne Çıkan Resmi YouTube Rehberleri:' : '📌 Featured Official YouTube Guides for Artists:'}
             </p>
