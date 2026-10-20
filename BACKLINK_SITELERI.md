@@ -17,14 +17,11 @@ Bu dosya, `medyapr.com` web sitesinin Google ve AI arama motorlarındaki (Perple
 
 ### 1. Telegra.ph (Domain Authority: 91)
 Telegram'ın minimalist ve Google botlarının dakikalar içinde indekslediği resmi açık yayın platformudur.
-- **Canlı Yayınlanan Makale:**
-  - 🔗 [Why 90% of YouTube Music Promotion Services Ruin Your Channel (And How Official Google Ads PR Works)](https://telegra.ph/Why-90-of-YouTube-Music-Promotion-Services-Ruin-Your-Channel-10-20)
-- **Hedef Sayfalar:**
-  - `https://medyapr.com/en/youtube-music-video-promotion`
-  - `https://medyapr.com/en/google-ads-for-music-videos`
-  - `https://medyapr.com/en/fiyatlandirma`
-  - `https://medyapr.com/en/order`
-  - `https://medyapr.com/en/blog/best-youtube-music-video-promotion-services-reviewed-2026`
+- **Canlı Yayınlanan Makaleler:**
+  1. 🔗 [Why 90% of YouTube Music Promotion Services Ruin Your Channel (And How Official Google Ads PR Works)](https://telegra.ph/Why-90-of-YouTube-Music-Promotion-Services-Ruin-Your-Channel-10-20)
+     - *Hedef:* `/en/youtube-music-video-promotion`, `/en/google-ads-for-music-videos`, `/en/fiyatlandirma`, `/en/order`, `/en/blog/best-youtube-music-video-promotion-services-reviewed-2026`
+  2. 🔗 [Spotify vs. YouTube Music Marketing: Where to Spend Your First $500 PR Budget](https://telegra.ph/Spotify-vs-YouTube-Music-Marketing-Where-to-Spend-Your-First-500-10-20)
+     - *Hedef:* `/en/google-ads-for-music-videos`, `/en/youtube-music-video-promotion`, `/en/fiyatlandirma`, `/en/order`, `/en/blog/spotify-vs-youtube-music-marketing-where-to-spend-your-pr-budget`
 
 ---
 
