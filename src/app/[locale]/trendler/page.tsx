@@ -321,6 +321,142 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
           </div>
         </div>
 
+        {/* ── 3 Dilli Müzik PR ve Trend Analiz Rehberleri (Trendler Sayfası Otorite Köprüsü) ── */}
+        <div className="mt-12 rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-8 space-y-5">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#FF6B6B]">
+                {isAr ? 'أدلة الترويج الموسيقي وتحليلات الخوارزمية' : isTr ? 'Müzik PR & Canlı Trend Algoritma Rehberleri' : 'Music PR & Algorithm Trend Analysis Playbooks'}
+              </span>
+              <h3 className="text-lg sm:text-xl font-black text-white mt-1">
+                {isAr ? 'استراتيجيات تصدر قوائم يوتيob في الأسواق المستهدفة' : isTr ? 'YouTube Trendlerine Giriş ve Ülke Bazlı Klip Tanıtımı' : 'How to Chart & Break Out on YouTube Music Globally'}
+              </h3>
+            </div>
+            <Link href={`/${locale}/blog`} className="text-xs font-bold text-zinc-400 hover:text-white transition">
+              {isAr ? 'جميع الأدلة ←' : isTr ? 'Tüm Rehberler →' : 'All Guides →'}
+            </Link>
+          </div>
+
+          {isAr ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs font-semibold">
+              <Link
+                href="/ar/blog/youtube-saudi-arabia-music-chart-october-2026"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                🇸🇦 قائمة يوتيوب للموسيقى في السعودية: الأكثر رواجًا 2026 ←
+              </Link>
+              <Link
+                href="/ar/blog/youtube-egypt-music-chart-october-2026"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                🇪🇬 قائمة يوتيوب للموسيقى في مصر: الأكثر رواجًا 2026 ←
+              </Link>
+              <Link
+                href="/ar/blog/youtube-morocco-music-chart-october-2026"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                🇲🇦 قائمة يوتيوب للموسيقى في المغرب: الأكثر رواجًا 2026 ←
+              </Link>
+              <Link
+                href="/ar/blog/is-buying-youtube-views-worth-it-official-ads-guide"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                🛡️ هل شراء مشاهدات يوتيوب ضروري؟ دليل الإعلانات الرسمية ←
+              </Link>
+              <Link
+                href="/ar/blog/nancy-ajram-bastafizzak-youtube-analysis"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                🎤 تحليل كليب نانسي عجرم «بستفزك» على يوتيوب ←
+              </Link>
+              <Link
+                href="/ar/blog/tamer-hosny-etneen-magneen-youtube-analysis"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                🎬 تحليل كليب تامر حسني «اتنين مجانين» على يوتيوب ←
+              </Link>
+            </div>
+          ) : isTr ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs font-semibold">
+              <Link
+                href="/tr/blog/youtube-trendlere-nasil-girilir-2026-algoritma-rehberi"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                🔥 YouTube Trendlere Nasıl Girilir? (2026 Algoritma Formülü) →
+              </Link>
+              <Link
+                href="/tr/blog/youtube-klip-tanitimi-google-ads-rehberi"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                📘 Resmi Google Ads ile YouTube Klip Tanıtımı Nasıl Yapılır? →
+              </Link>
+              <Link
+                href="/tr/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                📱 YouTube Shorts Reklamı ile Şarkı Viral Yapma & Demand Gen →
+              </Link>
+              <Link
+                href="/tr/blog/youtube-video-reklam-fiyatlari-2026-cpv-butce-hesaplama"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                💰 2026 YouTube Video Reklam Fiyatları & CPV Bütçe Hesaplama →
+              </Link>
+              <Link
+                href="/tr/blog/almanyadaki-turkler-icin-youtube-reklam-ve-video-pr-rehberi"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                🇩🇪 Almanya & Avrupa'daki Türk Sanatçılar İçin Klip PR Rehberi →
+              </Link>
+              <Link
+                href="/tr/blog/youtube-premiere-nasil-yapilir-muzik-klibi-lansman-adimlari"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                🎬 YouTube Premiere İlk Gösterim Kurgusu & Lansman Adımları →
+              </Link>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs font-semibold">
+              <Link
+                href="/en/blog/youtube-music-chart-usa-october-2026-latin-and-hip-hop"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                🇺🇸 YouTube USA Music Chart: Latin & Hip-Hop Trends 2026 →
+              </Link>
+              <Link
+                href="/en/blog/youtube-music-chart-uk-october-2026-diaspora-sounds"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                🇬🇧 YouTube UK Music Chart: Diaspora Sounds & Rap →
+              </Link>
+              <Link
+                href="/en/blog/youtube-music-chart-germany-october-2026-turkish-artists"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                🇩🇪 YouTube Germany Music Chart: Turkish Sounds & Deutschrap →
+              </Link>
+              <Link
+                href="/en/blog/how-to-get-on-youtube-trending-music-video-strategy-2026"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                🔥 How to Get on YouTube Trending: 2026 Music Video Strategy →
+              </Link>
+              <Link
+                href="/en/blog/spotify-vs-youtube-music-marketing-where-to-spend-your-pr-budget"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                📊 Spotify vs YouTube Music Marketing: PR Budget Allocation →
+              </Link>
+              <Link
+                href="/en/blog/hip-hop-rap-youtube-video-promotion-pr-strategy-guide"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
+              >
+                🎤 Hip-Hop & Rap YouTube Video Promotion: 2026 PR Playbook →
+              </Link>
+            </div>
+          )}
+        </div>
+
         {/* Footer Policy Attribution */}
         <div className="mt-14 rounded-2xl border border-studio bg-studio-card p-6 text-xs text-zinc-400 space-y-2">
           <p className="font-semibold text-zinc-200">

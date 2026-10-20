@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { CheckCircle2 } from 'lucide-react';
 import { SITE_URL } from '@/lib/seo';
 import { getLandingPage, getLandingPages, LANDING_PAGES } from '@/data/landing';
@@ -8,8 +8,23 @@ import type { LandingPage } from '@/data/landing/types';
 import { formatMoney, quote, type Currency } from '@/lib/pricing';
 import AnalysisCta from '@/components/common/AnalysisCta';
 
-/** Yalnızca tanımlı ticari sayfalar üretilir; diğer adresler 404 verir. */
-export const dynamicParams = false;
+/** 9 Ticari Sayfa Arasında 3 Dilli Karşılıklı Eşleşme */
+export const LANDING_TWINS: Record<string, Record<string, string>> = {
+  'youtube-klip-tanitimi': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia' },
+  'youtube-music-video-promotion': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia' },
+  'youtube-music-promotion-saudi-arabia': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia' },
+
+  'sarki-reklami-verme': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt' },
+  'google-ads-for-music-videos': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt' },
+  'youtube-music-promotion-egypt': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt' },
+
+  'youtube-reklam-fiyatlari': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco' },
+  'promote-turkish-music-on-youtube': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco' },
+  'youtube-music-promotion-morocco': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco' },
+};
+
+/** Tanımlı sayfalar SSG üretilir; yanlış dille gelen adresler 308 ile doğru ikize yönlendirilir. */
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return LANDING_PAGES.map((p) => ({ locale: p.locale, slug: p.slug }));
@@ -21,16 +36,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const page = getLandingPage(locale, slug);
   if (!page) return {};
-  const languages: Record<string, string> = {
-    [locale]: `${SITE_URL}/${locale}/${slug}`,
-  };
-  if (slug === 'youtube-klip-tanitimi' || slug === 'youtube-music-video-promotion') {
-    languages.tr = `${SITE_URL}/tr/youtube-klip-tanitimi`;
-    languages.en = `${SITE_URL}/en/youtube-music-video-promotion`;
-    languages['x-default'] = `${SITE_URL}/tr/youtube-klip-tanitimi`;
-  } else {
-    languages['x-default'] = `${SITE_URL}/${locale}/${slug}`;
-  }
+  const twin = LANDING_TWINS[slug];
+  const languages: Record<string, string> = twin
+    ? {
+        tr: `${SITE_URL}/tr/${twin.tr}`,
+        en: `${SITE_URL}/en/${twin.en}`,
+        ar: `${SITE_URL}/ar/${twin.ar}`,
+        'x-default': `${SITE_URL}/tr/${twin.tr}`,
+      }
+    : {
+        [locale]: `${SITE_URL}/${locale}/${slug}`,
+        'x-default': `${SITE_URL}/${locale}/${slug}`,
+      };
   return {
     title: { absolute: page.title },
     description: page.description,
@@ -114,7 +131,13 @@ function PriceTable({ page, locale }: { page: LandingPage; locale: string }) {
 export default async function LandingPageRoute({ params }: Props) {
   const { locale, slug } = await params;
   const page = getLandingPage(locale, slug);
-  if (!page) notFound();
+  if (!page) {
+    const twin = LANDING_TWINS[slug];
+    if (twin && twin[locale]) {
+      permanentRedirect(`/${locale}/${twin[locale]}`);
+    }
+    notFound();
+  }
 
   const isTr = locale === 'tr';
   const isAr = locale === 'ar';

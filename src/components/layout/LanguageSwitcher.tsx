@@ -16,6 +16,22 @@ interface LanguageSwitcherProps {
 /** Türkiye / İngilizce dünyasına özgü bölümler: Arapça sürümü yoktur. */
 const NO_AR_SECTIONS = new Set(['sanatcilar', 'sanatci', 'klip', 'yeni-klipler']);
 
+/** 9 Ticari Sayfa Arasında 3 Dilli Karşılıklı Eşleşme (404 Önleme) */
+const LANDING_TWINS: Record<string, Record<string, string>> = {
+  'youtube-klip-tanitimi': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia' },
+  'youtube-music-video-promotion': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia' },
+  'youtube-music-promotion-saudi-arabia': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia' },
+
+  'sarki-reklami-verme': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt' },
+  'google-ads-for-music-videos': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt' },
+  'youtube-music-promotion-egypt': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt' },
+
+  'youtube-reklam-fiyatlari': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco' },
+  'promote-turkish-music-on-youtube': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco' },
+  'youtube-music-promotion-morocco': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco' },
+};
+
+
 /**
  * Dil değiştirince gidilecek yol. Aynı içeriğin olmadığı yerde (yalnızca bir dilde yayınlanan blog yazısı,
  * Arapçası olmayan bölüm) 404 yerine o dilin blog ana sayfasına / ana sayfasına gidilir.
@@ -32,6 +48,12 @@ function targetPath(pathname: string, from: string, to: string, arTwins: Record<
       const arSlug = Object.keys(arTwins).find((k) => arTwins[k] === slug);
       return arSlug ? `/ar/blog/${arSlug}` : '/ar/blog';
     }
+  }
+  // 9 Ticari Açılış Sayfası Arasında Dil Değişimi (404 yerine hedef dildeki ikiz sayfaya git)
+  if (rest.length === 1 && LANDING_TWINS[rest[0]]) {
+    const twin = LANDING_TWINS[rest[0]];
+    const targetSlug = twin[to];
+    if (targetSlug) return `/${to}/${targetSlug}`;
   }
   if (to === 'ar' && rest[0] && NO_AR_SECTIONS.has(rest[0])) return '/ar';
   return `/${to}${rest.length ? `/${rest.join('/')}` : ''}`;
