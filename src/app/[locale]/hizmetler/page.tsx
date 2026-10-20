@@ -339,6 +339,12 @@ export default async function ServicesPage({ params }: Props) {
               >
                 → {isAr ? 'دليل ترويج الكليب في السعودية ومصر والمغرب' : isTr ? 'YouTube 4000 Saat İzlenme Süresi Doldurma Rehberi' : 'YouTube 4,000 Watch Hours Guide'}
               </Link>
+              <Link
+                href={isAr ? '/ar/blog/youtube-music-video-promotion-google-ads-guide' : `/${locale}/blog/youtube-izlenme-satin-almak-zararli-mi-bot-panel-vs-google-ads-2026`}
+                className="hover:underline"
+              >
+                → {isAr ? 'الفرق بين البوتات وإعلانات Google Ads الرسمية' : isTr ? 'YouTube İzlenme Satın Almak Zararlı mı? (Bot vs. Google Ads)' : 'Is Buying YouTube Views Harmful? (Bot vs. Google Ads)'}
+              </Link>
             </div>
           </div>
         </div>
