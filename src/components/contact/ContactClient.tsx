@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Send, Mail, MessageCircle, ShieldCheck, Award } from 'lucide-react';
 import { TELEGRAM_URL, WHATSAPP_URL } from '@/lib/contact';
+import { trackEvent } from '@/lib/analytics';
 
 type Props = {
   locale: string;
@@ -38,6 +39,8 @@ export default function ContactClient({ locale }: Props) {
         body: JSON.stringify({ ...formData, language: locale, website_hp: hp }),
       });
       if (!res.ok) throw new Error(String(res.status));
+      trackEvent('contact_form_submitted', { language: locale });
+      trackEvent('generate_lead', { event_category: 'contact_form', event_label: locale, value: 100, currency: 'TRY' });
       setIsSubmitted(true);
       setFormData({ name: '', email: '', phone: '', channelUrl: '', message: '' });
       setTimeout(() => setIsSubmitted(false), 6000);

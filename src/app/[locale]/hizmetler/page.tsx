@@ -22,13 +22,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       absolute: isAr
         ? 'خدمات الترويج الموسيقي على يوتيوب وفيديو Google Ads | MedyaPR'
         : isTr
-        ? 'Google Ads YouTube İzlenme & Klip PR Hizmetleri | MedyaPR'
+        ? 'Google Ads YouTube İzlenme Paketleri, Reklam Verme & Klip PR | MedyaPR'
         : 'YouTube Music PR & Google Ads Video Services | MedyaPR',
     },
     description: isAr
       ? 'نمِّ قناتك على يوتيوب عبر حملات Google Ads الرسمية In-Stream وShorts والاكتشاف. خبرة تتجاوز 18 عامًا وبدون أي بوتات.'
       : isTr
-      ? 'Resmi Google Ads ile YouTube klip tanıtımı, hedefli izlenme, abone ve etkileşim kampanyaları, Shorts reklamları. Şifre istenmez, ücretsiz video analizi.'
+      ? 'Resmi Google Ads ile organik YouTube izlenme paketleri, YouTube izlenme al, klip tanıtımı, abone ve etkileşim reklamları. Şifre istenmez, ücretsiz video analizi.'
       : 'Grow your YouTube channel with official Google Ads In-Stream, Shorts and Discovery campaigns. 18+ years experience and zero bots.',
     alternates: getPageAlternates(locale, '/hizmetler'),
   };
@@ -129,7 +129,7 @@ export default async function ServicesPage({ params }: Props) {
               {isAr
                 ? 'حلول رسمية عبر Google Ads لنمو قناة يوتيوب وفيديو الكليب'
                 : isTr
-                ? 'Resmi Google Ads ile YouTube Kanal ve Klip Büyütme Çözümleri'
+                ? 'Resmi Google Ads ile YouTube İzlenme Paketleri ve Klip Büyütme Çözümleri'
                 : 'Official Google Ads YouTube Channel & Music Video Growth Solutions'}
             </h2>
             <p className="text-gray-600 text-sm sm:text-base">

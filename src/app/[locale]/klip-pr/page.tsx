@@ -34,13 +34,13 @@ export async function generateMetadata({
   const title = isAr
     ? 'وكالة العلاقات العامة الرقمية وإطلاق فيديو الكليب | MedyaPR'
     : isTr
-    ? 'Müzik Klibi Dijital PR & Lansman Ajansı | MedyaPR'
+    ? 'YouTube Klip Tanıtımı, Şarkı PR & Müzik Lansman Ajansı | MedyaPR'
     : 'Music Video Digital PR & Launch Agency | MedyaPR';
 
   const description = isAr
     ? 'علاقات عامة رقمية وتخطيط إعلامي وإدارة إطلاق لفيديو الكليب باستهداف الجمهور المناسب، للفنانين المستقلين وشركات التسجيلات. اطلب تحليلًا مجانيًا لكليبك.'
     : isTr
-    ? 'Sanatçılar, müzik grupları ve yapım şirketleri için hedef kitle odaklı müzik klibi dijital PR, medya planlama ve lansman yönetimi. Ücretsiz analiz isteyin.'
+    ? 'Sanatçılar, bağımsız müzisyenler ve yapım şirketleri için YouTube klip tanıtımı, şarkı reklamı verme, dijital müzik PR ve lansman ajansı. Ücretsiz analiz isteyin.'
     : 'Audience-targeted music video digital PR, media planning, and launch management for independent artists and record labels. Request a free video audit.';
 
   return {
