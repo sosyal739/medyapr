@@ -47,3 +47,7 @@ next-env.d.ts
 # Large media & intermediate render cache
 /public/video_generated/
 /public/audio/*.wav
+
+graphify-out/
+public/qa_stills/
+public/qa_stills_vertical/
