@@ -94,16 +94,16 @@ export default async function NewReleasesPage({ params }: Props) {
             {isAr ? 'القنوات المتابَعة:' : isTr ? 'Takip Edilen Dağıtım Kanalları:' : 'Monitored Channels:'}
           </span>
           <span className="rounded-full bg-red-950/60 border border-red-500/30 px-3 py-1 text-xs font-bold text-red-300">
-            netd müzik
+            {isTr ? 'netd müzik' : 'netd music'}
           </span>
           <span className="rounded-full bg-cyan-950/60 border border-cyan-500/30 px-3 py-1 text-xs font-bold text-cyan-300">
             DMC (Doğan Music)
           </span>
           <span className="rounded-full bg-purple-950/60 border border-purple-500/30 px-3 py-1 text-xs font-bold text-purple-300">
-            Sony Music Türkiye
+            {isTr ? 'Sony Music Türkiye' : 'Sony Music Turkey'}
           </span>
           <span className="rounded-full bg-emerald-950/60 border border-emerald-500/30 px-3 py-1 text-xs font-bold text-emerald-300">
-            Bağımsız / Wovie
+            {isAr ? 'مستقل / Wovie' : isTr ? 'Bağımsız / Wovie' : 'Independent / Wovie'}
           </span>
         </div>
 
@@ -121,7 +121,7 @@ export default async function NewReleasesPage({ params }: Props) {
                   <div className="relative aspect-video w-full overflow-hidden bg-zinc-900">
                     <Image
                       src={rel.thumbnail}
-                      alt={`${rel.artist} - ${rel.title} Klibi`}
+                      alt={isTr ? `${rel.artist} - ${rel.title} Klibi` : `${rel.artist} - ${rel.title} Music Video`}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -131,14 +131,14 @@ export default async function NewReleasesPage({ params }: Props) {
                     <div className="absolute top-3 left-3 z-10">
                       <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-bold shadow-md ${badgeClass}`}>
                         <span className="h-1.5 w-1.5 rounded-full bg-current animate-pulse" />
-                        <span>{rel.channel}</span>
+                        <span>{isTr ? rel.channel : (rel.channel_en ?? rel.channel)}</span>
                       </span>
                     </div>
 
                     {/* Genre Pill Overlay */}
                     <div className="absolute top-3 right-3 z-10">
                       <span className="rounded-full bg-black/60 border border-white/15 px-2.5 py-0.5 text-[11px] font-medium text-zinc-300 backdrop-blur-md">
-                        {rel.genre}
+                        {isTr ? rel.genre : (rel.genre_en ?? rel.genre)}
                       </span>
                     </div>
 
@@ -158,7 +158,7 @@ export default async function NewReleasesPage({ params }: Props) {
                         <span>{rel.releaseDate}</span>
                       </span>
                       <span className="font-semibold text-zinc-400 text-[11px] bg-white/5 px-2 py-0.5 rounded-full">
-                        {rel.channel}
+                        {isTr ? rel.channel : (rel.channel_en ?? rel.channel)}
                       </span>
                     </div>
 
@@ -170,7 +170,7 @@ export default async function NewReleasesPage({ params }: Props) {
                     </h3>
 
                     <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed mb-4">
-                      {rel.summary}
+                      {isTr ? rel.summary : (rel.summary_en ?? rel.summary)}
                     </p>
                   </div>
                 </div>
@@ -178,7 +178,7 @@ export default async function NewReleasesPage({ params }: Props) {
                 {/* Footer Action */}
                 <div className="p-6 pt-0 border-t border-white/5 flex items-center justify-between">
                   <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-950/30 border border-emerald-500/20 px-2 py-0.5 rounded-full">
-                    Klip İncelemesi Yayında
+                    {isAr ? 'مراجعة الكليب متاحة' : isTr ? 'Klip İncelemesi Yayında' : 'Video Review Live'}
                   </span>
 
                   <Link
@@ -214,7 +214,7 @@ export default async function NewReleasesPage({ params }: Props) {
                 {isAr
                   ? 'احصل على ترويج بإعلانات Google Ads الرسمية لفيديو الكليب خلال أول 48 ساعة الحاسمة. بلا بوتات، وبشفافية كاملة في YouTube Studio.'
                   : isTr
-                  ? 'Klibinizin ilk 48 saatte YouTube algoritmasında organik ivme yakalaması için resmi Google Partner güvencesiyle yanınızdayız. Bot veya panel yok; yalnızca YouTube Studio tescilli resmi Google Ads video reklamları.'
+                  ? 'Klibinizin ilk 48 saatte doğru hedef kitledeki yeni dinleyicilere ulaşması ve ölçülebilir lansman görünürlüğü kazanması için resmi Google Partner güvencesiyle yanınızdayız. Bot veya panel yok; yalnızca YouTube Studio tescilli resmi Google Ads video reklamları.'
                   : 'Get official Google Ads video promotions for your music video within the critical first 48 hours. Zero bots, pure YouTube Studio transparency.'}
               </p>
             </div>

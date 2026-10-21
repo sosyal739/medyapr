@@ -18,10 +18,16 @@ export interface NewRelease {
   twitterHandle?: string;
   views?: string;
   likes?: string;
+  channel_en?: string;
+  genre_en?: string;
   summary: string;
+  summary_en?: string;
   review: string;
+  review_en?: string;
   targetAudience: string;
+  targetAudience_en?: string;
   tags: string[];
+  tags_en?: string[];
   lastChecked?: string;
   isIndexable?: boolean;
 }

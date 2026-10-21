@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? `كليب ${rel.artist} الجديد ${rel.title} متاح الآن على ${rel.channel}. مراجعة الكليب، وبيانات المخرج وفريق العمل، وتحليلات نمو يوتيوب.`
     : isTr
     ? `${rel.artist} imzalı ${rel.title} klibi ${rel.channel} kanalında yayında. Klip yönetmeni, künyesi, izlenme analizi ve YouTube algoritma incelemesi.`
-    : `${rel.artist}'s new music video ${rel.title} out now on ${rel.channel}. Video review, director credits, and YouTube growth analytics.`;
+    : `${rel.artist}'s new music video ${rel.title} out now on ${rel.channel_en ?? rel.channel}. Video review, director credits, and YouTube growth analytics.`;
 
   // Google Scaled Content Abuse Önleme Kuralı (Spam Guardrail):
   // Yalnızca kalite kriterini karşılayan (özgün editör analizi ve doğrulanmış künyesi olan) sayfalar indexlenir.
@@ -148,7 +148,7 @@ export default async function ReleaseDetailPage({ params }: Props) {
               {
                 '@type': 'VideoObject',
                 name: `${rel.artist} - ${rel.title}`,
-                description: rel.summary,
+                description: isTr ? rel.summary : (rel.summary_en ?? rel.summary),
                 thumbnailUrl: [rel.thumbnail],
                 uploadDate: rel.releaseDate,
                 embedUrl: `https://www.youtube-nocookie.com/embed/${rel.videoId}`,
@@ -200,10 +200,10 @@ export default async function ReleaseDetailPage({ params }: Props) {
             <div className="flex flex-wrap items-center gap-2 mb-2">
               <span className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-bold shadow-md ${badgeClass}`}>
                 <span className="h-1.5 w-1.5 rounded-full bg-current animate-pulse" />
-                <span>{rel.channel}</span>
+                <span>{isTr ? rel.channel : (rel.channel_en ?? rel.channel)}</span>
               </span>
               <span className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-xs font-medium text-zinc-300">
-                {rel.genre}
+                {isTr ? rel.genre : (rel.genre_en ?? rel.genre)}
               </span>
               <span className="flex items-center gap-1 text-xs text-zinc-400 ml-1">
                 <Calendar className="h-3.5 w-3.5 text-zinc-500" />
@@ -243,20 +243,20 @@ export default async function ReleaseDetailPage({ params }: Props) {
         {/* Credits Box */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl bg-white/[0.02] border border-white/10 mb-10 text-xs">
           <div>
-            <span className="text-zinc-500 block mb-0.5">Yönetmen</span>
-            <span className="font-semibold text-zinc-200">{rel.director || 'Belirtilmedi'}</span>
+            <span className="text-zinc-500 block mb-0.5">{isAr ? 'المخرج' : isTr ? 'Yönetmen' : 'Director'}</span>
+            <span className="font-semibold text-zinc-200">{rel.director || (isAr ? 'غير محدد' : isTr ? 'Belirtilmedi' : 'Not Specified')}</span>
           </div>
           <div>
-            <span className="text-zinc-500 block mb-0.5">Prodüksiyon / Label</span>
-            <span className="font-semibold text-zinc-200">{rel.producer || rel.channel}</span>
+            <span className="text-zinc-500 block mb-0.5">{isAr ? 'شركة الإنتاج / Label' : isTr ? 'Prodüksiyon / Label' : 'Production / Label'}</span>
+            <span className="font-semibold text-zinc-200">{rel.producer || (isTr ? rel.channel : (rel.channel_en ?? rel.channel))}</span>
           </div>
           <div>
-            <span className="text-zinc-500 block mb-0.5">Sanatçı Instagram</span>
-            <span className="font-semibold text-rose-400">{rel.instagramHandle || '@sanatci'}</span>
+            <span className="text-zinc-500 block mb-0.5">{isAr ? 'إنستغرام الفنان' : isTr ? 'Sanatçı Instagram' : 'Artist Instagram'}</span>
+            <span className="font-semibold text-rose-400">{rel.instagramHandle || '@artist'}</span>
           </div>
           <div>
-            <span className="text-zinc-500 block mb-0.5">Hedef Kitle</span>
-            <span className="font-semibold text-zinc-200 line-clamp-1">{rel.targetAudience}</span>
+            <span className="text-zinc-500 block mb-0.5">{isAr ? 'الجمهور المستهدف' : isTr ? 'Hedef Kitle' : 'Target Audience'}</span>
+            <span className="font-semibold text-zinc-200 line-clamp-1">{isTr ? rel.targetAudience : (rel.targetAudience_en ?? rel.targetAudience)}</span>
           </div>
         </div>
 
@@ -269,11 +269,11 @@ export default async function ReleaseDetailPage({ params }: Props) {
 
           <div className="rounded-3xl border border-white/10 bg-[#16191E]/80 p-6 sm:p-8 backdrop-blur-md">
             <p className="text-sm sm:text-base leading-relaxed text-zinc-200 mb-6">
-              {rel.review}
+              {isTr ? rel.review : (rel.review_en ?? rel.review)}
             </p>
 
             <blockquote className="border-l-2 border-[#FF0033] pl-4 italic text-xs sm:text-sm text-zinc-300">
-              {rel.summary}
+              {isTr ? rel.summary : (rel.summary_en ?? rel.summary)}
             </blockquote>
           </div>
         </section>
@@ -309,28 +309,52 @@ export default async function ReleaseDetailPage({ params }: Props) {
 
               <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                 {isAr
-                  ? `مبروك! '${rel.title}' متاح الآن. وسّع انتشارك وادخل توصيات يوتيوب عبر الترويج للفيديو بإعلانات Google Ads المعتمدة.`
+                  ? `مبروك! '${rel.title}' متاح الآن. نساعدك في الوصول إلى مستمعين جدد مهتمين بنوعك الموسيقي بنتائج قابلة للقياس عبر حملات Google Ads المعتمدة.`
                   : isTr
-                  ? `Tebrikler! '${rel.title}' klibiniz yayında. Klibinizin YouTube algoritmasında doğru müzikseverlere ulaşması ve önerilen videolara girmesi için resmi Google Ads video kampanyaları hazırlıyoruz.`
-                  : `Congratulations! '${rel.title}' is out now. Scale your reach and trigger YouTube recommendations with certified Google Ads video PR.`}
+                  ? `Tebrikler! '${rel.title}' klibiniz yayında. Klibinizin müzik türünüze ilgi duyan yeni dinleyicilere ulaşması ve ölçülebilir kampanya sonuçları elde etmesi için resmi Google Ads video kampanyaları hazırlıyoruz.`
+                  : `Congratulations! '${rel.title}' is out now. Reach relevant new listeners in your genre with measurable campaign results through certified Google Ads video PR.`}
               </p>
 
               <div className="space-y-2 pt-2 text-xs font-semibold text-zinc-200">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-[#00C9A7] shrink-0" />
-                  <span>Kanal şifresi gerekmez (Yalnızca YouTube video bağlantısı iletilir)</span>
+                  <span>
+                    {isAr
+                      ? 'لا حاجة لكلمة مرور القناة (يُرسل رابط فيديو يوتيوب العام فقط)'
+                      : isTr
+                      ? 'Kanal şifresi gerekmez (Yalnızca YouTube video bağlantısı iletilir)'
+                      : 'No channel password required (Only the public YouTube video URL is needed)'}
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-[#00C9A7] shrink-0" />
-                  <span>YouTube Studio'da resmi "YouTube Reklamları" tescili (Sıfır bot / Sıfır sahte panel)</span>
+                  <span>
+                    {isAr
+                      ? 'تسجيل رسمي في YouTube Studio ضمن «إعلانات يوتيوب» (دون بوتات أو لوحات وهمية)'
+                      : isTr
+                      ? 'YouTube Studio’da resmi "YouTube Reklamları" tescili (Sıfır bot / Sıfır sahte panel)'
+                      : 'Verified in YouTube Studio under "YouTube Advertising" (Zero bots / Zero SMM panels)'}
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-[#00C9A7] shrink-0" />
-                  <span>Gerçek insan erişimi: Beğeni ve yorum garantisi verilmez; resmi kitle hedeflemesi yapılır</span>
+                  <span>
+                    {isAr
+                      ? 'وصول إلى مستمعين حقيقيين: لا نعد بأرقام إعجابات أو تعليقات مضمونة، بل استهداف جماهيري رسمي'
+                      : isTr
+                      ? 'Gerçek insan erişimi: Beğeni ve yorum garantisi verilmez; resmi kitle hedeflemesi yapılır'
+                      : 'Real human reach: No guaranteed likes or comments; official audience targeting only'}
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-[#00C9A7] shrink-0" />
-                  <span>Önce analiz, sonra teklif: onayınız olmadan kampanya başlamaz</span>
+                  <span>
+                    {isAr
+                      ? 'مراجعة أولًا ثم عرض سعر: لا تبدأ أي حملة دون موافقتك'
+                      : isTr
+                      ? 'Önce analiz, sonra teklif: onayınız olmadan kampanya başlamaz'
+                      : 'Review first, then quote: no campaign starts without your approval'}
+                  </span>
                 </div>
               </div>
 

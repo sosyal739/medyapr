@@ -1025,6 +1025,41 @@
       "Örneğin Almanya'daki Türk dinleyicilere yönelik bir klip çalışmasında; Almanya genelindeki Türk nüfus yoğunluklu bölgeler (Köln, Frankfurt, Berlin), Türkçe dil tercihi ve ilgili müzik kanalları hedeflenerek harcanan her kuruşun doğrudan gerçek dinleyiciye dönüşmesi sağlanır. Ayrıntılar için [Almanya'daki Türkler için YouTube reklam rehberimize](/blog/almanyadaki-turkler-icin-youtube-reklam-ve-video-pr-rehberi) göz atabilirsiniz.",
       "### Süreç Nasıl İşler? — Analysis & Strategy",
       "MedyaPR olarak süreci sürtünmesiz yönetiyoruz: 1) Video linkiniz iletilir. 2) Google Partner uzmanlarımız klibi analiz edip resmi reklam onayına sunar. Kurumsal müşterilerimiz için ise tüm ödeme iş bitimindedir. Bütçenizi planlamak için [canlı fiyat hesaplayıcımızı](/fiyatlandirma) kullanabilir veya [sıkça sorulan sorular](/sss) sayfamıza göz atabilirsiniz."
+    ],
+    "table_en": {
+      "headers": [
+        "Ad Format",
+        "Recommended Starting Budget",
+        "Average CTR",
+        "Primary Use Case"
+      ],
+      "rows": [
+        [
+          "Skippable In-Stream Ads",
+          "$35 / ₺1,200 (5K)",
+          "4.5% - 8.5%",
+          "In-Stream Reach & Launch Velocity"
+        ],
+        [
+          "YouTube Shorts Video Ads",
+          "$22 / ₺750 (10K Global)",
+          "6.0% - 12.0%",
+          "Viral Chorus Hook Promotion"
+        ],
+        [
+          "In-Feed Discovery Ads",
+          "$58 / ₺2,000 (10K)",
+          "3.2% - 6.0%",
+          "Channel Subscribers & Repeat Listeners"
+        ]
+      ],
+      "caption": "YouTube Music Video Promotion Ad Formats & Performance Comparison"
+    },
+    "faqs_en": [
+      {
+        "question": "How much budget should be allocated for music video promotion?",
+        "answer": "MedyaPR offers tiered packages from 1,000 to 1,000,000 views. For most single launches, the 10,000 to 50,000 view range provides an effective balance of reach and CPV efficiency."
+      }
     ]
   },
   {
@@ -1805,6 +1840,51 @@
       "2. Oynatma Listeleri (Playlists): Birbirini takip eden müzik klipleri veya podcast serileri oynatma listesine alındığında, otomatik oynatma sayesinde izleme süresi katlanarak artar.",
       "3. Canlı Yayınlar (Live Streaming): Canlı akustik performanslar veya soru-cevap seansları YouTube'da saatlerce süren kesintisiz izleme süresi toplamanın en organik yoludur. [Dedublüman'ın canlı akustik modeli](/blog/dedubluman-sila-aci-bal-akustik-seanslar) bu konuda mükemmel bir örnektir.",
       "Bot panelleriyle kanalınızı spama sokmak yerine organik büyümeye odaklanın: uzun videolar, düzenli yayın ve güçlü bir ilk 30 saniye. Reklam kampanyaları videonuzun görünürlüğünü artırır, ancak ücretli reklam izlenmeleri YPP izlenme saatine sayılmaz."
+    ],
+    "table_en": {
+      "headers": [
+        "Method",
+        "Average Duration",
+        "YPP Monetization Eligibility",
+        "Channel Risk"
+      ],
+      "rows": [
+        [
+          "Organic Long-Form Video + SEO",
+          "4 - 8 Months",
+          "100% Accepted",
+          "Zero Policy Risk"
+        ],
+        [
+          "Official Google Ads Campaign",
+          "1 - 3 Weeks",
+          "100% Safe & Certified",
+          "Certified Google Partner Management"
+        ],
+        [
+          "Live Streams / Acoustic Sessions",
+          "2 - 4 Months",
+          "100% Valid Watch Hours",
+          "Zero Policy Risk"
+        ],
+        [
+          "SMM Bot Panel Watch Hours",
+          "2 - 3 Days",
+          "REJECTED (Invalid Traffic)",
+          "Channel Termination / Policy Strike"
+        ]
+      ],
+      "caption": "Comparison of Methods to Reach 4,000 YouTube Watch Hours"
+    },
+    "faqs_en": [
+      {
+        "question": "Do watch hours from YouTube Shorts count toward the 4,000-hour threshold?",
+        "answer": "No. Watch hours from the Shorts feed do not count toward the 4,000-hour long-form threshold; Shorts has a separate YPP path (10M public Shorts views in 90 days)."
+      },
+      {
+        "question": "Do views from Google Ads count toward YouTube monetization watch hours?",
+        "answer": "While paid Google Ads views on public videos do not directly count toward the 4,000-hour YPP threshold, new subscribers and viewers who subsequently watch your other videos organically do count toward monetization."
+      }
     ]
   },
   {
@@ -1897,6 +1977,51 @@
       "### Gizli (Private) Modu Ne İşe Yarar? — Analysis & Strategy",
       "Gizli mod, videoyu henüz ekiple taslak aşamasındayken incelemek içindir. Bağlantıya sahip olan kişiler dahi videoyu izleyemez; videoyu görebilmek için kullanıcının Gmail hesabına özel yetki tanımlanması gerekir.",
       "Klip lansmanınızı hatasız planlamak ve ilk saniyeden itibaren resmi Google Ads desteği almak için [MedyaPR uzman ekibimizle](/iletisim) iletişime geçebilirsiniz."
+    ],
+    "table_en": {
+      "headers": [
+        "Feature",
+        "Public",
+        "Unlisted",
+        "Private"
+      ],
+      "rows": [
+        [
+          "Search Visibility",
+          "Yes, Fully Indexed",
+          "No, Hidden from Public Search",
+          "No, Hidden from Public Search"
+        ],
+        [
+          "Link Sharing",
+          "Anyone Can Watch",
+          "Anyone With the Link Can Watch",
+          "Invited Google Accounts Only"
+        ],
+        [
+          "Visible on Channel Page",
+          "Listed in Videos Tab",
+          "Hidden from Channel Tab",
+          "Hidden from Channel Tab"
+        ],
+        [
+          "Submit for Google Ads Policy Review",
+          "Eligible",
+          "ELIGIBLE (Pre-Launch Review)",
+          "NOT ELIGIBLE"
+        ]
+      ],
+      "caption": "YouTube Video Privacy Settings Comparison Table"
+    },
+    "faqs_en": [
+      {
+        "question": "Can a music video be submitted for Google Ads approval as Unlisted before release?",
+        "answer": "Yes. Uploading your video as Unlisted first allows Google Ads policy review to finish in advance so your campaign can start the moment the video goes Public."
+      },
+      {
+        "question": "When an Unlisted video is made Public, when does the launch window start?",
+        "answer": "YouTube's release timer starts from the moment the video is switched to 'Public'. Keeping a video Unlisted beforehand for ad review does not hurt launch performance."
+      }
     ]
   },
   {
@@ -2020,7 +2145,7 @@
   {
     "slug": "poizi-kimdir-bi-kahve-yaptim-sarkisi-ve-youtube-trend-analizi",
     "title": "POIZI Kimdir? Bİ KAHVE YAPTIM Şarkısı & Trend Analizi",
-    "summary": "POIZI kimdir, Bİ KAHVE YAPTIM şarkısı YouTube trendlerinde nasıl 4. sıraya yükseldi? Müzik tarzı, klip hikayesi ve dijital PR stratejisi analizi.",
+    "summary": "POIZI, yeni nesil Türkçe melodik trap ve R&B sahnesinde 'Bi Kahve Yaptım' ve 'Dur Diyemem' teklileriyle YouTube Türkiye Müzik Trendlerinde ilk 5'e yükselen bağımsız rap sanatçısı ve söz yazarıdır.",
     "category": "Trend Analizi",
     "date": "2026-10-13",
     "readTime": "4 dk okuma",
@@ -2035,7 +2160,7 @@
       "Melodik Trap",
       "Klip PR"
     ],
-    "quickFact": "POIZI, 'Bİ KAHVE YAPTIM' parçasıyla YouTube Türkiye Müzik Trendlerinde 4. sıraya yerleşen ve kısa sürede 1.35 milyondan fazla izlenmeye ulaşan yeni nesil melodik trap sanatçısıdır. Sosyal medya akımları ile Google Ads video desteğini birleştirerek bağımsız müzikte büyük bir başarı yakalamıştır.",
+    "quickFact": "Hızlı Kimlik Özeti: POIZI • Köken: İstanbul, Türkiye • Müzik Türü: Melodik Trap, New-Wave Türkçe Rap & R&B • Çıkış Yılı: 2024–2026 • En Bilinen Şarkıları: Bi Kahve Yaptım, Dur Diyemem • Dijital Başarı: YouTube Türkiye Müzik Trendleri İlk 5 ve 15M+ toplam izlenme.",
     "table": {
       "caption": "POIZI — Bİ KAHVE YAPTIM YouTube Performans Metrikleri",
       "headers": [
@@ -2092,7 +2217,7 @@
       }
     ],
     "paragraphs": [
-      "Türkiye müzik piyasasında bağımsız sanatçıların büyük plak şirketlerinin tekelini kırarak listelerin zirvesine yerleştiği tarihi bir döneme tanıklık ediyoruz. Bu dönemin en somut örneklerinden biri, 'Bİ KAHVE YAPTIM' parçasıyla YouTube Türkiye Müzik Trendlerinde 4. sıraya kadar yükselen POIZI oldu.",
+      "POIZI, Türkçe melodik trap ve yeni nesil (new-wave) hip-hop sahnesinde akılda kalıcı vokal nakaratları ve lo-fi/atmosferik prodüksiyonlarıyla öne çıkan bağımsız Türk rap sanatçısıdır. Sosyal medyada ve kısa video akışlarında viral olduktan sonra netd müzik ve kendi kanalı üzerinden yayınlanan 'Bi Kahve Yaptım' ile 'Dur Diyemem' klipleriyle YouTube Türkiye Müzik Trendlerinde 4. sıraya kadar yükselmiştir.",
       "### 'Bİ KAHVE YAPTIM' Neden Bu Kadar Hızlı Tutuldu?",
       "Şarkının başarısı bir tesadüf değil, dikkatle kurgulanmış bir dijital müzik stratejisinin sonucudur. Girişteki samimi sözler, dinleyicinin günlük hayatına dokunan 'kahve' teması ve modern melodik trap ritimleri, şarkıyı ilk 5 saniyede dinleyiciye sevdirmeyi başardı. YouTube'un yeni izleme kuralında en kritik metrik olan 'kitle tutma oranı' (Audience Retention) bu sayede tavan yaptı.",
       "### Kısa Video (Shorts) ve YouTube Ads Hibrit Etkisi",
@@ -2166,8 +2291,7 @@
       "### The Hybrid Power of Shorts and YouTube Ads",
       "By pairing short-form video momentum with official YouTube In-Stream placements, POIZI converted casual scrollers into loyal subscribers.",
       "Independent artists looking to replicate this trajectory can launch certified [YouTube Music Video Promotion](/hizmetler) campaigns with MedyaPR."
-    ],
-    "trOnly": true
+    ]
   },
   {
     "slug": "youtube-izlenme-nasil-sayilir-24-agustos-2026-yeni-kural",
@@ -3797,7 +3921,7 @@
   {
     "slug": "mert-demir-kibariye-karakis-harbiye-canli-klip-trend-analizi",
     "title": "Mert Demir Kimdir, Kaç Yaşında? Yaşı, Nereli ve Şarkıları",
-    "summary": "Mert Demir kimdir, kaç yaşında (age) ve aslen nereli? 26 Aralık 1993 İstanbul Beyoğlu doğumlu (32 yaşında) sanatçının Ateşe Düştüm ve Karakış klip analizi.",
+    "summary": "Mert Demir, 26 Aralık 1993 İstanbul (Beyoğlu) doğumlu, 33 yaşında Türk şarkıcı, söz yazarı, prodüktör ve aranjördür. Ateşe Düştüm, Antidepresan, Cehennemin Dibi ve Kibariye ile Harbiye'de seslendirdiği Karakış canlı performansı.",
     "category": "Kimdir?",
     "date": "18 Ekim 2026",
     "readTime": "4 dk",
@@ -3812,7 +3936,7 @@
       "Harbiye",
       "Canlı Performans"
     ],
-    "quickFact": "Mert Demir, 26 Aralık 1993 İstanbul Beyoğlu doğumlu (32 yaşında) Türk şarkıcı, söz yazarı ve prodüktördür. Retro-pop, R&B ve arabesk-saykodelik tınıları harmanladığı 'Antidepresan', 'Ateşe Düştüm' ve Kibariye ile seslendirdiği 'Karakış' Harbiye canlı performansıyla yüz milyonlarca izlenmeye ulaşmıştır.",
+    "quickFact": "Hızlı Kimlik Özeti: Mert Demir • Doğum Tarihi: 26 Aralık 1993 (33 yaşında) • Doğum Yeri / Memleket: Beyoğlu, İstanbul • Müzik Türü: Retro Arabesk, Indie Pop, R&B & Bedroom Pop • En Bilinen Şarkıları: Ateşe Düştüm, Antidepresan (Mabel Matiz ile), Cehennemin Dibi, Acıtıyor, Karakış (Kibariye ile).",
     "table": {
       "caption": "Mert Demir & Kibariye - Karakış Canlı Klip Metrikleri",
       "headers": [
@@ -3857,7 +3981,7 @@
       }
     ],
     "paragraphs": [
-      "### Mert Demir Kimdir, Kaç Yaşında ve Nerelidir?",
+      "Mert Demir, 26 Aralık 1993 tarihinde İstanbul Beyoğlu'nda doğmuş (2026 itibarıyla 33 yaşında) Türk şarkıcı, söz yazarı, prodüktör ve çoklu enstrümanisttir. Gitar, bağlama, klavye ve prodüksiyonu kendi stüdyosunda birleştiren sanatçı; Mabel Matiz ile ortak çalışması Antidepresan, listelerde haftalarca zirvede kalan Ateşe Düştüm ve Harbiye Açıkhava'da Kibariye ile kaydettiği Karakış canlı performans klibiyle YouTube Türkiye'nin en çok izlenen isimlerinden biri olmuştur.",
       "Son yıllarda Türk pop ve R&B müziğine yepyeni bir soluk getiren Mert Demir, 26 Aralık 1993 tarihinde İstanbul'da dünyaya gelmiştir. Günümüz itibarıyla 33 yaşındadır. Aslen İstanbullu olan sanatçı; şarkıcı, söz yazarı, besteci ve aynı zamanda son derece yetkin bir müzik prodüktörüdür.",
       "Müziğe küçük yaşlarda gitar çalarak başlayan Mert Demir, O Ses Türkiye yarışmasıyla geniş kitlelerin dikkatini çekmiş, ardından kendi özgün sound'unu inşa ederek bağımsız alternatif sahnelerden Türkiye'nin en büyük stadyum ve açık hava sahnelerine uzanan devasa bir başarı hikayesine imza atmıştır.",
       "### Mert Demir'in Hit Şarkıları ve YouTube Başarıları",
@@ -3898,12 +4022,54 @@
       "Google Ads for Musicians",
       "YouTube Growth Agency"
     ],
-    "trOnly": true
+    "table_en": {
+      "headers": [
+        "Metric",
+        "Karakış Live Metric",
+        "Standard Concert Recording"
+      ],
+      "rows": [
+        [
+          "Average Percentage Viewed",
+          "71.2%",
+          "38.5%"
+        ],
+        [
+          "Comment-to-View Ratio",
+          "1.4% (9K+ Comments)",
+          "0.3%"
+        ],
+        [
+          "Trending Chart Position",
+          "Top 10",
+          "No Sign-In Required"
+        ]
+      ],
+      "caption": "Mert Demir & Kibariye - Karakış Live Performance Video Metrics"
+    },
+    "faqs_en": [
+      {
+        "question": "Who is Mert Demir and how old is he?",
+        "answer": "Mert Demir is a Turkish singer, songwriter, and producer born on December 26, 1993 in Beyoğlu, Istanbul."
+      },
+      {
+        "question": "Where is Mert Demir originally from?",
+        "answer": "Mert Demir was born and raised in Beyoğlu, Istanbul."
+      },
+      {
+        "question": "What are Mert Demir's most famous songs?",
+        "answer": "Antidepresan (with Mabel Matiz), Ateşe Düştüm, Dön Desem, Karakış (with Kibariye), and Cehennemin Dibi are Mert Demir's most popular songs."
+      },
+      {
+        "question": "Why do live concert recordings perform so well on YouTube?",
+        "answer": "A dynamic live audio mix, compelling thumbnail framing, and targeted Google Ads reach to genre fans during the first 48 hours help live performance videos build strong watch time."
+      }
+    ]
   },
   {
     "slug": "zeynep-bastik-lan-viral-yayilim-ve-klip-lansman-rehberi",
     "title": "Zeynep Bastık Kimdir, Kaç Yaşında? Klip Lansman Rehberi",
-    "summary": "Zeynep Bastık kimdir, kaç yaşında, nereli? Felaket, Uslanmıyor Bu ve Lan şarkılarıyla YouTube rekorları kıran Zeynep Bastık'ın hayatı ve lansman planı.",
+    "summary": "Zeynep Bastık, 8 Temmuz 1993 Çanakkale doğumlu, 33 yaşında (İzmir'de büyümüş, anne tarafı Arnavut kökenli) Türk pop müziği sanatçısıdır. Felaket akustik cover'ı, Uslanmıyor Bu, Ara ve Mabel Matiz imzalı Lan şarkısının küresel başarısı.",
     "category": "Kimdir?",
     "date": "11 Ekim 2026",
     "readTime": "5 dk",
@@ -3918,7 +4084,7 @@
       "Klip PR",
       "Google Ads"
     ],
-    "quickFact": "Zeynep Bastık, 8 Temmuz 1993 Çanakkale doğumlu Türk pop sanatçısıdır. Akustik YouTube seansları ve 'Lan' hitiyle küresel listelere girmiştir.",
+    "quickFact": "Hızlı Kimlik Özeti: Zeynep Bastık • Doğum Tarihi: 8 Temmuz 1993 (33 yaşında) • Doğum Yeri: Çanakkale (3 yaşından itibaren İzmir'de büyüdü) • Müzik Türü: Türkçe Pop, Akustik Pop & Dans-Pop • En Bilinen Şarkıları: Lan, Ara, Uslanmıyor Bu, Felaket (Cover), Marlon Brando.",
     "table": {
       "caption": "Zeynep Bastık - Lan Küresel Yayılım Verileri",
       "headers": [
@@ -3959,7 +4125,7 @@
       }
     ],
     "paragraphs": [
-      "### Zeynep Bastık Kimdir, Kaç Yaşında ve Nerelidir?",
+      "Zeynep Bastık, 8 Temmuz 1993 tarihinde Çanakkale'de doğmuş (2026 itibarıyla 33 yaşında) ve çocukluk ile gençlik yıllarını İzmir'de geçirmiş Türk pop müziği şarkıcısıdır. Murat Dalkılıç'ın vokalistliğiyle profesyonel sahneye adım atan ve kendi YouTube kanalında yayınladığı Felaket akustik performansıyla milyonlara ulaşan sanatçı; Uslanmıyor Bu, Ara ve söz-müziği Mabel Matiz'e ait olan Lan teklisiyle küresel listelere girmiştir.",
       "Türk pop müziğinin dijital dönüşümüne öncülük eden Zeynep Bastık, 8 Temmuz 1993 tarihinde Çanakkale'de doğmuştur. Çocukluk ve gençlik yıllarını İzmir'de geçiren sanatçı, günümüz itibarıyla 33 yaşındadır. Kariyerinin başlarında Murat Dalkılıç'ın vokalistliğini yapmış, ardından kendi YouTube kanalında yayınladığı samimi akustik cover videolarıyla Türkiye'nin en popüler kadın pop yıldızlarından birine dönüşmüştür.",
       "Zeynep Bastık, geleneksel televizyon kanalları yerine YouTube'u birincil sahne olarak kullanan ve kendi YouTube kanalını bir medya kuruluşuna çeviren ilk Türk sanatçılar arasındadır.",
       "### Hit Şarkıları ve YouTube'daki Dönüm Noktaları",
@@ -3995,7 +4161,45 @@
       "Google Ads for Musicians",
       "YouTube Growth Agency"
     ],
-    "trOnly": true
+    "table_en": {
+      "headers": [
+        "Region",
+        "View Rate",
+        "Targeting Method"
+      ],
+      "rows": [
+        [
+          "Turkey",
+          "62%",
+          "In-Stream + In-Feed Discovery"
+        ],
+        [
+          "Germany & Europe",
+          "24%",
+          "European Diaspora & Turkish Pop"
+        ],
+        [
+          "Global / International",
+          "14%",
+          "Shorts & Discovery Feed"
+        ]
+      ],
+      "caption": "Zeynep Bastık - Lan Global Streaming & YouTube Metrics"
+    },
+    "faqs_en": [
+      {
+        "question": "Who is Zeynep Bastık and how old is she?",
+        "answer": "Zeynep Bastık is a Turkish singer and actress born on July 8, 1993 in Çanakkale, Turkey."
+      },
+      {
+        "question": "How did Zeynep Bastık become famous?",
+        "answer": "She rose to nationwide fame through intimate acoustic cover performances recorded at home on her YouTube channel—most notably her cover of 'Felaket'."
+      },
+      {
+        "question": "What are Zeynep Bastık's most streamed songs?",
+        "answer": "Felaket, Uslanmıyor Bu, Mod, Ara, and Lan are among Zeynep Bastık's most streamed songs."
+      }
+    ]
   },
   {
     "slug": "semicenk-pisman-degilim-klip-analizi-zirvede-kalma-stratejisi",
@@ -4313,12 +4517,58 @@
       "YouTube Growth Agency"
     ],
     "bioSlug": "blok3-hakan-aydin-kimdir-sarkilari-tarzi-ve-youtube-basarisi",
-    "trOnly": true
+    "table_en": {
+      "headers": [
+        "Criterion",
+        "Laf Anlamaz",
+        "Industry Median",
+        "Outcome"
+      ],
+      "rows": [
+        [
+          "Daily View Velocity",
+          "310,500",
+          "20,000",
+          "Top 10 Trending Run"
+        ],
+        [
+          "Shorts / TikTok Audio Sync",
+          "120K+ Uses",
+          "5K",
+          "Cross-Platform Reach"
+        ],
+        [
+          "Google Ads Format",
+          "In-Stream + Shorts",
+          "Standard",
+          "Strong Gen-Z Reach"
+        ]
+      ],
+      "caption": "BLOK3 - Laf Anlamaz YouTube Performance & Audience Breakdown"
+    },
+    "faqs_en": [
+      {
+        "question": "Who is BLOK3 and what is his real name?",
+        "answer": "The real name of the Turkish rap artist known as BLOK3 is Hakan Aydın."
+      },
+      {
+        "question": "How old is BLOK3 and where is he from?",
+        "answer": "Born on August 15, 2002, BLOK3 (Hakan Aydın) is 24 years old and is from Gebze, Kocaeli, Turkey."
+      },
+      {
+        "question": "What are BLOK3's most popular songs?",
+        "answer": "Vur, Affetmem, Baybay, Aklına Ben Gelicem, Laf Anlamaz, and Güzel ve İddialı are among BLOK3's most streamed songs."
+      },
+      {
+        "question": "Does YouTube music video promotion help with live booking and festival offers?",
+        "answer": "Yes. Venue bookers and festival promoters frequently review an artist's YouTube view history and regional audience engagement when evaluating live booking offers."
+      }
+    ]
   },
   {
     "slug": "melike-sahin-canin-beni-cekti-klip-analizi-organik-kesfet-formulu",
     "title": "Melike Şahin Kimdir, Kaç Yaşında? Şarkıları ve Keşfet Sırrı",
-    "summary": "Melike Şahin kimdir, kaç yaşında, nereli? Diva Bebe lakabıyla tanınan sanatçının biyografisi, Bedelini Ödedim, Canın Beni Çekti ve YouTube keşfet formülü.",
+    "summary": "Melike Şahin, 18 Nisan 1989 İstanbul doğumlu, 37 yaşında (aslen Sivas Divriğili) Türk alternatif pop ve çağdaş alaturka sanatçısıdır. Boğaziçi Üniversitesi Sosyoloji mezunu sanatçının Tutuşmuş Beraber, Diva Yorgun ve Canın Beni Çekti şarkıları.",
     "category": "Kimdir?",
     "date": "11 Ekim 2026",
     "readTime": "5 dk",
@@ -4333,7 +4583,7 @@
       "Pop Müzik PR",
       "Google Ads"
     ],
-    "quickFact": "Melike Şahin, 18 Nisan 1989 İstanbul doğumlu Türk şarkıcı ve söz yazarıdır. Boğaziçi Üniversitesi mezunudur ve 'Bedelini Ödedim' ile devleşmiştir.",
+    "quickFact": "Hızlı Kimlik Özeti: Melike Şahin • Doğum Tarihi: 18 Nisan 1989 (37 yaşında) • Doğum Yeri: İstanbul (Aslen Sivas, Divriği) • Eğitimi: Boğaziçi Üniversitesi Sosyoloji Bölümü (2012) • Müzik Türü: Çağdaş Alaturka, Alternatif Pop & Saykedelik Gazino • En Bilinen Şarkıları: Tutuşmuş Beraber, Deli Kan, Pusulam Rüzgar, Diva Yorgun, Canın Beni Çekti.",
     "table": {
       "caption": "Melike Şahin - Canın Beni Çekti Dijital PR Metrikleri",
       "headers": [
@@ -4388,7 +4638,7 @@
       }
     ],
     "paragraphs": [
-      "### Melike Şahin Kimdir, Kaç Yaşında ve Nerelidir?",
+      "Melike Şahin, 18 Nisan 1989 tarihinde İstanbul'da doğmuş (2026 itibarıyla 37 yaşında), aslen Sivas Divriğili olan Türk şarkıcı, söz yazarı ve bestecidir. 2012 yılında Boğaziçi Üniversitesi Sosyoloji Bölümü'nden mezun olan ve Baba Zula ile dünyayı turladıktan sonra 2017'de Bi' Fırlatsam ile solo kariyerine başlayan sanatçı; Merhem albümü, Tutuşmuş Beraber, Pusulam Rüzgar, Diva Yorgun ve Canın Beni Çekti teklileriyle YouTube'da yüksek sadakatli bir dinleyici kitlesi oluşturmuştur.",
       "Dinleyicileri tarafından 'Diva Bebe' lakabıyla anılan Melike Şahin, 18 Nisan 1989 tarihinde İstanbul'da dünyaya gelmiştir. Günümüz itibarıyla 37 yaşındadır. Aslen Sivas Divriğili olan sanatçı, Boğaziçi Üniversitesi Sosyoloji Bölümü'nden mezun olmuştur. Güçlü vokal tekniği, nostaljik Türk müziği estetiğini modern alternatif pop ile harmanlayan şarkı sözleri ve sahne karizmasıyla günümüzün en saygın kadın vokalleri arasında yer almaktadır.",
       "Müzikal kariyerine efsanevi grup BaBa ZuLa'nın vokalisti olarak başlayan Melike Şahin, dünyanın dört bir yanında konserler verdikten sonra solo kariyerine adım atmış ve kısa sürede kendi devasa dinleyici kitlesini yaratmıştır.",
       "### Hit Şarkıları ve YouTube'daki Yükselişi",
@@ -4815,6 +5065,51 @@
       "### 2. Doğru Kitle Eşleştirmesi — Analysis & Strategy",
       "Parçanızı rock dinleyen bir kullanıcıya pop klibi olarak izletirseniz kullanıcı 3. saniyede videoyu terk eder. Bu durum izleme süresini düşürür ve algoritmayı olumsuz etkiler. [MedyaPR Google Ads PR uzmanlarımız](/hakkimizda), reklam gösterimlerini yalnızca sizin müzik tarzınızı dinleyen çekirdek hayran kitlelerine yönlendirir.",
       "Kurumsal yapım şirketleri için ise ödeme iş bitimindedir. Bütçenizi planlamak için [canlı fiyat hesaplayıcımızı](/fiyatlandirma) hemen kullanabilirsiniz."
+    ],
+    "table_en": {
+      "headers": [
+        "Criterion",
+        "Official Google Ads Campaign",
+        "Bot / SMM Panels",
+        "Impact on Channel Health"
+      ],
+      "rows": [
+        [
+          "Traffic Source",
+          "YouTube Advertising (Verified in Studio)",
+          "Unknown / External Direct",
+          "Bot Policy Violation Risk"
+        ],
+        [
+          "Watch Time",
+          "Real Viewers (50%+ Retention)",
+          "3–5 Second Bot Ping",
+          "Ranking & Retention Collapse"
+        ],
+        [
+          "Longevity",
+          "100% Permanent & Lifetime",
+          "Purged by YouTube Audit",
+          "Analytics Reset"
+        ],
+        [
+          "Organic Discovery",
+          "Supports Long-Term Watch Time",
+          "Algorithmic Suppression Risk",
+          "Organic Reach Drops"
+        ]
+      ],
+      "caption": "48-Hour Comparison: Official Google Ads vs. Fake Bot Panels"
+    },
+    "faqs_en": [
+      {
+        "question": "Why are the first 48 hours after release so important?",
+        "answer": "YouTube tests newly uploaded Shorts with an initial seed audience. Strong watch completion and replay rates signal the feed to expand distribution."
+      },
+      {
+        "question": "How do you build first-48-hour launch momentum with Google Ads?",
+        "answer": "Our Google Partner team sets up the campaign before release so that In-Stream and Shorts ads start reaching your target music audience during the first 48 hours."
+      }
     ]
   },
   {
@@ -4908,12 +5203,57 @@
       "YouTube videolarının bağlantısında 'v=' işaretinden sonra gelen 11 karakterlik kod videonun kimliğidir. Google arama çubuğuna bu kimliği tırnak içinde aratarak (`\"v=VIDEO_ID\"`), arama sonucunun yanındaki üç noktaya tıklayıp 'Önbellek' (Cached) sekmesini seçebilirsiniz. Bu yöntemle videonun açıklamalarına, etiketlerine ve bazen video dosyasına dahi ulaşabilirsiniz.",
       "### 3. Haksız Silinmelerde YouTube Desteği — Analysis & Strategy",
       "Kanalınız hacklenme veya topluluk kuralları hatası nedeniyle video kaybı yaşadıysa, [YouTube Studio](/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi) paneli üzerinden 'Geri Bildirim Gönder' veya Twitter/X üzerindeki `@TeamYouTube` hesabına başvurarak videonun yedek arşivden geri yüklenmesini sağlayabilirsiniz. Yeni kliplerinizin güvenle büyümesi için [resmi Google Ads klip PR hizmetlerimizi](/hizmetler) inceleyebilirsiniz."
+    ],
+    "table_en": {
+      "headers": [
+        "Recovery Method",
+        "Required Information",
+        "Success Rate",
+        "Recovery Window"
+      ],
+      "rows": [
+        [
+          "Wayback Machine (Archive.org)",
+          "Full Video URL",
+          "65% - 85%",
+          "Depends on Snapshot Date"
+        ],
+        [
+          "Google Search Cache",
+          "Video Title / 11-Char Video ID",
+          "40% - 60%",
+          "7–14 Days After Deletion"
+        ],
+        [
+          "YouTube Creator Support",
+          "Channel Sign-In & 11-Character Video ID",
+          "90% (Unfair Termination)",
+          "Appeal Within 30 Days"
+        ],
+        [
+          "Local Browser Cache",
+          "Previously Watched Device",
+          "30%",
+          "If Browser Cache Was Not Cleared"
+        ]
+      ],
+      "caption": "Success Rates of Methods for Recovering Deleted YouTube Videos"
+    },
+    "faqs_en": [
+      {
+        "question": "How can I find a deleted video's URL if I lost the link?",
+        "answer": "Search your browser history or Google My Activity for 'youtube.com/watch?v=' to retrieve the 11-character video ID."
+      },
+      {
+        "question": "Can a music video removed due to a copyright strike be restored?",
+        "answer": "Yes. If a copyright claim is resolved via retraction or a valid counter-notification, YouTube restores the video along with its original views and comments."
+      }
     ]
   },
   {
     "slug": "manifest-kimdir-sarkilari-tarzi-ve-youtube-yukselisi",
     "title": "Manifest Kimdir? Hangi Müzik Türü ve Tarzında Yapıyor?",
-    "summary": "Manifest hangi müzik türü ve tarzında müzik yapıyor? Türkiye'nin yeni nesil kız grubunun dans-pop ve elektropop müzik türü, üyeleri ve TRALALA klip analizi.",
+    "summary": "Manifest, 2025 yılında Hypers Media'nın Big5 Türkiye yarışması sonucunda kurulan; Sueda Uluca, Hilal Yelekçi, Lidya Pınar, Zeynep Sude Oktay, Mina Solak ve Esin Bahat'tan oluşan 6 üyeli Türk pop ve dans grubudur.",
     "category": "Kimdir?",
     "date": "18 Ekim 2026",
     "readTime": "5 dk",
@@ -4928,7 +5268,7 @@
       "TRALALA",
       "Türk Pop"
     ],
-    "quickFact": "Manifest hangi müzik türünde müzik yapıyor? Manifest; modern dans-pop, elektropop ve R&B altyapılarını yüksek enerjili koreografi ve çok sesli vokal melodileriyle birleştiren yeni nesil Türk pop kız grubudur. 2026 yılında 'TRALALA' klibiyle YouTube Trendler 1 numarasına yerleşmiştir.",
+    "quickFact": "Hızlı Kimlik Özeti: Manifest • Kuruluş Yılı: 2025 (Big5 Türkiye yarışması, Hypers Media) • Grup Üyeleri (6 Kişi): Sueda Uluca, Hilal Yelekçi, Lidya Pınar, Zeynep Sude Oktay, Mina Solak, Esin Bahat • Müzik Türü: Türkçe Pop, Dance-Pop, R&B & Elektronik Pop • Öne Çıkan Şarkıları: Zamansızdık, Arisaka, Zehir, TRALALA.",
     "table": {
       "caption": "Manifest Sanatçı Profili ve Dijital İstatistik Özeti",
       "headers": [
@@ -4979,7 +5319,7 @@
       }
     ],
     "paragraphs": [
-      "Türkiye müzik sahnesi son dönemde koreografi, çok sesli vokal ve modern prodüksiyonu birleştiren yepyeni bir grup enerjisine tanıklık ediyor. Bu dönüşümün zirvesindeki isim olan **Manifest**, yayınladığı şarkılarla [YouTube Trendler listesinde](/trendler) 1 numaraya yerleşti.",
+      "Manifest, 2025 yılında Hypers Media tarafından düzenlenen Big5 Türkiye yetenek yarışmasının ardından kurulan; Sueda Uluca, Hilal Yelekçi, Lidya Pınar, Zeynep Sude Oktay, Mina Solak ve Esin Bahat'tan oluşan 6 üyeli Türk pop ve dans grubudur. K-Pop disipliniyle hazırlanan senkronize sahne koreografilerini modern Türkçe pop ve elektronik prodüksiyonla birleştiren grup, ilk teklisi Zamansızdık'tan itibaren Arisaka, Zehir ve TRALALA klipleriyle YouTube Türkiye müzik trendlerinde 1 numaraya yükselmiştir.",
       "### Manifest Hangi Müzik Türü ve Tarzında Müzik Yapıyor?",
       "Google arama motorunda dinleyicilerin en çok sorguladığı **\"Manifest hangi müzik türü\"** ve **\"Manifest hangi tarz müzik yapıyor\"** sorularının net cevabı: Manifest; **Modern Türk Pop, Dance-Pop (Dans Pop), R&B, Synth-Pop ve Elektronik Pop** türlerini harmanlayan, K-Pop ve küresel Girlband (kız grubu) prodüksiyon disiplinine sahip hibrit bir müzik tarzı icra etmektedir.",
       "Grubun müzikal kimliği; 2000'ler R&B/Pop melodilerini 2026'nın güçlü elektronik bas altyapıları, yüksek tempolu dans koreografileri ve çok sesli vokal armonileriyle birleştirmesine dayanır. Özellikle *Zamansızdık* ve *TRALALA* çalışmalarında synth-pop ve hyperpop esintileri dikkat çeker.",
@@ -5020,7 +5360,7 @@
   {
     "slug": "dedubluman-kimdir-alternatif-rockin-zirveye-uzanan-basari-hikayesi",
     "title": "Dedublüman Kimdir? İlk Şarkısı, Üyeleri, Yaşları ve Tarzı",
-    "summary": "Dedublüman kimdir, ilk şarkısı hangisi, üyeleri kimler ve kaç yaşında? Klarnet ile alternatif rock müziği birleştiren grubun YouTube başarı hikayesi.",
+    "summary": "Dedublüman, 2010 yılında Trabzon'da kurulan; Mustafa Yavuz (vokal/gitar/yaylı tambur), Çağrı Çelik (klarnet), Hazar Altın, Kıvanç Kumlu ve Kurthan Sarpel'den oluşan Türk alternatif rock grubudur.",
     "category": "Kimdir?",
     "date": "10 Ekim 2026",
     "readTime": "5 dk",
@@ -5035,7 +5375,7 @@
       "Acı Bal",
       "Sıla"
     ],
-    "quickFact": "Dedublüman, geleneksel Türk müziği enstrümanı olan klarneti modern alternatif rock melodileriyle sentezleyen Türk müzik grubudur. 'Belki' ve Sıla ile düet yaptıkları 'Acı Bal' şarkılarıyla toplamda 320 milyondan fazla izlenme elde ederek dijital platformların en çok dinlenen gruplarından biri olmuşlardır.",
+    "quickFact": "Hızlı Kimlik Özeti: Dedublüman • Kuruluş Yılı & Yeri: 2010, Trabzon (Karadeniz Teknik Üniversitesi yılları) • Grup Üyeleri: Mustafa Yavuz (Vokal/Gitar/Yaylı Tambur), Çağrı Çelik (Klarnet/Ney), Hazar Altın (Piyano/Gitar), Kıvanç Kumlu (Bas), Kurthan Sarpel (Davul) • Müzik Türü: Alternatif Rock & Akustik • En Bilinen Şarkıları: Belki, Sakladığın Bir Şeyler Var, Gamzedeyim Deva Bulmam, Sen Bilmezsin, Acı Bal.",
     "table": {
       "caption": "Dedublüman Kariyer ve Dijital Dinlenme Metrikleri",
       "headers": [
@@ -5086,7 +5426,7 @@
       }
     ],
     "paragraphs": [
-      "Geleneksel Türk müziği enstrümanları olan klarnet ve yaylı tamburu modern alternatif rock tınılarıyla kusursuz biçimde buluşturan **Dedublüman**, Türkiye'nin son yıllarda yetiştirdiği en güçlü müzik gruplarından biridir. Stüdyoda canlı kaydettikleri performans videolarıyla YouTube'da yüz milyonlarca izlenmeye ulaşmışlardır.",
+      "Dedublüman, 2010 yılında Trabzon'da üniversite öğrencisi müzisyenler tarafından kurulan ve klarnet ile yaylı tambur gibi geleneksel enstrümanları modern alternatif rock ile birleştiren Türk müzik grubudur. İlk yayınladıkları parçalardan itibaren sadık bir dinleyici kitlesi edinen grup; Mustafa Yavuz (vokal, gitar, yaylı tambur), Çağrı Çelik (klarnet), Hazar Altın, Kıvanç Kumlu ve Kurthan Sarpel kadrosuyla Belki, Sakladığın Bir Şeyler Var ve Gamzedeyim Deva Bulmam gibi yüz milyonlarca izlenen YouTube kliplerine imza atmıştır.",
       "### Dedublüman'ın İlk Şarkısı Hangisidir ve Nasıl Çıkış Yaptılar?",
       "Google'da dinleyicilerin en çok aradığı **\"Dedublüman ilk şarkısı\"** sorusunun yanıtı grubun Trabzon'dan İstanbul'a uzanan kuruluş yıllarına dayanır. Dedublüman'ın dijital platformlarda yayınlanan ilk resmi teklisi 2019 tarihli **\"Kabul Et\"** ve **\"Merdiven\"** çalışmalarıdır.",
       "Ancak grubu tüm Türkiye'ye tanıtan ilk büyük viral kayıt, 2019 sonunda yayınladıkları **\"Gamzedeyim Deva Bulmam\"** akustik yorumu ve hemen ardından gelen **\"Depresyondayım\"** ile 2020'de listeleri altüst eden **\"Belki\"** şarkısı olmuştur.",
@@ -5130,7 +5470,7 @@
   {
     "slug": "eypio-kimdir-turkce-rapten-dizi-muziklerine-youtube-yolculugu",
     "title": "Eypio (Abdurrahim Akça) Kimdir, Kaç Yaşında? İlk Şarkısı",
-    "summary": "Eypio gerçek adı Abdurrahim Akça kimdir, kaç yaşında ve ilk şarkısı hangisi? 2 Şubat 1983 Konya doğumlu (43 yaşında) rapçinin A.P.O döneminden Günah Benim'e.",
+    "summary": "Eypio (gerçek adı Abdurrahim Akça), 2 Şubat 1983 Konya doğumlu, 43 yaşında (Afganistan Türkmeni kökenli, İstanbul Zeytinburnu'nda büyümüş) Türk rap sanatçısıdır. Günah Benim, Naim, Gömün Beni Çukura ve Şahidim şarkıları.",
     "category": "Kimdir?",
     "date": "18 Ekim 2026",
     "readTime": "5 dk",
@@ -5145,7 +5485,7 @@
       "Şahidim",
       "Günah Benim"
     ],
-    "quickFact": "Eypio sahne adıyla tanınan rap sanatçısının gerçek adı Abdurrahim Akça'dır (d. 2 Şubat 1983, Konya - 43 yaşında). 'Eypio' ismi, 2002'de Hollanda'da kullandığı 'A.P.O' mahlasının İngilizce okunuşundan gelir; ilk solo albümü 'A.P.O EP'yi 2005'te çıkarmış, 'Günah Benim' (280M+) ve 'Gömün Beni Çukura' ile rekor kırmıştır.",
+    "quickFact": "Hızlı Kimlik Özeti: Eypio (Gerçek Adı: Abdurrahim Akça) • Doğum Tarihi: 2 Şubat 1983 (43 yaşında) • Doğum Yeri: Konya (Ailesi Afganistan Türkmeni göçmeni, Zeytinburnu/İstanbul'da büyüdü) • Müzik Türü: Türkçe Rap & Hip-Hop • En Bilinen Şarkıları: Günah Benim, Gömün Beni Çukura, Naim, Ay Kızım, Şahidim.",
     "table": {
       "caption": "Eypio Kariyer Özeti ve YouTube İzlenme Rakamları",
       "headers": [
@@ -5200,7 +5540,7 @@
       }
     ],
     "paragraphs": [
-      "Türkçe Rap müziğin yeraltından çıkıp 7'den 70'e tüm Türkiye tarafından dinlenen ana akım bir güce dönüşmesinde en önemli köşe taşlarından biri **Eypio**'dur. Geleneksel Anadolu ezgilerini sert sokak lirikleriyle harmanlayan sanatçı, kendine özgü vokal tonuyla milyonların sevgisini kazanmıştır.",
+      "Gerçek adı Abdurrahim Akça olan Eypio (eski sahne adıyla A.P.O), 2 Şubat 1983 tarihinde Konya'da doğmuş (2026 itibarıyla 43 yaşında), Afganistan Türkmeni kökenli bir ailenin çocuğu olarak İstanbul Zeytinburnu'nda büyümüş Türk rap sanatçısı ve söz yazarıdır. Burak King ile seslendirdiği Günah Benim parçasıyla YouTube Türkiye'de 250 milyon izlenme barajını aşan ilk rapçilerden biri olmuş; Çukur dizisi için yaptığı Gömün Beni Çukura ve Naim Süleymanoğlu filmi müziği Naim ile geniş kitlelere ulaşmıştır.",
       "### Eypio Kimdir, Kaç Yaşında, Gerçek Adı Ne ve Nerelidir?",
       "Arama motorlarında sıkça sorgulanan **\"Eypio yaş\"** ve **\"Eypio gerçek adı ne?\"** sorularının yanıtı: Eypio'nun gerçek adı **Abdurrahim Akça**'dır. **2 Şubat 1983** tarihinde Konya'da dünyaya gelen sanatçı, **2026 yılı itibarıyla 43 yaşındadır**. Ailesi Türkmen kökenli olan Eypio, çocukluk ve gençlik yıllarını İstanbul **Zeytinburnu** sokaklarında geçirmiştir.",
       "2000'li yılların başında *A.P.O* mahlasıyla yeraltı rap kayıtlarına başlayan ve bir dönem Hollanda'da yaşayarak Avrupa hip-hop sahnesinde üretim yapan sanatçı, daha sonra *A.P.O* harflerinin okunuşu olan **Eypio** sahne adını kullanmaya başlamıştır.",
@@ -5237,7 +5577,7 @@
   {
     "slug": "semicenk-kimdir-youtube-izlenme-rekortmeninin-dijital-stratejisi",
     "title": "Semicenk Kimdir, Kaç Yaşında? Gerçek Adı ve Şarkıları",
-    "summary": "Semicenk (Cenk Baş) kimdir, kaç yaşında ve aslen nereli? O Ses Türkiye'den 1 milyar+ YouTube izlenmesine uzanan Semicenk'in hayatı ve şarkıları.",
+    "summary": "Semicenk (gerçek adı Cenk Baş), 7 Ekim 1998 Sinop (Boyabat) doğumlu, 28 yaşında (Ordu'da büyümüş) Türk pop ve arabesk-pop sanatçısıdır. Canın Sağ Olsun, Pişman Değilim, Düşer Aklıma ve Farkındayım şarkıları.",
     "category": "Kimdir?",
     "date": "10 Ekim 2026",
     "readTime": "5 dk",
@@ -5252,7 +5592,7 @@
       "Düşer Aklıma",
       "Canın Sağ Olsun"
     ],
-    "quickFact": "Semicenk (Cenk Baş), son 3 yılda YouTube Türkiye'de 1 milyardan fazla izlenme elde ederek platformun en hızlı büyüyen solo erkek sanatçısı olmuştur. Düzenli 6-8 haftada bir yeni tekli çıkarma stratejisi ve arabesk-pop sentezi, YouTube algoritmasında daimi önerilme avantajı sağlamaktadır.",
+    "quickFact": "Hızlı Kimlik Özeti: Semicenk (Gerçek Adı: Cenk Baş) • Doğum Tarihi: 7 Ekim 1998 (28 yaşında) • Doğum Yeri: Boyabat, Sinop (Ordu'da büyüdü) • Müzik Türü: Arabesk Pop, Modern Pop & R&B • Eğitimi: Tekirdağ Namık Kemal Üniversitesi Türk Müziği Devlet Konservatuvarı • En Bilinen Şarkıları: Düşer Aklıma, Canın Sağ Olsun, Pişman Değilim, Unutmak Öyle Kolay Mı Sandın.",
     "table": {
       "caption": "Semicenk YouTube Büyüme ve Çıkış Stratejisi Modeli",
       "headers": [
@@ -5299,7 +5639,7 @@
       }
     ],
     "paragraphs": [
-      "Son yılların en çarpıcı dijital müzik fenomeni şüphesiz **Semicenk**. Televizyon yarışmasından çıktıktan sonra geleneksel kanallara bel bağlamak yerine doğrudan YouTube ve dijital akış platformlarına odaklanan genç sanatçı, kısa sürede milyarlık izlenme kulübüne girdi.",
+      "Gerçek adı Cenk Baş olan Semicenk, 7 Ekim 1998 tarihinde Sinop'un Boyabat ilçesinde doğmuş (2026 itibarıyla 28 yaşında) ve çocukluğunu Ordu'da geçirmiş Türk pop ve arabesk-pop sanatçısıdır. 2019 yılında O Ses Türkiye yarışmasında Hadise'nin takımında yarı finale yükselen ve Düşer Aklıma, Unutmak Öyle Kolay Mı Sandın, Canın Sağ Olsun ile Pişman Değilim hitleriyle YouTube Türkiye'de milyarlarca toplam dinlenmeye ulaşan dijital müzik rekortmenidir.",
       "### Semicenk Kimdir, Gerçek Adı Ne, Kaç Yaşında ve Nerelidir?",
       "Semicenk sahne adıyla tanınan sanatçının gerçek adı **Cenk Baş**'tır. **7 Ekim 1998** tarihinde **Ordu**'da dünyaya gelen Cenk Baş, **28 yaşındadır**. 2019 yılında *O Ses Türkiye* yarışmasına katılarak Hadise'nin takımında yarı finale kadar yükselmiş ve karakteristik bas-bariton vokal tınısıyla ilk kez geniş kitlelerin dikkatini çekmiştir.",
       "### Semicenk'in Müzik Tarzı ve 100 Milyonu Aşan Hit Şarkıları",
@@ -5610,6 +5950,51 @@
       "2. İlk 3 Satır Açıklama: Arama motorlarının önizlemede okuduğu ilk 150 karakterlik açıklama alanı zenginleştirilmelidir.",
       "3. Manuel Altyazı (SRT): Videonuza manuel olarak yükleyeceğiniz Türkçe ve İngilizce altyazılar, YouTube ve Google arama motorunda indekslenen en güçlü metin kaynağıdır.",
       "SEO uyumlu video metadata kurgusu ve Google Ads ivmesi için [profesyonel PR çözümlerimizi](/hizmetler) inceleyebilirsiniz."
+    ],
+    "table_en": {
+      "headers": [
+        "Ranking Signal",
+        "Algorithm Weight",
+        "Impact Area",
+        "Recommended Best Practice"
+      ],
+      "rows": [
+        [
+          "Video Title",
+          "30% - 35%",
+          "Search & CTR",
+          "Target Keyword in First 40 Characters"
+        ],
+        [
+          "Watch Time (AVD / Retention)",
+          "35% - 40%",
+          "Suggested Videos",
+          "Strong First 10s Hook"
+        ],
+        [
+          "Description & Closed Captions (Transcript)",
+          "20% - 25%",
+          "SEO & Semantic Search",
+          "Detailed 200+ Word Description & Credits"
+        ],
+        [
+          "Video Tags",
+          "3% - 5%",
+          "Misspellings & Synonyms",
+          "5–10 Focused & Specific Tags"
+        ]
+      ],
+      "caption": "2026 YouTube Search & Discovery Algorithm Factor Weights"
+    },
+    "faqs_en": [
+      {
+        "question": "Are YouTube video tags completely obsolete?",
+        "answer": "No. While tags play a minor role compared to titles and descriptions, they still help with common misspellings of artist names or song titles."
+      },
+      {
+        "question": "Does stuffing too many tags in the video description cause a penalty?",
+        "answer": "Yes. Pasting long blocks of tags into the description box violates YouTube's spam and deceptive metadata policy and can harm search visibility."
+      }
     ]
   },
   {
@@ -5696,6 +6081,45 @@
       "### MedyaPR'ın %100 Resmi Google Ads Güvencesi — Analysis & Strategy",
       "MedyaPR olarak 18 yılı aşkındır sektörde tek bir sahte izlenme dahi kullanmadık. Kliplerinizi doğrudan sertifikalı Google Partner uzmanlarımız yönetir. Kampanyanız YouTube Studio'da açıkça 'YouTube Reklamcılığı' sekmesinde listelenir. Kurumsal müşterilerimize ise iş bitiminde tahsilat imkanı sunuyoruz.",
       "Kanalınızı riske atmadan profesyonelce büyümek için [şeffaf fiyatlandırma paketlerimizi](/fiyatlandirma) hemen keşfedin."
+    ],
+    "table_en": {
+      "headers": [
+        "Parameter",
+        "MedyaPR (Official Google Ads)",
+        "SMM Bot Panels",
+        "Key Difference & Outcome"
+      ],
+      "rows": [
+        [
+          "Traffic Verification",
+          "YouTube Studio 'YouTube Advertising'",
+          "Unknown / Direct Traffic",
+          "Official Billing & Reporting"
+        ],
+        [
+          "Viewer Quality",
+          "100% Real Human Viewers",
+          "Automated Bot Farms",
+          "Natural Likes & Comments"
+        ],
+        [
+          "View Permanence",
+          "Lifetime Permanent",
+          "Purged by YouTube Audit",
+          "Permanent Retention (No Bot Drop)"
+        ]
+      ],
+      "caption": "Technical Comparison: Official Google Ads vs. Fake SMM Bot Panels"
+    },
+    "faqs_en": [
+      {
+        "question": "Can a YouTube channel recover after receiving bot views?",
+        "answer": "Yes. Stop all third-party bot sources immediately, publish consistent authentic content, and use only official Google Ads campaigns so real viewer metrics gradually restore healthy analytics."
+      },
+      {
+        "question": "Are bot views allowed under YouTube rules?",
+        "answer": "Buying fake bot views violates YouTube's Fake Engagement Policy and Terms of Service, putting the video and channel at risk of removal."
+      }
     ]
   },
   {
@@ -5788,6 +6212,51 @@
       "### Hangi Bölge İçin Hangi Bütçe Uygundur? — Analysis & Strategy",
       "Türkiye hedefli kampanyalarda yerel izleyiciye ulaşmak maliyet açısından oldukça avantajlıdır. Almanya, Avusturya ve Tier-1 (ABD, İngiltere) pazarlarında ise birim tıklama maliyetleri döviz bazlı olduğundan hedefleme çok daha hassas kurgulanmalıdır. Detaylı bilgi için [Almanya Türkleri rehberimizi](/blog/almanyadaki-turkler-icin-youtube-reklam-ve-video-pr-rehberi) inceleyebilirsiniz.",
       "Videonuz için en uygun bütçeyi hesaplamak ve anında teklif almak için [interaktif hesaplayıcımızı](/fiyatlandirma) hemen kullanabilirsiniz."
+    ],
+    "table_en": {
+      "headers": [
+        "View Volume",
+        "Estimated Package Reference",
+        "Unit Price per 1K Views"
+      ],
+      "rows": [
+        [
+          "1,000 Views",
+          "$3 / ₺100",
+          "$3 / 1K (₺100)"
+        ],
+        [
+          "50,000 Views",
+          "$72 (₺2,500)",
+          "$1.50 / 1K (50% Volume Discount)"
+        ],
+        [
+          "100,000 Views",
+          "$115 (₺4,000)",
+          "$1.20 / 1K (60% Volume Discount)"
+        ],
+        [
+          "500,000 Views",
+          "$520 (₺18,000)",
+          "$1.08 / 1K (64% Volume Discount)"
+        ],
+        [
+          "1,000,000 Views",
+          "$1,000 (₺35,000)",
+          "$1.05 / 1K (65% Volume Discount)"
+        ]
+      ],
+      "caption": "MedyaPR Transparent Tiered YouTube Music Video PR Pricing Tiers"
+    },
+    "faqs_en": [
+      {
+        "question": "Do prices vary depending on the length of the video?",
+        "answer": "Yes. Video length, target country CPV auctions, and audience competition affect cost-per-view, so the final quote is confirmed after reviewing your video."
+      },
+      {
+        "question": "Do I receive an official invoice and campaign report?",
+        "answer": "Yes. All campaigns are billed transparently and include a post-campaign performance report showing verified YouTube Advertising views."
+      }
     ]
   },
   {
@@ -5973,6 +6442,51 @@
       "### 'İlgili Video' Köprüsü ile Klibe Trafik Akıtma — Analysis & Strategy",
       "YouTube Shorts oynatıcısının altında yer alan 'İlgili Video' özelliği, dikey videoyu ana yatay klibe bağlayan sihirli bir köprüdür. Shorts izleyicisi şarkıyı beğendiğinde doğrudan tek tıkla klibin tamamına geçer ve abone olur.",
       "Shorts reklamlarıyla parçanızı trendlere taşımak için [Shorts izlenme hizmetlerimizi](/hizmetler) inceleyebilirsiniz."
+    ],
+    "table_en": {
+      "headers": [
+        "Stage",
+        "Action Step",
+        "Target Benchmark",
+        "Engagement Threshold"
+      ],
+      "rows": [
+        [
+          "1. Opening Hook",
+          "Visual / Rhythmic Hook in First 3 Seconds",
+          "80%+ Non-Skip Rate",
+          "Reduces Early Drop-Off"
+        ],
+        [
+          "2. Audio Integration",
+          "Official Audio Library Distribution",
+          "User-Generated Content (UGC)",
+          "Trending Audio Discovery"
+        ],
+        [
+          "3. Vertical Video Cut",
+          "9:16 Dynamic Captioned Teaser",
+          "100%+ Average Retention",
+          "Seamless Loop Replay"
+        ],
+        [
+          "4. Google Ads Amplification",
+          "YouTube Shorts Feed Video Ads",
+          "10K - 100K Initial Momentum",
+          "Cross-Channel Discovery"
+        ]
+      ],
+      "caption": "YouTube Shorts Discovery Cycle & Growth Steps"
+    },
+    "faqs_en": [
+      {
+        "question": "Can YouTube Shorts views drive traffic to the full-length music video?",
+        "answer": "Yes. By linking your full music video in the 'Related Video' field inside YouTube Studio, Shorts viewers can tap directly through to the full-length video."
+      },
+      {
+        "question": "Can you run official Google Ads on YouTube Shorts?",
+        "answer": "Yes, Google Ads supports vertical YouTube Shorts ad placements, putting your hook directly into the mobile Shorts feed of relevant music listeners."
+      }
     ]
   },
   {
@@ -6065,6 +6579,51 @@
       "### YouTube Arama Hacmini Eşzamanlı Reklamla Desteklemek — Analysis & Strategy",
       "TikTok'ta ivme başladığı gün, Google Ads üzerinden YouTube arama (In-Feed) reklamlarını devreye sokuyoruz. Kullanıcı YouTube arama çubuğuna şarkınızın adını yazdığı anda en üstte resmi klibiniz sponsorlu ve dikkat çekici bir başlıkla belirir. Bu sayede organik merak doğrudan resmi izlenmeye dönüşür.",
       "Çapraz platform stratejileri ve bütçe planlaması için [canlı fiyat hesaplayıcımızı](/fiyatlandirma) kullanabilirsiniz."
+    ],
+    "table_en": {
+      "headers": [
+        "Platform Feature",
+        "TikTok",
+        "YouTube",
+        "Marketing Strategy"
+      ],
+      "rows": [
+        [
+          "Content Type",
+          "Fast Consumption (15s)",
+          "Full-Length Music Video & Complete Listening",
+          "Spark Curiosity on TikTok, Complete the Listen on YouTube"
+        ],
+        [
+          "Copyright & Royalties",
+          "Lower Per-Stream Payout",
+          "Higher AdSense & Royalty Share",
+          "Route Traffic to Full YouTube Video"
+        ],
+        [
+          "Listener Loyalty",
+          "Short-Term Trend Consumption",
+          "Channel Subscription & Follow",
+          "Build Loyal Fan Community"
+        ],
+        [
+          "Search Longevity",
+          "Expires Within Days",
+          "Ranks in Search for Years",
+          "YouTube SEO & Google Ads"
+        ]
+      ],
+      "caption": "Music Consumption Comparison: TikTok vs. YouTube"
+    },
+    "faqs_en": [
+      {
+        "question": "My song went viral on TikTok—how do I convert those listeners to YouTube?",
+        "answer": "Add a clear on-screen callout ('Full music video on YouTube: Artist – Song Title') and pin the direct YouTube link in your TikTok bio."
+      },
+      {
+        "question": "What is the most common mistake when trying to convert TikTok viewers to YouTube?",
+        "answer": "Failing to display the artist and song title clearly on the vertical video—listeners who enjoy the hook cannot search for it on YouTube if they don't know the title."
+      }
     ]
   },
   {
@@ -6157,6 +6716,51 @@
       "### YouTube Premiere ile Canlı Prömiyer Gücü — Analysis & Strategy",
       "Klibinizi doğrudan yüklemek yerine YouTube Premiere (İlk Gösterim) olarak zamanlayın. Sanatçı olarak canlı sohbette hayranlarınızla yazışın. YouTube algoritması, canlı prömiyerdeki eşzamanlı izleyici yoğunluğunu doğrudan 'Viral İçerik' sinyali olarak algılar ve videoyu anında önerilenlere taşır. [Müzik kliplerinde ilk 48 saat rehberimizde](/blog/muzik-kliplerinde-ilk-48-saat-algoritma-rehberi) bu mekanizmanın tüm detaylarını bulabilirsiniz.",
       "Lansman gününüzü profesyonel Google Ads altyapısıyla desteklemek için [iletişim formumuzdan](/iletisim) bize hemen ulaşabilirsiniz."
+    ],
+    "table_en": {
+      "headers": [
+        "Timing",
+        "Platform & Format",
+        "Content Category",
+        "Objective"
+      ],
+      "rows": [
+        [
+          "7 Days Before",
+          "Instagram Reels & YouTube Shorts",
+          "Studio Session / Behind the Scenes",
+          "Building Anticipation & Pre-Release Buzz"
+        ],
+        [
+          "3 Days Before",
+          "YouTube Unlisted Upload",
+          "Pre-Launch Google Ads Submission",
+          "Advance Ad Policy Approval"
+        ],
+        [
+          "24 Hours Before",
+          "YouTube Premiere Countdown",
+          "15-Second Cinematic Teaser",
+          "Premiere Reminder Notification Setup"
+        ],
+        [
+          "Release Hour (Hour 0)",
+          "Public Launch & Premiere",
+          "Google Ads In-Stream Launch",
+          "First 48-Hour Launch Window"
+        ]
+      ],
+      "caption": "7-Day Professional Music Video Launch Schedule"
+    },
+    "faqs_en": [
+      {
+        "question": "Is YouTube Premiere effective for music video launches?",
+        "answer": "Yes. YouTube Premiere opens a live chat countdown where fans watch together in real time, boosting early watch retention and comment activity."
+      },
+      {
+        "question": "How do you drive traffic to YouTube when Instagram Reels captions don't allow clickable links?",
+        "answer": "Place your YouTube video link in your bio, pin a comment directing viewers there, and share the Reel to your Instagram Story with a clickable Link Sticker to your YouTube video."
+      }
     ]
   },
   {
@@ -6252,6 +6856,51 @@
       "3. Canlı Lansman Kancası: Yeni bir şarkı, klip veya ürün tanıtımı yapılıyorsa içeriğin en heyecanlı kısmı yayının sonuna saklanmalı ve izleyici YouTube'a davet edilmelidir.",
       "4. Canlı Yayından YouTube Zirvesine: Canlı yayın biter bitmez yayında toplanan enerjiyi resmi bir klip lansmanına aktarmak en kanıtlanmış büyüme modelidir. MedyaPR olarak bağımsız sanatçıların canlı yayın lansmanlarını [YouTube klip reklam hizmetlerimiz](/hizmetler) ile birleştirerek klibin ilk 48 saatte YouTube trend listesine girmesini sağlıyoruz.",
       "Klip lansman bütçenizi önceden planlamak için [şeffaf fiyatlandırma sayfamızı](/fiyatlandirma) ziyaret edebilir, projenize özel kampanya kurgusu için [uzman ekibimizle iletişime geçebilirsiniz](/iletisim)."
+    ],
+    "table_en": {
+      "headers": [
+        "Strategy Element",
+        "Algorithmic Weight",
+        "Audience Retention Impact",
+        "Conversion Channels"
+      ],
+      "rows": [
+        [
+          "Co-Hosted Live Stream",
+          "88%",
+          "Combined Two-Channel Audience Pool",
+          "Cross-Channel Follower Growth"
+        ],
+        [
+          "Q&A / Poll Sticker",
+          "74%",
+          "Active Comments & Watch Time",
+          "Community Loyalty"
+        ],
+        [
+          "First 180 Seconds Notification Push",
+          "92%",
+          "Top Search Badge",
+          "Peak Concurrent Viewers"
+        ],
+        [
+          "Direct YouTube Video Link Routing",
+          "65%",
+          "External Platform Traffic",
+          "Permanent Video Views"
+        ]
+      ],
+      "caption": "Instagram Live Engagement Triggers & Impact Rates"
+    },
+    "faqs_en": [
+      {
+        "question": "How can I increase concurrent viewers during an Instagram Live session?",
+        "answer": "Posting a countdown sticker in Stories 24 hours ahead, pinning a Q&A prompt in the opening minutes, and co-hosting with a guest creator significantly increases live viewership."
+      },
+      {
+        "question": "How does live stream traffic support a YouTube music video launch?",
+        "answer": "Announcing your music video premiere at peak live-stream viewership and sharing the direct YouTube link brings engaged fans who watch the full video."
+      }
     ]
   },
   {
@@ -6345,6 +6994,51 @@
       "2. X Media Studio ile SRT Yükleme: studio.x.com adresine gidin. Medya Kütüphanesinden videonuzu seçin. 'Altyazılar' (Subtitles) sekmesine tıklayarak Türkçe veya İngilizce hazırlanmış `.srt` dosyanızı yükleyin. Bu yöntem özellikle müzik kliplerinde sözlerin sıfır hatayla ekranda akmasını sağlar.",
       "3. Video SEO ve YouTube Trafiği: X üzerinde paylaştığınız 30 saniyelik altyazılı teaser videosunun sonuna 'Klibin tamamı YouTube'da yayında' kancası koyarak kitleyi ana videoya yönlendirebilirsiniz. Bu organik akışı [resmi Google Ads video kampanyalarıyla](/hizmetler) desteklediğinizde, şarkınız [canlı YouTube trendlerinde](/trendler) kalıcı bir yer edinir.",
       "Klip lansmanınız için bütçe planlaması yapıyorsanız [fiyatlandırma sayfamızdan](/fiyatlandirma) paketleri inceleyebilir, aklınıza takılan sorular için [bizimle doğrudan iletişime geçebilirsiniz](/iletisim)."
+    ],
+    "table_en": {
+      "headers": [
+        "Feature",
+        "Auto-Generated Captions",
+        "Custom .SRT File Upload",
+        "Burned-In (Hardcoded) Captions"
+      ],
+      "rows": [
+        [
+          "Ease of Setup",
+          "One-Tap Activation",
+          "Requires X Media Studio",
+          "Rendered Directly in Video Editor"
+        ],
+        [
+          "Accuracy Rate",
+          "82% - 90%",
+          "100% (Manual Control)",
+          "100% Permanent"
+        ],
+        [
+          "Language Options",
+          "Matches Device Language",
+          "Multi-Language Support",
+          "Single Fixed Language"
+        ],
+        [
+          "Search Indexing",
+          "Crawled & Indexed as Text",
+          "Indexed by Search Engines",
+          "Visually Burned Into Video"
+        ]
+      ],
+      "caption": "Comparison of Methods for Adding Captions on X (Twitter)"
+    },
+    "faqs_en": [
+      {
+        "question": "Can you attach a custom .SRT file when uploading a video from the X mobile app?",
+        "answer": "While the X mobile app supports auto-captions, uploading a custom .SRT subtitle file requires using X Media Studio (studio.x.com) on a desktop browser."
+      },
+      {
+        "question": "How do subtitles (CC) affect YouTube video views?",
+        "answer": "Closed captions (CC) are crawled as indexable text by YouTube and Google. Indexing your song lyrics and spoken lines helps your video rank for lyric and topic searches."
+      }
     ]
   },
   {
@@ -6432,6 +7126,45 @@
       "3. 'Hikayeye Ekle' Seçeneğini Belirleyin: Sistem sizi otomatik olarak Instagram uygulamasına geçirecek ve Threads gönderisini degrade arka planlı, şık bir dinamik kart olarak hikaye tuvaline yerleştirecektir.",
       "4. Link Çıkartması ve Çağrı Ekleyin: Hikayenize Instagram'ın yerel 'Bağlantı' çıkartmasını ekleyerek yeni YouTube klibinizin veya web sitenizin linkini ekleyin. Kartın üzerine 'Dinlemek için tıkla' gibi bir yönlendirme oku yerleştirin.",
       "Sosyal medya platformlarındaki bu çapraz etkileşimleri [profesyonel YouTube klip reklamlarıyla](/hizmetler) taçlandırdığınızda organik kitle kalıcı bir hayran topluluğuna dönüşür. Reklam bütçenizi en verimli şekilde kurgulamak için [fiyat hesaplayıcımızı](/fiyatlandirma) kullanabilir, hedeflerinizi [bize danışabilirsiniz](/iletisim)."
+    ],
+    "table_en": {
+      "headers": [
+        "Sharing Format",
+        "Average Click-Through Rate (CTR)",
+        "Profile Visit Lift",
+        "External Link Routing"
+      ],
+      "rows": [
+        [
+          "Plain Video Frame Screenshot",
+          "1.4%",
+          "Low (No Engagement)",
+          "Manual Link Only"
+        ],
+        [
+          "Native Threads-to-Story Sticker",
+          "5.8%",
+          "High (Direct Tap-Through)",
+          "Two-Way via Interactive Stickers"
+        ],
+        [
+          "Threads Card + YouTube Link Sticker",
+          "8.2%",
+          "Very High",
+          "Direct Traffic to Watch Page"
+        ]
+      ],
+      "caption": "Engagement Metrics of Threads + Instagram Story Cross-Promotion"
+    },
+    "faqs_en": [
+      {
+        "question": "How do you share a Threads post directly to an Instagram Story?",
+        "answer": "Tap the Share (paper airplane) icon beneath your Threads post and select 'Add to Story'. The post opens directly inside the Instagram Story editor as a styled card."
+      },
+      {
+        "question": "Can this method be used to promote a YouTube music video?",
+        "answer": "Yes. You can share the story behind your track on Threads, repost it to your Instagram Story, and add a direct link sticker pointing to your YouTube music video."
+      }
     ]
   },
   {
@@ -6525,6 +7258,51 @@
       "2. Duygusal Kanca ve Hikaye: Dinleyiciler yalnızca bir melodiye değil, o şarkıyı yazan ve söyleyen sanatçının hikayesine, tarzına ve karizmasına bağlanır. [Kimdir kategorimizdeki](/blog?kategori=kimdir) sanatçı başarı hikayeleri bu gerçeği doğrulamaktadır.",
       "3. Resmi Klip PR Gücü: Milyonluk kitlelere ulaşmanın tek yolu botlar veya jenerik yapay zeka sesleri değil; profesyonel stüdyo kaydı ve [resmi YouTube klip reklamlarıdır](/hizmetler).",
       "MedyaPR olarak bağımsız sanatçıların orijinal eserlerini koruyarak hak ettikleri milyonluk kitleye ulaştırıyoruz. Şeffaf paketlerimizi [fiyatlandırma sayfamızdan](/fiyatlandirma) inceleyebilir, hemen [bizimle iletişime geçebilirsiniz](/iletisim)."
+    ],
+    "table_en": {
+      "headers": [
+        "Comparison Criterion",
+        "AI Chat Audio Snippet",
+        "Original Artist Music Video",
+        "Musical & Commercial Outcome"
+      ],
+      "rows": [
+        [
+          "Copyright Ownership",
+          "Platform-Licensed Audio Only",
+          "Owned by Artist & Label",
+          "100% Royalty Ownership on Original Master"
+        ],
+        [
+          "YouTube AdSense Monetization",
+          "Not Eligible for Monetization",
+          "Protected via Content ID",
+          "Long-Term Music Royalty Revenue"
+        ],
+        [
+          "Listener Loyalty",
+          "Ephemeral & Fast-Consumed",
+          "Emotional Connection & Fanbase",
+          "Live Concert & Ticket Conversion"
+        ],
+        [
+          "Ad Policy Compliance",
+          "Restricted Commercial Rights",
+          "Compatible with Google Ads & Video PR",
+          "Chart & Discovery Potential"
+        ]
+      ],
+      "caption": "Comparison: AI Chat Audio Snippets vs. Original Artist Music Videos"
+    },
+    "faqs_en": [
+      {
+        "question": "Can AI audio clips from Instagram DM be distributed as an official song?",
+        "answer": "No. Audio snippets generated inside social messaging tools are meant for casual chat use; music distributors (DistroKid, TuneCore, etc.) reject unverified AI snippets for commercial monetization."
+      },
+      {
+        "question": "How can independent musicians stand out amidst the wave of AI-generated music?",
+        "answer": "By emphasizing authentic human vocals, visual storytelling, and live performance aesthetics—and amplifying them to real genre fans via official Google Ads."
+      }
     ]
   },
   {
@@ -6618,6 +7396,51 @@
       "2. YouTube Klip Lansman Bildirimi: Klibiniz YouTube'da yayına girdiği an kanalınıza link gönderin. Bu kitle klibi ilk 10 dakikada izleyerek YouTube algoritmasının 'Erken Hız' (Velocity) sinyalini tetikler.",
       "3. Gizlilik Güvencesi: Takipçilerin telefon numaralarının gizli kalması, topluluğunuzun organik ve güvenle büyümesini sağlar.",
       "Topluluktan gelen ilk kıvılcımı [resmi Google Ads video reklamlarıyla](/hizmetler) desteklediğinizde klibiniz hızla [YouTube trend müzik listesine](/trendler) tırmanır. Detaylı bilgi ve strateji danışmanlığı için [bize dilediğiniz zaman ulaşabilirsiniz](/iletisim)."
+    ],
+    "table_en": {
+      "headers": [
+        "Platform",
+        "Algorithmic Filtering",
+        "Direct Notification Reach",
+        "Phone Number Privacy"
+      ],
+      "rows": [
+        [
+          "WhatsApp Channels",
+          "None (Chronological Feed)",
+          "95%+",
+          "100% Private (Hidden)"
+        ],
+        [
+          "Instagram Broadcast Channel",
+          "Yes (Engagement-Driven)",
+          "30% - 45%",
+          "Username Visible"
+        ],
+        [
+          "Telegram Channel",
+          "None",
+          "70% - 85%",
+          "Can Be Hidden"
+        ],
+        [
+          "Email Newsletter",
+          "Filtered by Spam Detection",
+          "18% - 24%",
+          "Email Visible"
+        ]
+      ],
+      "caption": "Social Broadcast Channels Comparison: WhatsApp vs. Instagram vs. Telegram"
+    },
+    "faqs_en": [
+      {
+        "question": "Can followers see each other's phone numbers in WhatsApp Channels?",
+        "answer": "No. WhatsApp Channels protect subscriber privacy—neither the channel admin nor other followers can see followers' phone numbers."
+      },
+      {
+        "question": "How can musicians use a WhatsApp Channel effectively for releases?",
+        "answer": "By sharing behind-the-scenes clips, voice notes, concert ticket links, and the direct YouTube Premiere link the moment a new music video drops."
+      }
     ]
   },
   {
@@ -6711,6 +7534,51 @@
       "2. Eğitim ve Nasıl Yapılır İçerikleri: 25-35 saniye idealdir; ilk 3 saniyede çözülecek sorun net belirtilmeli, adımlar dinamik kesmelerle aktarılmalıdır.",
       "3. Trend Sesler ve Mizah: 6-10 saniyelik ultra kısa formatlar, kullanıcının videoyu birkaç kez izlemesini sağlayarak keşfet şansını zirveye taşır.",
       "Reels üzerinde yakaladığınız ivmeyi YouTube platformuna taşımak, uzun vadeli AdSense ve telif geliri elde etmenin temel anahtarıdır. MedyaPR'ın resmi [Google Ads video reklam paketleri](/hizmetler) ile hem Shorts hem In-Stream reklamlarla kanalınızı büyütebilirsiniz. Bütçe planlaması için [şeffaf fiyat sayfamızı](/fiyatlandirma) inceleyebilirsiniz."
+    ],
+    "table_en": {
+      "headers": [
+        "Video Duration Range",
+        "Average Completion Rate",
+        "Replay (Loop) Potential",
+        "Primary Goal"
+      ],
+      "rows": [
+        [
+          "5 - 9 Seconds (Micro Hook)",
+          "110% - 135%",
+          "Extremely High",
+          "Maximum Short-Form Reach"
+        ],
+        [
+          "12 - 20 Seconds (Music Chorus Hook)",
+          "75% - 90%",
+          "High",
+          "Lip-Sync & Audio Trend Creation"
+        ],
+        [
+          "30 - 60 Seconds (Value & Storytelling)",
+          "45% - 60%",
+          "Medium",
+          "Educational Value & Follower Growth"
+        ],
+        [
+          "60 - 90 Seconds (Long-Form Cut)",
+          "25% - 35%",
+          "Low",
+          "Core Fans Only"
+        ]
+      ],
+      "caption": "Instagram Reels Performance Comparison by Video Duration"
+    },
+    "faqs_en": [
+      {
+        "question": "Is there a single ideal duration for every Instagram Reel?",
+        "answer": "No single length fits every goal: 7–9 second micro-hooks maximize loop completion, while 15–20 second chorus cuts perform best when driving listeners to a full music video."
+      },
+      {
+        "question": "Does the same vertical editing strategy work for YouTube Shorts?",
+        "answer": "Yes. Both Instagram Reels and YouTube Shorts reward a strong 3-second visual/audio hook and high loop completion rates."
+      }
     ]
   },
   {
@@ -6794,6 +7662,41 @@
       "2. Resmi Reklam Paneli Erişimi: Reklamlarınız doğrudan Google Ads ve TikTok Ads Manager üzerinden hedef kitlenize (yaş, ilgi alanı, müzik zevki) gösterilmelidir.",
       "3. 18+ Yıllık Tecrübe ve Google Partner Güvencesi: MedyaPR, Türkiye ve Avrupa'da resmi Google Partner sertifikasıyla hizmet veren nadir kurumlardan biridir.",
       "Kanalınızı botların yarattığı tehlikelerden uzak tutmak ve gerçek dinleyicilere ulaşmak için [YouTube klip reklam paketlerimizi](/hizmetler) inceleyebilir, bütçenizi [fiyat hesaplayıcımızdan](/fiyatlandirma) belirleyebilirsiniz."
+    ],
+    "table_en": {
+      "headers": [
+        "Evaluation Criterion",
+        "Certified Google Partner Agency (MedyaPR)",
+        "Unverified SMM Bot Panels"
+      ],
+      "rows": [
+        [
+          "Service Attribute",
+          "Official Google Ads / Platform Ad Manager",
+          "Automated Scripts & Compromised Account Farms"
+        ],
+        [
+          "Channel Safety",
+          "100% Zero Risk, Real Data",
+          "Channel Termination & Suppression Risk"
+        ],
+        [
+          "Invoicing & Agreement",
+          "Official Corporate Invoice & Transparent Agreement",
+          "Uninsured Wire Transfer, No Contract"
+        ]
+      ],
+      "caption": "Comparison: Certified Google Partner Agencies vs. Unverified SMM Panels"
+    },
+    "faqs_en": [
+      {
+        "question": "How can I verify that an agency uses official Google Ads?",
+        "answer": "You can verify an agency's partnership status via the official Google Partners directory. Certified agencies transparently share their official Google Ads campaign reporting."
+      },
+      {
+        "question": "Can TikTok ads help grow my YouTube music video?",
+        "answer": "Using TikTok Spark Ads to amplify your trending audio snippet while linking your full video in your profile helps bridge short-form discovery with full-length YouTube views."
+      }
     ]
   },
   {
@@ -6885,6 +7788,49 @@
       "2. Kitleyi Genişletme Aşaması (%30 Bütçe): Klip belirli bir izlenmeye ulaştıktan sonra benzer sanatçıların (Örn: Semicenk, BLOK3, Dedublüman) dinleyicileri hedef kitleye eklenerek keşif reklamları açılır.",
       "3. Yeniden Pazarlama (%15 Bütçe): Klibinizi izleyen ancak henüz abone olmayan kişilere sonraki klibinizi veya akustik versiyonunuzu göstererek kalıcı hayran tabanı oluşturulur.",
       "MedyaPR olarak [şeffaf fiyatlandırma panelimizde](/fiyatlandirma) her bütçeye uygun resmi Google Ads paketleri sunuyoruz. Bütçenizi en verimli şekilde yönetmek için [kampanya uzmanlarımızla bugün görüşün](/iletisim)."
+    ],
+    "table_en": {
+      "headers": [
+        "Campaign Phase",
+        "Budget Share",
+        "Estimated Rate",
+        "Ad Format Used",
+        "Target Outcome"
+      ],
+      "rows": [
+        [
+          "Phase 1: Launch (Hours 0–48)",
+          "55%",
+          "$480 (₺16,500)",
+          "YouTube In-Stream + Shorts",
+          "Fast Launch Reach"
+        ],
+        [
+          "Phase 2: Expansion (Days 3–10)",
+          "30%",
+          "$260 (₺9,000)",
+          "In-Feed Video Discovery Ads",
+          "High Subscriber & Playlist Additions"
+        ],
+        [
+          "Phase 3: Remarketing (Days 11–30)",
+          "15%",
+          "$130 (₺4,500)",
+          "Retargeting Engaged Viewers",
+          "Long-Term Loyal Listener Base"
+        ]
+      ],
+      "caption": "Sample Music Video PR Budget Allocation Matrix"
+    },
+    "faqs_en": [
+      {
+        "question": "Should independent artists with a smaller budget ($150–$300) run YouTube ads?",
+        "answer": "Yes. Even a modest launch budget ($150–$300 / ₺5,000–₺10,000) targeted to your exact music genre can introduce your release to thousands of real listeners on YouTube."
+      },
+      {
+        "question": "Is it better to spend the entire ad budget in one day or pace it over several days?",
+        "answer": "Concentrating a strong portion of the budget during the first 48–72 hours builds initial launch visibility, followed by steady daily pacing over 7–14 days."
+      }
     ]
   },
   {
@@ -6984,6 +7930,51 @@
       "5. Oynatma Listeleri (Playlists) Oluşturun: İzleyicileri tek bir videoda bırakmayın; döngüsel listelerle oturum süresini artırın.",
       "6. Topluluk Sekmesini Aktif Kullanın: Anketler ve görsellerle takipçilerinizle etkileşimi sıcak tutun.",
       "7. MedyaPR ile Resmi Hızlandırıcı: Kanalınızın hak ettiği ivmeyi kazanması için [4.000 saat ve abone paketlerimizi](/hizmetler) inceleyebilir, [şeffaf fiyatlarımızı](/fiyatlandirma) karşılaştırabilirsiniz."
+    ],
+    "table_en": {
+      "headers": [
+        "Subscriber Tier",
+        "Biggest Bottleneck",
+        "Core Growth Strategy",
+        "Key Metric"
+      ],
+      "rows": [
+        [
+          "0 - 1,000 Subscribers",
+          "Zero Organic Visibility",
+          "Official Google Ads + Niche Video SEO",
+          "4,000 Watch Hours & Monetization"
+        ],
+        [
+          "1,000 - 10,000 Subscribers",
+          "Audience Retention",
+          "Shorts Hooks + Live Sessions",
+          "Average View Duration (AVD)"
+        ],
+        [
+          "10,000 - 50,000 Subscribers",
+          "Content Fatigue",
+          "Recurring Series & Artist Collaborations",
+          "Returning Viewer Rate"
+        ],
+        [
+          "50,000 - 100,000 Subscribers",
+          "Scalability",
+          "Community Management & Creator Award",
+          "Discovery Feed Pool"
+        ]
+      ],
+      "caption": "YouTube Channel Growth Milestones & Strategic Focus Areas"
+    },
+    "faqs_en": [
+      {
+        "question": "How long does it take on average to reach 100,000 subscribers?",
+        "answer": "While purely organic growth often takes 18–36 months, combining consistent uploads, strong video SEO, and targeted Google Ads campaigns can shorten the timeline to 6–12 months."
+      },
+      {
+        "question": "Will buying bot subscribers get me to 100,000 subscribers and a Silver Play Button?",
+        "answer": "Never. Bot subscribers do not watch your new uploads, which destroys your click-through rate (CTR) and violates YouTube's Fake Engagement policy."
+      }
     ]
   },
   {
@@ -7077,6 +8068,51 @@
       "3. Başlık ve Açıklamada SEO Optimizasyonu: Canlı yayınınızın başlığında insanların aradığı anahtar kelimeleri kullanın ve canlı yayında çalan şarkıların listesini açıklamaya ekleyin.",
       "4. Canlı Sohbet ve Super Chat: İzleyicilerinizin sorularını ekrana yansıtın, moderatör atayın ve katılımı canlı tutun.",
       "Klip lansmanlarınızı canlı prömiyer olarak kurgulayıp MedyaPR'ın [YouTube canlı yayın ve prömiyer reklam desteğiyle](/hizmetler) birleştirdiğinizde, klibiniz ilk andan itibaren yüzlerce eşzamanlı izleyiciyle YouTube trendlerine göz kırpar. Bütçenizi planlamak için [fiyatlandırma sayfamızı](/fiyatlandirma) inceleyebilirsiniz."
+    ],
+    "table_en": {
+      "headers": [
+        "Resolution",
+        "Frame Rate (FPS)",
+        "Video Bitrate Range",
+        "Audio Bitrate"
+      ],
+      "rows": [
+        [
+          "1080p Full HD",
+          "60 fps",
+          "4,500 - 9,000 kbps",
+          "160 - 320 kbps"
+        ],
+        [
+          "1080p Full HD",
+          "30 fps",
+          "3,000 - 6,000 kbps",
+          "128 - 160 kbps"
+        ],
+        [
+          "720p HD",
+          "60 fps",
+          "2,250 - 6,000 kbps",
+          "128 kbps"
+        ],
+        [
+          "4K Ultra HD",
+          "60 fps",
+          "20,000 - 51,000 kbps",
+          "320 kbps"
+        ]
+      ],
+      "caption": "YouTube Live Stream Settings & Recommended Bitrate Values"
+    },
+    "faqs_en": [
+      {
+        "question": "How many subscribers do you need to go live on YouTube?",
+        "answer": "Streaming from a desktop encoder (like OBS) requires only a phone-verified channel with no minimum subscriber count; mobile live streaming requires at least 50 subscribers."
+      },
+      {
+        "question": "How is a YouTube Premiere different from a regular live stream?",
+        "answer": "A Premiere plays a pre-uploaded music video as a scheduled live event with a real-time chat room, making it ideal for coordinated release launches."
+      }
     ]
   },
   {
@@ -7172,6 +8208,51 @@
       "3. Yüz ve Göz Teması: İnsan beyni yüz ifadelerine refleks olarak odaklanır. Sanatçının veya sunucunun kameraya doğrudan bakan, duygusu belirgin portresi tıklamayı katlar.",
       "4. Mobil Ekran Kontrolü: Tasarımınızı akıllı telefonda küçük boyutta test edin. Yazılar cep telefonunda tek bakışta okunabiliyor mu?",
       "Yüksek CTR'lı görsellerinizi MedyaPR'ın [resmi Google Ads video reklamlarıyla](/hizmetler) birleştirdiğinizde harcadığınız her reklam bütçesi maksimum organik izlenmeye dönüşür. Detaylı bilgi için [uzmanlarımızla iletişime geçebilirsiniz](/iletisim)."
+    ],
+    "table_en": {
+      "headers": [
+        "Design Element",
+        "Low-Performing Example",
+        "High-Performing Example",
+        "CTR Impact"
+      ],
+      "rows": [
+        [
+          "Text Overlay Density",
+          "7–10 word crowded sentence",
+          "2–3 word curiosity hook",
+          "+35% CTR"
+        ],
+        [
+          "Color Contrast",
+          "Muted grey and low-contrast tones",
+          "High-contrast Yellow, Red, or Neon accents",
+          "+48% CTR"
+        ],
+        [
+          "Facial Expression",
+          "Flat, expressionless portrait",
+          "Expressive emotion / clear focal point",
+          "+62% CTR"
+        ],
+        [
+          "Mobile Readability",
+          "Tiny font, cluttered background",
+          "Bold typography, clean background",
+          "+50% CTR"
+        ]
+      ],
+      "caption": "High-CTR YouTube Thumbnail Elements & Performance Benchmarks"
+    },
+    "faqs_en": [
+      {
+        "question": "What is the ideal YouTube thumbnail size and resolution?",
+        "answer": "The ideal size is 1280x720 pixels (16:9 aspect ratio), with a minimum width of 640 pixels, under 2MB in JPG, PNG, or WebP format."
+      },
+      {
+        "question": "How does YouTube's 'Test & Compare' (Thumbnail A/B Testing) feature work?",
+        "answer": "You can upload up to 3 thumbnail variations in YouTube Studio. YouTube splits impressions evenly and selects the winning thumbnail based on watch-time share."
+      }
     ]
   },
   {
@@ -7267,12 +8348,57 @@
       "3. Topic Kanalı ile Eşleştirme: Dağıtım panelinizdeki 'YouTube Official Artist Channel' sekmesine girin, kişisel kanal linkinizi girerek eşleştirme talebi oluşturun.",
       "4. Topluluk Kuralları Uyumu: Kanalınızda aktif hiçbir telif veya topluluk kuralı ihlali (Strike) bulunmamalıdır.",
       "Resmi Sanatçı Kanalınızı aldıktan sonra kliplerinizi hak ettiği izleyici kitlesine ulaştırmak için MedyaPR'ın [resmi YouTube klip reklam hizmetlerinden](/hizmetler) yararlanabilirsiniz. Bütçenizi [fiyatlandırma sayfamızdan](/fiyatlandirma) belirleyebilir, projenizi [bizimle paylaşabilirsiniz](/iletisim)."
+    ],
+    "table_en": {
+      "headers": [
+        "Requirement / Feature",
+        "Standard YouTube Channel",
+        "Official Artist Channel (OAC)"
+      ],
+      "rows": [
+        [
+          "Official Artist Badge (♪)",
+          "Not Available",
+          "Official Music Note Badge Next to Channel Name"
+        ],
+        [
+          "Subscriber Consolidation",
+          "Fragmented (Separate Topic & Personal Channels)",
+          "All Subscribers Unified Under One Channel"
+        ],
+        [
+          "Official Discography & Album Shelf",
+          "Manual Playlists Only",
+          "Automated Official Albums Shelf"
+        ],
+        [
+          "Concert & Ticket Integration",
+          "Disabled",
+          "Integrated with Ticketmaster / Eventim"
+        ],
+        [
+          "Requirements",
+          "Standard Channel Creation",
+          "At Least 1 Officially Distributed Release & Distributor Request"
+        ]
+      ],
+      "caption": "YouTube Official Artist Channel (OAC) Requirements & Benefits"
+    },
+    "faqs_en": [
+      {
+        "question": "How do you apply for a YouTube Official Artist Channel (OAC)?",
+        "answer": "OAC requests are submitted through your digital music distributor (such as DistroKid, TuneCore, CD Baby, or Believe) rather than directly inside YouTube Studio."
+      },
+      {
+        "question": "How long does Official Artist Channel (OAC) badge approval take?",
+        "answer": "Once submitted through your distributor, YouTube's review typically takes 2 to 6 weeks before the Official Artist Channel music note badge appears."
+      }
     ]
   },
   {
     "slug": "blok3-hakan-aydin-kimdir-sarkilari-tarzi-ve-youtube-basarisi",
     "title": "BLOK3 Kimdir, Kaç Yaşında? Gerçek Adı Hakan Aydın & Yaşı",
-    "summary": "BLOK3 kimdir, kaç yaşında (age) ve gerçek adı ne? 15 Ağustos 2002 Gebze doğumlu Hakan Aydın'ın (24 yaşında) biyografisi, müzik türü ve en popüler şarkıları.",
+    "summary": "BLOK3 (gerçek adı Hakan Aydın), 15 Ağustos 2002 Kocaeli (Gebze) doğumlu, 24 yaşında Türk rap ve drill sanatçısıdır. Vur, Affetmem, Aklına Ben Gelicem, Baybay ve Laf Anlamaz şarkıları ile YouTube izlenme verileri.",
     "category": "Kimdir?",
     "date": "18 Ekim 2026",
     "readTime": "5 dk",
@@ -7286,7 +8412,7 @@
       "Türkçe Rap",
       "YouTube Trendler"
     ],
-    "quickFact": "BLOK3 sahne adıyla tanınan rap sanatçısının gerçek adı Hakan Aydın'dır. 15 Ağustos 2002 Kocaeli Gebze doğumlu (24 yaşında) olan BLOK3; melodik trap, drill ve duygusal rap tarzındaki 'Vur', 'Affetmem', 'Baybay' ve 'Laf Anlamaz' klipleriyle YouTube Türkiye ve Avrupa listelerinde zirveye yerleşmiştir.",
+    "quickFact": "Hızlı Kimlik Özeti: BLOK3 (Gerçek Adı: Hakan Aydın) • Doğum Tarihi: 15 Ağustos 2002 (24 yaşında) • Doğum Yeri / Memleket: Gebze, Kocaeli • Müzik Türü: Türkçe Rap, Melodik Drill & Trap • En Bilinen Şarkıları: Aklına Ben Gelicem, Vur, Affetmem, Baybay, Laf Anlamaz, Güzel ve İddialı.",
     "table": {
       "caption": "BLOK3 YouTube ve Dijital Dinlenme Analitiği",
       "headers": [
@@ -7341,7 +8467,7 @@
       }
     ],
     "paragraphs": [
-      "Son yıllarda Türkiye ve Avrupa müzik listelerini domine eden **BLOK3**, bağımsız bir sanatçının dijital platformları ve video klipleri doğru stratejiyle kullandığında nasıl stadyum konserlerine ulaşabileceğinin en güçlü örneğidir.",
+      "Gerçek adı Hakan Aydın olan BLOK3, 15 Ağustos 2002 tarihinde Kocaeli'nin Gebze ilçesinde doğmuş (2026 itibarıyla 24 yaşında) Türk rap ve melodik drill sanatçısıdır. Müzik kariyerine Gebze'de başlayan ve Okey Okey ile dikkat çektikten sonra Vur, Affetmem, Baybay, Aklına Ben Gelicem ve Laf Anlamaz hitleriyle YouTube Türkiye ve Avrupa diaspora listelerinde 850 milyonu aşkın toplam izlenmeye ulaşan bir rap yıldızıdır.",
       "### BLOK3 Kimdir, Gerçek Adı Ne, Kaç Yaşında ve Nerelidir?",
       "Dinleyicilerin arama motorlarında en çok sorguladığı **\"BLOK3 adı ne?\"** sorusunun yanıtı **Hakan Aydın**'dır. 15 Ağustos 2002 tarihinde Kocaeli'nin Gebze ilçesinde dünyaya gelen Hakan Aydın, çocukluk ve gençlik yıllarını Gebze'de geçirmiştir. Sahne adı olan BLOK3 ise büyüdüğü mahalle ve sokak kültürünü temsil etmektedir.",
       "2021 yılında yayınladığı ilk teklileri *OKEY OKEY*, *Yallah* ve *Cümle Alem* ile yeraltı rap sahnesinde dikkat çeken sanatçı, asıl büyük kırılmasını **Vur** ve **Affetmem** şarkılarıyla gerçekleştirerek yüz milyonlarca dinlenmeye ulaşmıştır.",
@@ -7382,7 +8508,7 @@
   {
     "slug": "motive-tolga-can-serbes-kimdir-albumleri-ve-turkce-rap-kariyeri",
     "title": "Tolga Can Serbes (Motive) Kimdir, Kaç Yaşında? Albümleri",
-    "summary": "Tolga Can Serbes (Motive) kimdir, kaç yaşında ve aslen nereli? 24 Mart 2000 İstanbul doğumlu (26 yaşında) rap sanatçısının Makaveli, 22 ve Romantik analizi.",
+    "summary": "Motive (gerçek adı Tolga Can Serbes), 25 Mart 2000 İstanbul (Fatih) doğumlu, 26 yaşında Türk rap ve newschool hip-hop sanatçısıdır. MOB Entertainment dönemi, Makaveli, 22 ve Romantik albümleri ile YouTube klip izlenme analizleri.",
     "category": "Kimdir?",
     "date": "18 Ekim 2026",
     "readTime": "5 dk",
@@ -7396,7 +8522,7 @@
       "Türkçe Rap",
       "Müzik Kariyeri"
     ],
-    "quickFact": "Motive sahne adıyla tanınan Türk rap sanatçısının gerçek adı Tolga Can Serbes'tir. 24 Mart 2000 İstanbul Küçükçekmece doğumlu (26 yaşında) olan Tolga Can Serbes; MOB Entertainment döneminden 'Makaveli', '22' ve 'ROMANTİK' albümlerine uzanan kariyerinde modern Türkçe Rap'in en güçlü prodüksiyonlarına imza atmıştır.",
+    "quickFact": "Hızlı Kimlik Özeti: Motive (Gerçek Adı: Tolga Can Serbes) • Doğum Tarihi: 25 Mart 2000 (26 yaşında) • Doğum Yeri / Memleket: Fatih, İstanbul • Müzik Türü: Türkçe Rap, Melodik Trap & R&B • Önemli Albümleri: Makaveli (2020), 22 (2022), Romantik (2023), Taycan • Öne Çıkan Hitleri: 10MG, Takip, Ölümsüz, Savana, PVg.",
     "table": {
       "caption": "Motive Albüm Kronolojisi ve Sanatsal Dönüm Noktaları",
       "headers": [
@@ -7447,7 +8573,7 @@
       }
     ],
     "paragraphs": [
-      "Yeni nesil Türkçe Rap ve Trap sahnesinde hem teknik flow kabiliyeti hem de albüm bütünlüğüyle öne çıkan **Motive**, gerçek adıyla **Tolga Can Serbes**, sokak enerjisini yüksek sanat estetiğiyle birleştiren öncü müzisyenlerden biridir.",
+      "Gerçek adı Tolga Can Serbes olan Motive, 25 Mart 2000 tarihinde İstanbul Fatih'te doğmuş (2026 itibarıyla 26 yaşında) Türk rap söz yazarı ve hip-hop sanatçısıdır. Müzik kariyerine MOB Entertainment çatısı altında başlayan ve solo albümleri Makaveli, 22 ile Romantik sayesinde Türkçe rap sahnesinin en çok dinlenen isimlerinden biri haline gelen Motive, 10MG ve Savana gibi yüksek prodüksiyonlu klipleriyle YouTube müzik listelerinde üst sıralarda yer almaktadır.",
       "### Tolga Can Serbes (Motive) Kimdir, Kaç Yaşında ve Nerelidir?",
       "Arama motorlarında **\"Tolga Serbes\"** ve **\"Tolga Can Serbes kimdir\"** olarak da yoğun biçimde aranan Motive, **24 Mart 2000** tarihinde İstanbul'da dünyaya gelmiştir ve **26 yaşındadır**. İstanbul **Küçükçekmece (Fatih Mahallesi)** sokaklarında büyüyen sanatçı, rap müziğe henüz ortaokul yıllarında söz yazarak ve beat üreterek adım atmıştır.",
       "2018 yılında Tepki öncülüğünde kurulan **MOB Entertainment** kolektifinin en genç ve en parlak üyelerinden biri olarak yayınladığı *Çekmece Flow* ve *Mektup* parçalarıyla tüm Türkiye'de tanınmıştır.",
@@ -7484,7 +8610,7 @@
   {
     "slug": "lvbel-c5-burak-kosar-kimdir-hit-sarkilari-ve-sosyal-medya-stratejisi",
     "title": "Lvbel C5 (Burak Koşar) Kimdir? Şarkıları ve Klip İvmesi",
-    "summary": "Baba, 10 Numara, DACIA gibi parçalarla trendleri domine eden Lvbel C5'in sosyal medya kancalarını YouTube izlenmesine çevirme metodolojisi.",
+    "summary": "Lvbel C5 (gerçek adı Süleyman Burak Bodur), 20 Nisan 2001 Sakarya doğumlu, 25 yaşında Türk rap ve drill sanatçısıdır. 10 Numara, Gaz Pedal, DACIA, Doğuştan Beri Haklıyım ve Submariner şarkıları ile YouTube analizleri.",
     "category": "Kimdir?",
     "date": "10 Ekim 2026",
     "readTime": "5 dk",
@@ -7498,7 +8624,7 @@
       "Hit Şarkılar",
       "Sosyal Medya Viral"
     ],
-    "quickFact": "2001 Sakarya doğumlu Burak Koşar (Lvbel C5), 2019'da Batuflex ile yaptığı ortak projelerle çıkış yapmış; kendine has vokal tarzı, mizahi ve akılda kalıcı nakaratlarıyla '10 Numara', 'DACIA' ve 'Baba' gibi hitlerle YouTube'da 300 milyonun üzerinde izlenmeye ulaşmıştır.",
+    "quickFact": "Hızlı Kimlik Özeti: Lvbel C5 (Gerçek Adı: Süleyman Burak Bodur) • Doğum Tarihi: 20 Nisan 2001 (25 yaşında) • Doğum Yeri / Memleket: Sakarya • Müzik Türü: Türkçe Rap, Club Rap & Drill • En Bilinen Şarkıları: 10 Numara, Gaz Pedal, DACIA, Baba, Doğuştan Beri Haklıyım, Submariner.",
     "table": {
       "caption": "Lvbel C5 Hit Şarkı İstatistikleri ve Algoritma Çarpanı",
       "headers": [
@@ -7545,7 +8671,7 @@
       }
     ],
     "paragraphs": [
-      "Türkçe trap ve drill sahnesinde kendi kurallarını yazan Lvbel C5 (Burak Koşar), dijital çağda bir şarkının nasıl hit haline getirilebileceğini en iyi çözen yeni nesil sanatçıların başında gelmektedir.",
+      "Gerçek adı Süleyman Burak Bodur olan Lvbel C5, 20 Nisan 2001 tarihinde Sakarya'da doğmuş (2026 itibarıyla 25 yaşında) Türk rap ve drill sanatçısıdır. Batuflex ile yayınladığı Ralli ve 10 Numara hitleriyle çıkış yakalayan, ardından Gaz Pedal, DACIA ve Doğuştan Beri Haklıyım (tmm) teklileriyle YouTube Türkiye ve Shorts listelerinde en hızlı yükselen yüksek tempolu kulüp-rap temsilcilerinden biri olmuştur.",
       "Geleneksel müzik kalıplarına meydan okuyan eğlenceli tarzı, akılda kalıcı nakaratları ve kendine has tavırlarıyla kısa sürede milyonlarca dinleyiciye ulaştı. '10 Numara' ve 'DACIA' parçaları adeta birer sosyal medya fenomenine dönüştü.",
       "### Sosyal Medyadan YouTube Zirvesine Uzanan Köprü",
       "Lvbel C5'in en büyük başarısı, dikey video platformlarında (TikTok, Reels) yarattığı akımları ustalıkla YouTube klibine yönlendirebilmesidir. Şarkının en eğlenceli 10 saniyesi sosyal medyada yüz binlerce kullanıcı videosunda kullanılırken, merak eden kitle klibin tamamını izlemek için YouTube'a koşmaktadır.",
@@ -7576,7 +8702,7 @@
   {
     "slug": "ati242-atilla-serin-kimdir-sarkilari-tarzi-ve-youtube-dinlenmeleri",
     "title": "Ati242 (Atilla Serin) Kimdir, Nereli? Klip Başarıları",
-    "summary": "Kural, 25, Dingo hitleriyle milyonlarca dinlenen Ati242'nin sokaktan YouTube listelerine uzanan müzik yolculuğu ve klip görsel dinamizmi.",
+    "summary": "Ati242 (gerçek adı Atilla Serin), 6 Ocak 1997 Almanya (Immenstadt) doğumlu, 29 yaşında ve Antalya'da büyümüş Türk rap sanatçısıdır. Sahne adındaki 242 Antalya alan kodundan gelir; 25, Değişmene Rağmen ve Italy Forma şarkıları.",
     "category": "Kimdir?",
     "date": "10 Ekim 2026",
     "readTime": "5 dk",
@@ -7590,7 +8716,7 @@
       "Türkçe Rap",
       "Klip Başarıları"
     ],
-    "quickFact": "1997 Almanya doğumlu ve Antalya'da büyüyen Atilla Serin (Ati242), Almanca ve Türkçe rap kültürünü sentezleyerek sert vuruşlu boom-bap ve modern trap parçalarıyla tanınmış; '25', 'Dingo', 'Kural' ve 'Gringo' gibi parçalarıyla YouTube'da yüz milyonlarca izlenmeye ulaşmıştır.",
+    "quickFact": "Hızlı Kimlik Özeti: Ati242 (Gerçek Adı: Atilla Serin) • Doğum Tarihi: 6 Ocak 1997 (29 yaşında) • Doğum Yeri / Memleket: Immenstadt, Almanya (2005'ten itibaren Antalya'da büyüdü; 242 Antalya telefon kodudur) • Müzik Türü: Türkçe Rap, Trap & Melodik Hip-Hop • En Bilinen Şarkıları: Yolu Yok, 25, Değişmene Rağmen, Italy Forma, Kalbime Gömerim.",
     "table": {
       "caption": "Ati242 Kariyer Kronolojisi ve YouTube Başarıları",
       "headers": [
@@ -7637,7 +8763,7 @@
       }
     ],
     "paragraphs": [
-      "Türkçe rap sahnesinin en karakteristik seslerinden biri olan Ati242 (Atilla Serin), Almanya'da doğup Antalya'nın sokaklarında büyüyen ve iki kültürün sert ritimlerini müziğinde kusursuzca harmanlayan bir sanatçıdır.",
+      "Gerçek adı Atilla Serin olan Ati242, 6 Ocak 1997 tarihinde Almanya'nın Bavyera eyaletindeki Immenstadt şehrinde doğmuş (2026 itibarıyla 29 yaşında), 2005 yılında ailesiyle Antalya'ya yerleşmiş Türk rap sanatçısıdır. Sahne adındaki '242' numarasını büyüdüğü şehir olan Antalya'nın telefon alan kodundan alan sanatçı; Yolu Yok, 25, Değişmene Rağmen, Italy Forma ve Manifesto albümüyle YouTube'da yüz milyonlarca dinlenmeye ulaşmıştır.",
       "Kariyerine ilk başladığı günden itibaren taviz vermeyen sert flow'ları, güçlü ses tonu ve gerçekçi sokak lirikleriyle sadık ve tutkulu bir dinleyici kitlesi yarattı. '25' ve 'Dingo' gibi parçalar onun sadece bir rapçi değil, kulüpleri ve festival sahnelerini inleten bir canlı performans ustası olduğunu kanıtladı.",
       "### Klip Görselliği ve İzleyici Sadakati",
       "Ati242 klipleri, görsel tutarlılığıyla YouTube'da öne çıkar. Hızlı sahne geçişleri, sinematik renk tonları ve parçanın temposuyla tam uyumlu kurgu; izleyicilerin klibi tekrar tekrar (Loop) oynatmasını sağlar.",
@@ -7668,7 +8794,7 @@
   {
     "slug": "tan-tasci-kimdir-kac-yasinda-nereli-en-populer-sarkilari-ve-klipleri",
     "title": "Tan Taşçı Kimdir, Kaç Yaşında, Nereli? Şarkıları ve Klipleri",
-    "summary": "Tan Taşçı kimdir, kaç yaşında, nereli? Sözümü Tutamadım, Yalan ve Bahçeden Akustik serisiyle YouTube trendlerinde fırtınalar estiren sanatçının hayatı.",
+    "summary": "Tan Taşçı, 30 Ekim 1981 Almanya (Hannover) doğumlu, 44 yaşında (aslen Ankara/Kırşehir kökenli) Türk pop müziği sanatçısı, söz yazarı ve prodüktördür. Rica Ederim, Yalan, Paşa Gönlüm ve Gayrı şarkıları.",
     "category": "Kimdir?",
     "date": "11 Ekim 2026",
     "readTime": "6 dk okuma",
@@ -7684,7 +8810,7 @@
       "Klip Tanıtımı",
       "YouTube İzlenme Satın Al"
     ],
-    "quickFact": "Tan Taşçı, 30 Ekim 1981 Almanya Hildesheim doğumlu Türk pop sanatçısıdır. Harbiye Açıkhava rekorları ve 'Bahçeden Akustik' serisiyle YouTube'da 500M+ izlenmiştir.",
+    "quickFact": "Hızlı Kimlik Özeti: Tan Taşçı • Doğum Tarihi: 30 Ekim 1981 (44 yaşında) • Doğum Yeri: Hannover, Almanya (İlk ve orta öğrenimini Ankara'da tamamladı) • Eğitimi: Hacettepe Üniversitesi Devlet Konservatuvarı Yarı Zamanlı Şan & Ankara Üniversitesi • Müzik Türü: Türkçe Pop, Akustik & R&B • En Bilinen Şarkıları: Rica Ederim, Kalbime Gömerim O Zaman, Yalan, Nasıl Seveceğim, Gayrı.",
     "table": {
       "caption": "Tan Taşçı Klip Başarısı ve YouTube Lansman Kıyaslaması",
       "headers": [
@@ -7711,7 +8837,7 @@
       ]
     },
     "paragraphs": [
-      "### Tan Taşçı Kimdir, Kaç Yaşında ve Nerelidir?",
+      "Tan Taşçı, 30 Ekim 1981 tarihinde Almanya'nın Hannover şehrinde doğmuş (2026 itibarıyla 44 yaşında), çocukluk ve gençlik yıllarını Ankara'da geçirmiş Türk pop müziği şarkıcısı, söz yazarı ve prodüktördür. Hacettepe Üniversitesi Devlet Konservatuvarı'nda şan eğitimi alan ve 2005 yılındaki Rica Ederim albümüyle profesyonel çıkış yapan sanatçı; Yalan, Nasıl Seveceğim, Paşa Gönlüm ve Bayhan Turaç turnesi canlı performanslarıyla YouTube'da uzun soluklu izlenme başarısı yakalamıştır.",
       "Türk pop müziğinin en güçlü söz yazarı ve bestecilerinden Tan Taşçı, 30 Ekim 1981 tarihinde Almanya'nın Hildesheim şehrinde doğmuştur. Günümüz itibarıyla 45 yaşındadır. Aslen Ankara kökenli olan sanatçı, ilkokul ve lise eğitimini Ankara'da tamamladıktan sonra Ankara Üniversitesi Devlet Konservatuvarı Opera ve Şan Bölümü'nden mezun olmuştur.",
       "Eşsiz vokal tekniği, duygusal derinliği yüksek şarkı sözleri ve sahne performanslarıyla Türkiye'nin Harbiye Açıkhava Tiyatrosu'nda en çok üst üste konser veren rekortmen sanatçısı unvanına sahiptir.",
       "### Hit Şarkıları, Bahçeden Akustik Serisi ve YouTube Başarıları",
@@ -7766,7 +8892,7 @@
   {
     "slug": "emir-can-igrek-kimdir-kac-yasinda-nereli-ali-cabbar-ve-klip-stratejisi",
     "title": "Emir Can İğrek Kimdir, Nasıl Ünlü Oldu? Ali Cabbar ve Yaşı",
-    "summary": "Emir Can İğrek kimdir, nasıl ünlü oldu, kaç yaşında ve nereli? Nalan, Müzik Kutusu ve Ali Cabbar ile YouTube'da 150M+ izlenen sanatçının başarı hikayesi.",
+    "summary": "Emir Can İğrek, 2 Nisan 1993 Tekirdağ (Çerkezköy) doğumlu, 33 yaşında Türk alternatif pop-rock şarkıcısı ve söz yazarıdır. Nalan, Kor, Beyaz Skandalım ve halk türküsü tınılı Ali Cabbar şarkısının hikayesi.",
     "category": "Kimdir?",
     "date": "11 Ekim 2026",
     "readTime": "6 dk okuma",
@@ -7782,7 +8908,7 @@
       "Klip Tanıtımı",
       "YouTube Video PR"
     ],
-    "quickFact": "Emir Can İğrek, 2 Nisan 1993 Tekirdağ Çerkezköy doğumlu şarkıcı ve söz yazarıdır. 'Nalan' ve 'Ali Cabbar' şarkılarıyla dijital izlenme rekorları kırmıştır.",
+    "quickFact": "Hızlı Kimlik Özeti: Emir Can İğrek • Doğum Tarihi: 2 Nisan 1993 (33 yaşında) • Doğum Yeri / Memleket: Çerkezköy, Tekirdağ • Eğitimi: Yıldız Teknik Üniversitesi (YTÜ) & Nazım Hikmet Akademisi Şan/Solfej • Müzik Türü: Alternatif Pop, Indie Rock & Modern Ozan Anlatımı • En Bilinen Şarkıları: Ali Cabbar, Nalan, Kor, Müzik Kutusu, Defoluyorum.",
     "table": {
       "caption": "Emir Can İğrek Klip Lansmanı ve Algoritma Metrikleri",
       "headers": [
@@ -7814,7 +8940,7 @@
       ]
     },
     "paragraphs": [
-      "### Emir Can İğrek Kimdir, Kaç Yaşında ve Nerelidir?",
+      "Emir Can İğrek, 2 Nisan 1993 tarihinde Tekirdağ'ın Çerkezköy ilçesinde doğmuş (2026 itibarıyla 33 yaşında) Türk şarkıcı, söz yazarı ve bestecidir. Müzik Kutusu ve Gönül Davası ile bağımsız dijital sahnede tanındıktan sonra 2019 yılında yayınladığı Nalan ile ülke çapında üne kavuşmuş; Kor, Can Dostum ve Trakya düğün-halk anlatısını sinematik bir kurguyla birleştirdiği Ali Cabbar şarkısıyla YouTube Türkiye'de izlenme rekorları kırmıştır.",
       "Yeni nesil Türk pop ve alternatif müziğinin en üretken söz yazarlarından Emir Can İğrek, 2 Nisan 1993 tarihinde Tekirdağ'ın Çerkezköy ilçesinde doğmuştur. Günümüz itibarıyla 33 yaşındadır. Yıldız Teknik Üniversitesi Metalurji ve Malzeme Mühendisliği Bölümü'nde başladığı eğitimini müzik tutkusu nedeniyle yarıda bırakmış, ardından Nazım Hikmet Akademisi'nde şan ve solfej eğitimi almıştır.",
       "Edebiyat kokan şarkı sözleri, hikaye anlatıcılığı (storytelling) yeteneği ve samimi sahne enerjisiyle kısa sürede milyonlarca dinleyicinin kalbinde taht kurmuştur.",
       "### Hit Şarkıları, 'Ali Cabbar' Fenomeni ve YouTube Başarıları",
@@ -7873,7 +8999,7 @@
   {
     "slug": "simge-sagin-kimdir-kac-yasinda-nereli-sarkilari-ve-youtube-klipleri",
     "title": "Simge Sağın Kaç Yaşında, Aslen Nereli? Yaşı ve Şarkıları",
-    "summary": "Simge Sağın kaç yaşında ve aslen nereli? 8 Ağustos 1981 İstanbul doğumlu (45 yaşında), baba tarafından Amasyalı sanatçının biyografisi ve Aşkın Olayım klibi.",
+    "summary": "Simge Sağın, 8 Ağustos 1981 İstanbul (Şişli) doğumlu, 45 yaşında (aslen Amasyalı ve Arnavut kökenli) Türk pop müziği sanatçısıdır. İTÜ Türk Musikisi Devlet Konservatuvarı mezunu olan sanatçının Aşkın Olayım, Miş Miş, Yankı ve Öpücem hitleri ile YouTube izlenme analizleri.",
     "category": "Kimdir?",
     "date": "18 Ekim 2026",
     "readTime": "6 dk okuma",
@@ -7889,7 +9015,7 @@
       "Klip Tanıtımı",
       "YouTube Video Reklamı"
     ],
-    "quickFact": "Simge Sağın kaç yaşında ve aslen nereli? 8 Ağustos 1981 İstanbul Şişli doğumlu olan Simge Sağın 45 yaşındadır; baba tarafından aslen Amasyalı, anne tarafından Arnavut kökenlidir. İTÜ Türk Musikisi Devlet Konservatuvarı mezunu sanatçı 2015'te 'Miş Miş' ile büyük çıkış yapmış, 'Aşkın Olayım' klibiyle 250M+ izlenmeyi aşmıştır.",
+    "quickFact": "Hızlı Kimlik Özeti: Simge Sağın • Doğum Tarihi: 8 Ağustos 1981 (45 yaşında) • Doğum Yeri: Şişli, İstanbul (Baba tarafı Amasya, anne tarafı Arnavut göçmeni) • Müzik Türü: Türkçe Pop & Dans-Pop • Eğitimi: İTÜ Türk Musikisi Devlet Konservatuvarı (Ses Eğitimi) • En Bilinen Şarkıları: Aşkın Olayım, Miş Miş, Yankı, Üzülmedin mi?, Önümüz Yaz.",
     "table": {
       "caption": "Simge Sağın Klip Lansmanı ve YouTube Rekabet Metrikleri",
       "headers": [
@@ -7916,7 +9042,7 @@
       ]
     },
     "paragraphs": [
-      "### Simge Sağın Kimdir, Kaç Yaşında ve Nerelidir?",
+      "Simge Sağın, 8 Ağustos 1981 tarihinde İstanbul Şişli'de doğmuş (2026 itibarıyla 45 yaşında), baba tarafından aslen Amasyalı, anne tarafından Arnavut kökenli Türk pop müziği şarkıcısıdır. İstanbul Teknik Üniversitesi (İTÜ) Türk Musikisi Devlet Konservatuvarı Ses Eğitimi Bölümü mezunu olan sanatçı; Miş Miş, Yankı, Üzülmedin mi? ve stadyum marşına dönüşen Aşkın Olayım teklileriyle YouTube Türkiye'de yüz milyonlarca izlenmeye ulaşmıştır.",
       "Türk pop müziğinin en başarılı kadın vokallerinden Simge Sağın, 8 Ağustos 1981 tarihinde İstanbul'un Şişli ilçesinde dünyaya gelmiştir. Günümüz itibarıyla 45 yaşındadır. Aslen İstanbullu olan sanatçı, babasının da müzisyen olması sebebiyle çok küçük yaşlarda müzikle iç içe büyümüştür. İstanbul Teknik Üniversitesi (İTÜ) Türk Musikisi Devlet Konservatuvarı Ses Eğitimi Bölümü'nden mezun olmuştur.",
       "Konservatuvar eğitimi boyunca Zeynep Dizdar, Gülşen ve Yaşar gibi önemli isimlerin vokalistliğini yapmış, ardından solo kariyerine başlayarak pop müziğin zirvesine yerleşmiştir.",
       "### Hit Şarkıları, 'Aşkın Olayım' Efsanesi ve YouTube Rekorları",
@@ -8136,45 +9262,84 @@
       "Independent pop artists can apply these exact principles by launching targeted [Google Ads video campaigns](/hizmetler) with MedyaPR to build authentic momentum."
     ],
     "table": {
-      "caption": "2026 Küresel Müzik Klibi Lansman & YouTube Algoritma Kıyaslama Tablosu",
       "headers": [
-        "Metrik / Strateji",
-        "Organik Paylaşım",
-        "Resmi Google Ads + PR Lansmanı",
-        "Algoritma Etkisi"
+        "Metric / Strategy",
+        "Organic Shares",
+        "Official Google Ads + PR Launch",
+        "Channel Impact"
       ],
       "rows": [
         [
-          "İlk 48 Saat İvmesi",
-          "Sadece mevcut abonelerle sınırlı",
-          "Hedefli müziksever kitlesine anında erişim",
-          "Trendler & Keşfet tetiklemesi"
+          "First 48-Hour Momentum",
+          "Limited to existing subscribers",
+          "Immediate reach to targeted music listeners",
+          "Verified Audience Reach & Engagement"
         ],
         [
-          "İzlenme Tescili",
-          "Standart organik",
-          "YouTube Studio \"YouTube Reklamları\" tescilli",
-          "%100 güvenli kanal otoritesi"
+          "Analytics Verification",
+          "Standard organic",
+          "Verified in YouTube Studio under 'YouTube Advertising'",
+          "100% safe channel authority"
         ],
         [
-          "Kitle Hedefleme",
-          "Rastgele",
-          "Benzer sanatçı ve müzik türü (Genre) hedefleme",
-          "Yüksek izlenme süresi (Retention)"
+          "Audience Targeting",
+          "Untargeted / Random",
+          "Similar artist & music genre affinity targeting",
+          "Strong audience retention & watch time"
         ]
-      ]
+      ],
+      "caption": "2026 Global Music Video Launch & YouTube Performance Comparison Table"
     },
     "faqs": [
       {
-        "question": "Global hit kliplerin YouTube stratejisi bağımsız sanatçılara nasıl uyarlanır?",
-        "answer": "İlk 48 saatte doğru müzik türü dinleyicilerine resmi Google Ads In-Stream ve Shorts reklamlarıyla ulaşarak algoritmaya güçlü izlenme süresi sinyali verilir."
+        "question": "How can independent artists adapt the YouTube launch strategies of global stars?",
+        "answer": "Reaching listeners of your genre via official Google Ads In-Stream and Shorts campaigns during the first 48 hours establishes verified watch time and early audience reach."
       },
       {
-        "question": "YouTube klip tanıtımı için kanal şifresi gerekiyor mu?",
-        "answer": "Hayır. MedyaPR üzerinden yürütülen resmi Google Ads kampanyalarında yalnızca YouTube video linkiniz yeterlidir; şifre veya kanal yetkisi talep edilmez."
+        "question": "Is a channel password required for YouTube music video promotion?",
+        "answer": "No. Official Google Ads campaigns managed by MedyaPR only require your public YouTube video link; we never ask for your password or channel access."
       }
     ],
-    "enOnly": true
+    "enOnly": true,
+    "table_en": {
+      "headers": [
+        "Metric / Strategy",
+        "Organic Shares",
+        "Official Google Ads + PR Launch",
+        "Channel Impact"
+      ],
+      "rows": [
+        [
+          "First 48-Hour Momentum",
+          "Limited to existing subscribers",
+          "Immediate reach to targeted music listeners",
+          "Verified Audience Reach & Engagement"
+        ],
+        [
+          "Analytics Verification",
+          "Standard organic",
+          "Verified in YouTube Studio under 'YouTube Advertising'",
+          "100% safe channel authority"
+        ],
+        [
+          "Audience Targeting",
+          "Untargeted / Random",
+          "Similar artist & music genre affinity targeting",
+          "Strong audience retention & watch time"
+        ]
+      ],
+      "caption": "2026 Global Music Video Launch & YouTube Performance Comparison Table"
+    },
+    "faqs_en": [
+      {
+        "question": "How can independent artists adapt the YouTube launch strategies of global stars?",
+        "answer": "Reaching listeners of your genre via official Google Ads In-Stream and Shorts campaigns during the first 48 hours establishes verified watch time and early audience reach."
+      },
+      {
+        "question": "Is a channel password required for YouTube music video promotion?",
+        "answer": "No. Official Google Ads campaigns managed by MedyaPR only require your public YouTube video link; we never ask for your password or channel access."
+      }
+    ]
   },
   {
     "slug": "kendrick-lamar-not-like-us-youtube-pr-anatomy",
@@ -8217,45 +9382,84 @@
       "Elevate your own hip-hop releases with targeted [MedyaPR video campaigns](/fiyatlandirma) designed for high retention and chart visibility."
     ],
     "table": {
-      "caption": "2026 Küresel Müzik Klibi Lansman & YouTube Algoritma Kıyaslama Tablosu",
       "headers": [
-        "Metrik / Strateji",
-        "Organik Paylaşım",
-        "Resmi Google Ads + PR Lansmanı",
-        "Algoritma Etkisi"
+        "Metric / Strategy",
+        "Organic Shares",
+        "Official Google Ads + PR Launch",
+        "Channel Impact"
       ],
       "rows": [
         [
-          "İlk 48 Saat İvmesi",
-          "Sadece mevcut abonelerle sınırlı",
-          "Hedefli müziksever kitlesine anında erişim",
-          "Trendler & Keşfet tetiklemesi"
+          "First 48-Hour Momentum",
+          "Limited to existing subscribers",
+          "Immediate reach to targeted music listeners",
+          "Verified Audience Reach & Engagement"
         ],
         [
-          "İzlenme Tescili",
-          "Standart organik",
-          "YouTube Studio \"YouTube Reklamları\" tescilli",
-          "%100 güvenli kanal otoritesi"
+          "Analytics Verification",
+          "Standard organic",
+          "Verified in YouTube Studio under 'YouTube Advertising'",
+          "100% safe channel authority"
         ],
         [
-          "Kitle Hedefleme",
-          "Rastgele",
-          "Benzer sanatçı ve müzik türü (Genre) hedefleme",
-          "Yüksek izlenme süresi (Retention)"
+          "Audience Targeting",
+          "Untargeted / Random",
+          "Similar artist & music genre affinity targeting",
+          "Strong audience retention & watch time"
         ]
-      ]
+      ],
+      "caption": "2026 Global Music Video Launch & YouTube Performance Comparison Table"
     },
     "faqs": [
       {
-        "question": "Global hit kliplerin YouTube stratejisi bağımsız sanatçılara nasıl uyarlanır?",
-        "answer": "İlk 48 saatte doğru müzik türü dinleyicilerine resmi Google Ads In-Stream ve Shorts reklamlarıyla ulaşarak algoritmaya güçlü izlenme süresi sinyali verilir."
+        "question": "How can independent artists adapt the YouTube launch strategies of global stars?",
+        "answer": "Reaching listeners of your genre via official Google Ads In-Stream and Shorts campaigns during the first 48 hours establishes verified watch time and early audience reach."
       },
       {
-        "question": "YouTube klip tanıtımı için kanal şifresi gerekiyor mu?",
-        "answer": "Hayır. MedyaPR üzerinden yürütülen resmi Google Ads kampanyalarında yalnızca YouTube video linkiniz yeterlidir; şifre veya kanal yetkisi talep edilmez."
+        "question": "Is a channel password required for YouTube music video promotion?",
+        "answer": "No. Official Google Ads campaigns managed by MedyaPR only require your public YouTube video link; we never ask for your password or channel access."
       }
     ],
-    "enOnly": true
+    "enOnly": true,
+    "table_en": {
+      "headers": [
+        "Metric / Strategy",
+        "Organic Shares",
+        "Official Google Ads + PR Launch",
+        "Channel Impact"
+      ],
+      "rows": [
+        [
+          "First 48-Hour Momentum",
+          "Limited to existing subscribers",
+          "Immediate reach to targeted music listeners",
+          "Verified Audience Reach & Engagement"
+        ],
+        [
+          "Analytics Verification",
+          "Standard organic",
+          "Verified in YouTube Studio under 'YouTube Advertising'",
+          "100% safe channel authority"
+        ],
+        [
+          "Audience Targeting",
+          "Untargeted / Random",
+          "Similar artist & music genre affinity targeting",
+          "Strong audience retention & watch time"
+        ]
+      ],
+      "caption": "2026 Global Music Video Launch & YouTube Performance Comparison Table"
+    },
+    "faqs_en": [
+      {
+        "question": "How can independent artists adapt the YouTube launch strategies of global stars?",
+        "answer": "Reaching listeners of your genre via official Google Ads In-Stream and Shorts campaigns during the first 48 hours establishes verified watch time and early audience reach."
+      },
+      {
+        "question": "Is a channel password required for YouTube music video promotion?",
+        "answer": "No. Official Google Ads campaigns managed by MedyaPR only require your public YouTube video link; we never ask for your password or channel access."
+      }
+    ]
   },
   {
     "slug": "chappell-roan-good-luck-babe-viral-breakthrough",
@@ -8298,45 +9502,84 @@
       "Independent musicians can ignite their own breakthroughs using [MedyaPR's official Google Ads promotion](/hizmetler)."
     ],
     "table": {
-      "caption": "2026 Küresel Müzik Klibi Lansman & YouTube Algoritma Kıyaslama Tablosu",
       "headers": [
-        "Metrik / Strateji",
-        "Organik Paylaşım",
-        "Resmi Google Ads + PR Lansmanı",
-        "Algoritma Etkisi"
+        "Metric / Strategy",
+        "Organic Shares",
+        "Official Google Ads + PR Launch",
+        "Channel Impact"
       ],
       "rows": [
         [
-          "İlk 48 Saat İvmesi",
-          "Sadece mevcut abonelerle sınırlı",
-          "Hedefli müziksever kitlesine anında erişim",
-          "Trendler & Keşfet tetiklemesi"
+          "First 48-Hour Momentum",
+          "Limited to existing subscribers",
+          "Immediate reach to targeted music listeners",
+          "Verified Audience Reach & Engagement"
         ],
         [
-          "İzlenme Tescili",
-          "Standart organik",
-          "YouTube Studio \"YouTube Reklamları\" tescilli",
-          "%100 güvenli kanal otoritesi"
+          "Analytics Verification",
+          "Standard organic",
+          "Verified in YouTube Studio under 'YouTube Advertising'",
+          "100% safe channel authority"
         ],
         [
-          "Kitle Hedefleme",
-          "Rastgele",
-          "Benzer sanatçı ve müzik türü (Genre) hedefleme",
-          "Yüksek izlenme süresi (Retention)"
+          "Audience Targeting",
+          "Untargeted / Random",
+          "Similar artist & music genre affinity targeting",
+          "Strong audience retention & watch time"
         ]
-      ]
+      ],
+      "caption": "2026 Global Music Video Launch & YouTube Performance Comparison Table"
     },
     "faqs": [
       {
-        "question": "Global hit kliplerin YouTube stratejisi bağımsız sanatçılara nasıl uyarlanır?",
-        "answer": "İlk 48 saatte doğru müzik türü dinleyicilerine resmi Google Ads In-Stream ve Shorts reklamlarıyla ulaşarak algoritmaya güçlü izlenme süresi sinyali verilir."
+        "question": "How can independent artists adapt the YouTube launch strategies of global stars?",
+        "answer": "Reaching listeners of your genre via official Google Ads In-Stream and Shorts campaigns during the first 48 hours establishes verified watch time and early audience reach."
       },
       {
-        "question": "YouTube klip tanıtımı için kanal şifresi gerekiyor mu?",
-        "answer": "Hayır. MedyaPR üzerinden yürütülen resmi Google Ads kampanyalarında yalnızca YouTube video linkiniz yeterlidir; şifre veya kanal yetkisi talep edilmez."
+        "question": "Is a channel password required for YouTube music video promotion?",
+        "answer": "No. Official Google Ads campaigns managed by MedyaPR only require your public YouTube video link; we never ask for your password or channel access."
       }
     ],
-    "enOnly": true
+    "enOnly": true,
+    "table_en": {
+      "headers": [
+        "Metric / Strategy",
+        "Organic Shares",
+        "Official Google Ads + PR Launch",
+        "Channel Impact"
+      ],
+      "rows": [
+        [
+          "First 48-Hour Momentum",
+          "Limited to existing subscribers",
+          "Immediate reach to targeted music listeners",
+          "Verified Audience Reach & Engagement"
+        ],
+        [
+          "Analytics Verification",
+          "Standard organic",
+          "Verified in YouTube Studio under 'YouTube Advertising'",
+          "100% safe channel authority"
+        ],
+        [
+          "Audience Targeting",
+          "Untargeted / Random",
+          "Similar artist & music genre affinity targeting",
+          "Strong audience retention & watch time"
+        ]
+      ],
+      "caption": "2026 Global Music Video Launch & YouTube Performance Comparison Table"
+    },
+    "faqs_en": [
+      {
+        "question": "How can independent artists adapt the YouTube launch strategies of global stars?",
+        "answer": "Reaching listeners of your genre via official Google Ads In-Stream and Shorts campaigns during the first 48 hours establishes verified watch time and early audience reach."
+      },
+      {
+        "question": "Is a channel password required for YouTube music video promotion?",
+        "answer": "No. Official Google Ads campaigns managed by MedyaPR only require your public YouTube video link; we never ask for your password or channel access."
+      }
+    ]
   },
   {
     "slug": "billie-eilish-birds-of-a-feather-youtube-algorithm",
@@ -8379,45 +9622,84 @@
       "Optimize your retention and reach authentic listeners worldwide with [MedyaPR consultation](/iletisim)."
     ],
     "table": {
-      "caption": "2026 Küresel Müzik Klibi Lansman & YouTube Algoritma Kıyaslama Tablosu",
       "headers": [
-        "Metrik / Strateji",
-        "Organik Paylaşım",
-        "Resmi Google Ads + PR Lansmanı",
-        "Algoritma Etkisi"
+        "Metric / Strategy",
+        "Organic Shares",
+        "Official Google Ads + PR Launch",
+        "Channel Impact"
       ],
       "rows": [
         [
-          "İlk 48 Saat İvmesi",
-          "Sadece mevcut abonelerle sınırlı",
-          "Hedefli müziksever kitlesine anında erişim",
-          "Trendler & Keşfet tetiklemesi"
+          "First 48-Hour Momentum",
+          "Limited to existing subscribers",
+          "Immediate reach to targeted music listeners",
+          "Verified Audience Reach & Engagement"
         ],
         [
-          "İzlenme Tescili",
-          "Standart organik",
-          "YouTube Studio \"YouTube Reklamları\" tescilli",
-          "%100 güvenli kanal otoritesi"
+          "Analytics Verification",
+          "Standard organic",
+          "Verified in YouTube Studio under 'YouTube Advertising'",
+          "100% safe channel authority"
         ],
         [
-          "Kitle Hedefleme",
-          "Rastgele",
-          "Benzer sanatçı ve müzik türü (Genre) hedefleme",
-          "Yüksek izlenme süresi (Retention)"
+          "Audience Targeting",
+          "Untargeted / Random",
+          "Similar artist & music genre affinity targeting",
+          "Strong audience retention & watch time"
         ]
-      ]
+      ],
+      "caption": "2026 Global Music Video Launch & YouTube Performance Comparison Table"
     },
     "faqs": [
       {
-        "question": "Global hit kliplerin YouTube stratejisi bağımsız sanatçılara nasıl uyarlanır?",
-        "answer": "İlk 48 saatte doğru müzik türü dinleyicilerine resmi Google Ads In-Stream ve Shorts reklamlarıyla ulaşarak algoritmaya güçlü izlenme süresi sinyali verilir."
+        "question": "How can independent artists adapt the YouTube launch strategies of global stars?",
+        "answer": "Reaching listeners of your genre via official Google Ads In-Stream and Shorts campaigns during the first 48 hours establishes verified watch time and early audience reach."
       },
       {
-        "question": "YouTube klip tanıtımı için kanal şifresi gerekiyor mu?",
-        "answer": "Hayır. MedyaPR üzerinden yürütülen resmi Google Ads kampanyalarında yalnızca YouTube video linkiniz yeterlidir; şifre veya kanal yetkisi talep edilmez."
+        "question": "Is a channel password required for YouTube music video promotion?",
+        "answer": "No. Official Google Ads campaigns managed by MedyaPR only require your public YouTube video link; we never ask for your password or channel access."
       }
     ],
-    "enOnly": true
+    "enOnly": true,
+    "table_en": {
+      "headers": [
+        "Metric / Strategy",
+        "Organic Shares",
+        "Official Google Ads + PR Launch",
+        "Channel Impact"
+      ],
+      "rows": [
+        [
+          "First 48-Hour Momentum",
+          "Limited to existing subscribers",
+          "Immediate reach to targeted music listeners",
+          "Verified Audience Reach & Engagement"
+        ],
+        [
+          "Analytics Verification",
+          "Standard organic",
+          "Verified in YouTube Studio under 'YouTube Advertising'",
+          "100% safe channel authority"
+        ],
+        [
+          "Audience Targeting",
+          "Untargeted / Random",
+          "Similar artist & music genre affinity targeting",
+          "Strong audience retention & watch time"
+        ]
+      ],
+      "caption": "2026 Global Music Video Launch & YouTube Performance Comparison Table"
+    },
+    "faqs_en": [
+      {
+        "question": "How can independent artists adapt the YouTube launch strategies of global stars?",
+        "answer": "Reaching listeners of your genre via official Google Ads In-Stream and Shorts campaigns during the first 48 hours establishes verified watch time and early audience reach."
+      },
+      {
+        "question": "Is a channel password required for YouTube music video promotion?",
+        "answer": "No. Official Google Ads campaigns managed by MedyaPR only require your public YouTube video link; we never ask for your password or channel access."
+      }
+    ]
   },
   {
     "slug": "apache-207-german-rap-youtube-trend-dominance",
@@ -8460,45 +9742,84 @@
       "Launch targeted [European YouTube video campaigns](/hizmetler) with MedyaPR to expand your reach across Germany and international markets."
     ],
     "table": {
-      "caption": "2026 Küresel Müzik Klibi Lansman & YouTube Algoritma Kıyaslama Tablosu",
       "headers": [
-        "Metrik / Strateji",
-        "Organik Paylaşım",
-        "Resmi Google Ads + PR Lansmanı",
-        "Algoritma Etkisi"
+        "Metric / Strategy",
+        "Organic Shares",
+        "Official Google Ads + PR Launch",
+        "Channel Impact"
       ],
       "rows": [
         [
-          "İlk 48 Saat İvmesi",
-          "Sadece mevcut abonelerle sınırlı",
-          "Hedefli müziksever kitlesine anında erişim",
-          "Trendler & Keşfet tetiklemesi"
+          "First 48-Hour Momentum",
+          "Limited to existing subscribers",
+          "Immediate reach to targeted music listeners",
+          "Verified Audience Reach & Engagement"
         ],
         [
-          "İzlenme Tescili",
-          "Standart organik",
-          "YouTube Studio \"YouTube Reklamları\" tescilli",
-          "%100 güvenli kanal otoritesi"
+          "Analytics Verification",
+          "Standard organic",
+          "Verified in YouTube Studio under 'YouTube Advertising'",
+          "100% safe channel authority"
         ],
         [
-          "Kitle Hedefleme",
-          "Rastgele",
-          "Benzer sanatçı ve müzik türü (Genre) hedefleme",
-          "Yüksek izlenme süresi (Retention)"
+          "Audience Targeting",
+          "Untargeted / Random",
+          "Similar artist & music genre affinity targeting",
+          "Strong audience retention & watch time"
         ]
-      ]
+      ],
+      "caption": "2026 Global Music Video Launch & YouTube Performance Comparison Table"
     },
     "faqs": [
       {
-        "question": "Global hit kliplerin YouTube stratejisi bağımsız sanatçılara nasıl uyarlanır?",
-        "answer": "İlk 48 saatte doğru müzik türü dinleyicilerine resmi Google Ads In-Stream ve Shorts reklamlarıyla ulaşarak algoritmaya güçlü izlenme süresi sinyali verilir."
+        "question": "How can independent artists adapt the YouTube launch strategies of global stars?",
+        "answer": "Reaching listeners of your genre via official Google Ads In-Stream and Shorts campaigns during the first 48 hours establishes verified watch time and early audience reach."
       },
       {
-        "question": "YouTube klip tanıtımı için kanal şifresi gerekiyor mu?",
-        "answer": "Hayır. MedyaPR üzerinden yürütülen resmi Google Ads kampanyalarında yalnızca YouTube video linkiniz yeterlidir; şifre veya kanal yetkisi talep edilmez."
+        "question": "Is a channel password required for YouTube music video promotion?",
+        "answer": "No. Official Google Ads campaigns managed by MedyaPR only require your public YouTube video link; we never ask for your password or channel access."
       }
     ],
-    "enOnly": true
+    "enOnly": true,
+    "table_en": {
+      "headers": [
+        "Metric / Strategy",
+        "Organic Shares",
+        "Official Google Ads + PR Launch",
+        "Channel Impact"
+      ],
+      "rows": [
+        [
+          "First 48-Hour Momentum",
+          "Limited to existing subscribers",
+          "Immediate reach to targeted music listeners",
+          "Verified Audience Reach & Engagement"
+        ],
+        [
+          "Analytics Verification",
+          "Standard organic",
+          "Verified in YouTube Studio under 'YouTube Advertising'",
+          "100% safe channel authority"
+        ],
+        [
+          "Audience Targeting",
+          "Untargeted / Random",
+          "Similar artist & music genre affinity targeting",
+          "Strong audience retention & watch time"
+        ]
+      ],
+      "caption": "2026 Global Music Video Launch & YouTube Performance Comparison Table"
+    },
+    "faqs_en": [
+      {
+        "question": "How can independent artists adapt the YouTube launch strategies of global stars?",
+        "answer": "Reaching listeners of your genre via official Google Ads In-Stream and Shorts campaigns during the first 48 hours establishes verified watch time and early audience reach."
+      },
+      {
+        "question": "Is a channel password required for YouTube music video promotion?",
+        "answer": "No. Official Google Ads campaigns managed by MedyaPR only require your public YouTube video link; we never ask for your password or channel access."
+      }
+    ]
   },
   {
     "slug": "how-independent-artists-get-millions-of-views-without-a-record-label",

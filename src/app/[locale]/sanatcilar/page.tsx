@@ -156,7 +156,7 @@ export default async function SanatcilarPage({ params }: { params: Promise<{ loc
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <span className="absolute top-3 left-3 rounded-full bg-black/60 backdrop-blur-md px-3 py-1 text-xs font-bold text-white border border-white/10">
-                    {artist.genre}
+                    {isTr ? artist.genre : (artist.genre_en ?? artist.genre)}
                   </span>
                 </div>
 
@@ -165,7 +165,7 @@ export default async function SanatcilarPage({ params }: { params: Promise<{ loc
                     {artist.name}
                   </h2>
                   <span className="text-xs font-bold text-emerald-400">
-                    {artist.monthlyAudience}
+                    {isTr ? artist.monthlyAudience : (artist.monthlyAudience_en ?? artist.monthlyAudience)}
                   </span>
                 </div>
 
@@ -174,7 +174,7 @@ export default async function SanatcilarPage({ params }: { params: Promise<{ loc
                 </p>
 
                 <p className="text-sm leading-relaxed text-white/65 line-clamp-3">
-                  {artist.bio}
+                  {isTr ? artist.bio : (artist.bio_en ?? artist.bio)}
                 </p>
               </div>
 

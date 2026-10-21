@@ -36,13 +36,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const page = getLandingPage(locale, slug);
   if (!page) return {};
-  const twin = LANDING_TWINS[slug];
-  const languages: Record<string, string> = twin
+  /**
+   * Google Hreflang Eşleşmesi: Yalnızca birebir aynı konunun çevirisi olan sayfalar
+   * birbirine hreflang olarak bağlanır. Ülkeye veya farklı arama niyetine özel sayfalar
+   * (Fiyat rehberi, Türk müziğini dünyaya tanıtma, Suudi Arabistan/Mısır/Fas sayfaları)
+   * yalnızca kendi dilinde bağımsız (self-hreflang) sinyal verir.
+   */
+  const HREFLANG_TRANSLATION_PAIRS: Record<string, { tr: string; en: string }> = {
+    'youtube-klip-tanitimi': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion' },
+    'youtube-music-video-promotion': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion' },
+    'sarki-reklami-verme': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos' },
+    'google-ads-for-music-videos': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos' },
+  };
+  const pair = HREFLANG_TRANSLATION_PAIRS[slug];
+  const languages: Record<string, string> = pair
     ? {
-        tr: `${SITE_URL}/tr/${twin.tr}`,
-        en: `${SITE_URL}/en/${twin.en}`,
-        ar: `${SITE_URL}/ar/${twin.ar}`,
-        'x-default': `${SITE_URL}/tr/${twin.tr}`,
+        tr: `${SITE_URL}/tr/${pair.tr}`,
+        en: `${SITE_URL}/en/${pair.en}`,
+        'x-default': `${SITE_URL}/tr/${pair.tr}`,
       }
     : {
         [locale]: `${SITE_URL}/${locale}/${slug}`,

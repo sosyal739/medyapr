@@ -62,12 +62,15 @@ export interface Artist {
   slug: string;
   name: string;
   genre: string;
+  genre_en?: string;
   bio: string;
+  bio_en?: string;
   latestHit: string;
   hitVideoId: string;
   image: string;
   viewsTotal: string;
   monthlyAudience: string;
+  monthlyAudience_en?: string;
   topSongs: { title: string; views: string; videoId: string }[];
 }
 

@@ -106,8 +106,8 @@ export default async function ArtistDetailPage({ params }: Props) {
               {
                 '@type': 'MusicGroup',
                 name: artist.name,
-                genre: artist.genre,
-                description: artist.bio,
+                genre: isTr ? artist.genre : (artist.genre_en ?? artist.genre),
+                description: isTr ? artist.bio : (artist.bio_en ?? artist.bio),
                 image: artist.image,
               },
             ],
@@ -139,7 +139,7 @@ export default async function ArtistDetailPage({ params }: Props) {
             />
             <div className="space-y-2">
               <span className="rounded-full bg-[#FF0033]/20 border border-[#FF0033]/30 px-3 py-1 text-xs font-bold text-[#FF6B6B]">
-                {artist.genre}
+                {isTr ? artist.genre : (artist.genre_en ?? artist.genre)}
               </span>
               <h1 className="text-3xl sm:text-4xl font-black text-white">{artist.name}</h1>
               <div className="flex flex-wrap items-center gap-4 text-xs text-zinc-400">
@@ -148,7 +148,7 @@ export default async function ArtistDetailPage({ params }: Props) {
                 </span>
                 <span>•</span>
                 <span>
-                  {isAr ? 'الجمهور المقدّر:' : isTr ? 'Tahmini Kitle:' : 'Estimated Audience:'} <strong className="text-emerald-400">{artist.monthlyAudience}</strong>
+                  {isAr ? 'الجمهور المقدّر:' : isTr ? 'Tahmini Kitle:' : 'Estimated Audience:'} <strong className="text-emerald-400">{isTr ? artist.monthlyAudience : (artist.monthlyAudience_en ?? artist.monthlyAudience)}</strong>
                 </span>
               </div>
             </div>
@@ -158,7 +158,7 @@ export default async function ArtistDetailPage({ params }: Props) {
             <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-400 mb-2">
               {isAr ? 'السيرة الذاتية' : isTr ? 'Biyografi' : 'Biography'}
             </h2>
-            <p className="text-sm sm:text-base leading-relaxed text-zinc-300">{artist.bio}</p>
+            <p className="text-sm sm:text-base leading-relaxed text-zinc-300">{isTr ? artist.bio : (artist.bio_en ?? artist.bio)}</p>
           </div>
         </div>
 

@@ -10,8 +10,15 @@
     "viewsTotal": "18.000.000+",
     "monthlyAudience": "3.5 Milyon Dinleyici",
     "topSongs": [
-      { "title": "TRALALA", "views": "6.1M", "videoId": "0rW7Fbm4S7g" }
-    ]
+      {
+        "title": "TRALALA",
+        "views": "6.1M",
+        "videoId": "0rW7Fbm4S7g"
+      }
+    ],
+    "genre_en": "Alternative Pop / Electronic",
+    "bio_en": "Standing out in the Turkish music scene with modern electronic sounds, high-energy stage choreography, and innovative music video direction, Manifest reached #1 on YouTube Turkey Music Trends with their hit single TRALALA.",
+    "monthlyAudience_en": "3.5 Million Listeners"
   },
   {
     "slug": "dedubluman",
@@ -24,9 +31,20 @@
     "viewsTotal": "320.000.000+",
     "monthlyAudience": "6.2 Milyon Dinleyici",
     "topSongs": [
-      { "title": "Acı Bal (ft. Sıla)", "views": "4.4M", "videoId": "XTdU5RSodZ4" },
-      { "title": "Belki", "views": "115M", "videoId": "ko7BMAKs7VY" }
-    ]
+      {
+        "title": "Acı Bal (ft. Sıla)",
+        "views": "4.4M",
+        "videoId": "XTdU5RSodZ4"
+      },
+      {
+        "title": "Belki",
+        "views": "115M",
+        "videoId": "ko7BMAKs7VY"
+      }
+    ],
+    "genre_en": "Alternative Rock / Acoustic",
+    "bio_en": "Blending clarinet and traditional Turkish musical motifs with modern alternative rock, Dedublüman is among the most streamed bands on digital charts with hits like 'Belki', 'Gamzedeyim Deva Bulmam', and their duet with Sıla, 'Acı Bal'.",
+    "monthlyAudience_en": "6.2 Million Listeners"
   },
   {
     "slug": "blok3",
@@ -39,10 +57,25 @@
     "viewsTotal": "850.000.000+",
     "monthlyAudience": "7.8 Milyon Dinleyici",
     "topSongs": [
-      { "title": "Vur", "views": "140M", "videoId": "2AOOIHLg6zI" },
-      { "title": "Aklına Ben Gelicem", "views": "180M", "videoId": "ooygpXIRfdM" },
-      { "title": "Baybay", "views": "110M", "videoId": "44G5iSzSNcE" }
-    ]
+      {
+        "title": "Vur",
+        "views": "140M",
+        "videoId": "2AOOIHLg6zI"
+      },
+      {
+        "title": "Aklına Ben Gelicem",
+        "views": "180M",
+        "videoId": "ooygpXIRfdM"
+      },
+      {
+        "title": "Baybay",
+        "views": "110M",
+        "videoId": "44G5iSzSNcE"
+      }
+    ],
+    "genre_en": "Turkish Rap / Drill / Trap",
+    "bio_en": "BLOK3 (born Hakan Aydın on August 15, 2002 in Gebze, Kocaeli) reached the pinnacle of Turkish rap music with hundreds of millions of streams across YouTube and digital charts through hits including 'Vur', 'Affetmem', 'Baybay', 'Aklına Ben Gelicem', and 'Laf Anlamaz'.",
+    "monthlyAudience_en": "7.8 Million Listeners"
   },
   {
     "slug": "mert-demir",
@@ -55,9 +88,20 @@
     "viewsTotal": "450.000.000+",
     "monthlyAudience": "5.4 Milyon Dinleyici",
     "topSongs": [
-      { "title": "Ateşe Düştüm", "views": "190M", "videoId": "RQmXet6kZ-Y" },
-      { "title": "Karakış (ft. Kibariye)", "views": "1.2M", "videoId": "__tPePTVHF8" }
-    ]
+      {
+        "title": "Ateşe Düştüm",
+        "views": "190M",
+        "videoId": "RQmXet6kZ-Y"
+      },
+      {
+        "title": "Karakış (ft. Kibariye)",
+        "views": "1.2M",
+        "videoId": "__tPePTVHF8"
+      }
+    ],
+    "genre_en": "Alternative Pop / Retro Arabesque / R&B",
+    "bio_en": "Combining signature retro melodies with modern electronic and arabesque textures, Mert Demir became one of the most talked-about artists on YouTube trending charts with 'Ateşe Düştüm', 'Cehennemin Dibi', and his live Harbiye performance of 'Karakış' with Kibariye.",
+    "monthlyAudience_en": "5.4 Million Listeners"
   },
   {
     "slug": "poizi",
@@ -70,8 +114,15 @@
     "viewsTotal": "15.000.000+",
     "monthlyAudience": "1.2 Milyon Dinleyici",
     "topSongs": [
-      { "title": "Bİ KAHVE YAPTIM", "views": "1.4M", "videoId": "67nj-oPW8NE" }
-    ]
+      {
+        "title": "Bİ KAHVE YAPTIM",
+        "views": "1.4M",
+        "videoId": "67nj-oPW8NE"
+      }
+    ],
+    "genre_en": "Melodic Trap / New Wave Rap",
+    "bio_en": "Rising to #4 on YouTube Music Trends with his viral single 'Bİ KAHVE YAPTIM', POIZI is an independent musical talent known for catchy hooks and next-generation melodic trap production.",
+    "monthlyAudience_en": "1.2 Million Listeners"
   },
   {
     "slug": "docend",
@@ -84,10 +135,25 @@
     "viewsTotal": "25.000.000+",
     "monthlyAudience": "950 Bin Dinleyici",
     "topSongs": [
-      { "title": "Unutacağım (Remix)", "views": "2.9M", "videoId": "oM2ED-lheaw" },
-      { "title": "Duruyor Mu Yerinde", "views": "1.1M", "videoId": "5_3G8h8QCjg" },
-      { "title": "Eller Üzer", "views": "600K", "videoId": "rJ9GXBT9NRI" }
-    ]
+      {
+        "title": "Unutacağım (Remix)",
+        "views": "2.9M",
+        "videoId": "oM2ED-lheaw"
+      },
+      {
+        "title": "Duruyor Mu Yerinde",
+        "views": "1.1M",
+        "videoId": "5_3G8h8QCjg"
+      },
+      {
+        "title": "Eller Üzer",
+        "views": "600K",
+        "videoId": "rJ9GXBT9NRI"
+      }
+    ],
+    "genre_en": "Electronic Dance Music / EDM / Remix",
+    "bio_en": "Bringing electronic dance music rhythms together with Turkish vocals, Doçend achieved the rare milestone of charting 3 different tracks simultaneously on YouTube Trends with 'Eller Üzer', 'Duruyor Mu Yerinde', and 'Unutacağım Remix'.",
+    "monthlyAudience_en": "950K Listeners"
   },
   {
     "slug": "eypio",
@@ -100,9 +166,20 @@
     "viewsTotal": "750.000.000+",
     "monthlyAudience": "4.8 Milyon Dinleyici",
     "topSongs": [
-      { "title": "Şahidim", "views": "3.3M", "videoId": "rZWeR8bQlaE" },
-      { "title": "Günah Benim", "views": "280M", "videoId": "rZWeR8bQlaE" }
-    ]
+      {
+        "title": "Şahidim",
+        "views": "3.3M",
+        "videoId": "rZWeR8bQlaE"
+      },
+      {
+        "title": "Günah Benim",
+        "views": "280M",
+        "videoId": "rZWeR8bQlaE"
+      }
+    ],
+    "genre_en": "Turkish Rap / Hip-Hop",
+    "bio_en": "Having broken one of the biggest digital music records in Turkey with 'Günah Benim', Eypio (Abdurrahim Akça) is one of the strongest representatives of Turkish rap with his authentic street lyricism and memorable hooks, charting high with his single 'Şahidim'.",
+    "monthlyAudience_en": "4.8 Million Listeners"
   },
   {
     "slug": "ahiyan",
@@ -115,7 +192,14 @@
     "viewsTotal": "140.000.000+",
     "monthlyAudience": "2.1 Milyon Dinleyici",
     "topSongs": [
-      { "title": "Kralın Kızı", "views": "4.2M", "videoId": "0_qH342o3fU" }
-    ]
+      {
+        "title": "Kralın Kızı",
+        "views": "4.2M",
+        "videoId": "0_qH342o3fU"
+      }
+    ],
+    "genre_en": "Trap / Alternative Rap / R&B",
+    "bio_en": "Bringing a fresh perspective to new-generation Turkish rap with his distinctive vocal timbre, deep lyrics, and melancholic melodies, Ahiyan continues his steady rise on YouTube trending charts with his single 'Kralın Kızı'.",
+    "monthlyAudience_en": "2.1 Million Listeners"
   }
 ]

@@ -204,9 +204,9 @@ export default async function BlogPostPage({ params }: Props) {
   const postCategory = (!isTr && post.category_en) ? post.category_en : post.category;
   const postReadTime = (!isTr && post.readTime_en) ? post.readTime_en : post.readTime;
   const postAuthorRole = (!isTr && post.authorRole_en) ? post.authorRole_en : post.authorRole;
-  const postQuickFact = (!isTr && hasEn && post.quickFact_en) ? post.quickFact_en : post.quickFact;
-  const postTable = (!isTr && hasEn && post.table_en) ? post.table_en : post.table;
-  const postFaqs = (!isTr && hasEn && post.faqs_en) ? post.faqs_en : post.faqs;
+  const postQuickFact = (!isTr && !isAr) ? (post.quickFact_en ?? (post.enOnly ? post.quickFact : undefined)) : post.quickFact;
+  const postTable = (!isTr && !isAr) ? (post.table_en ?? (post.enOnly ? post.table : undefined)) : post.table;
+  const postFaqs = (!isTr && !isAr) ? (post.faqs_en ?? (post.enOnly ? post.faqs : undefined)) : post.faqs;
   const postParagraphs = (!isTr && hasEn && post.paragraphs_en) ? post.paragraphs_en : (post.paragraphs || []);
   const postTags = (!isTr && post.tags_en) ? post.tags_en : post.tags;
 

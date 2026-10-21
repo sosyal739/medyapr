@@ -7,7 +7,7 @@ export const TR_PAGES: LandingPage[] = [
     keyword: 'YouTube klip tanıtımı',
     title: 'YouTube Klip Tanıtımı: Resmi Google Ads Reklamı | MedyaPR',
     description:
-      'YouTube klip tanıtımı resmi Google Ads video reklamlarıyla yapılır: bot yok, şifre yok. Klip linkinizi gönderin, ücretsiz analiz ve tahmini teklif alın.',
+      'YouTube klip tanıtımı resmi Google Ads video reklamlarıyla yapılır: bot yok, şifre yok. Örnek kampanya verilerini inceleyin ve ücretsiz klip analizi alın.',
     h1: 'YouTube Klip Tanıtımı: Klibiniz Doğru Kitleye Ulaşsın',
     lead:
       'Klibinizi yayınladınız ama ilk günlerde yeterince kişiye ulaşmadı mı? 18 yıllık tecrübemizle, YouTube klip tanıtımını resmi Google Ads video reklamlarıyla yönetiyoruz. Trafik YouTube Analytics’te “YouTube Reklamları” kaynağı olarak görünür; bot ya da panel kullanılmaz.',
@@ -16,8 +16,20 @@ export const TR_PAGES: LandingPage[] = [
       {
         h: 'YouTube klip tanıtımı nedir?',
         p: [
-          'YouTube klip tanıtımı, yayınladığınız müzik klibinin doğru dinleyicilere gösterilmesi için yapılan ücretli ve planlı reklam çalışmasıdır. Amaç, klibin ilk günlerinde algoritmaya güçlü bir başlangıç sinyali vermek ve müziğinizi dinleyebilecek insanlarla buluşturmaktır.',
-          'Biz bu işi resmi Google Ads video reklam altyapısıyla yürütüyoruz. Yani reklamınız YouTube’un kendi reklam sisteminde, gerçek izleyicilere gösterilir. Kanalınıza zarar verebilecek sahte etkileşim, bot veya panel hizmeti vermiyoruz.',
+          'YouTube klip tanıtımı, yayınladığınız müzik klibinin doğru dinleyicilere gösterilmesi için yapılan ücretli ve planlı reklam çalışmasıdır. Amaç, klibi müzik türünüzü dinleyen ilgili yeni izleyicilerle buluşturmak ve ölçülebilir kampanya erişimi sağlamaktır.',
+          'YouTube’un resmi politikasına göre ücretli reklam kampanyaları organik öneri algoritmasını doğrudan tetiklemez; ancak şarkınızı sevebilecek gerçek dinleyicilere ilk görünürlüğü kazandırır. Biz bu süreci yalnızca resmi Google Ads video reklam altyapısıyla yürütüyoruz; kanalınıza zarar verebilecek sahte etkileşim, bot veya panel hizmeti vermiyoruz.',
+        ],
+      },
+      {
+        h: 'Gerçek kampanya örneği ve sonuçların sınırları',
+        p: [
+          'Bir kampanyadan ne bekleyebileceğinizi şeffafça görebilmeniz için tipik bir lansman senaryosu:',
+        ],
+        ul: [
+          'Örnek Senaryo (Türkçe Pop / Rap Lansmanı): 7 günlük kampanya dönemi, Türkiye + Almanya (diaspora) hedeflemesi, 25.000 hedefli izlenme paketi (tahmini bütçe: ₺2.875 – ₺3.500 aralığı, klibin süresine ve ülke ağırlığına göre).',
+          'Reklam Formatı: YouTube In-Stream (benzer sanatçıların kliplerinden önce oynayan atlanabilir reklam) ve YouTube In-Feed / Shorts keşif yerleşimleri.',
+          'Ölçülebilir Sonuç: YouTube Studio → Erişim → Trafik Kaynakları altında “YouTube Reklamları” satırında 25.000+ doğrulanmış gerçek izlenme ve izlenme süresi raporu.',
+          'Sonuçların Sınırları: Reklam kampanyası izlenme hacmini ve hedef kitle erişimini taahhüt eder; ancak organik önerilere girme, abone artışı, beğeni veya yorum sayısı tamamen izleyicinin şarkıyı beğenmesine bağlıdır ve garanti edilmez.',
         ],
       },
       {
@@ -33,7 +45,7 @@ export const TR_PAGES: LandingPage[] = [
         h: 'Hedef kitleyi siz seçersiniz',
         p: [
           'Kampanyayı üç şekilde planlayabilirsiniz: yalnızca Türkçe konuşan kitle (Türkiye), tüm ülkelerin karışık olduğu global kitle veya listeden seçtiğiniz tek bir ülke. Örneğin klibiniz Almanya’daki Türk dinleyicilere yönelikse ülke olarak Almanya’yı seçebilirsiniz.',
-          'İki paket türü vardır: yalnızca izlenme odaklı paket ve beğeni, yorum ile paylaşım odaklı hedeflemeyi de kapsayan etkileşim paketi.',
+          'İki paket türü vardır: yalnızca izlenme odaklı paket ve beğeni, yorum ile paylaşım eğilimi yüksek kitle hedeflemesini de kapsayan etkileşim paketi.',
         ],
       },
       {
@@ -49,7 +61,7 @@ export const TR_PAGES: LandingPage[] = [
       {
         h: 'Kimler için uygun?',
         p: [
-          'Bağımsız sanatçılar, müzik grupları, prodüksiyon şirketleri ve plak şirketleri için uygundur. Pop, rap/hip-hop, rock, alternatif, akustik, arabesk ve elektronik gibi tüm türlerde çalışıyoruz. Yeni çıkan klipler kadar, yeniden canlandırmak istediğiniz eski klipler için de plan yapabiliriz.',
+          'Bağımsız sanatçılar, müzik grupları, prodüksiyon şirketleri ve plak şirketleri için uygundur. Pop, rap/hip-hop, rock, alternatif, akustik, arabesk ve elektronik gibi tüm türlerde çalışıyoruz. Yeni çıkan klipler kadar, yeniden canlandırmak istediğiniz katalog klipler için de plan yapabiliriz.',
         ],
       },
     ],
@@ -59,12 +71,12 @@ export const TR_PAGES: LandingPage[] = [
         a: 'Hayır. Yalnızca herkese açık video linkiniz yeterlidir; kanal şifresi veya hesap yetkisi istenmez.',
       },
       {
-        q: 'Bot veya panel kullanıyor musunuz?',
-        a: 'Hayır. Kampanyalar resmi Google Ads video reklamlarıyla yürütülür. İzlenmeler YouTube Analytics’te “YouTube Reklamları” kaynağı olarak görünür.',
+        q: 'Reklam izlenmeleri organik önerileri doğrudan tetikler mi?',
+        a: 'YouTube’un resmi açıklamasına göre ücretli reklam izlenmeleri organik öneri sistemini doğrudan tetiklemez. Reklamın görevi, klibinizi ilgili yeni dinleyicilerin önüne çıkararak ölçülebilir erişim ve gerçek izleyici geriop dönüşü sağlamaktır.',
       },
       {
         q: 'Fiyat nasıl belirlenir?',
-        a: 'Fiyat hedef izlenme sayısına, hedef kitleye (Türkiye, global veya seçilen ülke) ve paket türüne göre belirlenir. Sitedeki hesaplayıcı tahmini fiyat verir; kesin teklif klibinizin süresi ve türü incelendikten sonra netleşir.',
+        a: 'Fiyat hedef izlenme sayısına, hedef kitleye (Türkiye, global veya seçilen ülke) ve paket türüne göre belirlenir. Canlı hesaplama aracımızdan anlık paket tutarlarını görebilir; kesin teklifi klip analizinden sonra alabilirsiniz.',
       },
       {
         q: 'Tanınmış sanatçılar veya firmalar için ödeme iş bitiminde alınabilir mi?',
@@ -87,8 +99,8 @@ export const TR_PAGES: LandingPage[] = [
       {
         h: 'Şarkı reklamı verme neden önemli?',
         p: [
-          'Her gün binlerce yeni şarkı yayınlanıyor. Reklam desteği olmayan bir şarkı, ilk günlerde ilgili dinleyiciye ulaşmakta zorlanabilir. Doğru hedeflenmiş bir reklam, şarkınızı sevebilecek insanlara gösterilmesini ve YouTube’un şarkınızı daha fazla öne çıkarmasını kolaylaştırır.',
-          'Bu çalışma hiçbir sonucu garanti etmez; ama planlı ve şeffaf bir başlangıç yapmanızı sağlar. İzlenmeler gerçek izleyicilerden gelir ve YouTube Analytics’te reklam kaynağı olarak görünür.',
+          'Her gün binlerce yeni şarkı yayınlanıyor. Reklam desteği olmayan bir şarkı, ilk günlerde ilgili dinleyiciye ulaşmakta zorlanabilir. Doğru hedeflenmiş bir Google Ads video kampanyası, şarkınızı müzik türünüzle ilgilenen yeni dinleyicilere ulaştırır ve ölçülebilir bir lansman erişimi sağlar.',
+          'Ücretli reklamlar YouTube’un organik öneri algoritmasını doğrudan tetiklemez ve organik hit garantisi vermez; ancak gerçek izleyicilere şeffaf biçimde ulaşmanızı sağlar. Tüm izlenmeler YouTube Analytics’te “YouTube Reklamları” kaynağı olarak görünür.',
         ],
       },
       {
@@ -102,9 +114,9 @@ export const TR_PAGES: LandingPage[] = [
         ],
       },
       {
-        h: 'Şarkı türüne göre planlama',
+        h: 'Şarkı türüne göre hedef kitle planlaması',
         p: [
-          'Bir arabesk şarkıyla bir elektronik parça aynı kitleye hitap etmez. Pop, rap/hip-hop, rock, indie, akustik ve halk müziği gibi türlere göre farklı izleyici gruplarını hedefliyoruz. Mesajınızı sorarak ve videonuzu inceleyerek planı size özel hazırlıyoruz.',
+          'Bir arabesk şarkıyla bir elektronik parça aynı kitleye hitap etmez. Pop, rap/hip-hop, rock, indie, akustik ve halk müziği gibi türlere göre farklı izleyici segmentlerini hedefliyoruz. Klibinizi inceleyerek In-Stream ve Shorts yerleşim ağırlığını size özel hazırlıyoruz.',
         ],
       },
       {
@@ -124,11 +136,11 @@ export const TR_PAGES: LandingPage[] = [
       },
       {
         q: 'Şarkım Spotify’da; yine de YouTube reklamı verebilir miyim?',
-        a: 'YouTube reklamları YouTube’daki bir videoya yönlendirilir. Şarkınızın bir lirik videosu veya klibi varsa bunu tanıtabiliriz.',
+        a: 'YouTube reklamları YouTube’daki bir videoya yönlendirilir. Şarkınızın bir lirik videosu, görselleştiricisi (visualizer) veya klibi varsa bunu tanıtabiliriz.',
       },
       {
         q: 'Minimum kaç izlenme paketi alabilirim?',
-        a: 'Hesaplayıcıda 1.000 izlenmeden başlayan paketler vardır; tahmini fiyatı anında görebilirsiniz.',
+        a: 'Canlı fiyat hesaplayıcıda 1.000 izlenmeden başlayan paketler vardır; tahmini fiyatı anında görebilirsiniz.',
       },
     ],
   },
@@ -136,49 +148,54 @@ export const TR_PAGES: LandingPage[] = [
     locale: 'tr',
     slug: 'youtube-reklam-fiyatlari',
     keyword: 'YouTube reklam fiyatları',
-    title: 'YouTube Reklam Verme Fiyatları 2026 | Klip PR | MedyaPR',
+    title: 'YouTube Reklam Fiyatları 2026: CPV & Maliyet Rehberi | MedyaPR',
     description:
-      '2026 YouTube reklam verme fiyatları: Türkiye, global ve ülke bazlı tahmini klip izlenme paketi ücretleri. 1.000 izlenmeden başlar, ücretsiz analiz alın.',
-    h1: 'YouTube Reklam Fiyatları 2026: İzlenme Paketlerinin Tahmini Ücretleri',
+      '2026 YouTube reklam fiyatları nasıl hesaplanır? CPV (izlenme başı maliyet) faktörleri, ülke bazlı 1.000 izlenme ücretleri ve örnek bütçe senaryoları.',
+    h1: 'YouTube Reklam Fiyatları 2026: CPV Maliyet Faktörleri ve Bütçe Rehberi',
     lead:
-      'YouTube’da video reklam vermek istiyorsanız bütçenizi önceden bilmek istersiniz. Aşağıdaki tahmini fiyatlar hedef kitleye ve izlenme sayısına göre hesaplanır; kesin teklif videonuzun süresine göre netleşir.',
+      'Bu rehber, YouTube’da müzik klibi ve video reklam maliyetlerinin (CPV) 2026 yılında neye göre değiştiğini, ülke ve hacim kırılımlarını açıklamak için hazırlanmıştır. Anlık paket seçimi ve canlı bütçe hesaplaması için Fiyatlandırma & Hesaplayıcı merkezimizi kullanabilirsiniz.',
     areaServed: ['TR', 'Global'],
     prices: 'tr',
     sections: [
       {
-        h: 'Fiyatı ne belirler?',
+        h: 'CPV (İzlenme Başına Maliyet) nedir ve fiyatı ne belirler?',
+        p: [
+          'Google Ads üzerinden verilen YouTube video reklamlarında maliyet, izlenme başına ücret (CPV – Cost Per View) açık artırma modeliyle oluşur. Bir müzik klibinin toplam tanıtım bütçesini dört ana değişken belirler:',
+        ],
         ul: [
-          'Hedef izlenme sayısı: Hacim arttıkça birim fiyat düşer.',
-          'Hedef kitle: Türkiye, tüm ülkelerin karışık olduğu global kitle veya seçilen tek bir ülke (Avrupa, Kanada ve ABD’de fiyatlar daha yüksektir).',
-          'Paket türü: Yalnızca izlenme paketi ve etkileşim paketi (beğeni, yorum ve paylaşım odaklı hedefleme içerir, yaklaşık %30 daha fazladır).',
-          'Videonun süresi ve türü: Kesin teklifi bu etkiler.',
+          'Coğrafi Hedefleme (Ülke Rekabeti): Türkiye ve küresel karma (Global) hedeflemelerde birim maliyet daha ekonomikken; Almanya, İngiltere, İsviçre ve ABD gibi Tier-1 reklam pazarlarında açık artırma rekabeti nedeniyle CPV daha yüksektir.',
+          'Hedef İzlenme Hacmi: 1.000 izlenmelik test bütçesi ile 50.000 – 100.000 izlenmelik lansman bütçesi arasında kademeli birim fiyat indirimi uygulanır.',
+          'Reklam Yerleşimi ve Paket Türü: Yalnızca izlenme odaklı In-Stream/Shorts kampanyaları baz fiyattan hesaplanır; beğeni, yorum ve paylaşım eğilimi yüksek izleyici segmentlerini hedefleyen etkileşim paketleri yaklaşık %30 ek bütçe gerektirir.',
+          'Videonun Süresi ve İlk 5 Saniye (Hook): 3 dakikalık bir single klibi ile 8 dakikalık bir canlı performans videosunun izlenme tamamlama maliyeti farklıdır; kesin teklif video incelendikten sonra sabitlenir.',
         ],
       },
       {
-        h: 'Fiyatlar neden “tahmini”?',
-        p: [
-          'Reklam maliyeti videonun süresine ve izleyici davranışına göre değişebilir. Bu yüzden sitedeki rakamlar tahmini fiyattır. Klip linkinizi gönderdiğinizde videoyu analiz eder, size net teklifi iletiriz. Onayınız olmadan kampanya başlamaz.',
+        h: 'Örnek bütçe senaryoları (2026 Referans Aralıkları)',
+        ul: [
+          'Bağımsız Single Test Planı (10.000 İzlenme – Türkiye): Yeni çıkan bir parçanın dinleyici tepkisini ve izlenme tutma (retention) oranını ölçmek için 4–5 günlük başlangıç paketi.',
+          'Avrupa Diaspora & Türkiye Karma Lansman (25.000 – 50.000 İzlenme): Türkçe rap, pop veya arabesk kliplerinde Türkiye ile birlikte Almanya, Hollanda ve Avusturya’daki dinleyicilere erişim sağlayan orta ölçekli lansman planı.',
+          'Yapım Şirketi & Ana Akım Lansman (100.000+ İzlenme): Kademeli hacim indirimiyle en düşük birim CPV maliyetine ulaşılan, 10–14 günlük geniş kapsamlı görünürlük kampanyası.',
         ],
       },
       {
-        h: 'Büyük paketlerde birim fiyat düşer',
+        h: 'Bu rehber ile Canlı Fiyat Hesaplayıcı arasındaki fark',
         p: [
-          'Örneğin 1.000 izlenme ile 100.000 izlenme arasında 1.000 izlenme başına maliyet belirgin biçimde azalır. Büyük bir lansman planlıyorsanız tek paket almak çoğu zaman daha ekonomiktir.',
+          'Bu sayfada standart izlenme kademelerinin (1.000’den 100.000’e) ülke gruplarına göre karşılaştırmalı tablosunu incelersiniz. Eğer kendi klibiniz için özel izlenme adedi seçmek, tekil ülke (ör. Almanya, Fransa, Suudi Arabistan) fiyatını görmek ve doğrudan sipariş/analiz talebi oluşturmak istiyorsanız Fiyatlar & Hesaplayıcı (/tr/fiyatlandirma) sayfasını kullanabilirsiniz.',
         ],
       },
     ],
     faq: [
       {
         q: '1.000 YouTube izlenmesi reklamı kaç TL?',
-        a: 'Tahmini fiyat hedef kitleye göre değişir; yukarıdaki tabloda Türkiye, global ve ülke bazlı güncel tahmini fiyatları görebilirsiniz.',
+        a: '2026 tahmini başlangıç baremleri küresel karma kitlede 1.000 izlenme için ₺100, Türkiye hedeflemesinde ₺125 seviyesinden başlar; hacim büyüdükçe 1.000 izlenme başına birim maliyet düşer.',
       },
       {
-        q: 'Gizli ücret var mı?',
-        a: 'Hayır. Teklif size yazılı olarak iletilir ve onayınız olmadan kampanya başlamaz.',
+        q: 'Fiyatlar neden analiz sonrasında kesinleşiyor?',
+        a: 'Google Ads açık artırma maliyetleri videonun süresine, müzik türüne ve hedeflenen ülkeye göre değişir. Klip linkinizi gönderdiğinizde ücretsiz analiz yapılır ve yazılı sabit teklif iletilir; onayınız olmadan kampanya başlamaz.',
       },
       {
-        q: 'Kurumsal firmalar için fatura ve ödeme nasıl işliyor?',
-        a: 'Fatura talebinizi teklif aşamasında iletebilirsiniz. Tanınmış sanatçılar ve kurumsal firmalar “İş bitiminde ödeme” başvurusu yapabilir; onaylanırsa rapor tesliminden sonra ödeme alınır.',
+        q: 'Kurumsal firmalar için fatura ve iş bitiminde ödeme nasıl işliyor?',
+        a: 'Fatura talebinizi teklif aşamasında iletebilirsiniz. Tanınmış sanatçılar, menajerlik ofisleri ve yapım şirketleri “İş bitiminde ödeme” başvurusu yapabilir; onaylandığında ödeme kampanya raporu teslim edildikten sonra alınır.',
       },
     ],
   },
