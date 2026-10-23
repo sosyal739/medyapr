@@ -14,8 +14,8 @@
       "Hakkı Bulut Kimdir",
       "Hakkı Bulut Sahnede Rahatsızlandı",
       "Hakkı Bulut Son Durum",
-    "Hakkı Bulut Neden Rahatsızlandı",
-    "Hakkı Bulut Sağlık Durumu",
+      "Hakkı Bulut Neden Rahatsızlandı",
+      "Hakkı Bulut Sağlık Durumu",
       "Hakkı Bulut Kaç Yaşında",
       "Hakan Bulut",
       "Ben Buyum",
@@ -2361,7 +2361,8 @@
       "### The Hybrid Power of Shorts and YouTube Ads",
       "By pairing short-form video momentum with official YouTube In-Stream placements, POIZI converted casual scrollers into loyal subscribers.",
       "Independent artists looking to replicate this trajectory can launch certified [YouTube Music Video Promotion](/hizmetler) campaigns with MedyaPR."
-    ]
+    ],
+    "trOnly": true
   },
   {
     "slug": "youtube-izlenme-nasil-sayilir-24-agustos-2026-yeni-kural",
@@ -4134,7 +4135,8 @@
         "question": "Why do live concert recordings perform so well on YouTube?",
         "answer": "A dynamic live audio mix, compelling thumbnail framing, and targeted Google Ads reach to genre fans during the first 48 hours help live performance videos build strong watch time."
       }
-    ]
+    ],
+    "trOnly": true
   },
   {
     "slug": "zeynep-bastik-lan-viral-yayilim-ve-klip-lansman-rehberi",
@@ -4269,7 +4271,8 @@
         "question": "What are Zeynep Bastık's most streamed songs?",
         "answer": "Felaket, Uslanmıyor Bu, Mod, Ara, and Lan are among Zeynep Bastık's most streamed songs."
       }
-    ]
+    ],
+    "trOnly": true
   },
   {
     "slug": "semicenk-pisman-degilim-klip-analizi-zirvede-kalma-stratejisi",
@@ -4633,7 +4636,8 @@
         "question": "Does YouTube music video promotion help with live booking and festival offers?",
         "answer": "Yes. Venue bookers and festival promoters frequently review an artist's YouTube view history and regional audience engagement when evaluating live booking offers."
       }
-    ]
+    ],
+    "trOnly": true
   },
   {
     "slug": "melike-sahin-canin-beni-cekti-klip-analizi-organik-kesfet-formulu",
