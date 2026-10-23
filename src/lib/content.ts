@@ -158,6 +158,12 @@ export function isPostFullyTranslatedEn(post: BlogPost): boolean {
   if (post.summary_en.trim() === post.summary.trim()) {
     return false;
   }
+  const combinedSummary = ` ${post.summary_en.toLowerCase()} `;
+  for (const w of TURKISH_STOPWORDS) {
+    if (combinedSummary.includes(w)) {
+      return false;
+    }
+  }
   const combinedEn = ` ${post.paragraphs_en.join(' ').toLowerCase()} `;
   let trHits = 0;
   for (const w of TURKISH_STOPWORDS) {
