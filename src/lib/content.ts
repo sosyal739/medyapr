@@ -30,6 +30,8 @@ export interface BlogPost {
   enOnly?: boolean;
   /** Yalnızca Türkçe yayınlanır (Türkiye'ye özgü sanatçı/konu yazıları); EN çevirisi hazırlanmaz. */
   trOnly?: boolean;
+  /** Hassas haberlerde (sağlık, vefat vb.) yazı sonundaki analiz kutusunu gizler. */
+  noCta?: boolean;
   /**
    * Arapça yazılar (data/posts_ar.json): metin alanları Arapçadır, `category` Arapça etikettir.
    * Blog kategorisi `categoryKey` ile eşleşir.

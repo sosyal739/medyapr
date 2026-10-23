@@ -756,7 +756,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </div>
 
-        <AnalysisCta locale={locale} source="blog" />
+        {!post.noCta && <AnalysisCta locale={locale} source="blog" />}
 
         {/* ── Topic Cluster: Related Articles ── */}
         {isBioPost && bioArtistName && (
