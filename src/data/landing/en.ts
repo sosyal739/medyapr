@@ -5,9 +5,9 @@ export const EN_PAGES: LandingPage[] = [
     locale: 'en',
     slug: 'youtube-music-video-promotion',
     keyword: 'YouTube music video promotion',
-    title: 'YouTube Music Video Promotion | Google Ads PR | MedyaPR',
+    title: 'YouTube Music Video Promotion via Google Ads | MedyaPR',
     description:
-      'YouTube music video promotion run with official Google Ads video campaigns: no bots, no passwords. View real campaign scenarios and get a free video review.',
+      'YouTube music video promotion with official Google Ads video campaigns: no bots, no passwords. See a sample campaign plan, estimated prices and get a free video review.',
     h1: 'YouTube Music Video Promotion That Reaches the Right Audience',
     lead:
       'You released your music video, but the first days did not bring the reach you hoped for? With 18+ years of experience, we run YouTube music video promotion through official Google Ads video campaigns. Views come from real viewers and appear in YouTube Analytics as “YouTube Ads” – no bots, no panels.',
@@ -49,6 +49,43 @@ export const EN_PAGES: LandingPage[] = [
         ],
       },
       {
+        h: 'Who this is for',
+        ul: [
+          'Independent artists releasing a single, EP or music video who want a measurable first push.',
+          'Record labels and managers running several releases at once and needing one transparent reporting format.',
+          'Artists with a strong song but a small channel, where the first views decide how the release is perceived.',
+          'Turkish and international artists who want to reach a specific country, such as Germany, the UK or the US, instead of a random global mix.',
+        ],
+      },
+      {
+        h: 'Prepare your video before the campaign starts',
+        p: [
+          'Paid reach only helps if the video keeps the people it brings. Before launch, we check the same few things on every release, and you can use this list on your own:',
+        ],
+        ul: [
+          'The first 30 seconds: does the hook, the artist and the song title appear early enough for a viewer who found the video through an ad?',
+          'Thumbnail and title: clear, readable on a phone screen, and consistent with the genre.',
+          'Metadata: accurate title, description with streaming links, and the right category and language.',
+          'End screen and pinned comment: point to your next video, your playlist or your channel so new viewers have somewhere to go.',
+          'Public link only: the video must be public or unlisted-but-shareable; we never need channel access.',
+        ],
+      },
+      {
+        h: 'How we measure results',
+        p: [
+          'Every campaign is reported from YouTube’s own numbers, not from a third-party panel. In YouTube Studio you can follow views from the advertising source, average view duration, audience retention and where viewers dropped off.',
+          'If retention is weak in the first minute, that is useful information for your next release, and our report points it out openly rather than hiding it behind a view count.',
+        ],
+      },
+      {
+        h: 'What paid promotion cannot do',
+        ul: [
+          'It cannot guarantee likes, comments, subscribers or organic recommendations.',
+          'It should not be bought expecting a chart position: YouTube’s chart rules decide which views count, and paid views may not be included.',
+          'It cannot turn a video that viewers leave in the first seconds into a hit; that is why we review the video first and tell you honestly if we think it needs changes.',
+        ],
+      },
+      {
         h: 'Why MedyaPR',
         ul: [
           '18+ years of digital advertising and music PR experience, managed by certified Google Partner specialists.',
@@ -76,19 +113,36 @@ export const EN_PAGES: LandingPage[] = [
         q: 'Can I pay after the work is finished?',
         a: 'Established artists and companies can apply for “Pay after completion” when ordering. If approved, the campaign starts and payment is collected after the report is delivered.',
       },
+      {
+        q: 'Is paid YouTube promotion allowed?',
+        a: 'Yes, when it is run through Google Ads video campaigns, which is YouTube’s official advertising system. What breaks YouTube’s rules is fake traffic from bots, view panels or incentivised clicks, and we do not use any of these.',
+      },
+      {
+        q: 'Which countries can I target?',
+        a: 'You can choose Turkey, a global mix, or a specific country from our list, for example Germany, the UK, the USA, the Netherlands or Canada. Prices differ by country, so the estimated price table above shows each region.',
+      },
+      {
+        q: 'Will paid promotion get my song onto YouTube charts?',
+        a: 'We cannot promise chart positions. Chart rules are set by YouTube and may not count paid views, so treat paid promotion as a way to put the video in front of the right listeners, not as a way to buy a ranking.',
+      },
+      {
+        q: 'What do I need to send to get a quote?',
+        a: 'Only the public link to your video and the country you want to reach. We review it and send an estimated quote; nothing starts without your approval.',
+      },
     ],
   },
   {
     locale: 'en',
     slug: 'google-ads-for-music-videos',
     keyword: 'Google Ads for music videos',
-    title: 'Google Ads for Music Videos | YouTube Artist Ads | MedyaPR',
+    title: 'Google Ads for Music Videos: YouTube Campaigns | MedyaPR',
     description:
-      'Google Ads for music videos, managed by certified Google Partner specialists. Targeted YouTube video ads for artists and labels. Free video review and quote.',
+      'Google Ads for music videos: how YouTube video campaigns work for artists and labels, which ad formats to use, estimated prices by country, and a free video review.',
     h1: 'Google Ads for Music Videos: YouTube Video Campaigns for Artists and Labels',
     lead:
       'Running Google Ads for a music video takes more than pressing “promote”. Audience, budget, video length and timing all matter. We plan and manage YouTube video campaigns for artists, bands and record labels – transparently and without bots.',
     areaServed: ['Global', 'US', 'GB', 'DE'],
+    prices: 'en',
     sections: [
       {
         h: 'Why use Google Ads for a music video?',
@@ -110,6 +164,31 @@ export const EN_PAGES: LandingPage[] = [
         h: 'Packages & Cost Structure',
         p: [
           'Views package: a campaign focused on getting your video watched by genre-relevant listeners. Engagement package: the same plus audience targeting aimed at high-interaction viewers (priced about 30% higher). You can start from 1,000 views and scale up for a bigger launch.',
+        ],
+      },
+      {
+        h: 'Which YouTube ad formats work for music videos',
+        ul: [
+          'Skippable in-stream: plays before other videos. Good for a first push because a view is counted only after the viewer has watched a meaningful part, and you pay for that view rather than for an impression.',
+          'In-feed video: your thumbnail appears in search results and next to related videos, so the viewer actively chooses to click. This often brings viewers who stay longer.',
+          'YouTube Shorts placements: a short, vertical cut of the hook can bring new listeners who then open the full video.',
+          'Mixing formats is common for a launch: in-stream for reach, in-feed for people who clearly like the genre, Shorts for discovery.',
+        ],
+      },
+      {
+        h: 'How the budget works (CPV in plain words)',
+        p: [
+          'YouTube video campaigns are usually priced per view (CPV): you pay when someone watches your video, not when the ad is merely shown. The cost per view changes by country, by audience and by how competitive the auction is, which is why a view in one market can cost much more than in another.',
+          'That is why the estimated price table below is split by region. Pick the country that matches where your real listeners live: a cheaper market does not help if the audience cannot understand or will not follow your music.',
+        ],
+      },
+      {
+        h: 'Common mistakes we fix before launch',
+        ul: [
+          'Targeting “the whole world” for a song in one language, which wastes budget on viewers who leave quickly.',
+          'Sending viewers to a video whose first seconds are a long intro or a black screen.',
+          'Promoting a video with missing or wrong metadata, so the ad reaches the wrong genre.',
+          'Judging the campaign only by view count and ignoring average view duration and retention.',
         ],
       },
       {
@@ -135,13 +214,25 @@ export const EN_PAGES: LandingPage[] = [
         q: 'Do you guarantee organic chart results?',
         a: 'No legitimate agency can promise organic chart rankings or fixed like/comment counts. We guarantee transparent ad delivery on the official Google Ads platform, honest estimates, and a verified YouTube Analytics report.',
       },
+      {
+        q: 'How much does Google Ads for a music video cost?',
+        a: 'It depends on the number of views, the country and the package. The estimated price table on this page shows 1,000 to 100,000 views for each region; your final quote is confirmed after we review your video.',
+      },
+      {
+        q: 'Is a view from an ad a real view?',
+        a: 'Yes. It is a view from a real viewer who chose to keep watching, and it appears in YouTube Studio under the advertising traffic source. It is different from fake views that come from bots or panels.',
+      },
+      {
+        q: 'Can I run it myself instead?',
+        a: 'Yes, Google Ads is open to everyone. The difficulty is in audience setup, format choice and reading the results; we handle those parts and give you a plain-language report.',
+      },
     ],
   },
   {
     locale: 'en',
     slug: 'promote-turkish-music-on-youtube',
     keyword: 'promote Turkish music on YouTube',
-    title: 'Promote Turkish Music on YouTube | Artist Ads | MedyaPR',
+    title: 'Promote Turkish Music on YouTube: Turkey & Diaspora | MedyaPR',
     description:
       'Promote Turkish music on YouTube: official Google Ads campaigns for artists and labels in Turkey, Germany, the UK and the US. Free video review and quote.',
     h1: 'Promote Turkish Music on YouTube – In Turkey and Across the Diaspora',
