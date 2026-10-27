@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         : 'YouTube Video Ad & Music PR Pricing Plans | MedyaPR',
     },
     description: isAr
-      ? 'حاسبة أسعار الترويج لفيديو كليب على يوتيوب 2026: تبدأ من  لكل 1000 مشاهدة عبر إعلانات Google Ads الرسمية. باقات شفافة ومباشرة في مصر والسعودية والمغرب.'
+      ? 'حاسبة أسعار الترويج لفيديو كليب على يوتيوب 2026: تبدأ من 100 ليرة تركية (3$) لكل 1000 مشاهدة عبر إعلانات Google Ads الرسمية. باقات شفافة ومباشرة في مصر والسعودية والمغرب.'
       : isTr
       ? '2026 YouTube klip tanıtımı, video reklam verme ve 1.000 izlenme fiyatları. Global 1K: 100 TL’den başlayan resmi Google Ads paketleri ve canlı hesaplama.'
       : '2026 YouTube music video promotion and Google Ads view pricing calculator. Transparent tiered rates from 1K to 1M real views.',
