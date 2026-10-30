@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       absolute: isAr
         ? 'خدمات الترويج الموسيقي على يوتيوب وفيديو Google Ads | MedyaPR'
         : isTr
-        ? 'Google Ads YouTube İzlenme Paketleri, Reklam Verme & Klip PR | MedyaPR'
+        ? 'Google Ads YouTube Reklam & Klip PR | MedyaPR'
         : 'YouTube Music PR & Google Ads Video Services | MedyaPR',
     },
     description: isAr
