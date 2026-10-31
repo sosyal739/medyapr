@@ -259,6 +259,17 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
         if (res.ok && data.id) {
           setDone({ id: data.id, channel: targetChannel });
           trackEvent('order_request_submitted', { channel: targetChannel, views, pkg, region, currency });
+          trackEvent('generate_lead', {
+            event_category: 'artist_pr_order',
+            event_label: targetChannel,
+            value: q.total,
+            currency: currency,
+          });
+          trackEvent('conversion', {
+            send_to: 'AW-11081445035/q5ZlCL6wop4dEKvdhaQp',
+            value: q.total,
+            currency: currency,
+          });
         }
       } catch {
         // WhatsApp/Telegram zaten açıldığı için hata gösterme
@@ -326,6 +337,17 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
       }
       setDone({ id: data.id, channel: 'email' });
       trackEvent('order_request_submitted', { channel: 'email', views, pkg, region, currency });
+      trackEvent('generate_lead', {
+        event_category: 'artist_pr_order',
+        event_label: 'email',
+        value: q.total,
+        currency: currency,
+      });
+      trackEvent('conversion', {
+        send_to: 'AW-11081445035/q5ZlCL6wop4dEKvdhaQp',
+        value: q.total,
+        currency: currency,
+      });
       setBusy(false);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {

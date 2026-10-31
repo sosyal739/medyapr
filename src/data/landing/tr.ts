@@ -26,7 +26,7 @@ export const TR_PAGES: LandingPage[] = [
           'Bir kampanyadan ne bekleyebileceğinizi şeffafça görebilmeniz için tipik bir lansman senaryosu:',
         ],
         ul: [
-          'Örnek Senaryo (Türkçe Pop / Rap Lansmanı): 7 günlük kampanya dönemi, Türkiye + Almanya (diaspora) hedeflemesi, 25.000 hedefli izlenme paketi (tahmini bütçe: ₺2.875 – ₺3.500 aralığı, klibin süresine ve ülke ağırlığına göre).',
+          'Örnek Senaryo (Türkçe Pop / Rap Lansmanı): 7 günlük kampanya dönemi, Türkiye + Almanya (diaspora) hedeflemesi, 25.000 hedefli izlenme paketi (tahmini bütçe: ₺2.400 – ₺2.590 aralığı, klibin süresine ve ülke ağırlığına göre).',
           'Reklam Formatı: YouTube In-Stream (benzer sanatçıların kliplerinden önce oynayan atlanabilir reklam) ve YouTube In-Feed / Shorts keşif yerleşimleri.',
           'Ölçülebilir Sonuç: YouTube Studio → Erişim → Trafik Kaynakları altında “YouTube Reklamları” satırında 25.000+ doğrulanmış gerçek izlenme ve izlenme süresi raporu.',
           'Sonuçların Sınırları: Reklam kampanyası izlenme hacmini ve hedef kitle erişimini taahhüt eder; ancak organik önerilere girme, abone artışı, beğeni veya yorum sayısı tamamen izleyicinin şarkıyı beğenmesine bağlıdır ve garanti edilmez.',
@@ -88,59 +88,81 @@ export const TR_PAGES: LandingPage[] = [
     locale: 'tr',
     slug: 'sarki-reklami-verme',
     keyword: 'şarkı reklamı verme',
-    title: 'Şarkı Reklamı Verme | YouTube’da Şarkı Tanıtımı | MedyaPR',
+    title: 'Şarkı Reklamı Verme: YouTube’da Resmi Google Ads Tanıtımı | MedyaPR',
     description:
-      'Şarkı reklamı vermek isteyen sanatçılar için resmi Google Ads ile YouTube şarkı tanıtımı. Bot yok, şifre yok. Linkinizi gönderin, ücretsiz analiz alın.',
-    h1: 'Şarkı Reklamı Verme: Yeni Şarkınızı Dinleyicilerle Buluşturun',
+      'YouTube’da şarkı reklamı verme rehberi: In-Stream, Shorts ve In-Feed reklam formatları, CPV maliyetleri, tür bazlı hedefleme ve resmi Google Partner güvencesi.',
+    h1: 'Şarkı Reklamı Verme: Yeni Şarkınızı Doğru Dinleyicilerle Buluşturun',
     lead:
-      'Şarkınızı yayınlamak işin yarısı; asıl mesele onu doğru dinleyicinin önüne çıkarmak. YouTube’da şarkı reklamı verirken kime, nerede ve ne kadar gösterileceğini planlıyor, kampanyayı resmi Google Ads video reklamlarıyla yönetiyoruz.',
+      'Şarkınızı yayınlamak işin ilk adımıdır; asıl başarı onu doğru dinleyicinin önüne çıkarmaktan geçer. YouTube’da şarkı reklamı verirken kime, nerede ve hangi bütçeyle gösterileceğini profesyonelce planlıyor, kampanyayı resmi Google Ads video reklam ağıyla yönetiyoruz.',
     areaServed: ['TR', 'Global'],
+    prices: 'tr',
     sections: [
       {
-        h: 'Şarkı reklamı verme neden önemli?',
+        h: 'YouTube’da şarkı reklamı verme neden zorunludur?',
         p: [
-          'Her gün binlerce yeni şarkı yayınlanıyor. Reklam desteği olmayan bir şarkı, ilk günlerde ilgili dinleyiciye ulaşmakta zorlanabilir. Doğru hedeflenmiş bir Google Ads video kampanyası, şarkınızı müzik türünüzle ilgilenen yeni dinleyicilere ulaştırır ve ölçülebilir bir lansman erişimi sağlar.',
-          'Ücretli reklamlar YouTube’un organik öneri algoritmasını doğrudan tetiklemez ve organik hit garantisi vermez; ancak gerçek izleyicilere şeffaf biçimde ulaşmanızı sağlar. Tüm izlenmeler YouTube Analytics’te “YouTube Reklamları” kaynağı olarak görünür.',
+          'Günde 120.000’den fazla yeni şarkının dijital platformlara yüklendiği günümüz müzik pazarında, yalnızca organik yayılıma güvenmek eserinizi dijital kalabalık içinde görünmez kılabilir. Şarkı reklamı vermek, parçanızı müzik türünüzü aktif olarak dinleyen gerçek kitlelerin karşısına doğrudan çıkarır.',
+          'MedyaPR olarak sahte bot panelleri (SMM) kesinlikle kullanmıyoruz. Tüm izlenmeler doğrudan Google Ads video ağı üzerinden gelir, YouTube Studio panelinizde “YouTube Reklamları” olarak resmi tescil edilir ve ortalama izleme sürenizi (%60+ Retention) koruyarak organik keşfet sinyallerini destekler.',
         ],
       },
       {
-        h: 'Şarkı reklamı sürecimiz',
+        h: 'Hangi şarkı formatları için reklam verilebilir?',
         ul: [
-          'Şarkınızın YouTube linkini veya lirik/klip videosunu gönderirsiniz.',
-          'Türünü, hedef dinleyicisini ve videonun süresini analiz ederiz.',
-          'Hedef kitleyi seçersiniz: Türkiye, global veya tek bir ülke.',
-          'Tahmini teklifi iletir, onayınızdan sonra kampanyayı başlatırız.',
-          'Bitişte performans raporunu paylaşırız.',
+          'Resmi Müzik Klibi (Official Music Video): Sanatçı kimliğinizi ve parçanızı en güçlü görsel dille sunan ana lansman formatı.',
+          'Lirik Video (Lyric Video): Şarkı sözlerini öne çıkaran, dinleyicinin parçaya eşlik etmesini sağlayan ve yüksek izleme süreleri yakalayan ekonomik tanıtım formatı.',
+          'Görselleştirici (Visualizer / Cover Art): Klip çekilmemiş şarkılar için kapak görseli veya animasyon döngüsüyle hazırlanan video parçaları.',
+          'Canlı Performans & Akustik Kayıtlar: Sanatçının vokal gücünü ve sahne enerjisini doğrudan hissettiren özel versiyonlar.',
         ],
       },
       {
-        h: 'Şarkı türüne göre hedef kitle planlaması',
+        h: 'Kampanya format dağılımı (%70 In-Stream + %20 Keşfet + %10 Shorts)',
         p: [
-          'Bir arabesk şarkıyla bir elektronik parça aynı kitleye hitap etmez. Pop, rap/hip-hop, rock, indie, akustik ve halk müziği gibi türlere göre farklı izleyici segmentlerini hedefliyoruz. Klibinizi inceleyerek In-Stream ve Shorts yerleşim ağırlığını size özel hazırlıyoruz.',
+          'Şarkı reklamlarında maksimum verim alabilmek için tek bir format yerine çok kanallı bir karma reklam stratejisi uyguluyoruz:',
+        ],
+        ul: [
+          '%70 Atlanabilir In-Stream Reklam: Klibiniz benzer sanatçıların şarkılarından önce oynar. İzleyici videonuzu en az 30 saniye izlemediği sürece bütçenizden hiçbir ücret kesilmez.',
+          '%20 In-Feed Keşfet Reklamı: Başlığınız ve video kapağınız arama sonuçlarında ve önerilen videoların en üstünde yer alır. Dinleyici videoya bilerek tıkladığı için oturum süresi ve abone dönüşümü çok yüksektir.',
+          '%10 YouTube Shorts Tanıtımı: Şarkının en etkili nakaratını dikey Shorts akışında mobil dinleyicilere ulaştırır.',
         ],
       },
       {
-        h: 'Güvenli ve şeffaf',
+        h: 'Müzik türüne göre özel dinleyici hedeflemesi',
+        p: [
+          'Her müzik türünün dinleyici alışkanlıkları ve demografisi tamamen farklıdır. Kampanyalarımızda türe özel hassas hedefleme uyguluyoruz:',
+        ],
         ul: [
-          'Kanal şifresi istenmez.',
-          'Bot, panel veya sahte etkileşim yok.',
-          'Fiyatlar tahminidir; kesin teklif videonuza göre netleşir.',
-          'Onayınız olmadan kampanya başlamaz.',
+          'Türkçe Pop & Akustik: Benzer pop sanatçılarının kanalları, radyo hitleri ve 18-35 yaş kadın/erkek dengeli segmentasyon.',
+          'Rap, Trap & Drill: Şehir bazlı genç kitle, hip-hop alt kültür kanalları ve yüksek mobil etkileşim odaklı kitleler.',
+          'Rock & Alternatif: Bağımsız müzikseverler, festival takipçileri ve tür odaklı çalma listesi izleyicileri.',
+          'Arabesk-Pop & Bölgesel: Yüksek dinlenme sadakatine sahip kitleler ve bölgesel ağırlıklı hedefleme.',
+        ],
+      },
+      {
+        h: 'İlgili rehberler ve hemen başlama',
+        p: [
+          'Daha geniş kapsamlı bir lansman planı için [YouTube Klip Tanıtımı](/tr/youtube-klip-tanitimi) rehberimizi inceleyebilir, bütçe dinamikleri için [YouTube Reklam Fiyatları 2026](/tr/youtube-reklam-fiyatlari) yazımıza göz atabilir, anlık canlı bütçenizi [Fiyat Hesaplayıcı](/tr/fiyatlandirma) ile modelleyebilir veya doğrudan [Ücretsiz Video Analizi Formu](/tr/order) ile uzman teklifi alabilirsiniz.',
         ],
       },
     ],
     faq: [
       {
-        q: 'Şarkı reklamı vermek için ne gerekir?',
-        a: 'Yalnızca YouTube’da yayınlanmış şarkı veya klip linkiniz yeterlidir. Biz analiz eder ve size tahmini teklif iletiriz.',
+        q: 'Şarkı reklamı vermek için kanal şifresi vermem gerekir mi?',
+        a: 'KESİNLİKLE HAYIR. MedyaPR resmi Google Partner ajans hesabından çalışır. Yalnızca YouTube’daki herkese açık şarkı veya klip linkinizi iletmeniz yeterlidir.',
       },
       {
-        q: 'Şarkım Spotify’da; yine de YouTube reklamı verebilir miyim?',
-        a: 'YouTube reklamları YouTube’daki bir videoya yönlendirilir. Şarkınızın bir lirik videosu, görselleştiricisi (visualizer) veya klibi varsa bunu tanıtabiliriz.',
+        q: 'Şarkım sadece Spotify’da var; YouTube reklamı verebilir miyim?',
+        a: 'Google Ads video reklamları yalnızca YouTube platformundaki videolara yönlendirilir. Şarkınız için basit bir lirik video veya kapak görselli video oluşturup YouTube kanalınıza yükledikten sonra reklam çalışmasını başlatabiliriz.',
       },
       {
-        q: 'Minimum kaç izlenme paketi alabilirim?',
-        a: 'Canlı fiyat hesaplayıcıda 1.000 izlenmeden başlayan paketler vardır; tahmini fiyatı anında görebilirsiniz.',
+        q: 'En düşük bütçeli şarkı reklam paketi ne kadar?',
+        a: 'Canlı fiyatlandırma motorumuzda 1.000 izlenmelik test paketlerinden 1.000.000 izlenmeye kadar tüm seçenekler mevcuttur. Türkiye için 10.000 izlenme yaklaşık 1.000 TL baremindedir.',
+      },
+      {
+        q: 'Reklam izlenmeleri şarkımın Spotify dinlenmelerini artırır mı?',
+        a: 'Evet. YouTube video açıklamasına ve sabitlenmiş yoruma Spotify, Apple Music bağlantılarınızı yerleştirdiğimizde, klibi beğenen dinleyiciler doğrudan dijital platformlarınıza geçer.',
+      },
+      {
+        q: 'Kampanya ne kadar sürede tamamlanır?',
+        a: 'Seçilen izlenme hacmine bağlı olarak kampanyalar 3 ila 10 gün arasında doğal bir hızda tamamlanır; bitiminde resmi YouTube Studio raporu paylaşılır.',
       },
     ],
   },

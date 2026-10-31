@@ -41,6 +41,11 @@ export default function ContactClient({ locale }: Props) {
       if (!res.ok) throw new Error(String(res.status));
       trackEvent('contact_form_submitted', { language: locale });
       trackEvent('generate_lead', { event_category: 'contact_form', event_label: locale, value: 100, currency: 'TRY' });
+      trackEvent('conversion', {
+        send_to: 'AW-11081445035/q5ZlCL6wop4dEKvdhaQp',
+        value: 100,
+        currency: 'TRY',
+      });
       setIsSubmitted(true);
       setFormData({ name: '', email: '', phone: '', channelUrl: '', message: '' });
       setTimeout(() => setIsSubmitted(false), 6000);

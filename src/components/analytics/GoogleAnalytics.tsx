@@ -107,22 +107,16 @@ export default function GoogleAnalytics({ gaId, measurementId }: GoogleAnalytics
                 if (isContactLink) {
                   var channel = href.indexOf('t.me/') !== -1 ? 'telegram' : (href.indexOf('mailto:') !== -1 ? 'email' : 'whatsapp');
 
-                  gtag('event', channel + '_click', {
-                    'event_category': 'artist_pr_lead',
-                    'event_label': channel
-                  });
-
-                  gtag('event', 'generate_lead', {
-                    'event_category': 'artist_pr_lead',
+                  // Bağlantı tıklaması mikro-etkileşim olarak ölçülür; sahte lead veya conversion üretmez.
+                  gtag('event', 'contact_channel_click', {
+                    'event_category': 'outbound_contact',
                     'event_label': channel,
-                    'value': 100.0,
-                    'currency': 'TRY'
+                    'channel': channel
                   });
 
-                  gtag('event', 'conversion', {
-                    'send_to': 'AW-11081445035/q5ZlCL6wop4dEKvdhaQp',
-                    'value': 100.0,
-                    'currency': 'TRY'
+                  gtag('event', channel + '_click', {
+                    'event_category': 'outbound_contact',
+                    'event_label': channel
                   });
                 }
               } catch(err) {}
