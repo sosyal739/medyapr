@@ -157,9 +157,9 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00E5FF] opacity-75" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00E5FF]" />
         </span>
-        <span>{isAr ? 'بنية فيديو Google Ads:' : isTr ? 'Google Ads Video Altyapısı:' : 'Google Ads Video Infrastructure:'}</span>
+        <span>{isAr ? 'بنية فيديو Google Ads:' : isEs ? 'Infraestructura de Video Google Ads:' : isTr ? 'Google Ads Video Altyapısı:' : 'Google Ads Video Infrastructure:'}</span>
         <span className="rounded-full bg-cyan-500/20 px-2 py-0.5 text-cyan-300 font-extrabold">
-          {isAr ? 'مشاهدون حقيقيون 100%' : isTr ? '%100 Gerçek İzleyici' : '100% Real Viewers'}
+          {isAr ? 'مشاهدون حقيقيون 100%' : isEs ? '100% Audiencia Real' : isTr ? '%100 Gerçek İzleyici' : '100% Real Viewers'}
         </span>
       </div>
 
@@ -169,17 +169,17 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
           {/* Badge */}
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#FF0033]/40 bg-[#FF0033]/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5E7E] backdrop-blur-md shadow-lg shadow-[#FF0033]/10">
             <Award className="h-3.5 w-3.5 text-[#FF0033]" />
-            {isAr ? 'خبرة تتجاوز 18 عامًا • خبراء Google Partner رسميون' : isTr ? '18+ Yıllık Tecrübe • Resmi Google Partner Uzmanları' : '18+ Years Experience • Official Google Partner Specialists'}
+            {isAr ? 'خبرة تتجاوز 18 عامًا • خبراء Google Partner رسميون' : isEs ? '+18 Años de Experiencia • Especialistas Oficiales Google Partner' : isTr ? '18+ Yıllık Tecrübe • Resmi Google Partner Uzmanları' : '18+ Years Experience • Official Google Partner Specialists'}
           </div>
 
           {/* Title */}
           <h1 className="text-4xl font-black leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl text-white">
             <span className="block text-sm sm:text-base font-extrabold uppercase tracking-wider text-zinc-300 mb-2">
-              {isAr ? 'ترويج فيديو كليب على يوتيوب وإعلانات Google Ads الرسمية' : isTr ? 'YouTube Klip Tanıtımı & Resmi Google Ads Video Reklam' : 'YouTube Music Video Promotion & Official Google Ads PR'}
+              {isAr ? 'ترويج فيديو كليب على يوتيوب وإعلانات Google Ads الرسمية' : isEs ? 'Promoción de Videos Musicales en YouTube & Publicidad Oficial Google Ads' : isTr ? 'YouTube Klip Tanıtımı & Resmi Google Ads Video Reklam' : 'YouTube Music Video Promotion & Official Google Ads PR'}
             </span>
-            {isAr ? 'اجعل كليبك' : isTr ? 'Klibinizi' : 'Put Your Video'}{' '}
+            {isAr ? 'اجعل كليبك' : isEs ? 'Lleva Tu Video Musical' : isTr ? 'Klibinizi' : 'Put Your Video'}{' '}
             <span className="bg-gradient-to-r from-[#FF0033] via-[#FF5E7E] to-[#FF9E79] bg-clip-text text-transparent">
-              {isAr ? 'أمام الجمهور المناسب' : isTr ? 'Doğru Kitleye Ulaştırın' : 'In Front of the Right Audience'}
+              {isAr ? 'أمام الجمهور المناسب' : isEs ? 'Al Público Indicado' : isTr ? 'Doğru Kitleye Ulaştırın' : 'In Front of the Right Audience'}
             </span>
           </h1>
 
@@ -191,6 +191,13 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                 <strong className="text-white font-semibold">18 عامًا في هذا المجال.</strong> يتولى حملتك الترويجية{' '}
                 <strong className="text-white font-semibold">خبراء Google Partner المعتمدون</strong>. بلا بوتات أو لوحات؛ وتظهر الزيارات في YouTube Analytics باسم{' '}
                 <strong className="text-white font-semibold">«إعلانات يوتيوب»</strong>.
+              </>
+            )
+              : isEs ? (
+              <>
+                <strong className="text-white font-semibold">Más de 18 años en el sector.</strong> Tu promoción es gestionada por{' '}
+                <strong className="text-white font-semibold">especialistas certificados de Google Partner</strong>. Cero bots o paneles; las reproducciones aparecen en YouTube Analytics como{' '}
+                <strong className="text-white font-semibold">&ldquo;Publicidad de YouTube&rdquo;</strong>.
               </>
             )
               : isTr ? (
@@ -352,7 +359,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                     </div>
                   ) : (
                     <div className="rounded-full bg-black/55 px-3 py-1.5 text-[11px] font-bold text-white/90 ring-1 ring-white/15 backdrop-blur-md">
-                      {isAr ? '01:21 • شاهد' : isTr ? '00:50 • İzleyin' : `${locale === 'tr' ? '00:50' : locale === 'en' ? '01:22' : '01:21'} • Watch`}
+                      {isAr ? '01:21 • شاهد' : isEs ? '01:22 • Ver' : isTr ? '00:50 • İzleyin' : '01:22 • Watch'}
                     </div>
                   )}
                 </div>
@@ -366,7 +373,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                         e.stopPropagation();
                         togglePlay();
                       }}
-                      aria-label={isAr ? 'شغّل الفيديو' : isTr ? 'Videoyu başlat' : 'Play video'}
+                      aria-label={isAr ? 'شغّل الفيديو' : isEs ? 'Reproducir video' : isTr ? 'Videoyu başlat' : 'Play video'}
                       className="pointer-events-auto relative flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-gradient-to-tr from-[#FF0033] to-[#FF5E7E] text-white shadow-[0_10px_35px_rgba(255,0,51,0.5)] ring-4 ring-white/80 transition-transform duration-300 hover:scale-110 active:scale-95 sm:h-20 sm:w-20"
                     >
                       <Play className="ml-1 h-7 w-7 fill-white sm:h-8 sm:w-8" />
@@ -386,12 +393,12 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                         type="button"
                         onClick={togglePlay}
                         className="cursor-pointer p-1 text-white/90 transition-colors hover:text-white"
-                        aria-label={isPlaying ? (isAr ? 'إيقاف مؤقت' : isTr ? 'Durdur' : 'Pause') : (isAr ? 'تشغيل' : isTr ? 'Oynat' : 'Play')}
+                        aria-label={isPlaying ? (isAr ? 'إيقاف مؤقت' : isEs ? 'Pausar' : isTr ? 'Durdur' : 'Pause') : (isAr ? 'تشغيل' : isEs ? 'Reproducir' : isTr ? 'Oynat' : 'Play')}
                       >
                         {isPlaying ? <Pause className="h-4 w-4 fill-white text-white" /> : <Play className="h-4 w-4 fill-white text-white" />}
                       </button>
                       <span className={`truncate text-xs font-extrabold text-white sm:text-sm ${locale === 'tr' ? '' : 'hidden'}`}>
-                        {isAr ? 'نطاق الخدمة ونظرة عامة على العملية' : isTr ? 'Hizmet kapsamı ve süreç anlatımı' : 'Service scope and process overview'}
+                        {isAr ? 'نطاق الخدمة ونظرة عامة على العملية' : isEs ? 'Alcance del servicio y visión del proceso' : isTr ? 'Hizmet kapsamı ve süreç anlatımı' : 'Service scope and process overview'}
                       </span>
                     </div>
                     <div className="flex shrink-0 items-center gap-3 text-white/90">
@@ -402,7 +409,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                         type="button"
                         onClick={toggleMute}
                         className="cursor-pointer p-1 text-white/90 transition-colors hover:text-white"
-                        aria-label={isMuted ? (isAr ? 'تشغيل الصوت' : isTr ? 'Sesi aç' : 'Unmute') : (isAr ? 'كتم الصوت' : isTr ? 'Sesi kapat' : 'Mute')}
+                        aria-label={isMuted ? (isAr ? 'تشغيل الصوت' : isEs ? 'Activar sonido' : isTr ? 'Sesi aç' : 'Unmute') : (isAr ? 'كتم الصوت' : isEs ? 'Silenciar' : isTr ? 'Sesi kapat' : 'Mute')}
                       >
                         {isMuted ? <VolumeX className="h-4 w-4 text-rose-400" /> : <Volume2 className="h-4 w-4" />}
                       </button>
@@ -411,7 +418,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                   <div
                     onClick={handleSeek}
                     className="group/bar relative h-1.5 w-full cursor-pointer rounded-full bg-white/25 transition-[height] hover:h-2"
-                    title={isAr ? 'انقر للتقديم' : isTr ? 'İlerletmek için tıklayın' : 'Click to seek'}
+                    title={isAr ? 'انقر للتقديم' : isEs ? 'Haga clic para avanzar' : isTr ? 'İlerletmek için tıklayın' : 'Click to seek'}
                   >
                     <div className="relative h-full rounded-full bg-gradient-to-r from-[#FF0033] to-[#FF758F] transition-all duration-150" style={{ width: `${progressPercent}%` }}>
                       <span className="absolute right-0 top-1/2 h-3.5 w-3.5 -translate-y-1/2 rounded-full border border-red-500/30 bg-white shadow-md transition-transform group-hover/bar:scale-125" />
@@ -428,33 +435,33 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
                     </span>
-                    {isAr ? 'لوحة حملة تجريبية' : isTr ? 'Örnek Kampanya Paneli' : 'Sample Campaign Dashboard'}
+                    {isAr ? 'لوحة حملة تجريبية' : isEs ? 'Panel de Campaña de Muestra' : isTr ? 'Örnek Kampanya Paneli' : 'Sample Campaign Dashboard'}
                   </span>
-                  <span className="text-[11px] font-medium text-zinc-500">{isAr ? 'بيانات توضيحية' : isTr ? 'Örnek veri' : 'Illustrative data'}</span>
+                  <span className="text-[11px] font-medium text-zinc-500">{isAr ? 'بيانات توضيحية' : isEs ? 'Datos ilustrativos' : isTr ? 'Örnek veri' : 'Illustrative data'}</span>
                 </div>
 
                 <div className={`grid grid-cols-2 gap-2.5 p-3 sm:p-4 ${locale === 'tr' ? 'sm:grid-cols-4' : ''}`}>
                   <Metric
                     icon={<Eye className="h-3.5 w-3.5" />}
                     tone="text-emerald-400"
-                    label={isAr ? 'المشاهدات' : isTr ? 'İzlenme' : 'Views'}
-                    value={views.toLocaleString(isAr ? 'ar-u-nu-latn-ca-gregory' : isTr ? 'tr-TR' : 'en-US')}
+                    label={isAr ? 'المشاهدات' : isEs ? 'Visualizaciones' : isTr ? 'İzlenme' : 'Views'}
+                    value={views.toLocaleString(isAr ? 'ar-u-nu-latn-ca-gregory' : isEs ? 'es-ES' : isTr ? 'tr-TR' : 'en-US')}
                     delta={recentViewBurst ? `+${recentViewBurst}` : undefined}
                     deltaKey={viewBurstKey}
                   />
                   <Metric
                     icon={<MousePointerClick className="h-3.5 w-3.5" />}
                     tone="text-sky-400"
-                    label={isAr ? 'نقرات الإعلان' : isTr ? 'Reklam Tıkı' : 'Ad Clicks'}
-                    value={clicks.toLocaleString(isAr ? 'ar-u-nu-latn-ca-gregory' : isTr ? 'tr-TR' : 'en-US')}
+                    label={isAr ? 'نقرات الإعلان' : isEs ? 'Clics en Anuncios' : isTr ? 'Reklam Tıkı' : 'Ad Clicks'}
+                    value={clicks.toLocaleString(isAr ? 'ar-u-nu-latn-ca-gregory' : isEs ? 'es-ES' : isTr ? 'tr-TR' : 'en-US')}
                     delta={recentClickBurst ? `+${recentClickBurst}` : undefined}
                     deltaKey={clickBurstKey}
                   />
                   <Metric
                     icon={<ThumbsUp className="h-3.5 w-3.5" />}
                     tone="text-rose-400"
-                    label={isAr ? 'الإعجابات' : isTr ? 'Beğeni' : 'Likes'}
-                    value={likes.toLocaleString(isAr ? 'ar-u-nu-latn-ca-gregory' : isTr ? 'tr-TR' : 'en-US')}
+                    label={isAr ? 'الإعجابات' : isEs ? 'Me Gusta' : isTr ? 'Beğeni' : 'Likes'}
+                    value={likes.toLocaleString(isAr ? 'ar-u-nu-latn-ca-gregory' : isEs ? 'es-ES' : isTr ? 'tr-TR' : 'en-US')}
                     delta="+1"
                     deltaKey={likeBurstKey}
                   />
@@ -474,6 +481,9 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                   {isAr
                     ? (
                     <>يظهر الترافيك في <strong className="font-bold text-white">YouTube Studio وAnalytics</strong> باسم «إعلانات يوتيوب».</>
+                  )
+                    : isEs ? (
+                    <>El tráfico aparece en <strong className="font-bold text-white">YouTube Studio &amp; Analytics</strong> como &ldquo;Publicidad de YouTube&rdquo;.</>
                   )
                     : isTr ? (
                     <>Trafik <strong className="font-bold text-white">YouTube Studio &amp; Analytics</strong>&apos;te &ldquo;YouTube Reklamları&rdquo; olarak görünür.</>
