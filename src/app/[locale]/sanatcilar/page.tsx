@@ -20,6 +20,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       : isTr
       ? 'YouTube Türkiye müzik listelerinde zirvede yer alan sanatçılar, en popüler klipleri, biyografileri ve dijital dinleyici istatistikleri.'
       : 'Top trending artists in Turkey YouTube music charts, hit video clips, artist biographies, and audience analytics.',
+    robots: {
+      index: false,
+      follow: true,
+    },
     alternates: getPageAlternates(locale, '/sanatcilar', TR_EN),
     openGraph: {
       title: isAr ? 'أشهر الفنانين والفرق الموسيقية التركية رواجًا | MedyaPR' : isTr ? 'Trend Türk Sanatçılar & Müzik Grupları | MedyaPR' : 'Trending Turkish Artists & Music Groups | MedyaPR',

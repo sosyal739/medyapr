@@ -30,7 +30,6 @@ import {
   isPostFullyTranslatedEn,
 } from '@/lib/content';
 import ArtistClaimBox from '@/components/common/ArtistClaimBox';
-import AnalysisCta from '@/components/common/AnalysisCta';
 import { getLandingPages } from '@/data/landing';
 import { displayDate, getPageAlternates, toIsoDateString, SITE_URL, TR_EN } from '@/lib/seo';
 import { schemaLang } from '@/lib/i18n/config';
@@ -48,7 +47,7 @@ function parseParagraphWithLinks(text: string, locale: string) {
     const label = match[1];
     let href = match[2];
     if (href.startsWith('/')) {
-      href = href.replace(/^\/(tr|en|ar)(?=\/|$|#)/, '');
+      href = href.replace(/^\/(tr|en|ar|es)(?=\/|$|#)/, '');
       if (href === '' || href === '#calculator' || href === '/#calculator') {
         href = '/fiyatlandirma';
       }
@@ -100,6 +99,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const languages: Record<string, string> = { es: esUrl };
     if (trTwin && !trTwin.enOnly) languages.tr = `${SITE_URL}/tr/blog/${trTwin.slug}`;
     if (trTwin && isPostFullyTranslatedEn(trTwin)) languages.en = `${SITE_URL}/en/blog/${trTwin.slug}`;
+    if (trTwin) {
+      const arTwinSlug = (await getArTranslationMap())[trTwin.slug];
+      if (arTwinSlug) languages.ar = `${SITE_URL}/ar/blog/${arTwinSlug}`;
+    }
     languages['x-default'] = languages.tr ?? esUrl;
     return {
       title: { absolute: esPost.title },
@@ -127,6 +130,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const languages: Record<string, string> = { ar: arUrl };
     if (trTwin && !trTwin.enOnly) languages.tr = `${SITE_URL}/tr/blog/${trTwin.slug}`;
     if (trTwin && isPostFullyTranslatedEn(trTwin)) languages.en = `${SITE_URL}/en/blog/${trTwin.slug}`;
+    if (trTwin) {
+      const esTwinSlug = (await getEsTranslationMap())[trTwin.slug];
+      if (esTwinSlug) languages.es = `${SITE_URL}/es/blog/${esTwinSlug}`;
+    }
     languages['x-default'] = languages.tr ?? arUrl;
     return {
       title: { absolute: arPost.title },
@@ -234,7 +241,7 @@ export default async function BlogPostPage({ params }: Props) {
     ? ((!isTr && post.title_en ? post.title_en.match(/^Who is (.+?)\?/i)?.[1] : undefined) ?? post.title.split(/ Kimdir/i)[0]).trim()
     : '';
   const bioPost = post.bioSlug ? allPosts.find((p) => p.slug === post.bioSlug) : undefined;
-  const relatedPosts = [...sameCatPosts, ...otherCatPosts].slice(0, 3);
+  const relatedPosts = [...sameCatPosts, ...otherCatPosts].slice(0, 6);
   const postTitle = (locale === 'en' && hasEn && post.title_en) ? post.title_en : post.title;
   const postSummary = (locale === 'en' && hasEn && post.summary_en) ? post.summary_en : post.summary;
   const postCategory = (locale === 'en' && post.category_en) ? post.category_en : post.category;
@@ -487,54 +494,10 @@ export default async function BlogPostPage({ params }: Props) {
                 </div>
               );
             }
-            const isMidArticle = idx === 2 && postParagraphs.length > 4;
             return (
-              <div key={idx} className="space-y-6">
-                <p className="leading-relaxed">
-                  {parseParagraphWithLinks(p, locale)}
-                </p>
-                {isMidArticle && (
-                  <div className="my-8 rounded-2xl border border-[#FF0033]/30 bg-gradient-to-r from-[#FF0033]/15 via-zinc-900 to-zinc-950 p-5 sm:p-6 backdrop-blur-xl shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div className="space-y-1">
-                      <span className="text-[11px] font-black uppercase tracking-wider text-[#FF6B6B] bg-[#FF0033]/20 px-2.5 py-0.5 rounded-full inline-block">
-                        {isAr ? '🎯 روّج لفيديو الكليب الخاص بك' : isTr ? '🎯 Kendi Klibinizi Başlatın' : isEs ? '🎯 Promociona Tu Video Musical' : '🎯 Promote Your Music Video'}
-                      </span>
-                      <h4 className="text-base sm:text-lg font-bold text-white">
-                        {isAr
-                          ? 'احسب باقة إطلاق فيديو الكليب عبر إعلانات Google Ads الرسمية'
-                          : isTr
-                          ? 'Klibiniz için bütçenize uygun resmi Google Ads paketini hesaplayın'
-                          : isEs
-                          ? 'Calcula tu paquete oficial de lanzamiento en Google Ads para tu video'
-                          : 'Calculate your official Google Ads music video launch package'}
-                      </h4>
-                      <p className="text-xs text-zinc-300">
-                        {isAr
-                          ? 'مشاهدات إعلانية رسمية موثّقة 100% في YouTube Studio.'
-                          : isTr
-                          ? '%100 YouTube Studio tescilli resmi reklam izlenmeleri.'
-                          : isEs
-                          ? 'Vistas de publicidad oficial 100% verificadas en YouTube Studio.'
-                          : '100% YouTube Studio verified official ad views.'}
-                      </p>
-                    </div>
-                    <div className="flex flex-wrap shrink-0 items-center gap-2.5">
-                      <Link
-                        href={`/${locale}/fiyatlandirma`}
-                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-5 py-3 text-xs font-black text-white shadow-lg shadow-[#FF0033]/30 hover:scale-105 transition"
-                      >
-                        {isAr ? 'احسب سعر الإعلان' : isTr ? 'YouTube Reklam Fiyatları' : isEs ? 'Precios de Anuncios' : 'Calculate Ad Pricing'} <ArrowRight className="h-3.5 w-3.5" />
-                      </Link>
-                      <Link
-                        href={`/${locale}/order`}
-                        className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-xs font-bold text-white hover:bg-white/10 transition"
-                      >
-                        {isAr ? 'اطلب مراجعة الفيديو' : isTr ? 'Klip Analizi İste' : isEs ? 'Solicitar Análisis de Video' : 'Request Video Audit'}
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </div>
+              <p key={idx} className="leading-relaxed">
+                {parseParagraphWithLinks(p, locale)}
+              </p>
             );
           })}
         </div>
@@ -655,7 +618,7 @@ export default async function BlogPostPage({ params }: Props) {
             <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-2.5">
               {isAr ? '🎯 خدمات الترويج الرسمية على يوتيوب:' : isTr ? '🎯 Resmi YouTube Reklam & Klip Tanıtım Sayfaları:' : isEs ? '🎯 Páginas Oficiales de Promoción en YouTube:' : '🎯 Official YouTube Music Promotion Pages:'}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs font-extrabold mb-5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs font-extrabold">
               {getLandingPages(locale).map((lp) => (
                 <Link
                   key={lp.slug}
@@ -666,182 +629,8 @@ export default async function BlogPostPage({ params }: Props) {
                 </Link>
               ))}
             </div>
-            <p className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 mb-3">
-              {isAr ? '📌 أدلة يوتيوب الرسمية المميزة للفنانين:' : isTr ? '📌 Sanatçılar İçin Öne Çıkan Resmi YouTube Rehberleri:' : isEs ? '📌 Guías Oficiales Destacadas para Artistas:' : '📌 Featured Official YouTube Guides for Artists:'}
-            </p>
-            {isEs ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-semibold">
-                <Link
-                  href="/es/blog/youtube-mexico-music-chart-2026"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🇲🇽 Lista YouTube Música México 2026 →
-                </Link>
-                <Link
-                  href="/es/blog/youtube-espana-music-chart-2026"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🇪🇸 Lista YouTube Música España 2026 →
-                </Link>
-                <Link
-                  href="/es/blog/youtube-colombia-music-chart-2026"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🇨🇴 Lista YouTube Música Colombia 2026 →
-                </Link>
-                <Link
-                  href="/es/blog/como-entrar-en-tendencias-de-youtube-estrategia-2026"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🔥 Cómo Entrar en Tendencias de YouTube 2026 →
-                </Link>
-                <Link
-                  href="/es/blog/promocion-videos-musicales-youtube-google-ads-guia"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  📘 Promoción con Google Ads Oficial →
-                </Link>
-                <Link
-                  href="/es/blog/es-buena-idea-comprar-visitas-youtube-guia-anuncios-oficiales"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🛡️ ¿Comprar Visitas? Guía Oficial →
-                </Link>
-              </div>
-            ) : isAr ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-semibold">
-                <Link
-                  href="/ar/blog/youtube-shorts-ads-music-video-demand-gen"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  📱 دليل الترويج بإعلانات YouTube Shorts →
-                </Link>
-                <Link
-                  href="/ar/blog/promote-music-video-youtube-saudi-egypt-morocco-guide"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🌍 ترويج الكليب في السعودية ومصر والمغرب →
-                </Link>
-                <Link
-                  href="/ar/blog/youtube-saudi-arabia-music-chart-october-2026"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🇸🇦 قائمة يوتيوب للموسيقى في السعودية 2026 →
-                </Link>
-                <Link
-                  href="/ar/blog/youtube-morocco-music-chart-october-2026"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🇲🇦 قائمة يوتيوب للموسيقى في المغرب 2026 →
-                </Link>
-                <Link
-                  href="/ar/blog/youtube-premiere-music-video-launch-steps"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🎬 إعداد العرض الأول (Premiere) لكليبك →
-                </Link>
-                <Link
-                  href="/ar/blog/first-48-hours-music-video-youtube-algorithm-guide"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  ⏱️ أول 48 ساعة لكليبك: دليل الخوارزمية →
-                </Link>
-                <Link
-                  href="/ar/blog/youtube-bot-panel-risks-official-google-ads-difference"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🛡️ مخاطر لوحات البوت والفرق مع Google Ads →
-                </Link>
-                <Link
-                  href="/ar/blog/youtube-music-video-promotion-google-ads-guide"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  📘 ترويج فيديو كليب بإعلانات Google Ads →
-                </Link>
-              </div>
-            ) : isTr ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-semibold">
-                <Link
-                  href="/tr/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  📱 YouTube Shorts Reklam Verme Rehberi →
-                </Link>
-                <Link
-                  href="/tr/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  ⏱️ YouTube 4000 Saat İzlenme Doldurma →
-                </Link>
-                <Link
-                  href="/tr/blog/youtube-premiere-nasil-yapilir-muzik-klibi-lansman-adimlari"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🎬 YouTube Premiere İlk Gösterim Kurgusu →
-                </Link>
-                <Link
-                  href="/tr/blog/youtube-canli-yayini-nasil-baslatilir-ve-one-cikarilir"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🔴 YouTube Canlı Yayın Açma Şartları →
-                </Link>
-                <Link
-                  href="/tr/blog/youtube-gizli-ve-liste-disi-video-farki-nedir"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🔒 YouTube Liste Dışı Video Ne Demek? →
-                </Link>
-                <Link
-                  href="/tr/blog/youtube-klip-tanitimi-google-ads-rehberi"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  📘 YouTube Klip Tanıtımı Nasıl Yapılır? →
-                </Link>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-semibold">
-                <Link
-                  href="/en/blog/youtube-klip-tanitimi-google-ads-rehberi"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  📘 Official Google Ads Music Video Promotion →
-                </Link>
-                <Link
-                  href="/en/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  📱 YouTube Shorts Ad Promotion & Demand Gen →
-                </Link>
-                <Link
-                  href="/en/blog/hip-hop-rap-youtube-video-promotion-pr-strategy-guide"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🎤 Hip-Hop & Rap Music Video Promotion PR →
-                </Link>
-                <Link
-                  href="/en/blog/rock-metal-music-video-promotion-youtube-strategy-guide"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🎸 Rock & Metal Music Video Promotion Guide →
-                </Link>
-                <Link
-                  href="/en/blog/youtube-video-reklam-fiyatlari-2026-cpv-butce-hesaplama"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  💰 YouTube Video Ad Pricing & CPV Guide 2026 →
-                </Link>
-                <Link
-                  href="/en/blog/youtube-music-chart-usa-october-2026-latin-and-hip-hop"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
-                >
-                  🇺🇸 YouTube USA Music Chart & PR Trends 2026 →
-                </Link>
-              </div>
-            )}
           </div>
         </div>
-
-        {!post.noCta && <AnalysisCta locale={locale} source="blog" />}
 
         {/* ── Topic Cluster: Related Articles ── */}
         {isBioPost && bioArtistName && (

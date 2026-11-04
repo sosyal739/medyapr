@@ -362,6 +362,45 @@ export default async function HomePage({ params }: Props) {
                   📘 كيف تروّج لفيديو الكليب عبر Google Ads ←
                 </Link>
               </>
+            ) : isEs ? (
+              <>
+                <Link
+                  href="/es/blog/promocion-videos-musicales-youtube-google-ads-guia"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  📘 Promoción de Videos Musicales con Google Ads →
+                </Link>
+                <Link
+                  href="/es/blog/como-entrar-en-tendencias-de-youtube-estrategia-2026"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🔥 Cómo Entrar en Tendencias de YouTube (2026) →
+                </Link>
+                <Link
+                  href="/es/blog/youtube-mexico-music-chart-2026"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🇲🇽 Lista YouTube Música México 2026 →
+                </Link>
+                <Link
+                  href="/es/blog/youtube-espana-music-chart-2026"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🇪🇸 Lista YouTube Música España 2026 →
+                </Link>
+                <Link
+                  href="/es/blog/youtube-colombia-music-chart-2026"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🇨🇴 Lista YouTube Música Colombia 2026 →
+                </Link>
+                <Link
+                  href="/es/blog/anuncios-youtube-shorts-videos-musicales-demand-gen"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  📱 Anuncios en YouTube Shorts y Demand Gen →
+                </Link>
+              </>
             ) : isTr ? (
               <>
                 <Link
@@ -377,12 +416,6 @@ export default async function HomePage({ params }: Props) {
                   📱 YouTube Shorts Reklam Verme Rehberi →
                 </Link>
                 <Link
-                  href="/tr/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
-                >
-                  ⏱️ YouTube 4000 Saat İzlenme Rehberi →
-                </Link>
-                <Link
                   href="/tr/blog/youtube-video-reklam-fiyatlari-2026-cpv-butce-hesaplama"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
@@ -395,31 +428,55 @@ export default async function HomePage({ params }: Props) {
                   🇩🇪 Almanya ve Avrupa Türk Sanatçı PR Rehberi →
                 </Link>
                 <Link
-                  href="/tr/blog/youtube-trendlere-nasil-girilir-2026-algoritma-rehberi"
+                  href="/tr/blog/muzik-kliplerinde-ilk-48-saat-algoritma-rehberi"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
-                  🔥 YouTube Trendlere Nasıl Girilir? (2026) →
+                  🔥 Müzik Kliplerinde İlk 48 Saat & Trend Formülü →
+                </Link>
+                <Link
+                  href="/tr/blog/simge-sagin-kimdir-kac-yasinda-nereli-sarkilari-ve-youtube-klipleri"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🎤 Simge Sağın Kimdir? Şarkıları & YouTube Analizi →
+                </Link>
+                <Link
+                  href="/tr/blog/turk-sarkicilar-rap-pop-kac-yasinda-nereli-gercek-adi-2026-listesi"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🌟 Türk Şarkıcılar 2026 Ansiklopedisi (Yaş & Boy) →
+                </Link>
+                <Link
+                  href="/tr/blog/blok3-hakan-aydin-kimdir-sarkilari-tarzi-ve-youtube-basarisi"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🎧 BLOK3 (Hakan Aydın) Kimdir? YouTube Başarısı →
+                </Link>
+                <Link
+                  href="/tr/blog/dedubluman-kimdir-alternatif-rockin-zirveye-uzanan-basari-hikayesi"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  🎸 Dedublüman Kimdir? Alternatif Rock Analizi →
                 </Link>
               </>
             ) : (
               <>
                 <Link
-                  href="/en/blog/youtube-klip-tanitimi-google-ads-rehberi"
+                  href="/en/blog/how-to-promote-your-music-video-on-youtube-with-google-ads-2026"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
-                  📘 How to Run Official Music Video Ads →
+                  📘 How to Promote Your Music Video with Google Ads →
+                </Link>
+                <Link
+                  href="/en/blog/cost-of-youtube-music-video-ads-cpv-benchmarks-2026"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
+                >
+                  💰 Cost of YouTube Music Video Ads (CPV 2026) →
                 </Link>
                 <Link
                   href="/en/blog/hip-hop-rap-youtube-video-promotion-pr-strategy-guide"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
                   🎤 Hip-Hop & Rap Music Video PR Playbook →
-                </Link>
-                <Link
-                  href="/en/blog/rock-metal-music-video-promotion-youtube-strategy-guide"
-                  className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
-                >
-                  🎸 Rock & Metal Music Video Promotion Guide →
                 </Link>
                 <Link
                   href="/en/blog/youtube-music-chart-usa-october-2026-latin-and-hip-hop"
@@ -434,10 +491,10 @@ export default async function HomePage({ params }: Props) {
                   🇬🇧 YouTube UK Music Chart & Promotion Guide →
                 </Link>
                 <Link
-                  href="/en/blog/sabrina-carpenter-espresso-youtube-video-strategy"
+                  href="/en/blog/sabrina-carpenter-taste-please-please-please-youtube-pr-playbook"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
-                  ⭐ Sabrina Carpenter YouTube Video Strategy →
+                  ⭐ Sabrina Carpenter YouTube Video PR Playbook →
                 </Link>
               </>
             )}

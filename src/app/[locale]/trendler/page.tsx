@@ -428,10 +428,10 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
           ) : isTr ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs font-semibold">
               <Link
-                href="/tr/blog/youtube-trendlere-nasil-girilir-2026-algoritma-rehberi"
+                href="/tr/blog/muzik-kliplerinde-ilk-48-saat-algoritma-rehberi"
                 className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
               >
-                🔥 YouTube Trendlere Nasıl Girilir? (2026 Algoritma Formülü) →
+                🔥 Müzik Kliplerinde İlk 48 Saat & YouTube Trend Formülü →
               </Link>
               <Link
                 href="/tr/blog/youtube-klip-tanitimi-google-ads-rehberi"

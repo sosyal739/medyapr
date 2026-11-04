@@ -8,9 +8,9 @@ export const TR_EN: readonly Locale[] = ['tr', 'en'];
 /**
  * Üretilen sayfa için kesin ve eksiksiz canonical ve hreflang alternates nesnesi döner.
  * Yalnızca sayfanın gerçekten var olduğu dilleri listeler; olmayan bir çeviriye hreflang verilmez.
- * @param locale 'tr' | 'en' | 'ar'
+ * @param locale 'tr' | 'en' | 'ar' | 'es'
  * @param path Sayfa yolu (örn: '/blog', '/trendler', '/sanatcilar')
- * @param available Sayfanın yayınlandığı diller (varsayılan: hepsi)
+ * @param available Sayfanın yayınlandığı dilleri (varsayılan: hepsi)
  */
 export function getPageAlternates(locale: string, path: string = '', available: readonly Locale[] = locales) {
   const cleanPath = path ? (path.startsWith('/') ? path : `/${path}`) : '';
@@ -25,15 +25,17 @@ export function getPageAlternates(locale: string, path: string = '', available: 
 }
 
 /**
- * Türkçe tarih metnini (örn: "9 Ekim 2026") arama motorları için ISO-8601 (YYYY-MM-DD) formatına çevirir.
+ * Türkçe tarih metnini (örn: "9 Ekim 2026") veya ISO metnini arama motorları için ISO-8601 (YYYY-MM-DD) formatına çevirir.
  */
 export function toIsoDateString(dateStr?: string): string {
   if (!dateStr) return '2026-10-10';
+  const trimmed = dateStr.trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) return trimmed;
   const months: Record<string, string> = {
     Ocak: '01', Şubat: '02', Mart: '03', Nisan: '04', Mayıs: '05', Haziran: '06',
     Temmuz: '07', Ağustos: '08', Eylül: '09', Ekim: '10', Kasım: '11', Aralık: '12',
   };
-  const parts = dateStr.trim().split(' ');
+  const parts = trimmed.split(' ');
   if (parts.length === 3) {
     const day = parts[0].padStart(2, '0');
     const month = months[parts[1]] || '10';
@@ -43,9 +45,10 @@ export function toIsoDateString(dateStr?: string): string {
   return '2026-10-10';
 }
 
-/** "13 Ekim 2026" biçimindeki kaydı dile uygun gösterir (EN: "October 13, 2026"). */
+/** "13 Ekim 2026" veya "2026-10-13" biçimindeki kaydı dile uygun gösterir (EN: "October 13, 2026"). */
 export function displayDate(dateStr: string | undefined, locale: string): string {
-  if (!dateStr || locale === 'tr') return dateStr ?? '';
+  if (!dateStr) return '';
+  if (locale === 'tr' && !/^\d{4}-\d{2}-\d{2}$/.test(dateStr.trim())) return dateStr;
   const iso = toIsoDateString(dateStr);
   const d = new Date(`${iso}T12:00:00Z`);
   if (Number.isNaN(d.getTime())) return dateStr;

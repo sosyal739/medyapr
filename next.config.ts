@@ -31,12 +31,36 @@ const nextConfig: NextConfig = {
         destination: '/en/:path*',
         permanent: true,
       },
-      // Türkiye/İngilizce dünyasına özgü bölümlerin Arapça sürümü yok: tek adımda İngilizceye.
+      // Türkiye/İngilizce dünyasına özgü bölümlerin Arapça ve İspanyolca sürümü yok: tek adımda İngilizceye.
       { source: '/ar/sanatcilar', destination: '/en/sanatcilar', permanent: true },
       { source: '/ar/yeni-klipler', destination: '/en/yeni-klipler', permanent: true },
       { source: '/ar/sanatci/:slug', destination: '/en/sanatci/:slug', permanent: true },
       { source: '/ar/klip/:slug', destination: '/en/klip/:slug', permanent: true },
+      { source: '/es/sanatcilar', destination: '/en/sanatcilar', permanent: true },
+      { source: '/es/yeni-klipler', destination: '/en/yeni-klipler', permanent: true },
+      { source: '/es/sanatci/:slug', destination: '/en/sanatci/:slug', permanent: true },
+      { source: '/es/klip/:slug', destination: '/en/klip/:slug', permanent: true },
       // Consolidated blog posts (with and without locale prefix to prevent 2-hop chains)
+      {
+        source: '/:locale(tr|en)/blog/sabrina-carpenter-espresso-youtube-video-strategy',
+        destination: '/en/blog/sabrina-carpenter-taste-please-please-please-youtube-pr-playbook',
+        permanent: true,
+      },
+      {
+        source: '/blog/sabrina-carpenter-espresso-youtube-video-strategy',
+        destination: '/en/blog/sabrina-carpenter-taste-please-please-please-youtube-pr-playbook',
+        permanent: true,
+      },
+      {
+        source: '/:locale(tr|en)/blog/youtube-trendlere-nasil-girilir-2026-algoritma-rehberi',
+        destination: '/:locale/blog/muzik-kliplerinde-ilk-48-saat-algoritma-rehberi',
+        permanent: true,
+      },
+      {
+        source: '/blog/youtube-trendlere-nasil-girilir-2026-algoritma-rehberi',
+        destination: '/tr/blog/muzik-kliplerinde-ilk-48-saat-algoritma-rehberi',
+        permanent: true,
+      },
       {
         source: '/:locale(tr|en)/blog/youtube-music-video-promotion-cost-and-pricing-benchmarks-2026',
         destination: '/:locale/fiyatlandirma',

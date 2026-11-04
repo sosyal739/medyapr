@@ -22,6 +22,17 @@ export async function generateStaticParams() {
   );
 }
 
+const ARTIST_BLOG_SLUG: Record<string, string> = {
+  manifest: 'manifest-kimdir-sarkilari-tarzi-ve-youtube-yukselisi',
+  dedubluman: 'dedubluman-kimdir-alternatif-rockin-zirveye-uzanan-basari-hikayesi',
+  blok3: 'blok3-hakan-aydin-kimdir-sarkilari-tarzi-ve-youtube-basarisi',
+  'mert-demir': 'mert-demir-kibariye-karakis-harbiye-canli-klip-trend-analizi',
+  poizi: 'poizi-kimdir-bi-kahve-yaptim-sarkisi-ve-youtube-trend-analizi',
+  docend: 'docend-eller-uzer-bagimsiz-sanatcilar-icin-trend-rehberi',
+  eypio: 'eypio-kimdir-turkce-rapten-dizi-muziklerine-youtube-yolculugu',
+  ahiyan: 'ahiyan-kralin-kizi-klip-analizi-melankolik-trap-etkisi',
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const isTr = locale === 'tr';
@@ -49,6 +60,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       absolute: rawTitle,
     },
     description: pageDesc,
+    robots: {
+      index: false,
+      follow: true,
+    },
     alternates: getPageAlternates(locale, `/sanatci/${slug}`, TR_EN),
     openGraph: {
       title: rawTitle,
@@ -159,6 +174,16 @@ export default async function ArtistDetailPage({ params }: Props) {
               {isAr ? 'السيرة الذاتية' : isTr ? 'Biyografi' : 'Biography'}
             </h2>
             <p className="text-sm sm:text-base leading-relaxed text-zinc-300">{isTr ? artist.bio : (artist.bio_en ?? artist.bio)}</p>
+            {isTr && ARTIST_BLOG_SLUG[artist.slug] && (
+              <div className="mt-4">
+                <Link
+                  href={`/tr/blog/${ARTIST_BLOG_SLUG[artist.slug]}`}
+                  className="inline-flex items-center gap-2 text-xs font-bold text-[#FF6B6B] hover:text-white transition"
+                >
+                  {artist.name} Kimdir? Detaylı Biyografi, Şarkıları ve YouTube Analizini Oku <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            )}
           </div>
         </div>
 
