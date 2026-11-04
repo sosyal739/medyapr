@@ -90,9 +90,9 @@ export default async function LocaleLayout({ params, children }: Props) {
   );
 
   return (
-    <html lang={locale} dir={localeDir(locale)} className="scroll-smooth" data-theme="dark" suppressHydrationWarning>
+    <html lang={locale} dir={localeDir(locale)} className="scroll-smooth" data-theme="light" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: "try{if(localStorage.getItem('medyapr_theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}" }} />
+        <script dangerouslySetInnerHTML={{ __html: "try{var t=localStorage.getItem('medyapr_theme');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark')}else{document.documentElement.setAttribute('data-theme','light')}}catch(e){}" }} />
         {/* Schema.org Unified Graph: Organization, Person, ProfessionalService, WebSite */}
         <script
           type="application/ld+json"

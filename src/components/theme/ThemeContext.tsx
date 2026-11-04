@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-/** dark = Gece Modu (varsayılan, mevcut siyah görünüm), light = Gündüz Modu (buzlu beyaz-gri). */
+/** light = Gündüz Modu (varsayılan, buzlu beyaz-gri), dark = Gece Modu (siyah stüdyo görünümü). */
 type Theme = 'dark' | 'light';
 
 interface ThemeContextType {
@@ -13,20 +13,20 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  theme: 'dark',
+  theme: 'light',
   toggleTheme: () => {},
   setTheme: () => {},
-  isLight: false,
+  isLight: true,
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('dark');
+  const [theme, setThemeState] = useState<Theme>('light');
 
   useEffect(() => {
     // Ön yükleme betiği data-theme'i zaten ayarladı; React durumunu onunla eşitle.
     const current = document.documentElement.getAttribute('data-theme');
     // eslint-disable-next-line react-hooks/set-state-in-effect -- hidrasyon sonrası tarayıcı durumunu okuma
-    if (current === 'light') setThemeState('light');
+    if (current === 'dark') setThemeState('dark'); else setThemeState('light');
   }, []);
 
   const setTheme = (newTheme: Theme) => {
