@@ -17,8 +17,8 @@ interface TrendingMusicSectionProps {
 export default function TrendingMusicSection({ songs, locale }: TrendingMusicSectionProps) {
   const [filter, setFilter] = useState<'top10' | 'all' | 'top5'>('top10');
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   const displayedSongs =
     filter === 'top5'
@@ -26,7 +26,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
       : filter === 'all'
       ? songs.slice(0, 20)
       : songs.slice(0, 10);
-  const nf = new Intl.NumberFormat(isAr ? 'ar-u-nu-latn-ca-gregory' : isTr ? 'tr-TR' : 'en-US');
+  const nf = new Intl.NumberFormat(isAr ? 'ar-u-nu-latn-ca-gregory' : isTr ? 'tr-TR' : isEs ? 'es-ES' : 'en-US');
 
   return (
     <section id="trends" className="relative overflow-hidden bg-studio-gradient py-24 text-white border-y border-studio">
@@ -44,12 +44,12 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[#D9002B]" />
               </span>
               <Flame className="h-4 w-4 text-[#FF0033]" />
-              {isAr ? 'قوائم يوتيوب الموسيقية' : isTr ? 'YouTube Türkiye Müzik Listesi' : 'YouTube Music Charts'}
+              {isAr ? 'قوائم يوتيوب الموسيقية' : isTr ? 'YouTube Türkiye Müzik Listesi' : isEs ? 'Listas de YouTube Música' : 'YouTube Music Charts'}
             </div>
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-white">
-              {isAr ? 'اليوم على الترند' : isTr ? 'Bugün Türkiye\'de' : 'Today on Trending'}{' '}
+              {isAr ? 'اليوم على الترند' : isTr ? "Bugün Türkiye'de" : isEs ? 'Tendencias de Hoy' : 'Today on Trending'}{' '}
               <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
-                {isAr ? 'فيديو كليبات' : isTr ? 'Trend Olan Müzik Klipleri' : 'Music Videos'}
+                {isAr ? 'فيديو كليبات' : isTr ? 'Trend Olan Müzik Klipleri' : isEs ? 'Videos Musicales en Tendencia' : 'Music Videos'}
               </span>
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">
@@ -57,6 +57,8 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                 ? "قائمة يوتيوب الرسمية «الأكثر رواجًا في الموسيقى»، مع عدد المشاهدات."
                 : isTr
                 ? "YouTube'un resmî “En Popüler Müzik” listesi; izlenme sayılarıyla birlikte."
+                : isEs
+                ? "Lista oficial de YouTube “Música Más Popular”, con número de reproducciones."
                 : "YouTube's official “Most Popular Music” chart, with view counts."}
             </p>
           </div>
@@ -73,7 +75,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
               }`}
             >
               <Flame className={`h-3.5 w-3.5 ${filter === 'top10' ? 'text-white' : 'text-zinc-400'}`} />
-              {isAr ? 'أفضل 10' : isTr ? 'İlk 10 Klip' : 'Top 10'}
+              {isAr ? 'أفضل 10' : isTr ? 'İlk 10 Klip' : isEs ? 'Top 10' : 'Top 10'}
             </button>
             <button
               type="button"
@@ -85,7 +87,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
               }`}
             >
               <Sparkles className={`h-3.5 w-3.5 ${filter === 'all' ? 'text-white' : 'text-zinc-400'}`} />
-              {isAr ? 'كل الـ20' : isTr ? 'Tüm 20 Trend' : 'All 20'}
+              {isAr ? 'كل الـ20' : isTr ? 'Tüm 20 Trend' : isEs ? 'Todos los 20' : 'All 20'}
             </button>
             <button
               type="button"
@@ -97,7 +99,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
               }`}
             >
               <TrendingUp className={`h-3.5 w-3.5 ${filter === 'top5' ? 'text-white' : 'text-zinc-400'}`} />
-              {isAr ? 'أفضل 5' : isTr ? 'Zirve 5' : 'Top 5'}
+              {isAr ? 'أفضل 5' : isTr ? 'Zirve 5' : isEs ? 'Top 5' : 'Top 5'}
             </button>
           </div>
         </div>
@@ -153,7 +155,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                     target="_blank"
                     rel="noopener noreferrer"
                     className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 backdrop-blur-xs transition-opacity duration-300 group-hover:opacity-100"
-                    title={isAr ? 'شاهد على يوتيوب' : isTr ? 'YouTube\'da Aç' : 'Watch on YouTube'}
+                    title={isAr ? 'شاهد على يوتيوب' : isTr ? "YouTube'da Aç" : isEs ? 'Ver en YouTube' : 'Watch on YouTube'}
                   >
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D9002B] text-white shadow-lg">
                       <Play className="ml-0.5 h-5 w-5 fill-white" />
@@ -169,7 +171,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                         {song.artist}
                       </span>
                       {isFirst && (
-                        <div className="flex items-end gap-0.5 h-3.5 px-1.5 py-0.5 rounded bg-black/40 border border-white/20" title={isAr ? 'المركز الأول حاليًا على الترند' : isTr ? 'Şu An Canlı Zirvede' : 'Currently #1 on Trending'}>
+                        <div className="flex items-end gap-0.5 h-3.5 px-1.5 py-0.5 rounded bg-black/40 border border-white/20" title={isAr ? 'المركز الأول حاليًا على الترند' : isTr ? 'Şu An Canlı Zirvede' : isEs ? 'Actualmente en el #1' : 'Currently #1 on Trending'}>
                           <div className="w-0.5 bg-[#D9002B] rounded-full animate-eq-1" />
                           <div className="w-0.5 bg-white rounded-full animate-eq-2" />
                           <div className="w-0.5 bg-amber-400 rounded-full animate-eq-3" />
@@ -177,7 +179,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                       )}
                       {song.isNew && (
                         <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[11px] font-bold text-emerald-400">
-                          {isAr ? 'جديد' : isTr ? 'YENİ GİRİŞ' : 'NEW'}
+                          {isAr ? 'جديد' : isTr ? 'YENİ GİRİŞ' : isEs ? 'NUEVO' : 'NEW'}
                         </span>
                       )}
                     </div>
@@ -189,12 +191,12 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                   {/* Metrics */}
                   <div className="mt-3 flex flex-wrap items-center gap-3 text-xs">
                     <span className="font-bold text-white/90 tabular-nums">
-                      {nf.format(song.views)} {isAr ? 'مشاهدات' : isTr ? 'İzlenme' : 'views'}
+                      {nf.format(song.views)} {isAr ? 'مشاهدات' : isTr ? 'İzlenme' : isEs ? 'vistas' : 'views'}
                     </span>
                     {song.gain24h > 0 && (
                       <span className="inline-flex items-center gap-1 font-semibold text-emerald-400">
                         <TrendingUp className="h-3 w-3" />
-                        +{nf.format(song.gain24h)} {isAr ? '24 ساعة' : isTr ? 'son 24s' : '24h'}
+                        +{nf.format(song.gain24h)} {isAr ? '24 ساعة' : isTr ? 'son 24s' : isEs ? 'últimas 24h' : '24h'}
                       </span>
                     )}
                     <div className="ml-auto flex items-center gap-2">
@@ -202,9 +204,9 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                         <Link
                           href={`/${locale}/blog/${song.blogSlug}`}
                           className="inline-flex items-center gap-1 rounded-md bg-white/10 px-2 py-0.5 text-[11px] font-bold text-zinc-300 hover:bg-[#FF0033]/30 hover:text-white transition"
-                          title={isAr ? 'تحليل' : isTr ? 'Sanatçı & Klip Analizi' : 'Analysis'}
+                          title={isAr ? 'تحليل' : isTr ? 'Sanatçı & Klip Analizi' : isEs ? 'Análisis de Artista y Video' : 'Analysis'}
                         >
-                          {isAr ? 'مراجعة' : isTr ? 'Analiz' : 'Review'}
+                          {isAr ? 'مراجعة' : isTr ? 'Analiz' : isEs ? 'Análisis' : 'Review'}
                         </Link>
                       )}
                       <a
@@ -212,7 +214,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-white/40 hover:text-white"
-                        title={isAr ? 'افتح على يوتيوب' : isTr ? "YouTube'da Aç" : 'Open on YouTube'}
+                        title={isAr ? 'افتح على يوتيوب' : isTr ? "YouTube'da Aç" : isEs ? 'Abrir en YouTube' : 'Open on YouTube'}
                       >
                         <ExternalLink className="h-3.5 w-3.5" />
                       </a>
@@ -231,7 +233,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
             className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-8 py-3.5 text-sm font-bold text-white shadow-xl backdrop-blur-xl hover:border-[#FF0033]/60 hover:bg-[#FF0033]/20 transition-all hover:scale-105"
           >
             <Flame className="h-4 w-4 text-[#FF0033]" />
-            {isAr ? 'استعرض كليبات الترند الـ20 مع تحليل معمّق' : isTr ? 'Tüm 20 Trend Şarkıyı ve Klip Analizlerini Canlı İncele' : 'Explore All 20 Trending Music Videos & Deep Analysis'}
+            {isAr ? 'استعرض كليبات الترند الـ20 مع تحليل معمّق' : isTr ? 'Tüm 20 Trend Şarkıyı ve Klip Analizlerini Canlı İncele' : isEs ? 'Explorar los 20 Videos en Tendencia y Análisis Detallado' : 'Explore All 20 Trending Music Videos & Deep Analysis'}
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -244,13 +246,15 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
             <div className="max-w-3xl space-y-3">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FF0033]/20 px-3.5 py-1 text-xs font-bold text-[#FF6B6B]">
                 <Sparkles className="h-3.5 w-3.5" />
-                {isAr ? 'محرك النمو الخوارزمي' : isTr ? 'Algoritmik Büyüme Fırsatı' : 'Algorithmic Growth Engine'}
+                {isAr ? 'محرك النمو الخوارزمي' : isTr ? 'Algoritmik Büyüme Fırsatı' : isEs ? 'Motor de Crecimiento Algorítmico' : 'Algorithmic Growth Engine'}
               </span>
               <h3 className="text-2xl font-extrabold text-white sm:text-3xl">
                 {isAr
                   ? 'اعرض كليبك أمام الجمهور المناسب'
                   : isTr
                   ? 'Kendi Klibinizi Doğru Kitleye Ulaştırın'
+                  : isEs
+                  ? 'Lleva Tu Video Musical a la Audiencia Correcta'
                   : 'Get Your Own Music Video in Front of the Right Audience'}
               </h3>
               <p className="text-sm leading-relaxed text-white/70 sm:text-base">
@@ -258,6 +262,8 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                   ? 'الصق الرابط، شاهد الفيديو ومشاهداته الحالية، ثم اختر باقة المشاهدات. تعمل الحملات عبر إعلانات فيديو Google Ads الرسمية، بلا بوتات ولا لوحات.'
                   : isTr
                   ? 'Linkinizi yapıştırın, videonuzu ve mevcut izlenmesini görün, istediğiniz izlenme paketini seçin. Kampanyalar resmî Google Ads video reklamlarıyla yürütülür; bot veya panel kullanılmaz.'
+                  : isEs
+                  ? 'Pega tu enlace, mira tu video y sus reproducciones actuales, y elige un paquete de vistas. Las campañas se ejecutan con anuncios oficiales de video de Google Ads, sin bots ni paneles.'
                   : 'Paste your link, see your video and its current views, then pick a views package. Campaigns run on official Google Ads video ads — no bots or panels.'}
               </p>
               <div className="text-xs text-white/40">
@@ -265,6 +271,8 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
                   ? '* مصدر البيانات: YouTube Data API v3. نقدّم حملات فيديو رسمية مستقلة عبر Google Ads.'
                   : isTr
                   ? '* Veri Kaynağı: YouTube Data API v3 (chart=mostPopular, regionCode=TR, categoryId=10 Müzik). Sitemiz YouTube ile bağlantılı değildir; bağımsız reklam danışmanlığı sağlar.'
+                  : isEs
+                  ? '* Fuente de datos: YouTube Data API v3. Ofrecemos consultoría y campañas oficiales de video en Google Ads.'
                   : '* Data Source: YouTube Data API v3. We provide independent official Google Ads video campaigns.'}
               </div>
             </div>
@@ -273,7 +281,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
               href={`/${locale}/order`}
               className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-8 py-4 text-base font-extrabold text-white shadow-xl shadow-[#FF0033]/30 transition-all hover:scale-105 hover:shadow-[#FF0033]/40"
             >
-              {isAr ? 'روّج لفيديوي' : isTr ? 'Videomu Tanıt' : 'Promote My Video'}
+              {isAr ? 'روّج لفيديوي' : isTr ? 'Videomu Tanıt' : isEs ? 'Promocionar Mi Video' : 'Promote My Video'}
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

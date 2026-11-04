@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { locales, localeDir, ogLocale, schemaLang, type Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/dictionaries';
-import { getArPosts } from '@/lib/content';
+import { getArPosts, getEsPosts } from '@/lib/content';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CookieConsent from '@/components/common/CookieConsent';
@@ -36,6 +36,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: dict.metadata.description,
     keywords: locale === 'ar'
       ? 'زيادة مشاهدات يوتيوب، الترويج للفيديو، ترويج فيديو كليب على يوتيوب، إعلانات فيديو جوجل، نمو قناة يوتيوب، وكالة ترويج يوتيوب'
+      : locale === 'es'
+      ? 'promocion videos musicales youtube, campanas google ads para videos, crecer canal de youtube, vistas youtube reales, agencia promocion musical, marketing musical youtube'
       : locale === 'tr' 
       ? 'youtube izlenme, video pr, klip pr, google ads video reklam, youtube büyütme, youtube reklam ajansı'
       : 'youtube views, video pr, music video pr, google ads video advertising, youtube growth, youtube pr agency',
@@ -51,7 +53,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
           url: '/og-image.jpg',
           width: 1200,
           height: 630,
-          alt: locale === 'ar' ? 'MedyaPR — ترويج فيديو يوتيوب بدعم إعلانات Google Ads الرسمية' : locale === 'tr' ? 'MedyaPR — Resmi Google Ads Destekli YouTube Klip PR' : 'MedyaPR — Official Google Ads Backed YouTube Video PR',
+          alt: locale === 'ar' ? 'MedyaPR — ترويج فيديو يوتيوب بدعم إعلانات Google Ads الرسمية' : locale === 'es' ? 'MedyaPR — Promoción de Videos Musicales en YouTube con Google Ads Oficial' : locale === 'tr' ? 'MedyaPR — Resmi Google Ads Destekli YouTube Klip PR' : 'MedyaPR — Official Google Ads Backed YouTube Video PR',
         },
       ],
     },
@@ -83,6 +85,9 @@ export default async function LocaleLayout({ params, children }: Props) {
   const arTwins = Object.fromEntries(
     (await getArPosts()).filter((p) => p.translationOf).map((p) => [p.slug, p.translationOf as string]),
   );
+  const esTwins = Object.fromEntries(
+    (await getEsPosts()).filter((p) => p.translationOf).map((p) => [p.slug, p.translationOf as string]),
+  );
 
   return (
     <html lang={locale} dir={localeDir(locale)} className="scroll-smooth" data-theme="dark" suppressHydrationWarning>
@@ -99,7 +104,7 @@ export default async function LocaleLayout({ params, children }: Props) {
                   '@type': 'Organization',
                   '@id': 'https://medyapr.com/#organization',
                   name: 'MedyaPR',
-                  legalName: locale === 'ar' ? 'MedyaPR وكالة إعلانات الفيديو والعلاقات العامة' : locale === 'tr' ? 'MedyaPR Video Reklam & PR Ajansı' : 'MedyaPR Video Advertising & PR Agency',
+                  legalName: locale === 'ar' ? 'MedyaPR وكالة إعلانات الفيديو والعلاقات العامة' : locale === 'es' ? 'MedyaPR Agencia de Publicidad y PR de Videos Musicales' : locale === 'tr' ? 'MedyaPR Video Reklam & PR Ajansı' : 'MedyaPR Video Advertising & PR Agency',
                   url: 'https://medyapr.com',
                   logo: {
                     '@type': 'ImageObject',
@@ -111,7 +116,7 @@ export default async function LocaleLayout({ params, children }: Props) {
                     contactType: 'customer support',
                     email: 'info@medyapr.com',
                     url: `https://medyapr.com/${locale}/iletisim`,
-                    availableLanguage: ['Turkish', 'English', 'Arabic'],
+                    availableLanguage: ['Turkish', 'English', 'Arabic', 'Spanish'],
                   },
                   sameAs: [
                     'https://wa.me/905312993355',
@@ -123,12 +128,12 @@ export default async function LocaleLayout({ params, children }: Props) {
                 {
                   '@type': 'ProfessionalService',
                   '@id': 'https://medyapr.com/#service',
-                  name: locale === 'ar' ? 'MedyaPR — وكالة الترويج لفيديو يوتيوب وإعلانات Google Ads' : locale === 'tr' ? 'MedyaPR — YouTube Video PR & Google Ads Ajansı' : 'MedyaPR — YouTube Video PR & Google Ads Agency',
+                  name: locale === 'ar' ? 'MedyaPR — وكالة الترويج لفيديو يوتيوب وإعلانات Google Ads' : locale === 'es' ? 'MedyaPR — Agencia de Promoción de Videos en YouTube y Google Ads' : locale === 'tr' ? 'MedyaPR — YouTube Video PR & Google Ads Ajansı' : 'MedyaPR — YouTube Video PR & Google Ads Agency',
                   url: 'https://medyapr.com',
                   priceRange: locale === 'tr' ? '₺₺' : '$$',
                   currenciesAccepted: 'TRY, USD, EUR',
-                  paymentAccepted: locale === 'ar' ? 'حوالة بنكية مؤكدة عبر WhatsApp وTelegram، FAST' : locale === 'tr' ? 'WhatsApp & Telegram Onaylı Banka Havalesi, FAST' : 'WhatsApp & Telegram Confirmed Bank Wire, FAST',
-                  areaServed: ['TR', 'DE', 'Global'],
+                  paymentAccepted: locale === 'ar' ? 'حوالة بنكية مؤكدة عبر WhatsApp وTelegram، FAST' : locale === 'es' ? 'Transferencia bancaria confirmada por WhatsApp y Telegram, tarjeta y FAST' : locale === 'tr' ? 'WhatsApp & Telegram Onaylı Banka Havalesi, FAST' : 'WhatsApp & Telegram Confirmed Bank Wire, FAST',
+                  areaServed: ['TR', 'DE', 'MX', 'ES', 'CO', 'US', 'SA', 'EG', 'MA', 'Global'],
                   parentOrganization: { '@id': 'https://medyapr.com/#organization' },
                 },
                 {
@@ -148,7 +153,7 @@ export default async function LocaleLayout({ params, children }: Props) {
       <body className="min-h-screen flex flex-col bg-app-base text-zinc-100 antialiased selection:bg-[#D9002B] selection:text-white transition-colors duration-400">
         <ThemeProvider>
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || 'G-EEBZ16SNQ9'} />
-          <Header dict={dict} locale={locale} arTwins={arTwins} />
+          <Header dict={dict} locale={locale} arTwins={arTwins} esTwins={esTwins} />
           <main className="flex-grow pt-[72px] pb-16 md:pb-0">{children}</main>
           <Footer dict={dict} locale={locale} />
           <CookieConsent dict={dict} locale={locale} />

@@ -28,17 +28,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   const title = isAr
     ? 'وكالة العلاقات العامة الرقمية وإطلاق فيديو الكليب | MedyaPR'
+    : isEs
+    ? 'Agencia de PR Digital y Lanzamiento de Videos Musicales | MedyaPR'
     : isTr
     ? 'YouTube Klip Tanıtımı, Şarkı PR & Müzik Lansman Ajansı | MedyaPR'
     : 'Music Video Digital PR & Launch Agency | MedyaPR';
 
   const description = isAr
     ? 'علاقات عامة رقمية وتخطيط إعلامي وإدارة إطلاق لفيديو الكليب باستهداف الجمهور المناسب، للفنانين المستقلين وشركات التسجيلات. اطلب تحليلًا مجانيًا لكليبك.'
+    : isEs
+    ? 'PR digital, planificación de medios y gestión de lanzamientos de videos musicales para artistas independientes y sellos discográficos. Solicita tu análisis gratuito.'
     : isTr
     ? 'Sanatçılar, bağımsız müzisyenler ve yapım şirketleri için YouTube klip tanıtımı, şarkı reklamı verme, dijital müzik PR ve lansman ajansı. Ücretsiz analiz isteyin.'
     : 'Audience-targeted music video digital PR, media planning, and launch management for independent artists and record labels. Request a free video audit.';
@@ -61,8 +65,8 @@ export default async function KlipPrLandingPage({
 }) {
   const { locale } = await params;
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   const faqs = isAr
     ? [
@@ -77,6 +81,21 @@ export default async function KlipPrLandingPage({
         {
           q: 'هل تستخدمون بوتات أو لوحات تفاعل مصطنعة؟',
           a: 'أبدًا. MedyaPR وكالة مستقلة للتخطيط الإعلامي الرقمي والترويج الموسيقي بخبرة تتجاوز 18 عامًا. نلتزم التزامًا صارمًا بسياسات الإعلانات الرسمية ولا نقدّم أي تلاعب مصطنع بالأرقام.',
+        },
+      ]
+    : isEs
+    ? [
+        {
+          q: '¿Requieren contraseña del canal o acceso a la cuenta?',
+          a: 'No. Jamás solicitamos contraseñas ni credenciales de acceso. Solo necesitamos el enlace público de tu video para configurar y lanzar la campaña.',
+        },
+        {
+          q: '¿Cómo funciona el proceso de pago?',
+          a: 'Primero analizamos tu video y preparamos un plan de medios; el plan de pago se acuerda por escrito tras la cotización. Ninguna campaña inicia sin tu visto bueno.',
+        },
+        {
+          q: '¿Utilizan bots o paneles de interacción artificial?',
+          a: 'Jamás. MedyaPR es una agencia independiente de medios digitales y PR musical con más de 18 años de trayectoria. Cumplimos estrictamente las políticas oficiales de Google Ads y YouTube.',
         },
       ]
     : isTr
@@ -122,13 +141,13 @@ export default async function KlipPrLandingPage({
           {
             '@type': 'ListItem',
             position: 1,
-            name: isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home',
+            name: isAr ? 'الرئيسية' : isEs ? 'Inicio' : isTr ? 'Ana Sayfa' : 'Home',
             item: `https://medyapr.com/${locale}`,
           },
           {
             '@type': 'ListItem',
             position: 2,
-            name: isAr ? 'الترويج الرقمي وإطلاق فيديو الكليب' : isTr ? 'Müzik Klibi Dijital PR & Lansman' : 'Music Video Digital PR & Launch',
+            name: isAr ? 'الترويج الرقمي وإطلاق فيديو الكليب' : isEs ? 'PR Digital y Lanzamiento Musical' : isTr ? 'Müzik Klibi Dijital PR & Lansman' : 'Music Video Digital PR & Launch',
             item: `https://medyapr.com/${locale}/klip-pr`,
           },
         ],
@@ -137,6 +156,8 @@ export default async function KlipPrLandingPage({
         '@type': 'Service',
         name: isAr
           ? 'خدمة العلاقات العامة الرقمية وإطلاق فيديو الكليب والتخطيط الإعلامي'
+          : isEs
+          ? 'Servicio de PR Digital, Lanzamiento Musical y Planificación de Medios'
           : isTr
           ? 'Müzik Klibi Dijital PR, Lansman ve Medya Planlama Hizmeti'
           : 'Music Video Digital PR, Launch and Media Planning Service',
@@ -145,7 +166,7 @@ export default async function KlipPrLandingPage({
           name: 'MedyaPR',
           url: 'https://medyapr.com',
         },
-        serviceType: isAr ? 'الترويج الموسيقي والتخطيط الإعلامي للفيديو' : isTr ? 'Müzik PR ve Video Medya Planlama' : 'Music PR and Video Media Planning',
+        serviceType: isAr ? 'الترويج الموسيقي والتخطيط الإعلامي للفيديو' : isEs ? 'PR Musical y Planificación de Video' : isTr ? 'Müzik PR ve Video Medya Planlama' : 'Music PR and Video Media Planning',
         areaServed: ['TR', 'DE', 'Global'],
       },
       {
@@ -179,6 +200,8 @@ export default async function KlipPrLandingPage({
             <span>
               {isAr
                 ? 'خبرة تتجاوز 18 عامًا في الإعلام الرقمي • ترويج فيديو مخصص للفنانين وشركات الإنتاج'
+                : isEs
+                ? '+18 Años en Medios Digitales • PR Exclusivo para Artistas y Sellos'
                 : isTr
                 ? '18+ Yıllık Dijital Medya Deneyimi • Sanatçı & Yapım Şirketlerine Özel Klip PR'
                 : '18+ Years Digital Media Track Record • Dedicated Artist & Label Video PR'}
@@ -192,6 +215,14 @@ export default async function KlipPrLandingPage({
                 اوصل كليبك إلى{' '}
                 <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
                   جمهور المستمعين المناسب
+                </span>
+              </>
+            )
+              : isEs ? (
+              <>
+                Conecta tu Video Musical con la{' '}
+                <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
+                  Audiencia Adecuada de Oyentes
                 </span>
               </>
             )
@@ -216,6 +247,8 @@ export default async function KlipPrLandingPage({
           <p className="text-sm sm:text-lg text-zinc-300 max-w-3xl mx-auto leading-relaxed">
             {isAr
               ? 'لا تدع أشهر العمل في الاستوديو تمر دون أن يلاحظها أحد. نخطط وندير حملات إعلانات فيديو وعلاقات عامة رقمية تناسب نوع موسيقاك وتستهدف المناطق الجغرافية المناسبة، للفنانين المستقلين وشركات التسجيلات.'
+              : isEs
+              ? 'No dejes que meses de producción en el estudio pasen desapercibidos. Planificamos y gestionamos campañas de video y PR digital adaptadas a tu género musical y geografía para artistas y sellos.'
               : isTr
               ? 'Stüdyoda aylarca emek verdiğiniz şarkınız yanlış kitleler arasında kaybolmasın. Müzik türünüze (Pop, Rap, Rock, Alternatif, Akustik), yaş grubuna ve hedef coğrafyaya göre planlanan kurumsal video medya yönetimiyle klibinizi gerçek müzikseverlere ulaştırıyoruz.'
               : 'Do not let months of studio production go unnoticed. We plan and manage genre-matched, geo-targeted video advertising and digital PR campaigns for independent artists and record labels.'}
@@ -225,19 +258,19 @@ export default async function KlipPrLandingPage({
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-xs font-bold text-zinc-200">
             <div className="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-zinc-900/80 px-3 py-3">
               <Lock className="h-4 w-4 text-emerald-400 shrink-0" />
-              <span>{isAr ? 'لا حاجة لكلمة مرور' : isTr ? 'Kanal Şifresi İstenmez' : 'No Password Required'}</span>
+              <span>{isAr ? 'لا حاجة لكلمة مرور' : isEs ? 'Sin Contraseñas de Canal' : isTr ? 'Kanal Şifresi İstenmez' : 'No Password Required'}</span>
             </div>
             <div className="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-zinc-900/80 px-3 py-3">
               <Target className="h-4 w-4 text-[#FF6B6B] shrink-0" />
-              <span>{isAr ? 'استهداف النوع الموسيقي والعمر' : isTr ? 'Müzik Türü & Yaş Hedefleme' : 'Genre & Age Targeting'}</span>
+              <span>{isAr ? 'استهداف النوع الموسيقي والعمر' : isEs ? 'Segmentación por Género y Edad' : isTr ? 'Müzik Türü & Yaş Hedefleme' : 'Genre & Age Targeting'}</span>
             </div>
             <div className="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-zinc-900/80 px-3 py-3">
               <ShieldCheck className="h-4 w-4 text-sky-400 shrink-0" />
-              <span>{isAr ? 'تحليل أولًا • ثم عرض سعر' : isTr ? 'Önce Analiz • Sonra Teklif' : 'Review First • Then Quote'}</span>
+              <span>{isAr ? 'تحليل أولًا • ثم عرض سعر' : isEs ? 'Análisis Primero • Cotización Clara' : isTr ? 'Önce Analiz • Sonra Teklif' : 'Review First • Then Quote'}</span>
             </div>
             <div className="flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-zinc-900/80 px-3 py-3">
               <BarChart3 className="h-4 w-4 text-amber-400 shrink-0" />
-              <span>{isAr ? 'تقارير شفافة' : isTr ? 'Şeffaf Medya Raporlama' : 'Transparent Reporting'}</span>
+              <span>{isAr ? 'تقارير شفافة' : isEs ? 'Reportes Transparentes' : isTr ? 'Şeffaf Medya Raporlama' : 'Transparent Reporting'}</span>
             </div>
           </div>
         </section>
@@ -251,10 +284,10 @@ export default async function KlipPrLandingPage({
         <section className="space-y-8">
           <div className="text-center max-w-2xl mx-auto">
             <span className="text-xs font-extrabold uppercase tracking-wider text-[#FF6B6B]">
-              {isAr ? 'آلية عمل شفافة للوكالة' : isTr ? 'Şeffaf Ajans Süreci' : 'Transparent Agency Workflow'}
+              {isAr ? 'آلية عمل شفافة للوكالة' : isEs ? 'Proceso Transparente de la Agencia' : isTr ? 'Şeffaf Ajans Süreci' : 'Transparent Agency Workflow'}
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-white mt-1">
-              {isAr ? 'إدارة إطلاق الكليب في 3 خطوات' : isTr ? '3 Adımda Klip Lansman & Medya Yönetimi' : '3-Step Music Video Launch Management'}
+              {isAr ? 'إدارة إطلاق الكليب في 3 خطوات' : isEs ? 'Gestión de Lanzamiento en 3 Pasos' : isTr ? '3 Adımda Klip Lansman & Medya Yönetimi' : '3-Step Music Video Launch Management'}
             </h2>
           </div>
 
@@ -264,7 +297,7 @@ export default async function KlipPrLandingPage({
                 01
               </div>
               <h3 className="text-lg font-extrabold text-white">
-                {isAr ? 'تحليل مجاني للكليب والجمهور' : isTr ? 'Ücretsiz Klip & Kitle Analizi' : 'Free Video & Audience Audit'}
+                {isAr ? 'تحليل مجاني للكليب والجمهور' : isEs ? 'Análisis Gratuito de Video y Audiencia' : isTr ? 'Ücretsiz Klip & Kitle Analizi' : 'Free Video & Audience Audit'}
               </h3>
               <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                 {isAr
@@ -280,7 +313,7 @@ export default async function KlipPrLandingPage({
                 02
               </div>
               <h3 className="text-lg font-extrabold text-white">
-                {isAr ? 'إعداد الحملة والموافقة' : isTr ? 'Kampanya Kurulumu & Onay' : 'Campaign Setup & Approval'}
+                {isAr ? 'إعداد الحملة والموافقة' : isEs ? 'Configuración de Campaña y Aprobación' : isTr ? 'Kampanya Kurulumu & Onay' : 'Campaign Setup & Approval'}
               </h3>
               <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                 {isAr
@@ -296,7 +329,7 @@ export default async function KlipPrLandingPage({
                 03
               </div>
               <h3 className="text-lg font-extrabold text-white">
-                {isAr ? 'التحسين والتقرير النهائي' : isTr ? 'Optimizasyon & Tamamlama Raporu' : 'Optimization & Final Reporting'}
+                {isAr ? 'التحسين والتقرير النهائي' : isEs ? 'Optimización y Reporte Final' : isTr ? 'Optimizasyon & Tamamlama Raporu' : 'Optimization & Final Reporting'}
               </h3>
               <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                 {isAr
@@ -314,11 +347,13 @@ export default async function KlipPrLandingPage({
           <div>
             <span className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#FF6B6B]">
               <Music className="h-4 w-4" />
-              {isAr ? 'تخطيط الجمهور حسب النوع الموسيقي' : isTr ? 'Müzik Türüne Göre Kitle Planlaması' : 'Genre-Specific Audience Planning'}
+              {isAr ? 'تخطيط الجمهور حسب النوع الموسيقي' : isEs ? 'Planificación de Audiencia por Género' : isTr ? 'Müzik Türüne Göre Kitle Planlaması' : 'Genre-Specific Audience Planning'}
             </span>
             <h2 className="text-xl sm:text-2xl font-black text-white mt-1">
               {isAr
                 ? 'استهداف مخصص للمستمعين لكل نوع موسيقي'
+                : isEs
+                ? 'Segmentación Personalizada para Cada Género Musical'
                 : isTr
                 ? 'Her Müzik Türü İçin Farklı Dinleyici Stratejisi'
                 : 'Tailored Listener Targeting Across Every Music Genre'}
@@ -329,10 +364,10 @@ export default async function KlipPrLandingPage({
             <table className="w-full text-left border-collapse text-xs sm:text-sm">
               <thead>
                 <tr className="bg-zinc-950 text-zinc-300 border-b border-white/10">
-                  <th className="p-3.5 font-extrabold">{isAr ? 'النوع الموسيقي' : isTr ? 'Müzik Türü' : 'Music Genre'}</th>
-                  <th className="p-3.5 font-extrabold">{isAr ? 'شريحة المستمعين الأساسية' : isTr ? 'Birincil Dinleyici Kitlesi' : 'Primary Listener Segment'}</th>
-                  <th className="p-3.5 font-extrabold">{isAr ? 'صيغة الإعلان الموصى بها' : isTr ? 'Önerilen Medya Formatı' : 'Recommended Ad Format'}</th>
-                  <th className="p-3.5 font-extrabold">{isAr ? 'المناطق الجغرافية الأساسية' : isTr ? 'Öncelikli Coğrafya' : 'Core Geography'}</th>
+                  <th className="p-3.5 font-extrabold">{isAr ? 'النوع الموسيقي' : isEs ? 'Género Musical' : isTr ? 'Müzik Türü' : 'Music Genre'}</th>
+                  <th className="p-3.5 font-extrabold">{isAr ? 'شريحة المستمعين الأساسية' : isEs ? 'Audiencia Principal' : isTr ? 'Birincil Dinleyici Kitlesi' : 'Primary Listener Segment'}</th>
+                  <th className="p-3.5 font-extrabold">{isAr ? 'صيغة الإعلان الموصى بها' : isEs ? 'Formato Recomendado' : isTr ? 'Önerilen Medya Formatı' : 'Recommended Ad Format'}</th>
+                  <th className="p-3.5 font-extrabold">{isAr ? 'المناطق الجغرافية الأساسية' : isEs ? 'Geografía Prioritaria' : isTr ? 'Öncelikli Coğrafya' : 'Core Geography'}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10 text-zinc-300 bg-zinc-900/50">
@@ -370,7 +405,7 @@ export default async function KlipPrLandingPage({
           <div className="flex items-center gap-2">
             <HelpCircle className="h-5 w-5 text-[#FF0033]" />
             <h2 className="text-xl sm:text-2xl font-black text-white">
-              {isAr ? 'أسئلة شائعة للفنانين' : isTr ? 'Sanatçı ve Menajerlerin Sıkça Sorduğu Sorular' : 'Frequently Asked Questions for Artists'}
+              {isAr ? 'أسئلة شائعة للفنانين' : isEs ? 'Preguntas Frecuentes para Artistas y Managers' : isTr ? 'Sanatçı ve Menajerlerin Sıkça Sorduğu Sorular' : 'Frequently Asked Questions for Artists'}
             </h2>
           </div>
 
@@ -391,6 +426,8 @@ export default async function KlipPrLandingPage({
             <span>
               {isAr
                 ? 'الشفافية المؤسسية وإفصاح الوكالة المستقلة وسياسة الخدمة'
+                : isEs
+                ? 'Transparencia Corporativa, Declaración de Agencia Independiente y Política de Servicio'
                 : isTr
                 ? 'Kurumsal Şeffaflık, Bağımsız Ajans Beyanı ve Hizmet Politikası'
                 : 'Corporate Transparency, Independent Agency Disclosure & Service Policy'}
@@ -399,25 +436,27 @@ export default async function KlipPrLandingPage({
           <p className="leading-relaxed">
             {isAr
               ? 'MedyaPR وكالة مستقلة للتخطيط الإعلامي الرقمي والترويج الموسيقي تخدم الفنانين والمنتجين وشركات التسجيلات. تلتزم جميع خدمات إدارة الحملات التزامًا صارمًا بسياسات الإعلانات الرسمية وشروط استخدام المنصات. لا نقدّم تفاعلًا مصطنعًا ولا بوتات ولا تلاعبًا بالأرقام. والتوقعات الإعلامية هي تقديرات للوصول الإعلاني مبنية على معايير استهداف الجمهور.'
+              : isEs
+              ? 'MedyaPR es una agencia digital independiente de planificación de medios y PR musical al servicio de artistas, productores y sellos discográficos. Todos los servicios de gestión cumplen estrictamente las directrices oficiales de Google Ads y condiciones de YouTube. No ofrecemos interacción artificial, bots ni manipulación de métricas.'
               : isTr
               ? 'MedyaPR, sanatçılar, müzik yapımcıları ve kurumsal markalar için medya planlama, dijital halkla ilişkiler (PR) ve video reklam yönetimi hizmeti sunan bağımsız bir dijital ajanstır. Sunulan tüm medya planlama hizmetleri resmi reklam politikaları ve platform kullanım koşullarıyla %100 uyumludur; yapay etkileşim, bot veya metrik manipülasyonu hizmeti kesinlikle verilmemektedir. Kampanya bütçe kademeleri medya planlama ve yönetim hizmetini kapsar; erişim ve etkileşim sonuçları eserin müzikal niteliğine, hedef kitle rekabetine ve izleyici ilgisine göre doğal olarak şekillenir.'
               : 'MedyaPR is an independent digital media planning and music PR agency serving artists, producers, and record labels. All campaign management services strictly comply with official advertising policies and platform terms of service. We do not offer artificial engagement, bots, or metric manipulation. Media projections represent estimated advertising reach based on audience targeting parameters.'}
           </p>
           <div className="flex flex-wrap items-center gap-4 pt-2 border-t border-white/5 text-zinc-300 font-semibold">
             <Link href={`/${locale}/hakkimizda`} className="hover:text-white underline underline-offset-4">
-              {isAr ? 'من نحن' : isTr ? 'Hakkımızda' : 'About Us'}
+              {isAr ? 'من نحن' : isEs ? 'Sobre Nosotros' : isTr ? 'Hakkımızda' : 'About Us'}
             </Link>
             <Link href={`/${locale}/gizlilik`} className="hover:text-white underline underline-offset-4">
-              {isAr ? 'سياسة الخصوصية' : isTr ? 'Gizlilik Politikası' : 'Privacy Policy'}
+              {isAr ? 'سياسة الخصوصية' : isEs ? 'Privacidad' : isTr ? 'Gizlilik Politikası' : 'Privacy Policy'}
             </Link>
             <Link href={`/${locale}/kullanim-kosullari`} className="hover:text-white underline underline-offset-4">
-              {isAr ? 'شروط الاستخدام' : isTr ? 'Kullanım Koşulları' : 'Terms of Service'}
+              {isAr ? 'شروط الاستخدام' : isEs ? 'Términos' : isTr ? 'Kullanım Koşulları' : 'Terms of Service'}
             </Link>
             <Link href={`/${locale}/iade-politikasi`} className="hover:text-white underline underline-offset-4">
-              {isAr ? 'سياسة الاسترداد والخدمة' : isTr ? 'İade & Hizmet Koşulları' : 'Refund & Service Policy'}
+              {isAr ? 'سياسة الاسترداد والخدمة' : isEs ? 'Política de Reembolso' : isTr ? 'İade & Hizmet Koşulları' : 'Refund & Service Policy'}
             </Link>
             <Link href={`/${locale}/iletisim`} className="hover:text-white underline underline-offset-4">
-              {isAr ? 'تواصل معنا وبيانات الشركة' : isTr ? 'İletişim & Künye' : 'Contact & Imprint'}
+              {isAr ? 'تواصل معنا وبيانات الشركة' : isEs ? 'Contacto' : isTr ? 'İletişim & Künye' : 'Contact & Imprint'}
             </Link>
           </div>
         </section>

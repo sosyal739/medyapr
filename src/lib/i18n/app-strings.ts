@@ -371,8 +371,123 @@ const ar: Strings = {
   }
 };
 
+
+const es: Strings = {
+  calc: {
+    badge: 'Precio estimado',
+    title: 'Ingresa las visualizaciones y consulta tu presupuesto al instante',
+    subtitle: 'Envía tu solicitud; analizamos tu video y te respondemos con una propuesta detallada por WhatsApp o Telegram. El trabajo inicia tras tu confirmación. El precio puede variar según la duración del video.',
+    views: 'Número de visualizaciones',
+    format: 'Tipo de Campaña',
+    guaranteesTitle: '100% Garantía Oficial de Google Ads y Estándares',
+    guarantees: [
+      {
+        badge: 'Cero Bots ni Paneles',
+        title: 'Sin Bots ni Paneles SMM',
+        desc: 'Las visualizaciones provienen directamente de Google Ads y son permanentes.',
+      },
+      {
+        badge: 'Verificado en Studio',
+        title: 'Fuente: Publicidad de YouTube',
+        desc: 'Se refleja con total transparencia en las analíticas de YouTube Studio.',
+      },
+      {
+        badge: 'Interacción Genuina',
+        title: 'Likes, Comentarios y Fans',
+        desc: 'Oportunidad de conseguir likes reales, comentarios y suscriptores orgánicos.',
+      },
+    ],
+    region: 'Región objetivo',
+    currency: 'Moneda',
+    formats: {
+      instream: { name: 'Anuncio de Video Oficial', desc: 'Entrega optimizada en In-Stream y Shorts' },
+      shorts: { name: 'Feed de Shorts', desc: 'Exposición en el feed vertical de videos cortos' },
+      discovery: { name: 'Discovery / Búsqueda', desc: 'Visibilidad en la búsqueda de YouTube y sugeridos' },
+    },
+    regions: {
+      tr: { name: 'Turquía', desc: 'Audiencia de habla turca', tag: 'Estándar' },
+      global: { name: 'Global', desc: 'Todos los países combinados', tag: 'Mejor precio 🔥' },
+      premium: { name: 'Seleccionar país', desc: 'Elige tu país de la lista', tag: '' },
+    },
+    total: 'Presupuesto Estimado',
+    discount: 'Descuento por Paquete',
+    per1k: 'Costo por cada 1.000 vistas',
+    eta: 'Tiempo estimado de entrega',
+    days: 'días',
+    cta: 'Enviar Propuesta y Solicitar Análisis',
+    pkg: 'Tipo de Paquete',
+    packages: {
+      views: { name: 'Solo Visualizaciones', desc: 'Entrega de video oficial con Google Ads a tu público', tag: 'Estándar' },
+      engagement: {
+        name: 'Paquete de Interacción',
+        desc: 'Vistas + segmentación enfocada en likes, comentarios y compartidos',
+        tag: '+30%',
+      },
+    },
+    engagementNote: 'La interacción proviene de usuarios reales; los likes y comentarios no se garantizan artificialmente y no usamos bots.',
+    consult: 'Enviar Propuesta por WhatsApp',
+    consultMsg: 'Hola, quisiera enviar una solicitud de cotización y obtener un análisis detallado para mi video de YouTube.',
+    note: 'Cada video es analizado en cuanto a duración, contenido y políticas de Google Ads por nuestros especialistas certificados Google Partners con 18+ años de experiencia. Envía tu cotización, lo analizamos y te respondemos por WhatsApp o Telegram. El servicio inicia tras tu confirmación.',
+    perks: [
+      'Envía tu solicitud, analizamos tu video y te respondemos en detalle',
+      'Atención directa 1 a 1 por WhatsApp y Telegram',
+      'El servicio comienza tras tu aprobación',
+      'El precio puede variar según la duración del video • Cero bots',
+    ],
+  },
+  order: {
+    title: 'Envía tu solicitud para analizar tu video',
+    subtitle: 'Ingresa el enlace de tu video musical y tu contacto; nuestros expertos lo analizarán y te enviarán una propuesta detallada por WhatsApp o Telegram.',
+    summary: 'Resumen de cotización',
+    video: 'Enlace del video de YouTube',
+    videoPh: 'https://www.youtube.com/watch?v=...',
+    videoBad: 'Ingresa un enlace válido de YouTube (watch, youtu.be o shorts).',
+    videoOk: 'Video encontrado',
+    name: 'Nombre y Apellidos',
+    email: 'Correo Electrónico',
+    contact: 'WhatsApp o Telegram (para enviarte el análisis)',
+    payment: 'Proceso y Aprobación',
+    card: 'Proceso Confirmado por WhatsApp y Telegram',
+    cardDesc: 'Respuesta detallada tras el análisis del video',
+    iban: 'Inicia Tras tu Aprobación',
+    ibanDesc: 'El plan de pago se acuerda en la propuesta',
+    terms: 'He leído y acepto los términos de servicio y la política de privacidad.',
+    submit: 'Enviar Solicitud y Pedir Análisis',
+    submitting: 'Enviando…',
+    error: 'No se pudo enviar la solicitud. Revisa tus datos e inténtalo de nuevo.',
+    edit: 'Modificar',
+  },
+  track: {
+    title: 'Seguimiento de Campaña y Análisis',
+    code: 'Código de cotización / pedido',
+    lookupTitle: 'Sigue tu solicitud',
+    lookupDesc: 'Ingresa tu código de pedido (inicia con AV-).',
+    lookupBtn: 'Consultar',
+    notFound: 'No se encontró ningún registro con este código.',
+    delivered: 'Visualizaciones entregadas',
+    target: 'Objetivo',
+    daily: 'Vistas diarias',
+    status: 'Estado',
+    started: 'Fecha de solicitud',
+    noData: 'Los datos diarios aparecerán aquí una vez aprobada e iniciada la campaña.',
+    statuses: {
+      pending_payment: 'Pendiente de Análisis y Aprobación',
+      payment_review: 'En Revisión de Aprobación de Google Ads',
+      queued: 'Aprobado — Preparando Campaña',
+      running: 'Campaña Activa en Vivo',
+      completed: 'Completado',
+      cancelled: 'Cancelado',
+    },
+    ibanTitle: 'Proceso de Análisis y Confirmación',
+    ibanBody: 'Tras analizar tu video y duración, te contactamos con el desglose por WhatsApp o Telegram; el trabajo inicia tras tu confirmación.',
+    cardBody: 'Todos los pasos de análisis y confirmación se coordinan vía WhatsApp y Telegram con nuestro equipo.',
+    copy: 'Copiar',
+    copied: 'Copiado',
+  },
+};
+
 export function getAppStrings(locale: Locale | string): Strings {
-  return locale === 'ar' ? ar : locale === 'en' ? en : tr;
+  return locale === 'ar' ? ar : locale === 'es' ? es : locale === 'en' ? en : tr;
 }
 export type AppStrings = Strings;
 

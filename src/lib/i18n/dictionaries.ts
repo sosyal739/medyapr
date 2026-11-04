@@ -10,15 +10,16 @@ const dictionaries = {
   tr: () => import('@/dictionaries/tr.json').then((module) => module.default),
   en: () => import('@/dictionaries/en.json').then((module) => module.default),
   ar: () => import('@/dictionaries/ar.json').then((module) => module.default),
+  es: () => import('@/dictionaries/es.json').then((module) => module.default),
 };
 
 /**
  * Loads and returns the dictionary for the specified locale.
- * @param locale - The locale code ('tr' or 'en')
+ * @param locale - The locale code ('tr', 'en', 'ar', or 'es')
  * @returns The dictionary object containing all translations for the locale
  */
 export const getDictionary = async (locale: Locale) => {
-  return dictionaries[locale]();
+  return (dictionaries[locale] || dictionaries.tr)();
 };
 
 /** Type representing the full dictionary structure, inferred from the Turkish dictionary */

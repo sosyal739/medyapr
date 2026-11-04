@@ -14,8 +14,8 @@ export type LandingPage = {
   sections: LandingSection[];
   faq: { q: string; a: string }[];
   /** Fiyat tablosu: hangi bölgeler gösterilsin */
-  prices?: 'tr' | 'en' | 'ar';
-  /** Fiyat tablosunda ülke seçimi (ar sayfaları için) */
+  prices?: 'tr' | 'en' | 'ar' | 'es';
+  /** Fiyat tablosunda ülke seçimi (ar, es sayfaları için) */
   priceCountry?: string;
   /** Hedef ülke etiketi (Service schema areaServed) */
   areaServed?: string[];

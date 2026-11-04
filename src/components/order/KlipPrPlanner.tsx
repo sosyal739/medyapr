@@ -20,12 +20,12 @@ interface KlipPrPlannerProps {
 }
 
 const GENRES = [
-  { id: 'pop', tr: 'Türkçe Pop & Dans', en: 'Pop & Dance' , ar: 'بوب ودانس'},
-  { id: 'rap', tr: 'Hip-Hop / Rap / Trap', en: 'Hip-Hop / Rap / Trap' , ar: 'هيب هوب / راب / تراب'},
-  { id: 'rock', tr: 'Rock & Alternatif', en: 'Rock & Alternative' , ar: 'روك وألترناتيف'},
-  { id: 'indie', tr: 'Akustik & Indie', en: 'Acoustic & Indie' , ar: 'أكوستيك وإندي'},
-  { id: 'arabesk', tr: 'Arabesk / Halk / Fantezi', en: 'Traditional & Vocal' , ar: 'تراثي وغنائي'},
-  { id: 'edm', tr: 'Elektronik / EDM / Club', en: 'Electronic / EDM' , ar: 'إلكترونيك / EDM'},
+  { id: 'pop', tr: 'Türkçe Pop & Dans', en: 'Pop & Dance' , ar: 'بوب ودانس', es: 'Pop & Dance'},
+  { id: 'rap', tr: 'Hip-Hop / Rap / Trap', en: 'Hip-Hop / Rap / Trap' , ar: 'هيب هوب / راب / تراب', es: 'Hip-Hop / Rap / Trap'},
+  { id: 'rock', tr: 'Rock & Alternatif', en: 'Rock & Alternative' , ar: 'روك وألترناتيف', es: 'Rock & Alternativo'},
+  { id: 'indie', tr: 'Akustik & Indie', en: 'Acoustic & Indie' , ar: 'أكوستيك وإندي', es: 'Acústico & Indie'},
+  { id: 'arabesk', tr: 'Arabesk / Halk / Fantezi', en: 'Traditional & Vocal' , ar: 'تراثي وغنائي', es: 'Latino & Tradicional'},
+  { id: 'edm', tr: 'Elektronik / EDM / Club', en: 'Electronic / EDM' , ar: 'إلكترونيك / EDM', es: 'Electrónica / EDM'},
 ];
 
 const REGIONS = [
@@ -34,18 +34,21 @@ const REGIONS = [
     tr: 'Türkiye Geneli (Büyükşehir & Genç Dinleyici)',
     en: 'Turkey Nationwide (Core Music Audience)',
     ar: 'تركيا بالكامل (جمهور الموسيقى الأساسي)',
+    es: 'España y México (Público Principal)',
   },
   {
     id: 'eu',
     tr: 'Türkiye + Avrupa (Almanya, Hollanda, Avusturya, İngiltere)',
     en: 'Turkey + Europe (Germany, NL, UK, AT)',
     ar: 'تركيا + أوروبا (ألمانيا، هولندا، بريطانيا، النمسا)',
+    es: 'Latinoamérica + España (Regional Completo)',
   },
   {
     id: 'global',
     tr: 'Küresel Karma Dinleyici Erişimi (Global Reach)',
     en: 'Global Multi-Region Music Audience',
     ar: 'جمهور موسيقي عالمي من مناطق متعددة',
+    es: 'Alcance Global Multirregión',
   },
 ];
 
@@ -55,24 +58,30 @@ const BUDGET_TIERS = [
     trTitle: 'Başlangıç Single Lansmanı',
     enTitle: 'Starter Single Launch',
     arTitle: 'إطلاق أغنية منفردة (البداية)',
+    esTitle: 'Lanzamiento Single Inicial',
     budgetTr: '1.500 TL – 4.000 TL Medya Bütçesi',
     budgetEn: '$50 – $150 Media Budget',
     budgetAr: 'ميزانية إعلامية $50 – $150',
+    budgetEs: '$50 – $150 Presupuesto',
     reachTr: 'Yeni çıkan single ve akustik çalışmalar için ilk 48 saat hedef kitle tohumlama ve dinleyici keşif planı.',
     reachEn: 'First 48-hour audience seeding and discovery media plan for new singles.',
     reachAr: 'خطة إعلامية لأول 48 ساعة لزرع الجمهور واكتشاف الأغاني المنفردة الجديدة.',
+    reachEs: 'Plan de descubrimiento y siembra de audiencia para las primeras 48 horas.',
   },
   {
     id: 'pro',
     trTitle: 'Profesyonel Klip PR & Medya Planı',
     enTitle: 'Professional Video PR & Media Plan',
     arTitle: 'ترويج احترافي للكليب وخطة إعلامية',
+    esTitle: 'PR de Video Profesional & Plan de Medios',
     budgetTr: '5.000 TL – 15.000 TL Medya Bütçesi',
     budgetEn: '$175 – $500 Media Budget',
     budgetAr: 'ميزانية إعلامية $175 – $500',
+    budgetEs: '$175 – $500 Presupuesto',
     reachTr: 'Müzik türü, benzer sanatçı kitlesi ve yaş kırılımlı kapsamlı video reklam ve dijital PR yönetimi.',
     reachEn: 'Comprehensive genre, age, and affinity-targeted video ad & PR management.',
     reachAr: 'إدارة شاملة لإعلانات الفيديو والترويج باستهداف النوع الموسيقي والعمر والاهتمامات المشابهة.',
+    reachEs: 'Gestión integral segmentada por género musical, edad y artistas similares.',
     popular: true,
   },
   {
@@ -80,19 +89,22 @@ const BUDGET_TIERS = [
     trTitle: 'Yapım Şirketi & Majör Lansman',
     enTitle: 'Record Label & Major Release',
     arTitle: 'شركات الإنتاج والإصدارات الكبرى',
+    esTitle: 'Sello Discográfico & Gran Lanzamiento',
     budgetTr: '20.000 TL+ Kurumsal Medya Bütçesi',
     budgetEn: '$700+ Custom Label Budget',
     budgetAr: 'ميزانية مخصصة لشركات الإنتاج $700+',
+    budgetEs: '$700+ Presupuesto de Sello',
     reachTr: ' Çok ülkeli yayın, In-Stream + Shorts + Keşfet tam huni medya planlaması ve özel kurumsal raporlama.',
     reachEn: 'Multi-country full-funnel video campaign management with dedicated executive reporting.',
     reachAr: 'إدارة حملات فيديو متكاملة متعددة الدول مع تقارير تنفيذية مخصصة.',
+    reachEs: 'Campaña multinacional embudo completo (In-Stream + Shorts + Feed) con reporte ejecutivo.',
   },
 ];
 
 export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
   const [videoUrl, setVideoUrl] = useState('');
   const [artistOrSong, setArtistOrSong] = useState('');
   const [selectedGenre, setSelectedGenre] = useState(GENRES[1].id);
@@ -122,6 +134,20 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
         `- Planlanan Bütçe Kademesi: ${budgetObj.trTitle} (${budgetObj.budgetTr})`,
         '',
         'Klibimize uygun hedef kitle planı ve süreç hakkında bilgi alabilir miyim?',
+      ].join('\n');
+    }
+
+    if (isEs) {
+      return [
+        'Hola Equipo MedyaPR, solicito un análisis de PR digital y plan de medios para nuestro video musical:',
+        '',
+        `- Artista / Canción: ${artistOrSong.trim() || 'No especificado'}`,
+        `- Enlace del Video: ${linkInfo}`,
+        `- Género: ${genreObj.es || genreObj.en}`,
+        `- Región Objetivo: ${regionObj.es || regionObj.en}`,
+        `- Nivel de Presupuesto: ${budgetObj.esTitle || budgetObj.enTitle} (${budgetObj.budgetEs || budgetObj.budgetEn})`,
+        '',
+        '¿Podrían compartir un plan de segmentación y los siguientes pasos?',
       ].join('\n');
     }
 
@@ -157,10 +183,10 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
         <div>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FF0033]/20 border border-[#FF0033]/40 px-3 py-1 text-xs font-extrabold text-[#FF6B6B] mb-2">
             <Sliders className="h-3.5 w-3.5" />
-            {isAr ? 'نموذج تحليل مبدئي مجاني للفنان والكليب' : isTr ? 'Ücretsiz Sanatçı & Klip Ön Analiz Formu' : 'Free Artist & Video Pre-Audit Brief'}
+            {isAr ? 'نموذج تحليل مبدئي مجاني للفنان والكليب' : isEs ? 'Formulario de Análisis Previo para Artistas' : isTr ? 'Ücretsiz Sanatçı & Klip Ön Analiz Formu' : 'Free Artist & Video Pre-Audit Brief'}
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-white">
-            {isAr ? 'أنشئ خطة إطلاق كليبك' : isTr ? 'Klip Lansman & Medya Planınızı Oluşturun' : 'Build Your Music Video Launch Brief'}
+            {isAr ? 'أنشئ خطة إطلاق كليبك' : isEs ? 'Crea el Plan de Lanzamiento de tu Video' : isTr ? 'Klip Lansman & Medya Planınızı Oluşturun' : 'Build Your Music Video Launch Brief'}
           </h2>
           <p className="text-xs sm:text-sm text-zinc-300 mt-1">
             {isAr
@@ -172,7 +198,7 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
         </div>
         <div className="shrink-0 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-xs text-emerald-300 font-bold flex items-center gap-2">
           <ShieldCheck className="h-5 w-5 text-emerald-400 shrink-0" />
-          <span>{isAr ? 'تحليل أولًا • ثم عرض سعر' : isTr ? 'Önce Analiz • Sonra Teklif' : 'Review First • Then Quote'}</span>
+          <span>{isAr ? 'تحليل أولًا • ثم عرض سعر' : isEs ? 'Análisis Primero • Cotización Clara' : isTr ? 'Önce Analiz • Sonra Teklif' : 'Review First • Then Quote'}</span>
         </div>
       </div>
 
@@ -238,7 +264,7 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
                         : 'border-zinc-800 bg-zinc-900/80 text-zinc-300 hover:border-zinc-600 hover:text-white'
                     }`}
                   >
-                    {isAr ? g.ar : isTr ? g.tr : g.en}
+                    {isAr ? g.ar : isEs ? (g.es || g.en) : isTr ? g.tr : g.en}
                   </button>
                 );
               })}
@@ -265,7 +291,7 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
                         : 'border-zinc-800 bg-zinc-900/80 text-zinc-300 hover:border-zinc-600'
                     }`}
                   >
-                    <span>{isAr ? r.ar : isTr ? r.tr : r.en}</span>
+                    <span>{isAr ? r.ar : isEs ? (r.es || r.en) : isTr ? r.tr : r.en}</span>
                     {active && <CheckCircle2 className="h-4 w-4 text-[#FF6B6B] shrink-0" />}
                   </button>
                 );
@@ -295,14 +321,14 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
                   >
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <span className="text-sm font-extrabold text-white">
-                        {isAr ? b.arTitle : isTr ? b.trTitle : b.enTitle}
+                        {isAr ? b.arTitle : isEs ? (b.esTitle || b.enTitle) : isTr ? b.trTitle : b.enTitle}
                       </span>
                       <span className="rounded-full bg-white/10 px-3 py-0.5 text-xs font-bold text-[#FF6B6B]">
-                        {isAr ? b.budgetAr : isTr ? b.budgetTr : b.budgetEn}
+                        {isAr ? b.budgetAr : isEs ? (b.budgetEs || b.budgetEn) : isTr ? b.budgetTr : b.budgetEn}
                       </span>
                     </div>
                     <p className="mt-1.5 text-xs text-zinc-300 leading-relaxed">
-                      {isAr ? b.reachAr : isTr ? b.reachTr : b.reachEn}
+                      {isAr ? b.reachAr : isEs ? (b.reachEs || b.reachEn) : isTr ? b.reachTr : b.reachEn}
                     </p>
                   </button>
                 );

@@ -14,19 +14,23 @@ import { getPageAlternates } from '@/lib/seo';
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   return {
     title: {
       absolute: isAr
         ? 'الأسئلة الشائعة | MedyaPR للترويج للفيديو'
+        : isEs
+        ? 'Preguntas Frecuentes | MedyaPR Promoción de Videos en YouTube'
         : isTr
         ? 'Sıkça Sorulan Sorular | MedyaPR YouTube Video PR'
         : 'Frequently Asked Questions | MedyaPR Video PR',
     },
     description: isAr
       ? 'اعثر على إجابات حول الترويج لفيديو يوتيوب، وآلية حملات Google Ads الرسمية، وعملية الدفع، وأمان القناة، ومقاييس الاحتفاظ الحقيقية بالمشاهدين.'
+      : isEs
+      ? 'Respuestas sobre la promoción de videos en YouTube, campañas oficiales con Google Ads, métodos de pago, seguridad del canal y métricas reales de retención.'
       : isTr
       ? 'YouTube klip tanıtımı, resmi Google Ads reklam süreçleri, ödeme süreci ve kanal güvenliği hakkında merak edilen tüm soruların yanıtları.'
       : 'Find answers about YouTube video PR, official Google Ads campaign workflows, payment process, channel security, and real retention metrics.',
@@ -64,13 +68,13 @@ export default async function FAQPage({ params }: Props) {
                   {
                     '@type': 'ListItem',
                     position: 1,
-                    name: locale === 'ar' ? 'الرئيسية' : locale === 'tr' ? 'Ana Sayfa' : 'Home',
+                    name: locale === 'ar' ? 'الرئيسية' : locale === 'es' ? 'Inicio' : locale === 'tr' ? 'Ana Sayfa' : 'Home',
                     item: `https://medyapr.com/${locale}`,
                   },
                   {
                     '@type': 'ListItem',
                     position: 2,
-                    name: locale === 'ar' ? 'الأسئلة الشائعة' : locale === 'tr' ? 'Sıkça Sorulan Sorular' : 'FAQ',
+                    name: locale === 'ar' ? 'الأسئلة الشائعة' : locale === 'es' ? 'Preguntas Frecuentes' : locale === 'tr' ? 'Sıkça Sorulan Sorular' : 'FAQ',
                     item: `https://medyapr.com/${locale}/sss`,
                   },
                 ],

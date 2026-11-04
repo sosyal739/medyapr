@@ -29,8 +29,8 @@ interface HeroSectionProps {
 export default function HeroSection({ dict, locale }: HeroSectionProps) {
   const calcT = getAppStrings(locale).calc;
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
   // Video ve Oynatıcı Ref & Durumları
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const heroFormRef = useRef<HTMLFormElement | null>(null);
@@ -214,10 +214,10 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
               <span className="hero-cta-ping absolute inline-flex h-full w-full rounded-full bg-[#FF0033]" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF0033]" />
             </span>
-            {isAr ? 'تحليل مجاني لفيديوك — ثوانٍ فقط' : isTr ? 'Ücretsiz video analizi — saniyeler içinde' : 'Free video analysis — in seconds'}
+            {isAr ? 'تحليل مجاني لفيديوك — ثوانٍ فقط' : isEs ? 'Análisis gratuito de tu video — en segundos' : isTr ? 'Ücretsiz video analizi — saniyeler içinde' : 'Free video analysis — in seconds'}
           </div>
           <form ref={heroFormRef} action={`/${locale}/order`} method="get" className="hero-cta-glow -mt-2 rounded-3xl border-2 border-[#FF0033]/60 bg-white/[0.08] p-2.5 backdrop-blur-md sm:flex sm:items-center sm:gap-2">
-            <label htmlFor="hero-video" className="sr-only">{isAr ? 'رابط فيديو يوتيوب' : isTr ? 'YouTube video linki' : 'YouTube video link'}</label>
+            <label htmlFor="hero-video" className="sr-only">{isAr ? 'رابط فيديو يوتيوب' : isEs ? 'Enlace del video de YouTube' : isTr ? 'YouTube video linki' : 'YouTube video link'}</label>
             <div className="relative flex-1">
               <Play className="pointer-events-none absolute left-4 top-1/2 h-6 w-6 -translate-y-1/2 fill-[#FF0033] text-[#FF0033]" />
               <input
@@ -231,7 +231,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                   setAnalyzing(true);
                   heroFormRef.current?.requestSubmit();
                 }}
-                placeholder={isAr ? 'الصق رابط فيديو يوتيوب' : isTr ? 'YouTube video linkinizi yapıştırın' : 'Paste your YouTube video link'}
+                placeholder={isAr ? 'الصق رابط فيديو يوتيوب' : isEs ? 'Pega el enlace de tu video de YouTube' : isTr ? 'YouTube video linkinizi yapıştırın' : 'Paste your YouTube video link'}
                 className="w-full rounded-2xl bg-transparent py-5 pl-14 pr-4 text-base font-medium text-white placeholder-zinc-300 outline-none sm:text-lg"
               />
             </div>
@@ -239,14 +239,14 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
               type="submit"
               className="group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-7 py-4 text-base font-extrabold text-white shadow-xl shadow-[#FF0033]/35 transition-all hover:brightness-110 sm:mt-0 sm:w-auto"
             >
-              {analyzing ? (isAr ? 'جارٍ التحليل…' : isTr ? 'Analiz ediliyor…' : 'Analyzing…') : isAr ? 'حلّل' : isTr ? 'Analiz Et' : 'Analyze'}
+              {analyzing ? (isAr ? 'جارٍ التحليل…' : isEs ? 'Analizando…' : isTr ? 'Analiz ediliyor…' : 'Analyzing…') : isAr ? 'حلّل' : isEs ? 'Analizar' : isTr ? 'Analiz Et' : 'Analyze'}
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </button>
           </form>
           <div className="-mt-2 flex flex-wrap items-center gap-x-5 gap-y-2 px-1 text-sm">
-            <span className="text-zinc-400">{isAr ? 'نجد الفيديو ونعرض مشاهداته، وأنت تختار الباقة.' : isTr ? 'Videonuzu bulalım, izlenmesini görün, paketinizi seçin.' : 'We find your video, show its views, you pick a package.'}</span>
+            <span className="text-zinc-400">{isAr ? 'نجد الفيديو ونعرض مشاهداته، وأنت تختار الباقة.' : isEs ? 'Encontramos tu video, vemos sus vistas y eliges el paquete.' : isTr ? 'Videonuzu bulalım, izlenmesini görün, paketinizi seçin.' : 'We find your video, show its views, you pick a package.'}</span>
             <a href="#calculator" className="font-semibold text-white underline decoration-[#FF0033]/60 underline-offset-4 hover:text-[#FF6B6B]">
-              {isAr ? 'اطّلع على الأسعار أولًا' : isTr ? 'Önce fiyatlara bak' : 'See prices first'}
+              {isAr ? 'اطّلع على الأسعار أولًا' : isEs ? 'Ver precios primero' : isTr ? 'Önce fiyatlara bak' : 'See prices first'}
             </a>
             <a href={consultHref(calcT.consultMsg)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-emerald-300 hover:text-white">
               <MessageCircle className="h-4 w-4" /> {calcT.consult}
@@ -258,17 +258,19 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
             <div className="flex flex-wrap items-center gap-2">
               <span className="font-extrabold text-white flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                {isAr ? 'مراحل آمنة:' : isTr ? 'Güvenli Süreç:' : 'Safe Workflow:'}
+                {isAr ? 'مراحل آمنة:' : isEs ? 'Proceso Seguro:' : isTr ? 'Güvenli Süreç:' : 'Safe Workflow:'}
               </span>
-              <span className="text-zinc-200">{isAr ? 'أرسل رابط الفيديو' : isTr ? 'Video Linki İletilir' : 'Submit Video Link'}</span>
+              <span className="text-zinc-200">{isAr ? 'أرسل رابط الفيديو' : isEs ? 'Envío de Enlace' : isTr ? 'Video Linki İletilir' : 'Submit Video Link'}</span>
               <span className="text-zinc-500">➔</span>
-              <span className="text-zinc-200">{isAr ? 'موافقة Google Ads' : isTr ? 'Google Ads Reklam Onayı' : 'Google Ads Approval'}</span>
+              <span className="text-zinc-200">{isAr ? 'موافقة Google Ads' : isEs ? 'Aprobación Google Ads' : isTr ? 'Google Ads Reklam Onayı' : 'Google Ads Approval'}</span>
               <span className="text-zinc-500">➔</span>
-              <span className="text-emerald-400 font-bold">{isAr ? 'مراجعة وعرض سعر' : isTr ? 'Analiz & Teklif' : 'Review & Quote'}</span>
+              <span className="text-emerald-400 font-bold">{isAr ? 'مراجعة وعرض سعر' : isEs ? 'Análisis y Cotización' : isTr ? 'Analiz & Teklif' : 'Review & Quote'}</span>
             </div>
             <p className="mt-1.5 text-[11px] text-zinc-400">
               {isAr
                 ? '* لا حاجة لكلمات المرور • قد تتغير الأسعار حسب مدة الفيديو.'
+                : isEs
+                ? '* Cero contraseñas requeridas • Las tarifas pueden ajustarse según la duración del video.'
                 : isTr
                 ? '* Şifre istenmez • Fiyat videonun uzunluğuna göre esneklik gösterebilir.'
                 : '* Zero passwords required • Rates may adjust according to video length.'}
@@ -279,23 +281,23 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1 border-t border-white/10 text-xs text-slate-300">
             <span className="flex items-center gap-2">
               <Award className="h-4 w-4 text-amber-400 shrink-0" />
-              {isAr ? 'خبرة تتجاوز 18 عامًا في الترويج للفيديو والصناعة الموسيقية' : isTr ? '18+ Yıllık Sektör & Video PR Tecrübesi' : '18+ Years Video PR & Music Industry Experience'}
+              {isAr ? 'خبرة تتجاوز 18 عامًا في الترويج للفيديو والصناعة الموسيقية' : isEs ? '+18 Años de Trayectoria en Video PR e Industria Musical' : isTr ? '18+ Yıllık Sektör & Video PR Tecrübesi' : '18+ Years Video PR & Music Industry Experience'}
             </span>
             <span className="flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0" />
-              {isAr ? 'إدارة بواسطة خبراء Google Partner رسميين معتمدين' : isTr ? 'Resmi Google İş Ortağı (Partner) Uzman Yönetimi' : 'Certified Official Google Partner Specialist Operations'}
+              {isAr ? 'إدارة بواسطة خبراء Google Partner رسميين معتمدين' : isEs ? 'Gestión por Especialistas Oficiales de Google Partner' : isTr ? 'Resmi Google İş Ortağı (Partner) Uzman Yönetimi' : 'Certified Official Google Partner Specialist Operations'}
             </span>
             <span className="flex items-center gap-2">
               <Users className="h-4 w-4 text-cyan-400 shrink-0" />
-              {isAr ? 'يثق بنا كبار الفنانين عالميًا والفنانون المستقلون' : isTr ? 'Türkiye & Dünyada Birçok Sanatçı Referansı' : 'Trusted by Leading Global & Independent Artists'}
+              {isAr ? 'يثق بنا كبار الفنانين عالميًا والفنانون المستقلون' : isEs ? 'Con la Confianza de Artistas Globales e Independientes' : isTr ? 'Türkiye & Dünyada Birçok Sanatçı Referansı' : 'Trusted by Leading Global & Independent Artists'}
             </span>
             <span className="flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0" />
-              {isAr ? 'للفنانين المعروفين والشركات: الدفع بعد إتمام العمل (بعد المراجعة)' : isTr ? 'Tanınmış sanatçı ve firmalara iş bitiminde ödeme (onayla)' : 'Pay after completion for established artists & companies (on approval)'}
+              {isAr ? 'للفنانين المعروفين والشركات: الدفع بعد إتمام العمل (بعد المراجعة)' : isEs ? 'Artistas consagrados y sellos: pago al culminar (previa aprobación)' : isTr ? 'Tanınmış sanatçı ve firmalara iş bitiminde ödeme (onayla)' : 'Pay after completion for established artists & companies (on approval)'}
             </span>
             <span className="flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0" />
-              {isAr ? 'بلا بوتات • تقرير أداء شامل بعد الحملة' : isTr ? 'Bot Yok • Çıkışta Detaylı Performans Raporu' : 'Zero Bots • Comprehensive Post-Campaign Performance Report'}
+              {isAr ? 'بلا بوتات • تقرير أداء شامل بعد الحملة' : isEs ? 'Cero Bots • Reporte Completo de Rendimiento al Finalizar' : isTr ? 'Bot Yok • Çıkışta Detaylı Performans Raporu' : 'Zero Bots • Comprehensive Post-Campaign Performance Report'}
             </span>
           </div>
         </div>
@@ -313,8 +315,8 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
               >
                 <video
                   ref={videoRef}
-                  src={locale === 'tr' ? '/video/medyapr_tanitim.mp4' : `/video/medyapr_tanitim_${locale}.mp4`}
-                  poster={locale === 'tr' ? '/video/poster.webp' : `/video/poster_${locale}.webp`}
+                  src={locale === 'tr' ? '/video/medyapr_tanitim.mp4' : locale === 'ar' ? '/video/medyapr_tanitim_ar.mp4' : '/video/medyapr_tanitim_en.mp4'}
+                  poster={locale === 'tr' ? '/video/poster.webp' : locale === 'ar' ? '/video/poster_ar.webp' : '/video/poster_en.webp'}
                   preload="none"
                   playsInline
                   onTimeUpdate={handleTimeUpdate}
@@ -336,7 +338,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                     <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#D9002B]">
                       <Play className="ml-px h-2.5 w-2.5 fill-white text-white" />
                     </span>
-                    {isAr ? 'الفيلم التعريفي لـ MedyaPR' : isTr ? 'MedyaPR Tanıtım Filmi' : 'MedyaPR Commercial Film'}
+                    {isAr ? 'الفيلم التعريفي لـ MedyaPR' : isEs ? 'Video Comercial MedyaPR' : isTr ? 'MedyaPR Tanıtım Filmi' : 'MedyaPR Commercial Film'}
                   </div>
 
                   {isPlaying ? (
@@ -346,7 +348,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
                         <span className="w-0.5 rounded-full bg-white animate-eq-2" />
                         <span className="w-0.5 rounded-full bg-white animate-eq-3" />
                       </span>
-                      {isAr ? 'قيد التشغيل' : isTr ? 'VİDEO OYNUYOR' : 'PLAYING'}
+                      {isAr ? 'قيد التشغيل' : isEs ? 'EN REPRODUCCIÓN' : isTr ? 'VİDEO OYNUYOR' : 'PLAYING'}
                     </div>
                   ) : (
                     <div className="rounded-full bg-black/55 px-3 py-1.5 text-[11px] font-bold text-white/90 ring-1 ring-white/15 backdrop-blur-md">

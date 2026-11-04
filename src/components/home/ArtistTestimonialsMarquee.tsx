@@ -254,8 +254,8 @@ interface ArtistTestimonialsMarqueeProps {
 
 export default function ArtistTestimonialsMarquee({ locale = 'tr' }: ArtistTestimonialsMarqueeProps) {
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   const renderCard = (item: ArtistTestimonial, index: number) => {
     return (
@@ -351,6 +351,8 @@ export default function ArtistTestimonialsMarquee({ locale = 'tr' }: ArtistTesti
           <span>
             {isAr
               ? 'ماذا يقول الفنانون والمنتجون'
+              : isEs
+              ? 'Qué Dicen los Artistas y Productores'
               : isTr
               ? 'Sanatçılar ve Yapımcılar Ne Diyor?'
               : 'What Artists & Producers Say'}
@@ -359,9 +361,9 @@ export default function ArtistTestimonialsMarquee({ locale = 'tr' }: ArtistTesti
 
         {/* Main Heading */}
         <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-white">
-          {isAr ? 'ماذا يقول الفنانون عن' : isTr ? 'Sanatçılar MedyaPR İçin Ne Diyor?' : 'What Artists Say About'}{' '}
+          {isAr ? 'ماذا يقول الفنانون عن' : isEs ? 'Qué Dicen los Artistas Sobre' : isTr ? 'Sanatçılar MedyaPR İçin Ne Diyor?' : 'What Artists Say About'}{' '}
           <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
-            {isAr ? 'الترويج للفيديو مع MedyaPR' : isTr ? 'YouTube\'da Gerçek Kitleye Ulaşanlar' : 'MedyaPR Video PR'}
+            {isAr ? 'الترويج للفيديو مع MedyaPR' : isEs ? 'MedyaPR en YouTube' : isTr ? 'YouTube\'da Gerçek Kitleye Ulaşanlar' : 'MedyaPR Video PR'}
           </span>
         </h2>
 
@@ -369,6 +371,8 @@ export default function ArtistTestimonialsMarquee({ locale = 'tr' }: ArtistTesti
         <p className="mt-4 mx-auto max-w-3xl text-sm leading-relaxed text-zinc-300 sm:text-base">
           {isAr
             ? 'تجارب موثّقة لموسيقيين مستقلين وفناني راب ومنتجين وصلوا إلى مستمعين حقيقيين عبر حملات فيديو Google Ads الرسمية.'
+            : isEs
+            ? 'Experiencias verificadas de músicos independientes, artistas de rap y productores que alcanzaron oyentes reales con Google Ads oficial.'
             : isTr
             ? 'Bot veya panel yerine resmi Google Ads video kampanyalarıyla doğru hedef kitleye ulaşan bağımsız müzisyenlerin, rap sanatçılarının ve prodüktörlerimizin tescilli deneyimleri.'
             : 'Verified experiences from independent musicians, rap artists, and record producers reaching authentic listeners through official Google Ads video campaigns.'}
@@ -380,6 +384,8 @@ export default function ArtistTestimonialsMarquee({ locale = 'tr' }: ArtistTesti
           <span>
             {isAr
               ? 'شريط مباشر • مرّر المؤشر فوق أي بطاقة للإيقاف والقراءة'
+              : isEs
+              ? 'Flujo en vivo • Pasa el cursor sobre una tarjeta para pausar y leer'
               : isTr
               ? 'Canlı Akış • Yorumları durdurmak veya okumak için kartın üzerine gelin'
               : 'Live Ticker • Hover over any card to pause and read'}
@@ -413,6 +419,8 @@ export default function ArtistTestimonialsMarquee({ locale = 'tr' }: ArtistTesti
             <span>
               {isAr
                 ? 'إعلانات Google Ads رسمية 100% (بلا بوتات / بلا لوحات)'
+                : isEs
+                ? '100% Google Ads Oficial (Cero Bots / Cero Paneles)'
                 : isTr
                 ? '%100 Resmi Google Ads Altyapısı (Sıfır Bot / Sıfır Panel)'
                 : '100% Official Google Ads (Zero Bots / Zero Panels)'}
@@ -424,6 +432,8 @@ export default function ArtistTestimonialsMarquee({ locale = 'tr' }: ArtistTesti
             <span>
               {isAr
                 ? 'موثّق في YouTube Studio تحت «إعلانات يوتيوب»'
+                : isEs
+                ? 'Verificado en YouTube Studio como «Publicidad de YouTube»'
                 : isTr
                 ? 'YouTube Studio Analitiğinde "YouTube Reklamları" Tescili'
                 : 'Verified in YouTube Studio as "YouTube Advertising"'}
@@ -435,6 +445,8 @@ export default function ArtistTestimonialsMarquee({ locale = 'tr' }: ArtistTesti
             <span>
               {isAr
                 ? 'لا حاجة لكلمات المرور • مراجعة أولًا ثم عرض سعر'
+                : isEs
+                ? 'Sin contraseñas • Revisión previa y cotización clara'
                 : isTr
                 ? 'Kanal Şifresi İstenmez • Önce Analiz, Sonra Teklif'
                 : 'No Passwords Required • Review First, Then Quote'}

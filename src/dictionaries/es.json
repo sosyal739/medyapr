@@ -1,0 +1,340 @@
+{
+  "metadata": {
+    "title": "YouTube Music Video Promotion & Google Ads PR | MedyaPR",
+    "description": "Official Google Ads YouTube music video promotion and real view packages. No password required; free review first, then a quote."
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "pricing": "Precios",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "faq": "Preguntas Frecuentes",
+    "blog": "Blog",
+    "login": "Login",
+    "register": "Registrarse",
+    "tools": "Herramientas"
+  },
+  "hero": {
+    "badge": "18+ Years Experience • Official Google Partner",
+    "title_line1": "With Google Ads",
+    "title_line2": "Your YouTube Channel",
+    "title_highlight": "GROWS",
+    "subtitle": "Serving the industry for over 18 years, partnering with artists, bands, and brands across Turkey and worldwide. Campaigns are managed directly by certified Google Partner specialists.",
+    "cta_primary": "Comenzar",
+    "cta_secondary": "Free Consultation",
+    "trust_items": [
+      "18+ Years Track Record",
+      "Google Partner Specialists",
+      "Global Artist Roster"
+    ],
+    "stats": {
+      "title": "Live Statistics",
+      "subtitle": "Real-time data",
+      "total_views": "Total Views",
+      "total_views_value": "2,847,593",
+      "live_text": "Live • Increasing every second",
+      "growth": "+127%"
+    }
+  },
+  "trust": {
+    "campaigns": "Artists in Turkey & Globally",
+    "satisfaction": "4.9/5 Customer Satisfaction",
+    "secure": "100% Seguro",
+    "partner": "Google Partner (18+ Yrs)"
+  },
+  "services": {
+    "title": "YouTube Music Video Promotion, Google Ads & View Services",
+    "subtitle": "Official Google Ads video campaigns for song promotion, targeted views, subscribers, and engagement campaigns",
+    "items": [
+      {
+        "title": "Vistas de YouTube",
+        "description": "Gain real views from real users through targeted Google Ads campaigns.",
+        "icon": "play",
+        "badge": "Más Popular"
+      },
+      {
+        "title": "Suscriptores de YouTube",
+        "description": "Attract real, lasting subscribers to your channel with targeted advertising.",
+        "icon": "users",
+        "badge": ""
+      },
+      {
+        "title": "Likes de YouTube",
+        "description": "Boost your algorithm ranking by increasing the like count on your videos.",
+        "icon": "thumbsUp",
+        "badge": ""
+      },
+      {
+        "title": "Comentarios de YouTube",
+        "description": "Increase your video engagement with organic comments from real users.",
+        "icon": "messageCircle",
+        "badge": ""
+      },
+      {
+        "title": "Análisis Gratuito de Video",
+        "description": "Send your video link and we will review its length and Google Ads eligibility, then reply with a clear quote.",
+        "icon": "search",
+        "badge": "Gratis"
+      },
+      {
+        "title": "Vistas de YouTube Shorts",
+        "description": "Get your Shorts seen by millions and seize the chance to go viral.",
+        "icon": "zap",
+        "badge": "Nuevo"
+      }
+    ]
+  },
+  "whyGoogleAds": {
+    "title": "¿Por Qué Google Ads?",
+    "subtitle": "Lo que nos diferencia de otros servicios",
+    "items": [
+      {
+        "title": "Audiencia Real y Humana",
+        "description": "Sin bots ni cuentas falsas. Con Google Ads llegas a usuarios 100% reales."
+      },
+      {
+        "title": "100% Legal y Seguro",
+        "description": "We use Google's own advertising platform. Your channel is 100% safe."
+      },
+      {
+        "title": "Audiencia Segmentada",
+        "description": "Reach the right audience by targeting age, location, interests, and language."
+      },
+      {
+        "title": "Triggers the Algorithm",
+        "description": "Real views trigger the YouTube algorithm, kickstarting organic growth."
+      },
+      {
+        "title": "Zero Penalty Risk",
+        "description": "Promotion through Google Ads is 100% compliant with YouTube's policies."
+      },
+      {
+        "title": "Detailed Reporting",
+        "description": "Track your campaign performance in real time with transparent reports."
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": "¿Cómo Funciona?",
+    "subtitle": "Comienza en 3 sencillos pasos",
+    "steps": [
+      {
+        "step": "1",
+        "title": "Comparte el Enlace de tu Video",
+        "description": "Envíanos el enlace de YouTube del video musical o canal que deseas promocionar."
+      },
+      {
+        "step": "2",
+        "title": "Elige tu Paquete",
+        "description": "Pick the package that fits your needs, or let us create a custom campaign."
+      },
+      {
+        "step": "3",
+        "title": "Launch Your Campaign",
+        "description": "Your Google Ads campaign goes live and real views and engagement start flowing in."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Calculadora de Precios de Promoción en YouTube y PR Musical",
+    "subtitle": "Paquetes oficiales de Google Ads con tarifas escalonadas desde 1.000 hasta más de 1.000.000 de vistas reales",
+    "popular": "Más Popular",
+    "perView": "por vista",
+    "cta": "Comenzar",
+    "custom": "Cotización Personalizada",
+    "features_included": "Features Included",
+    "packages": [
+      {
+        "name": "Starter",
+        "views": "1,000",
+        "likes": "50",
+        "duration": "3-5 days",
+        "price": "29",
+        "currency": "$",
+        "popular": false,
+        "features": [
+          "Real Views",
+          "Audiencia Segmentada",
+          "Basic Reporting",
+          "Email Support"
+        ]
+      },
+      {
+        "name": "Professional",
+        "views": "5,000",
+        "likes": "250",
+        "duration": "5-7 days",
+        "price": "89",
+        "currency": "$",
+        "popular": true,
+        "features": [
+          "Real Views",
+          "Advanced Targeting",
+          "Detailed Reporting",
+          "Priority Support",
+          "Likes Included"
+        ]
+      },
+      {
+        "name": "Premium",
+        "views": "10,000",
+        "likes": "500",
+        "duration": "7-10 days",
+        "price": "159",
+        "currency": "$",
+        "popular": false,
+        "features": [
+          "Real Views",
+          "Premium Targeting",
+          "Real-time Reporting",
+          "24/7 Support",
+          "Likes Included",
+          "Subscriber Campaign"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "views": "+50.000",
+        "likes": "2,500+",
+        "duration": "Custom",
+        "price": "Custom",
+        "currency": "",
+        "popular": false,
+        "features": [
+          "Unlimited Views",
+          "Full Customization",
+          "Gestor de Cuenta Dedicado",
+          "VIP Support",
+          "All Services Included",
+          "Monthly Reporting"
+        ]
+      }
+    ]
+  },
+  "stats": {
+    "views_delivered": "Vistas Entregadas",
+    "happy_clients": "Clientes Satisfechos",
+    "campaigns": "Successful Campaigns",
+    "rating": "Customer Rating",
+    "views_value": "2.5M+",
+    "clients_value": "500+",
+    "campaigns_value": "1,000+",
+    "rating_value": "4.9/5"
+  },
+  "testimonials": {
+    "title": "Lo Que Dicen Nuestros Clientes",
+    "subtitle": "Experiencias reales de clientes",
+    "items": [
+      {
+        "name": "Carlos Mendoza",
+        "role": "Músico Independiente",
+        "content": "Mi video musical alcanzó 50.000 vistas en solo 2 semanas. Saber que personas reales lo ven a través de Google Ads da una enorme tranquilidad.",
+        "rating": 5
+      },
+      {
+        "name": "Elena Morales",
+        "role": "YouTuber",
+        "content": "I checked in YouTube Studio myself that the traffic showed up as YouTube Ads. The process was transparent and easy to follow.",
+        "rating": 5
+      },
+      {
+        "name": "David Ortiz",
+        "role": "Creadora de Contenido",
+        "content": "I tried other services but never got real views. With MedyaPR, the difference is clear.",
+        "rating": 5
+      },
+      {
+        "name": "Elif Sahin",
+        "role": "Artist",
+        "content": "A fantastic solution for promoting my song. Targeted ads helped us reach the right audience.",
+        "rating": 5
+      }
+    ]
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Todo lo que necesitas saber",
+    "items": [
+      {
+        "question": "¿Artistas reconocidos y empresas pueden pagar al finalizar el trabajo?",
+        "answer": "Yes, on request and subject to review. Established artists and corporate companies can tick \"Pay after completion\" when ordering. We review the request; if approved, the campaign starts, we share the report when the work is done, and payment is collected afterwards. Requests that are not approved continue with the standard payment flow."
+      },
+      {
+        "question": "Are Google Ads views safe?",
+        "answer": "Yes, they are 100% safe. We use Google's own advertising platform. It works just like YouTube's own ads and will not harm your channel in any way."
+      },
+      {
+        "question": "How quickly will I see results?",
+        "answer": "Delivery speed depends on the video and the targeting; it can sometimes be completed within a single day. The confirmed timing is stated in your quote."
+      },
+      {
+        "question": "Will my channel get penalized?",
+        "answer": "No, absolutely not. Google Ads is Google's own product and YouTube advertising is completely legal and fully compliant with platform policies."
+      },
+      {
+        "question": "¿Las vistas caerán con el tiempo?",
+        "answer": "Views from Google Ads come from real users, so they are permanent. We do not use bots or fake views."
+      },
+      {
+        "question": "How does the quote, analysis, and payment process work?",
+        "answer": "Submit your quote, we will analyze your video and reply in detail via WhatsApp or Telegram; work begins upon approval. Pricing may vary based on video length."
+      },
+      {
+        "question": "Can you do audience targeting?",
+        "answer": "Yes! We use Google Ads' advanced targeting features. We can target by country, city, age, gender, and interests."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Grow Your YouTube Channel?",
+    "subtitle": "Get a free consultation now and let's find the best strategy for your channel together.",
+    "button": "Get Free Consultation",
+    "whatsapp": "Contact via WhatsApp",
+    "whatsappLink": "https://wa.me/905312993355",
+    "telegram": "Telegram"
+  },
+  "footer": {
+    "description": "As a Google Ads Certified Partner, we support your YouTube channel's growth with real views and engagement.",
+    "services": "Servicios",
+    "company": "Empresa",
+    "support": "Soporte",
+    "legal": "Legal",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "refund": "Política de Reembolso",
+    "copyright": "© 2026 MedyaPR. All rights reserved.",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "faq_link": "Preguntas Frecuentes",
+    "blog_link": "Blog",
+    "cookie_settings": "Preferencias de Cookies"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Get in touch with us",
+    "name": "Your Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Your Message",
+    "channel_url": "YouTube Channel URL",
+    "send": "Send",
+    "success": "Your message has been sent successfully!"
+  },
+  "about": {
+    "title": "Nosotros",
+    "subtitle": "YouTube Video & Music Video PR Specialists with Official Google Ads",
+    "description": "With over 18 years of uninterrupted industry experience, MedyaPR has partnered with prominent artists, music bands, record labels, and corporate brands across Turkey and globally. All video and music video PR campaigns are personally managed by our certified official Google Partner specialists. Zero bots or SMM panels used; offering transparent performance reporting."
+  },
+  "cookie_consent": {
+    "title": "Cookie & Privacy Preferences",
+    "description": "We use cookies to improve the site and measure Google Ads performance.",
+    "badge": "GDPR & KVKK Compliant",
+    "accept_all": "Aceptar Todo",
+    "necessary_only": "Solo Necesarias",
+    "decline": "Decline",
+    "privacy_policy": "Política de Privacidad",
+    "cookie_settings": "Preferencias de Cookies",
+    "saved": "Your preferences have been saved."
+  }
+}

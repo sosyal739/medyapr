@@ -132,7 +132,51 @@ export const FAQS_AR: FAQItem[] = [
   }
 ];
 
+
+export const FAQS_ES: FAQItem[] = [
+  {
+    question: '¿Cómo funciona el proceso de cotización, análisis del video y activación de la campaña?',
+    answer: 'Cada video de YouTube se evalúa según su duración, contenido y políticas de Google Ads. Para examinar tu enlace y los datos del canal con total precisión, la comunicación y aprobación se gestionan vía WhatsApp y Telegram con nuestro equipo especializado. Envías tu solicitud, analizamos tu video y te respondemos en detalle; el trabajo comienza una vez recibida tu confirmación.',
+  },
+  {
+    question: '¿El precio puede variar según la duración del video?',
+    answer: 'Sí, el precio puede variar según la duración del video. Los valores de la calculadora se basan en duraciones estándar de videoclips musicales (3 a 4 minutos). Dado que los costos en las subastas de Google Ads dependen del tiempo de reproducción, nuestro equipo revisa tu video y te envía la cotización definitiva adaptada a su duración y público objetivo.',
+  },
+  {
+    question: '¿Cuándo y cómo se realiza el pago?',
+    answer: 'Tras enviar tu solicitud y analizar tu video, nuestros expertos te responden detalladamente por WhatsApp o Telegram. No se cobra online directamente en la web; el plan de pago se acuerda contigo una vez aprobada la propuesta.',
+  },
+  {
+    question: '¿Quién gestiona las campañas y cuál es su experiencia en la industria?',
+    answer: 'En MedyaPR contamos con más de 18 años de trayectoria ininterrumpida en la industria musical y de relaciones públicas digitales. Hemos colaborado con reconocidos sellos discográficos, artistas consagrados y músicos independientes en diversos países. Todas las campañas son planificadas y operadas directamente por especialistas certificados como Google Partners.',
+  },
+  {
+    question: '¿Cómo se reflejarán las visualizaciones en mi panel de YouTube Studio / Analytics?',
+    answer: 'Todas nuestras campañas se ejecutan a través de la infraestructura oficial de anuncios de video de Google Ads. En tu panel de YouTube Studio, la fuente de tráfico quedará registrada de forma permanente y verificada bajo «Publicidad de YouTube» (YouTube Advertising), con analíticas segundo a segundo y desglose geográfico.',
+  },
+  {
+    question: '¿Utilizan bots o paneles SMM?',
+    answer: 'Rotundamente no. Jamás utilizamos bots ni servidores falsos. Las visualizaciones provienen únicamente de campañas oficiales de Google Ads y la fuente se refleja en YouTube Analytics como publicidad verificada. Tu canal está 100% protegido.',
+  },
+  {
+    question: '¿Cuáles son los criterios para segmentar la audiencia?',
+    answer: 'Tu video se muestra a audiencias específicas filtradas por géneros musicales, intereses de los usuarios, idioma, edad y territorio geográfico en México, España, Latinoamérica y mercados globales, según los objetivos de tu lanzamiento.',
+  },
+  {
+    question: '¿Se entrega un informe de rendimiento al finalizar la campaña?',
+    answer: 'Sí. Cada campaña se monitorea activamente y al concluir entregamos un informe analítico completo que detalla visualizaciones conseguidas, tiempo de reproducción, distribución por países y aumento de suscriptores.',
+  },
+  {
+    question: '¿Afecta esto la monetización o el estado de derechos de autor de mi canal?',
+    answer: 'Cero riesgo negativo. Google Ads es la plataforma publicitaria nativa de YouTube y cumple estrictamente con las directrices del Programa de Socios de YouTube (YPP). No existe ningún riesgo de penalización o pérdida de monetización.',
+  },
+  {
+    question: '¿Las visualizaciones pueden caer o ser eliminadas más adelante?',
+    answer: 'Nunca se pierden. A diferencia de los paneles de bots fraudulentos que YouTube purga con regularidad, las impresiones de Google Ads quedan registradas de manera legítima en los algoritmos de YouTube, impulsando la retención orgánica y generando suscriptores reales.',
+  },
+];
+
 export function getFaqs(locale: string = 'tr'): FAQItem[] {
-  return locale === 'ar' ? FAQS_AR : locale === 'en' ? FAQS_EN : FAQS_TR;
+  return locale === 'ar' ? FAQS_AR : locale === 'es' ? FAQS_ES : locale === 'en' ? FAQS_EN : FAQS_TR;
 }
 

@@ -14,19 +14,23 @@ import { WHATSAPP_URL, TELEGRAM_URL, PUBLIC_EMAIL } from '@/lib/contact';
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   return {
     title: {
       absolute: isAr
         ? 'من نحن | MedyaPR وكالة شريكة رسمية لـ Google'
+        : isEs
+        ? 'Sobre Nosotros | MedyaPR Agencia Partner Oficial de Google'
         : isTr
         ? 'Hakkımızda | MedyaPR Resmi Google Partner Ajansı'
         : 'About Us | MedyaPR Official Google Partner Agency',
     },
     description: isAr
       ? 'أكثر من 18 عامًا من التميّز في العلاقات العامة الرقمية، نقدّم إدارة رسمية لإعلانات فيديو يوتيوب والترويج لفيديو الكليب عبر Google Ads للفنانين حول العالم.'
+      : isEs
+      ? 'Más de 18 años de experiencia en PR digital, ofreciendo gestión oficial de campañas de Google Ads para videos musicales y artistas a nivel global.'
       : isTr
       ? '18 yılı aşkındır kesintisiz dijital medya tecrübesiyle sanatçı ve markalara resmi Google Ads YouTube video ve klip PR danışmanlığı sunuyoruz.'
       : 'Over 18 years of digital PR excellence, offering official Google Ads YouTube video and music video PR management to global artists.',
@@ -38,16 +42,16 @@ export default async function AboutPage({ params }: Props) {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   const values = [
-    { icon: Shield, title: locale === 'ar' ? 'آمن 100%' : locale === 'tr' ? '%100 Güvenli' : '100% Safe', desc: locale === 'ar' ? 'نعمل عبر منصة Google Ads الرسمية' : locale === 'tr' ? 'Google Ads resmi platformu ile çalışıyoruz' : 'We work with Google Ads official platform' },
-    { icon: Target, title: locale === 'ar' ? 'إعلانات مستهدفة' : locale === 'tr' ? 'Hedefli Reklam' : 'Targeted Ads', desc: locale === 'ar' ? 'نضمن وصولك إلى الجمهور المناسب' : locale === 'tr' ? 'Doğru kitleye ulaşmanızı sağlıyoruz' : 'We ensure you reach the right audience' },
-    { icon: TrendingUp, title: locale === 'ar' ? 'نمو عضوي' : locale === 'tr' ? 'Organik Büyüme' : 'Organic Growth', desc: locale === 'ar' ? 'المشاهدات الحقيقية تحفّز الخوارزمية' : locale === 'tr' ? 'Gerçek izlenmeler algoritma tetikler' : 'Real views trigger the algorithm' },
-    { icon: Award, title: locale === 'ar' ? 'خبرة تتجاوز 18 عامًا' : locale === 'tr' ? '18+ Yıl Tecrübe' : '18+ Years Experience', desc: locale === 'ar' ? 'أكثر من 18 عامًا من العلاقات العامة الرقمية والترويج للفيديو دون انقطاع' : locale === 'tr' ? '18 yılı aşkındır sektörde kesintisiz dijital PR ve video tanıtımı' : 'Over 18 years of continuous digital PR and video promotion' },
-    { icon: Users, title: locale === 'ar' ? 'مختصون في شراكة Google' : locale === 'tr' ? 'Google Partner Uzmanları' : 'Google Partner Specialists', desc: locale === 'ar' ? 'شراكات مع أبرز الفنانين في تركيا وحول العالم' : locale === 'tr' ? 'Türkiye\'de ve dünyada birçok sanatçı ve kurumsal referans' : 'Partnered with prominent artists across Turkey and worldwide' },
-    { icon: BarChart3, title: locale === 'ar' ? 'تقارير شفافة' : locale === 'tr' ? 'Şeffaf Raporlama' : 'Transparent Reports', desc: locale === 'ar' ? 'تابع بيانات حملتك لحظة بلحظة' : locale === 'tr' ? 'Kampanya verilerinizi anlık takip edin' : 'Track your campaign data in real-time' },
+    { icon: Shield, title: locale === 'ar' ? 'آمن 100%' : locale === 'es' ? '100% Seguro' : locale === 'tr' ? '%100 Güvenli' : '100% Safe', desc: locale === 'ar' ? 'نعمل عبر منصة Google Ads الرسمية' : locale === 'es' ? 'Trabajamos exclusivamente con la plataforma oficial de Google Ads' : locale === 'tr' ? 'Google Ads resmi platformu ile çalışıyoruz' : 'We work with Google Ads official platform' },
+    { icon: Target, title: locale === 'ar' ? 'إعلانات مستهدفة' : locale === 'es' ? 'Publicidad Segmentada' : locale === 'tr' ? 'Hedefli Reklam' : 'Targeted Ads', desc: locale === 'ar' ? 'نضمن وصولك إلى الجمهور المناسب' : locale === 'es' ? 'Garantizamos que tu música llegue a la audiencia adecuada' : locale === 'tr' ? 'Doğru kitleye ulaşmanızı sağlıyoruz' : 'We ensure you reach the right audience' },
+    { icon: TrendingUp, title: locale === 'ar' ? 'نمو عضوي' : locale === 'es' ? 'Crecimiento Orgánico' : locale === 'tr' ? 'Organik Büyüme' : 'Organic Growth', desc: locale === 'ar' ? 'المشاهدات الحقيقية تحفّز الخوارزمية' : locale === 'es' ? 'Las vistas reales activan el algoritmo de recomendaciones de YouTube' : locale === 'tr' ? 'Gerçek izlenmeler algoritma tetikler' : 'Real views trigger the algorithm' },
+    { icon: Award, title: locale === 'ar' ? 'خبرة تتجاوز 18 عامًا' : locale === 'es' ? '+18 Años de Experiencia' : locale === 'tr' ? '18+ Yıl Tecrübe' : '18+ Years Experience', desc: locale === 'ar' ? 'أكثر من 18 عامًا من العلاقات العامة الرقمية والترويج للفيديو دون انقطاع' : locale === 'es' ? 'Más de 18 años de trayectoria ininterrumpida en PR digital y video' : locale === 'tr' ? '18 yılı aşkındır sektörde kesintisiz dijital PR ve video tanıtımı' : 'Over 18 years of continuous digital PR and video promotion' },
+    { icon: Users, title: locale === 'ar' ? 'مختصون في شراكة Google' : locale === 'es' ? 'Especialistas Google Partner' : locale === 'tr' ? 'Google Partner Uzmanları' : 'Google Partner Specialists', desc: locale === 'ar' ? 'شراكات مع أبرز الفنانين في تركيا وحول العالم' : locale === 'es' ? 'Trabajamos con artistas destacados, productores y sellos independientes' : locale === 'tr' ? 'Türkiye\'de ve dünyada birçok sanatçı ve kurumsal referans' : 'Partnered with prominent artists across Turkey and worldwide' },
+    { icon: BarChart3, title: locale === 'ar' ? 'تقارير شفافة' : locale === 'es' ? 'Reportes Transparentes' : locale === 'tr' ? 'Şeffaf Raporlama' : 'Transparent Reports', desc: locale === 'ar' ? 'تابع بيانات حملتك لحظة بلحظة' : locale === 'es' ? 'Sigue los datos y métricas directamente en YouTube Studio' : locale === 'tr' ? 'Kampanya verilerinizi anlık takip edin' : 'Track your campaign data in real-time' },
   ];
 
   return (
@@ -65,20 +69,20 @@ export default async function AboutPage({ params }: Props) {
                   {
                     '@type': 'ListItem',
                     position: 1,
-                    name: locale === 'ar' ? 'الرئيسية' : locale === 'tr' ? 'Ana Sayfa' : 'Home',
+                    name: locale === 'ar' ? 'الرئيسية' : locale === 'es' ? 'Inicio' : locale === 'tr' ? 'Ana Sayfa' : 'Home',
                     item: `https://medyapr.com/${locale}`,
                   },
                   {
                     '@type': 'ListItem',
                     position: 2,
-                    name: locale === 'ar' ? 'من نحن' : locale === 'tr' ? 'Hakkımızda' : 'About Us',
+                    name: locale === 'ar' ? 'من نحن' : locale === 'es' ? 'Sobre Nosotros' : locale === 'tr' ? 'Hakkımızda' : 'About Us',
                     item: `https://medyapr.com/${locale}/hakkimizda`,
                   },
                 ],
               },
               {
                 '@type': 'AboutPage',
-                name: locale === 'ar' ? 'عن MedyaPR' : locale === 'tr' ? 'MedyaPR Hakkında' : 'About MedyaPR',
+                name: locale === 'ar' ? 'عن MedyaPR' : locale === 'es' ? 'Acerca de MedyaPR' : locale === 'tr' ? 'MedyaPR Hakkında' : 'About MedyaPR',
                 description: isAr
                   ? 'أكثر من 18 عامًا من العلاقات العامة الرقمية وحملات الفيديو الرسمية عبر Google Ads دون انقطاع.'
                   : isTr
@@ -125,10 +129,10 @@ export default async function AboutPage({ params }: Props) {
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl lg:text-4xl font-black text-center text-[#1A1A2E] mb-4">
-            {locale === 'ar' ? 'قيمنا' : locale === 'tr' ? 'Değerlerimiz' : 'Our Values'}
+            {locale === 'ar' ? 'قيمنا' : locale === 'es' ? 'Nuestros Valores' : locale === 'tr' ? 'Değerlerimiz' : 'Our Values'}
           </h2>
           <p className="text-gray-600 text-center mb-12 max-w-xl mx-auto">
-            {locale === 'ar' ? 'لماذا تختارنا؟' : locale === 'tr' ? 'Neden bizi tercih etmelisiniz?' : 'Why should you choose us?'}
+            {locale === 'ar' ? 'لماذا تختارنا؟' : locale === 'es' ? '¿Por qué elegirnos?' : locale === 'tr' ? 'Neden bizi tercih etmelisiniz?' : 'Why should you choose us?'}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {values.map((v, i) => (
@@ -152,7 +156,7 @@ export default async function AboutPage({ params }: Props) {
         <div className="container mx-auto px-4 max-w-4xl space-y-14">
           <div>
             <h2 className="text-2xl lg:text-3xl font-black text-[#1A1A2E] mb-4">
-              {locale === 'ar' ? 'ماذا نفعل' : locale === 'tr' ? 'Ne yapıyoruz?' : 'What we do'}
+              {locale === 'ar' ? 'ماذا نفعل' : locale === 'es' ? '¿Qué hacemos?' : locale === 'tr' ? 'Ne yapıyoruz?' : 'What we do'}
             </h2>
             <p className="text-gray-700 leading-relaxed">
               {locale === 'ar'
@@ -165,7 +169,7 @@ export default async function AboutPage({ params }: Props) {
 
           <div>
             <h2 className="text-2xl lg:text-3xl font-black text-[#1A1A2E] mb-4">
-              {locale === 'ar' ? 'كيف نعمل' : locale === 'tr' ? 'Çalışma ilkelerimiz' : 'How we work'}
+              {locale === 'ar' ? 'كيف نعمل' : locale === 'es' ? 'Nuestros principios de trabajo' : locale === 'tr' ? 'Çalışma ilkelerimiz' : 'How we work'}
             </h2>
             <ul className="space-y-3 text-gray-700 leading-relaxed list-disc pl-5">
               <li>{locale === 'ar' ? 'المراجعة أولًا ثم عرض السعر: نفحص الفيديو الخاص بك ونوضح بصراحة ما يمكن تنفيذه. لا تبدأ أي حملة دون موافقتك.' : locale === 'tr' ? 'Önce analiz, sonra teklif: videonuzu inceler, ne yapılabileceğini net yazarız. Onayınız olmadan kampanya başlamaz.' : 'Review first, then quote: we look at your video and state clearly what can be done. No campaign starts without your approval.'}</li>
@@ -198,16 +202,16 @@ export default async function AboutPage({ params }: Props) {
 
           <div className="rounded-3xl border border-gray-200 bg-white p-6 sm:p-8">
             <h2 className="text-2xl font-black text-[#1A1A2E] mb-3">
-              {locale === 'ar' ? 'تواصل معنا' : locale === 'tr' ? 'Bize ulaşın' : 'Contact us'}
+              {locale === 'ar' ? 'تواصل معنا' : locale === 'es' ? 'Contáctanos' : locale === 'tr' ? 'Bize ulaşın' : 'Contact us'}
             </h2>
             <p className="text-gray-600 mb-5">
-              {locale === 'ar' ? 'أرسل رابط الفيديو وسنشرح لك ما يمكن تنفيذه عبر مراجعة مجانية.' : locale === 'tr' ? 'Video linkinizi gönderin, ücretsiz analizle ne yapılabileceğini anlatalım.' : 'Send your video link and we will explain what can be done with a free review.'}
+              {locale === 'ar' ? 'أرسل رابط الفيديو وسنشرح لك ما يمكن تنفيذه عبر مراجعة مجانية.' : locale === 'es' ? 'Envía el enlace de tu video y te explicaremos las posibilidades con una revisión gratuita.' : locale === 'tr' ? 'Video linkinizi gönderin, ücretsiz analizle ne yapılabileceğini anlatalım.' : 'Send your video link and we will explain what can be done with a free review.'}
             </p>
             <div className="flex flex-wrap gap-3">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="rounded-xl bg-[#25D366] px-5 py-3 font-bold text-white hover:brightness-110">WhatsApp</a>
               <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="rounded-xl bg-sky-600 px-5 py-3 font-bold text-white hover:brightness-110">Telegram</a>
               <a href={`mailto:${PUBLIC_EMAIL}`} className="rounded-xl border border-gray-300 px-5 py-3 font-bold text-[#1A1A2E] hover:bg-gray-50">{PUBLIC_EMAIL}</a>
-              <Link href={`/${locale}/order`} className="rounded-xl bg-[#D9002B] px-5 py-3 font-bold text-white hover:brightness-110">{locale === 'ar' ? 'اطلب مراجعة مجانية' : locale === 'tr' ? 'Ücretsiz analiz iste' : 'Request a free review'}</Link>
+              <Link href={`/${locale}/order`} className="rounded-xl bg-[#D9002B] px-5 py-3 font-bold text-white hover:brightness-110">{locale === 'ar' ? 'اطلب مراجعة مجانية' : locale === 'es' ? 'Solicitar revisión gratuita' : locale === 'tr' ? 'Ücretsiz analiz iste' : 'Request a free review'}</Link>
             </div>
           </div>
         </div>

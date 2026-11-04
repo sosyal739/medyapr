@@ -8,19 +8,23 @@ type Props = {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   return {
     title: {
       absolute: isAr
         ? 'اتصل بنا | MedyaPR وكالة الترويج لفيديو يوتيوب'
+        : isEs
+        ? 'Contacto | MedyaPR Agencia de Promoción en YouTube'
         : isTr
         ? 'İletişim | MedyaPR YouTube Video PR & Danışmanlık'
         : 'Contact Us | MedyaPR YouTube Video PR Agency',
     },
     description: isAr
       ? 'تواصل مع MedyaPR لحملات الترويج لفيديو الكليب على يوتيوب. تحليل إعلانات Google Ads الرسمية، وعروض أسعار مخصصة، ودعم عبر WhatsApp.'
+      : isEs
+      ? 'Contáctanos para la promoción de tus videos musicales en YouTube. Campañas oficiales con Google Ads, cotizaciones a medida y soporte por WhatsApp.'
       : isTr
       ? 'YouTube video ve klip lansmanınız için bizimle iletişime geçin. Resmi Google Ads analizi, teklif alma ve WhatsApp hızlı destek hattı.'
       : 'Get in touch with MedyaPR for YouTube music video PR campaigns. Official Google Ads analysis, custom quotes, and WhatsApp support.',

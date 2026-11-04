@@ -25,19 +25,23 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   return {
     title: {
       absolute: isAr
         ? 'ترويج فيديو كليب على يوتيوب وإعلانات Google Ads | MedyaPR'
+        : isEs
+        ? 'Promoción de Videos Musicales en YouTube y Google Ads | MedyaPR'
         : isTr
         ? 'YouTube Klip Tanıtımı & Video Reklam Verme | MedyaPR'
         : 'YouTube Music Video Promotion & Google Ads PR | MedyaPR',
     },
     description: isAr
       ? 'ترويج فيديو كليب على يوتيوب عبر إعلانات Google Ads الرسمية وباقات مشاهدات حقيقية. لا حاجة لكلمة مرور؛ مراجعة مجانية أولًا ثم عرض سعر.'
+      : isEs
+      ? 'Promoción de videos musicales en YouTube con campañas oficiales de Google Ads y vistas 100% reales. Sin contraseñas de canal; análisis técnico gratuito.'
       : isTr
       ? 'Resmi Google Ads ile YouTube klip tanıtımı, şarkı reklamı ve gerçek izlenme paketleri. Şifre istenmez; önce ücretsiz analiz, sonra teklif.'
       : 'Official Google Ads YouTube music video promotion and real view packages. No password required; free review first, then a quote.',
@@ -48,11 +52,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
   const dict = await getDictionary(locale as Locale);
   const { trends } = await getTrends();
-  const trendingSongs = locale === 'ar' ? (trends.sa.length ? trends.sa : trends.tr) : locale === 'tr' ? trends.tr : trends.us.length ? trends.us : trends.tr;
+  const trendingSongs = locale === 'ar' ? (trends.sa.length ? trends.sa : trends.tr) : locale === 'es' ? (trends.mx.length ? trends.mx : trends.es.length ? trends.es : trends.us) : locale === 'tr' ? trends.tr : trends.us.length ? trends.us : trends.tr;
   const blogPosts = await getPostsForLocale(locale);
 
   return (
@@ -77,9 +81,11 @@ export default async function HomePage({ params }: Props) {
               },
               {
                 '@type': 'HowTo',
-                name: locale === 'ar' ? 'كيف يعمل الترويج لفيديو الكليب على يوتيوب' : locale === 'tr' ? 'YouTube Klip Tanıtımı ve Video PR Nasıl Yapılır?' : 'How YouTube Music Video PR Works',
+                name: locale === 'ar' ? 'كيف يعمل الترويج لفيديو الكليب على يوتيوب' : locale === 'es' ? 'Cómo Funciona la Promoción de Videos en YouTube' : locale === 'tr' ? 'YouTube Klip Tanıtımı ve Video PR Nasıl Yapılır?' : 'How YouTube Music Video PR Works',
                 description: locale === 'ar'
                   ? 'آلية حملة فيديو رسمية عبر Google Ads في 4 خطوات: الإرسال، والمراجعة، والموافقة، والتنفيذ.'
+                  : locale === 'es'
+                  ? 'Proceso oficial de campaña en YouTube con Google Ads en 4 pasos: envío, análisis, aprobación y entrega.'
                   : locale === 'tr'
                   ? 'MedyaPR ile YouTube video ve klip tanıtımının 4 adımlı resmi Google Ads onay ve yayın süreci.'
                   : '4-step official Google Ads video campaign workflow: submission, review, approval, and delivery.',
@@ -88,7 +94,7 @@ export default async function HomePage({ params }: Props) {
                   {
                     '@type': 'HowToStep',
                     position: 1,
-                    name: locale === 'ar' ? 'أرسل رابط الفيديو' : locale === 'tr' ? 'Video Linki Paylaşılır' : 'Submit Video URL',
+                    name: locale === 'ar' ? 'أرسل رابط الفيديو' : locale === 'es' ? 'Envía el Enlace de tu Video' : locale === 'tr' ? 'Video Linki Paylaşılır' : 'Submit Video URL',
                     text: locale === 'ar'
                       ? 'لا حاجة لأي كلمة مرور. يكفي مشاركة رابط فيديو يوتيوب العام فقط.'
                       : locale === 'tr'
@@ -99,7 +105,7 @@ export default async function HomePage({ params }: Props) {
                   {
                     '@type': 'HowToStep',
                     position: 2,
-                    name: locale === 'ar' ? 'مراجعة Google Partner والموافقة' : locale === 'tr' ? 'Google Partner Analizi & Onay' : 'Google Partner Review & Approval',
+                    name: locale === 'ar' ? 'مراجعة Google Partner والموافقة' : locale === 'es' ? 'Revisión y Aprobación de Google Partner' : locale === 'tr' ? 'Google Partner Analizi & Onay' : 'Google Partner Review & Approval',
                     text: locale === 'ar'
                       ? 'يفحص فريق Google Partner المعتمد لدينا مدى التزام المحتوى بالسياسات ثم يرفعه للحصول على الموافقة الرسمية.'
                       : locale === 'tr'
@@ -110,7 +116,7 @@ export default async function HomePage({ params }: Props) {
                   {
                     '@type': 'HowToStep',
                     position: 3,
-                    name: locale === 'ar' ? 'تحليل أولًا ثم عرض سعر' : locale === 'tr' ? 'Önce Analiz, Sonra Teklif' : 'Review First, Then Quote',
+                    name: locale === 'ar' ? 'تحليل أولًا ثم عرض سعر' : locale === 'es' ? 'Análisis Previo y Cotización Clara' : locale === 'tr' ? 'Önce Analiz, Sonra Teklif' : 'Review First, Then Quote',
                     text: locale === 'ar'
                       ? 'تتم مراجعة فيديوك ثم نرسل لك عرض سعر واضحًا؛ ولا تبدأ أي حملة دون موافقتك.'
                       : locale === 'tr'
@@ -121,7 +127,7 @@ export default async function HomePage({ params }: Props) {
                   {
                     '@type': 'HowToStep',
                     position: 4,
-                    name: locale === 'ar' ? 'التقارير والمشاهدات الدائمة' : locale === 'tr' ? 'Performans Raporlama & Kalıcı İzlenme' : 'Reporting & Permanent Views',
+                    name: locale === 'ar' ? 'التقارير والمشاهدات الدائمة' : locale === 'es' ? 'Reporte de Métricas y Vistas Permanentes' : locale === 'tr' ? 'Performans Raporlama & Kalıcı İzlenme' : 'Reporting & Permanent Views',
                     text: locale === 'ar'
                       ? 'تُسجَّل المشاهدات في YouTube Studio ضمن إعلانات يوتيوب وتبقى دائمة مدى الحياة، مع تقارير مفصلة.'
                       : locale === 'tr'
@@ -133,7 +139,7 @@ export default async function HomePage({ params }: Props) {
               },
               {
                 '@type': 'Service',
-                serviceType: locale === 'ar' ? 'إعلانات الترويج لفيديو يوتيوب والموسيقى' : locale === 'tr' ? 'YouTube Video & Klip PR Reklamcılığı' : 'YouTube Video & Music PR Advertising',
+                serviceType: locale === 'ar' ? 'إعلانات الترويج لفيديو يوتيوب والموسيقى' : locale === 'es' ? 'Publicidad y Promoción de Videos en YouTube' : locale === 'tr' ? 'YouTube Video & Klip PR Reklamcılığı' : 'YouTube Video & Music PR Advertising',
                 provider: {
                   '@type': 'Organization',
                   name: 'MedyaPR',
@@ -142,7 +148,7 @@ export default async function HomePage({ params }: Props) {
                 areaServed: ['TR', 'DE', 'Global'],
                 hasOfferCatalog: {
                   '@type': 'OfferCatalog',
-                  name: locale === 'ar' ? 'باقات الترويج لفيديو يوتيوب' : locale === 'tr' ? 'YouTube Video PR Paketleri' : 'YouTube Video PR Packages',
+                  name: locale === 'ar' ? 'باقات الترويج لفيديو يوتيوب' : locale === 'es' ? 'Paquetes de Promoción en YouTube' : locale === 'tr' ? 'YouTube Video PR Paketleri' : 'YouTube Video PR Packages',
                   itemListElement: [
                     {
                       '@type': 'Offer',
@@ -203,11 +209,13 @@ export default async function HomePage({ params }: Props) {
         <div className="mx-auto max-w-6xl px-4 md:px-8 space-y-10">
           <div className="max-w-3xl space-y-3">
             <span className="inline-block rounded-full bg-[#FF0033]/15 border border-[#FF0033]/30 px-3.5 py-1 text-xs font-extrabold uppercase tracking-wider text-[#FF6B6B]">
-              {isAr ? 'الدليل الرسمي للترويج للفيديو عبر Google Partner' : isTr ? 'Resmi Google Partner Video PR Rehberi' : 'Official Google Partner Video PR Guide'}
+              {isAr ? 'الدليل الرسمي للترويج للفيديو عبر Google Partner' : isEs ? 'Guía Oficial de Promoción en YouTube con Google Partner' : isTr ? 'Resmi Google Partner Video PR Rehberi' : 'Official Google Partner Video PR Guide'}
             </span>
             <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
               {isAr
                 ? 'ترويج فيديو كليب على يوتيوب وإعلانات الفيديو وباقات المشاهدات الحقيقية'
+                : isEs
+                ? 'Promoción de Videos Musicales en YouTube, Campañas de Video y Vistas Reales'
                 : isTr
                 ? 'YouTube Klip Tanıtımı, Video Reklam Verme ve Gerçek İzlenme Paketleri'
                 : 'YouTube Music Video Promotion, Video Advertising & Real View Packages'}
@@ -215,6 +223,8 @@ export default async function HomePage({ params }: Props) {
             <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
               {isAr
                 ? 'بخبرة تتجاوز 18 عامًا في المجال وخبرة Google Partner المعتمدة، تدير MedyaPR الترويج لفيديوهات يوتيوب عبر إعلانات Google Ads الرسمية وتسويق الأغاني وحملات المشاهدات الحقيقية للفنانين وشركات التسجيلات وصنّاع المحتوى. لا نطلب كلمة مرور القناة أبدًا.'
+                : isEs
+                ? 'Con más de 18 años de experiencia en la industria y certificación oficial Google Partner, MedyaPR gestiona promociones de videos en YouTube con Google Ads oficial, marketing musical y campañas de vistas 100% reales para artistas, sellos y creadores. Jamás pedimos contraseñas de canal.'
                 : isTr
                 ? 'MedyaPR, 18+ yıllık sektör deneyimi ve sertifikalı Google Partner uzmanlığıyla sanatçılar, yapım şirketleri ve içerik üreticileri için resmi Google Ads üzerinden YouTube reklam verme, şarkı tanıtımı ve organik izlenme kampanyaları yürütür. Kanal şifresi veya yönetici yetkisi asla istenmez; yalnızca herkese açık video linkinizle analiz yapılır ve onayınız alındığında işlem başlar.'
                 : 'With 18+ years of industry experience and certified Google Partner expertise, MedyaPR manages official Google Ads YouTube video promotion, song marketing, and real view campaigns for artists, record labels, and creators. Zero channel passwords required.'}
@@ -224,6 +234,8 @@ export default async function HomePage({ params }: Props) {
           <blockquote className="rounded-2xl border-l-4 border-[#FF0033] bg-white/[0.03] p-5 text-sm sm:text-base text-zinc-200 italic">
             {isAr
               ? '«تظهر إعلانات فيديو الكليب المُدارة عبر Google Ads الرسمية بشفافية ضمن مصدر الزيارات ‹إعلانات يوتيوب› في YouTube Analytics، وتبقى دائمة مدى الحياة دون أي مخاطر بوتات.»'
+              : isEs
+              ? '“Los anuncios de video gestionados mediante Google Ads oficial aparecen verificados en YouTube Studio Analytics bajo la fuente ‘Publicidad de YouTube’ con permanencia total y cero riesgo de bots.”'
               : isTr
               ? '“Resmi Google Ads üzerinden yürütülen YouTube klip reklamları ve video tanıtım kampanyaları, YouTube Studio Analytics ekranında doğrudan ‘YouTube Reklamları’ trafik kaynağı altında görünür; bot veya panel kullanılmadığı için izlenmeler ömür boyu kalıcıdır.”'
               : '“YouTube music video ads managed through official Google Ads appear transparently under the ‘YouTube Advertising’ traffic source in YouTube Studio Analytics with lifetime permanence and zero bot risk.”'}
@@ -233,11 +245,11 @@ export default async function HomePage({ params }: Props) {
             <table className="w-full text-left text-xs sm:text-sm">
               <thead>
                 <tr className="border-b border-white/10 bg-white/[0.04] text-zinc-300 uppercase font-extrabold">
-                  <th className="py-3.5 px-4">{isAr ? 'الخدمة والباقة' : isTr ? 'Hizmet & Paket Türü' : 'Service & Package'}</th>
-                  <th className="py-3.5 px-4">{isAr ? 'مصدر الزيارات' : isTr ? 'Trafik Kaynağı' : 'Traffic Source'}</th>
-                  <th className="py-3.5 px-4">{isAr ? 'السعر الابتدائي' : isTr ? 'Başlangıç Baremi' : 'Starting Rate'}</th>
-                  <th className="py-3.5 px-4">{isAr ? 'الآلية' : isTr ? 'Süreç' : 'Process'}</th>
-                  <th className="py-3.5 px-4">{isAr ? 'الإجراء' : isTr ? 'Hızlı İşlem' : 'Action'}</th>
+                  <th className="py-3.5 px-4">{isAr ? 'الخدمة والباقة' : isEs ? 'Servicio y Paquete' : isTr ? 'Hizmet & Paket Türü' : 'Service & Package'}</th>
+                  <th className="py-3.5 px-4">{isAr ? 'مصدر الزيارات' : isEs ? 'Fuente de Tráfico' : isTr ? 'Trafik Kaynağı' : 'Traffic Source'}</th>
+                  <th className="py-3.5 px-4">{isAr ? 'السعر الابتدائي' : isEs ? 'Tarifa Base' : isTr ? 'Başlangıç Baremi' : 'Starting Rate'}</th>
+                  <th className="py-3.5 px-4">{isAr ? 'الآلية' : isEs ? 'Proceso' : isTr ? 'Süreç' : 'Process'}</th>
+                  <th className="py-3.5 px-4">{isAr ? 'الإجراء' : isEs ? 'Acción' : isTr ? 'Hızlı İşlem' : 'Action'}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10 text-zinc-300">

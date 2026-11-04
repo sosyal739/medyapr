@@ -16,19 +16,23 @@ const PRICE_ROWS = [1_000, 5_000, 10_000, 25_000, 50_000, 100_000, 250_000, 1_00
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   return {
     title: {
       absolute: isAr
         ? 'أسعار الترويج في يوتيوب 2026 | حاسبة تكلفة الألف مشاهدة | MedyaPR'
+        : isEs
+        ? 'Precios y Planes de Promoción en YouTube 2026 | Calculadora CPV | MedyaPR'
         : isTr
         ? 'YouTube Reklam Verme & Klip İzlenme Fiyatları | MedyaPR'
         : 'YouTube Video Ad & Music PR Pricing Plans | MedyaPR',
     },
     description: isAr
       ? 'حاسبة أسعار الترويج لفيديو كليب على يوتيوب 2026: تبدأ من 100 ليرة تركية (3$) لكل 1000 مشاهدة عبر إعلانات Google Ads الرسمية. باقات شفافة ومباشرة في مصر والسعودية والمغرب.'
+      : isEs
+      ? 'Calculadora de precios para promocionar videos en YouTube 2026: desde $3 (100 TRY) por 1.000 vistas reales con Google Ads oficial. Planes transparentes para México, España y Latinoamérica.'
       : isTr
       ? '2026 YouTube klip tanıtımı, video reklam verme ve 1.000 izlenme fiyatları. Global 1K: 100 TL’den başlayan resmi Google Ads paketleri ve canlı hesaplama.'
       : '2026 YouTube music video promotion and Google Ads view pricing calculator. Transparent tiered rates from 1K to 1M real views.',
@@ -40,8 +44,8 @@ export default async function PricingPage({ params }: Props) {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   const pricingFaqs = isAr
     ? [
@@ -54,6 +58,29 @@ export default async function PricingPage({ params }: Props) {
           question: 'كيف تتم عملية الدفع؟',
           answer:
             'أرسل رابط يوتيوب والباقة للمراجعة الفنية. لا يوجد دفع إلكتروني على الموقع؛ يُتفق معك على خطة الدفع بعد موافقتك على عرض السعر. وإذا لم تتم موافقة Google Ads على الفيديو، يُردّ أي مبلغ مدفوع مسبقًا.',
+        },
+      ]
+    : isEs
+    ? [
+        {
+          question: '¿Cuánto cuesta 1.000 visualizaciones de anuncios en YouTube en 2026?',
+          answer:
+            'Con las campañas oficiales de Google Ads de MedyaPR, 1.000 vistas reales comienzan desde $3 (100 TRY) en paquetes Globales y desde $4–$6 en paquetes dirigidos por país, con descuentos automáticos por volumen de hasta el 40% en niveles mayores.',
+        },
+        {
+          question: '¿Cómo funciona el proceso de pago?',
+          answer:
+            'Envía tu enlace de YouTube y el paquete para revisión técnica. No hay cobro automático en la web; el plan de pago se acuerda contigo tras aprobar la cotización. Si Google Ads no aprueba el video, se reembolsa cualquier pago anticipado.',
+        },
+        {
+          question: '¿Por qué el precio varía según la duración del video?',
+          answer:
+            'En las subastas de video de Google Ads (In-Stream y Feed), la duración del video y el tiempo de reproducción impactan el CPV (costo por vista). Los videos musicales estándar de 3 a 4 minutos se procesan con tarifas estándar, mientras que contenidos largos se evalúan individualmente.',
+        },
+        {
+          question: '¿Se requiere contraseña del canal o acceso a mi cuenta?',
+          answer:
+            'No, jamás solicitamos contraseñas ni permisos administrativos. La campaña se gestiona exclusivamente a través del enlace público de tu video mediante nuestras cuentas oficiales de Google Partner.',
         },
       ]
     : isTr
@@ -107,22 +134,24 @@ export default async function PricingPage({ params }: Props) {
                   {
                     '@type': 'ListItem',
                     position: 1,
-                    name: isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home',
+                    name: isAr ? 'الرئيسية' : isEs ? 'Inicio' : isTr ? 'Ana Sayfa' : 'Home',
                     item: `https://medyapr.com/${locale}`,
                   },
                   {
                     '@type': 'ListItem',
                     position: 2,
-                    name: isAr ? 'الأسعار' : isTr ? 'YouTube Reklam & İzlenme Fiyatları' : 'Pricing',
+                    name: isAr ? 'الأسعار' : isEs ? 'Precios' : isTr ? 'YouTube Reklam & İzlenme Fiyatları' : 'Pricing',
                     item: `https://medyapr.com/${locale}/fiyatlandirma`,
                   },
                 ],
               },
               {
                 '@type': 'Service',
-                name: isAr ? 'باقات وأسعار MedyaPR للترويج لفيديو يوتيوب والموسيقى' : isTr ? 'MedyaPR YouTube Reklam Verme & Klip Tanıtım Paketleri' : 'MedyaPR YouTube Video & Music PR Packages and Pricing',
+                name: isAr ? 'باقات وأسعار MedyaPR للترويج لفيديو يوتيوب والموسيقى' : isEs ? 'Planes y Precios MedyaPR de Promoción en YouTube y Videos Musicales' : isTr ? 'MedyaPR YouTube Reklam Verme & Klip Tanıtım Paketleri' : 'MedyaPR YouTube Video & Music PR Packages and Pricing',
                 description: isAr
                   ? 'باقات الترويج لفيديو يوتيوب عبر إعلانات Google Ads الرسمية. أسعار متدرجة مخفّضة من 1K إلى 1M مشاهدة حقيقية.'
+                  : isEs
+                  ? 'Paquetes oficiales de promoción en YouTube con Google Ads. Tarifas escalonadas con descuento desde 1K hasta 1M de vistas reales.'
                   : isTr
                   ? 'Kademeli indirimli resmi Google Ads YouTube video ve klip tanıtım paketleri. 1.000 izlenmeden 1.000.000 izlenmeye kadar şeffaf baremler.'
                   : 'Official Google Ads YouTube video promotion packages. Tiered discounted pricing from 1K to 1M authentic views.',
@@ -131,7 +160,7 @@ export default async function PricingPage({ params }: Props) {
                   name: 'MedyaPR',
                   url: 'https://medyapr.com',
                 },
-                serviceType: isAr ? 'تقدير ميزانية الترويج والإعلان للفيديو' : isTr ? 'YouTube Video Reklam Verme ve Klip PR' : 'Video PR & Advertising Budget Estimation',
+                serviceType: isAr ? 'تقدير ميزانية الترويج والإعلان للفيديو' : isEs ? 'Presupuesto y Publicidad de Videos Musicales' : isTr ? 'YouTube Video Reklam Verme ve Klip PR' : 'Video PR & Advertising Budget Estimation',
                 areaServed: ['TR', 'DE', 'Global'],
                 url: `https://medyapr.com/${locale}/fiyatlandirma`,
               },
@@ -175,6 +204,8 @@ export default async function PricingPage({ params }: Props) {
             <h2 className="text-2xl sm:text-3xl font-black text-white">
               {isAr
                 ? 'جدول أسعار الترويج لفيديو كليب على يوتيوب وإعلانات Google Ads لعام 2026'
+                : isEs
+                ? 'Tabla de Precios y Tarifas de Promoción en YouTube con Google Ads 2026'
                 : isTr
                 ? '2026 YouTube Klip Tanıtımı ve Google Ads İzlenme Fiyat Tablosu'
                 : '2026 YouTube Music Video PR & Google Ads Pricing Benchmark Table'}
@@ -182,6 +213,8 @@ export default async function PricingPage({ params }: Props) {
             <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-4xl">
               {isAr
                 ? 'يوضح الجدول التالي أسعارنا المتدرجة للترويج الرسمي عبر Google Ads لفيديوهات الكليب العادية. أرسل طلب عرض السعر للحصول على تحليل فني مخصص.'
+                : isEs
+                ? 'La siguiente tabla detalla nuestras tarifas escalonadas con descuento para videos musicales estándar (3-4 min) mediante Google Ads oficial. Envía tu cotización para un análisis técnico personalizado.'
                 : isTr
                 ? 'Aşağıdaki tablo, standart uzunluktaki (3-4 dk) müzik klipleri ve YouTube videoları için resmi Google Ads izlenme paketlerimizin kademeli indirimli fiyatlarını gösterir. Teklifinizi ilettiğinizde videonuz analiz edilir ve onayınızla işlem başlar.'
                 : 'The benchmark table below outlines our tiered official Google Ads video promotion rates for standard music videos. Submit your quote for a custom technical analysis.'}
@@ -191,6 +224,8 @@ export default async function PricingPage({ params }: Props) {
           <blockquote className="rounded-2xl border-l-4 border-emerald-500 bg-white/[0.03] p-5 text-sm sm:text-base text-zinc-200 italic">
             {isAr
               ? '“معلومة سريعة عن الأسعار: تبدأ كل 1,000 مشاهدة حقيقية على يوتيوب عبر Google Ads من 100 ليرة تركية (3$) في الباقات العالمية ومن 125 ليرة تركية (3.4$) في الباقات الموجّهة إلى تركيا، مع خصومات على الباقات الأكبر. الأسعار تقديرية وتختلف حسب مدة الفيديو.”'
+              : isEs
+              ? '“Dato Clave de Precios: En MedyaPR, 1.000 vistas reales en YouTube mediante Google Ads comienzan en 100 TRY ($3) en planes Globales y 125 TRY ($3.4) en planes dirigidos, con descuentos por volumen. No se piden contraseñas; las tarifas son estimadas y varían según la duración.”'
               : isTr
               ? '“Özet Fiyat Bilgisi: MedyaPR’de 1.000 gerçek Google Ads YouTube izlenmesi Global paketlerde 100 TL’den (büyük paketlerde 1K: 60 TL), Türkiye hedefli kampanyalarda ise tahmini 125 TL’den (100K pakette 1K: yaklaşık 90 TL) başlar. Şifre istenmez; fiyatlar tahminidir ve video süresine göre değişebilir.”'
               : '“Quick Pricing Fact: 1,000 authentic Google Ads YouTube views start at 100 TRY ($3) on Global plans and 125 TRY ($3.4) on Turkey-targeted plans, with volume discounts on larger packs. Prices are estimates and vary by video length.”'}
@@ -200,11 +235,11 @@ export default async function PricingPage({ params }: Props) {
             <table className="w-full text-left text-xs sm:text-sm">
               <thead>
                 <tr className="border-b border-white/10 bg-white/[0.04] text-zinc-300 uppercase font-extrabold">
-                  <th className="py-3.5 px-4">{isAr ? 'المشاهدات المستهدفة (السعر التقديري)' : isTr ? 'Hedef İzlenme (tahmini fiyat)' : 'Target Views (estimated price)'}</th>
-                  <th className="py-3.5 px-4">{isAr ? 'عالمي' : isTr ? 'Global (🔥 İndirimli)' : 'Global'}</th>
-                  <th className="py-3.5 px-4">{isAr ? 'استهداف تركيا' : isTr ? 'Türkiye Hedefli' : 'Turkey Targeted'}</th>
-                  <th className="py-3.5 px-4">{isAr ? 'أوروبا / كندا' : isTr ? 'Avrupa / Kanada' : 'Europe / Canada'}</th>
-                  <th className="py-3.5 px-4">{isAr ? 'الولايات المتحدة' : isTr ? 'ABD' : 'USA'}</th>
+                  <th className="py-3.5 px-4">{isAr ? 'المشاهدات المستهدفة (السعر التقديري)' : isEs ? 'Vistas Objetivo (precio estimado)' : isTr ? 'Hedef İzlenme (tahmini fiyat)' : 'Target Views (estimated price)'}</th>
+                  <th className="py-3.5 px-4">{isAr ? 'عالمي' : isEs ? 'Global (🔥 Descuento)' : isTr ? 'Global (🔥 İndirimli)' : 'Global'}</th>
+                  <th className="py-3.5 px-4">{isAr ? 'استهداف تركيا' : isEs ? 'Turquía Dirigido' : isTr ? 'Türkiye Hedefli' : 'Turkey Targeted'}</th>
+                  <th className="py-3.5 px-4">{isAr ? 'أوروبا / كندا' : isEs ? 'Europa / Canadá' : isTr ? 'Avrupa / Kanada' : 'Europe / Canada'}</th>
+                  <th className="py-3.5 px-4">{isAr ? 'الولايات المتحدة' : isEs ? 'EE. UU.' : isTr ? 'ABD' : 'USA'}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10 text-zinc-200">
@@ -216,7 +251,7 @@ export default async function PricingPage({ params }: Props) {
                   return (
                     <tr key={v}>
                       <td className="py-3.5 px-4 font-bold text-white">
-                        {new Intl.NumberFormat(isAr ? 'ar-u-nu-latn-ca-gregory' : isTr ? 'tr-TR' : 'en-US').format(v)} {isAr ? 'المشاهدات' : isTr ? 'İzlenme' : 'Views'}
+                        {new Intl.NumberFormat(isAr ? 'ar-u-nu-latn-ca-gregory' : isEs ? 'es-ES' : isTr ? 'tr-TR' : 'en-US').format(v)} {isAr ? 'المشاهدات' : isEs ? 'Vistas' : isTr ? 'İzlenme' : 'Views'}
                       </td>
                       <td className="py-3.5 px-4 text-amber-300 font-bold">{formatMoney(g.total, 'TRY', locale)}</td>
                       <td className="py-3.5 px-4">{formatMoney(t.total, 'TRY', locale)}</td>
@@ -231,6 +266,8 @@ export default async function PricingPage({ params }: Props) {
           <p className="text-xs text-zinc-400">
             {isAr
               ? 'الأسعار تقديرية. الدول خارج أوروبا والولايات المتحدة وكندا (ومنها الدول العربية وأذربيجان والبلقان وآسيا وغيرها) تُسعَّر مثل تركيا؛ اختر دولتك من «اختر دولة» في الحاسبة.'
+              : isEs
+              ? 'Los precios son estimados. Los países fuera de Europa, EE. UU. y Canadá (incluyendo Latinoamérica, etc.) se cotizan según el costo por país; selecciona tu país en el calculador.'
               : isTr
               ? 'Fiyatlar tahminidir. Avrupa, ABD ve Kanada dışındaki ülkeler (Arap ülkeleri, Azerbaycan, Balkanlar, Asya vb.) Türkiye fiyatından hesaplanır; ülkeyi hesaplayıcıda “Ülke seç” ile seçebilirsiniz.'
               : 'Prices are estimates. Countries outside Europe, the US and Canada (Arab countries, Azerbaijan, the Balkans, Asia, etc.) are priced like Turkey; pick the country under “Pick a country” in the calculator.'}
@@ -239,7 +276,7 @@ export default async function PricingPage({ params }: Props) {
           {/* SSS / FAQ Accordion */}
           <div className="space-y-4 pt-4">
             <h2 className="text-2xl font-black text-white">
-              {isAr ? 'الأسئلة الشائعة حول الأسعار' : isTr ? 'YouTube Reklam Fiyatları Hakkında Sıkça Sorulan Sorular' : 'Pricing Frequently Asked Questions'}
+              {isAr ? 'الأسئلة الشائعة حول الأسعار' : isEs ? 'Preguntas Frecuentes sobre Tarifas' : isTr ? 'YouTube Reklam Fiyatları Hakkında Sıkça Sorulan Sorular' : 'Pricing Frequently Asked Questions'}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {pricingFaqs.map((f, i) => (
@@ -254,11 +291,13 @@ export default async function PricingPage({ params }: Props) {
           <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#FF0033]/30 bg-gradient-to-r from-[#FF0033]/15 to-zinc-900 p-6">
             <div>
               <h3 className="text-lg font-extrabold text-white">
-                {isAr ? 'أرسل رابط الفيديو للحصول على تحليل فني مجاني' : isTr ? 'Klibinizin Linkini Girip Hemen Ücretsiz Analiz İsteyin' : 'Submit Your Video Link for a Free Technical Analysis'}
+                {isAr ? 'أرسل رابط الفيديو للحصول على تحليل فني مجاني' : isEs ? 'Ingresa el Enlace de tu Video para un Análisis Técnico Gratuito' : isTr ? 'Klibinizin Linkini Girip Hemen Ücretsiz Analiz İsteyin' : 'Submit Your Video Link for a Free Technical Analysis'}
               </h3>
               <p className="text-xs sm:text-sm text-zinc-300">
                 {isAr
                   ? 'أرسل طلب عرض السعر عبر WhatsApp أو Telegram أو البريد الإلكتروني؛ سيراجع مختصونا الفيديو الخاص بك ويردون عليك بالتفصيل.'
+                  : isEs
+                  ? 'Envía tu cotización por WhatsApp, Telegram o correo electrónico; nuestros especialistas revisarán tu video y te responderán en detalle.'
                   : isTr
                   ? 'WhatsApp, Telegram veya E-Posta üzerinden teklifinizi iletin; uzman ekibimiz klibinizi inceleyip dönüş yapsın.'
                   : 'Send your quote via WhatsApp, Telegram, or Email; our specialists will review your video and reply in detail.'}
@@ -268,7 +307,7 @@ export default async function PricingPage({ params }: Props) {
               href={`/${locale}/order`}
               className="rounded-xl bg-[#E0002E] px-6 py-3.5 text-sm font-black text-white shadow-lg hover:brightness-110 transition"
             >
-              {isAr ? 'انتقل إلى معالج الطلب والتحليل ←' : isTr ? 'Sipariş & Analiz Sihirbazına Git →' : 'Go to Order & Analysis Wizard →'}
+              {isAr ? 'انتقل إلى معالج الطلب والتحليل ←' : isEs ? 'Ir al Asistente de Pedidos y Análisis →' : isTr ? 'Sipariş & Analiz Sihirbazına Git →' : 'Go to Order & Analysis Wizard →'}
             </Link>
           </div>
         </div>

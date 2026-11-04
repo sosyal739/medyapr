@@ -11,8 +11,8 @@ import { getPageAlternates } from '@/lib/seo';
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   return {
     title: {
@@ -34,8 +34,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function RefundPage({ params }: Props) {
   const { locale } = await params;
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   const schema = {
     '@context': 'https://schema.org',
@@ -44,7 +44,7 @@ export default async function RefundPage({ params }: Props) {
       {
         '@type': 'ListItem',
         position: 1,
-        name: isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home',
+        name: isAr ? 'الرئيسية' : isEs ? 'Inicio' : isTr ? 'Ana Sayfa' : 'Home',
         item: `https://medyapr.com/${locale}`,
       },
       {
@@ -66,10 +66,10 @@ export default async function RefundPage({ params }: Props) {
         <div className="mb-6 flex items-center gap-2 text-xs text-zinc-400">
           <Link href={`/${locale}`} className="hover:text-white transition flex items-center gap-1">
             <ArrowLeft className="h-3 w-3" />
-            {isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home'}
+            {isAr ? 'الرئيسية' : isEs ? 'Inicio' : isTr ? 'Ana Sayfa' : 'Home'}
           </Link>
           <span>/</span>
-          <span className="text-[#FF6B6B]">{isAr ? 'سياسة الاسترداد' : isTr ? 'İade Politikası' : 'Refund Policy'}</span>
+          <span className="text-[#FF6B6B]">{isAr ? 'سياسة الاسترداد' : isEs ? 'Política de Reembolso' : isTr ? 'İade Politikası' : 'Refund Policy'}</span>
         </div>
 
         <div className="rounded-3xl border border-zinc-800 bg-zinc-900/80 p-8 sm:p-12 backdrop-blur-xl shadow-2xl space-y-8">

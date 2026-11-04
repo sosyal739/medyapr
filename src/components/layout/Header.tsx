@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import type { Dictionary } from '@/lib/i18n/dictionaries';
 import Link from 'next/link';
-import { Menu, X, Globe, Sparkles, BookOpen, Users, Flame, Video } from 'lucide-react';
+import { Menu, X, BookOpen, Users, Flame, Video } from 'lucide-react';
 import BrandLogo from '@/components/common/BrandLogo';
 import ThemeToggle from '@/components/theme/ThemeToggle';
 import LanguageSwitcher from '@/components/layout/LanguageSwitcher';
@@ -13,9 +13,11 @@ interface HeaderProps {
   locale: string;
   /** Arapça blog yazısı slug'ı -> Türkçe eşi (dil değiştirici için). */
   arTwins?: Record<string, string>;
+  /** İspanyolca blog yazısı slug'ı -> Türkçe eşi. */
+  esTwins?: Record<string, string>;
 }
 
-export default function Header({ dict, locale, arTwins }: HeaderProps) {
+export default function Header({ dict, locale, arTwins, esTwins }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -28,8 +30,9 @@ export default function Header({ dict, locale, arTwins }: HeaderProps) {
   }, []);
 
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
+  const isNonTrEn = isAr || isEs;
 
   return (
     <>
@@ -56,7 +59,7 @@ export default function Header({ dict, locale, arTwins }: HeaderProps) {
                 href={`/${locale}`}
                 className="px-3 py-1.5 rounded-xl text-xs xl:text-sm font-semibold text-zinc-300 hover:text-white hover:bg-zinc-800/90 border border-transparent hover:border-zinc-600/50 shadow-xs hover:-translate-y-0.5 transition-all duration-200"
               >
-                {isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home'}
+                {isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : isEs ? 'Inicio' : 'Home'}
               </Link>
 
               <Link
@@ -64,10 +67,10 @@ export default function Header({ dict, locale, arTwins }: HeaderProps) {
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs xl:text-sm font-extrabold text-white bg-gradient-to-r from-red-600 to-rose-600 border border-red-400/40 shadow-md shadow-red-600/25 hover:scale-105 transition-all duration-200"
               >
                 <Flame className="h-3.5 w-3.5 text-white animate-pulse" />
-                {isAr ? 'الترند' : isTr ? 'Canlı Trendler' : 'Trends'}
+                {isAr ? 'الترند' : isTr ? 'Canlı Trendler' : isEs ? 'Tendencias' : 'Trends'}
               </Link>
 
-              {!isAr && (
+              {!isNonTrEn && (
                 <Link
                   href={`/${locale}/yeni-klipler`}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs xl:text-sm font-semibold text-zinc-300 hover:text-white hover:bg-zinc-800/90 border border-transparent hover:border-zinc-600/50 shadow-xs hover:-translate-y-0.5 transition-all duration-200"
@@ -77,7 +80,7 @@ export default function Header({ dict, locale, arTwins }: HeaderProps) {
                 </Link>
               )}
 
-              {!isAr && (
+              {!isNonTrEn && (
                 <Link
                   href={`/${locale}/sanatcilar`}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs xl:text-sm font-semibold text-zinc-300 hover:text-white hover:bg-zinc-800/90 border border-transparent hover:border-zinc-600/50 shadow-xs hover:-translate-y-0.5 transition-all duration-200"
@@ -92,28 +95,28 @@ export default function Header({ dict, locale, arTwins }: HeaderProps) {
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs xl:text-sm font-semibold text-zinc-300 hover:text-white hover:bg-zinc-800/90 border border-transparent hover:border-zinc-600/50 shadow-xs hover:-translate-y-0.5 transition-all duration-200"
               >
                 <BookOpen className="h-3.5 w-3.5 text-zinc-400" />
-                {isAr ? 'المدونة' : isTr ? 'Müzik Blogu' : 'Blog'}
+                {isAr ? 'المدونة' : isTr ? 'Müzik Blogu' : isEs ? 'Blog Musical' : 'Blog'}
               </Link>
 
               <Link
                 href={`/${locale}/fiyatlandirma`}
                 className="px-3 py-1.5 rounded-xl text-xs xl:text-sm font-semibold text-zinc-300 hover:text-white hover:bg-zinc-800/90 border border-transparent hover:border-zinc-600/50 shadow-xs hover:-translate-y-0.5 transition-all duration-200"
               >
-                {isAr ? 'الأسعار وحاسبة الأسعار' : isTr ? 'Fiyatlar & Hesapla' : 'Pricing & Calculator'}
+                {isAr ? 'الأسعار وحاسبة الأسعار' : isTr ? 'Fiyatlar & Hesapla' : isEs ? 'Precios y Calculadora' : 'Pricing & Calculator'}
               </Link>
 
               <Link
                 href={`/${locale}/hizmetler`}
                 className="px-3 py-1.5 rounded-xl text-xs xl:text-sm font-semibold text-zinc-300 hover:text-white hover:bg-zinc-800/90 border border-transparent hover:border-zinc-600/50 shadow-xs hover:-translate-y-0.5 transition-all duration-200"
               >
-                {isAr ? 'الخدمات' : isTr ? 'Hizmetler' : 'Services'}
+                {isAr ? 'الخدمات' : isTr ? 'Hizmetler' : isEs ? 'Servicios' : 'Services'}
               </Link>
 
               <Link
                 href={`/${locale}/sss`}
                 className="px-3 py-1.5 rounded-xl text-xs xl:text-sm font-semibold text-zinc-300 hover:text-white hover:bg-zinc-800/90 border border-transparent hover:border-zinc-600/50 shadow-xs hover:-translate-y-0.5 transition-all duration-200"
               >
-                {isAr ? 'الأسئلة الشائعة' : isTr ? 'SSS' : 'FAQ'}
+                {isAr ? 'الأسئلة الشائعة' : isTr ? 'SSS' : isEs ? 'Preguntas Frecuentes' : 'FAQ'}
               </Link>
             </nav>
 
@@ -123,14 +126,14 @@ export default function Header({ dict, locale, arTwins }: HeaderProps) {
               <ThemeToggle />
 
               {/* Language Switcher */}
-              <LanguageSwitcher currentLocale={locale} arTwins={arTwins} />
+              <LanguageSwitcher currentLocale={locale} arTwins={arTwins} esTwins={esTwins} />
 
               {/* Order Tracking */}
               <Link
                 href={`/${locale}/track`}
                 className="px-3.5 py-1.5 text-xs font-bold text-zinc-200 rounded-xl border border-zinc-700/60 hover:border-zinc-500 hover:bg-white/5 hover:text-white transition-all shadow-xs"
               >
-                {isAr ? 'تتبّع' : isTr ? 'Sipariş Takibi' : 'Track'}
+                {isAr ? 'تتبّع' : isTr ? 'Sipariş Takibi' : isEs ? 'Seguimiento' : 'Track'}
               </Link>
 
               {/* Order Now CTA */}
@@ -138,7 +141,7 @@ export default function Header({ dict, locale, arTwins }: HeaderProps) {
                 href={`/${locale}/order`}
                 className="px-4 py-2 text-xs bg-gradient-to-r from-[#E0002E] to-[#CC0029] text-white font-extrabold rounded-xl shadow-lg shadow-[#FF0033]/30 hover:scale-105 transition-all"
               >
-                {isAr ? 'اطلب وحلّل' : isTr ? 'Sipariş & Analiz' : 'Order & Audit'}
+                {isAr ? 'اطلب وحلّل' : isTr ? 'Sipariş & Analiz' : isEs ? 'Pedido y Análisis' : 'Order & Audit'}
               </Link>
             </div>
 
@@ -171,7 +174,7 @@ export default function Header({ dict, locale, arTwins }: HeaderProps) {
                 className="px-4 py-3 rounded-xl text-base font-semibold text-white/80 hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home'}
+                {isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : isEs ? 'Inicio' : 'Home'}
               </Link>
               <Link
                 href={`/${locale}/trendler`}
@@ -179,9 +182,9 @@ export default function Header({ dict, locale, arTwins }: HeaderProps) {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <Flame className="h-4 w-4 text-[#FF0033]" />
-                {isAr ? 'قوائم الترند' : isTr ? 'Canlı Trend Şarkılar' : 'Trending Charts'}
+                {isAr ? 'قوائم الترند' : isTr ? 'Canlı Trend Şarkılar' : isEs ? 'Listas de Tendencias' : 'Trending Charts'}
               </Link>
-              {!isAr && (
+              {!isNonTrEn && (
                 <Link
                   href={`/${locale}/yeni-klipler`}
                   className="flex items-center gap-2 px-4 py-3 rounded-xl text-base font-semibold text-white/90 hover:bg-white/5"
@@ -191,7 +194,7 @@ export default function Header({ dict, locale, arTwins }: HeaderProps) {
                   {isAr ? 'كليبات جديدة' : isTr ? 'Yeni Klipler' : 'New Clips'}
                 </Link>
               )}
-              {!isAr && (
+              {!isNonTrEn && (
                 <Link
                   href={`/${locale}/sanatcilar`}
                   className="flex items-center gap-2 px-4 py-3 rounded-xl text-base font-semibold text-white/80 hover:bg-white/5"
@@ -207,39 +210,39 @@ export default function Header({ dict, locale, arTwins }: HeaderProps) {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <BookOpen className="h-4 w-4 text-white/40" />
-                {isAr ? 'المدونة' : isTr ? 'Müzik & Büyüme Blogu' : 'Blog'}
+                {isAr ? 'المدونة' : isTr ? 'Müzik & Büyüme Blogu' : isEs ? 'Blog de Música y Crecimiento' : 'Blog'}
               </Link>
               <Link
                 href={`/${locale}/fiyatlandirma`}
                 className="px-4 py-3 rounded-xl text-base font-semibold text-white/80 hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {isAr ? 'الأسعار وحاسبة الأسعار' : isTr ? 'Fiyatlar & Hesaplama' : 'Pricing & Calculator'}
+                {isAr ? 'الأسعار وحاسبة الأسعار' : isTr ? 'Fiyatlar & Hesaplama' : isEs ? 'Precios y Calculadora' : 'Pricing & Calculator'}
               </Link>
               <Link
                 href={`/${locale}/hizmetler`}
                 className="px-4 py-3 rounded-xl text-base font-semibold text-white/80 hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {isAr ? 'الخدمات والباقات' : isTr ? 'Hizmetler & Paketler' : 'Services & Packages'}
+                {isAr ? 'الخدمات والباقات' : isTr ? 'Hizmetler & Paketler' : isEs ? 'Servicios y Paquetes' : 'Services & Packages'}
               </Link>
               <Link
                 href={`/${locale}/sss`}
                 className="px-4 py-3 rounded-xl text-base font-semibold text-white/80 hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {isAr ? 'الأسئلة الشائعة' : isTr ? 'SSS' : 'FAQ'}
+                {isAr ? 'الأسئلة الشائعة' : isTr ? 'SSS' : isEs ? 'Preguntas Frecuentes' : 'FAQ'}
               </Link>
 
               <hr className="my-2 border-white/10" />
-              <LanguageSwitcher currentLocale={locale} variant="mobile" arTwins={arTwins} />
+              <LanguageSwitcher currentLocale={locale} variant="mobile" arTwins={arTwins} esTwins={esTwins} />
 
               <Link
                 href={`/${locale}/track`}
                 className="w-full px-4 py-3 rounded-xl text-center text-sm font-bold border border-white/20 text-white hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {isAr ? 'تتبّع الطلب' : isTr ? 'Sipariş Takibi' : 'Track Order'}
+                {isAr ? 'تتبّع الطلب' : isTr ? 'Sipariş Takibi' : isEs ? 'Seguimiento de Pedido' : 'Track Order'}
               </Link>
 
               <Link
@@ -247,7 +250,7 @@ export default function Header({ dict, locale, arTwins }: HeaderProps) {
                 className="w-full px-4 py-3 rounded-xl text-center text-sm font-extrabold bg-[#D9002B] text-white shadow-lg shadow-[#FF0033]/30"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {isAr ? 'اطلب الخدمة وتحليلًا مجانيًا' : isTr ? 'Sipariş & Analiz İste' : 'Order & Request Audit'}
+                {isAr ? 'اطلب الخدمة وتحليلًا مجانيًا' : isTr ? 'Sipariş & Analiz İste' : isEs ? 'Pedir Servicio y Análisis Gratis' : 'Order & Request Audit'}
               </Link>
             </nav>
           </div>

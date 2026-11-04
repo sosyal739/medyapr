@@ -11,13 +11,15 @@ import { getPageAlternates } from '@/lib/seo';
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   return {
     title: {
       absolute: isAr
         ? 'سياسة الخصوصية | MedyaPR وكالة آمنة للترويج للفيديو'
+        : isEs
+        ? 'Política de Privacidad | MedyaPR Agencia Segura de Promoción en YouTube'
         : isTr
         ? 'Gizlilik Politikası | MedyaPR Güvenli Video Ajansı'
         : 'Privacy Policy | MedyaPR Secure Video PR Agency',
@@ -34,8 +36,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PrivacyPage({ params }: Props) {
   const { locale } = await params;
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   const schema = {
     '@context': 'https://schema.org',
@@ -44,13 +46,13 @@ export default async function PrivacyPage({ params }: Props) {
       {
         '@type': 'ListItem',
         position: 1,
-        name: isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home',
+        name: isAr ? 'الرئيسية' : isEs ? 'Inicio' : isTr ? 'Ana Sayfa' : 'Home',
         item: `https://medyapr.com/${locale}`,
       },
       {
         '@type': 'ListItem',
         position: 2,
-        name: isAr ? 'سياسة الخصوصية' : isTr ? 'Gizlilik Politikası' : 'Privacy Policy',
+        name: isAr ? 'سياسة الخصوصية' : isEs ? 'Política de Privacidad' : isTr ? 'Gizlilik Politikası' : 'Privacy Policy',
         item: `https://medyapr.com/${locale}/gizlilik`,
       },
     ],
@@ -67,10 +69,10 @@ export default async function PrivacyPage({ params }: Props) {
         <div className="mb-6 flex items-center gap-2 text-xs text-zinc-400">
           <Link href={`/${locale}`} className="hover:text-white transition flex items-center gap-1">
             <ArrowLeft className="h-3 w-3" />
-            {isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home'}
+            {isAr ? 'الرئيسية' : isEs ? 'Inicio' : isTr ? 'Ana Sayfa' : 'Home'}
           </Link>
           <span>/</span>
-          <span className="text-[#FF6B6B]">{isAr ? 'سياسة الخصوصية' : isTr ? 'Gizlilik Politikası' : 'Privacy Policy'}</span>
+          <span className="text-[#FF6B6B]">{isAr ? 'سياسة الخصوصية' : isEs ? 'Política de Privacidad' : isTr ? 'Gizlilik Politikası' : 'Privacy Policy'}</span>
         </div>
 
         <div className="rounded-3xl border border-zinc-800 bg-zinc-900/80 p-8 sm:p-12 backdrop-blur-xl shadow-2xl space-y-8">

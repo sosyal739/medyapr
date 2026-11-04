@@ -10,8 +10,8 @@ interface TrustBadgesProps {
 
 export default function TrustBadges({ dict, locale = 'tr' }: TrustBadgesProps) {
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   const items = isAr
     ? [
@@ -23,6 +23,17 @@ export default function TrustBadges({ dict, locale = 'tr' }: TrustBadgesProps) {
         { label: 'مصدر الترافيك', value: 'مصدر الترافيك موثّق كإعلانات يوتيوب', icon: BarChart2 },
         { label: 'لمن هذه الخدمة؟', value: 'فنانون مستقلون وشركات إنتاج واستوديوهات', icon: CheckCircle },
         { label: 'تفاعل طبيعي إضافي', value: 'إعجابات وتعليقات ومعجبون حقيقيون', icon: Headphones },
+      ]
+    : isEs
+    ? [
+        { label: 'Trayectoria', value: '+18 Años de Experiencia Continua', icon: Award },
+        { label: 'Certificación', value: 'Especialistas Certificados Google Partner', icon: ShieldCheck },
+        { label: 'Red Global', value: 'Artistas y Sellos de Todo el Mundo', icon: Users },
+        { label: 'Segmentación', value: 'Por Género, Idioma y Demografía', icon: Zap },
+        { label: 'Seguridad', value: 'Cero Bots y Cero Paneles SMM', icon: ShieldCheck },
+        { label: 'Origen de Tráfico', value: 'Verificado como Publicidad de YouTube', icon: BarChart2 },
+        { label: '¿Para Quién Es?', value: 'Artistas Independientes, Sellos y Estudios', icon: CheckCircle },
+        { label: 'Impacto Orgánico', value: 'Likes, Comentarios y Fans Reales', icon: Headphones },
       ]
     : isTr
     ? [

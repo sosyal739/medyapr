@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import BrandLogo from '@/components/common/BrandLogo';
 import type { Dictionary } from '@/lib/i18n/dictionaries';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { getLandingPages } from '@/data/landing';
 
 interface FooterProps {
@@ -120,27 +120,27 @@ export default function Footer({ dict, locale }: FooterProps) {
                   href={`/${locale}/trendler`}
                   className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200"
                 >
-                  {locale === 'ar' ? 'تحليلات الموسيقى الرائجة' : locale === 'tr' ? 'Trend Şarkılar Analizi' : 'Trending Music Analytics'}
+                  {locale === 'ar' ? 'تحليلات الموسيقى الرائجة' : locale === 'tr' ? 'Trend Şarkılar Analizi' : locale === 'es' ? 'Análisis de Música en Tendencia' : 'Trending Music Analytics'}
                 </Link>
               </li>
-              {locale !== 'ar' && (
+              {locale !== 'ar' && locale !== 'es' && (
                 <li>
                   <Link
                     href={`/${locale}/yeni-klipler`}
                     className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200 flex items-center gap-1.5"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-[#D9002B] animate-pulse"></span>
-                    {locale === 'ar' ? 'كليبات جديدة' : locale === 'tr' ? 'Yeni Çıkan Klipler' : 'New Music Videos'}
+                    {locale === 'tr' ? 'Yeni Çıkan Klipler' : 'New Music Videos'}
                   </Link>
                 </li>
               )}
-              {locale !== 'ar' && (
+              {locale !== 'ar' && locale !== 'es' && (
                 <li>
                   <Link
                     href={`/${locale}/sanatcilar`}
                     className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200"
                   >
-                    {locale === 'ar' ? 'أبرز الفنانين والفرق' : locale === 'tr' ? 'Popüler Sanatçılar' : 'Top Artists & Bands'}
+                    {locale === 'tr' ? 'Popüler Sanatçılar' : 'Top Artists & Bands'}
                   </Link>
                 </li>
               )}
@@ -157,7 +157,7 @@ export default function Footer({ dict, locale }: FooterProps) {
                   href={`/${locale}/order`}
                   className="text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors duration-200"
                 >
-                  {locale === 'ar' ? 'تحليل الفيديو وطلب الإعلان' : locale === 'tr' ? 'Klip Analizi & Reklam Siparişi' : 'Video Audit & Ad Order'}
+                  {locale === 'ar' ? 'تحليل الفيديو وطلب الإعلان' : locale === 'tr' ? 'Klip Analizi & Reklam Siparişi' : locale === 'es' ? 'Análisis de Video y Pedido' : 'Video Audit & Ad Order'}
                 </Link>
               </li>
               <li>
@@ -165,7 +165,7 @@ export default function Footer({ dict, locale }: FooterProps) {
                   href={`/${locale}/klip-pr`}
                   className="text-sm font-semibold text-[#FF6B6B] hover:text-white transition-colors duration-200"
                 >
-                  {locale === 'ar' ? 'الترويج الرقمي وإطلاق فيديو الكليب' : locale === 'tr' ? 'Müzik Klibi Dijital PR & Lansman' : 'Music Video Digital PR & Launch'}
+                  {locale === 'ar' ? 'الترويج الرقمي وإطلاق فيديو الكليب' : locale === 'tr' ? 'Müzik Klibi Dijital PR & Lansman' : locale === 'es' ? 'Lanzamiento y PR Digital de Video' : 'Music Video Digital PR & Launch'}
                 </Link>
               </li>
               <li>
@@ -233,7 +233,7 @@ export default function Footer({ dict, locale }: FooterProps) {
                   }}
                   className="text-sm text-gray-400 hover:text-[#FF0033] transition-colors duration-200 cursor-pointer text-left"
                 >
-                  {dict.footer.cookie_settings || (locale === 'ar' ? 'تفضيلات ملفات تعريف الارتباط' : locale === 'tr' ? 'Çerez Tercihleri' : 'Cookie Preferences')}
+                  {dict.footer.cookie_settings || (locale === 'ar' ? 'تفضيلات ملفات تعريف الارتباط' : locale === 'tr' ? 'Çerez Tercihleri' : locale === 'es' ? 'Preferencias de Cookies' : 'Cookie Preferences')}
                 </button>
               </li>
             </ul>
@@ -257,7 +257,7 @@ export default function Footer({ dict, locale }: FooterProps) {
         <div className="container mx-auto px-4 py-5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-500">
-              © {currentYear} MedyaPR. {dict.footer.copyright?.replace(/©\s*\d{4}\s*(AdsViews|MedyaPR)\.\s*/, '') || (locale === 'ar' ? 'جميع الحقوق محفوظة.' : locale === 'tr' ? 'Tüm hakları saklıdır.' : 'All rights reserved.')}
+              © {currentYear} MedyaPR. {dict.footer.copyright?.replace(/©\s*\d{4}\s*(AdsViews|MedyaPR)\.\s*/, '') || (locale === 'ar' ? 'جميع الحقوق محفوظة.' : locale === 'tr' ? 'Tüm hakları saklıdır.' : locale === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.')}
             </p>
             <div className="flex items-center gap-4">
               <span className="text-xs text-gray-400">
@@ -265,9 +265,13 @@ export default function Footer({ dict, locale }: FooterProps) {
                   ? '💬 الدعم عبر WhatsApp وTelegram فقط • يبدأ العمل عند الموافقة'
                   : locale === 'tr'
                   ? '💬 Sadece WhatsApp & Telegram İletişim • Analiz Sonrası Onayda Başlar'
+                  : locale === 'es'
+                  ? '💬 Soporte solo por WhatsApp y Telegram • Inicia tras la aprobación'
                   : '💬 WhatsApp & Telegram Support Only • Starts Upon Approval'}
               </span>
-              <span className="text-xs text-gray-500">{locale === 'ar' ? '🔒 اتصال آمن (SSL)' : '🔒 SSL Secured'}</span>
+              <span className="text-xs text-gray-500">
+                {locale === 'ar' ? '🔒 اتصال آمن (SSL)' : locale === 'es' ? '🔒 Conexión Segura (SSL)' : '🔒 SSL Secured'}
+              </span>
             </div>
           </div>
         </div>

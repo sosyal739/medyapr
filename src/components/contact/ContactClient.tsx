@@ -22,9 +22,8 @@ export default function ContactClient({ locale }: Props) {
   const [error, setError] = useState('');
 
   const isTr = locale === 'tr';
-
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -53,6 +52,8 @@ export default function ContactClient({ locale }: Props) {
       setError(
         isAr
           ? 'تعذّر إرسال الرسالة. يُرجى التواصل معنا عبر WhatsApp أو Telegram.'
+          : isEs
+          ? 'No se pudo enviar el mensaje. Por favor escríbenos por WhatsApp o Telegram.'
           : isTr
           ? 'Mesaj gönderilemedi. Lütfen WhatsApp veya Telegram üzerinden yazın.'
           : 'Message could not be sent. Please reach us on WhatsApp or Telegram.',
@@ -72,17 +73,19 @@ export default function ContactClient({ locale }: Props) {
       <div className="relative mx-auto max-w-6xl px-4 md:px-8 mb-12 text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-zinc-700/60 bg-zinc-800/80 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5E7E] mb-4">
           <Award className="h-4 w-4 text-[#FF0033]" />
-          {isAr ? 'خبرة تتجاوز 18 عامًا • Google Partner رسمي' : isTr ? '18+ Yıllık Tecrübe • Resmi Google Partner' : '18+ Years Track Record • Official Google Partner'}
+          {isAr ? 'خبرة تتجاوز 18 عامًا • Google Partner رسمي' : isEs ? '+18 Años de Trayectoria • Google Partner Oficial' : isTr ? '18+ Yıllık Tecrübe • Resmi Google Partner' : '18+ Years Track Record • Official Google Partner'}
         </span>
         <h1 className="text-3xl font-extrabold sm:text-5xl tracking-tight text-white mb-4">
-          {isAr ? 'تواصل ' : isTr ? 'Bizimle ' : 'Get in '}
+          {isAr ? 'تواصل ' : isEs ? 'Ponte en ' : isTr ? 'Bizimle ' : 'Get in '}
           <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
-            {isAr ? 'مع MedyaPR' : isTr ? 'İletişime Geçin' : 'Touch with MedyaPR'}
+            {isAr ? 'مع MedyaPR' : isEs ? 'Contacto con MedyaPR' : isTr ? 'İletişime Geçin' : 'Touch with MedyaPR'}
           </span>
         </h1>
         <p className="text-sm md:text-base text-zinc-300 max-w-2xl mx-auto leading-relaxed">
           {isAr
             ? 'تواصل مع خبراء Google Partner المعتمدين لدينا للترويج للفيديو كليب وحملات In-Stream ووضع استراتيجية الحملة.'
+            : isEs
+            ? 'Comunícate con nuestros especialistas certificados de Google Partner para la promoción de tus videos musicales y campañas In-Stream.'
             : isTr
             ? 'YouTube klibiniz veya kurumsal video tanıtımınız için uzman ekibimizle iletişime geçin. Ücretsiz ön analiz ve strateji danışmanlığı sağlayalım.'
             : 'Reach out to our certified Google Partner specialists for music video PR, In-Stream campaigns, and campaign strategy.'}
@@ -95,11 +98,13 @@ export default function ContactClient({ locale }: Props) {
           {/* Contact Form */}
           <div className="rounded-2xl border border-zinc-800 bg-zinc-900/80 p-8 md:p-10 backdrop-blur-xl shadow-2xl">
             <h2 className="text-2xl font-bold text-white mb-2">
-              {isAr ? 'أرسل طلب عرض السعر ورابط الفيديو' : isTr ? 'Teklifinizi & Video Linkinizi İletin' : 'Submit Your Quote & Video Link'}
+              {isAr ? 'أرسل طلب عرض السعر ورابط الفيديو' : isEs ? 'Envía tu Solicitud y Enlace de Video' : isTr ? 'Teklifinizi & Video Linkinizi İletin' : 'Submit Your Quote & Video Link'}
             </h2>
             <p className="text-xs text-zinc-400 mb-6 leading-relaxed">
               {isAr
                 ? 'أرسل طلب عرض السعر وسنحلل الفيديو ونرد عليك بالتفصيل؛ ويبدأ العمل بعد الموافقة. قد تختلف الأسعار حسب مدة الفيديو.'
+                : isEs
+                ? 'Envía tu solicitud; analizaremos tu video y te responderemos en detalle; el trabajo comienza tras tu aprobación. Tarifas según duración.'
                 : isTr
                 ? 'Teklifinizi iletin, videonuzu analiz edip detaylı dönüş yapalım; onay alınca işlem başlar. Fiyatlandırma video uzunluğuna göre değişebilir.'
                 : 'Submit your quote, we will analyze your video and reply in detail; work begins upon approval. Pricing may vary based on video length.'}
@@ -110,6 +115,8 @@ export default function ContactClient({ locale }: Props) {
                 <ShieldCheck className="h-5 w-5 text-emerald-400 shrink-0" />
                 {isAr
                   ? 'تم إرسال طلبك! سيحلل خبراؤنا الفيديو ويردون عليك بالتفصيل في أقرب وقت.'
+                  : isEs
+                  ? '¡Solicitud enviada! Nuestros especialistas analizarán tu video y te responderán en detalle muy pronto.'
                   : isTr
                   ? 'Talebiniz başarıyla iletildi! Uzman ekibimiz videonuzu analiz edip en kısa sürede detaylı dönüş yapacaktır.'
                   : 'Request sent! Our specialists will analyze your video and get back to you in detail shortly.'}
@@ -127,7 +134,7 @@ export default function ContactClient({ locale }: Props) {
               <input type="text" name="website_hp" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 opacity-0" />
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 mb-1.5">
-                  {isAr ? 'اسمك الكامل / اسمك الفني' : isTr ? 'Adınız Soyadınız / Sanatçı Adı' : 'Your Full Name / Artist Name'}
+                  {isAr ? 'اسمك الكامل / اسمك الفني' : isEs ? 'Nombre Completo / Nombre Artístico' : isTr ? 'Adınız Soyadınız / Sanatçı Adı' : 'Your Full Name / Artist Name'}
                 </label>
                 <input
                   type="text"
@@ -135,14 +142,14 @@ export default function ContactClient({ locale }: Props) {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-zinc-700 bg-zinc-800/80 text-white placeholder-zinc-500 focus:border-[#FF0033] focus:ring-2 focus:ring-[#FF0033]/20 outline-none transition-all text-sm"
-                  placeholder={isAr ? 'مثال: محمد أحمد' : isTr ? 'Örn. Adınız Soyadınız' : 'e.g. John Doe'}
+                  placeholder={isAr ? 'مثال: محمد أحمد' : isEs ? 'Ej. Juan Pérez' : isTr ? 'Örn. Adınız Soyadınız' : 'e.g. John Doe'}
                 />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 mb-1.5">
-                    {isAr ? 'البريد الإلكتروني' : isTr ? 'E-posta Adresi' : 'Email Address'}
+                    {isAr ? 'البريد الإلكتروني' : isEs ? 'Correo Electrónico' : isTr ? 'E-posta Adresi' : 'Email Address'}
                   </label>
                   <input
                     type="email"
@@ -155,7 +162,7 @@ export default function ContactClient({ locale }: Props) {
                 </div>
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 mb-1.5">
-                    {isAr ? 'رقم WhatsApp أو اسم مستخدم Telegram' : isTr ? 'WhatsApp veya Telegram Kullanıcı Adı' : 'WhatsApp or Telegram Username'}
+                    {isAr ? 'رقم WhatsApp أو اسم مستخدم Telegram' : isEs ? 'Número de WhatsApp o Telegram' : isTr ? 'WhatsApp veya Telegram Kullanıcı Adı' : 'WhatsApp or Telegram Username'}
                   </label>
                   <input
                     type="text"

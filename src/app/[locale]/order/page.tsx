@@ -9,19 +9,23 @@ import { isCountryCode } from '@/lib/countries';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   return {
     title: {
       absolute: isAr
         ? 'اطلب إعلان فيديو يوتيوب وتحليلًا مجانيًا | MedyaPR'
+        : isEs
+        ? 'Pedir Anuncios de Video en YouTube y Análisis Gratuito | MedyaPR'
         : isTr
         ? 'YouTube Reklam Siparişi & Klip Analizi | MedyaPR'
         : 'YouTube Video Ad Order & Free Analysis | MedyaPR',
     },
     description: isAr
       ? 'الصق رابط فيديو يوتيوب، واختر باقة المشاهدات، واطلب تحليلًا فنيًا مجانيًا عبر WhatsApp أو Telegram أو البريد الإلكتروني. يبدأ العمل بعد موافقتك.'
+      : isEs
+      ? 'Pega el enlace de tu video de YouTube, elige tu paquete y solicita un análisis técnico gratuito por WhatsApp, Telegram o email. Comienza tras tu visto bueno.'
       : isTr
       ? 'YouTube video linkinizi yapıştırın, izlenme paketinizi seçin ve WhatsApp, Telegram veya Mail ile ücretsiz video analizi isteyin. Onay alınca işlem başlar.'
       : 'Paste your YouTube video link, select a view package, and request a free technical analysis via WhatsApp, Telegram, or Email. Work starts upon approval.',
@@ -39,8 +43,8 @@ export default async function OrderPage({ params, searchParams }: Props) {
   const sp = await searchParams;
   const t = getAppStrings(locale);
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
   const pick = <T extends string>(list: readonly T[], v: string | undefined, d: T): T => (list.includes(v as T) ? (v as T) : d);
   const CHANNELS = ['whatsapp', 'telegram', 'email'] as const;
 
@@ -50,6 +54,19 @@ export default async function OrderPage({ params, searchParams }: Props) {
           question: 'ماذا يحدث بعد إرسال رابط فيديو يوتيوب؟',
           answer:
             'يفحص خبراء Google Partner لدينا مدة الفيديو والجمهور المستهدف والتزامه بسياسات الإعلانات، ثم يردّون عليك عبر WhatsApp أو Telegram أو البريد الإلكتروني بخطة إطلاق مفصلة.',
+        },
+      ]
+    : isEs
+    ? [
+        {
+          question: '¿Qué sucede después de enviar el enlace de mi video de YouTube?',
+          answer:
+            'Nuestros especialistas certificados de Google Partner analizan la duración del video, audiencia objetivo y cumplimiento de políticas de Google Ads, respondiendo por WhatsApp, Telegram o correo con un plan de lanzamiento detallado.',
+        },
+        {
+          question: '¿Por qué hay un proceso de análisis en lugar de cobro directo?',
+          answer:
+            'Cada video musical tiene características y duración distintas. Para maximizar tu presupuesto y cuidar la seguridad del canal, realizamos primero la revisión técnica; una vez aprobada la campaña, se activa la entrega.',
         },
       ]
     : isTr
@@ -87,26 +104,26 @@ export default async function OrderPage({ params, searchParams }: Props) {
                   {
                     '@type': 'ListItem',
                     position: 1,
-                    name: isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home',
+                    name: isAr ? 'الرئيسية' : isEs ? 'Inicio' : isTr ? 'Ana Sayfa' : 'Home',
                     item: `https://medyapr.com/${locale}`,
                   },
                   {
                     '@type': 'ListItem',
                     position: 2,
-                    name: isAr ? 'الطلب وتحليل الفيديو' : isTr ? 'Sipariş & Video Analizi' : 'Order & Video Analysis',
+                    name: isAr ? 'الطلب وتحليل الفيديو' : isEs ? 'Pedido y Análisis de Video' : isTr ? 'Sipariş & Video Analizi' : 'Order & Video Analysis',
                     item: `https://medyapr.com/${locale}/order`,
                   },
                 ],
               },
               {
                 '@type': 'Service',
-                name: isAr ? 'طلب إعلان فيديو يوتيوب ومراجعة فنية' : isTr ? 'YouTube Reklam Siparişi ve Ücretsiz Klip Analizi' : 'YouTube Video Ad Order & Technical Review',
+                name: isAr ? 'طلب إعلان فيديو يوتيوب ومراجعة فنية' : isEs ? 'Pedido de Anuncio de Video y Revisión Gratuita' : isTr ? 'YouTube Reklam Siparişi ve Ücretsiz Klip Analizi' : 'YouTube Video Ad Order & Technical Review',
                 provider: {
                   '@type': 'Organization',
                   name: 'MedyaPR',
                   url: 'https://medyapr.com',
                 },
-                serviceType: isAr ? 'الترويج لفيديو يوتيوب عبر إعلانات Google Ads الرسمية' : isTr ? 'Resmi Google Ads YouTube Video Tanıtımı' : 'Official Google Ads YouTube Video Promotion',
+                serviceType: isAr ? 'الترويج لفيديو يوتيوب عبر إعلانات Google Ads الرسمية' : isEs ? 'Promoción Oficial de Video en YouTube con Google Ads' : isTr ? 'Resmi Google Ads YouTube Video Tanıtımı' : 'Official Google Ads YouTube Video Promotion',
                 url: `https://medyapr.com/${locale}/order`,
               },
               {
@@ -128,11 +145,13 @@ export default async function OrderPage({ params, searchParams }: Props) {
       <div className="mx-auto max-w-6xl px-4 md:px-8 space-y-12">
         <div className="mb-6 md:mb-8">
           <h1 className="font-[family-name:var(--font-heading)] text-3xl font-extrabold text-white md:text-4xl">
-            {isAr ? 'أدخل رابط الفيديو، واختر الباقة، واطلب التحليل' : isTr ? 'Video Linkinizi Girin, Paketinizi Seçip Analiz İsteyin' : 'Enter Your Video Link, Pick a Package & Request Analysis'}
+            {isAr ? 'أدخل رابط الفيديو، واختر الباقة، واطلب التحليل' : isEs ? 'Ingresa el Enlace de tu Video, Elige tu Paquete y Solicita Análisis' : isTr ? 'Video Linkinizi Girin, Paketinizi Seçip Analiz İsteyin' : 'Enter Your Video Link, Pick a Package & Request Analysis'}
           </h1>
           <p className="mt-2 text-sm text-white/75 md:text-base max-w-3xl leading-relaxed">
             {isAr
               ? 'الصق رابط فيديو يوتيوب واختر الباقة المناسبة لهدفك، ثم أرسل طلب عرض السعر عبر WhatsApp أو Telegram أو البريد الإلكتروني. سيحلل خبراؤنا الفيديو ويردّون عليك بالتفصيل، ويبدأ العمل بعد موافقتك. (قد يختلف السعر حسب مدة الفيديو.)'
+              : isEs
+              ? 'Pega el enlace de tu video de YouTube y selecciona el paquete adecuado; envía tu cotización por WhatsApp, Telegram o correo. Nuestros especialistas analizarán tu video y responderán en detalle; comienza tras tu visto bueno.'
               : isTr
               ? 'YouTube video linkinizi yapıştırın ve hedef paketinizi seçin; teklifinizi WhatsApp ile, Telegram ile veya Mail (E-Posta) ile bize iletin. Uzman ekibimiz videonuzu analiz edip detaylı dönüş yapsın, onay alınca işlem başlar. (Fiyatlandırma video uzunluğuna göre değişebilir.)'
               : 'Paste your YouTube video link and choose your target package; send your quote request via WhatsApp, Telegram, or Email. Our specialists will analyze your video and reply in detail; work begins upon approval. (Pricing may vary based on video length.)'}
@@ -159,6 +178,8 @@ export default async function OrderPage({ params, searchParams }: Props) {
           <h2 className="text-xl sm:text-2xl font-extrabold text-white">
             {isAr
               ? 'كيف تتم عملية طلب إعلان فيديو يوتيوب والترويج الموسيقي'
+              : isEs
+              ? '¿Cómo Funciona el Proceso de Promoción de Videos en YouTube?'
               : isTr
               ? 'YouTube Video Reklam ve Klip PR Sipariş Süreci Nasıl İşler?'
               : 'How the YouTube Video Ad & Music PR Order Workflow Operates'}
@@ -166,6 +187,8 @@ export default async function OrderPage({ params, searchParams }: Props) {
           <blockquote className="rounded-2xl border-l-4 border-[#FF0033] bg-white/[0.03] p-5 text-sm text-zinc-200 italic">
             {isAr
               ? '«تُدار جميع حملات الترويج لفيديوهات يوتيوب في MedyaPR بواسطة خبراء Google Partner المعتمدين، دون الحاجة إلى أي كلمة مرور.»'
+              : isEs
+              ? '“En MedyaPR, todas las campañas de promoción son gestionadas por especialistas certificados de Google Partner sin requerir contraseñas. Trabajamos con tu aprobación tras revisar la cotización.”'
               : isTr
               ? '“MedyaPR’de tüm YouTube izlenme ve klip tanıtım kampanyaları sertifikalı Google Partner uzmanları tarafından yürütülür. Kanal şifresi istenmez; teklifiniz incelendikten sonra onayınızla çalışılır.”'
               : '“All YouTube video promotion campaigns at MedyaPR are managed by certified Google Partner specialists with zero passwords required.”'}
@@ -180,11 +203,11 @@ export default async function OrderPage({ params, searchParams }: Props) {
           </div>
           <div className="flex flex-wrap gap-3 text-xs font-bold pt-2">
             <Link href={`/${locale}/fiyatlandirma`} className="text-[#FF6B6B] underline">
-              {isAr ? '→ جميع أسعار الباقات وحاسبة الأسعار' : isTr ? '← Tüm Paket Fiyatları ve Hesaplayıcı' : '← All Package Prices & Calculator'}
+              {isAr ? '→ جميع أسعار الباقات وحاسبة الأسعار' : isEs ? '← Ver Todos los Precios y Calculadora' : isTr ? '← Tüm Paket Fiyatları ve Hesaplayıcı' : '← All Package Prices & Calculator'}
             </Link>
             <span className="text-zinc-600">•</span>
             <Link href={`/${locale}/hizmetler`} className="text-emerald-400 underline">
-              {isAr ? 'خدمات يوتيوب عبر Google Ads لدينا' : isTr ? 'Google Ads YouTube Hizmetlerimiz' : 'Our Google Ads YouTube Services'}
+              {isAr ? 'خدمات يوتيوب عبر Google Ads لدينا' : isEs ? 'Nuestros Servicios de YouTube con Google Ads' : isTr ? 'Google Ads YouTube Hizmetlerimiz' : 'Our Google Ads YouTube Services'}
             </Link>
           </div>
         </div>

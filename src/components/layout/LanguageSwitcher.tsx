@@ -11,32 +11,36 @@ interface LanguageSwitcherProps {
   variant?: 'header' | 'mobile' | 'footer';
   /** Arapça blog yazısı slug'ı -> aynı yazının Türkçe slug'ı (yalnızca çevirisi olanlar). */
   arTwins?: Record<string, string>;
+  /** İspanyolca blog yazısı slug'ı -> aynı yazının Türkçe slug'ı. */
+  esTwins?: Record<string, string>;
 }
 
-/** Türkiye / İngilizce dünyasına özgü bölümler: Arapça sürümü yoktur. */
-const NO_AR_SECTIONS = new Set(['sanatcilar', 'sanatci', 'klip', 'yeni-klipler']);
+/** Türkiye / İngilizce dünyasına özgü bölümler: Arapça ve İspanyolca sürümleri yoktur. */
+const NO_NON_TR_EN_SECTIONS = new Set(['sanatcilar', 'sanatci', 'klip', 'yeni-klipler']);
 
-/** 9 Ticari Sayfa Arasında 3 Dilli Karşılıklı Eşleşme (404 Önleme) */
+/** 12 Ticari Sayfa Arasında 4 Dilli Karşılıklı Eşleşme (404 Önleme) */
 const LANDING_TWINS: Record<string, Record<string, string>> = {
-  'youtube-klip-tanitimi': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia' },
-  'youtube-music-video-promotion': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia' },
-  'youtube-music-promotion-saudi-arabia': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia' },
+  'youtube-klip-tanitimi': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia', es: 'promocion-videos-musicales-youtube-mexico' },
+  'youtube-music-video-promotion': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia', es: 'promocion-videos-musicales-youtube-mexico' },
+  'youtube-music-promotion-saudi-arabia': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia', es: 'promocion-videos-musicales-youtube-mexico' },
+  'promocion-videos-musicales-youtube-mexico': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia', es: 'promocion-videos-musicales-youtube-mexico' },
 
-  'sarki-reklami-verme': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt' },
-  'google-ads-for-music-videos': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt' },
-  'youtube-music-promotion-egypt': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt' },
+  'sarki-reklami-verme': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt', es: 'promocion-youtube-music-espana-google-ads' },
+  'google-ads-for-music-videos': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt', es: 'promocion-youtube-music-espana-google-ads' },
+  'youtube-music-promotion-egypt': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt', es: 'promocion-youtube-music-espana-google-ads' },
+  'promocion-youtube-music-espana-google-ads': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt', es: 'promocion-youtube-music-espana-google-ads' },
 
-  'youtube-reklam-fiyatlari': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco' },
-  'promote-turkish-music-on-youtube': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco' },
-  'youtube-music-promotion-morocco': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco' },
+  'youtube-reklam-fiyatlari': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco', es: 'promocion-videos-musicales-youtube-colombia-latam' },
+  'promote-turkish-music-on-youtube': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco', es: 'promocion-videos-musicales-youtube-colombia-latam' },
+  'youtube-music-promotion-morocco': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco', es: 'promocion-videos-musicales-youtube-colombia-latam' },
+  'promocion-videos-musicales-youtube-colombia-latam': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco', es: 'promocion-videos-musicales-youtube-colombia-latam' },
 };
-
 
 /**
  * Dil değiştirince gidilecek yol. Aynı içeriğin olmadığı yerde (yalnızca bir dilde yayınlanan blog yazısı,
- * Arapçası olmayan bölüm) 404 yerine o dilin blog ana sayfasına / ana sayfasına gidilir.
+ * Arapçası/İspanyolcası olmayan bölüm) 404 yerine o dilin blog ana sayfasına / ana sayfasına gidilir.
  */
-function targetPath(pathname: string, from: string, to: string, arTwins: Record<string, string>): string {
+function targetPath(pathname: string, from: string, to: string, arTwins: Record<string, string>, esTwins: Record<string, string> = {}): string {
   const rest = pathname.split('/').filter(Boolean).slice(1); // [locale, ...rest] -> rest
   if (rest[0] === 'blog' && rest[1]) {
     const slug = decodeURIComponent(rest[1]);
@@ -44,18 +48,26 @@ function targetPath(pathname: string, from: string, to: string, arTwins: Record<
       const twin = arTwins[slug];
       return twin ? `/${to}/blog/${twin}` : `/${to}/blog`;
     }
+    if (from === 'es') {
+      const twin = esTwins[slug];
+      return twin ? `/${to}/blog/${twin}` : `/${to}/blog`;
+    }
     if (to === 'ar') {
       const arSlug = Object.keys(arTwins).find((k) => arTwins[k] === slug);
       return arSlug ? `/ar/blog/${arSlug}` : '/ar/blog';
     }
+    if (to === 'es') {
+      const esSlug = Object.keys(esTwins).find((k) => esTwins[k] === slug);
+      return esSlug ? `/es/blog/${esSlug}` : '/es/blog';
+    }
   }
-  // 9 Ticari Açılış Sayfası Arasında Dil Değişimi (404 yerine hedef dildeki ikiz sayfaya git)
+  // 12 Ticari Açılış Sayfası Arasında Dil Değişimi (404 yerine hedef dildeki ikiz sayfaya git)
   if (rest.length === 1 && LANDING_TWINS[rest[0]]) {
     const twin = LANDING_TWINS[rest[0]];
     const targetSlug = twin[to];
     if (targetSlug) return `/${to}/${targetSlug}`;
   }
-  if (to === 'ar' && rest[0] && NO_AR_SECTIONS.has(rest[0])) return '/ar';
+  if ((to === 'ar' || to === 'es') && rest[0] && NO_NON_TR_EN_SECTIONS.has(rest[0])) return `/${to}`;
   return `/${to}${rest.length ? `/${rest.join('/')}` : ''}`;
 }
 
@@ -64,9 +76,10 @@ const LANGUAGE_NAMES: Record<string, string> = {
   tr: 'Türkçe',
   en: 'English',
   ar: 'العربية',
+  es: 'Español',
 };
 
-export default function LanguageSwitcher({ currentLocale, className = '', variant = 'header', arTwins = {} }: LanguageSwitcherProps) {
+export default function LanguageSwitcher({ currentLocale, className = '', variant = 'header', arTwins = {}, esTwins = {} }: LanguageSwitcherProps) {
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -93,11 +106,11 @@ export default function LanguageSwitcher({ currentLocale, className = '', varian
     if (target === currentLocale) return;
     // Seçilen dili 1 yıl hatırla
     document.cookie = `NEXT_LOCALE=${target}; path=/; max-age=31536000; SameSite=Lax`;
-    router.push(targetPath(pathname, currentLocale, target, arTwins));
+    router.push(targetPath(pathname, currentLocale, target, arTwins, esTwins));
   };
 
   const label = LANGUAGE_NAMES[currentLocale] ?? currentLocale;
-  const ariaLabel = currentLocale === 'ar' ? 'اللغة' : currentLocale === 'tr' ? 'Dil seçimi' : 'Language';
+  const ariaLabel = currentLocale === 'ar' ? 'اللغة' : currentLocale === 'es' ? 'Idioma' : currentLocale === 'tr' ? 'Dil seçimi' : 'Language';
 
   // Mobil menü: tüm diller alt alta
   if (variant === 'mobile') {
@@ -105,7 +118,7 @@ export default function LanguageSwitcher({ currentLocale, className = '', varian
       <div className={`rounded-xl border border-zinc-700/60 bg-zinc-900/80 p-1.5 ${className}`} role="group" aria-label={ariaLabel}>
         <div className="flex items-center gap-2 px-3 pb-1 pt-2 text-xs font-semibold text-zinc-400">
           <Globe className="h-3.5 w-3.5 text-[#FF0033]" />
-          {currentLocale === 'ar' ? 'اللغة' : currentLocale === 'tr' ? 'Dil' : 'Language'}
+          {currentLocale === 'ar' ? 'اللغة' : currentLocale === 'es' ? 'Idioma' : currentLocale === 'tr' ? 'Dil' : 'Language'}
         </div>
         {locales.map((l) => (
           <button

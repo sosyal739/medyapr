@@ -23,8 +23,8 @@ interface ComparisonSectionProps {
 
 export default function ComparisonSection({ locale }: ComparisonSectionProps) {
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
 
   const rows = [
     {
@@ -170,6 +170,8 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
         <span>
           {isAr
             ? 'تحذير من البوتات: لوحات SMM تضر بسمعة القناة'
+            : isEs
+            ? 'Alerta de Bots: Los paneles SMM dañan la reputación de tu canal'
             : isTr
             ? 'Bot Uyarısı: Sahte Paneller Videoyu Çöpe Atar'
             : 'Bot Warning: SMM Panels Damage Channel Authority'}
@@ -181,6 +183,8 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
         <span>
           {isAr
             ? 'Google Ads: متوافق 100% مع YPP والربح'
+            : isEs
+            ? 'Google Ads: 100% Compatible con YPP y Monetización'
             : isTr
             ? 'Google Ads: %100 YPP & Monetizasyon Uyumlu'
             : 'Google Ads: 100% YPP & Monetization Compliant'}
@@ -193,20 +197,22 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
           <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-emerald-300">
             <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
             <span>
-              {isAr ? 'مقارنة شفافة' : isTr ? 'Şeffaf & Yasal Karşılaştırma' : 'Transparent Comparison'}
+              {isAr ? 'مقارنة شفافة' : isEs ? 'Comparación Transparente y Legal' : isTr ? 'Şeffaf & Yasal Karşılaştırma' : 'Transparent Comparison'}
             </span>
           </div>
 
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-white">
-            {isAr ? 'Google Ads الرسمي مقابل' : isTr ? 'Google Ads ile Gerçek Reklam vs' : 'Google Ads Official vs'}{' '}
+            {isAr ? 'Google Ads الرسمي مقابل' : isEs ? 'Google Ads Oficial vs' : isTr ? 'Google Ads ile Gerçek Reklam vs' : 'Google Ads Official vs'}{' '}
             <span className="text-rose-400 line-through decoration-[#FF0033] decoration-2">
-              {isAr ? 'لوحات بوتات SMM' : isTr ? 'SMM Bot Panelleri' : 'SMM Bot Panels'}
+              {isAr ? 'لوحات بوتات SMM' : isEs ? 'Paneles de Bots SMM' : isTr ? 'SMM Bot Panelleri' : 'SMM Bot Panels'}
             </span>
           </h2>
 
           <p className="mt-4 text-sm leading-relaxed text-zinc-300 sm:text-base">
             {isAr
               ? 'لماذا يتجنب الفنانون وصنّاع المحتوى اللوحات الوهمية؟ إليك الفروق الملموسة التي تحمي قناتك:'
+              : isEs
+              ? '¿Por qué los artistas y creadores evitan los paneles falsos? Las diferencias concretas que protegen tu canal:'
               : isTr
               ? 'Sanatçılar ve video sahipleri neden bot izlenmelerden uzak durmalı? İşte kanalınızın geleceğini belirleyen somut farklar:'
               : 'Why music artists and creators avoid fake panels. The concrete differences that safeguard your channel:'}
@@ -224,6 +230,8 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
                 <span className="text-xs font-black uppercase tracking-wider text-emerald-400">
                   {isAr
                     ? 'القاعدة الأساسية وحقيقة موثّقة (AEO)'
+                    : isEs
+                    ? 'Principio Fundamental y Dato Verificado (AEO)'
                     : isTr
                     ? 'Temel Kural & Doğrulanmış Veri (AEO Quick Fact)'
                     : 'Core Principle & Verified Fact (AEO)'}
@@ -235,6 +243,8 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
               <blockquote className="text-xs sm:text-sm md:text-base font-medium leading-relaxed text-zinc-200">
                 {isAr
                   ? 'تقيّم خوارزمية يوتيوب جودة المشاهدات بناءً على الاحتفاظ بالمشاهدين ووقت المشاهدة ومصدر الزيارات الحقيقي. وتُسجَّل حملات MedyaPR عبر إعلانات Google Ads الرسمية تحت «إعلانات يوتيوب» في YouTube Studio، مما يحافظ على أرباح القناة بنسبة 100% دون أي خطر للحظر الخفي، ويحفّز التوصيات الطبيعية بشكل إيجابي.'
+                  : isEs
+                  ? 'El algoritmo de YouTube evalúa la calidad de las vistas según retención, tiempo de reproducción y origen legítimo. Las campañas de MedyaPR con Google Ads oficial se registran bajo ‘Publicidad de YouTube’ en YouTube Studio, protegiendo al 100% la monetización con cero riesgo de shadowban y estimulando recomendaciones orgánicas.'
                   : isTr
                   ? 'YouTube algoritması, yüklenen videoların izlenmelerini yalnızca adet olarak değil; izleme süresi (Watch Time), kitle tutunma oranı (Retention) ve trafik kaynağı orijinine göre değerlendirir. MedyaPR tarafından yönetilen resmi Google Ads gösterimleri YouTube Studio analitiklerinde doğrudan "YouTube Reklamları" sekmesinde tescillenir, kanal monetizasyonunu %100 korur ve sıfır shadowban riskiyle organik önerilenler algoritmasını pozitif tetikler.'
                   : 'The YouTube algorithm evaluates view quality based on retention, watch time, and authentic traffic source. MedyaPR official Google Ads campaigns are logged under "YouTube Advertising" in YouTube Studio, preserving 100% channel monetization with zero shadowban risk while positively triggering organic recommendations.'}
@@ -270,7 +280,7 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
                 >
                   <div className="flex items-center gap-2">
                     <span className="flex h-2 w-2 rounded-full bg-zinc-400" />
-                    <span>{isAr ? 'المعيار' : isTr ? 'Değerlendirme Kriteri' : 'Criteria'}</span>
+                    <span>{isAr ? 'المعيار' : isEs ? 'Criterio de Evaluación' : isTr ? 'Değerlendirme Kriteri' : 'Criteria'}</span>
                   </div>
                 </th>
 
@@ -282,14 +292,16 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
                   <div className="flex flex-col gap-1.5">
                     <div className="inline-flex items-center gap-1.5 rounded-full bg-rose-500/15 border border-rose-500/30 px-3 py-1 text-[11px] font-bold text-rose-300 w-fit">
                       <ShieldAlert className="h-3.5 w-3.5 text-rose-400" />
-                      <span>{isAr ? 'عالي الخطورة ووهمي' : isTr ? 'YÜKSEK RİSK & GEÇİCİ' : 'HIGH RISK & FAKE'}</span>
+                      <span>{isAr ? 'عالي الخطورة ووهمي' : isEs ? 'ALTO RIESGO Y FALSO' : isTr ? 'YÜKSEK RİSK & GEÇİCİ' : 'HIGH RISK & FAKE'}</span>
                     </div>
                     <span className="text-base font-bold text-rose-300">
-                      {isAr ? 'لوحات بوتات SMM' : isTr ? 'SMM / Bot Panelleri' : 'SMM Bot Panels'}
+                      {isAr ? 'لوحات بوتات SMM' : isEs ? 'Paneles SMM / Bots' : isTr ? 'SMM / Bot Panelleri' : 'SMM Bot Panels'}
                     </span>
                     <span className="text-xs text-rose-400/70 font-normal">
                       {isAr
                         ? 'بوتات مراكز البيانات والسكربتات'
+                        : isEs
+                        ? 'Bots de servidores y emuladores'
                         : isTr
                         ? 'Sahte sunucu botları & emülatörler'
                         : 'Datacenter bots & scripts'}
@@ -309,17 +321,21 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
                       <span>
                         {isAr
                           ? '👑 آمن 100% وموصى به'
+                          : isEs
+                          ? '👑 100% SEGURO Y RECOMENDADO'
                           : isTr
                           ? '👑 %100 GÜVENLİ & ÖNERİLEN'
                           : '👑 100% SAFE & RECOMMENDED'}
                       </span>
                     </div>
                     <span className="text-base font-bold text-emerald-300">
-                      {isAr ? 'MedyaPR (إعلانات رسمية)' : isTr ? 'MedyaPR (Resmi Google Ads)' : 'MedyaPR (Official Ads)'}
+                      {isAr ? 'MedyaPR (إعلانات رسمية)' : isEs ? 'MedyaPR (Google Ads Oficial)' : isTr ? 'MedyaPR (Resmi Google Ads)' : 'MedyaPR (Official Ads)'}
                     </span>
                     <span className="text-xs text-emerald-400/70 font-normal">
                       {isAr
                         ? 'فريق Google Partner معتمد'
+                        : isEs
+                        ? '+18 Años Partner Oficial de Google'
                         : isTr
                         ? '18+ Yıllık Resmi Google Partner'
                         : 'Certified Google Partner Team'}
@@ -406,6 +422,8 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
               <span>
                 {isAr
                   ? 'بلا أي خطر على قناتك: مع MedyaPR جميع المشاهدات دائمة مدى الحياة وتُسجَّل كإعلانات يوتيوب رسمية في Studio.'
+                  : isEs
+                  ? 'No arriesgues tu canal: Con MedyaPR todas las vistas son permanentes y se registran como Publicidad de YouTube en Studio.'
                   : isTr
                   ? 'Kanalınızı riske atmayın: MedyaPR ile tüm izlenmeler ömür boyu kalıcıdır ve YouTube Studio\'da resmi Google Ads gösterimi olarak tescillenir.'
                   : 'Zero risk for your channel: With MedyaPR, all views are permanent for a lifetime and registered as official YouTube Ads in Studio.'}
@@ -416,7 +434,7 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
               href={`/${locale}#calc`}
               className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-[0_4px_20px_rgba(255,0,51,0.35)] hover:brightness-110 transition active:scale-95"
             >
-              <span>{isAr ? 'احسب وابدأ' : isTr ? 'Bütçeni Hesapla & Başla' : 'Calculate & Launch'}</span>
+              <span>{isAr ? 'احسب وابدأ' : isEs ? 'Calcular y Comenzar' : isTr ? 'Bütçeni Hesapla & Başla' : 'Calculate & Launch'}</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

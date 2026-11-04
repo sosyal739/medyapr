@@ -3,17 +3,20 @@ import type { NextRequest } from 'next/server';
 import { locales, defaultLocale, type Locale } from '@/lib/i18n/config';
 
 const ARAB_COUNTRIES = new Set(['SA', 'AE', 'EG', 'MA', 'DZ', 'TN', 'LY', 'IQ', 'JO', 'LB', 'SY', 'YE', 'OM', 'KW', 'QA', 'BH', 'SD', 'PS', 'MR']);
+const SPANISH_COUNTRIES = new Set(['ES', 'MX', 'CO', 'AR', 'CL', 'PE', 'EC', 'GT', 'CU', 'BO', 'DO', 'HN', 'PY', 'SV', 'NI', 'CR', 'PA', 'UY', 'PR', 'GQ']);
 const BOT_RE = /bot|crawl|spider|slurp|google|bing|yandex|baidu|duckduck|facebookexternalhit|whatsapp|telegram|twitter|linkedin|lighthouse|headless|preview/i;
 
-/** İnsan ziyaretçi için dil: önce tarayıcı/telefon dili (ar, tr), sonra konum (TR, Arap ülkeleri), aksi halde İngilizce. */
+/** İnsan ziyaretçi için dil: önce tarayıcı/telefon dili (ar, tr, es), sonra konum (TR, Arap ülkeleri, İspanyolca konuşulan ülkeler), aksi halde İngilizce. */
 function detectLocale(request: NextRequest): Locale {
   const first = (request.headers.get('accept-language') ?? '').split(',')[0].trim().toLowerCase();
   const lang = first.split(/[-;_]/)[0];
   if (lang === 'ar') return 'ar';
   if (lang === 'tr') return 'tr';
+  if (lang === 'es') return 'es';
   const country = (request.headers.get('x-vercel-ip-country') ?? '').toUpperCase();
   if (country === 'TR') return 'tr';
   if (ARAB_COUNTRIES.has(country)) return 'ar';
+  if (SPANISH_COUNTRIES.has(country)) return 'es';
   return 'en';
 }
 

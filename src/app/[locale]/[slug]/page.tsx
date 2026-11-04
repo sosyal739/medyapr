@@ -8,19 +8,22 @@ import type { LandingPage } from '@/data/landing/types';
 import { formatMoney, quote, type Currency } from '@/lib/pricing';
 import AnalysisCta from '@/components/common/AnalysisCta';
 
-/** 9 Ticari Sayfa Arasında 3 Dilli Karşılıklı Eşleşme */
+/** 12 Ticari Sayfa Arasında 4 Dilli Karşılıklı Eşleşme */
 export const LANDING_TWINS: Record<string, Record<string, string>> = {
-  'youtube-klip-tanitimi': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia' },
-  'youtube-music-video-promotion': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia' },
-  'youtube-music-promotion-saudi-arabia': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia' },
+  'youtube-klip-tanitimi': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia', es: 'promocion-videos-musicales-youtube-mexico' },
+  'youtube-music-video-promotion': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia', es: 'promocion-videos-musicales-youtube-mexico' },
+  'youtube-music-promotion-saudi-arabia': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia', es: 'promocion-videos-musicales-youtube-mexico' },
+  'promocion-videos-musicales-youtube-mexico': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', ar: 'youtube-music-promotion-saudi-arabia', es: 'promocion-videos-musicales-youtube-mexico' },
 
-  'sarki-reklami-verme': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt' },
-  'google-ads-for-music-videos': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt' },
-  'youtube-music-promotion-egypt': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt' },
+  'sarki-reklami-verme': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt', es: 'promocion-youtube-music-espana-google-ads' },
+  'google-ads-for-music-videos': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt', es: 'promocion-youtube-music-espana-google-ads' },
+  'youtube-music-promotion-egypt': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt', es: 'promocion-youtube-music-espana-google-ads' },
+  'promocion-youtube-music-espana-google-ads': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', ar: 'youtube-music-promotion-egypt', es: 'promocion-youtube-music-espana-google-ads' },
 
-  'youtube-reklam-fiyatlari': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco' },
-  'promote-turkish-music-on-youtube': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco' },
-  'youtube-music-promotion-morocco': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco' },
+  'youtube-reklam-fiyatlari': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco', es: 'promocion-videos-musicales-youtube-colombia-latam' },
+  'promote-turkish-music-on-youtube': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco', es: 'promocion-videos-musicales-youtube-colombia-latam' },
+  'youtube-music-promotion-morocco': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco', es: 'promocion-videos-musicales-youtube-colombia-latam' },
+  'promocion-videos-musicales-youtube-colombia-latam': { tr: 'youtube-reklam-fiyatlari', en: 'promote-turkish-music-on-youtube', ar: 'youtube-music-promotion-morocco', es: 'promocion-videos-musicales-youtube-colombia-latam' },
 };
 
 /** Tanımlı sayfalar SSG üretilir; yanlış dille gelen adresler 308 ile doğru ikize yönlendirilir. */
@@ -39,20 +42,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   /**
    * Google Hreflang Eşleşmesi: Yalnızca birebir aynı konunun çevirisi olan sayfalar
    * birbirine hreflang olarak bağlanır. Ülkeye veya farklı arama niyetine özel sayfalar
-   * (Fiyat rehberi, Türk müziğini dünyaya tanıtma, Suudi Arabistan/Mısır/Fas sayfaları)
    * yalnızca kendi dilinde bağımsız (self-hreflang) sinyal verir.
    */
-  const HREFLANG_TRANSLATION_PAIRS: Record<string, { tr: string; en: string }> = {
-    'youtube-klip-tanitimi': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion' },
-    'youtube-music-video-promotion': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion' },
-    'sarki-reklami-verme': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos' },
-    'google-ads-for-music-videos': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos' },
+  const HREFLANG_TRANSLATION_PAIRS: Record<string, { tr: string; en: string; es?: string }> = {
+    'youtube-klip-tanitimi': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', es: 'promocion-videos-musicales-youtube-mexico' },
+    'youtube-music-video-promotion': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', es: 'promocion-videos-musicales-youtube-mexico' },
+    'promocion-videos-musicales-youtube-mexico': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', es: 'promocion-videos-musicales-youtube-mexico' },
+    'sarki-reklami-verme': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', es: 'promocion-youtube-music-espana-google-ads' },
+    'google-ads-for-music-videos': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', es: 'promocion-youtube-music-espana-google-ads' },
+    'promocion-youtube-music-espana-google-ads': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', es: 'promocion-youtube-music-espana-google-ads' },
   };
   const pair = HREFLANG_TRANSLATION_PAIRS[slug];
   const languages: Record<string, string> = pair
     ? {
         tr: `${SITE_URL}/tr/${pair.tr}`,
         en: `${SITE_URL}/en/${pair.en}`,
+        ...(pair.es ? { es: `${SITE_URL}/es/${pair.es}` } : {}),
         'x-default': `${SITE_URL}/tr/${pair.tr}`,
       }
     : {
@@ -74,6 +79,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function PriceTable({ page, locale }: { page: LandingPage; locale: string }) {
   const isTr = locale === 'tr';
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
   const rows = [1_000, 5_000, 10_000, 50_000, 100_000];
   const cur: Currency = isTr ? 'TRY' : 'USD';
   const money = (n: number) => formatMoney(n, cur, locale);
@@ -84,6 +90,13 @@ function PriceTable({ page, locale }: { page: LandingPage; locale: string }) {
     cols = [
       { label: 'الدولة المختارة', total: (v) => quote({ views: v, region: 'premium', country: c, currency: cur }).total },
       { label: 'جمهور عالمي', total: (v) => quote({ views: v, region: 'global', currency: cur }).total },
+    ];
+  } else if (page.prices === 'es') {
+    const c = page.priceCountry ?? 'MX';
+    const reg = c === 'ES' ? 'premium' : 'global';
+    cols = [
+      { label: c === 'ES' ? 'España' : c === 'MX' ? 'México' : 'Colombia / LATAM', total: (v) => quote({ views: v, region: reg, country: c, currency: cur }).total },
+      { label: 'Audiencia Global', total: (v) => quote({ views: v, region: 'global', currency: cur }).total },
     ];
   } else if (isTr) {
     cols = [
@@ -100,17 +113,17 @@ function PriceTable({ page, locale }: { page: LandingPage; locale: string }) {
       { label: 'USA', total: (v) => quote({ views: v, region: 'premium', country: 'US', currency: cur }).total },
     ];
   }
-  const nf = new Intl.NumberFormat(isAr ? 'ar-u-nu-latn' : isTr ? 'tr-TR' : 'en-US');
+  const nf = new Intl.NumberFormat(isAr ? 'ar-u-nu-latn' : isTr ? 'tr-TR' : isEs ? 'es-ES' : 'en-US');
   return (
     <section className="mt-10">
       <h2 className="text-xl font-extrabold text-white sm:text-2xl">
-        {isAr ? 'أسعار تقديرية' : isTr ? 'Tahmini fiyat tablosu' : 'Estimated price table'}
+        {isAr ? 'أسعار تقديرية' : isTr ? 'Tahmini fiyat tablosu' : isEs ? 'Tabla de precios estimados' : 'Estimated price table'}
       </h2>
       <div className="mt-4 overflow-x-auto rounded-2xl border border-white/10">
         <table className="w-full min-w-[420px] text-left text-sm rtl:text-right">
           <thead className="bg-white/[0.05] text-xs uppercase tracking-wider text-zinc-300">
             <tr>
-              <th className="px-4 py-3">{isAr ? 'المشاهدات' : isTr ? 'İzlenme' : 'Views'}</th>
+              <th className="px-4 py-3">{isAr ? 'المشاهدات' : isTr ? 'İzlenme' : isEs ? 'Reproducciones' : 'Views'}</th>
               {cols.map((c) => (
                 <th key={c.label} className="px-4 py-3">{c.label}</th>
               ))}
@@ -132,8 +145,10 @@ function PriceTable({ page, locale }: { page: LandingPage; locale: string }) {
         {isAr
           ? '* الأسعار تقديرية وتتغير بحسب مدة الفيديو. يتأكد العرض النهائي بعد المراجعة.'
           : isTr
-            ? '* Fiyatlar tahminidir; video uzunluğuna göre değişebilir. Kesin teklif analizden sonra netleşir.'
-            : '* Prices are estimates and may vary with video length. The final quote is confirmed after review.'}
+          ? '* Fiyatlar tahminidir; video uzunluğuna göre değişebilir. Kesin teklif analizden sonra netleşir.'
+          : isEs
+          ? '* Precios estimados que pueden variar según la duración del video. La cotización final se confirma tras la revisión.'
+          : '* Prices are estimates and may vary with video length. The final quote is confirmed after review.'}
       </p>
     </section>
   );
@@ -152,6 +167,7 @@ export default async function LandingPageRoute({ params }: Props) {
 
   const isTr = locale === 'tr';
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
   const url = `${SITE_URL}/${locale}/${slug}`;
   const others = getLandingPages(locale).filter((p) => p.slug !== slug);
 
@@ -161,7 +177,7 @@ export default async function LandingPageRoute({ params }: Props) {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home', item: `${SITE_URL}/${locale}` },
+          { '@type': 'ListItem', position: 1, name: isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : isEs ? 'Inicio' : 'Home', item: `${SITE_URL}/${locale}` },
           { '@type': 'ListItem', position: 2, name: page.keyword, item: url },
         ],
       },
@@ -185,7 +201,7 @@ export default async function LandingPageRoute({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="container mx-auto max-w-3xl px-4 md:px-8">
         <nav aria-label="breadcrumb" className="mb-5 text-xs text-zinc-400">
-          <Link href={`/${locale}`} className="hover:text-white">{isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home'}</Link>
+          <Link href={`/${locale}`} className="hover:text-white">{isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : isEs ? 'Inicio' : 'Home'}</Link>
           <span className="mx-2">/</span>
           <span className="text-zinc-300">{page.keyword}</span>
         </nav>
@@ -217,7 +233,7 @@ export default async function LandingPageRoute({ params }: Props) {
         {page.prices && <PriceTable page={page} locale={locale} />}
 
         <section className="mt-10">
-          <h2 className="text-xl font-extrabold text-white sm:text-2xl">{isAr ? 'أسئلة شائعة' : isTr ? 'Sık sorulan sorular' : 'Frequently asked questions'}</h2>
+          <h2 className="text-xl font-extrabold text-white sm:text-2xl">{isAr ? 'أسئلة شائعة' : isTr ? 'Sık sorulan sorular' : isEs ? 'Preguntas frecuentes' : 'Frequently asked questions'}</h2>
           <div className="mt-4 space-y-3">
             {page.faq.map((f) => (
               <details key={f.q} className="group rounded-2xl border border-white/10 bg-white/[0.03] p-4">
@@ -231,8 +247,8 @@ export default async function LandingPageRoute({ params }: Props) {
         <AnalysisCta locale={locale} source={`lp_${slug}_end`} />
 
         {others.length > 0 && (
-          <nav aria-label={isAr ? 'صفحات ذات صلة' : isTr ? 'İlgili sayfalar' : 'Related pages'} className="mt-6 border-t border-white/10 pt-6">
-            <h2 className="text-sm font-extrabold uppercase tracking-wider text-zinc-400">{isAr ? 'صفحات وأدلة ذات صلة' : isTr ? 'İlgili sayfalar & rehberler' : 'Related pages & guides'}</h2>
+          <nav aria-label={isAr ? 'صفحات ذات صلة' : isTr ? 'İlgili sayfalar' : isEs ? 'Páginas relacionadas' : 'Related pages'} className="mt-6 border-t border-white/10 pt-6">
+            <h2 className="text-sm font-extrabold uppercase tracking-wider text-zinc-400">{isAr ? 'صفحات وأدلة ذات صلة' : isTr ? 'İlgili sayfalar & rehberler' : isEs ? 'Páginas y guías relacionadas' : 'Related pages & guides'}</h2>
             <ul className="mt-3 space-y-2">
               {others.map((o) => (
                 <li key={o.slug}>
@@ -241,7 +257,7 @@ export default async function LandingPageRoute({ params }: Props) {
               ))}
               <li>
                 <Link href={`/${locale}/fiyatlandirma`} className="font-semibold text-[#FF6B6B] hover:text-white">
-                  {isAr ? 'الأسعار والحاسبة' : isTr ? 'Fiyatlar & Hesaplayıcı' : 'Pricing & Calculator'}
+                  {isAr ? 'الأسعار والحاسبة' : isTr ? 'Fiyatlar & Hesaplayıcı' : isEs ? 'Precios y Calculadora' : 'Pricing & Calculator'}
                 </Link>
               </li>
               {isAr ? (
@@ -282,6 +298,29 @@ export default async function LandingPageRoute({ params }: Props) {
                   <li>
                     <Link href="/tr/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen" className="text-sm text-zinc-300 hover:text-white">
                       → YouTube Shorts Reklamı Nasıl Verilir? (Demand Gen)
+                    </Link>
+                  </li>
+                </>
+              ) : isEs ? (
+                <>
+                  <li>
+                    <Link href="/es/blog/youtube-mexico-music-chart-2026" className="text-sm text-zinc-300 hover:text-white">
+                      → Lista YouTube Música México: Análisis y Tendencias 2026
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/es/blog/youtube-espana-music-chart-2026" className="text-sm text-zinc-300 hover:text-white">
+                      → Lista YouTube Música España: Éxitos Urbanos y Pop 2026
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/es/blog/youtube-colombia-music-chart-2026" className="text-sm text-zinc-300 hover:text-white">
+                      → Lista YouTube Música Colombia: Ritmos Latinos y Tendencias
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/es/blog/es-buena-idea-comprar-visitas-youtube-guia-anuncios-oficiales" className="text-sm text-zinc-300 hover:text-white">
+                      → ¿Comprar Visitas en YouTube? Guía de Anuncios Oficiales
                     </Link>
                   </li>
                 </>

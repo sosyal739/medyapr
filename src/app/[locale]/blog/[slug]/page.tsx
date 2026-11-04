@@ -22,6 +22,9 @@ import {
   getArPosts,
   getArPostBySlug,
   getArTranslationMap,
+  getEsPosts,
+  getEsPostBySlug,
+  getEsTranslationMap,
   getPostsForLocale,
   postCategoryKey,
   isPostFullyTranslatedEn,
@@ -77,15 +80,43 @@ type Props = {
 export async function generateStaticParams() {
   const posts = await getPosts();
   const arPosts = await getArPosts();
+  const esPosts = await getEsPosts();
   return [
     ...posts.filter((post) => !post.enOnly).map((post) => ({ locale: 'tr', slug: post.slug })),
     ...posts.filter(isPostFullyTranslatedEn).map((post) => ({ locale: 'en', slug: post.slug })),
     ...arPosts.map((post) => ({ locale: 'ar', slug: post.slug })),
+    ...esPosts.map((post) => ({ locale: 'es', slug: post.slug })),
   ];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
+
+  if (locale === 'es') {
+    const esPost = await getEsPostBySlug(slug);
+    if (!esPost) return { title: 'Artículo no encontrado', robots: { index: false, follow: true } };
+    const trTwin = esPost.translationOf ? await getPostBySlug(esPost.translationOf) : null;
+    const esUrl = `${SITE_URL}/es/blog/${slug}`;
+    const languages: Record<string, string> = { es: esUrl };
+    if (trTwin && !trTwin.enOnly) languages.tr = `${SITE_URL}/tr/blog/${trTwin.slug}`;
+    if (trTwin && isPostFullyTranslatedEn(trTwin)) languages.en = `${SITE_URL}/en/blog/${trTwin.slug}`;
+    languages['x-default'] = languages.tr ?? esUrl;
+    return {
+      title: { absolute: esPost.title },
+      description: esPost.summary,
+      alternates: { canonical: esUrl, languages },
+      openGraph: {
+        title: esPost.title,
+        description: esPost.summary,
+        images: [{ url: esPost.image, width: 1200, height: 675, alt: esPost.title }],
+        type: 'article',
+        locale: 'es_ES',
+        publishedTime: toIsoDateString(esPost.date),
+        authors: [esPost.author],
+      },
+      twitter: { card: 'summary_large_image', title: esPost.title, description: esPost.summary, images: [esPost.image] },
+    };
+  }
 
   if (locale === 'ar') {
     const arPost = await getArPostBySlug(slug);
@@ -137,6 +168,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const arSlug = (await getArTranslationMap())[slug];
   if (arSlug) (alternates.languages as Record<string, string>).ar = `${SITE_URL}/ar/blog/${arSlug}`;
+  const esSlug = (await getEsTranslationMap())[slug];
+  if (esSlug) (alternates.languages as Record<string, string>).es = `${SITE_URL}/es/blog/${esSlug}`;
 
   return {
     title: {
@@ -166,15 +199,18 @@ export default async function BlogPostPage({ params }: Props) {
   const { locale, slug } = await params;
   const isTr = locale === 'tr';
   const isAr = locale === 'ar';
-  const post = isAr ? await getArPostBySlug(slug) : await getPostBySlug(slug);
+  const isEs = locale === 'es';
+  const post = isAr ? await getArPostBySlug(slug) : isEs ? await getEsPostBySlug(slug) : await getPostBySlug(slug);
 
   if (!post) {
     // Yanlış dil önekiyle gelen adres: yazı başka dilde varsa kalıcı yönlendirme (404 değil).
-    if (isAr) {
+    if (isAr || isEs) {
       const trPost = await getPostBySlug(slug);
       if (trPost) permanentRedirect(trPost.enOnly ? `/en/blog/${slug}` : `/tr/blog/${slug}`);
     } else if (await getArPostBySlug(slug)) {
       permanentRedirect(`/ar/blog/${slug}`);
+    } else if (await getEsPostBySlug(slug)) {
+      permanentRedirect(`/es/blog/${slug}`);
     }
     notFound();
   }
@@ -184,7 +220,7 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const hasEn = isPostFullyTranslatedEn(post);
-  if (!isTr && !isAr && !hasEn) {
+  if (!isTr && !isAr && !isEs && !hasEn) {
     permanentRedirect(`/tr/blog/${slug}`);
   }
 
@@ -199,16 +235,16 @@ export default async function BlogPostPage({ params }: Props) {
     : '';
   const bioPost = post.bioSlug ? allPosts.find((p) => p.slug === post.bioSlug) : undefined;
   const relatedPosts = [...sameCatPosts, ...otherCatPosts].slice(0, 3);
-  const postTitle = (!isTr && hasEn && post.title_en) ? post.title_en : post.title;
-  const postSummary = (!isTr && hasEn && post.summary_en) ? post.summary_en : post.summary;
-  const postCategory = (!isTr && post.category_en) ? post.category_en : post.category;
-  const postReadTime = (!isTr && post.readTime_en) ? post.readTime_en : post.readTime;
-  const postAuthorRole = (!isTr && post.authorRole_en) ? post.authorRole_en : post.authorRole;
-  const postQuickFact = (!isTr && !isAr) ? (post.quickFact_en ?? (post.enOnly ? post.quickFact : undefined)) : post.quickFact;
-  const postTable = (!isTr && !isAr) ? (post.table_en ?? (post.enOnly ? post.table : undefined)) : post.table;
-  const postFaqs = (!isTr && !isAr) ? (post.faqs_en ?? (post.enOnly ? post.faqs : undefined)) : post.faqs;
-  const postParagraphs = (!isTr && hasEn && post.paragraphs_en) ? post.paragraphs_en : (post.paragraphs || []);
-  const postTags = (!isTr && post.tags_en) ? post.tags_en : post.tags;
+  const postTitle = (locale === 'en' && hasEn && post.title_en) ? post.title_en : post.title;
+  const postSummary = (locale === 'en' && hasEn && post.summary_en) ? post.summary_en : post.summary;
+  const postCategory = (locale === 'en' && post.category_en) ? post.category_en : post.category;
+  const postReadTime = (locale === 'en' && post.readTime_en) ? post.readTime_en : post.readTime;
+  const postAuthorRole = (locale === 'en' && post.authorRole_en) ? post.authorRole_en : post.authorRole;
+  const postQuickFact = (locale === 'en') ? (post.quickFact_en ?? (post.enOnly ? post.quickFact : undefined)) : post.quickFact;
+  const postTable = (locale === 'en') ? (post.table_en ?? (post.enOnly ? post.table : undefined)) : post.table;
+  const postFaqs = (locale === 'en') ? (post.faqs_en ?? (post.enOnly ? post.faqs : undefined)) : post.faqs;
+  const postParagraphs = (locale === 'en' && hasEn && post.paragraphs_en) ? post.paragraphs_en : (post.paragraphs || []);
+  const postTags = (locale === 'en' && post.tags_en) ? post.tags_en : post.tags;
 
   // Schema.org Graph (BlogPosting + BreadcrumbList + FAQPage)
   const schemaGraph: Record<string, unknown>[] = [
@@ -219,8 +255,8 @@ export default async function BlogPostPage({ params }: Props) {
       description: postSummary,
       image: post.image,
       datePublished: toIsoDateString(post.date),
-      inLanguage: isAr ? schemaLang('ar') : (isTr || !hasEn) ? 'tr-TR' : 'en-US',
-      mainEntityOfPage: isAr ? `https://medyapr.com/ar/blog/${slug}` : (isTr || !hasEn) ? `https://medyapr.com/tr/blog/${slug}` : `https://medyapr.com/${locale}/blog/${slug}`,
+      inLanguage: isAr ? schemaLang('ar') : isEs ? schemaLang('es') : (isTr || !hasEn) ? 'tr-TR' : 'en-US',
+      mainEntityOfPage: `https://medyapr.com/${locale}/blog/${slug}`,
       author: {
         '@type': 'Organization',
         name: 'MedyaPR',
@@ -300,11 +336,11 @@ export default async function BlogPostPage({ params }: Props) {
         {/* Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-xs font-semibold text-zinc-400">
           <Link href={`/${locale}`} className="hover:text-white transition">
-            {isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home'}
+            {isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : isEs ? 'Inicio' : 'Home'}
           </Link>
           <span className="text-zinc-600">/</span>
           <Link href={`/${locale}/blog`} className="hover:text-white transition">
-            {isAr ? 'المدونة' : 'Blog'}
+            {isAr ? 'المدونة' : isEs ? 'Blog' : isTr ? 'Blog' : 'Blog'}
           </Link>
           <span className="text-zinc-600">/</span>
           <Link
@@ -333,7 +369,7 @@ export default async function BlogPostPage({ params }: Props) {
               <Calendar className="h-4 w-4 text-zinc-500" /> {displayDate(post.date, locale)}
             </span>
             <span className="flex items-center gap-1.5">
-              <Clock className="h-4 w-4 text-zinc-500" /> {postReadTime} {isAr ? 'قراءة' : isTr ? 'okuma' : 'read'}
+              <Clock className="h-4 w-4 text-zinc-500" /> {postReadTime} {isAr ? 'قراءة' : isTr ? 'okuma' : isEs ? 'lectura' : 'read'}
             </span>
           </div>
         </header>
@@ -348,10 +384,10 @@ export default async function BlogPostPage({ params }: Props) {
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-black uppercase tracking-wider text-[#FF6B6B]">
-                    {isAr ? 'حقائق سريعة' : isTr ? 'Özet Bilgi' : 'Quick Facts'}
+                    {isAr ? 'حقائق سريعة' : isTr ? 'Özet Bilgi' : isEs ? 'Resumen Rápido' : 'Quick Facts'}
                   </span>
                   <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[11px] font-bold text-emerald-300 border border-emerald-500/30">
-                    {isAr ? 'إجابة مختصرة' : isTr ? 'Kısa Yanıt' : 'Short Answer'}
+                    {isAr ? 'إجابة مختصرة' : isTr ? 'Kısa Yanıt' : isEs ? 'Respuesta Directa' : 'Short Answer'}
                   </span>
                 </div>
                 <blockquote className="text-sm sm:text-base font-medium leading-relaxed text-zinc-200 italic">
@@ -369,7 +405,7 @@ export default async function BlogPostPage({ params }: Props) {
             className="mb-10 -mt-4 flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm text-zinc-200 transition hover:border-[#FF0033]/50 hover:bg-white/[0.07]"
           >
             <span>
-              <span className="block text-xs text-zinc-400">{isAr ? 'عن الفنان' : isTr ? 'Sanatçıyı tanıyın' : 'About the artist'}</span>
+              <span className="block text-xs text-zinc-400">{isAr ? 'عن الفنان' : isTr ? 'Sanatçıyı tanıyın' : isEs ? 'Sobre el artista' : 'About the artist'}</span>
               <span className="font-bold text-white">{(!isTr && bioPost.title_en) ? bioPost.title_en : bioPost.title}</span>
             </span>
             <ArrowRight className="h-4 w-4 shrink-0" />
@@ -399,7 +435,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="mb-4 flex items-center gap-2">
               <TableIcon className="h-4 w-4 text-[#FF4D6D]" />
               <h3 className="text-sm font-extrabold uppercase tracking-wider text-white">
-                {postTable.caption || (isAr ? 'الأداء ومعيار المقارنة' : isTr ? 'Performans & Karşılaştırma Tablosu' : 'Performance & Comparison Benchmark')}
+                {postTable.caption || (isAr ? 'الأداء ومعيار المقارنة' : isTr ? 'Performans & Karşılaştırma Tablosu' : isEs ? 'Tabla de Comparación y Rendimiento' : 'Performance & Comparison Benchmark')}
               </h3>
             </div>
             <div className="overflow-x-auto">
@@ -461,13 +497,15 @@ export default async function BlogPostPage({ params }: Props) {
                   <div className="my-8 rounded-2xl border border-[#FF0033]/30 bg-gradient-to-r from-[#FF0033]/15 via-zinc-900 to-zinc-950 p-5 sm:p-6 backdrop-blur-xl shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="space-y-1">
                       <span className="text-[11px] font-black uppercase tracking-wider text-[#FF6B6B] bg-[#FF0033]/20 px-2.5 py-0.5 rounded-full inline-block">
-                        {isAr ? '🎯 روّج لفيديو الكليب الخاص بك' : isTr ? '🎯 Kendi Klibinizi Başlatın' : '🎯 Promote Your Music Video'}
+                        {isAr ? '🎯 روّج لفيديو الكليب الخاص بك' : isTr ? '🎯 Kendi Klibinizi Başlatın' : isEs ? '🎯 Promociona Tu Video Musical' : '🎯 Promote Your Music Video'}
                       </span>
                       <h4 className="text-base sm:text-lg font-bold text-white">
                         {isAr
                           ? 'احسب باقة إطلاق فيديو الكليب عبر إعلانات Google Ads الرسمية'
                           : isTr
                           ? 'Klibiniz için bütçenize uygun resmi Google Ads paketini hesaplayın'
+                          : isEs
+                          ? 'Calcula tu paquete oficial de lanzamiento en Google Ads para tu video'
                           : 'Calculate your official Google Ads music video launch package'}
                       </h4>
                       <p className="text-xs text-zinc-300">
@@ -475,6 +513,8 @@ export default async function BlogPostPage({ params }: Props) {
                           ? 'مشاهدات إعلانية رسمية موثّقة 100% في YouTube Studio.'
                           : isTr
                           ? '%100 YouTube Studio tescilli resmi reklam izlenmeleri.'
+                          : isEs
+                          ? 'Vistas de publicidad oficial 100% verificadas en YouTube Studio.'
                           : '100% YouTube Studio verified official ad views.'}
                       </p>
                     </div>
@@ -483,13 +523,13 @@ export default async function BlogPostPage({ params }: Props) {
                         href={`/${locale}/fiyatlandirma`}
                         className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-5 py-3 text-xs font-black text-white shadow-lg shadow-[#FF0033]/30 hover:scale-105 transition"
                       >
-                        {isAr ? 'احسب سعر الإعلان' : isTr ? 'YouTube Reklam Fiyatları' : 'Calculate Ad Pricing'} <ArrowRight className="h-3.5 w-3.5" />
+                        {isAr ? 'احسب سعر الإعلان' : isTr ? 'YouTube Reklam Fiyatları' : isEs ? 'Precios de Anuncios' : 'Calculate Ad Pricing'} <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                       <Link
                         href={`/${locale}/order`}
                         className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-xs font-bold text-white hover:bg-white/10 transition"
                       >
-                        {isAr ? 'اطلب مراجعة الفيديو' : isTr ? 'Klip Analizi İste' : 'Request Video Audit'}
+                        {isAr ? 'اطلب مراجعة الفيديو' : isTr ? 'Klip Analizi İste' : isEs ? 'Solicitar Análisis de Video' : 'Request Video Audit'}
                       </Link>
                     </div>
                   </div>
@@ -505,7 +545,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="flex items-center gap-2 mb-4">
               <HelpCircle className="h-5 w-5 text-[#FF0033]" />
               <h3 className="text-xl font-extrabold text-white">
-                {isAr ? 'الأسئلة الشائعة' : isTr ? 'Sıkça Sorulan Sorular' : 'Frequently Asked Questions'}
+                {isAr ? 'الأسئلة الشائعة' : isTr ? 'Sıkça Sorulan Sorular' : isEs ? 'Preguntas Frecuentes' : 'Frequently Asked Questions'}
               </h3>
             </div>
             <div className="space-y-3">
@@ -538,10 +578,10 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
               <span className="font-extrabold text-white text-base">{post.author}</span>
               <span className="rounded-full bg-blue-500/20 px-2.5 py-0.5 text-[11px] font-bold text-blue-300 border border-blue-500/30">
-                {isAr ? 'شريك Google رسمي' : isTr ? 'Resmi Google Partner' : 'Official Google Partner'}
+                {isAr ? 'شريك Google رسمي' : isTr ? 'Resmi Google Partner' : isEs ? 'Google Partner Oficial' : 'Official Google Partner'}
               </span>
               <span className="rounded-full bg-amber-500/20 px-2.5 py-0.5 text-[11px] font-bold text-amber-300 border border-amber-500/30">
-                {isAr ? 'خبرة تتجاوز 18 عامًا' : isTr ? '18+ Yıllık Tecrübe' : '18+ Years Track Record'}
+                {isAr ? 'خبرة تتجاوز 18 عامًا' : isTr ? '18+ Yıllık Tecrübe' : isEs ? '18+ Años de Experiencia' : '18+ Years Track Record'}
               </span>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed">
@@ -549,6 +589,8 @@ export default async function BlogPostPage({ params }: Props) {
                 ? 'كتبه وراجعه خبراء المحتوى في MedyaPR، الذين يديرون حملات ترويج فيديو رسمية كشريك Google لشركات التسجيلات والفنانين المستقلين وشركات الإنتاج في تركيا وحول العالم.'
                 : isTr
                 ? 'Türkiye ve dünya genelinde müzik klipleri, prodüksiyon şirketleri ve sanatçılar için resmi Google Ads video PR stratejileri geliştiren MedyaPR editoryal uzmanları tarafından hazırlanmıştır.'
+                : isEs
+                ? 'Redactado y verificado por los estrategas de contenido de MedyaPR, especialistas en campañas de PR y video de Google Ads para sellos discográficos, artistas independientes y productoras.'
                 : 'Written and verified by MedyaPR editorial strategists, managing official Google Partner video PR campaigns for record labels, independent artists, and production companies in Turkey and worldwide.'}
             </p>
           </div>
@@ -559,13 +601,15 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="space-y-3 max-w-2xl">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FF0033]/20 px-3 py-1 text-xs font-bold text-[#FF6B6B]">
               <Sparkles className="h-3.5 w-3.5" />
-              {isAr ? 'حملة ترويج فيديو رسمية عبر Google Ads' : isTr ? 'Resmi Reklam & Video PR Kampanyası' : 'Official Google Ads Video PR Campaign'}
+              {isAr ? 'حملة ترويج فيديو رسمية عبر Google Ads' : isTr ? 'Resmi Reklam & Video PR Kampanyası' : isEs ? 'Campaña Oficial de Publicidad y Video PR' : 'Official Google Ads Video PR Campaign'}
             </span>
             <h3 className="text-2xl font-black text-white">
               {isAr
                 ? 'هل تريد أن يصل فيديو الكليب الخاص بك إلى قوائم الترند على يوتيوب؟'
                 : isTr
                 ? 'Kendi Klibinizi de YouTube Trendlerine Taşımak İster Misiniz?'
+                : isEs
+                ? '¿Quieres posicionar tu video musical en las tendencias de YouTube?'
                 : 'Want to Push Your Music Video into the YouTube Trending Charts?'}
             </h3>
             <p className="text-sm text-zinc-300 leading-relaxed">
@@ -573,6 +617,8 @@ export default async function BlogPostPage({ params }: Props) {
                 ? "ابتعد عن لوحات البوتات المشبوهة التي تضر بمكانة قناتك لدى الخوارزمية. أطلق حملة إعلانية رسمية عبر Google Ads مع استهداف حسب العمر ونوع الموسيقى والموقع الجغرافي. راسلنا للحصول على مراجعة مجانية لفيديو الكليب."
                 : isTr
                 ? 'Bot panelleriyle kanalınızı riske atmayın. Şarkınız için yaş, müzik zevki ve bölge hedefli resmi Google Ads kampanyası başlatın; ücretsiz video analizi için bize yazın.'
+                : isEs
+                ? 'No arriesgues tu canal con paneles de bots. Lanza una campaña oficial de Google Ads segmentada por edad, género musical y ubicación. Contáctanos para un análisis gratuito de tu video.'
                 : "Avoid shady bot panels that damage your channel's algorithmic standing. Launch a targeted official Google Ads video campaign with age, genre, and geographic audience targeting. Message us for a free video review."}
             </p>
           </div>
@@ -582,32 +628,32 @@ export default async function BlogPostPage({ params }: Props) {
               href={`/${locale}/fiyatlandirma`}
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-7 py-3.5 text-sm font-extrabold text-white shadow-xl shadow-[#FF0033]/30 hover:scale-105 transition"
             >
-              {isAr ? 'أسعار إعلانات يوتيوب وحاسبة الأسعار' : isTr ? 'YouTube Reklam Fiyatları & Hesaplama' : 'YouTube Ad Pricing & Calculator'}{' '}
+              {isAr ? 'أسعار إعلانات يوتيوب وحاسبة الأسعار' : isTr ? 'YouTube Reklam Fiyatları & Hesaplama' : isEs ? 'Precios y Calculadora de Anuncios' : 'YouTube Ad Pricing & Calculator'}{' '}
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href={`/${locale}/klip-pr`}
               className="inline-flex items-center gap-2 rounded-xl border border-[#FF0033]/50 bg-[#FF0033]/15 px-6 py-3.5 text-sm font-extrabold text-white hover:bg-[#FF0033]/25 transition"
             >
-              {isAr ? 'الترويج الرقمي وإطلاق فيديو الكليب' : isTr ? 'Müzik Klibi Dijital PR & Lansman' : 'Music Video Digital PR & Launch'}
+              {isAr ? 'الترويج الرقمي وإطلاق فيديو الكليب' : isTr ? 'Müzik Klibi Dijital PR & Lansman' : isEs ? 'Lanzamiento y PR Digital de Video' : 'Music Video Digital PR & Launch'}
             </Link>
             <Link
               href={`/${locale}/order`}
               className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/15 px-6 py-3.5 text-sm font-extrabold text-emerald-300 hover:bg-emerald-500/25 transition"
             >
-              {isAr ? 'أرسل رابط الفيديو واطلب التحليل' : isTr ? 'Video Linki Gir & Analiz İste' : 'Submit Video Link & Request Audit'}
+              {isAr ? 'أرسل رابط الفيديو واطلب التحليل' : isTr ? 'Video Linki Gir & Analiz İste' : isEs ? 'Enviar Enlace y Solicitar Análisis' : 'Submit Video Link & Request Audit'}
             </Link>
             <Link
               href={`/${locale}/hizmetler`}
               className="inline-flex items-center gap-2 rounded-xl border border-zinc-700/60 bg-zinc-800/80 px-5 py-3.5 text-sm font-bold text-zinc-200 hover:bg-zinc-700 transition"
             >
-              {isAr ? 'باقات مشاهدات يوتيوب عبر Google Ads' : isTr ? 'Google Ads YouTube İzlenme Paketleri' : 'Google Ads YouTube View Packages'}
+              {isAr ? 'باقات مشاهدات يوتيوب عبر Google Ads' : isTr ? 'Google Ads YouTube İzlenme Paketleri' : isEs ? 'Paquetes de Vistas con Google Ads' : 'Google Ads YouTube View Packages'}
             </Link>
           </div>
 
           <div className="mt-6 pt-5 border-t border-white/10">
             <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-2.5">
-              {isAr ? '🎯 خدمات الترويج الرسمية على يوتيوب:' : isTr ? '🎯 Resmi YouTube Reklam & Klip Tanıtım Sayfaları:' : '🎯 Official YouTube Music Promotion Pages:'}
+              {isAr ? '🎯 خدمات الترويج الرسمية على يوتيوب:' : isTr ? '🎯 Resmi YouTube Reklam & Klip Tanıtım Sayfaları:' : isEs ? '🎯 Páginas Oficiales de Promoción en YouTube:' : '🎯 Official YouTube Music Promotion Pages:'}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs font-extrabold mb-5">
               {getLandingPages(locale).map((lp) => (
@@ -621,9 +667,48 @@ export default async function BlogPostPage({ params }: Props) {
               ))}
             </div>
             <p className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 mb-3">
-              {isAr ? '📌 أدلة يوتيوب الرسمية المميزة للفنانين:' : isTr ? '📌 Sanatçılar İçin Öne Çıkan Resmi YouTube Rehberleri:' : '📌 Featured Official YouTube Guides for Artists:'}
+              {isAr ? '📌 أدلة يوتيوب الرسمية المميزة للفنانين:' : isTr ? '📌 Sanatçılar İçin Öne Çıkan Resmi YouTube Rehberleri:' : isEs ? '📌 Guías Oficiales Destacadas para Artistas:' : '📌 Featured Official YouTube Guides for Artists:'}
             </p>
-            {isAr ? (
+            {isEs ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-semibold">
+                <Link
+                  href="/es/blog/youtube-mexico-music-chart-2026"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
+                >
+                  🇲🇽 Lista YouTube Música México 2026 →
+                </Link>
+                <Link
+                  href="/es/blog/youtube-espana-music-chart-2026"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
+                >
+                  🇪🇸 Lista YouTube Música España 2026 →
+                </Link>
+                <Link
+                  href="/es/blog/youtube-colombia-music-chart-2026"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
+                >
+                  🇨🇴 Lista YouTube Música Colombia 2026 →
+                </Link>
+                <Link
+                  href="/es/blog/como-entrar-en-tendencias-de-youtube-estrategia-2026"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
+                >
+                  🔥 Cómo Entrar en Tendencias de YouTube 2026 →
+                </Link>
+                <Link
+                  href="/es/blog/promocion-videos-musicales-youtube-google-ads-guia"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
+                >
+                  📘 Promoción con Google Ads Oficial →
+                </Link>
+                <Link
+                  href="/es/blog/es-buena-idea-comprar-visitas-youtube-guia-anuncios-oficiales"
+                  className="rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-zinc-200 hover:border-[#FF0033]/50 hover:text-white transition"
+                >
+                  🛡️ ¿Comprar Visitas? Guía Oficial →
+                </Link>
+              </div>
+            ) : isAr ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-semibold">
                 <Link
                   href="/ar/blog/youtube-shorts-ads-music-video-demand-gen"
@@ -768,17 +853,17 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="flex items-center justify-between mb-6">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#FF6B6B]">
-                  {isAr ? 'مجموعة المواضيع والأدلة ذات الصلة' : isTr ? 'Konu Kümesi & Önerilen Rehberler' : 'Topic Cluster & Related Guides'}
+                  {isAr ? 'مجموعة المواضيع والأدلة ذات الصلة' : isTr ? 'Konu Kümesi & Önerilen Rehberler' : isEs ? 'Grupo Temático y Guías Recomendadas' : 'Topic Cluster & Related Guides'}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-black text-white mt-1">
-                  {isAr ? 'رؤى ذات صلة بالترويج للفيديو' : isTr ? 'İlgili Müzik PR ve Algoritma Analizleri' : 'Related Video PR Insights'}
+                  {isAr ? 'رؤى ذات صلة بالترويج للفيديو' : isTr ? 'İlgili Müzik PR ve Algoritma Analizleri' : isEs ? 'Análisis Relacionados de Video PR' : 'Related Video PR Insights'}
                 </h3>
               </div>
               <Link
                 href={`/${locale}/blog`}
                 className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-zinc-400 hover:text-white transition"
               >
-                {isAr ? 'عرض الكل' : isTr ? 'Tüm Yazılar' : 'View All'} <ArrowRight className="h-3.5 w-3.5" />
+                {isAr ? 'عرض الكل' : isTr ? 'Tüm Yazılar' : isEs ? 'Ver Todos' : 'View All'} <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
 
@@ -806,7 +891,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <div className="flex items-center justify-between text-[11px] text-zinc-400 pt-2 border-t border-zinc-800">
                       <span>{displayDate(rel.date, locale)}</span>
                       <span className="font-semibold text-white/80 group-hover:translate-x-0.5 transition flex items-center gap-1">
-                        {isAr ? 'اقرأ ←' : isTr ? 'Oku →' : 'Read →'}
+                        {isAr ? 'اقرأ ←' : isTr ? 'Oku →' : isEs ? 'Leer →' : 'Read →'}
                       </span>
                     </div>
                   </div>

@@ -19,24 +19,41 @@ import { getPageAlternates, toIsoDateString, displayDate } from '@/lib/seo';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
+
   return {
     title: {
-      absolute: isAr ? 'مدونة استراتيجيات الترويج لفيديو كليب يوتيوب | MedyaPR' : isTr ? 'YouTube Müzik Video & Klip PR Blogu | MedyaPR' : 'YouTube Music Video & PR Strategy Blog | MedyaPR',
+      absolute: isAr
+        ? 'مدونة استراتيجيات الترويج لفيديو كليب يوتيوب | MedyaPR'
+        : isTr
+        ? 'YouTube Müzik Video & Klip PR Blogu | MedyaPR'
+        : isEs
+        ? 'Blog de Estrategia de Videos Musicales y YouTube PR | MedyaPR'
+        : 'YouTube Music Video & PR Strategy Blog | MedyaPR',
     },
     description: isAr
       ? 'أساليب نمو وسائل التواصل الاجتماعي، وخطط إطلاق فيديو كليب على يوتيوب، وسير الفنانين، وأدلة الخوارزمية، واستراتيجيات الترويج عبر إعلانات Google Ads الرسمية.'
       : isTr
       ? 'Sosyal medya tüyoları, nasıl yapılır rehberleri, tavsiyeler, sanatçı biyografileri (kimdir), klip analizleri ve resmi Google Ads video PR stratejileri.'
+      : isEs
+      ? 'Estrategias de lanzamiento de videoclips en YouTube, análisis de tendencias musicales, algoritmos y campañas oficiales de Google Ads.'
       : 'Social media growth tactics, YouTube music video launch playbooks, artist biographies, algorithm guides, and official Google Ads PR strategies.',
     alternates: getPageAlternates(locale, '/blog'),
     openGraph: {
-      title: isAr ? 'مدونة استراتيجيات الترويج لفيديو كليب يوتيوب | MedyaPR' : isTr ? 'YouTube Müzik Video & Klip PR Blogu | MedyaPR' : 'YouTube Music Video & PR Strategy Blog | MedyaPR',
+      title: isAr
+        ? 'مدونة استراتيجيات الترويج لفيديو كليب يوتيوب | MedyaPR'
+        : isTr
+        ? 'YouTube Müzik Video & Klip PR Blogu | MedyaPR'
+        : isEs
+        ? 'Blog de Estrategia de Videos Musicales y YouTube PR | MedyaPR'
+        : 'YouTube Music Video & PR Strategy Blog | MedyaPR',
       description: isAr
         ? 'أساليب نمو وسائل التواصل الاجتماعي، وخطط إطلاق فيديو كليب على يوتيوب، وسير الفنانين، وأدلة الخوارزمية، واستراتيجيات الترويج عبر إعلانات Google Ads الرسمية.'
         : isTr
         ? 'Sosyal medya tüyoları, nasıl yapılır rehberleri, tavsiyeler, sanatçı biyografileri (kimdir), klip analizleri ve resmi Google Ads video PR stratejileri.'
+        : isEs
+        ? 'Estrategias de lanzamiento de videoclips en YouTube, análisis de tendencias musicales, algoritmos y campañas oficiales de Google Ads.'
         : 'Social media growth tactics, YouTube music video launch playbooks, artist biographies, algorithm guides, and official Google Ads PR strategies.',
       url: `https://medyapr.com/${locale}/blog`,
       images: ['/og-image.jpg'],
@@ -45,13 +62,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 const CATEGORIES = [
-  { key: 'all', labelTr: 'Tüm Rehberler', labelEn: 'All Guides', labelAr: 'جميع الأدلة', icon: BookOpen, match: null },
-  { key: 'sosyal-medya', labelTr: 'Sosyal Medya', labelEn: 'Social Media', labelAr: 'وسائل التواصل الاجتماعي', icon: Share2, match: 'Sosyal Medya' },
-  { key: 'nasil-yapilir', labelTr: 'Nasıl Yapılır?', labelEn: 'How-To', labelAr: 'كيف تفعل', icon: Sparkles, match: 'Nasıl Yapılır?' },
-  { key: 'tavsiye', labelTr: 'Tavsiye', labelEn: 'Tips & Strategy', labelAr: 'نصائح واستراتيجية', icon: Lightbulb, match: 'Tavsiye' },
-  { key: 'kimdir', labelTr: 'Kimdir?', labelEn: 'Who Is?', labelAr: 'من هو؟', icon: Users, match: 'Kimdir?' },
-  { key: 'video-pr', labelTr: 'Resmi Video PR', labelEn: 'Official Video PR', labelAr: 'الترويج الرسمي للفيديو', icon: TrendingUp, match: 'Resmi Video PR & Google Ads' },
-  { key: 'analizler', labelTr: 'Şarkı Analizleri', labelEn: 'Song Analysis', labelAr: 'تحليل الأغاني', icon: Flame, match: 'Şarkı & Klip Analizleri' },
+  { key: 'all', labelTr: 'Tüm Rehberler', labelEn: 'All Guides', labelAr: 'جميع الأدلة', labelEs: 'Todas las Guías', icon: BookOpen, match: null },
+  { key: 'sosyal-medya', labelTr: 'Sosyal Medya', labelEn: 'Social Media', labelAr: 'وسائل التواصل الاجتماعي', labelEs: 'Redes Sociales', icon: Share2, match: 'Sosyal Medya' },
+  { key: 'nasil-yapilir', labelTr: 'Nasıl Yapılır?', labelEn: 'How-To', labelAr: 'كيف تفعل', labelEs: 'Guías Prácticas', icon: Sparkles, match: 'Nasıl Yapılır?' },
+  { key: 'tavsiye', labelTr: 'Tavsiye', labelEn: 'Tips & Strategy', labelAr: 'نصائح واستراتيجية', labelEs: 'Estrategia Musical', icon: Lightbulb, match: 'Tavsiye' },
+  { key: 'kimdir', labelTr: 'Kimdir?', labelEn: 'Who Is?', labelAr: 'من هو؟', labelEs: 'Biografías', icon: Users, match: 'Kimdir?' },
+  { key: 'video-pr', labelTr: 'Resmi Video PR', labelEn: 'Official Video PR', labelAr: 'الترويج الرسمي للفيديو', labelEs: 'PR Oficial de Video', icon: TrendingUp, match: 'Resmi Video PR & Google Ads' },
+  { key: 'analizler', labelTr: 'Şarkı Analizleri', labelEn: 'Song Analysis', labelAr: 'تحليل الأغاني', labelEs: 'Análisis y Tendencias', icon: Flame, match: 'Şarkı & Klip Analizleri' },
 ];
 
 export default async function BlogIndexPage({
@@ -65,8 +82,8 @@ export default async function BlogIndexPage({
   const resolvedSearchParams = searchParams ? await searchParams : {};
   const activeCategoryKey = resolvedSearchParams.kategori || 'all';
   const isTr = locale === 'tr';
-
   const isAr = locale === 'ar';
+  const isEs = locale === 'es';
   const allPosts = await getPostsForLocale(locale);
 
   const activeCategory = CATEGORIES.find((c) => c.key === activeCategoryKey) || CATEGORIES[0];
@@ -85,7 +102,7 @@ export default async function BlogIndexPage({
           {
             '@type': 'ListItem',
             position: 1,
-            name: isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home',
+            name: isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : isEs ? 'Inicio' : 'Home',
             item: `https://medyapr.com/${locale}`,
           },
           {
@@ -98,11 +115,19 @@ export default async function BlogIndexPage({
       },
       {
         '@type': 'Blog',
-        name: isAr ? 'مدونة MedyaPR لاستراتيجيات الترويج لفيديو يوتيوب والموسيقى' : isTr ? 'MedyaPR YouTube Video & Müzik PR Strateji Blogu' : 'MedyaPR YouTube Video & Music PR Strategy Blog',
+        name: isAr
+          ? 'مدونة MedyaPR لاستراتيجيات الترويج لفيديو يوتيوب والموسيقى'
+          : isTr
+          ? 'MedyaPR YouTube Video & Müzik PR Strateji Blogu'
+          : isEs
+          ? 'MedyaPR Blog de Estrategia de Videos Musicales y YouTube PR'
+          : 'MedyaPR YouTube Video & Music PR Strategy Blog',
         description: isAr
           ? 'بورتريهات الفنانين، واستراتيجيات الترويج لفيديو كليب على يوتيوب، وتحليلات الخوارزمية، وأدلة إعلانات Google Ads الرسمية.'
           : isTr
           ? 'Sanatçı biyografileri, trend şarkı analizleri, klip pazarlama dinamikleri ve resmi Google Ads büyüme rehberleri.'
+          : isEs
+          ? 'Análisis de canciones en tendencia, estrategias de promoción de videoclips y guías de crecimiento con Google Ads.'
           : 'Artist portraits, YouTube music video PR strategies, algorithm breakdowns, and official Google Ads guides.',
         url: `https://medyapr.com/${locale}/blog`,
         blogPost: filteredPosts.map((p) => ({
@@ -133,14 +158,18 @@ export default async function BlogIndexPage({
         {/* Breadcrumb */}
         <div className="mb-4 flex items-center gap-2 text-xs text-zinc-400">
           <Link href={`/${locale}`} className="hover:text-white transition">
-            {isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : 'Home'}
+            {isAr ? 'الرئيسية' : isTr ? 'Ana Sayfa' : isEs ? 'Inicio' : 'Home'}
           </Link>
           <span>/</span>
-          <span className="text-[#FF6B6B]">{isAr ? 'مدونة الترويج الموسيقي والفيديو' : isTr ? 'Müzik & Video PR Blogu' : 'Music & Video PR Blog'}</span>
+          <span className="text-[#FF6B6B]">
+            {isAr ? 'مدونة الترويج الموسيقي والفيديو' : isTr ? 'Müzik & Video PR Blogu' : isEs ? 'Blog de Video y Música PR' : 'Music & Video PR Blog'}
+          </span>
           {activeCategory.key !== 'all' && (
             <>
               <span>/</span>
-              <span className="text-zinc-200">{isAr ? activeCategory.labelAr : isTr ? activeCategory.labelTr : activeCategory.labelEn}</span>
+              <span className="text-zinc-200">
+                {isAr ? activeCategory.labelAr : isTr ? activeCategory.labelTr : isEs ? activeCategory.labelEs : activeCategory.labelEn}
+              </span>
             </>
           )}
         </div>
@@ -149,23 +178,28 @@ export default async function BlogIndexPage({
         <div className="mb-10 border-b border-studio pb-8">
           <span className="inline-flex items-center gap-2 rounded-full border border-zinc-700/60 bg-zinc-800/80 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5E7E] mb-3">
             <BookOpen className="h-4 w-4 text-[#FF0033]" />
-            {isAr ? 'رؤى وتحليلات' : isTr ? 'Trend & Müzik PR Stratejileri' : 'Insights & Analytics'}
+            {isAr ? 'رؤى وتحليلات' : isTr ? 'Trend & Müzik PR Stratejileri' : isEs ? 'Perspectivas y Análisis' : 'Insights & Analytics'}
           </span>
           <h1 className="text-3xl font-extrabold sm:text-5xl tracking-tight">
-            {isAr
-              ? (
+            {isAr ? (
               <>
                 الموسيقى ويوتيوب{' '}
                 <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
                   دليل الاستراتيجية
                 </span>
               </>
-            )
-              : isTr ? (
+            ) : isTr ? (
               <>
                 Müzik &amp; YouTube{' '}
                 <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
                   Strateji Rehberi
+                </span>
+              </>
+            ) : isEs ? (
+              <>
+                Música y YouTube{' '}
+                <span className="bg-gradient-to-r from-[#FF0033] via-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
+                  Guía de Estrategia
                 </span>
               </>
             ) : (
@@ -182,6 +216,8 @@ export default async function BlogIndexPage({
               ? 'نظرة معمّقة على الموسيقى الرائجة، وملفات الفنانين، وخطط إطلاق الفيديو، وتحسين الخوارزمية.'
               : isTr
               ? 'Sanatçı portreleri, YouTube trend şarkı analizleri, klip lansmanlarında ilk 48 saat taktikleri ve resmi Google Ads video kampanyalarıyla kanal büyütme sırları.'
+              : isEs
+              ? 'Análisis en profundidad sobre música en tendencia, planes de lanzamiento de videoclips y optimización del algoritmo de YouTube con Google Ads.'
               : 'Deep dives on trending music, artist profiles, video launch playbooks, and algorithm optimization.'}
           </p>
         </div>
@@ -190,10 +226,10 @@ export default async function BlogIndexPage({
         <div className="mb-12">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-400">
-              {isAr ? 'تصفّح حسب الفئة' : isTr ? 'Kategorilere Göre İncele' : 'Browse by Category'}
+              {isAr ? 'تصفّح حسب الفئة' : isTr ? 'Kategorilere Göre İncele' : isEs ? 'Explorar por Categoría' : 'Browse by Category'}
             </h2>
             <span className="text-xs text-zinc-400">
-              {filteredPosts.length} {isAr ? 'مقالات' : isTr ? 'yazı listeleniyor' : 'articles found'}
+              {filteredPosts.length} {isAr ? 'مقالات' : isTr ? 'yazı listeleniyor' : isEs ? 'artículos encontrados' : 'articles found'}
             </span>
           </div>
 
@@ -206,8 +242,8 @@ export default async function BlogIndexPage({
                   ? allPosts.length
                   : allPosts.filter((p) => postCategoryKey(p) === cat.key).length;
 
-              // Arapça blogda yazısı olmayan kategori sekmesi gösterilmez (boş sayfa SEO'ya zarar verir).
-              if (locale === 'ar' && cat.match !== null && count === 0) return null;
+              // Arapça veya İspanyolca blogda yazısı olmayan kategori sekmesi gösterilmez (boş sayfa SEO'ya zarar verir).
+              if ((locale === 'ar' || locale === 'es') && cat.match !== null && count === 0) return null;
 
               const href =
                 cat.key === 'all'
@@ -225,7 +261,7 @@ export default async function BlogIndexPage({
                   }`}
                 >
                   <Icon className={`h-4 w-4 ${isActive ? 'text-white' : 'text-[#FF6B6B]'}`} />
-                  <span>{isAr ? cat.labelAr : isTr ? cat.labelTr : cat.labelEn}</span>
+                  <span>{isAr ? cat.labelAr : isTr ? cat.labelTr : isEs ? cat.labelEs : cat.labelEn}</span>
                   <span
                     className={`ml-1 px-1.5 py-0.5 rounded-full text-[11px] font-extrabold ${
                       isActive ? 'bg-black/30 text-white' : 'bg-white/10 text-zinc-400'
@@ -252,103 +288,71 @@ export default async function BlogIndexPage({
                   alt={filteredPosts[0].title}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <span className="absolute top-3 left-3 rounded-full bg-[#D9002B] px-3 py-1 text-xs font-bold text-white shadow-lg">
-                  {(!isTr && filteredPosts[0].category_en) ? filteredPosts[0].category_en : filteredPosts[0].category}
-                </span>
               </div>
               <div className="space-y-4">
-                <div className="flex items-center gap-4 text-xs text-white/50">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="h-3.5 w-3.5 text-[#FF6B6B]" /> {displayDate(filteredPosts[0].date, locale)}
+                <div className="flex items-center gap-3 text-xs text-zinc-400">
+                  <span className="rounded-full bg-[#FF0033]/20 px-3 py-1 font-bold text-[#FF6B6B]">
+                    {filteredPosts[0].category}
                   </span>
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="h-3.5 w-3.5 text-white/40" /> {(!isTr && filteredPosts[0].readTime_en) ? filteredPosts[0].readTime_en : filteredPosts[0].readTime}
+                  <span className="flex items-center gap-1">
+                    <Calendar className="h-3.5 w-3.5" />
+                    {displayDate(filteredPosts[0].date, locale)}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="h-3.5 w-3.5" />
+                    {filteredPosts[0].readTime} {isAr ? 'قراءة' : isTr ? 'okuma' : isEs ? 'lectura' : 'read'}
                   </span>
                 </div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-white group-hover:text-[#FF6B6B] transition-colors leading-snug">
-                  {(!isTr && filteredPosts[0].title_en) ? filteredPosts[0].title_en : filteredPosts[0].title}
+                <h2 className="text-2xl font-extrabold text-white group-hover:text-[#FF6B6B] transition sm:text-3xl">
+                  {filteredPosts[0].title}
                 </h2>
-                <p className="text-sm leading-relaxed text-white/65 line-clamp-3">
-                  {(!isTr && filteredPosts[0].summary_en) ? filteredPosts[0].summary_en : filteredPosts[0].summary}
+                <p className="line-clamp-3 text-sm text-zinc-300 leading-relaxed">
+                  {filteredPosts[0].summary}
                 </p>
-                <div className="inline-flex items-center gap-2 text-sm font-bold text-[#FF6B6B] group-hover:translate-x-1 transition-transform">
-                  {isAr ? 'اقرأ المقال' : isTr ? 'Yazıyı Oku' : 'Read Article'} <ArrowRight className="h-4 w-4" />
+                <div className="inline-flex items-center gap-2 text-sm font-bold text-[#FF6B6B] group-hover:text-[#FF8E53] transition pt-2">
+                  <span>{isAr ? 'اقرأ المقال بالكامل' : isTr ? 'Yazının Tamamını Oku' : isEs ? 'Leer Artículo Completo' : 'Read Full Guide'}</span>
+                  <ArrowRight className="h-4 w-4" />
                 </div>
               </div>
             </div>
           </Link>
         )}
 
-        {/* Other Posts Grid */}
-        {filteredPosts.length > 1 && (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredPosts.slice(1).map((post) => {
-              const postTitle = (!isTr && post.title_en) ? post.title_en : post.title;
-              const postSummary = (!isTr && post.summary_en) ? post.summary_en : post.summary;
-              const postCategory = (!isTr && post.category_en) ? post.category_en : post.category;
-              const postReadTime = (!isTr && post.readTime_en) ? post.readTime_en : post.readTime;
-
-              return (
-                <Link
-                  key={post.slug}
-                  href={`/${locale}/blog/${post.slug}`}
-                  className="group flex flex-col justify-between rounded-3xl border border-studio bg-studio-card p-6 backdrop-blur-xl transition hover:border-studio-strong hover:bg-zinc-800/90 shadow-xl"
-                >
-                  <div>
-                    <div className="relative aspect-video overflow-hidden rounded-2xl bg-black/40 mb-5">
-                      <Image fill sizes="(min-width: 1024px) 480px, 100vw"
-                        src={post.image}
-                        alt={postTitle}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <span className="absolute top-3 left-3 rounded-full bg-black/70 backdrop-blur-md px-3 py-1 text-xs font-bold text-white border border-white/10">
-                        {postCategory}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-4 text-xs text-white/50 mb-3">
-                      <span className="flex items-center gap-1.5">
-                        <Calendar className="h-3.5 w-3.5 text-[#FF6B6B]" /> {displayDate(post.date, locale)}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <Clock className="h-3.5 w-3.5 text-white/40" /> {postReadTime}
-                      </span>
-                    </div>
-                    <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#FF6B6B] transition-colors leading-snug line-clamp-2">
-                      {postTitle}
-                    </h3>
-                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-white/60 line-clamp-3">
-                      {postSummary}
-                    </p>
-                  </div>
-
-                <div className="mt-6 flex items-center justify-between border-t border-white/5 pt-4 text-xs font-semibold text-[#FF6B6B]">
-                  <span>{isAr ? 'اقرأ المزيد' : isTr ? 'Devamını Oku' : 'Read More'}</span>
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-        )}
-
-        {/* Empty State */}
-        {filteredPosts.length === 0 && (
-          <div className="rounded-3xl border border-zinc-800 bg-zinc-950/60 p-12 text-center my-12">
-            <BookOpen className="h-12 w-12 text-zinc-600 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-white mb-2">
-              {isAr ? 'لا توجد مقالات في هذه الفئة بعد' : isTr ? 'Bu kategoride henüz yazı bulunmuyor' : 'No posts in this category yet'}
-            </h3>
-            <p className="text-sm text-zinc-400 mb-6">
-              {isAr ? 'عد إلى قائمة المدونة الكاملة لعرض جميع الأدلة والتحليلات.' : isTr ? 'Tüm rehber ve analizleri görmek için ana blog listesine dönebilirsiniz.' : 'Return to full blog list to see all guides and analysis.'}
-            </p>
+        {/* Remaining Posts Grid */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {filteredPosts.slice(1).map((post) => (
             <Link
-              href={`/${locale}/blog`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#D9002B] text-white text-xs font-bold"
+              key={post.slug}
+              href={`/${locale}/blog/${post.slug}`}
+              className="group flex flex-col overflow-hidden rounded-2xl border border-studio bg-studio-card p-5 backdrop-blur-md shadow-lg transition hover:border-studio-strong hover:bg-zinc-800/90"
             >
-              {isAr ? 'عرض كل المقالات' : isTr ? 'Tüm Yazıları Gör' : 'View All Posts'}
+              <div className="relative aspect-video overflow-hidden rounded-xl bg-black/40 mb-4">
+                <Image fill sizes="(min-width: 1024px) 320px, 100vw"
+                  src={post.image}
+                  alt={post.title}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="flex items-center gap-2 text-[11px] text-zinc-400 mb-2.5">
+                <span className="rounded-full bg-zinc-800 px-2 py-0.5 font-bold text-zinc-300">
+                  {post.category}
+                </span>
+                <span>•</span>
+                <span>{displayDate(post.date, locale)}</span>
+              </div>
+              <h3 className="text-base font-bold text-white group-hover:text-[#FF6B6B] transition line-clamp-2 mb-2">
+                {post.title}
+              </h3>
+              <p className="line-clamp-2 text-xs text-zinc-300 leading-relaxed mb-4 flex-grow">
+                {post.summary}
+              </p>
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF6B6B] pt-2 border-t border-zinc-800">
+                <span>{isAr ? 'اقرأ التفاصيل' : isTr ? 'Detayları İncele' : isEs ? 'Leer Detalles' : 'Read More'}</span>
+                <ArrowRight className="h-3 w-3" />
+              </div>
             </Link>
-          </div>
-        )}
+          ))}
+        </div>
       </div>
     </div>
   );

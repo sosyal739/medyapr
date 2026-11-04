@@ -3,8 +3,9 @@ import type { LandingPage } from './types';
 import { TR_PAGES } from './tr';
 import { EN_PAGES } from './en';
 import { AR_PAGES } from './ar';
+import { ES_PAGES } from './es';
 
-export const LANDING_PAGES: LandingPage[] = [...TR_PAGES, ...EN_PAGES, ...AR_PAGES];
+export const LANDING_PAGES: LandingPage[] = [...TR_PAGES, ...EN_PAGES, ...AR_PAGES, ...ES_PAGES];
 
 export const getLandingPages = (locale: string): LandingPage[] => LANDING_PAGES.filter((p) => p.locale === locale);
 
