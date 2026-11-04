@@ -1,22 +1,27 @@
 import type { MetadataRoute } from 'next';
-import { getPosts, getArPosts, getEsPosts, getArtists, isPostFullyTranslatedEn } from '@/lib/content';
+import { getPosts, getArPosts, getEsPosts, isPostFullyTranslatedEn } from '@/lib/content';
 import { getNewReleases, isReleaseIndexable } from '@/lib/releases';
 import { LANDING_PAGES } from '@/data/landing';
 
 const BASE_URL = 'https://medyapr.com';
 const LOCALES = ['tr', 'en', 'ar', 'es'] as const;
-/** Türkiye/İngilizce içerikli bölümler (sanatçı, klip): Arapça ve İspanyolca sürümleri yoktur. */
+/** Türkiye/İngilizce içerikli bölümler (klip): Arapça ve İspanyolca sürümleri yoktur. */
 const TR_EN_ONLY = ['tr', 'en'] as const;
-const TR_EN_ONLY_ROUTES = new Set(['/yeni-klipler', '/sanatcilar']);
-const STABLE_SITE_DATE = new Date('2026-10-20T00:00:00.000Z');
+const TR_EN_ONLY_ROUTES = new Set(['/yeni-klipler']);
+const STABLE_SITE_DATE = new Date('2026-11-04T00:00:00.000Z');
 
 function parseTurkishDate(dateStr?: string): Date {
   if (!dateStr) return STABLE_SITE_DATE;
+  const trimmed = dateStr.trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) {
+    const d = new Date(`${trimmed}T08:00:00.000Z`);
+    if (!isNaN(d.getTime())) return d;
+  }
   const months: Record<string, string> = {
     Ocak: '01', Şubat: '02', Mart: '03', Nisan: '04', Mayıs: '05', Haziran: '06',
     Temmuz: '07', Ağustos: '08', Eylül: '09', Ekim: '10', Kasım: '11', Aralık: '12',
   };
-  const parts = dateStr.trim().split(' ');
+  const parts = trimmed.split(' ');
   if (parts.length === 3) {
     const day = parts[0].padStart(2, '0');
     const month = months[parts[1]] || '10';
@@ -29,7 +34,6 @@ function parseTurkishDate(dateStr?: string): Date {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getPosts();
-  const artists = await getArtists();
   const releases = await getNewReleases();
 
   const staticRoutes = [
@@ -43,7 +47,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/iletisim',
     '/trendler',
     '/yeni-klipler',
-    '/sanatcilar',
     '/blog',
     '/gizlilik',
     '/kullanim-kosullari',
@@ -69,7 +72,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const lp of LANDING_PAGES) {
     entries.push({
       url: `${BASE_URL}/${lp.locale}/${lp.slug}`,
-      lastModified: new Date('2026-10-20T00:00:00.000Z'),
+      lastModified: STABLE_SITE_DATE,
       changeFrequency: 'weekly',
       priority: 0.9,
     });
@@ -112,18 +115,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
       priority: 0.85,
     });
-  }
-
-  // Dynamic Artists (TR & EN Only)
-  for (const artist of artists) {
-    for (const locale of TR_EN_ONLY) {
-      entries.push({
-        url: `${BASE_URL}/${locale}/sanatci/${artist.slug}`,
-        lastModified: STABLE_SITE_DATE,
-        changeFrequency: 'weekly',
-        priority: 0.75,
-      });
-    }
   }
 
   // Dynamic Releases (Yeni Klipler) - Google Scaled Content Abuse Önleme Kuralı
