@@ -51,7 +51,7 @@ export const TR_PAGES: LandingPage[] = [
       {
         h: 'Neden MedyaPR?',
         ul: [
-          '10+ yıllık dijital reklam ve müzik PR tecrübesi, Google Partner uzmanlarıyla yönetim.',
+          '18+ yıllık dijital reklam ve müzik PR tecrübesi, Google Partner uzmanlarıyla yönetim.',
           'Bot ve panel yok; izleyiciler YouTube Analytics’te reklam kaynağı olarak şeffafça görünür.',
           'Kanal şifresi istenmez; yalnızca herkese açık klip linki yeterlidir.',
           'Kampanya sonunda detaylı performans raporu.',

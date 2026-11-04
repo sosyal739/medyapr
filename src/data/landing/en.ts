@@ -10,7 +10,7 @@ export const EN_PAGES: LandingPage[] = [
       'YouTube music video promotion with official Google Ads video campaigns: no bots, no passwords. See a sample campaign plan, estimated prices and get a free video review.',
     h1: 'YouTube Music Video Promotion That Reaches the Right Audience',
     lead:
-      'You released your music video, but the first days did not bring the reach you hoped for? With 10+ years of experience, we run YouTube music video promotion through official Google Ads video campaigns. Views come from real viewers and appear in YouTube Analytics as “YouTube Ads” – no bots, no panels.',
+      'You released your music video, but the first days did not bring the reach you hoped for? With 18+ years of experience, we run YouTube music video promotion through official Google Ads video campaigns. Views come from real viewers and appear in YouTube Analytics as “YouTube Ads” – no bots, no panels.',
     areaServed: ['Global', 'US', 'GB', 'DE', 'TR'],
     prices: 'en',
     sections: [
@@ -88,7 +88,7 @@ export const EN_PAGES: LandingPage[] = [
       {
         h: 'Why MedyaPR',
         ul: [
-          '10+ years of digital advertising and music PR experience, managed by certified Google Partner specialists.',
+          '18+ years of digital advertising and music PR experience, managed by certified Google Partner specialists.',
           'Official Google Ads video campaigns – transparent in YouTube Analytics.',
           'No passwords, no bots, no panels.',
           'Estimated pricing up front; the final quote depends on your video.',
@@ -257,7 +257,7 @@ export const EN_PAGES: LandingPage[] = [
       {
         h: 'Built by a team that knows the Turkish music scene',
         p: [
-          'MedyaPR has been working in digital advertising and music PR for 10+ years. We follow Turkish chart trends, diaspora releases, and label launches daily, so your campaign is planned with real cultural context rather than a generic template.',
+          'MedyaPR has been working in digital advertising and music PR for 18+ years. We follow Turkish chart trends, diaspora releases, and label launches daily, so your campaign is planned with real cultural context rather than a generic template.',
         ],
       },
       {

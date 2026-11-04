@@ -82,7 +82,7 @@ export default async function RefundPage({ params }: Props) {
                 {isAr ? 'سياسة الاسترداد وضمان الأداء' : isTr ? 'İade ve Performans Garanti Politikası' : 'Refund & Performance Guarantee Policy'}
               </h1>
               <p className="text-xs text-zinc-400 mt-1">
-                {isAr ? 'خبرة تتجاوز 10 أعوام • أمان شريك Google الرسمي' : isTr ? '10+ Yıllık Güven • %100 Resmi Google Partner Koruma Standardı' : '10+ Years Track Record • Official Google Partner Security'}
+                {isAr ? 'خبرة تتجاوز 18 عامًا • أمان شريك Google الرسمي' : isTr ? '18+ Yıllık Güven • %100 Resmi Google Partner Koruma Standardı' : '18+ Years Track Record • Official Google Partner Security'}
               </p>
             </div>
           </div>

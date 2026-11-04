@@ -28,11 +28,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         : 'About Us | MedyaPR Official Google Partner Agency',
     },
     description: isAr
-      ? 'أكثر من 10 أعوام من التميّز في العلاقات العامة الرقمية، نقدّم إدارة رسمية لإعلانات فيديو يوتيوب والترويج لفيديو الكليب عبر Google Ads للفنانين حول العالم.'
+      ? 'أكثر من 18 عامًا من التميّز في العلاقات العامة الرقمية، نقدّم إدارة رسمية لإعلانات فيديو يوتيوب والترويج لفيديو الكليب عبر Google Ads للفنانين حول العالم.'
       : isEs
       ? 'Más de 18 años de experiencia en PR digital, ofreciendo gestión oficial de campañas de Google Ads para videos musicales y artistas a nivel global.'
       : isTr
-      ? '10 yılı aşkındır kesintisiz dijital medya tecrübesiyle sanatçı ve markalara resmi Google Ads YouTube video ve klip PR danışmanlığı sunuyoruz.'
+      ? '18 yılı aşkındır kesintisiz dijital medya tecrübesiyle sanatçı ve markalara resmi Google Ads YouTube video ve klip PR danışmanlığı sunuyoruz.'
       : 'Over 18 years of digital PR excellence, offering official Google Ads YouTube video and music video PR management to global artists.',
     alternates: getPageAlternates(locale, '/hakkimizda'),
   };
@@ -49,7 +49,7 @@ export default async function AboutPage({ params }: Props) {
     { icon: Shield, title: locale === 'ar' ? 'آمن 100%' : locale === 'es' ? '100% Seguro' : locale === 'tr' ? '%100 Güvenli' : '100% Safe', desc: locale === 'ar' ? 'نعمل عبر منصة Google Ads الرسمية' : locale === 'es' ? 'Trabajamos exclusivamente con la plataforma oficial de Google Ads' : locale === 'tr' ? 'Google Ads resmi platformu ile çalışıyoruz' : 'We work with Google Ads official platform' },
     { icon: Target, title: locale === 'ar' ? 'إعلانات مستهدفة' : locale === 'es' ? 'Publicidad Segmentada' : locale === 'tr' ? 'Hedefli Reklam' : 'Targeted Ads', desc: locale === 'ar' ? 'نضمن وصولك إلى الجمهور المناسب' : locale === 'es' ? 'Garantizamos que tu música llegue a la audiencia adecuada' : locale === 'tr' ? 'Doğru kitleye ulaşmanızı sağlıyoruz' : 'We ensure you reach the right audience' },
     { icon: TrendingUp, title: locale === 'ar' ? 'نمو عضوي' : locale === 'es' ? 'Crecimiento Orgánico' : locale === 'tr' ? 'Organik Büyüme' : 'Organic Growth', desc: locale === 'ar' ? 'المشاهدات الحقيقية تحفّز الخوارزمية' : locale === 'es' ? 'Las vistas reales activan el algoritmo de recomendaciones de YouTube' : locale === 'tr' ? 'Gerçek izlenmeler algoritma tetikler' : 'Real views trigger the algorithm' },
-    { icon: Award, title: locale === 'ar' ? 'خبرة تتجاوز 10 أعوام' : locale === 'es' ? '+10 Años de Experiencia' : locale === 'tr' ? '18+ Yıl Tecrübe' : '10+ Years Experience', desc: locale === 'ar' ? 'أكثر من 10 أعوام من العلاقات العامة الرقمية والترويج للفيديو دون انقطاع' : locale === 'es' ? 'Más de 18 años de trayectoria ininterrumpida en PR digital y video' : locale === 'tr' ? '10 yılı aşkındır sektörde kesintisiz dijital PR ve video tanıtımı' : 'Over 18 years of continuous digital PR and video promotion' },
+    { icon: Award, title: locale === 'ar' ? 'خبرة تتجاوز 18 عامًا' : locale === 'es' ? '+18 Años de Experiencia' : locale === 'tr' ? '18+ Yıl Tecrübe' : '18+ Years Experience', desc: locale === 'ar' ? 'أكثر من 18 عامًا من العلاقات العامة الرقمية والترويج للفيديو دون انقطاع' : locale === 'es' ? 'Más de 18 años de trayectoria ininterrumpida en PR digital y video' : locale === 'tr' ? '18 yılı aşkındır sektörde kesintisiz dijital PR ve video tanıtımı' : 'Over 18 years of continuous digital PR and video promotion' },
     { icon: Users, title: locale === 'ar' ? 'مختصون في شراكة Google' : locale === 'es' ? 'Especialistas Google Partner' : locale === 'tr' ? 'Google Partner Uzmanları' : 'Google Partner Specialists', desc: locale === 'ar' ? 'شراكات مع أبرز الفنانين في تركيا وحول العالم' : locale === 'es' ? 'Trabajamos con artistas destacados, productores y sellos independientes' : locale === 'tr' ? 'Türkiye\'de ve dünyada birçok sanatçı ve kurumsal referans' : 'Partnered with prominent artists across Turkey and worldwide' },
     { icon: BarChart3, title: locale === 'ar' ? 'تقارير شفافة' : locale === 'es' ? 'Reportes Transparentes' : locale === 'tr' ? 'Şeffaf Raporlama' : 'Transparent Reports', desc: locale === 'ar' ? 'تابع بيانات حملتك لحظة بلحظة' : locale === 'es' ? 'Sigue los datos y métricas directamente en YouTube Studio' : locale === 'tr' ? 'Kampanya verilerinizi anlık takip edin' : 'Track your campaign data in real-time' },
   ];
@@ -84,9 +84,9 @@ export default async function AboutPage({ params }: Props) {
                 '@type': 'AboutPage',
                 name: locale === 'ar' ? 'عن MedyaPR' : locale === 'es' ? 'Acerca de MedyaPR' : locale === 'tr' ? 'MedyaPR Hakkında' : 'About MedyaPR',
                 description: isAr
-                  ? 'أكثر من 10 أعوام من العلاقات العامة الرقمية وحملات الفيديو الرسمية عبر Google Ads دون انقطاع.'
+                  ? 'أكثر من 18 عامًا من العلاقات العامة الرقمية وحملات الفيديو الرسمية عبر Google Ads دون انقطاع.'
                   : isTr
-                  ? '10 yılı aşkındır kesintisiz dijital medya ve resmi Google Ads klip PR tecrübesi.'
+                  ? '18 yılı aşkındır kesintisiz dijital medya ve resmi Google Ads klip PR tecrübesi.'
                   : 'Over 18 years of continuous digital PR and official Google Ads video campaigns.',
                 mainEntity: {
                   '@type': 'Organization',

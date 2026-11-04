@@ -336,7 +336,7 @@ export default function GlobalTrendsConversionBanner({ locale }: GlobalTrendsCon
           </div>
           <div className="flex items-center gap-1.5">
             <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
-            <span>{isAr ? 'خبرة تتجاوز 10 أعوام' : isTr ? '10+ Yıllık Kesintisiz Tecrübe' : '10+ Years Track Record'}</span>
+            <span>{isAr ? 'خبرة تتجاوز 18 عامًا' : isTr ? '18+ Yıllık Kesintisiz Tecrübe' : '18+ Years Track Record'}</span>
           </div>
         </div>
       </div>

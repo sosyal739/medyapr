@@ -169,7 +169,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
           {/* Badge */}
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#FF0033]/40 bg-[#FF0033]/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5E7E] backdrop-blur-md shadow-lg shadow-[#FF0033]/10">
             <Award className="h-3.5 w-3.5 text-[#FF0033]" />
-            {isAr ? 'خبرة تتجاوز 10 أعوام • خبراء Google Partner رسميون' : isEs ? '+10 Años de Experiencia • Especialistas Oficiales Google Partner' : isTr ? '10+ Yıllık Tecrübe • Resmi Google Partner Uzmanları' : '10+ Years Experience • Official Google Partner Specialists'}
+            {isAr ? 'خبرة تتجاوز 18 عامًا • خبراء Google Partner رسميون' : isEs ? '+18 Años de Experiencia • Especialistas Oficiales Google Partner' : isTr ? '18+ Yıllık Tecrübe • Resmi Google Partner Uzmanları' : '18+ Years Experience • Official Google Partner Specialists'}
           </div>
 
           {/* Title */}
@@ -188,7 +188,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
             {isAr
               ? (
               <>
-                <strong className="text-white font-semibold">10 أعوام في هذا المجال.</strong> يتولى حملتك الترويجية{' '}
+                <strong className="text-white font-semibold">18 عامًا في هذا المجال.</strong> يتولى حملتك الترويجية{' '}
                 <strong className="text-white font-semibold">خبراء Google Partner المعتمدون</strong>. بلا بوتات أو لوحات؛ وتظهر الزيارات في YouTube Analytics باسم{' '}
                 <strong className="text-white font-semibold">«إعلانات يوتيوب»</strong>.
               </>
@@ -288,7 +288,7 @@ export default function HeroSection({ dict, locale }: HeroSectionProps) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1 border-t border-white/10 text-xs text-slate-300">
             <span className="flex items-center gap-2">
               <Award className="h-4 w-4 text-amber-400 shrink-0" />
-              {isAr ? 'خبرة تتجاوز 10 أعوام في الترويج للفيديو والصناعة الموسيقية' : isEs ? '+10 Años de Trayectoria en Video PR e Industria Musical' : isTr ? '10+ Yıllık Sektör & Video PR Tecrübesi' : '10+ Years Video PR & Music Industry Experience'}
+              {isAr ? 'خبرة تتجاوز 18 عامًا في الترويج للفيديو والصناعة الموسيقية' : isEs ? '+18 Años de Trayectoria en Video PR e Industria Musical' : isTr ? '18+ Yıllık Sektör & Video PR Tecrübesi' : '18+ Years Video PR & Music Industry Experience'}
             </span>
             <span className="flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0" />

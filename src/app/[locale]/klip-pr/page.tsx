@@ -80,7 +80,7 @@ export default async function KlipPrLandingPage({
         },
         {
           q: 'هل تستخدمون بوتات أو لوحات تفاعل مصطنعة؟',
-          a: 'أبدًا. MedyaPR وكالة مستقلة للتخطيط الإعلامي الرقمي والترويج الموسيقي بخبرة تتجاوز 10 أعوام. نلتزم التزامًا صارمًا بسياسات الإعلانات الرسمية ولا نقدّم أي تلاعب مصطنع بالأرقام.',
+          a: 'أبدًا. MedyaPR وكالة مستقلة للتخطيط الإعلامي الرقمي والترويج الموسيقي بخبرة تتجاوز 18 عامًا. نلتزم التزامًا صارمًا بسياسات الإعلانات الرسمية ولا نقدّم أي تلاعب مصطنع بالأرقام.',
         },
       ]
     : isEs
@@ -114,7 +114,7 @@ export default async function KlipPrLandingPage({
         },
         {
           q: 'Yapay etkileşim veya bot panel kullanılıyor mu?',
-          a: 'Kesinlikle hayır. MedyaPR, 10+ yıllık tecrübeye sahip bağımsız bir dijital medya planlama ve PR ajansıdır. Kanal sağlığına zarar veren bot, panel veya yapay metrik manipülasyonu hizmetimiz yoktur; yalnızca resmi reklam ağları ve gerçek izleyici hedeflemesi kullanılır.',
+          a: 'Kesinlikle hayır. MedyaPR, 18+ yıllık tecrübeye sahip bağımsız bir dijital medya planlama ve PR ajansıdır. Kanal sağlığına zarar veren bot, panel veya yapay metrik manipülasyonu hizmetimiz yoktur; yalnızca resmi reklam ağları ve gerçek izleyici hedeflemesi kullanılır.',
         },
       ]
     : [
@@ -128,7 +128,7 @@ export default async function KlipPrLandingPage({
         },
         {
           q: 'Do you use bots or artificial engagement panels?',
-          a: 'Never. MedyaPR is an independent digital media planning and music PR agency with 10+ years of experience. We strictly adhere to official advertising policies and never offer artificial metric manipulation.',
+          a: 'Never. MedyaPR is an independent digital media planning and music PR agency with 18+ years of experience. We strictly adhere to official advertising policies and never offer artificial metric manipulation.',
         },
       ];
 
@@ -199,12 +199,12 @@ export default async function KlipPrLandingPage({
             <Award className="h-4 w-4 text-[#FF0033]" />
             <span>
               {isAr
-                ? 'خبرة تتجاوز 10 أعوام في الإعلام الرقمي • ترويج فيديو مخصص للفنانين وشركات الإنتاج'
+                ? 'خبرة تتجاوز 18 عامًا في الإعلام الرقمي • ترويج فيديو مخصص للفنانين وشركات الإنتاج'
                 : isEs
-                ? '+10 Años en Medios Digitales • PR Exclusivo para Artistas y Sellos'
+                ? '+18 Años en Medios Digitales • PR Exclusivo para Artistas y Sellos'
                 : isTr
-                ? '10+ Yıllık Dijital Medya Deneyimi • Sanatçı & Yapım Şirketlerine Özel Klip PR'
-                : '10+ Years Digital Media Track Record • Dedicated Artist & Label Video PR'}
+                ? '18+ Yıllık Dijital Medya Deneyimi • Sanatçı & Yapım Şirketlerine Özel Klip PR'
+                : '18+ Years Digital Media Track Record • Dedicated Artist & Label Video PR'}
             </span>
           </div>
 

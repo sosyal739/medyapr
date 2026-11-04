@@ -30,7 +30,7 @@ export default function HowItWorks({ dict, locale = 'tr' }: HowItWorksProps) {
       description: isAr
         ? 'يحلل خبراء Google Partner المعتمدون لدينا مدة الفيديو ومحتواه ومدى توافقه مع Google Ads، ثم يرسلون لك ردًا مفصّلًا. (قد يختلف السعر حسب مدة الفيديو.)'
         : isTr
-        ? '10+ yıllık tecrübeli Google Partner uzmanlarımız videonuzun süresini, içeriğini ve Google Ads uygunluğunu analiz edip size detaylı dönüş yapar. (Fiyatlandırma video uzunluğuna göre değişebilir.)'
+        ? '18+ yıllık tecrübeli Google Partner uzmanlarımız videonuzun süresini, içeriğini ve Google Ads uygunluğunu analiz edip size detaylı dönüş yapar. (Fiyatlandırma video uzunluğuna göre değişebilir.)'
         : 'Our certified Google Partner specialists analyze your video duration, content, and Google Ads compliance, then send you a detailed reply. (Pricing may vary based on video length.)',
       icon: Sparkles,
     },
