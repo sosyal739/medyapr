@@ -1,5 +1,180 @@
 [
   {
+    "category": "Nasıl Yapılır?",
+    "categoryKey": "nasil-yapilir",
+    "date": "2026-11-04",
+    "author": "Salih Maral",
+    "authorRole": "Resmi Google Partner & Dijital Müzik PR Stratejisti",
+    "slug": "muzik-klibi-youtuba-nasil-yuklenir-2026-ayarlari",
+    "title": "Müzik Klibi YouTube Yükleme Ayarları 2026 | MedyaPR",
+    "summary": "Müzik klibinizi YouTube'a yüklerken ses kalitesi, 4K kodek seçimi, zaman damgaları ve ilk 48 saat algoritma sinyalleri için adım adım 2026 rehberi.",
+    "readTime": "8 dk",
+    "image": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&h=675&q=85",
+    "trOnly": true,
+    "tags": [
+      "Müzik Klibi Yükleme",
+      "YouTube Video Ayarları",
+      "Klip Lansmanı",
+      "Ses Kalitesi",
+      "YouTube Algoritması",
+      "Google Ads"
+    ],
+    "quickFact": "Müzik klibinizi 1080p yerine 4K (3840x2160) olarak yüklemek, YouTube'un videoya daha yüksek kaliteli VP09 veya AV01 kodek atamasını sağlar; bu da hem görüntü sıkıştırma kaybını önler hem de Smart TV ekranlarında izlenme süresini artırır.",
+    "table": {
+      "caption": "Müzik Klibi İçin Önerilen Teknik Yükleme Standartları (2026)",
+      "headers": [
+        "Parametre",
+        "Tavsiye Edilen Ayar",
+        "Algoritmik Avantaj"
+      ],
+      "rows": [
+        [
+          "Video Çözünürlüğü",
+          "4K UHD (3840x2160) veya QHD (2560x1440)",
+          "VP09/AV01 kodek tahsisi, Smart TV uyumu"
+        ],
+        [
+          "Ses Formatı",
+          "LPCM / AAC-LC Stereo (24-bit, 48 kHz, 384+ kbps)",
+          "Müzik algoritmalarında maksimum ses dinamik aralığı"
+        ],
+        [
+          "Görünürlük Durumu",
+          "İlk 48 saat 'Liste Dışı' (Unlisted)",
+          "HD/4K işleme tamamlama, reklam onayı ve telif kontrolü"
+        ],
+        [
+          "Bitiş Ekranı (End Screen)",
+          "Abone Ol Butonu + En Son Video / Oynatma Listesi",
+          "İzleyici oturum süresini uzatma, kazanılan izlenme (Earned View)"
+        ]
+      ]
+    },
+    "paragraphs": [
+      "Bir müzik klibinin prodüksiyonuna aylar harcayıp binlerce liralık bütçe ayırdıktan sonra, videoyu YouTube'a alelacele yüklemek yapılan en büyük editoryal hatadır. YouTube algoritması, bir videonun yüklenme aşamasındaki teknik meta verilerini, ses kodekini, bitiş kartlarını ve ilk izleyici tepkilerini saniyeler içinde analiz ederek dağıtım kararı alır.",
+      "Müzik klibinizi yayına almadan önce izlemeniz gereken ilk altın kural, videoyu doğrudan 'Herkese Açık' (Public) olarak yüklememektir. Klibi en az 24 ila 48 saat öncesinden 'Liste Dışı' (Unlisted) olarak yüklemek, YouTube sunucularının yüksek kaliteli 4K ve 1080p sürümleri (VP09/AV01 kodekleri) tamamen işlemesine olanak tanır. Aksi takdirde videonuz ilk izleyicilere bulanık 360p veya 480p formatında sunulur ve izleyici ilk 10 saniyede videoyu terk eder.",
+      "### Ses Kodeki, 4K Çözünürlük ve Dinamik Aralık Optimizasyonu",
+      "Müzik videolarında dinleyici deneyimini belirleyen bir numaralı unsur sestir. Klibinizi ihraç ederken (render) sesi en az 384 kbps bit hızında ve 48 kHz örnekleme frekansında AAC veya kayıpsız PCM olarak ayarlamalısınız. Ayrıca videonuz 1080p çekilmiş olsa bile render aşamasında 2560x1440 (QHD) veya 4K çözünürlüğe yükseltmek (upscale), YouTube'un videonuza standart AVC1 yerine üst düzey VP09 kodek atamasını tetikler. Bu sayede baslar tok, tizler net duyulur ve YouTube Music uygulamasındaki ses algoritmaları parçanızı daha yüksek puanla değerlendirir.",
+      "1. Bölümler ve Zaman Damgaları (Chapters): Video açıklama kısmına '0:00 Giriş', '0:45 Nakarat', '1:50 2. Bölüm' gibi zaman damgaları eklemek, Google arama sonuçlarında klibinizin doğrudan şarkı sözü veya nakarat aramalarında öne çıkmasını sağlar.",
+      "2. Sabitlenmiş Yorum ve Spotify / Apple Music Köprüleri: Klibin altına ilk yorumu siz yazıp sabitleyin. Burada dinleyicilere şarkı hakkındaki hislerini sorun ve dijital platform dinleme linklerini ekleyin. Çok sayıda yanıt alan sabitlenmiş yorumlar, algoritmanın etkileşim puanını katlar.",
+      "### İlk 48 Saat Lansman Kurgusu ve Resmi Google Ads Aktivasyonu",
+      "Videonuz herkese açık hale geldiği an, YouTube'un hız (velocity) sayacı çalışmaya başlar. Bu aşamada kanalınızı riske atacak sahte bot panellerinden kesinlikle uzak durmalısınız. Bunun yerine, klibin yayınlandığı ilk gün [müzik kliplerinde ilk 48 saat algoritma rehberi](/tr/blog/muzik-kliplerinde-ilk-48-saat-algoritma-rehberi) doğrultusunda [resmi Google Ads YouTube klip tanıtımı](/tr/blog/youtube-klip-tanitimi-google-ads-rehberi) başlatılmalıdır.",
+      "Hedef kitlenize uygun benzer sanatçıların klipleri önüne yerleştirilen atlanabilir In-Stream reklamlar, YouTube Studio panelinde şeffaf biçimde 'YouTube Reklamları' olarak listelenir. Böylece organik izleyiciler, gerçek yorumlar ve abone dönüşümleri elde ederken şarkınızın Trendler listesine girme potansiyelini en üst noktaya taşırsınız. Projeniz için bütçenizi önceden planlamak adına [YouTube reklam fiyatları hesaplama](/tr/fiyatlandirma) sayfamızı ziyaret edebilirsiniz.",
+      "Ayrıca klibinizin küçük resim (thumbnail) tasarımında yüksek kontrast ve mobil okunabilirlik sağlamak, tıklama oranını (CTR) doğrudan yukarı taşır. Müzikseverlerin çoğu akıllı telefon akışında video gezinirken kararını yarım saniyede verir. Sanatçının yüz ifadesini ön plana çıkaran net bir odak noktası, karmaşık arka planlardan kaçınan sade bir renk paleti ve YouTube Studio üzerinden yapılan A/B testleri sayesinde klibinizin organik keşfedilme potansiyeli ikiye katlanır."
+    ],
+    "faqs": [
+      {
+        "question": "Müzik klibini YouTube'a yükledikten sonra hemen herkese açık yapmalı mıyım?",
+        "answer": "Hayır. En az 24 saat önce 'Liste Dışı' olarak yüklemek, YouTube'un 4K/1080p işleme sürecini tamamlamasını ve Content ID telif kontrollerinin sorunsuz geçmesini sağlar."
+      },
+      {
+        "question": "YouTube müzik klibi yüklerken en iyi video formatı hangisidir?",
+        "answer": "MP4 konteynerinde H.264 veya H.265 (HEVC) video kodeki, 4K çözünürlük ve stereo 48 kHz / 384+ kbps AAC ses formatı en yüksek kaliteyi sunar."
+      }
+    ]
+  },
+  {
+    "category": "Resmi Video PR & Google Ads",
+    "category_en": "Official Video PR & Google Ads",
+    "categoryKey": "video-pr",
+    "date": "2026-11-04",
+    "author": "Salih Maral",
+    "authorRole": "Official Google Partner & Digital Music PR Strategist",
+    "authorRole_en": "Official Google Partner & Digital Music PR Strategist",
+    "slug": "youtube-music-marketing-plan-30-day-release-guide-2026",
+    "title": "YouTube Music Marketing Plan: 30-Day Guide | MedyaPR",
+    "title_en": "YouTube Music Marketing Plan: 30-Day Guide | MedyaPR",
+    "summary": "A complete 30-day YouTube music marketing roadmap: pre-save buzz, YouTube Premiere, official Google Ads launch, and Shorts Demand Gen optimization.",
+    "summary_en": "A complete 30-day YouTube music marketing roadmap: pre-save buzz, YouTube Premiere, official Google Ads launch, and Shorts Demand Gen optimization.",
+    "readTime": "8 min",
+    "readTime_en": "8 min",
+    "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&h=675&q=85",
+    "enOnly": true,
+    "tags": [
+      "Music Marketing Plan",
+      "YouTube Music Release",
+      "Google Ads Music",
+      "YouTube Premiere",
+      "Music Video PR",
+      "Music Video Promotion"
+    ],
+    "tags_en": [
+      "Music Marketing Plan",
+      "YouTube Music Release",
+      "Google Ads Music",
+      "YouTube Premiere",
+      "Music Video PR",
+      "Music Video Promotion"
+    ],
+    "quickFact": "Executing a structured 30-day YouTube music video marketing plan with scheduled Premiere countdowns and targeted Google Ads during the first 48 hours increases long-term Suggested Video impressions by over 320% compared to unannounced uploads.",
+    "table": {
+      "caption": "The 30-Day Music Video Rollout Framework (2026)",
+      "headers": [
+        "Timeline Phase",
+        "Key Strategic Action",
+        "Core Algorithmic Metric"
+      ],
+      "rows": [
+        [
+          "Day T - 14 to T - 7",
+          "Pre-save campaign, teaser cutdowns, schedule YouTube Premiere",
+          "Pre-release subscriber notifications & waitlist reminders"
+        ],
+        [
+          "Day T - 1 to T - 0",
+          "Upload unlisted 4K master, set End Screens, launch live chat Premiere",
+          "Concurrent viewer velocity & live chat message volume"
+        ],
+        [
+          "Day T + 1 to T + 3",
+          "Deploy official Google Ads In-Stream & In-Feed video campaigns",
+          "First-48-hour view velocity, AVD retention (>50%), subscriber gain"
+        ],
+        [
+          "Day T + 4 to T + 30",
+          "Roll out YouTube Shorts Demand Gen cutdowns, playlist seeding",
+          "Earned Views ratio, browse features & algorithmic recommendations"
+        ]
+      ]
+    },
+    "paragraphs": [
+      "Launching a new music video without a pre-planned promotional roadmap is the most frequent reason talented independent artists struggle to break through the noise on YouTube. With over 500 hours of video uploaded every minute, relying solely on organic luck almost guarantees that your release gets buried by the algorithm.",
+      "A professional 30-day music marketing strategy divides your promotional effort into three distinct phases: building pre-release anticipation, executing a high-velocity launch window, and scaling post-release momentum through paid and organic channels.",
+      "### Phase 1 (Days T-14 to T-1): The Foundation & YouTube Premiere Setup",
+      "Two weeks before release, schedule your official [YouTube Premiere launch](/en/blog/youtube-premiere-nasil-yapilir-muzik-klibi-lansman-adimlari). This generates a dedicated public watch page where fans can set reminders and comment in advance. Simultaneously, publish 10-to-15-second teaser clips on YouTube Shorts and Instagram Reels utilizing the catchiest hook of the track.",
+      "Upload your completed 4K master video file as 'Unlisted' at least 72 hours before the premiere date. This allows YouTube's automated systems to complete high-definition VP09/AV01 processing, clear Content ID claims, and give you time to configure end-screen cards linking to your official artist channel and your broader music catalog.",
+      "### Phase 2 (Days 0 to 3): The Critical First-48-Hour Velocity Sprint",
+      "The moment your Premiere goes live, your primary objective is to maximize view velocity—the rate at which human viewers stream, watch, and engage with your video. As highlighted in our [cost of YouTube music video ads benchmark](/en/blog/cost-of-youtube-music-video-ads-cpv-benchmarks-2026), major record labels concentrate up to 70% of their digital advertising budget during the first 72 hours.",
+      "Activate an official [Google Ads music video promotion campaign](/en/blog/how-to-promote-your-music-video-on-youtube-with-google-ads-2026) targeting active listeners of 20 to 50 comparable artists in your primary markets. By delivering real In-Stream and In-Feed impressions to genre-matched music fans, you achieve high Average View Duration (AVD) without risking channel penalties from black-hat bot panels.",
+      "### Phase 3 (Days 4 to 30): Shorts Demand Gen & Catalog Retargeting",
+      "Once the initial release burst settles, sustain momentum by publishing 3 to 5 vertical cutdowns on YouTube Shorts. Use YouTube's native 'Related Video' feature to link every Short directly back to your full horizontal music video. Concurrently, retarget viewers who watched more than 30 seconds of your campaign with follow-up discovery ads, converting casual listeners into lifelong subscribers. Use our [YouTube ad pricing calculator](/en/fiyatlandirma) to forecast your campaign budget before launch.",
+      "In addition, building an engaging pinned comment and setting up community tab posts during release week creates vital post-watch interaction. When viewers comment, share the track to their personal playlists, and watch secondary videos via End Screen links, YouTube registers high session value, consistently surfacing your music video in Recommended Music Feeds across mobile, desktop, and Smart TV screens worldwide."
+    ],
+    "paragraphs_en": [
+      "Launching a new music video without a pre-planned promotional roadmap is the most frequent reason talented independent artists struggle to break through the noise on YouTube. With over 500 hours of video uploaded every minute, relying solely on organic luck almost guarantees that your release gets buried by the algorithm.",
+      "A professional 30-day music marketing strategy divides your promotional effort into three distinct phases: building pre-release anticipation, executing a high-velocity launch window, and scaling post-release momentum through paid and organic channels.",
+      "### Phase 1 (Days T-14 to T-1): The Foundation & YouTube Premiere Setup",
+      "Two weeks before release, schedule your official [YouTube Premiere launch](/en/blog/youtube-premiere-nasil-yapilir-muzik-klibi-lansman-adimlari). This generates a dedicated public watch page where fans can set reminders and comment in advance. Simultaneously, publish 10-to-15-second teaser clips on YouTube Shorts and Instagram Reels utilizing the catchiest hook of the track.",
+      "Upload your completed 4K master video file as 'Unlisted' at least 72 hours before the premiere date. This allows YouTube's automated systems to complete high-definition VP09/AV01 processing, clear Content ID claims, and give you time to configure end-screen cards linking to your official artist channel and your broader music catalog.",
+      "### Phase 2 (Days 0 to 3): The Critical First-48-Hour Velocity Sprint",
+      "The moment your Premiere goes live, your primary objective is to maximize view velocity—the rate at which human viewers stream, watch, and engage with your video. As highlighted in our [cost of YouTube music video ads benchmark](/en/blog/cost-of-youtube-music-video-ads-cpv-benchmarks-2026), major record labels concentrate up to 70% of their digital advertising budget during the first 72 hours.",
+      "Activate an official [Google Ads music video promotion campaign](/en/blog/how-to-promote-your-music-video-on-youtube-with-google-ads-2026) targeting active listeners of 20 to 50 comparable artists in your primary markets. By delivering real In-Stream and In-Feed impressions to genre-matched music fans, you achieve high Average View Duration (AVD) without risking channel penalties from black-hat bot panels.",
+      "### Phase 3 (Days 4 to 30): Shorts Demand Gen & Catalog Retargeting",
+      "Once the initial release burst settles, sustain momentum by publishing 3 to 5 vertical cutdowns on YouTube Shorts. Use YouTube's native 'Related Video' feature to link every Short directly back to your full horizontal music video. Concurrently, retarget viewers who watched more than 30 seconds of your campaign with follow-up discovery ads, converting casual listeners into lifelong subscribers. Use our [YouTube ad pricing calculator](/en/fiyatlandirma) to forecast your campaign budget before launch.",
+      "In addition, building an engaging pinned comment and setting up community tab posts during release week creates vital post-watch interaction. When viewers comment, share the track to their personal playlists, and watch secondary videos via End Screen links, YouTube registers high session value, consistently surfacing your music video in Recommended Music Feeds across mobile, desktop, and Smart TV screens worldwide."
+    ],
+    "faqs": [
+      {
+        "question": "How much should an independent artist spend on a 30-day YouTube music marketing plan?",
+        "answer": "Most independent artists see strong algorithmic traction with budgets between $250 and $1,500, allocating 70% to skippable In-Stream ads during the first 72 hours and 30% to Shorts Demand Gen and retargeting."
+      },
+      {
+        "question": "Why is the first 48 hours so critical for a music video release?",
+        "answer": "YouTube's recommendation algorithm measures early viewer velocity, retention rate, and engagement. If a video performs above average in its first two days, YouTube begins pushing it into Home Browse Features and Suggested Videos organically."
+      }
+    ]
+  },
+  {
     "slug": "turk-sarkicilar-rap-pop-kac-yasinda-nereli-gercek-adi-2026-listesi",
     "title": "Türk Rap ve Pop Sanatçıları Kaç Yaşında, Nereli, Gerçek Adı Ne? (2026 Güncel Liste)",
     "summary": "Simge Sağın, Eypio, Motive, BLOK3, Semicenk, Melike Şahin ve daha fazlası: kaç yaşında, nereli, gerçek adı ne? 28 Ekim 2026 itibarıyla güncel yaş ve memleket listesi.",
