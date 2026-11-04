@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     alternates: getPageAlternates(locale, ''),
     robots: {
-      index: true,
+      index: locale !== 'es',
       follow: true,
     },
     verification: {

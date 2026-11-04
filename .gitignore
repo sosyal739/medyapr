@@ -51,3 +51,8 @@ next-env.d.ts
 graphify-out/
 public/qa_stills/
 public/qa_stills_vertical/
+
+# Sensitive credentials & backlink logs
+BACKLINK_SITELERI.md
+*credentials*.json
+

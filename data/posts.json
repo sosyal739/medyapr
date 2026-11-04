@@ -345,7 +345,8 @@
         "answer": "Ati242'nin gerçek adı Atilla Serin'dir. Almanya'nın Immenstadt kentinde doğmuş, Antalya'da büyümüştür."
       }
     ],
-    "trOnly": true
+    "trOnly": true,
+    "noindex": true
   },
   {
     "slug": "sabrina-carpenter-taste-please-please-please-youtube-pr-playbook",
@@ -855,7 +856,8 @@
         "question": "Hakan Bulut ile Hakkı Bulut aynı kişi mi?",
         "answer": "Aramalarda ad çoğu zaman “Hakan Bulut” diye yazılıyor; haberlerde sözü edilen arabesk sanatçının doğru adı Hakkı Bulut’tur."
       }
-    ]
+    ],
+    "noindex": true
   },
   {
     "author": "MedyaPR",
@@ -3228,7 +3230,8 @@
       "By pairing short-form video momentum with official YouTube In-Stream placements, POIZI converted casual scrollers into loyal subscribers.",
       "Independent artists looking to replicate this trajectory can launch certified [YouTube Music Video Promotion](/hizmetler) campaigns with MedyaPR."
     ],
-    "trOnly": true
+    "trOnly": true,
+    "noindex": true
   },
   {
     "slug": "youtube-izlenme-nasil-sayilir-24-agustos-2026-yeni-kural",
@@ -6213,7 +6216,8 @@
         "answer": "Yes. If a copyright claim is resolved via retraction or a valid counter-notification, YouTube restores the video along with its original views and comments."
       }
     ],
-    "quickFact_en": "Quick Fact: By searching your browser history for 'youtube.com/watch?v=', you can locate the 11-character video ID to look up deleted video archives on Archive.org."
+    "quickFact_en": "Quick Fact: By searching your browser history for 'youtube.com/watch?v=', you can locate the 11-character video ID to look up deleted video archives on Archive.org.",
+    "noindex": true
   },
   {
     "slug": "manifest-kimdir-sarkilari-tarzi-ve-youtube-yukselisi",
@@ -6326,7 +6330,8 @@
       }
     ],
     "quickFact_en": "Manifest is a new-generation Turkish alternative pop group that blends electronic production with energetic vocal melodies. Their 2026 release \"TRALALA\" reached number 1 on the YouTube Türkiye music trends chart.",
-    "trOnly": true
+    "trOnly": true,
+    "noindex": true
   },
   {
     "slug": "dedubluman-kimdir-alternatif-rockin-zirveye-uzanan-basari-hikayesi",
@@ -6436,7 +6441,8 @@
       }
     ],
     "quickFact_en": "Dedublüman is a Turkish band that fuses the clarinet, a traditional Turkish instrument, with modern alternative rock. Their songs \"Belki\" and the duet with Sıla, \"Acı Bal\", made them one of the most-streamed bands in Türkiye.",
-    "trOnly": true
+    "trOnly": true,
+    "noindex": true
   },
   {
     "slug": "eypio-kimdir-turkce-rapten-dizi-muziklerine-youtube-yolculugu",
@@ -6549,7 +6555,8 @@
       "Siz de video projelerinizde benzer bir etki yaratmak ve Google onaylı resmi kampanyalarla büyümek için [hizmetlerimizi](/hizmetler) inceleyebilirsiniz."
     ],
     "quickFact_en": "Eypio is the stage name of Turkish rapper Abdurrahim Akça, born 2 February 1983 in Konya (43 years old in 2026) and raised in Zeytinburnu, Istanbul. \"Günah Benim\" (280M+ views) and \"Gömün Beni Çukura\" (180M+) make him one of the most-watched rappers on Turkish YouTube.",
-    "trOnly": true
+    "trOnly": true,
+    "noindex": true
   },
   {
     "slug": "semicenk-kimdir-youtube-izlenme-rekortmeninin-dijital-stratejisi",
@@ -6652,7 +6659,8 @@
       "Müzik kariyerinizde benzer bir yayın takvimi ve profesyonel Google Ads video planlaması yapmak için [MedyaPR uzmanlarımızla](/iletisim) görüşebilirsiniz."
     ],
     "quickFact_en": "Semicenk (Cenk Baş) is a Turkish solo artist who has passed 1 billion YouTube views in Türkiye in about three years. A new single every 6-8 weeks and an arabesk-pop blend keep him in YouTube recommendations.",
-    "trOnly": true
+    "trOnly": true,
+    "noindex": true
   },
   {
     "slug": "ahiyan-kralin-kizi-klip-analizi-melankolik-trap-etkisi",
@@ -8002,7 +8010,8 @@
         "answer": "Announcing your music video premiere at peak live-stream viewership and sharing the direct YouTube link brings engaged fans who watch the full video."
       }
     ],
-    "quickFact_en": "Quick Fact: Announcing a live stream 24 hours in advance with a Story countdown sticker increases peak concurrent live viewers by up to 3x."
+    "quickFact_en": "Quick Fact: Announcing a live stream 24 hours in advance with a Story countdown sticker increases peak concurrent live viewers by up to 3x.",
+    "noindex": true
   },
   {
     "slug": "x-videoya-altyazi-nasil-eklenir-otomatik-ve-srt-rehberi",
@@ -8153,7 +8162,8 @@
         "answer": "Closed captions (CC) are crawled as indexable text by YouTube and Google. Indexing your song lyrics and spoken lines helps your video rank for lyric and topic searches."
       }
     ],
-    "quickFact_en": "Quick Fact: Over 85% of mobile video on X is watched on mute; adding closed captions (.SRT) increases completion rates and message comprehension substantially."
+    "quickFact_en": "Quick Fact: Over 85% of mobile video on X is watched on mute; adding closed captions (.SRT) increases completion rates and message comprehension substantially.",
+    "noindex": true
   },
   {
     "slug": "instagram-hikayede-threads-gonderisi-nasil-paylasilir-etkilesim-taktikleri",
@@ -8293,7 +8303,8 @@
         "answer": "Yes. You can share the story behind your track on Threads, repost it to your Instagram Story, and add a direct link sticker pointing to your YouTube music video."
       }
     ],
-    "quickFact_en": "Quick Fact: Tapping 'Share to Story' on Threads creates a styled interactive card on Instagram Stories that can be paired with a clickable YouTube music video link sticker."
+    "quickFact_en": "Quick Fact: Tapping 'Share to Story' on Threads creates a styled interactive card on Instagram Stories that can be paired with a clickable YouTube music video link sticker.",
+    "noindex": true
   },
   {
     "slug": "instagram-dm-yapay-zeka-ile-sarki-muzik-ozelligi-nedir",
@@ -8443,7 +8454,8 @@
         "question": "How can independent musicians stand out amidst the wave of AI-generated music?",
         "answer": "By emphasizing authentic human vocals, visual storytelling, and live performance aesthetics—and amplifying them to real genre fans via official Google Ads."
       }
-    ]
+    ],
+    "noindex": true
   },
   {
     "slug": "whatsapp-kanallari-ve-ebeveyn-denetimi-topluluk-yonetimi-rehberi",
@@ -8594,7 +8606,8 @@
         "question": "How can musicians use a WhatsApp Channel effectively for releases?",
         "answer": "By sharing behind-the-scenes clips, voice notes, concert ticket links, and the direct YouTube Premiere link the moment a new music video drops."
       }
-    ]
+    ],
+    "noindex": true
   },
   {
     "slug": "instagram-reels-videosu-kac-saniye-olmali-en-iyi-sureler",
@@ -9745,7 +9758,8 @@
       "Bağımsız müzisyenler için BLOK3'ün izlediği bu yol haritası bir kılavuz niteliğindedir. MedyaPR olarak bağımsız sanatçıların kliplerini [resmi Google Ads reklamlarıyla](/hizmetler) doğru kitleye ulaştırıyoruz. Paketlerimizi [fiyatlandırma sayfamızdan](/fiyatlandirma) inceleyebilirsiniz."
     ],
     "quickFact_en": "BLOK3 is the stage name of Turkish rapper Hakan Aydın, born 15 August 2002 in Gebze, Kocaeli (24 years old in 2026). His style blends emotional street storytelling with melodic trap, drill and afro-trap rhythms.",
-    "trOnly": true
+    "trOnly": true,
+    "noindex": true
   },
   {
     "slug": "motive-tolga-can-serbes-kimdir-albumleri-ve-turkce-rap-kariyeri",
@@ -9853,7 +9867,8 @@
       "Kendi müzik projenizde Motive kalitesinde bir görsel ve algoritmik etki yaratmak istiyorsanız, MedyaPR'ın [resmi YouTube klip reklam hizmetleri](/hizmetler) ile klibinizi doğru dinleyicilerle buluşturabilirsiniz. Paketlerimiz hakkında detaylı bilgi almak için [fiyatlandırma sayfamızı](/fiyatlandirma) ziyaret edebilirsiniz."
     ],
     "quickFact_en": "Motive is the stage name of Turkish rapper Tolga Can Serbes, born 24 March 2000 in Küçükçekmece, Istanbul. He began his career at MOB Entertainment and is known for the albums \"Makaveli\", \"22\" and \"ROMANTİK\".",
-    "trOnly": true
+    "trOnly": true,
+    "noindex": true
   },
   {
     "slug": "lvbel-c5-burak-kosar-kimdir-hit-sarkilari-ve-sosyal-medya-stratejisi",
@@ -9951,7 +9966,8 @@
       "Bu devasa organik akış, YouTube algoritmasının klibi 'Aşırı Popüler' olarak etiketlemesini sağlar ve klip haftalarca [trendler listesinde](/trendler) kalır.",
       "Sosyal medyada yakaladığınız ivmeyi resmi YouTube izlenmelerine dönüştürmek için MedyaPR'ın [resmi Google Ads ve video PR stratejileri](/hizmetler) en güvenilir yardımcınızdır. Fiyatlarımızı [şeffaf fiyatlandırma panelimizden](/fiyatlandirma) inceleyebilir, [bize hemen ulaşabilirsiniz](/iletisim)."
     ],
-    "trOnly": true
+    "trOnly": true,
+    "noindex": true
   },
   {
     "slug": "ati242-atilla-serin-kimdir-sarkilari-tarzi-ve-youtube-dinlenmeleri",
@@ -10049,7 +10065,8 @@
       "YouTube algoritmasında bir klibin döngüye girmesi, izlenme süresi metriklerini tavan yaptırarak klibi önerilen videolar havuzunun en üstüne taşır. Bu başarı, doğru müzikal kimliğin doğru video kurgusuyla birleştiğinde ne kadar güçlü olduğunu gösterir.",
       "Siz de video klibinizi profesyonel bir lansmanla YouTube'da hak ettiği yere taşımak istiyorsanız, MedyaPR'ın [resmi Google Ads klip tanıtım paketlerini](/hizmetler) inceleyebilirsiniz. Aklınızdaki kampanya planı için [uzman ekibimizle dilediğiniz zaman görüşebilirsiniz](/iletisim)."
     ],
-    "trOnly": true
+    "trOnly": true,
+    "noindex": true
   },
   {
     "slug": "tan-tasci-kimdir-kac-yasinda-nereli-en-populer-sarkilari-ve-klipleri",
@@ -10160,7 +10177,8 @@
       "Google Ads for Musicians",
       "YouTube Growth Agency"
     ],
-    "trOnly": true
+    "trOnly": true,
+    "noindex": true
   },
   {
     "slug": "emir-can-igrek-kimdir-kac-yasinda-nereli-ali-cabbar-ve-klip-stratejisi",
@@ -10271,7 +10289,8 @@
       "Google Ads for Musicians",
       "YouTube Growth Agency"
     ],
-    "trOnly": true
+    "trOnly": true,
+    "noindex": true
   },
   {
     "slug": "simge-sagin-kimdir-kac-yasinda-nereli-sarkilari-ve-youtube-klipleri",
@@ -10382,7 +10401,8 @@
       "Google Ads for Musicians",
       "YouTube Growth Agency"
     ],
-    "trOnly": true
+    "trOnly": true,
+    "noindex": true
   },
   {
     "slug": "how-to-get-on-youtube-trending-music-video-strategy-2026",

@@ -15,7 +15,7 @@ export default function TrustBadges({ dict, locale = 'tr' }: TrustBadgesProps) {
 
   const items = isAr
     ? [
-        { label: 'سجل الخبرة', value: 'خبرة متواصلة تتجاوز 18 عامًا', icon: Award },
+        { label: 'سجل الخبرة', value: 'خبرة متواصلة تتجاوز 10 أعوام', icon: Award },
         { label: 'الاعتماد الرسمي', value: 'مختصون معتمدون من Google Partner', icon: ShieldCheck },
         { label: 'شبكة عالمية', value: 'فنانون وشركات إنتاج من حول العالم', icon: Users },
         { label: 'استهداف الجمهور', value: 'استهداف النوع الموسيقي واللغة والفئة العمرية', icon: Zap },
@@ -26,7 +26,7 @@ export default function TrustBadges({ dict, locale = 'tr' }: TrustBadgesProps) {
       ]
     : isEs
     ? [
-        { label: 'Trayectoria', value: '+18 Años de Experiencia Continua', icon: Award },
+        { label: 'Trayectoria', value: '+10 Años de Experiencia Continua', icon: Award },
         { label: 'Certificación', value: 'Especialistas Certificados Google Partner', icon: ShieldCheck },
         { label: 'Red Global', value: 'Artistas y Sellos de Todo el Mundo', icon: Users },
         { label: 'Segmentación', value: 'Por Género, Idioma y Demografía', icon: Zap },
@@ -37,7 +37,7 @@ export default function TrustBadges({ dict, locale = 'tr' }: TrustBadgesProps) {
       ]
     : isTr
     ? [
-        { label: 'Sektör Tecrübesi', value: '18+ Yıllık Kesintisiz Hizmet', icon: Award },
+        { label: 'Sektör Tecrübesi', value: '10+ Yıllık Kesintisiz Hizmet', icon: Award },
         { label: 'Resmi Yetki', value: 'Google İş Ortağı Partner Uzmanları', icon: ShieldCheck },
         { label: 'Referans Ağı', value: 'Türkiye & Dünyada Birçok Sanatçı', icon: Users },
         { label: 'Hedef Kitle', value: 'İlgi Alanı, Dil ve Konum', icon: Zap },
@@ -47,7 +47,7 @@ export default function TrustBadges({ dict, locale = 'tr' }: TrustBadgesProps) {
         { label: 'Doğal Etkileşim', value: 'Beğeni, Yorum & Abonelik', icon: Headphones },
       ]
     : [
-        { label: 'Track Record', value: '18+ Years Continuous Experience', icon: Award },
+        { label: 'Track Record', value: '10+ Years Continuous Experience', icon: Award },
         { label: 'Certification', value: 'Google Partner Certified Specialists', icon: ShieldCheck },
         { label: 'Global Network', value: 'Top Artists & Labels Worldwide', icon: Users },
         { label: 'Audience Targeting', value: 'Genre, Language & Demographics', icon: Zap },

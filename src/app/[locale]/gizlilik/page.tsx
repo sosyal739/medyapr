@@ -99,7 +99,7 @@ export default async function PrivacyPage({ params }: Props) {
               {isAr
                 ? 'لا تطلب MedyaPR أبدًا كلمة مرور قناتك على يوتيوب أو بيانات تسجيل الدخول. تُدار جميع الحملات حصريًا عبر روابط الفيديو العامة من خلال شبكة Google Ads الرسمية.'
                 : isTr
-                ? 'MedyaPR, 18 yılı aşkın hizmet süresi boyunca müşterilerinden asla YouTube kanal şifresi, hesap erişimi veya yönetici yetkisi talep etmez. Tanıtım operasyonları yalnızca herkese açık (public) video linki üzerinden resmi Google Ads video ağıyla yürütülür.'
+                ? 'MedyaPR, 10 yılı aşkın hizmet süresi boyunca müşterilerinden asla YouTube kanal şifresi, hesap erişimi veya yönetici yetkisi talep etmez. Tanıtım operasyonları yalnızca herkese açık (public) video linki üzerinden resmi Google Ads video ağıyla yürütülür.'
                 : 'MedyaPR never asks for your YouTube channel password or login credentials. All campaigns are operated strictly through public video URLs via the official Google Ads network.'}
             </p>
           </section>

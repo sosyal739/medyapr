@@ -28,12 +28,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         : 'YouTube Music PR & Google Ads Video Services | MedyaPR',
     },
     description: isAr
-      ? 'نمِّ قناتك على يوتيوب عبر حملات Google Ads الرسمية In-Stream وShorts والاكتشاف. خبرة تتجاوز 18 عامًا وبدون أي بوتات.'
+      ? 'نمِّ قناتك على يوتيوب عبر حملات Google Ads الرسمية In-Stream وShorts والاكتشاف. خبرة تتجاوز 10 أعوام وبدون أي بوتات.'
       : isEs
       ? 'Haz crecer tu canal de YouTube con campañas oficiales de Google Ads In-Stream, Shorts y Feed. Más de 18 años de experiencia y cero bots.'
       : isTr
       ? 'Resmi Google Ads ile organik YouTube izlenme paketleri, YouTube izlenme al, klip tanıtımı, abone ve etkileşim reklamları. Şifre istenmez, ücretsiz video analizi.'
-      : 'Grow your YouTube channel with official Google Ads In-Stream, Shorts and Discovery campaigns. 18+ years experience and zero bots.',
+      : 'Grow your YouTube channel with official Google Ads In-Stream, Shorts and Discovery campaigns. 10+ years experience and zero bots.',
     alternates: getPageAlternates(locale, '/hizmetler'),
   };
 }

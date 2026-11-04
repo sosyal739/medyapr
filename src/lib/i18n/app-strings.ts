@@ -56,7 +56,7 @@ const tr = {
     engagementNote: 'Etkileşimler gerçek izleyicilerden gelir; beğeni/yorum sayısı garanti edilmez, bot kullanılmaz.',
     consult: 'WhatsApp ile Teklif İlet',
     consultMsg: 'Merhaba, YouTube video tanıtımı için teklif iletmek ve detaylı analiz almak istiyorum.',
-    note: 'Her video; süresi, içeriği ve Google Ads reklam kriterleri açısından 18+ yıllık tecrübeli Google Partner uzmanlarımızca incelenir. Teklifinizi iletin, analiz edip WhatsApp veya Telegram üzerinden detaylı dönüş yapalım. Onay alınca işlem başlar. Fiyatlandırma video uzunluğuna göre değişebilir.',
+    note: 'Her video; süresi, içeriği ve Google Ads reklam kriterleri açısından 10+ yıllık tecrübeli Google Partner uzmanlarımızca incelenir. Teklifinizi iletin, analiz edip WhatsApp veya Telegram üzerinden detaylı dönüş yapalım. Onay alınca işlem başlar. Fiyatlandırma video uzunluğuna göre değişebilir.',
     perks: [
       'Teklifi iletin, videonuzu analiz edip detaylı dönüş yapalım',
       'WhatsApp & Telegram üzerinden birebir uzman iletişimi',
@@ -172,7 +172,7 @@ const en: Strings = {
     engagementNote: 'Engagement comes from real viewers; like/comment counts are not guaranteed and no bots are used.',
     consult: 'Send Quote on WhatsApp',
     consultMsg: 'Hello, I would like to submit a quote request and get a detailed analysis for my YouTube video.',
-    note: 'Every video is reviewed for duration, content, and Google Ads criteria by our Google Partner specialists with 18+ years of experience. Submit your quote, we will analyze your video and reply in detail via WhatsApp or Telegram. Campaign starts upon approval. Pricing may vary based on video length.',
+    note: 'Every video is reviewed for duration, content, and Google Ads criteria by our Google Partner specialists with 10+ years of experience. Submit your quote, we will analyze your video and reply in detail via WhatsApp or Telegram. Campaign starts upon approval. Pricing may vary based on video length.',
     perks: [
       'Submit your quote, we analyze your video and reply in detail',
       'Direct specialist communication on WhatsApp & Telegram',
@@ -312,7 +312,7 @@ const ar: Strings = {
     "engagementNote": "يأتي التفاعل من مشاهدين حقيقيين؛ عدد الإعجابات والتعليقات غير مضمون ولا نستخدم أي بوتات.",
     "consult": "أرسل طلب العرض عبر WhatsApp",
     "consultMsg": "Hello, I would like to submit a quote request and get a detailed analysis for my YouTube video.",
-    "note": "تتم مراجعة كل فيديو من حيث المدة والمحتوى ومعايير Google Ads بواسطة متخصصي Google Partner لدينا بخبرة تتجاوز 18 عامًا. أرسل طلب عرض السعر، وسنحلل الفيديو ونرد عليك بالتفصيل عبر WhatsApp أو Telegram. تبدأ الحملة عند الموافقة. قد يختلف السعر حسب مدة الفيديو.",
+    "note": "تتم مراجعة كل فيديو من حيث المدة والمحتوى ومعايير Google Ads بواسطة متخصصي Google Partner لدينا بخبرة تتجاوز 10 أعوام. أرسل طلب عرض السعر، وسنحلل الفيديو ونرد عليك بالتفصيل عبر WhatsApp أو Telegram. تبدأ الحملة عند الموافقة. قد يختلف السعر حسب مدة الفيديو.",
     "perks": [
       "أرسل عرض السعر، نحلل الفيديو ونرد عليك بالتفصيل",
       "تواصل مباشر مع المتخصصين عبر WhatsApp وTelegram",

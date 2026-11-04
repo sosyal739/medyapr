@@ -349,7 +349,7 @@ export default function KlipPrPlanner({ locale }: KlipPrPlannerProps) {
                   {isAr ? 'ملخص الخطة الإعلامية' : isTr ? 'Medya Planı Özeti' : 'Media Plan Summary'}
                 </h3>
                 <p className="text-xs text-zinc-400">
-                  {isAr ? 'تدقيق خبراء MedyaPR بخبرة تتجاوز 18 عامًا' : isTr ? '18+ Yıllık MedyaPR Uzman İncelemesi' : '18+ Years MedyaPR Specialist Audit'}
+                  {isAr ? 'تدقيق خبراء MedyaPR بخبرة تتجاوز 10 أعوام' : isTr ? '10+ Yıllık MedyaPR Uzman İncelemesi' : '10+ Years MedyaPR Specialist Audit'}
                 </p>
               </div>
             </div>

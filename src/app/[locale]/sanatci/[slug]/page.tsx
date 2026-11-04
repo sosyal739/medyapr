@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pageDesc = isAr
     ? `سيرة ${artist.name}، وأشهر فيديوهاته على يوتيوب، وأحدث أغنياته ${artist.latestHit}، وتحليلات الجمهور الرقمي بدعم من MedyaPR.`
     : isTr
-    ? `${artist.name} biyografisi, YouTube en popüler klipleri, son hit şarkısı ${artist.latestHit} ve 18+ yıllık MedyaPR tecrübesiyle dijital dinleyici analizi.`
+    ? `${artist.name} biyografisi, YouTube en popüler klipleri, son hit şarkısı ${artist.latestHit} ve 10+ yıllık MedyaPR tecrübesiyle dijital dinleyici analizi.`
     : `${artist.name} biography, top YouTube videos, latest hit ${artist.latestHit}, and digital audience analytics powered by MedyaPR.`;
 
   return {

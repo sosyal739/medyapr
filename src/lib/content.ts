@@ -32,6 +32,8 @@ export interface BlogPost {
   trOnly?: boolean;
   /** Hassas haberlerde (sağlık, vefat vb.) yazı sonundaki analiz kutusunu gizler. */
   noCta?: boolean;
+  /** Arama motorlarında dizin dışı tutulur (noindex, follow) ve sitemap'e eklenmez. */
+  noindex?: boolean;
   /**
    * Arapça/İspanyolca yazılar: metin alanları ilgili dildedir, `category` dildeki etikettir.
    * Blog kategorisi `categoryKey` ile eşleşir.

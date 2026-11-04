@@ -18,7 +18,7 @@ export const FAQS_TR: FAQItem[] = [
   },
   {
     question: 'Kampanyaları kim yönetiyor ve sektördeki tecrübeniz nedir?',
-    answer: 'MedyaPR olarak 18 yılı aşkındır sektörde kesintisiz hizmet vermekteyiz. Bugüne kadar Türkiye\'de ve dünyanın dört bir yanında sayısız ünlü sanatçı, bağımsız müzisyen, yapım şirketi ve kurumsal marka ile çalıştık. Tüm video ve klip tanıtım işlemleriniz, alanında sertifikalı resmi Google İş Ortağı (Partner) uzmanlarımız tarafından bizzat kurgulanmakta ve yönetilmektedir.',
+    answer: 'MedyaPR olarak 10 yılı aşkındır sektörde kesintisiz hizmet vermekteyiz. Bugüne kadar Türkiye\'de ve dünyanın dört bir yanında sayısız ünlü sanatçı, bağımsız müzisyen, yapım şirketi ve kurumsal marka ile çalıştık. Tüm video ve klip tanıtım işlemleriniz, alanında sertifikalı resmi Google İş Ortağı (Partner) uzmanlarımız tarafından bizzat kurgulanmakta ve yönetilmektedir.',
   },
   {
     question: 'İzlenmeler YouTube Studio / Analytics panelimde nasıl görünecek?',
@@ -104,7 +104,7 @@ export const FAQS_AR: FAQItem[] = [
   },
   {
     "question": "من يدير الحملات وما هي خبرتكم في هذه الصناعة؟",
-    "answer": "بخبرة تتجاوز 18 عامًا دون انقطاع، تعاونت MedyaPR مع كبرى شركات التسجيلات والموسيقيين المستقلين والعلامات التجارية في تركيا والعالم. تُخطَّط كل حملة وتُدار مباشرة بواسطة متخصصي إعلانات معتمدين من Google Partner الرسمي."
+    "answer": "بخبرة تتجاوز 10 أعوام دون انقطاع، تعاونت MedyaPR مع كبرى شركات التسجيلات والموسيقيين المستقلين والعلامات التجارية في تركيا والعالم. تُخطَّط كل حملة وتُدار مباشرة بواسطة متخصصي إعلانات معتمدين من Google Partner الرسمي."
   },
   {
     "question": "كيف ستظهر المشاهدات في YouTube Studio / Analytics؟",

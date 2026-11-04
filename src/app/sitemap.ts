@@ -4,7 +4,7 @@ import { getNewReleases, isReleaseIndexable } from '@/lib/releases';
 import { LANDING_PAGES } from '@/data/landing';
 
 const BASE_URL = 'https://medyapr.com';
-const LOCALES = ['tr', 'en', 'ar', 'es'] as const;
+const LOCALES = ['tr', 'en', 'ar'] as const;
 /** Türkiye/İngilizce içerikli bölümler (klip): Arapça ve İspanyolca sürümleri yoktur. */
 const TR_EN_ONLY = ['tr', 'en'] as const;
 const TR_EN_ONLY_ROUTES = new Set(['/yeni-klipler']);
@@ -58,7 +58,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static routes
   for (const locale of LOCALES) {
     for (const route of staticRoutes) {
-      if ((locale === 'ar' || locale === 'es') && TR_EN_ONLY_ROUTES.has(route)) continue;
+      if (locale === 'ar' && TR_EN_ONLY_ROUTES.has(route)) continue;
       entries.push({
         url: `${BASE_URL}/${locale}${route}`,
         lastModified: STABLE_SITE_DATE,
@@ -78,8 +78,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  // Dynamic Blog Posts (TR & EN)
+  // Dynamic Blog Posts (TR & EN) - Yalnızca ana ve kaliteli Müzik PR rehberleri (noindex olan magazin yazıları hariç)
   for (const post of posts) {
+    if (post.noindex) continue;
     const postDate = parseTurkishDate(post.date);
     for (const locale of TR_EN_ONLY) {
       if (locale === 'en' && !isPostFullyTranslatedEn(post)) {
@@ -107,15 +108,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  // İspanyolca blog yazıları (ayrı havuz: posts_es.json)
-  for (const post of await getEsPosts()) {
-    entries.push({
-      url: `${BASE_URL}/es/blog/${post.slug}`,
-      lastModified: parseTurkishDate(post.date),
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    });
-  }
+  // İspanyolca sayfalar geçici olarak sitemap dışına alınmıştır (Google kalite ve tarama bütçesi optimizasyonu).
 
   // Dynamic Releases (Yeni Klipler) - Google Scaled Content Abuse Önleme Kuralı
   // Yalnızca kalite kriterini karşılayan (özgün editör analizi ve künyesi olan) sayfalar sitemap'e girer.

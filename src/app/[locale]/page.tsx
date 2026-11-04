@@ -109,7 +109,7 @@ export default async function HomePage({ params }: Props) {
                     text: locale === 'ar'
                       ? 'يفحص فريق Google Partner المعتمد لدينا مدى التزام المحتوى بالسياسات ثم يرفعه للحصول على الموافقة الرسمية.'
                       : locale === 'tr'
-                      ? '18+ yıllık deneyimli uzman ekibimiz videoyu içerik ve politika açısından inceleyip resmi Google Ads onayına sunar.'
+                      ? '10+ yıllık deneyimli uzman ekibimiz videoyu içerik ve politika açısından inceleyip resmi Google Ads onayına sunar.'
                       : 'Our certified Google Partner team inspects content compliance and submits for official approval.',
                     url: `https://medyapr.com/${locale}#how-it-works`,
                   },
@@ -222,12 +222,12 @@ export default async function HomePage({ params }: Props) {
             </h2>
             <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
               {isAr
-                ? 'بخبرة تتجاوز 18 عامًا في المجال وخبرة Google Partner المعتمدة، تدير MedyaPR الترويج لفيديوهات يوتيوب عبر إعلانات Google Ads الرسمية وتسويق الأغاني وحملات المشاهدات الحقيقية للفنانين وشركات التسجيلات وصنّاع المحتوى. لا نطلب كلمة مرور القناة أبدًا.'
+                ? 'بخبرة تتجاوز 10 أعوام في المجال وخبرة Google Partner المعتمدة، تدير MedyaPR الترويج لفيديوهات يوتيوب عبر إعلانات Google Ads الرسمية وتسويق الأغاني وحملات المشاهدات الحقيقية للفنانين وشركات التسجيلات وصنّاع المحتوى. لا نطلب كلمة مرور القناة أبدًا.'
                 : isEs
                 ? 'Con más de 18 años de experiencia en la industria y certificación oficial Google Partner, MedyaPR gestiona promociones de videos en YouTube con Google Ads oficial, marketing musical y campañas de vistas 100% reales para artistas, sellos y creadores. Jamás pedimos contraseñas de canal.'
                 : isTr
-                ? 'MedyaPR, 18+ yıllık sektör deneyimi ve sertifikalı Google Partner uzmanlığıyla sanatçılar, yapım şirketleri ve içerik üreticileri için resmi Google Ads üzerinden YouTube reklam verme, şarkı tanıtımı ve organik izlenme kampanyaları yürütür. Kanal şifresi veya yönetici yetkisi asla istenmez; yalnızca herkese açık video linkinizle analiz yapılır ve onayınız alındığında işlem başlar.'
-                : 'With 18+ years of industry experience and certified Google Partner expertise, MedyaPR manages official Google Ads YouTube video promotion, song marketing, and real view campaigns for artists, record labels, and creators. Zero channel passwords required.'}
+                ? 'MedyaPR, 10+ yıllık sektör deneyimi ve sertifikalı Google Partner uzmanlığıyla sanatçılar, yapım şirketleri ve içerik üreticileri için resmi Google Ads üzerinden YouTube reklam verme, şarkı tanıtımı ve organik izlenme kampanyaları yürütür. Kanal şifresi veya yönetici yetkisi asla istenmez; yalnızca herkese açık video linkinizle analiz yapılır ve onayınız alındığında işlem başlar.'
+                : 'With 10+ years of industry experience and certified Google Partner expertise, MedyaPR manages official Google Ads YouTube video promotion, song marketing, and real view campaigns for artists, record labels, and creators. Zero channel passwords required.'}
             </p>
           </div>
 

@@ -335,9 +335,9 @@ export default function ComparisonSection({ locale }: ComparisonSectionProps) {
                       {isAr
                         ? 'فريق Google Partner معتمد'
                         : isEs
-                        ? '+18 Años Partner Oficial de Google'
+                        ? '+10 Años Partner Oficial de Google'
                         : isTr
-                        ? '18+ Yıllık Resmi Google Partner'
+                        ? '10+ Yıllık Resmi Google Partner'
                         : 'Certified Google Partner Team'}
                     </span>
                   </div>

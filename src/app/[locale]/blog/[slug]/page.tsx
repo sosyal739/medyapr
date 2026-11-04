@@ -107,6 +107,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: { absolute: esPost.title },
       description: esPost.summary,
+      robots: { index: false, follow: true },
       alternates: { canonical: esUrl, languages },
       openGraph: {
         title: esPost.title,
@@ -183,7 +184,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       absolute: postTitle,
     },
     description: postSummary,
-    robots: (!isTr && !hasEn) ? { index: false, follow: true } : undefined,
+    robots: (post.noindex || (!isTr && !hasEn)) ? { index: false, follow: true } : undefined,
     alternates,
     openGraph: {
       title: postTitle,
@@ -544,7 +545,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {isAr ? 'شريك Google رسمي' : isTr ? 'Resmi Google Partner' : isEs ? 'Google Partner Oficial' : 'Official Google Partner'}
               </span>
               <span className="rounded-full bg-amber-500/20 px-2.5 py-0.5 text-[11px] font-bold text-amber-300 border border-amber-500/30">
-                {isAr ? 'خبرة تتجاوز 18 عامًا' : isTr ? '18+ Yıllık Tecrübe' : isEs ? '18+ Años de Experiencia' : '18+ Years Track Record'}
+                {isAr ? 'خبرة تتجاوز 10 أعوام' : isTr ? '10+ Yıllık Tecrübe' : isEs ? '18+ Años de Experiencia' : '10+ Years Track Record'}
               </span>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed">

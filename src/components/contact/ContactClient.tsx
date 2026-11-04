@@ -73,7 +73,7 @@ export default function ContactClient({ locale }: Props) {
       <div className="relative mx-auto max-w-6xl px-4 md:px-8 mb-12 text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-zinc-700/60 bg-zinc-800/80 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#FF5E7E] mb-4">
           <Award className="h-4 w-4 text-[#FF0033]" />
-          {isAr ? 'خبرة تتجاوز 18 عامًا • Google Partner رسمي' : isEs ? '+18 Años de Trayectoria • Google Partner Oficial' : isTr ? '18+ Yıllık Tecrübe • Resmi Google Partner' : '18+ Years Track Record • Official Google Partner'}
+          {isAr ? 'خبرة تتجاوز 10 أعوام • Google Partner رسمي' : isEs ? '+10 Años de Trayectoria • Google Partner Oficial' : isTr ? '10+ Yıllık Tecrübe • Resmi Google Partner' : '10+ Years Track Record • Official Google Partner'}
         </span>
         <h1 className="text-3xl font-extrabold sm:text-5xl tracking-tight text-white mb-4">
           {isAr ? 'تواصل ' : isEs ? 'Ponte en ' : isTr ? 'Bizimle ' : 'Get in '}
@@ -304,7 +304,7 @@ export default function ContactClient({ locale }: Props) {
                   : 'Every YouTube video differs in duration, category, and Google Ads policy eligibility. To accurately inspect your video link and channel metrics, all quote, analysis, and approval steps are managed via WhatsApp and Telegram with our specialist team. Submit your quote, let us analyze your video and reply in detail; work begins upon approval. (Pricing may vary based on video length.)'}
               </p>
               <div className="pt-3 border-t border-zinc-800 flex items-center justify-between text-xs text-zinc-400">
-                <span>{isAr ? 'فريق Google Partner بخبرة تتجاوز 18 عامًا' : isTr ? '18+ Yıllık Google Partner Ekibi' : '18+ Years Google Partner Team'}</span>
+                <span>{isAr ? 'فريق Google Partner بخبرة تتجاوز 10 أعوام' : isTr ? '10+ Yıllık Google Partner Ekibi' : '10+ Years Google Partner Team'}</span>
                 <span className="text-emerald-400 font-medium">{isAr ? '● تحليل من الخبراء 24/7' : isTr ? '● 7/24 Uzman Analizi' : '● 24/7 Specialist Analysis'}</span>
               </div>
             </div>
