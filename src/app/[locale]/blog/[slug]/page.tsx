@@ -131,10 +131,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const languages: Record<string, string> = { ar: arUrl };
     if (trTwin && !trTwin.enOnly) languages.tr = `${SITE_URL}/tr/blog/${trTwin.slug}`;
     if (trTwin && isPostFullyTranslatedEn(trTwin)) languages.en = `${SITE_URL}/en/blog/${trTwin.slug}`;
-    if (trTwin) {
-      const esTwinSlug = (await getEsTranslationMap())[trTwin.slug];
-      if (esTwinSlug) languages.es = `${SITE_URL}/es/blog/${esTwinSlug}`;
-    }
+
     languages['x-default'] = languages.tr ?? arUrl;
     return {
       title: { absolute: arPost.title },
@@ -176,8 +173,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const arSlug = (await getArTranslationMap())[slug];
   if (arSlug) (alternates.languages as Record<string, string>).ar = `${SITE_URL}/ar/blog/${arSlug}`;
-  const esSlug = (await getEsTranslationMap())[slug];
-  if (esSlug) (alternates.languages as Record<string, string>).es = `${SITE_URL}/es/blog/${esSlug}`;
+
 
   return {
     title: {
@@ -587,49 +583,41 @@ export default async function BlogPostPage({ params }: Props) {
             </p>
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center gap-3.5">
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <Link
               href={`/${locale}/fiyatlandirma`}
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-7 py-3.5 text-sm font-extrabold text-white shadow-xl shadow-[#FF0033]/30 hover:scale-105 transition"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#E0002E] to-[#CC0029] px-6 py-3 text-sm font-extrabold text-white shadow-lg shadow-[#FF0033]/25 hover:scale-105 transition"
             >
               {isAr ? 'أسعار إعلانات يوتيوب وحاسبة الأسعار' : isTr ? 'YouTube Reklam Fiyatları & Hesaplama' : isEs ? 'Precios y Calculadora de Anuncios' : 'YouTube Ad Pricing & Calculator'}{' '}
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href={`/${locale}/klip-pr`}
-              className="inline-flex items-center gap-2 rounded-xl border border-[#FF0033]/50 bg-[#FF0033]/15 px-6 py-3.5 text-sm font-extrabold text-white hover:bg-[#FF0033]/25 transition"
+              className="inline-flex items-center gap-2 rounded-xl border border-[#FF0033]/50 bg-[#FF0033]/15 px-5 py-3 text-sm font-extrabold text-white hover:bg-[#FF0033]/25 transition"
             >
               {isAr ? 'الترويج الرقمي وإطلاق فيديو الكليب' : isTr ? 'Müzik Klibi Dijital PR & Lansman' : isEs ? 'Lanzamiento y PR Digital de Video' : 'Music Video Digital PR & Launch'}
             </Link>
             <Link
               href={`/${locale}/order`}
-              className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/15 px-6 py-3.5 text-sm font-extrabold text-emerald-300 hover:bg-emerald-500/25 transition"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300 underline underline-offset-4 ml-2 transition"
             >
-              {isAr ? 'أرسل رابط الفيديو واطلب التحليل' : isTr ? 'Video Linki Gir & Analiz İste' : isEs ? 'Enviar Enlace y Solicitar Análisis' : 'Submit Video Link & Request Audit'}
-            </Link>
-            <Link
-              href={`/${locale}/hizmetler`}
-              className="inline-flex items-center gap-2 rounded-xl border border-zinc-700/60 bg-zinc-800/80 px-5 py-3.5 text-sm font-bold text-zinc-200 hover:bg-zinc-700 transition"
-            >
-              {isAr ? 'باقات مشاهدات يوتيوب عبر Google Ads' : isTr ? 'Google Ads YouTube İzlenme Paketleri' : isEs ? 'Paquetes de Vistas con Google Ads' : 'Google Ads YouTube View Packages'}
+              {isAr ? 'طلب تحليل الفيديو مجاناً ←' : isTr ? 'Ücretsiz Video Analizi İste →' : isEs ? 'Solicitar análisis gratuito →' : 'Request Free Video Audit →'}
             </Link>
           </div>
 
-          <div className="mt-6 pt-5 border-t border-white/10">
-            <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-2.5">
-              {isAr ? '🎯 خدمات الترويج الرسمية على يوتيوب:' : isTr ? '🎯 Resmi YouTube Reklam & Klip Tanıtım Sayfaları:' : isEs ? '🎯 Páginas Oficiales de Promoción en YouTube:' : '🎯 Official YouTube Music Promotion Pages:'}
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs font-extrabold">
-              {getLandingPages(locale).map((lp) => (
-                <Link
-                  key={lp.slug}
-                  href={`/${locale}/${lp.slug}`}
-                  className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-2.5 text-emerald-200 hover:border-emerald-400 hover:bg-emerald-500/20 hover:text-white transition"
-                >
-                  🚀 {lp.keyword} →
-                </Link>
-              ))}
-            </div>
+          <div className="mt-5 pt-4 border-t border-white/10 flex flex-wrap items-center gap-2 text-xs">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 mr-1">
+              {isAr ? 'خدمات ذات صلة:' : isTr ? 'İlgili Çözümler:' : isEs ? 'Servicios:' : 'Related:'}
+            </span>
+            {getLandingPages(locale).map((lp) => (
+              <Link
+                key={lp.slug}
+                href={`/${locale}/${lp.slug}`}
+                className="rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-1 text-zinc-300 hover:border-[#FF0033]/40 hover:text-white transition"
+              >
+                {lp.keyword}
+              </Link>
+            ))}
           </div>
         </div>
 

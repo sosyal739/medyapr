@@ -198,15 +198,16 @@ export function isPostFullyTranslatedEn(post: BlogPost): boolean {
   return true;
 }
 
-/** Dil için görünür yazılar. EN'de İngilizceye özel (küresel) yazılar öne alınır. */
+/** Dil için görünür yazılar. EN'de İngilizceye özel (küresel) yazılar öne alınır. noindex yazılar liste dışı bırakılır. */
 export function postsForLocale(posts: BlogPost[], locale: string): BlogPost[] {
-  if (locale === 'ar') return posts;
-  if (locale === 'es') return posts;
+  const visible = posts.filter((p) => !p.noindex);
+  if (locale === 'ar') return visible;
+  if (locale === 'es') return visible;
   if (locale === 'en') {
-    const en = posts.filter(isPostFullyTranslatedEn);
+    const en = visible.filter(isPostFullyTranslatedEn);
     return [...en.filter((p) => p.enOnly), ...en.filter((p) => !p.enOnly)];
   }
-  return posts.filter((p) => !p.enOnly);
+  return visible.filter((p) => !p.enOnly);
 }
 
 /** Dile göre yazı havuzu: Arapça için posts_ar.json, İspanyolca için posts_es.json, TR/EN için posts.json (süzülmüş). */

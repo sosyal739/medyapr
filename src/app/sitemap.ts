@@ -68,8 +68,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  // Ticari açılış sayfaları (yalnızca kendi dilinde)
+  // Ticari açılış sayfaları (yalnızca indekslenebilir dillerde: tr, en, ar)
   for (const lp of LANDING_PAGES) {
+    if (lp.locale === 'es') continue;
     entries.push({
       url: `${BASE_URL}/${lp.locale}/${lp.slug}`,
       lastModified: STABLE_SITE_DATE,

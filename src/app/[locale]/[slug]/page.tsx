@@ -44,20 +44,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
    * birbirine hreflang olarak bağlanır. Ülkeye veya farklı arama niyetine özel sayfalar
    * yalnızca kendi dilinde bağımsız (self-hreflang) sinyal verir.
    */
-  const HREFLANG_TRANSLATION_PAIRS: Record<string, { tr: string; en: string; es?: string }> = {
-    'youtube-klip-tanitimi': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', es: 'promocion-videos-musicales-youtube-mexico' },
-    'youtube-music-video-promotion': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', es: 'promocion-videos-musicales-youtube-mexico' },
-    'promocion-videos-musicales-youtube-mexico': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion', es: 'promocion-videos-musicales-youtube-mexico' },
-    'sarki-reklami-verme': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', es: 'promocion-youtube-music-espana-google-ads' },
-    'google-ads-for-music-videos': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', es: 'promocion-youtube-music-espana-google-ads' },
-    'promocion-youtube-music-espana-google-ads': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos', es: 'promocion-youtube-music-espana-google-ads' },
+  const HREFLANG_TRANSLATION_PAIRS: Record<string, { tr: string; en: string }> = {
+    'youtube-klip-tanitimi': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion' },
+    'youtube-music-video-promotion': { tr: 'youtube-klip-tanitimi', en: 'youtube-music-video-promotion' },
+    'sarki-reklami-verme': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos' },
+    'google-ads-for-music-videos': { tr: 'sarki-reklami-verme', en: 'google-ads-for-music-videos' },
   };
   const pair = HREFLANG_TRANSLATION_PAIRS[slug];
   const languages: Record<string, string> = pair
     ? {
         tr: `${SITE_URL}/tr/${pair.tr}`,
         en: `${SITE_URL}/en/${pair.en}`,
-        ...(pair.es ? { es: `${SITE_URL}/es/${pair.es}` } : {}),
         'x-default': `${SITE_URL}/tr/${pair.tr}`,
       }
     : {
@@ -67,7 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: { absolute: page.title },
     description: page.description,
-    robots: { index: true, follow: true },
+    robots: { index: locale !== 'es', follow: true },
     alternates: {
       canonical: `${SITE_URL}/${locale}/${slug}`,
       languages,

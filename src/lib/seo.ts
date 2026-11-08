@@ -2,17 +2,20 @@ import { intlLocale, locales, type Locale } from '@/lib/i18n/config';
 
 export const SITE_URL = 'https://medyapr.com';
 
+/** İndekslenen diller: İspanyolca (es) noindex olduğundan hreflang alternate olarak verilmez. */
+export const INDEXABLE_LOCALES: readonly Locale[] = ['tr', 'en', 'ar'];
+
 /** Türkiye/İngilizce dünyasına özgü sayfalar (sanatçı, klip): Arapça sürümü yoktur. */
 export const TR_EN: readonly Locale[] = ['tr', 'en'];
 
 /**
  * Üretilen sayfa için kesin ve eksiksiz canonical ve hreflang alternates nesnesi döner.
- * Yalnızca sayfanın gerçekten var olduğu dilleri listeler; olmayan bir çeviriye hreflang verilmez.
+ * Yalnızca sayfanın gerçekten var olduğu ve indekslenebilir dilleri listeler.
  * @param locale 'tr' | 'en' | 'ar' | 'es'
  * @param path Sayfa yolu (örn: '/blog', '/trendler', '/sanatcilar')
- * @param available Sayfanın yayınlandığı dilleri (varsayılan: hepsi)
+ * @param available Sayfanın yayınlandığı dilleri (varsayılan: indekslenebilir diller)
  */
-export function getPageAlternates(locale: string, path: string = '', available: readonly Locale[] = locales) {
+export function getPageAlternates(locale: string, path: string = '', available: readonly Locale[] = INDEXABLE_LOCALES) {
   const cleanPath = path ? (path.startsWith('/') ? path : `/${path}`) : '';
   const url = (l: string) => `${SITE_URL}/${l}${cleanPath}`;
   const languages: Record<string, string> = Object.fromEntries(available.map((l) => [l, url(l)]));
