@@ -8,14 +8,14 @@ const LOCALES = ['tr', 'en', 'ar'] as const;
 /** Türkiye/İngilizce içerikli bölümler (klip): Arapça ve İspanyolca sürümleri yoktur. */
 const TR_EN_ONLY = ['tr', 'en'] as const;
 const TR_EN_ONLY_ROUTES = new Set(['/yeni-klipler']);
-const STABLE_SITE_DATE = new Date('2026-11-04T00:00:00.000Z');
+const STABLE_SITE_DATE = new Date('2026-11-09T00:00:00.000Z');
 
 function parseTurkishDate(dateStr?: string): Date {
   if (!dateStr) return STABLE_SITE_DATE;
   const trimmed = dateStr.trim();
   if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) {
     const d = new Date(`${trimmed}T08:00:00.000Z`);
-    if (!isNaN(d.getTime())) return d;
+    if (!isNaN(d.getTime())) return d > STABLE_SITE_DATE ? d : STABLE_SITE_DATE;
   }
   const months: Record<string, string> = {
     Ocak: '01', Şubat: '02', Mart: '03', Nisan: '04', Mayıs: '05', Haziran: '06',
@@ -27,7 +27,7 @@ function parseTurkishDate(dateStr?: string): Date {
     const month = months[parts[1]] || '10';
     const year = parts[2];
     const d = new Date(`${year}-${month}-${day}T08:00:00.000Z`);
-    if (!isNaN(d.getTime())) return d;
+    if (!isNaN(d.getTime())) return d > STABLE_SITE_DATE ? d : STABLE_SITE_DATE;
   }
   return STABLE_SITE_DATE;
 }
@@ -115,7 +115,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Yalnızca kalite kriterini karşılayan (özgün editör analizi ve künyesi olan) sayfalar sitemap'e girer.
   for (const release of releases) {
     if (!isReleaseIndexable(release)) continue;
-    const releaseDate = release.releaseDate ? new Date(`${release.releaseDate}T08:00:00.000Z`) : STABLE_SITE_DATE;
+    const rawReleaseDate = release.releaseDate ? new Date(`${release.releaseDate}T08:00:00.000Z`) : STABLE_SITE_DATE;
+    const releaseDate = rawReleaseDate > STABLE_SITE_DATE ? rawReleaseDate : STABLE_SITE_DATE;
     for (const locale of TR_EN_ONLY) {
       entries.push({
         url: `${BASE_URL}/${locale}/klip/${release.slug}`,
