@@ -332,7 +332,7 @@ export default async function ServicesPage({ params }: Props) {
             </div>
             <div className="mt-4 pt-4 border-t border-gray-100 flex flex-wrap gap-4 text-xs font-bold text-[#CC0029]">
               <Link
-                href={isAr ? '/ar/blog/youtube-music-video-promotion-google-ads-guide' : `/${locale}/blog/youtube-klip-tanitimi-google-ads-rehberi`}
+                href={isAr ? '/ar/blog/youtube-music-video-promotion-google-ads-guide' : (locale === 'tr' ? '/tr/youtube-klip-tanitimi' : '/en/youtube-music-video-promotion')}
                 className="hover:underline"
               >
                 → {isAr ? 'كيف تروّج لفيديو كليب على يوتيوب' : isTr ? 'YouTube Klip Tanıtımı Nasıl Yapılır? (Resmi Google Ads Rehberi)' : 'How to Promote a Music Video on YouTube'}

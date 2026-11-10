@@ -31,6 +31,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ? 'Listas oficiales de YouTube para los videos musicales más populares en México, España y Colombia: reproducciones y me gusta, con estrategias de promoción oficiales mediante Google Ads.'
       : 'Real-time trending YouTube music videos across the US, UK, Germany, and Turkey. Live view velocity, algorithm benchmarks, and official PR promotion strategies.',
     alternates: getPageAlternates(locale, '/trendler'),
+    // İndeks diyeti (10 Kas 2026): otomatik trend listesi dizin dışı, bağlantılar izlenir.
+    robots: { index: false, follow: true },
     openGraph: {
       title: isAr
         ? 'كليبات يوتيوب الأكثر رواجًا في السعودية ومصر والمغرب | MedyaPR'
@@ -407,7 +409,7 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
                 🇲🇦 قائمة يوتيوب للموسيقى في المغرب: الأكثر رواجًا 2026 ←
               </Link>
               <Link
-                href="/ar/blog/is-buying-youtube-views-worth-it-official-ads-guide"
+                href="/ar/blog/youtube-bot-panel-risks-official-google-ads-difference"
                 className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
               >
                 🛡️ هل شراء مشاهدات يوتيوب ضروري؟ دليل الإعلانات الرسمية ←
@@ -434,7 +436,7 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
                 🔥 Müzik Kliplerinde İlk 48 Saat & YouTube Trend Formülü →
               </Link>
               <Link
-                href="/tr/blog/youtube-klip-tanitimi-google-ads-rehberi"
+                href="/tr/youtube-klip-tanitimi"
                 className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
               >
                 📘 Resmi Google Ads ile YouTube Klip Tanıtımı Nasıl Yapılır? →
@@ -446,7 +448,7 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
                 📱 YouTube Shorts Reklamı ile Şarkı Viral Yapma & Demand Gen →
               </Link>
               <Link
-                href="/tr/blog/youtube-video-reklam-fiyatlari-2026-cpv-butce-hesaplama"
+                href="/tr/youtube-reklam-fiyatlari"
                 className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 text-zinc-200 hover:text-white transition"
               >
                 💰 2026 YouTube Video Reklam Fiyatları & CPV Bütçe Hesaplama →

@@ -33,6 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     description: pageDesc,
     alternates: getPageAlternates(locale, '/yeni-klipler', TR_EN),
+    // İndeks diyeti (10 Kas 2026): otomatik klip listesi dizin dışı, bağlantılar izlenir.
+    robots: { index: false, follow: true },
     openGraph: {
       title: rawTitle,
       description: pageDesc,

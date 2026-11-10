@@ -136,6 +136,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: { absolute: arPost.title },
       description: arPost.summary,
+      robots: arPost.noindex ? { index: false, follow: true } : undefined,
       alternates: { canonical: arUrl, languages },
       openGraph: {
         title: arPost.title,

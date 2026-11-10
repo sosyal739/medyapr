@@ -338,7 +338,7 @@ export default async function HomePage({ params }: Props) {
                   🇲🇦 قائمة يوتيوب للموسيقى في المغرب 2026 ←
                 </Link>
                 <Link
-                  href="/ar/blog/is-buying-youtube-views-worth-it-official-ads-guide"
+                  href="/ar/blog/youtube-bot-panel-risks-official-google-ads-difference"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
                   🛡️ هل شراء مشاهدات يوتيوب ضروري؟ الدليل الرسمي ←
@@ -404,7 +404,7 @@ export default async function HomePage({ params }: Props) {
             ) : isTr ? (
               <>
                 <Link
-                  href="/tr/blog/youtube-klip-tanitimi-google-ads-rehberi"
+                  href="/tr/youtube-klip-tanitimi"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
                   📘 YouTube Klip Tanıtımı Nasıl Yapılır? →
@@ -416,7 +416,7 @@ export default async function HomePage({ params }: Props) {
                   📱 YouTube Shorts Reklam Verme Rehberi →
                 </Link>
                 <Link
-                  href="/tr/blog/youtube-video-reklam-fiyatlari-2026-cpv-butce-hesaplama"
+                  href="/tr/youtube-reklam-fiyatlari"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
                   📊 YouTube Video Reklam Fiyatları 2026 & CPV →
@@ -461,13 +461,13 @@ export default async function HomePage({ params }: Props) {
             ) : (
               <>
                 <Link
-                  href="/en/blog/how-to-promote-your-music-video-on-youtube-with-google-ads-2026"
+                  href="/en/google-ads-for-music-videos"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
                   📘 How to Promote Your Music Video with Google Ads →
                 </Link>
                 <Link
-                  href="/en/blog/cost-of-youtube-music-video-ads-cpv-benchmarks-2026"
+                  href="/en/fiyatlandirma"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
                   💰 Cost of YouTube Music Video Ads (CPV 2026) →

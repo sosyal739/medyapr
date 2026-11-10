@@ -45,8 +45,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/hakkimizda',
     '/sss',
     '/iletisim',
-    '/trendler',
-    '/yeni-klipler',
     '/blog',
     '/gizlilik',
     '/kullanim-kosullari',
@@ -101,6 +99,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Arapça blog yazıları (ayrı havuz: posts_ar.json)
   for (const post of await getArPosts()) {
+    if (post.noindex) continue;
     entries.push({
       url: `${BASE_URL}/ar/blog/${post.slug}`,
       lastModified: parseTurkishDate(post.date),

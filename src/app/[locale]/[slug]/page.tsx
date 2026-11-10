@@ -275,7 +275,7 @@ export default async function LandingPageRoute({ params }: Props) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/ar/blog/is-buying-youtube-views-worth-it-official-ads-guide" className="text-sm text-zinc-300 hover:text-white">
+                    <Link href="/ar/blog/youtube-bot-panel-risks-official-google-ads-difference" className="text-sm text-zinc-300 hover:text-white">
                       → هل شراء مشاهدات يوتيوب ضروري؟ دليل الإعلانات الرسمية
                     </Link>
                   </li>
@@ -283,12 +283,12 @@ export default async function LandingPageRoute({ params }: Props) {
               ) : isTr ? (
                 <>
                   <li>
-                    <Link href="/tr/blog/youtube-klip-tanitimi-google-ads-rehberi" className="text-sm text-zinc-300 hover:text-white">
+                    <Link href="/tr/youtube-klip-tanitimi" className="text-sm text-zinc-300 hover:text-white">
                       → YouTube Klip Tanıtımı: Resmi Google Ads Rehberi
                     </Link>
                   </li>
                   <li>
-                    <Link href="/tr/blog/youtube-video-reklam-fiyatlari-2026-cpv-butce-hesaplama" className="text-sm text-zinc-300 hover:text-white">
+                    <Link href="/tr/youtube-reklam-fiyatlari" className="text-sm text-zinc-300 hover:text-white">
                       → YouTube Video Reklam Fiyatları 2026 & CPV Bütçe Hesaplama
                     </Link>
                   </li>

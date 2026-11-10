@@ -212,7 +212,7 @@ export function postsForLocale(posts: BlogPost[], locale: string): BlogPost[] {
 
 /** Dile göre yazı havuzu: Arapça için posts_ar.json, İspanyolca için posts_es.json, TR/EN için posts.json (süzülmüş). */
 export async function getPostsForLocale(locale: string): Promise<BlogPost[]> {
-  if (locale === 'ar') return getArPosts();
+  if (locale === 'ar') return postsForLocale(await getArPosts(), 'ar');
   if (locale === 'es') return getEsPosts();
   return postsForLocale(await getPosts(), locale);
 }
