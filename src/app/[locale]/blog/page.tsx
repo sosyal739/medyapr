@@ -132,7 +132,7 @@ export default async function BlogIndexPage({
         url: `https://medyapr.com/${locale}/blog`,
         blogPost: filteredPosts.map((p) => ({
           '@type': 'BlogPosting',
-          headline: p.title,
+          headline: (!isTr && !isAr && !isEs && p.title_en) ? p.title_en : p.title,
           url: `https://medyapr.com/${locale}/blog/${p.slug}`,
           datePublished: toIsoDateString(p.date),
           author: {
@@ -276,82 +276,94 @@ export default async function BlogIndexPage({
         </div>
 
         {/* Featured First Post (Only if posts exist) */}
-        {filteredPosts.length > 0 && (
-          <Link
-            href={`/${locale}/blog/${filteredPosts[0].slug}`}
-            className="group mb-12 block overflow-hidden rounded-3xl border border-studio bg-studio-card p-6 md:p-8 backdrop-blur-xl shadow-2xl transition hover:border-studio-strong hover:bg-zinc-800/90"
-          >
-            <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] items-center">
-              <div className="relative aspect-video overflow-hidden rounded-2xl bg-black/40">
-                <Image fill sizes="(min-width: 1024px) 480px, 100vw"
-                  src={filteredPosts[0].image}
-                  alt={filteredPosts[0].title}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 text-xs text-zinc-400">
-                  <span className="rounded-full bg-[#FF0033]/20 px-3 py-1 font-bold text-[#FF6B6B]">
-                    {filteredPosts[0].category}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Calendar className="h-3.5 w-3.5" />
-                    {displayDate(filteredPosts[0].date, locale)}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Clock className="h-3.5 w-3.5" />
-                    {filteredPosts[0].readTime} {isAr ? 'قراءة' : isTr ? 'okuma' : isEs ? 'lectura' : 'read'}
-                  </span>
+        {filteredPosts.length > 0 && (() => {
+          const fp = filteredPosts[0];
+          const fpTitle = (!isTr && !isAr && !isEs && fp.title_en) ? fp.title_en : fp.title;
+          const fpSummary = (!isTr && !isAr && !isEs && fp.summary_en) ? fp.summary_en : fp.summary;
+          const fpCategory = (!isTr && !isAr && !isEs && fp.category_en) ? fp.category_en : fp.category;
+          const fpReadTime = (!isTr && !isAr && !isEs && fp.readTime_en) ? fp.readTime_en : fp.readTime;
+          return (
+            <Link
+              href={`/${locale}/blog/${fp.slug}`}
+              className="group mb-12 block overflow-hidden rounded-3xl border border-studio bg-studio-card p-6 md:p-8 backdrop-blur-xl shadow-2xl transition hover:border-studio-strong hover:bg-zinc-800/90"
+            >
+              <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] items-center">
+                <div className="relative aspect-video overflow-hidden rounded-2xl bg-black/40">
+                  <Image fill sizes="(min-width: 1024px) 480px, 100vw"
+                    src={fp.image}
+                    alt={fpTitle}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
-                <h2 className="text-2xl font-extrabold text-white group-hover:text-[#FF6B6B] transition sm:text-3xl">
-                  {filteredPosts[0].title}
-                </h2>
-                <p className="line-clamp-3 text-sm text-zinc-300 leading-relaxed">
-                  {filteredPosts[0].summary}
-                </p>
-                <div className="inline-flex items-center gap-2 text-sm font-bold text-[#FF6B6B] group-hover:text-[#FF8E53] transition pt-2">
-                  <span>{isAr ? 'اقرأ المقال بالكامل' : isTr ? 'Yazının Tamamını Oku' : isEs ? 'Leer Artículo Completo' : 'Read Full Guide'}</span>
-                  <ArrowRight className="h-4 w-4" />
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 text-xs text-zinc-400">
+                    <span className="rounded-full bg-[#FF0033]/20 px-3 py-1 font-bold text-[#FF6B6B]">
+                      {fpCategory}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Calendar className="h-3.5 w-3.5" />
+                      {displayDate(fp.date, locale)}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Clock className="h-3.5 w-3.5" />
+                      {fpReadTime} {isAr ? 'قراءة' : isTr ? 'okuma' : isEs ? 'lectura' : 'read'}
+                    </span>
+                  </div>
+                  <h2 className="text-2xl font-extrabold text-white group-hover:text-[#FF6B6B] transition sm:text-3xl">
+                    {fpTitle}
+                  </h2>
+                  <p className="line-clamp-3 text-sm text-zinc-300 leading-relaxed">
+                    {fpSummary}
+                  </p>
+                  <div className="inline-flex items-center gap-2 text-sm font-bold text-[#FF6B6B] group-hover:text-[#FF8E53] transition pt-2">
+                    <span>{isAr ? 'اقرأ المقال بالكامل' : isTr ? 'Yazının Tamamını Oku' : isEs ? 'Leer Artículo Completo' : 'Read Full Guide'}</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
-        )}
+            </Link>
+          );
+        })()}
 
         {/* Remaining Posts Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filteredPosts.slice(1).map((post) => (
-            <Link
-              key={post.slug}
-              href={`/${locale}/blog/${post.slug}`}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-studio bg-studio-card p-5 backdrop-blur-md shadow-lg transition hover:border-studio-strong hover:bg-zinc-800/90"
-            >
-              <div className="relative aspect-video overflow-hidden rounded-xl bg-black/40 mb-4">
-                <Image fill sizes="(min-width: 1024px) 320px, 100vw"
-                  src={post.image}
-                  alt={post.title}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="flex items-center gap-2 text-[11px] text-zinc-400 mb-2.5">
-                <span className="rounded-full bg-zinc-800 px-2 py-0.5 font-bold text-zinc-300">
-                  {post.category}
-                </span>
-                <span>•</span>
-                <span>{displayDate(post.date, locale)}</span>
-              </div>
-              <h3 className="text-base font-bold text-white group-hover:text-[#FF6B6B] transition line-clamp-2 mb-2">
-                {post.title}
-              </h3>
-              <p className="line-clamp-2 text-xs text-zinc-300 leading-relaxed mb-4 flex-grow">
-                {post.summary}
-              </p>
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF6B6B] pt-2 border-t border-zinc-800">
-                <span>{isAr ? 'اقرأ التفاصيل' : isTr ? 'Detayları İncele' : isEs ? 'Leer Detalles' : 'Read More'}</span>
-                <ArrowRight className="h-3 w-3" />
-              </div>
-            </Link>
-          ))}
+          {filteredPosts.slice(1).map((post) => {
+            const pTitle = (!isTr && !isAr && !isEs && post.title_en) ? post.title_en : post.title;
+            const pSummary = (!isTr && !isAr && !isEs && post.summary_en) ? post.summary_en : post.summary;
+            const pCategory = (!isTr && !isAr && !isEs && post.category_en) ? post.category_en : post.category;
+            return (
+              <Link
+                key={post.slug}
+                href={`/${locale}/blog/${post.slug}`}
+                className="group flex flex-col overflow-hidden rounded-2xl border border-studio bg-studio-card p-5 backdrop-blur-md shadow-lg transition hover:border-studio-strong hover:bg-zinc-800/90"
+              >
+                <div className="relative aspect-video overflow-hidden rounded-xl bg-black/40 mb-4">
+                  <Image fill sizes="(min-width: 1024px) 320px, 100vw"
+                    src={post.image}
+                    alt={pTitle}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex items-center gap-2 text-[11px] text-zinc-400 mb-2.5">
+                  <span className="rounded-full bg-zinc-800 px-2 py-0.5 font-bold text-zinc-300">
+                    {pCategory}
+                  </span>
+                  <span>•</span>
+                  <span>{displayDate(post.date, locale)}</span>
+                </div>
+                <h3 className="text-base font-bold text-white group-hover:text-[#FF6B6B] transition line-clamp-2 mb-2">
+                  {pTitle}
+                </h3>
+                <p className="line-clamp-2 text-xs text-zinc-300 leading-relaxed mb-4 flex-grow">
+                  {pSummary}
+                </p>
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF6B6B] pt-2 border-t border-zinc-800">
+                  <span>{isAr ? 'اقرأ التفاصيل' : isTr ? 'Detayları İncele' : isEs ? 'Leer Detalles' : 'Read More'}</span>
+                  <ArrowRight className="h-3 w-3" />
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

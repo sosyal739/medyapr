@@ -36,7 +36,7 @@ export async function generateMetadata({
     : isEs
     ? 'Agencia de PR Digital y Lanzamiento de Videos Musicales | MedyaPR'
     : isTr
-    ? 'YouTube Klip Tanıtımı, Şarkı PR & Müzik Lansman Ajansı | MedyaPR'
+    ? 'YouTube Klip Tanıtımı & Müzik Lansman Ajansı | MedyaPR'
     : 'Music Video Digital PR & Launch Agency | MedyaPR';
 
   const description = isAr
