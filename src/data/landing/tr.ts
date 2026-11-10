@@ -7,7 +7,7 @@ export const TR_PAGES: LandingPage[] = [
     keyword: 'YouTube klip tanıtımı',
     title: 'YouTube Klip Tanıtımı: Resmi Google Ads Reklamı | MedyaPR',
     description:
-      'YouTube klip tanıtımı resmi Google Ads video reklamlarıyla yapılır: bot yok, şifre yok. Örnek kampanya verilerini inceleyin ve ücretsiz klip analizi alın.',
+      'YouTube klip tanıtımı ve klibe reklam verme resmi Google Ads video reklamlarıyla yapılır: bot yok, şifre yok. Örnek kampanya verileriyle ücretsiz analiz alın.',
     h1: 'YouTube Klip Tanıtımı: Klibiniz Doğru Kitleye Ulaşsın',
     lead:
       'Klibinizi yayınladınız ama ilk günlerde yeterince kişiye ulaşmadı mı? 18 yıllık tecrübemizle, YouTube klip tanıtımını resmi Google Ads video reklamlarıyla yönetiyoruz. Trafik YouTube Analytics’te “YouTube Reklamları” kaynağı olarak görünür; bot ya da panel kullanılmaz.',
@@ -81,6 +81,10 @@ export const TR_PAGES: LandingPage[] = [
       {
         q: 'Tanınmış sanatçılar veya firmalar için ödeme iş bitiminde alınabilir mi?',
         a: 'Evet, başvuru üzerine değerlendiriyoruz. Sipariş formundaki “İş bitiminde ödeme” kutusunu işaretlemeniz yeterli; onaylanırsa kampanya başlar, rapor teslim edildikten sonra ödeme alınır.',
+      },
+      {
+        q: 'YouTube klibe reklam verme ve YouTube reklam izlenme satın al işlemi güvenli mi?',
+        a: 'Evet. YouTube klibe reklam verme sürecinde sahte bot veya SMM panel kullanılmaz; izlenmeler doğrudan resmi Google Ads video reklam ağından gelir, YouTube Studio panelinde “YouTube Reklamları” olarak doğrulanır ve kanalınıza %100 güvenli gerçek izleyici kazandırır.',
       },
     ],
   },
@@ -218,6 +222,10 @@ export const TR_PAGES: LandingPage[] = [
       {
         q: 'Kurumsal firmalar için fatura ve iş bitiminde ödeme nasıl işliyor?',
         a: 'Fatura talebinizi teklif aşamasında iletebilirsiniz. Tanınmış sanatçılar, menajerlik ofisleri ve yapım şirketleri “İş bitiminde ödeme” başvurusu yapabilir; onaylandığında ödeme kampanya raporu teslim edildikten sonra alınır.',
+      },
+      {
+        q: 'YouTube izlenme fiyatları 2026 yılında nasıl hesaplanır?',
+        a: 'YouTube izlenme fiyatları; hedeflenen ülke (Türkiye, Avrupa diaspora veya Global), seçilen izlenme hacmi (1.000’den 1.000.000+ izlenmeye) ve reklam formatına (In-Stream, In-Feed Keşfet, Shorts) göre CPV modeliyle belirlenir.',
       },
     ],
   },
