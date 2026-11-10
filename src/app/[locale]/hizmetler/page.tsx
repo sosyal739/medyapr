@@ -344,10 +344,10 @@ export default async function ServicesPage({ params }: Props) {
                 → {isAr ? 'دليل الترويج بإعلانات YouTube Shorts' : isTr ? 'YouTube Shorts Reklam Verme & Demand Gen Rehberi' : 'YouTube Shorts Ad Promotion Guide'}
               </Link>
               <Link
-                href={isAr ? '/ar/blog/promote-music-video-youtube-saudi-egypt-morocco-guide' : `/${locale}/blog/youtube-4000-saat-izlenme-suresi-nasil-doldurulur-para-kazanma-rehberi`}
+                href={isAr ? '/ar/blog/promote-music-video-youtube-saudi-egypt-morocco-guide' : `/${locale}/blog/youtube-premiere-nasil-yapilir-muzik-klibi-lansman-adimlari`}
                 className="hover:underline"
               >
-                → {isAr ? 'دليل ترويج الكليب في السعودية ومصر والمغرب' : isTr ? 'YouTube 4000 Saat İzlenme Süresi Doldurma Rehberi' : 'YouTube 4,000 Watch Hours Guide'}
+                → {isAr ? 'دليل ترويج الكليب في السعودية ومصر والمغرب' : isTr ? 'YouTube Premiere ile Klip Lansmanı Rehberi' : 'YouTube Premiere Music Video Launch Guide'}
               </Link>
               <Link
                 href={isAr ? '/ar/blog/youtube-music-video-promotion-google-ads-guide' : `/${locale}/blog/youtube-izlenme-satin-almak-zararli-mi-bot-panel-vs-google-ads-2026`}

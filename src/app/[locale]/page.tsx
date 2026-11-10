@@ -326,16 +326,16 @@ export default async function HomePage({ params }: Props) {
             {isAr ? (
               <>
                 <Link
-                  href="/ar/blog/youtube-saudi-arabia-music-chart-october-2026"
+                  href="/ar/blog/launch-music-video-youtube-saudi-arabia-gulf-plan-2026"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
-                  🇸🇦 قائمة يوتيوب للموسيقى في السعودية 2026 ←
+                  🇸🇦 خطة إطلاق فيديو كليب على يوتيوب في السعودية 2026 ←
                 </Link>
                 <Link
-                  href="/ar/blog/youtube-morocco-music-chart-october-2026"
+                  href="/ar/blog/promote-music-video-youtube-saudi-egypt-morocco-guide"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
-                  🇲🇦 قائمة يوتيوب للموسيقى في المغرب 2026 ←
+                  🌍 كيف تروّج لكليبك على يوتيوب في السعودية ومصر والمغرب ←
                 </Link>
                 <Link
                   href="/ar/blog/youtube-bot-panel-risks-official-google-ads-difference"
@@ -344,16 +344,16 @@ export default async function HomePage({ params }: Props) {
                   🛡️ هل شراء مشاهدات يوتيوب ضروري؟ الدليل الرسمي ←
                 </Link>
                 <Link
-                  href="/ar/blog/nancy-ajram-bastafizzak-youtube-analysis"
+                  href="/ar/blog/first-48-hours-music-video-youtube-algorithm-guide"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
-                  🎤 تحليل كليب نانسي عجرم «بستفزك» على يوتيوب ←
+                  ⏱️ أول 48 ساعة لكليبك على يوتيوب: دليل الخوارزمية ←
                 </Link>
                 <Link
-                  href="/ar/blog/tamer-hosny-etneen-magneen-youtube-analysis"
+                  href="/ar/blog/youtube-premiere-music-video-launch-steps"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
-                  🎬 تحليل كليب تامر حسني «اتنين مجانين» على يوتيوب ←
+                  🎬 العرض الأول (Premiere) في يوتيوب: خطوات إطلاق الكليب ←
                 </Link>
                 <Link
                   href="/ar/blog/youtube-music-video-promotion-google-ads-guide"
@@ -434,28 +434,28 @@ export default async function HomePage({ params }: Props) {
                   🔥 Müzik Kliplerinde İlk 48 Saat & Trend Formülü →
                 </Link>
                 <Link
-                  href="/tr/blog/simge-sagin-kimdir-kac-yasinda-nereli-sarkilari-ve-youtube-klipleri"
+                  href="/tr/blog/youtube-premiere-nasil-yapilir-muzik-klibi-lansman-adimlari"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
-                  🎤 Simge Sağın Kimdir? Şarkıları & YouTube Analizi →
+                  🎬 YouTube Premiere (İlk Gösterim) Nasıl Yapılır? →
                 </Link>
                 <Link
-                  href="/tr/blog/turk-sarkicilar-rap-pop-kac-yasinda-nereli-gercek-adi-2026-listesi"
+                  href="/tr/blog/youtubeda-sarkiniz-neden-tutmuyor-klip-cikaran-muzikisyenlerin-5-buyuk-hatasi"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
-                  🌟 Türk Şarkıcılar 2026 Ansiklopedisi (Yaş & Boy) →
+                  ❓ Şarkınız YouTube'da Neden Tutmuyor? 5 Büyük Klip Hatası →
                 </Link>
                 <Link
-                  href="/tr/blog/blok3-hakan-aydin-kimdir-sarkilari-tarzi-ve-youtube-basarisi"
+                  href="/tr/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
-                  🎧 BLOK3 (Hakan Aydın) Kimdir? YouTube Başarısı →
+                  📱 YouTube Shorts Reklam Verme: Müzik Klibi Rehberi →
                 </Link>
                 <Link
-                  href="/tr/blog/dedubluman-kimdir-alternatif-rockin-zirveye-uzanan-basari-hikayesi"
+                  href="/tr/blog/muzik-klibi-lansmaninda-instagram-reels-ve-youtube-teaser-rehberi"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
-                  🎸 Dedublüman Kimdir? Alternatif Rock Analizi →
+                  🎞️ Klip Lansmanında Instagram Reels ve YouTube Teaser Rehberi →
                 </Link>
               </>
             ) : (
@@ -479,22 +479,22 @@ export default async function HomePage({ params }: Props) {
                   🎤 Hip-Hop & Rap Music Video PR Playbook →
                 </Link>
                 <Link
-                  href="/en/blog/youtube-music-chart-usa-october-2026-latin-and-hip-hop"
+                  href="/en/blog/youtube-music-marketing-plan-30-day-release-guide-2026"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
-                  🇺🇸 YouTube USA Music Chart & PR Trends →
+                  🗓️ YouTube Music Marketing Plan: 30-Day Release Guide →
                 </Link>
                 <Link
-                  href="/en/blog/youtube-music-chart-uk-october-2026-diaspora-sounds"
+                  href="/en/blog/how-independent-artists-get-millions-of-views-without-a-record-label"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
-                  🇬🇧 YouTube UK Music Chart & Promotion Guide →
+                  🚀 Independent Artists: 1M YouTube Views Without a Label →
                 </Link>
                 <Link
-                  href="/en/blog/sabrina-carpenter-taste-please-please-please-youtube-pr-playbook"
+                  href="/en/blog/spotify-vs-youtube-music-marketing-where-to-spend-your-pr-budget"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
-                  ⭐ Sabrina Carpenter YouTube Video PR Playbook →
+                  💸 Spotify vs YouTube Music Marketing: PR Budget Guide →
                 </Link>
               </>
             )}

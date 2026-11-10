@@ -43,12 +43,12 @@ const nextConfig: NextConfig = {
       // Consolidated blog posts (with and without locale prefix to prevent 2-hop chains)
       {
         source: '/:locale(tr|en)/blog/sabrina-carpenter-espresso-youtube-video-strategy',
-        destination: '/en/blog/sabrina-carpenter-taste-please-please-please-youtube-pr-playbook',
+        destination: '/en/blog',
         permanent: true,
       },
       {
         source: '/blog/sabrina-carpenter-espresso-youtube-video-strategy',
-        destination: '/en/blog/sabrina-carpenter-taste-please-please-please-youtube-pr-playbook',
+        destination: '/en/blog',
         permanent: true,
       },
       {

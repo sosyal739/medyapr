@@ -260,18 +260,18 @@ export default async function LandingPageRoute({ params }: Props) {
               {isAr ? (
                 <>
                   <li>
-                    <Link href="/ar/blog/youtube-saudi-arabia-music-chart-october-2026" className="text-sm text-zinc-300 hover:text-white">
-                      → قائمة يوتيوب للموسيقى في السعودية: تحليل أكتوبر 2026
+                    <Link href="/ar/blog/launch-music-video-youtube-saudi-arabia-gulf-plan-2026" className="text-sm text-zinc-300 hover:text-white">
+                      → خطة إطلاق فيديو كليب على يوتيوب في السعودية 2026
                     </Link>
                   </li>
                   <li>
-                    <Link href="/ar/blog/youtube-egypt-music-chart-october-2026" className="text-sm text-zinc-300 hover:text-white">
-                      → قائمة يوتيوب للموسيقى في مصر: الأغاني الأكثر رواجًا 2026
+                    <Link href="/ar/blog/promote-music-video-youtube-saudi-egypt-morocco-guide" className="text-sm text-zinc-300 hover:text-white">
+                      → كيف تروّج لكليبك على يوتيوب في السعودية ومصر والمغرب
                     </Link>
                   </li>
                   <li>
-                    <Link href="/ar/blog/youtube-morocco-music-chart-october-2026" className="text-sm text-zinc-300 hover:text-white">
-                      → قائمة يوتيوب للموسيقى في المغرب: راي وراب ورجادة 2026
+                    <Link href="/ar/blog/first-48-hours-music-video-youtube-algorithm-guide" className="text-sm text-zinc-300 hover:text-white">
+                      → أول 48 ساعة لكليبك على يوتيوب: دليل الخوارزمية
                     </Link>
                   </li>
                   <li>
@@ -334,8 +334,8 @@ export default async function LandingPageRoute({ params }: Props) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/en/blog/youtube-music-chart-usa-october-2026-latin-and-hip-hop" className="text-sm text-zinc-300 hover:text-white">
-                      → YouTube USA Music Chart & Promotion Trends 2026
+                    <Link href="/en/blog/youtube-music-marketing-plan-30-day-release-guide-2026" className="text-sm text-zinc-300 hover:text-white">
+                      → YouTube Music Marketing Plan: 30-Day Release Guide
                     </Link>
                   </li>
                 </>
