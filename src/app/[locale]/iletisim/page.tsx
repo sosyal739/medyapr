@@ -16,12 +16,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: {
       absolute: isAr
-        ? 'اتصل بنا | MedyaPR وكالة الترويج لفيديو يوتيوب'
+        ? 'اتصل بنا | MedyaPR'
         : isEs
-        ? 'Contacto | MedyaPR Agencia de Promoción en YouTube'
+        ? 'Contacto | MedyaPR'
         : isTr
-        ? 'İletişim | MedyaPR YouTube Video PR & Danışmanlık'
-        : 'Contact Us | MedyaPR YouTube Video PR Agency',
+        ? 'İletişim | MedyaPR'
+        : 'Contact Us | MedyaPR',
     },
     description: isAr
       ? 'تواصل مع MedyaPR لحملات الترويج لفيديو الكليب على يوتيوب. تحليل إعلانات Google Ads الرسمية، وعروض أسعار مخصصة، ودعم عبر WhatsApp.'

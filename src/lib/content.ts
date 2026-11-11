@@ -34,6 +34,8 @@ export interface BlogPost {
   noCta?: boolean;
   /** Arama motorlarında dizin dışı tutulur (noindex, follow) ve sitemap'e eklenmez. */
   noindex?: boolean;
+  /** İçerik gerçekten güncellendiğinde tarih (schema dateModified); yoksa yayın tarihi kullanılır. */
+  updated?: string;
   /**
    * Arapça/İspanyolca yazılar: metin alanları ilgili dildedir, `category` dildeki etikettir.
    * Blog kategorisi `categoryKey` ile eşleşir.

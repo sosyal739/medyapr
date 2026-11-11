@@ -17,12 +17,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: {
       absolute: isAr
-        ? 'سياسة الخصوصية | MedyaPR وكالة آمنة للترويج للفيديو'
+        ? 'سياسة الخصوصية | MedyaPR'
         : isEs
-        ? 'Política de Privacidad | MedyaPR Agencia Segura de Promoción en YouTube'
+        ? 'Política de Privacidad | MedyaPR'
         : isTr
-        ? 'Gizlilik Politikası | MedyaPR Güvenli Video Ajansı'
-        : 'Privacy Policy | MedyaPR Secure Video PR Agency',
+        ? 'Gizlilik Politikası | MedyaPR'
+        : 'Privacy Policy | MedyaPR',
     },
     description: isAr
       ? 'سياسة الخصوصية وأمن البيانات في MedyaPR. أمان حملات الفيديو، وحماية القناة، وعدم طلب أي بيانات دخول، ومعايير الامتثال للائحة GDPR.'

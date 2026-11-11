@@ -1,7 +1,28 @@
-# MedyaPR — Official Google Ads Supported YouTube Video & Music PR Agency
-# وكالة MedyaPR الرسمية لترويج فيديو كليب على يوتيوب عبر إعلانات Google Ads
+# MedyaPR
 
-> MedyaPR, 18 yılı aşkındır dijital medya sektöründe kesintisiz hizmet veren; Türkiye, Avrupa ve MENA (Suudi Arabistan, Mısır, Fas, BAE, Körfez) bölgesindeki sanatçı, müzik grubu, yapım şirketi ve kurumsal markalara resmi Google Ads altyapısıyla YouTube video ve klip PR çalışması yürüten profesyonel bir ajanstır.
+> MedyaPR, YouTube müzik kliplerini resmi Google Ads video kampanyalarıyla tanıtan bir video PR ajansıdır. Ekibimiz 18 yılı aşkın dijital reklam deneyimine sahiptir; Türkiye, Avrupa ve MENA bölgesindeki sanatçı, müzik grubu ve yapım şirketleriyle çalışır. MedyaPR is a YouTube music video promotion agency running official Google Ads video campaigns (Turkish, English, Arabic).
+
+## Ana sayfalar / Key pages
+- [Ana sayfa (Türkçe)](https://medyapr.com/tr): Hizmet özeti, fiyat hesaplayıcı, sık sorulan sorular
+- [Home (English)](https://medyapr.com/en): Service overview, price calculator, FAQ
+- [الصفحة الرئيسية (العربية)](https://medyapr.com/ar): نظرة عامة على الخدمة
+- [Hizmetler](https://medyapr.com/tr/hizmetler) · [Services](https://medyapr.com/en/hizmetler)
+- [Fiyatlar ve hesaplayıcı](https://medyapr.com/tr/fiyatlandirma) · [Pricing](https://medyapr.com/en/fiyatlandirma) · [الأسعار](https://medyapr.com/ar/fiyatlandirma)
+- [Klip PR ve lansman](https://medyapr.com/tr/klip-pr) · [Music video launch PR](https://medyapr.com/en/klip-pr)
+- [YouTube klip tanıtımı](https://medyapr.com/tr/youtube-klip-tanitimi) · [YouTube music video promotion](https://medyapr.com/en/youtube-music-video-promotion)
+- [Google Ads for music videos](https://medyapr.com/en/google-ads-for-music-videos) · [YouTube reklam fiyatları](https://medyapr.com/tr/youtube-reklam-fiyatlari)
+- [Hakkımızda](https://medyapr.com/tr/hakkimizda) · [About us](https://medyapr.com/en/hakkimizda)
+- [Sık sorulan sorular](https://medyapr.com/tr/sss) · [FAQ](https://medyapr.com/en/sss)
+- [İletişim](https://medyapr.com/tr/iletisim) · [Contact](https://medyapr.com/en/iletisim)
+- [Blog (Türkçe)](https://medyapr.com/tr/blog) · [Blog (English)](https://medyapr.com/en/blog)
+
+## Rehberler / Guides
+- [YouTube Premiere ile klip lansmanı](https://medyapr.com/tr/blog/youtube-premiere-nasil-yapilir-muzik-klibi-lansman-adimlari)
+- [Müzik kliplerinde ilk 48 saat](https://medyapr.com/tr/blog/muzik-kliplerinde-ilk-48-saat-algoritma-rehberi)
+- [YouTube izlenme satın almak zararlı mı? Bot paneli ve resmi reklam farkı](https://medyapr.com/tr/blog/youtube-izlenme-satin-almak-zararli-mi-bot-panel-vs-google-ads-2026)
+- [YouTube izlenme nasıl sayılır?](https://medyapr.com/tr/blog/youtube-izlenme-nasil-sayilir-24-agustos-2026-yeni-kural)
+- [YouTube Shorts reklamı](https://medyapr.com/tr/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen)
+- [YouTube Music Marketing Plan: 30-Day Release Guide](https://medyapr.com/en/blog/youtube-music-marketing-plan-30-day-release-guide-2026)
 
 ---
 

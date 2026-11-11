@@ -260,13 +260,13 @@ export default async function BlogPostPage({ params }: Props) {
       description: postSummary,
       image: post.image,
       datePublished: toIsoDateString(post.date),
+      dateModified: toIsoDateString(post.updated ?? post.date),
       inLanguage: isAr ? schemaLang('ar') : isEs ? schemaLang('es') : (isTr || !hasEn) ? 'tr-TR' : 'en-US',
       mainEntityOfPage: `https://medyapr.com/${locale}/blog/${slug}`,
-      author: {
-        '@type': 'Organization',
-        name: 'MedyaPR',
-        url: `https://medyapr.com/${locale}/hakkimizda`,
-      },
+      // Görünür imza (post.author) ile şema yazarı aynı olsun: kişi adıysa Person, marka adıysa Organization.
+      author: post.author && !post.author.includes('MedyaPR')
+        ? { '@type': 'Person', name: post.author, url: `https://medyapr.com/${locale}/hakkimizda` }
+        : { '@type': 'Organization', name: 'MedyaPR', url: `https://medyapr.com/${locale}/hakkimizda` },
       publisher: {
         '@type': 'Organization',
         name: 'MedyaPR',

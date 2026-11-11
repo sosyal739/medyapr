@@ -17,10 +17,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: {
       absolute: isAr
-        ? 'سياسة الاسترداد والضمان | MedyaPR للترويج للفيديو'
+        ? 'سياسة الاسترداد والضمان | MedyaPR'
         : isTr
-        ? 'İade ve Garanti Politikası | MedyaPR Güvencesi'
-        : 'Refund & Guarantee Policy | MedyaPR Video PR',
+        ? 'İade ve Garanti Politikası | MedyaPR'
+        : 'Refund & Guarantee Policy | MedyaPR',
     },
     description: isAr
       ? 'ضمان MedyaPR للموافقة والاسترداد بنسبة 100%. استرداد كامل للمبلغ إذا لم تتم موافقة Google Ads على الحملات أو لم يكتمل التسليم.'

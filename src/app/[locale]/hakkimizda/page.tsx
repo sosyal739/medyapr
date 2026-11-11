@@ -20,12 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: {
       absolute: isAr
-        ? 'من نحن | MedyaPR وكالة شريكة رسمية لـ Google'
+        ? 'من نحن | MedyaPR'
         : isEs
-        ? 'Sobre Nosotros | MedyaPR Agencia Partner Oficial de Google'
+        ? 'Sobre Nosotros | MedyaPR'
         : isTr
-        ? 'Hakkımızda | MedyaPR Resmi Google Partner Ajansı'
-        : 'About Us | MedyaPR Official Google Partner Agency',
+        ? 'Hakkımızda | MedyaPR'
+        : 'About Us | MedyaPR',
     },
     description: isAr
       ? 'أكثر من 18 عامًا من التميّز في العلاقات العامة الرقمية، نقدّم إدارة رسمية لإعلانات فيديو يوتيوب والترويج لفيديو الكليب عبر Google Ads للفنانين حول العالم.'

@@ -22,6 +22,16 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
+/** Ana sayfa içeriğinin son gerçek güncellemesi (görünür tarih + schema dateModified). İçerik değişince elle güncelleyin. */
+const HOME_UPDATED = '2026-11-11';
+
+/** HeroSection'daki tanıtım videosuyla aynı dosyalar (VideoObject şeması için). */
+function getHeroVideo(locale: string) {
+  if (locale === 'tr') return { src: '/video/medyapr_tanitim.mp4', poster: '/video/poster.webp', uploadDate: '2026-10-13' };
+  if (locale === 'ar') return { src: '/video/medyapr_tanitim_ar.mp4', poster: '/video/poster_ar.webp', uploadDate: '2026-10-19' };
+  return { src: '/video/medyapr_tanitim_en.mp4', poster: '/video/poster_en.webp', uploadDate: '2026-10-19' };
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const isTr = locale === 'tr';
@@ -58,6 +68,7 @@ export default async function HomePage({ params }: Props) {
   const { trends } = await getTrends();
   const trendingSongs = locale === 'ar' ? (trends.sa.length ? trends.sa : trends.tr) : locale === 'es' ? (trends.mx.length ? trends.mx : trends.es.length ? trends.es : trends.us) : locale === 'tr' ? trends.tr : trends.us.length ? trends.us : trends.tr;
   const blogPosts = await getPostsForLocale(locale);
+  const heroVideo = getHeroVideo(locale);
 
   return (
     <>
@@ -68,6 +79,26 @@ export default async function HomePage({ params }: Props) {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@graph': [
+              {
+                '@type': 'WebPage',
+                '@id': `https://medyapr.com/${locale}#webpage`,
+                url: `https://medyapr.com/${locale}`,
+                name: 'MedyaPR',
+                isPartOf: { '@id': 'https://medyapr.com/#website' },
+                about: { '@id': 'https://medyapr.com/#organization' },
+                dateModified: HOME_UPDATED,
+                primaryImageOfPage: `https://medyapr.com${heroVideo.poster}`,
+              },
+              {
+                '@type': 'VideoObject',
+                name: locale === 'ar' ? 'MedyaPR: الترويج لفيديو يوتيوب عبر Google Ads' : locale === 'tr' ? 'MedyaPR tanıtım videosu: Google Ads ile YouTube klip tanıtımı' : 'MedyaPR intro: YouTube music video promotion with Google Ads',
+                description: dict.metadata.description,
+                thumbnailUrl: `https://medyapr.com${heroVideo.poster}`,
+                contentUrl: `https://medyapr.com${heroVideo.src}`,
+                uploadDate: heroVideo.uploadDate,
+                inLanguage: locale === 'ar' ? 'ar' : locale === 'tr' ? 'tr' : 'en',
+                publisher: { '@id': 'https://medyapr.com/#organization' },
+              },
               {
                 '@type': 'FAQPage',
                 mainEntity: getFaqs(locale).map((item) => ({
@@ -505,6 +536,17 @@ export default async function HomePage({ params }: Props) {
       <div className="cv-auto">
         <FAQSection dict={dict} locale={locale} />
       </div>
+
+      <p className="pb-8 text-center text-xs text-zinc-400">
+        {isAr ? 'آخر تحديث' : isEs ? 'Última actualización' : isTr ? 'Son güncelleme' : 'Last updated'}:{' '}
+        <time dateTime={HOME_UPDATED}>
+          {new Date(`${HOME_UPDATED}T12:00:00Z`).toLocaleDateString(isAr ? 'ar' : isEs ? 'es-ES' : isTr ? 'tr-TR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+        {' · '}
+        <Link href={`/${locale}/hakkimizda`} className="underline hover:text-white">
+          {isAr ? 'من نحن' : isEs ? 'Sobre nosotros' : isTr ? 'Hakkımızda' : 'About us'}
+        </Link>
+      </p>
     </>
   );
 }

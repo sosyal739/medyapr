@@ -17,12 +17,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: {
       absolute: isAr
-        ? 'شروط الاستخدام | MedyaPR للترويج الرسمي للفيديو'
+        ? 'شروط الاستخدام | MedyaPR'
         : isEs
-        ? 'Términos de Servicio | MedyaPR Agencia de Promoción en YouTube'
+        ? 'Términos de Servicio | MedyaPR'
         : isTr
-        ? 'Kullanım Koşulları | MedyaPR Resmi Video Ajansı'
-        : 'Terms of Service | MedyaPR Official Video PR',
+        ? 'Kullanım Koşulları | MedyaPR'
+        : 'Terms of Service | MedyaPR',
     },
     description: isAr
       ? 'شروط وأحكام خدمات الترويج للفيديو من MedyaPR. موافقة الحملات، والالتزام بسياسات Google Ads، وشروط الدفع، وقواعد الخدمة.'

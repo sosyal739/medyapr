@@ -104,7 +104,7 @@ export default async function LocaleLayout({ params, children }: Props) {
                   '@type': 'Organization',
                   '@id': 'https://medyapr.com/#organization',
                   name: 'MedyaPR',
-                  legalName: locale === 'ar' ? 'MedyaPR وكالة إعلانات الفيديو والعلاقات العامة' : locale === 'es' ? 'MedyaPR Agencia de Publicidad y PR de Videos Musicales' : locale === 'tr' ? 'MedyaPR Video Reklam & PR Ajansı' : 'MedyaPR Video Advertising & PR Agency',
+                  alternateName: 'Medya PR',
                   url: 'https://medyapr.com',
                   logo: {
                     '@type': 'ImageObject',
@@ -128,7 +128,7 @@ export default async function LocaleLayout({ params, children }: Props) {
                 {
                   '@type': 'ProfessionalService',
                   '@id': 'https://medyapr.com/#service',
-                  name: locale === 'ar' ? 'MedyaPR — وكالة الترويج لفيديو يوتيوب وإعلانات Google Ads' : locale === 'es' ? 'MedyaPR — Agencia de Promoción de Videos en YouTube y Google Ads' : locale === 'tr' ? 'MedyaPR — YouTube Video PR & Google Ads Ajansı' : 'MedyaPR — YouTube Video PR & Google Ads Agency',
+                  name: 'MedyaPR',
                   url: 'https://medyapr.com',
                   priceRange: locale === 'tr' ? '₺₺' : '$$',
                   currenciesAccepted: 'TRY, USD, EUR',
