@@ -51,7 +51,7 @@ export async function generateMetadata({
     title: { absolute: title },
     description,
     robots: {
-      index: true,
+      index: !isEs,
       follow: true,
     },
     alternates: getPageAlternates(locale, '/klip-pr'),

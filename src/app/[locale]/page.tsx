@@ -23,7 +23,7 @@ type Props = {
 };
 
 /** Ana sayfa içeriğinin son gerçek güncellemesi (görünür tarih + schema dateModified). İçerik değişince elle güncelleyin. */
-const HOME_UPDATED = '2026-11-11';
+const HOME_UPDATED = '2026-11-14';
 
 /** HeroSection'daki tanıtım videosuyla aynı dosyalar (VideoObject şeması için). */
 function getHeroVideo(locale: string) {
@@ -477,10 +477,10 @@ export default async function HomePage({ params }: Props) {
                   ❓ Şarkınız YouTube'da Neden Tutmuyor? 5 Büyük Klip Hatası →
                 </Link>
                 <Link
-                  href="/tr/blog/youtube-shorts-reklami-nasil-verilir-muzik-klibi-demand-gen"
+                  href="/tr/blog/youtube-izlenme-satin-almak-zararli-mi-bot-panel-vs-google-ads-2026"
                   className="rounded-xl border border-white/10 bg-white/[0.03] p-3.5 hover:border-[#FF0033]/50 transition text-white"
                 >
-                  📱 YouTube Shorts Reklam Verme: Müzik Klibi Rehberi →
+                  🛡️ YouTube İzlenme Satın Almak Zararlı mı? Resmi Reklam Farkı →
                 </Link>
                 <Link
                   href="/tr/blog/muzik-klibi-lansmaninda-instagram-reels-ve-youtube-teaser-rehberi"

@@ -8,7 +8,7 @@ const LOCALES = ['tr', 'en', 'ar'] as const;
 /** Türkiye/İngilizce içerikli bölümler (klip): Arapça ve İspanyolca sürümleri yoktur. */
 const TR_EN_ONLY = ['tr', 'en'] as const;
 const TR_EN_ONLY_ROUTES = new Set(['/yeni-klipler']);
-const STABLE_SITE_DATE = new Date('2026-11-09T00:00:00.000Z');
+const STABLE_SITE_DATE = new Date('2026-11-14T00:00:00.000Z');
 
 function parseTurkishDate(dateStr?: string): Date {
   if (!dateStr) return STABLE_SITE_DATE;
@@ -39,16 +39,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes = [
     '',
     '/fiyatlandirma',
-    '/order',
     '/klip-pr',
     '/hizmetler',
     '/hakkimizda',
     '/sss',
-    '/iletisim',
     '/blog',
-    '/gizlilik',
-    '/kullanim-kosullari',
-    '/iade-politikasi',
   ];
 
   const entries: MetadataRoute.Sitemap = [];

@@ -13,14 +13,30 @@ import {
   Share2,
   Lightbulb,
 } from 'lucide-react';
-import { getPostsForLocale, postCategoryKey } from '@/lib/content';
+import { getPostsForLocale, getPosts, getArPosts, isPostFullyTranslatedEn, postCategoryKey } from '@/lib/content';
 import { getPageAlternates, toIsoDateString, displayDate } from '@/lib/seo';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ locale: string }>;
+  searchParams?: Promise<{ kategori?: string }>;
+}): Promise<Metadata> {
   const { locale } = await params;
+  const resolvedSearchParams = searchParams ? await searchParams : {};
+  const hasCategoryFilter = Boolean(resolvedSearchParams?.kategori && resolvedSearchParams.kategori !== 'all');
   const isTr = locale === 'tr';
   const isAr = locale === 'ar';
   const isEs = locale === 'es';
+
+  const description = isAr
+    ? 'أدلة الترويج الرسمي لفيديو كليب يوتيوب عبر إعلانات Google Ads، واستراتيجيات الخوارزمية، وخطط الإطلاق، والعلاقات العامة الرقمية للفنانين المستقلين.'
+    : isTr
+    ? 'Resmi Google Ads YouTube klip reklamları, algoritma rehberleri, gerçek izlenme stratejileri ve bağımsız sanatçılar için dijital müzik PR kılavuzları.'
+    : isEs
+    ? 'Estrategias de lanzamiento de videoclips en YouTube, análisis de tendencias musicales, algoritmos y campañas oficiales de Google Ads para artistas.'
+    : 'Official Google Ads YouTube music video promotion guides, algorithm strategies, release playbooks, and digital PR insights for independent artists.';
 
   return {
     title: {
@@ -32,13 +48,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         ? 'Blog de Estrategia de Videos Musicales y YouTube PR | MedyaPR'
         : 'YouTube Music Video & PR Strategy Blog | MedyaPR',
     },
-    description: isAr
-      ? 'أساليب نمو وسائل التواصل الاجتماعي، وخطط إطلاق فيديو كليب على يوتيوب، وسير الفنانين، وأدلة الخوارزمية، واستراتيجيات الترويج عبر إعلانات Google Ads الرسمية.'
-      : isTr
-      ? 'Sosyal medya tüyoları, nasıl yapılır rehberleri, tavsiyeler, sanatçı biyografileri (kimdir), klip analizleri ve resmi Google Ads video PR stratejileri.'
-      : isEs
-      ? 'Estrategias de lanzamiento de videoclips en YouTube, análisis de tendencias musicales, algoritmos y campañas oficiales de Google Ads.'
-      : 'Social media growth tactics, YouTube music video launch playbooks, artist biographies, algorithm guides, and official Google Ads PR strategies.',
+    description,
+    robots: {
+      index: !isEs && !hasCategoryFilter,
+      follow: true,
+    },
     alternates: getPageAlternates(locale, '/blog'),
     openGraph: {
       title: isAr
@@ -48,13 +62,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         : isEs
         ? 'Blog de Estrategia de Videos Musicales y YouTube PR | MedyaPR'
         : 'YouTube Music Video & PR Strategy Blog | MedyaPR',
-      description: isAr
-        ? 'أساليب نمو وسائل التواصل الاجتماعي، وخطط إطلاق فيديو كليب على يوتيوب، وسير الفنانين، وأدلة الخوارزمية، واستراتيجيات الترويج عبر إعلانات Google Ads الرسمية.'
-        : isTr
-        ? 'Sosyal medya tüyoları, nasıl yapılır rehberleri, tavsiyeler, sanatçı biyografileri (kimdir), klip analizleri ve resmi Google Ads video PR stratejileri.'
-        : isEs
-        ? 'Estrategias de lanzamiento de videoclips en YouTube, análisis de tendencias musicales, algoritmos y campañas oficiales de Google Ads.'
-        : 'Social media growth tactics, YouTube music video launch playbooks, artist biographies, algorithm guides, and official Google Ads PR strategies.',
+      description,
       url: `https://medyapr.com/${locale}/blog`,
       images: ['/og-image.jpg'],
     },
@@ -85,6 +93,13 @@ export default async function BlogIndexPage({
   const isAr = locale === 'ar';
   const isEs = locale === 'es';
   const allPosts = await getPostsForLocale(locale);
+  const archivedPosts = isAr
+    ? (await getArPosts()).filter((p) => p.noindex)
+    : isTr
+    ? (await getPosts()).filter((p) => p.noindex && !p.enOnly)
+    : !isEs
+    ? (await getPosts()).filter((p) => p.noindex && isPostFullyTranslatedEn(p))
+    : [];
 
   const activeCategory = CATEGORIES.find((c) => c.key === activeCategoryKey) || CATEGORIES[0];
 
@@ -123,12 +138,12 @@ export default async function BlogIndexPage({
           ? 'MedyaPR Blog de Estrategia de Videos Musicales y YouTube PR'
           : 'MedyaPR YouTube Video & Music PR Strategy Blog',
         description: isAr
-          ? 'بورتريهات الفنانين، واستراتيجيات الترويج لفيديو كليب على يوتيوب، وتحليلات الخوارزمية، وأدلة إعلانات Google Ads الرسمية.'
+          ? 'أدلة الترويج الرسمي لفيديو كليب يوتيوب عبر إعلانات Google Ads، واستراتيجيات الخوارزمية، وخطط الإطلاق للموسيقيين المستقلين.'
           : isTr
-          ? 'Sanatçı biyografileri, trend şarkı analizleri, klip pazarlama dinamikleri ve resmi Google Ads büyüme rehberleri.'
+          ? 'Resmi Google Ads YouTube klip reklamları, algoritma rehberleri, lansman stratejileri ve dijital müzik PR kılavuzları.'
           : isEs
-          ? 'Análisis de canciones en tendencia, estrategias de promoción de videoclips y guías de crecimiento con Google Ads.'
-          : 'Artist portraits, YouTube music video PR strategies, algorithm breakdowns, and official Google Ads guides.',
+          ? 'Estrategias de promoción de videoclips en YouTube, algoritmos y guías oficiales de crecimiento con Google Ads.'
+          : 'Official Google Ads YouTube music video PR guides, algorithm strategies, release playbooks, and campaign frameworks.',
         url: `https://medyapr.com/${locale}/blog`,
         blogPost: filteredPosts.map((p) => ({
           '@type': 'BlogPosting',
@@ -213,12 +228,12 @@ export default async function BlogIndexPage({
           </h1>
           <p className="mt-3 text-sm md:text-base text-zinc-300 max-w-3xl leading-relaxed">
             {isAr
-              ? 'نظرة معمّقة على الموسيقى الرائجة، وملفات الفنانين، وخطط إطلاق الفيديو، وتحسين الخوارزمية.'
+              ? 'أدلة الترويج الرسمي لفيديو كليب يوتيوب عبر إعلانات Google Ads، وخطط الإطلاق في أول 48 ساعة، وتحسين خوارزمية القناة.'
               : isTr
-              ? 'Sanatçı portreleri, YouTube trend şarkı analizleri, klip lansmanlarında ilk 48 saat taktikleri ve resmi Google Ads video kampanyalarıyla kanal büyütme sırları.'
+              ? 'Resmi Google Ads YouTube klip reklamları, lansmanlarda ilk 48 saat algoritma stratejileri ve sanatçı kanalı büyütme rehberleri.'
               : isEs
-              ? 'Análisis en profundidad sobre música en tendencia, planes de lanzamiento de videoclips y optimización del algoritmo de YouTube con Google Ads.'
-              : 'Deep dives on trending music, artist profiles, video launch playbooks, and algorithm optimization.'}
+              ? 'Guías oficiales de Google Ads para videoclips en YouTube, tácticas de lanzamiento y optimización del algoritmo musical.'
+              : 'Official Google Ads YouTube music video promotion guides, first-48-hour launch playbooks, and channel algorithm strategies.'}
           </p>
         </div>
 
@@ -242,8 +257,8 @@ export default async function BlogIndexPage({
                   ? allPosts.length
                   : allPosts.filter((p) => postCategoryKey(p) === cat.key).length;
 
-              // Arapça veya İspanyolca blogda yazısı olmayan kategori sekmesi gösterilmez (boş sayfa SEO'ya zarar verir).
-              if ((locale === 'ar' || locale === 'es') && cat.match !== null && count === 0) return null;
+              // Yazısı olmayan kategori sekmeleri gösterilmez (noindex / boş kategori linkleri SEO'ya zarar verir).
+              if (cat.match !== null && count === 0) return null;
 
               const href =
                 cat.key === 'all'
@@ -365,6 +380,34 @@ export default async function BlogIndexPage({
             );
           })}
         </div>
+
+        {/* Arşiv & Yeniden Yapılandırılan Yazılar (Botların noindex/301 güncellemesini okuması için SSR köprüsü) */}
+        {archivedPosts.length > 0 && (
+          <details className="mt-16 border-t border-zinc-800/80 pt-6 text-xs text-zinc-500">
+            <summary className="cursor-pointer select-none font-semibold text-zinc-400 hover:text-zinc-200 transition">
+              {isAr
+                ? `أرشيف المقالات المؤرشفة (${archivedPosts.length})`
+                : isTr
+                ? `Arşiv ve Eski Rehber Kayıtları (${archivedPosts.length})`
+                : `Archived Editorial Index (${archivedPosts.length})`}
+            </summary>
+            <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {archivedPosts.map((ap) => {
+                const apTitle = !isTr && !isAr && !isEs && ap.title_en ? ap.title_en : ap.title;
+                return (
+                  <li key={ap.slug}>
+                    <Link
+                      href={`/${locale}/blog/${ap.slug}`}
+                      className="text-zinc-400 hover:text-zinc-200 underline underline-offset-2 transition"
+                    >
+                      {apTitle}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </details>
+        )}
       </div>
     </div>
   );
