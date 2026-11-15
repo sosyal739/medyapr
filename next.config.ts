@@ -142,6 +142,22 @@ const nextConfig: NextConfig = {
       { source: '/:locale(tr|en)/blog/how-to-promote-your-music-video-on-youtube-with-google-ads-2026', destination: '/en/google-ads-for-music-videos', permanent: true },
       { source: '/blog/how-to-promote-your-music-video-on-youtube-with-google-ads-2026', destination: '/en/google-ads-for-music-videos', permanent: true },
       { source: '/ar/blog/is-buying-youtube-views-worth-it-official-ads-guide', destination: '/ar/blog/youtube-bot-panel-risks-official-google-ads-difference', permanent: true },
+      // İspanyolca 15 Kas 2026: yayından kaldırıldı. Aynı sayfa varsa /en karşılığına, yoksa /en ana sayfasına kalıcı yönlendirme.
+      { source: '/es', destination: '/en', permanent: true },
+      { source: '/es/fiyatlandirma', destination: '/en/fiyatlandirma', permanent: true },
+      { source: '/es/order', destination: '/en/order', permanent: true },
+      { source: '/es/klip-pr', destination: '/en/klip-pr', permanent: true },
+      { source: '/es/hizmetler', destination: '/en/hizmetler', permanent: true },
+      { source: '/es/hakkimizda', destination: '/en/hakkimizda', permanent: true },
+      { source: '/es/sss', destination: '/en/sss', permanent: true },
+      { source: '/es/iletisim', destination: '/en/iletisim', permanent: true },
+      { source: '/es/blog', destination: '/en/blog', permanent: true },
+      { source: '/es/gizlilik', destination: '/en/gizlilik', permanent: true },
+      { source: '/es/kullanim-kosullari', destination: '/en/kullanim-kosullari', permanent: true },
+      { source: '/es/iade-politikasi', destination: '/en/iade-politikasi', permanent: true },
+      { source: '/es/trendler', destination: '/en/trendler', permanent: true },
+      { source: '/es/track', destination: '/en/track', permanent: true },
+      { source: '/es/:path*', destination: '/en', permanent: true },
     ];
   },
 };

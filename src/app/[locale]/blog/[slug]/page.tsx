@@ -22,7 +22,6 @@ import {
   getArPosts,
   getArPostBySlug,
   getArTranslationMap,
-  getEsPosts,
   getEsPostBySlug,
   getEsTranslationMap,
   getPostsForLocale,
@@ -79,12 +78,10 @@ type Props = {
 export async function generateStaticParams() {
   const posts = await getPosts();
   const arPosts = await getArPosts();
-  const esPosts = await getEsPosts();
   return [
     ...posts.filter((post) => !post.enOnly).map((post) => ({ locale: 'tr', slug: post.slug })),
     ...posts.filter(isPostFullyTranslatedEn).map((post) => ({ locale: 'en', slug: post.slug })),
     ...arPosts.map((post) => ({ locale: 'ar', slug: post.slug })),
-    ...esPosts.map((post) => ({ locale: 'es', slug: post.slug })),
   ];
 }
 
@@ -214,8 +211,6 @@ export default async function BlogPostPage({ params }: Props) {
       if (trPost) permanentRedirect(trPost.enOnly ? `/en/blog/${slug}` : `/tr/blog/${slug}`);
     } else if (await getArPostBySlug(slug)) {
       permanentRedirect(`/ar/blog/${slug}`);
-    } else if (await getEsPostBySlug(slug)) {
-      permanentRedirect(`/es/blog/${slug}`);
     }
     notFound();
   }

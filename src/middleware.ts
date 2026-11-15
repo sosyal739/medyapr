@@ -3,19 +3,17 @@ import type { NextRequest } from 'next/server';
 import { locales, defaultLocale, type Locale } from '@/lib/i18n/config';
 
 const ARAB_COUNTRIES = new Set(['SA', 'AE', 'EG', 'MA', 'DZ', 'TN', 'LY', 'IQ', 'JO', 'LB', 'SY', 'YE', 'OM', 'KW', 'QA', 'BH', 'SD', 'PS', 'MR']);
-const SPANISH_COUNTRIES = new Set(['ES', 'MX', 'CO', 'AR', 'CL', 'PE', 'EC', 'GT', 'CU', 'BO', 'DO', 'HN', 'PY', 'SV', 'NI', 'CR', 'PA', 'UY', 'PR', 'GQ']);
 const BOT_RE = /bot|crawl|spider|slurp|google|bing|yandex|baidu|duckduck|facebookexternalhit|whatsapp|telegram|twitter|linkedin|lighthouse|headless|preview/i;
 
 /** İnsan ziyaretçi için dil tespiti:
  * 1. Ziyaretçinin tarayıcı / cihaz dil tercihleri (Accept-Language q-factor ağırlıklarına göre).
- *    Desteklenen diller: 'tr', 'en', 'es', 'ar'.
+ *    Desteklenen diller: 'tr', 'en', 'ar' (İspanyolca 15 Kas 2026'da kaldırıldı, /es → /en).
  *    Örn. Türk kullanıcının tarayıcısında (Almanya'da veya Türkiye'de) 'tr' varsa doğrudan Türkçe.
  *    Arapça, İspanyolca veya İngilizce tercih edenler anında kendi dillerinde karşılanır.
  * 2. Tarayıcı dilinde doğrudan bir eşleşme yoksa (örn. de-DE, ru-RU veya boş başlık):
  *    IP / Vercel Ülke koduna göre yönlendirilir:
  *    - TR -> tr
  *    - Arap ülkeleri -> ar
- *    - İspanyolca konuşulan ülkeler -> es
  *    - Diğerleri (Almanya, ABD, AB vb.) -> en
  */
 function detectLocale(request: NextRequest): Locale {
@@ -38,7 +36,6 @@ function detectLocale(request: NextRequest): Locale {
     for (const item of parsed) {
       if (item.lang === 'tr') return 'tr';
       if (item.lang === 'ar') return 'ar';
-      if (item.lang === 'es') return 'es';
       if (item.lang === 'en') return 'en';
     }
   }
@@ -46,7 +43,6 @@ function detectLocale(request: NextRequest): Locale {
   const country = (request.headers.get('x-vercel-ip-country') ?? '').toUpperCase();
   if (country === 'TR') return 'tr';
   if (ARAB_COUNTRIES.has(country)) return 'ar';
-  if (SPANISH_COUNTRIES.has(country)) return 'es';
   return 'en';
 }
 

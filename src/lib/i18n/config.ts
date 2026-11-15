@@ -3,8 +3,12 @@
  * Defines supported locales and the default locale for the MedyaPR application.
  */
 
-export const locales = ['tr', 'en', 'ar', 'es'] as const;
-export type Locale = (typeof locales)[number];
+/**
+ * İspanyolca (es) 15 Kas 2026'da yayından kaldırıldı: /es/* adresleri next.config.ts'de /en'e kalıcı yönlendirilir.
+ * 'es' yalnızca tip olarak kalır (eski veri/sözlük dosyaları derlensin diye); yayındaki diller `locales`.
+ */
+export type Locale = 'tr' | 'en' | 'ar' | 'es';
+export const locales: readonly Locale[] = ['tr', 'en', 'ar'];
 export const defaultLocale: Locale = 'tr';
 
 export const isLocale = (v: string): v is Locale => (locales as readonly string[]).includes(v);
