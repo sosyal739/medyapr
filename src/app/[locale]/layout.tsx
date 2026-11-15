@@ -116,7 +116,7 @@ export default async function LocaleLayout({ params, children }: Props) {
                     contactType: 'customer support',
                     email: 'info@medyapr.com',
                     url: `https://medyapr.com/${locale}/iletisim`,
-                    availableLanguage: ['Turkish', 'English', 'Arabic', 'Spanish'],
+                    availableLanguage: ['Turkish', 'English', 'Arabic'],
                   },
                   sameAs: [
                     'https://wa.me/905312993355',
@@ -133,7 +133,7 @@ export default async function LocaleLayout({ params, children }: Props) {
                   priceRange: locale === 'tr' ? '₺₺' : '$$',
                   currenciesAccepted: 'TRY, USD, EUR',
                   paymentAccepted: locale === 'ar' ? 'حوالة بنكية مؤكدة عبر WhatsApp وTelegram، FAST' : locale === 'es' ? 'Transferencia bancaria confirmada por WhatsApp y Telegram, tarjeta y FAST' : locale === 'tr' ? 'WhatsApp & Telegram Onaylı Banka Havalesi, FAST' : 'WhatsApp & Telegram Confirmed Bank Wire, FAST',
-                  areaServed: ['TR', 'DE', 'MX', 'ES', 'CO', 'US', 'SA', 'EG', 'MA', 'Global'],
+                  areaServed: ['TR', 'DE', 'US', 'SA', 'EG', 'MA', 'Global'],
                   parentOrganization: { '@id': 'https://medyapr.com/#organization' },
                 },
                 {

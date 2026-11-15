@@ -198,7 +198,7 @@ export default async function TrendlerPage({ params }: { params: Promise<{ local
         <GlobalTrendsConversionBanner locale={locale} />
 
         {/* Interactive Multi-Country Tabs & Songs Grid */}
-        <TrendingCountryTabs trends={allTrends} locale={locale} initialCountry={isAr ? 'sa' : isEs ? 'mx' : isTr ? 'tr' : 'us'} />
+        <TrendingCountryTabs trends={{ ...allTrends, mx: [], es: [], co: [] }} locale={locale} initialCountry={isAr ? 'sa' : isEs ? 'mx' : isTr ? 'tr' : 'us'} />
 
         {/* ── Klip Lansman Planları & Dönüşüm Bölümü (Sanatçılar & Müzisyenler İçin) ── */}
         <div className="mt-16 rounded-3xl border border-[#FF0033]/30 bg-gradient-to-b from-zinc-900/90 to-zinc-950/95 p-8 md:p-12 shadow-2xl backdrop-blur-2xl">
