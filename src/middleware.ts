@@ -5,6 +5,81 @@ import { locales, defaultLocale, type Locale } from '@/lib/i18n/config';
 const ARAB_COUNTRIES = new Set(['SA', 'AE', 'EG', 'MA', 'DZ', 'TN', 'LY', 'IQ', 'JO', 'LB', 'SY', 'YE', 'OM', 'KW', 'QA', 'BH', 'SD', 'PS', 'MR']);
 const BOT_RE = /bot|crawl|spider|slurp|google|bing|yandex|baidu|duckduck|facebookexternalhit|whatsapp|telegram|twitter|linkedin|lighthouse|headless|preview/i;
 
+/** Uygulamanın geçerli birinci seviye rota önekleri (dil öneki olmadan gelen gerçek kısayollar). */
+const KNOWN_APP_SEGMENTS = new Set([
+  'admin',
+  'blog',
+  'es',
+  'fiyatlandirma',
+  'gizlilik',
+  'google-ads-for-music-videos',
+  'hakkimizda',
+  'hizmetler',
+  'iade-politikasi',
+  'iletisim',
+  'klip',
+  'klip-pr',
+  'kullanim-kosullari',
+  'order',
+  'promote-turkish-music-on-youtube',
+  'promocion-videos-musicales-youtube-colombia-latam',
+  'promocion-videos-musicales-youtube-mexico',
+  'promocion-youtube-music-espana-google-ads',
+  'sanatci',
+  'sanatcilar',
+  'sarki-reklami-verme',
+  'sss',
+  'track',
+  'trendler',
+  'yeni-klipler',
+  'youtube-klip-tanitimi',
+  'youtube-music-promotion-egypt',
+  'youtube-music-promotion-morocco',
+  'youtube-music-promotion-saudi-arabia',
+  'youtube-music-video-promotion',
+  'youtube-reklam-fiyatlari',
+]);
+
+/** Eski WordPress ve Mayıs 2025 düşmüş alan adı spam yolları: tek adımda 410 Gone döner. */
+const LEGACY_GONE_SEGMENTS = new Set([
+  'project',
+  'projects',
+  'portfolio',
+  'tag',
+  'tags',
+  'category',
+  'categories',
+  'author',
+  'wp-admin',
+  'wp-content',
+  'wp-includes',
+  'wp-json',
+  'feed',
+  'comments',
+  '2015',
+  '2016',
+  '2017',
+  '2018',
+  '2019',
+  '2020',
+  '2021',
+  '2022',
+  '2023',
+  '2024',
+  '2025',
+]);
+
+function goneResponse() {
+  return new NextResponse('Gone', {
+    status: 410,
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'X-Robots-Tag': 'noindex',
+      'Cache-Control': 'public, max-age=86400',
+    },
+  });
+}
+
 /** İnsan ziyaretçi için dil tespiti:
  * 1. Ziyaretçinin tarayıcı / cihaz dil tercihleri (Accept-Language q-factor ağırlıklarına göre).
  *    Desteklenen diller: 'tr', 'en', 'ar' (İspanyolca 15 Kas 2026'da kaldırıldı, /es → /en).
@@ -49,13 +124,24 @@ function detectLocale(request: NextRequest): Locale {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  /* Skip static files, internal Next.js paths, api, images, and public text files */
+  /* Skip internal Next.js paths, api, and asset directories */
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.startsWith('/images') ||
     pathname.startsWith('/icons') ||
-    pathname.startsWith('/video') ||
+    pathname.startsWith('/video')
+  ) {
+    return NextResponse.next();
+  }
+
+  /* Eski PHP/ASP/HTML spam ve tarama tuzaklarına tek adımda 410 Gone dön (GSC doğrulama dosyası hariç) */
+  if (/\.(php|asp|aspx|jsp|cgi|html?)$/i.test(pathname) && !pathname.startsWith('/google')) {
+    return goneResponse();
+  }
+
+  /* Skip public root text/verification files and remaining static assets */
+  if (
     pathname === '/robots.txt' ||
     pathname === '/sitemap.xml' ||
     pathname === '/llms.txt' ||
@@ -84,6 +170,11 @@ export function middleware(request: NextRequest) {
   );
 
   if (pathLocale) {
+    const secondSeg = pathname.split('/')[2]?.toLowerCase();
+    if (secondSeg && LEGACY_GONE_SEGMENTS.has(secondSeg)) {
+      return goneResponse();
+    }
+
     const res = NextResponse.next();
     const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
     const isBot = BOT_RE.test(request.headers.get('user-agent') ?? '');
@@ -95,6 +186,11 @@ export function middleware(request: NextRequest) {
       });
     }
     return res;
+  }
+
+  const firstSeg = pathname.split('/')[1]?.toLowerCase();
+  if (pathname !== '/' && (!firstSeg || !KNOWN_APP_SEGMENTS.has(firstSeg))) {
+    return goneResponse();
   }
 
   /* Google Search Console & Multilingual SEO Standard:
