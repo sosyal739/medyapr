@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { isYouTubeThumb } from '@/lib/image-src';
 import Link from 'next/link';
 import { Flame, TrendingUp, Play, ExternalLink, Sparkles, ArrowRight } from 'lucide-react';
 
@@ -145,7 +146,7 @@ export default function TrendingMusicSection({ songs, locale }: TrendingMusicSec
 
                 {/* Thumbnail with overlay */}
                 <div className="relative h-24 w-40 shrink-0 overflow-hidden rounded-xl bg-black/40">
-                  <Image fill sizes="160px"
+                  <Image unoptimized={isYouTubeThumb(song.thumbnail)} fill sizes="160px"
                     src={song.thumbnail}
                     alt={song.title}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"

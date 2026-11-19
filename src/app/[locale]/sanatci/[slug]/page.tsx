@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { isYouTubeThumb } from '@/lib/image-src';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Play, Sparkles, Music, Users, ExternalLink } from 'lucide-react';
@@ -145,7 +146,7 @@ export default async function ArtistDetailPage({ params }: Props) {
         {/* Profile Card */}
         <div className="mb-10 rounded-3xl border border-studio bg-studio-card p-6 md:p-8 backdrop-blur-xl shadow-xl">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-            <Image
+            <Image unoptimized={isYouTubeThumb(artist.image)}
               width={112}
               height={112}
               src={artist.image}

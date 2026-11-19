@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { isYouTubeThumb } from '@/lib/image-src';
 import { BookOpen, Calendar, Clock, ArrowRight, Sparkles } from 'lucide-react';
 import type { BlogPost } from '@/lib/content';
 import { displayDate } from '@/lib/seo';
@@ -76,7 +77,7 @@ export default function BlogPreviewSection({ posts, locale }: BlogPreviewSection
               >
                 <div>
                   <div className="relative aspect-video overflow-hidden rounded-2xl bg-black/40 mb-5">
-                    <Image fill sizes="(min-width: 1024px) 400px, 100vw"
+                    <Image unoptimized={isYouTubeThumb(post.image)} fill sizes="(min-width: 1024px) 400px, 100vw"
                       src={post.image}
                       alt={postTitle}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"

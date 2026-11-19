@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { isYouTubeThumb } from '@/lib/image-src';
 import Link from 'next/link';
 import {
   BookOpen,
@@ -304,7 +305,7 @@ export default async function BlogIndexPage({
             >
               <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] items-center">
                 <div className="relative aspect-video overflow-hidden rounded-2xl bg-black/40">
-                  <Image fill sizes="(min-width: 1024px) 480px, 100vw"
+                  <Image unoptimized={isYouTubeThumb(fp.image)} fill sizes="(min-width: 1024px) 480px, 100vw"
                     src={fp.image}
                     alt={fpTitle}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -353,7 +354,7 @@ export default async function BlogIndexPage({
                 className="group flex flex-col overflow-hidden rounded-2xl border border-studio bg-studio-card p-5 backdrop-blur-md shadow-lg transition hover:border-studio-strong hover:bg-zinc-800/90"
               >
                 <div className="relative aspect-video overflow-hidden rounded-xl bg-black/40 mb-4">
-                  <Image fill sizes="(min-width: 1024px) 320px, 100vw"
+                  <Image unoptimized={isYouTubeThumb(post.image)} fill sizes="(min-width: 1024px) 320px, 100vw"
                     src={post.image}
                     alt={pTitle}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"

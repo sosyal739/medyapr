@@ -13,7 +13,10 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'i.ytimg.com' },
     ],
-    formats: ['image/avif', 'image/webp'],
+    // Yalnız WebP: AVIF + WebP her görseli iki kez dönüştürüp Vercel kotasını ikiye katlıyordu (Kas 2026).
+    formats: ['image/webp'],
+    // Dönüştürülen görsel 31 gün önbellekte kalır; aynı görsel tekrar tekrar dönüştürülmez.
+    minimumCacheTTL: 2678400,
   },
   async headers() {
     return [{ source: '/:path*', headers: securityHeaders }];

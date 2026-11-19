@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { isYouTubeThumb } from '@/lib/image-src';
 import Link from 'next/link';
 import { Users, Play, ArrowRight, TrendingUp } from 'lucide-react';
 import { getArtists } from '@/lib/content';
@@ -154,7 +155,7 @@ export default async function SanatcilarPage({ params }: { params: Promise<{ loc
             >
               <div>
                 <div className="relative aspect-video overflow-hidden rounded-2xl bg-black/40 mb-5">
-                  <Image fill sizes="(min-width: 1024px) 400px, 100vw"
+                  <Image unoptimized={isYouTubeThumb(artist.image)} fill sizes="(min-width: 1024px) 400px, 100vw"
                     src={artist.image}
                     alt={artist.name}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"

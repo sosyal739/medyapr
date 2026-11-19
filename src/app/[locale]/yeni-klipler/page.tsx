@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { isYouTubeThumb } from '@/lib/image-src';
 import Link from 'next/link';
 import { Play, Sparkles, Flame, Eye, ThumbsUp, Calendar, ArrowRight, Video, ExternalLink } from 'lucide-react';
 import { getNewReleases, type NewRelease } from '@/lib/releases';
@@ -121,7 +122,7 @@ export default async function NewReleasesPage({ params }: Props) {
                 {/* Thumbnail Header */}
                 <div>
                   <div className="relative aspect-video w-full overflow-hidden bg-zinc-900">
-                    <Image
+                    <Image unoptimized={isYouTubeThumb(rel.thumbnail)}
                       src={rel.thumbnail}
                       alt={isTr ? `${rel.artist} - ${rel.title} Klibi` : `${rel.artist} - ${rel.title} Music Video`}
                       fill

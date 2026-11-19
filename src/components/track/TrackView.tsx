@@ -108,7 +108,7 @@ export default function TrackView({
         <div className="flex items-center gap-5">
           {/* Thumbnail */}
           <div className="relative h-20 w-32 shrink-0 overflow-hidden rounded-2xl border border-zinc-700/60 bg-black/40">
-            <Image fill sizes="128px"
+            <Image unoptimized fill sizes="128px"
               src={`https://i.ytimg.com/vi/${o.videoId}/mqdefault.jpg`}
               alt="Video Thumbnail"
               className="h-full w-full object-cover"

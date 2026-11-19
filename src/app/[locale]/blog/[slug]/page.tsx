@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { isYouTubeThumb } from '@/lib/image-src';
 import { notFound, permanentRedirect } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -425,7 +426,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         ) : (
           <div className="relative mb-12 overflow-hidden rounded-3xl border border-white/15 aspect-video shadow-2xl">
-            <Image fill preload sizes="(min-width: 1024px) 800px, 100vw" src={post.image} alt={postTitle} className="object-cover" />
+            <Image unoptimized={isYouTubeThumb(post.image)} fill preload sizes="(min-width: 1024px) 800px, 100vw" src={post.image} alt={postTitle} className="object-cover" />
           </div>
         )}
 
@@ -649,7 +650,7 @@ export default async function BlogPostPage({ params }: Props) {
                   className="group flex flex-col overflow-hidden rounded-2xl border border-studio bg-studio-card hover:border-[#FF0033]/50 transition duration-300"
                 >
                   <div className="relative aspect-video w-full overflow-hidden bg-black">
-                    <Image fill sizes="(min-width: 1024px) 800px, 100vw"
+                    <Image unoptimized={isYouTubeThumb(rel.image)} fill sizes="(min-width: 1024px) 800px, 100vw"
                       src={rel.image}
                       alt={(!isTr && rel.title_en) ? rel.title_en : rel.title}
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-105"

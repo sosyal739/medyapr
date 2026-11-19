@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
+import { isYouTubeThumb } from '@/lib/image-src';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -516,7 +517,7 @@ export default function OrderWizard({ locale, t, initial }: { locale: string; t:
           {videoReady && video && (
             <div className="mt-4 overflow-hidden rounded-2xl border border-emerald-500/30 bg-emerald-500/[0.06] sm:flex">
               <div className="relative aspect-video w-full shrink-0 bg-black sm:w-56">
-                <Image src={video.thumbnail} alt={video.title || 'YouTube video'} fill sizes="(min-width: 640px) 224px, 100vw" className="object-cover" />
+                <Image unoptimized={isYouTubeThumb(video.thumbnail)} src={video.thumbnail} alt={video.title || 'YouTube video'} fill sizes="(min-width: 640px) 224px, 100vw" className="object-cover" />
                 {video.durationSec ? (
                   <span className="absolute bottom-2 right-2 rounded bg-black/80 px-1.5 py-0.5 font-mono text-[11px] font-bold text-white">
                     {duration(video.durationSec)}

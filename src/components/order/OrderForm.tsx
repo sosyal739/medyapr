@@ -76,7 +76,7 @@ export default function OrderForm({ locale, t, initial }: { locale: string; t: A
           )}
           {videoId && (
             <div className="mt-3 flex items-center gap-4 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-3">
-              <Image
+              <Image unoptimized
                 width={112}
                 height={64}
                 src={`https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`}

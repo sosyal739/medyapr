@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Image from 'next/image';
+import { isYouTubeThumb } from '@/lib/image-src';
 import Link from 'next/link';
 import {
   Flame,
@@ -401,7 +402,7 @@ export default function TrendingCountryTabs({ trends, locale, initialCountry }: 
 
                 {/* Thumbnail with Play Overlay */}
                 <div className="relative w-full sm:w-44 h-32 rounded-xl overflow-hidden flex-shrink-0 bg-zinc-950">
-                  <Image fill sizes="(min-width: 640px) 176px, 100vw"
+                  <Image unoptimized={isYouTubeThumb(song.thumbnail)} fill sizes="(min-width: 640px) 176px, 100vw"
                     src={song.thumbnail}
                     alt={`${song.artist} - ${song.title}`}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
